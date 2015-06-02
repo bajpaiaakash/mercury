@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>Associated_Address_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup up specific address information from Addresses for Payee
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Associated Address</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Address_GLBL__c.Account_GLBL__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Account_MERC__c</valueField>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.select the &apos;All Fields&apos; option and run your search again.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Address_GLBL__c</referenceTo>
+        <relationshipLabel>Payee</relationshipLabel>
+        <relationshipName>Payee</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Bank_Account_Number_MERC__c</fullName>
+        <description>Stores payee bank account number
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Bank Account Number</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_City_MERC__c</fullName>
+        <description>Bank City 
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <label>Bank City</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Country_MERC__c</fullName>
+        <description>Bank Country
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <label>Bank Country</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_IBAN_MERC__c</fullName>
+        <description>Stores the payees account IBAN 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Bank IBAN</label>
+        <length>34</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Name_MERC__c</fullName>
+        <description>Stores payee bank name data 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Bank Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Sort_Code_MERC__c</fullName>
+        <description>Stores the payee&apos;s the Bank Identifier Code (BIC) or SWIFT Code 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Payee&apos;s Bank Sort Code.</inlineHelpText>
+        <label>Bank Sort Code</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_State_Province_MERC__c</fullName>
+        <description>Bank State/Province
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <label>Bank State/Province</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Street_MERC__c</fullName>
+        <description>Bank Street Address
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <label>Bank Street</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Zip_Postal_Code_MERC__c</fullName>
+        <description>Bank Zip or Postal Code
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <label>Bank Zip/Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_City_MERC__c</fullName>
+        <description>Payee City address
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <formula>Associated_Address_MERC__r.City_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee City</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Country_MERC__c</fullName>
+        <description>Payee Country
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <formula>text(Associated_Address_MERC__r.Adrs_Cntry_Cd_GLBL__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Email_MERC__c</fullName>
+        <description>Payee Email address
+Created by John A Adams 10/25/2013</description>
+        <externalId>false</externalId>
+        <formula>Associated_Address_MERC__r.Elctrnc_Adrs_Elc_Txt_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Fax_Number_MERC__c</fullName>
+        <description>Payee Fax Number
+Created by John A Adams 10/25/2013</description>
+        <externalId>false</externalId>
+        <formula>Associated_Address_MERC__r.Elctrnc_Adrs_Fax_Cntry_Prfx_Cd_GLBL__c  &amp; &apos; &apos; &amp;  Associated_Address_MERC__r.Elctrnc_Adrs_Fax_Txt_GLBL__c &amp; &apos; &apos; &amp;  Associated_Address_MERC__r.Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee Fax Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_State_Province_MERC__c</fullName>
+        <description>Payee State / Province 
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <formula>text(Associated_Address_MERC__r.St_Cd_GLBL__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee State /Province</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Street_MERC__c</fullName>
+        <description>Presents payees street address associated with Account.
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <formula>Associated_Address_MERC__r.Line_1_Adrs_Txt_GLBL__c + &quot;,&quot; + &quot; &quot; + Associated_Address_MERC__r.Line_2_Adrs_Txt_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee Street</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Zip_Postal_Code_MERC__c</fullName>
+        <description>Payee Zip
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <formula>Associated_Address_MERC__r.Zip_Postal_Code_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee Zip / Postal Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_Method_MERC__c</fullName>
+        <description>Payment method
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Payment Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Automatic Bank Transfer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Priority_Rank_Nbr_MERC__c</fullName>
+        <description>Only one Payee with Priority Rank Number of 1 will be displayed on the portal. Created 05/05/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Priority Rank Number 1 is maintained on the Web Service.  There may only be one Payee with a Priority Rank Number of 1.</inlineHelpText>
+        <label>Priority Rank Number</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAP_Vendor_ID_MERC__c</fullName>
+        <description>SAP Vender ID number - used to integrate with SAP system
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>SAP Vendor ID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tax_Id_MERC__c</fullName>
+        <description>HCP Tax Id, gathered for each Payee record.  This may or may not be the same for each Payee record.  Feeds into the Invoice record and the Invoice .pdf document for generation. Oliver Dunford 17th Feb 2014.</description>
+        <externalId>false</externalId>
+        <label>Tax Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>VAT_ID_MERC__c</fullName>
+        <description>A value added tax identification number or VAT identification number (VATIN) is an identifier used in many countries, including the countries of the European Union, for value added tax purposes.
+Moved from Account to Payee 11/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A value added tax identification number or VAT identification number (VATIN) is an identifier used in many countries, including the countries of the European Union, for value added tax purposes.</inlineHelpText>
+        <label>VAT Identification #</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_Dt_MERC__c</fullName>
+        <description>Portal activity field to record the date of an update. 
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Actn_MERC__c</fullName>
+        <description>Portal activity field to record the update action
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Action</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Global_ID_MERC__c</fullName>
+        <description>Portal activity field to record the updated Global ID
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Global Id</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Name_MERC__c</fullName>
+        <description>Portal activity field to record the name of the HCP, to indicate that the HCP was the one to make the change. Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

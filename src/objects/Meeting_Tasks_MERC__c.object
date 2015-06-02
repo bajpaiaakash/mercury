@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Captures to-do items for all meeting management functions : MERC : Created on 21/04/2015 by Oliver Dunford, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Change_Process_End_Date_MERC__c</fullName>
+        <description>Allows an override for the specific process end date should it be incorrect : MERC : Created on 23/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Change should the process end date not be the date whereby the final activity took place.</inlineHelpText>
+        <label>Change Process End Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Change_Process_Start_Date_MERC__c</fullName>
+        <description>Used to override the automated stamping for process start date : MERC : Created on 23/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Can be used to set the process start date should it not be the created date of the first Meeting Task within a process.</inlineHelpText>
+        <label>Change Process Start Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Check_for_Changes_MERC__c</fullName>
+        <description>Temporary field until next release whereby Process Builder supports ISCHANGED function.  Stamped via workflow : MERC : Created on 13th May 2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Check for Changes</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments_MERC__c</fullName>
+        <description>Holds all comments : MERC : Created on 21/04/2015 by Oliver Dunford</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Due_Date_MERC__c</fullName>
+        <description>The Task Due Date : MERC : Created on 21/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Force_Unique_Process_State_MERC__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>Ensures each process only has 1 start and 1 end state : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Each process can only have one start state e.g. &quot;Started&quot; and one end state e.g. Unresponsive, Completed, Cancelled.  Ensure the Meeting Tasks for the Meeting Participant follow this rule if you receive and error.</inlineHelpText>
+        <label>Force Unique Process State</label>
+        <length>60</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>HCP_Country_of_Residence_Stamped_MERC__c</fullName>
+        <description>HCP Country of Residence stamped from the HCP Country of Residence from the Account object. Needed to drive visibility against territory for Meeting Task records. Created 22/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>HCP Country of Residence (Stamped)</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Pulls down the meeting id. Used in trigger to pass to the lockedrecordhandler</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Meeting_MERC__c</formula>
+        <label>Meeting</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Associated the record to Meeting Participant, Master-Detail not possible due to existing records : MERC : Created on 21/04/2015 by Oliver Dunford</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant</label>
+        <referenceTo>Meeting_Participant_MERC__c</referenceTo>
+        <relationshipLabel>Meeting Tasks</relationshipLabel>
+        <relationshipName>Meeting_Tasks</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Set via workflow for integration with external systems : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Process_End_Date_MERC__c</fullName>
+        <description>The date a process ends : MERC : created on 23/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The process end date, for example, when a HCP becomes unresponsive, or wishes to Cancel their attendance to a meeting.</inlineHelpText>
+        <label>Process End Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Process_MERC__c</fullName>
+        <description>Stores the Meeting Process to drive automation and reporting : MERC : Created on 21/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Process</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Registration Process</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Process_Start_Date_MERC__c</fullName>
+        <description>The date that a process starts : MERC : Created on 23/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the process starts, each process starts only once.  For example, a Meeting Task would be created when the Meeting Invitations were sent to a Meeting Participant.  That would set the process start date.</inlineHelpText>
+        <label>Process Start Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Process_State_MERC__c</fullName>
+        <description>Categories the meeting task for automation : MERC : Created on 23/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The stage of the process:
+  - Started (e.g. Invitations sent)
+  - Follow Up (e.g 7 days post invitations being sent)
+  - Unresponsive (process ended, cannot contact HCP)
+  - Cancelled (process no longer needed)
+  - Completed</inlineHelpText>
+        <label>Process State</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Started</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unresponsive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Start_Meeting_Task_Id_MERC__c</fullName>
+        <description>Used to store the Id of the Starting Task, ensures each process has a Start State : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Start Meeting Task Id</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Task_Status_MERC__c</fullName>
+        <description>Stores the Status of each Task, drives automation : MERC : Created on 21/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Status of the current Meeting Task.  For example, &quot;Completed&quot; would indicate that you have completed a Follow Up task by contacting the HCP.  There may be several Follow Up tasks for each Process.</inlineHelpText>
+        <label>Task Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>Meeting Task</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Meeting_Participant_MERC__c</columns>
+        <columns>Process_MERC__c</columns>
+        <columns>Process_State_MERC__c</columns>
+        <columns>Task_Status_MERC__c</columns>
+        <columns>Due_Date_MERC__c</columns>
+        <columns>Process_Start_Date_MERC__c</columns>
+        <columns>Process_End_Date_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Meeting Task Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Meeting Tasks</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+</CustomObject>
