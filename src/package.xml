@@ -823,6 +823,7 @@
         <members>Generic_Processing</members>
         <members>Generic_Save</members>
         <members>Registration_Questions_Answer_Required</members>
+        <members>Registration_Questions_Clear_Responses</members>
         <members>Registration_Questions_Cleared_Responses</members>
         <members>Registration_Questions_Confirm_Delete</members>
         <members>Registration_Questions_Error_Deleting_Responses</members>

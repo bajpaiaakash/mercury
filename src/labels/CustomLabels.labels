@@ -33,6 +33,14 @@
         <value>Answer required for question</value>
     </labels>
     <labels>
+        <fullName>Registration_Questions_Clear_Responses</fullName>
+        <categories>MERC_RegistrationResponses.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Clear Responses</shortDescription>
+        <value>Clear Responses</value>
+    </labels>
+    <labels>
         <fullName>Registration_Questions_Cleared_Responses</fullName>
         <categories>MERC_RegistrationResponsesController</categories>
         <language>en_US</language>
