@@ -10,7 +10,7 @@
     <recordTypes>
         <fullName>Forecasted</fullName>
         <active>true</active>
-        <description>Lilly-owned meeting that is forecasted, but not confirmed. Typically used for business planning purposes. May be used to hold annual cap for HCPs. Forecasted meetings may be progressed to the registered stage once confirmed.</description>
+        <description>Lilly-owned meeting that is forecasted,but not confirmed.Typically used for business planning purposes.May be used to hold annual cap for HCPs.Forecasted meetings may be progressed to the registered stage once confirmed. Do not use this record type for independent meetings.</description>
         <label>Meeting - Forecasted</label>
     </recordTypes>
     <recordTypes>
