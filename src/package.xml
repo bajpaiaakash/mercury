@@ -1033,8 +1033,6 @@
         <name>Workflow</name>
     </types>
     <types>
-        <members>Account.MERC_Transparency_reporting_last_modify</members>
-        <members>Account.Set_Service_Provider_Tier_MERC</members>
         <members>Meeting_MERC__c.Audit_Start_Date_stamped_MERC</members>
         <members>Meeting_MERC__c.Audit_end_Date_stamping_MERC</members>
         <members>Meeting_MERC__c.Audit_end_date_field_should_be_blank</members>
@@ -1046,8 +1044,6 @@
         <name>WorkflowFieldUpdate</name>
     </types>
     <types>
-        <members>Account.MERC_Tier Step 1%3A Update Tier Scores</members>
-        <members>Account.MERC_Transparency_reporting_last_modify_date_captured</members>
         <members>Meeting_MERC__c.MERC_Audit status changed as Completed</members>
         <members>Meeting_MERC__c.MERC_Audit status changed as InProcess</members>
         <members>Meeting_MERC__c.MERC_Reset audit fields</members>
