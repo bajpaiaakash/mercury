@@ -173,13 +173,13 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
         queryString += ' FROM Account WHERE RecordTypeId = \'' + employeeRecordTypeId + '\'';
 
         /*----- decide which search terms were entered and build the query appropriately -----*/
-        queryString += String.isNotBlank(firstName)  ? ' AND FirstName LIKE \'' + firstName + '%\'' : '';
-        queryString += String.isNotBlank(lastName)    ? ' AND LastName LIKE \''  + lastName  + '%\'' : '';
-        queryString += String.isNotBlank(email)      ? ' AND PersonEmail=\''    + email  + '\''  : '';
-        queryString += String.isNotBlank(territoryId)   ? ' AND Territory_Id_GLBL__c LIKE \'%' + territoryId   + '%\'' : '';
-        queryString += String.isNotBlank(territoryCode) ? ' AND Trtry_Cd_GLBL__c LIKE \'%'   + territoryCode + '%\'' : '';
-        queryString += String.isNotBlank(territoryDesc) ? ' AND Trtry_Desc_GLBL__c LIKE \'%'   + territoryDesc + '%\'' : '';
-        queryString += String.isNotBlank(countryOfRes)  ? ' AND Country_of_Residence_GLBL__c = \'' + countryOfRes + '\''  : '';
+        queryString += String.isNotBlank(firstName)  ? ' AND FirstName LIKE \'' + String.escapeSingleQuotes(firstName) + '%\'' : '';
+        queryString += String.isNotBlank(lastName)    ? ' AND LastName LIKE \''  + String.escapeSingleQuotes(lastName)  + '%\'' : '';
+        queryString += String.isNotBlank(email)      ? ' AND PersonEmail=\''    + String.escapeSingleQuotes(email)  + '\''  : '';
+        queryString += String.isNotBlank(territoryId)   ? ' AND Territory_Id_GLBL__c LIKE \'%' + String.escapeSingleQuotes(territoryId)   + '%\'' : '';
+        queryString += String.isNotBlank(territoryCode) ? ' AND Trtry_Cd_GLBL__c LIKE \'%'   + String.escapeSingleQuotes(territoryCode) + '%\'' : '';
+        queryString += String.isNotBlank(territoryDesc) ? ' AND Trtry_Desc_GLBL__c LIKE \'%'   + String.escapeSingleQuotes(territoryDesc) + '%\'' : '';
+        queryString += String.isNotBlank(countryOfRes)  ? ' AND Country_of_Residence_GLBL__c = \'' + String.escapeSingleQuotes(countryOfRes) + '\''  : '';
 
         /*----- return only field employees (defined as having a territory)? -----*/
         queryString += searchForUsers == 'field' ? ' AND Territory_Id_GLBL__c != null' : '';
