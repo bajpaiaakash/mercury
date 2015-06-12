@@ -340,6 +340,22 @@ public with sharing class MERC_TestFactory {
 		return mtgDays;
 	}
 
+	public static List<Meeting_Tasks_MERC__c> insertMeetingTask(String participantId) {
+		return insertBulkMeetingTasks(new List<Meeting_Participant_MERC__c>{new Meeting_Participant_MERC__c(Id=participantId)});
+	}
+
+	public static List<Meeting_Tasks_MERC__c> insertBulkMeetingTasks(List<Meeting_Participant_MERC__c> participants) {
+		List<Meeting_Tasks_MERC__c> tasks = new List<Meeting_Tasks_MERC__c>();
+		for (Meeting_Participant_MERC__c participant : participants) {
+			Meeting_Tasks_MERC__c task = new Meeting_Tasks_MERC__c();
+			task.Meeting_Participant_MERC__c = participant.Id;
+			tasks.add(task);
+		}
+
+		insert tasks;
+		return tasks;
+	}
+
 	public static List<Meeting_Participant_MERC__c> insertParticipants(String meetingId, List<Account> accounts) {
 		return insertParticipants(meetingId, accounts, null);
 	}
