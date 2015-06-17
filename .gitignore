@@ -8,3 +8,5 @@ mercury.sublime-workspace
 build/.DS_Store
 src/.DS_Store
 .DS_Store
+.project
+.settings/com.salesforce.ide.core.prefs
