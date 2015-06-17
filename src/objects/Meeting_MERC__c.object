@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>Meeting_Scope_MERC__c</fullName>
+        <description>Identifies whether a Meeting is National, International, Cluster, or Local. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Geography</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Country Grouping</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>International</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regional EMBU CMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <recordTypes>
+        <fullName>Ad_Hoc_Consulting</fullName>
+        <active>true</active>
+        <description>For Consulting Projects</description>
+        <label>Consulting Project</label>
+        <picklistValues>
+            <picklist>Meeting_Scope_MERC__c</picklist>
+            <values>
+                <fullName>Country Grouping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional EMBU CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Completed</fullName>
+        <active>true</active>
+        <description>Meeting has been completed</description>
+        <label>Meeting - Completed</label>
+        <picklistValues>
+            <picklist>Meeting_Scope_MERC__c</picklist>
+            <values>
+                <fullName>Country Grouping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional EMBU CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Forecasted</fullName>
+        <active>true</active>
+        <description>For forecasting meeting</description>
+        <label>Meeting - Forecasted</label>
+        <picklistValues>
+            <picklist>Meeting_Scope_MERC__c</picklist>
+            <values>
+                <fullName>Country Grouping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional EMBU CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Independent_Sponsorship</fullName>
+        <active>true</active>
+        <description>For Independent Meetings</description>
+        <label>Independent Meeting</label>
+        <picklistValues>
+            <picklist>Meeting_Scope_MERC__c</picklist>
+            <values>
+                <fullName>Country Grouping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional EMBU CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_Active</fullName>
+        <active>true</active>
+        <description>Meeting in Active Stage</description>
+        <label>Meeting - Active</label>
+        <picklistValues>
+            <picklist>Meeting_Scope_MERC__c</picklist>
+            <values>
+                <fullName>Country Grouping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional EMBU CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_Program</fullName>
+        <active>true</active>
+        <description>Meeting Program</description>
+        <label>Meeting Program</label>
+        <picklistValues>
+            <picklist>Meeting_Scope_MERC__c</picklist>
+            <values>
+                <fullName>Country Grouping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional EMBU CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Registered</fullName>
+        <active>true</active>
+        <description>For registering meeting that were not forecasted</description>
+        <label>Meeting - Registered</label>
+        <picklistValues>
+            <picklist>Meeting_Scope_MERC__c</picklist>
+            <values>
+                <fullName>Country Grouping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional EMBU CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>

@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Meeting_MERC__c.Meeting_Scope_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Contact_Details_Fax_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Contact_Details_Mobile_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Contact_Details_Work_Phone_MERC__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
+        <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
+        <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
+        <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <members>Mercury_Legal_Edit</members>
+        <members>Mercury_Med_Director_Edit</members>
+        <members>Mercury_Meeting_Owner_Edit</members>
+        <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_System_Administrator_Lite</members>
+        <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
+        <members>Mercury_Travel_Agent_Edit</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Mercury Integration MVI - Platform</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c.Ad_Hoc_Consulting</members>
+        <members>Meeting_MERC__c.Completed</members>
+        <members>Meeting_MERC__c.Forecasted</members>
+        <members>Meeting_MERC__c.Independent_Sponsorship</members>
+        <members>Meeting_MERC__c.Meeting_Active</members>
+        <members>Meeting_MERC__c.Meeting_Program</members>
+        <members>Meeting_MERC__c.Registered</members>
+        <name>RecordType</name>
+    </types>
     <version>33.0</version>
 </Package>

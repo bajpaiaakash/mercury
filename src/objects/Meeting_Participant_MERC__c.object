@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>Contact_Details_Fax_MERC__c</fullName>
+        <description>Contact information populated against the MP in Mercury or via the Salesrep in Veeva.  To be manually cleared down and copied to Account record by Regional CMS : MERC : Created on 17/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contact Details - Fax</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Details_Mobile_MERC__c</fullName>
+        <description>Contact information populated against the MP in Mercury or via the Salesrep in Veeva.  To be manually cleared down and copied to Account record by Regional CMS : MERC : Created on 17/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contact Details - Mobile</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Details_Work_Phone_MERC__c</fullName>
+        <description>Contact information populated against the MP in Mercury or via the Salesrep in Veeva.  To be manually cleared down and copied to Account record by Regional CMS : MERC : Created on 17/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contact Details - Work Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+</CustomObject>
