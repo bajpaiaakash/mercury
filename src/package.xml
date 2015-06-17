@@ -5,6 +5,7 @@
         <members>Meeting_Participant_MERC__c.Contact_Details_Fax_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Mobile_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Work_Phone_MERC__c</members>
+        <members>Meeting_Process_MERC__c.Meeting_Participant_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>
