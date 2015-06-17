@@ -2,6 +2,11 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>true</custom>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_MERC__c.Initiate_Delegate_Management_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_MERC__c.Meeting_Scope_MERC__c</field>
         <readable>true</readable>
@@ -21,8 +26,105 @@
         <field>Meeting_Participant_MERC__c.Contact_Details_Work_Phone_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Max_Completed_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Min_Completed_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Number_of_Cancelled_Tasks_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Number_of_Completed_Tasks_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Number_of_Follow_Up_Tasks_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Number_of_Tasks_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Number_of_Unresponsive_Tasks_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Process_End_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Process_Start_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Process_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Process_Type_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Tasks_MERC__c.Completed_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Tasks_MERC__c.Is_Follow_Up__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Tasks_MERC__c.Meeting_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Active</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Active</layout>
+        <recordType>Meeting_MERC__c.Meeting_Active</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Completed</layout>
+        <recordType>Meeting_MERC__c.Completed</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Independent_Sponsorship</layout>
+        <recordType>Meeting_MERC__c.Independent_Sponsorship</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Registered_Meeting</layout>
+        <recordType>Meeting_MERC__c.Registered</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Meeting_Participant_MERC__c-MERC_Service Provider</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</layout>
     </layoutAssignments>
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>

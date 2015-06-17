@@ -2,6 +2,26 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <fields>
+        <fullName>Initiate_Delegate_Management_MERC__c</fullName>
+        <description>Indicates that delegate manage processes should be used for this meeting : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Initiate Delegate Management</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Meeting_Scope_MERC__c</fullName>
         <description>Identifies whether a Meeting is National, International, Cluster, or Local. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -47,6 +67,17 @@
         <description>For Consulting Projects</description>
         <label>Consulting Project</label>
         <picklistValues>
+            <picklist>Initiate_Delegate_Management_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
                 <fullName>Country Grouping</fullName>
@@ -83,6 +114,17 @@
         <active>true</active>
         <description>Meeting has been completed</description>
         <label>Meeting - Completed</label>
+        <picklistValues>
+            <picklist>Initiate_Delegate_Management_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
@@ -121,6 +163,17 @@
         <description>For forecasting meeting</description>
         <label>Meeting - Forecasted</label>
         <picklistValues>
+            <picklist>Initiate_Delegate_Management_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
                 <fullName>Country Grouping</fullName>
@@ -157,6 +210,17 @@
         <active>true</active>
         <description>For Independent Meetings</description>
         <label>Independent Meeting</label>
+        <picklistValues>
+            <picklist>Initiate_Delegate_Management_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
@@ -195,6 +259,17 @@
         <description>Meeting in Active Stage</description>
         <label>Meeting - Active</label>
         <picklistValues>
+            <picklist>Initiate_Delegate_Management_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
                 <fullName>Country Grouping</fullName>
@@ -232,6 +307,17 @@
         <description>Meeting Program</description>
         <label>Meeting Program</label>
         <picklistValues>
+            <picklist>Initiate_Delegate_Management_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
                 <fullName>Country Grouping</fullName>
@@ -268,6 +354,17 @@
         <active>true</active>
         <description>For registering meeting that were not forecasted</description>
         <label>Meeting - Registered</label>
+        <picklistValues>
+            <picklist>Initiate_Delegate_Management_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>

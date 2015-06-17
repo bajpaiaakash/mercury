@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>Meeting_MERC__c.Initiate_Delegate_Management_MERC__c</members>
         <members>Meeting_MERC__c.Meeting_Scope_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Fax_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Mobile_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Work_Phone_MERC__c</members>
         <members>Meeting_Process_MERC__c.Meeting_Participant_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Completed_Date_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Is_Follow_Up__c</members>
+        <members>Meeting_Tasks_MERC__c.Meeting_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Task_Status_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>
+        <members>Meeting_Process_MERC__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c-MERC_Active</members>
+        <members>Meeting_MERC__c-MERC_Completed</members>
+        <members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>
+        <members>Meeting_MERC__c-MERC_Registered_Meeting</members>
         <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
         <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <members>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</members>
         <name>Layout</name>
     </types>
     <types>

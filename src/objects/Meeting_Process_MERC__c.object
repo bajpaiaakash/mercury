@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Groups to-do items for all meeting management functions : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Max_Completed_Date_MERC__c</fullName>
+        <description>The newest completed date of all the child tasks related to the process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Max Completed Date</label>
+        <summarizedField>Meeting_Tasks_MERC__c.Completed_Date_MERC__c</summarizedField>
+        <summaryFilterItems>
+            <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Completed - Continue Follow Up, Completed - Process Complete, Completed - Process Cancelled, Completed - Unresponsive</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
     <fields>
         <fullName>Meeting_Participant_MERC__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
@@ -13,4 +83,174 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>Min_Completed_Date_MERC__c</fullName>
+        <description>The oldest completed date on meeting tasks related to this meeting process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Min Completed Date</label>
+        <summarizedField>Meeting_Tasks_MERC__c.Completed_Date_MERC__c</summarizedField>
+        <summaryFilterItems>
+            <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
+            <operation>notEqual</operation>
+            <value>Completed - Task Not Needed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Cancelled_Tasks_MERC__c</fullName>
+        <description>Counts the number of Cancelled taks related to the process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Number of Cancelled Tasks</label>
+        <summaryFilterItems>
+            <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Completed - Process Cancelled</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Completed_Tasks_MERC__c</fullName>
+        <description>Counts the number of child tasks which are complete : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Number of Completed Tasks</label>
+        <summaryFilterItems>
+            <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Completed - Continue Follow Up, Completed - Process Complete, Completed - Task Not Needed, Completed - Process Cancelled, Completed - Unresponsive</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Follow_Up_Tasks_MERC__c</fullName>
+        <description>Counts the number of followups that were needed for the process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Number of Follow Up Tasks</label>
+        <summaryFilterItems>
+            <field>Meeting_Tasks_MERC__c.Is_Follow_Up__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
+            <operation>notEqual</operation>
+            <value>Completed - Task Not Needed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Tasks_MERC__c</fullName>
+        <description>Counts the total number of tasks related to this process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Number of Tasks</label>
+        <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Unresponsive_Tasks_MERC__c</fullName>
+        <description>Counts the number of unresponsive tasks related to the meeting process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Number of Unresponsive Tasks</label>
+        <summaryFilterItems>
+            <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Completed - Unresponsive</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Process_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Process_Status_MERC__c != &apos;In Progress&apos;,
+    Max_Completed_Date_MERC__c,
+    null
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Process End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Process_Start_Date_MERC__c</fullName>
+        <description>Calculate the date the process started : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Min_Completed_Date_MERC__c)|| Min_Completed_Date_MERC__c&gt;DATEVALUE(CreatedDate),
+   DATEVALUE(CreatedDate),
+   Min_Completed_Date_MERC__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Process Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Process_Status_MERC__c</fullName>
+        <description>Calculates the status of the process based on the counts of children tasks : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF( Number_of_Unresponsive_Tasks_MERC__c &gt; 0, 
+   &apos;Unresponsive&apos;,
+    IF( Number_of_Cancelled_Tasks_MERC__c &gt; 0,
+        &apos;Cancelled&apos;,
+        IF( Number_of_Tasks_MERC__c = Number_of_Completed_Tasks_MERC__c,
+            &apos;Completed&apos;,
+            &apos;In Progress&apos;
+        )
+    )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Process Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Process_Type_MERC__c</fullName>
+        <description>Indicates the type of process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Process Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Meeting Information</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>Meeting Process</label>
+    <nameField>
+        <label>Process Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Meeting Processes</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

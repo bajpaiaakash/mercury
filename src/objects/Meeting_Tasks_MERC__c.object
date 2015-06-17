@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Completed_Date_MERC__c</fullName>
+        <description>The date that the task ws completed : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Completed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Is_Follow_Up__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that this task is a follow up task. Used for SLA reporting : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Is Follow Up</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Pulls down the meeting id. Used in trigger to pass to the lockedrecordhandler : MERC :  Created on 23/04/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c</formula>
+        <label>Meeting</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Process_MERC__c</fullName>
+        <description>Relates a meeting task to it&apos;s parent process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Process</label>
+        <referenceTo>Meeting_Process_MERC__c</referenceTo>
+        <relationshipLabel>Meeting Tasks</relationshipLabel>
+        <relationshipName>Meeting_Tasks</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Task_Status_MERC__c</fullName>
+        <description>Stores the Status of each Task, drives automation : MERC : Created on 21/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Status of the current Meeting Task.  For example, &quot;Completed&quot; would indicate that you have completed a Follow Up task by contacting the HCP.  There may be several Follow Up tasks for each Process.</inlineHelpText>
+        <label>Task Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Task Not Needed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+</CustomObject>
