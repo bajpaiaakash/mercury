@@ -4,5 +4,9 @@
         <application>Mercury</application>
         <visible>true</visible>
     </applicationVisibilities>
+	<tabSettings>
+		<tab>Meeting_MERC__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
     <label>Mercury System Administrator Lite</label>  
 </PermissionSet>
