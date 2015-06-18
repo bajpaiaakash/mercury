@@ -72,7 +72,7 @@
         <summaryFilterItems>
             <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
             <operation>equals</operation>
-            <value>Completed - Continue Follow Up, Completed - Process Complete, Completed - Process Cancelled, Completed - Unresponsive</value>
+            <value>Completed - Continue Follow Up, Completed - Process Complete, Completed - Process Cancelled, Completed - Unresponsive, Completed - Task Not Needed</value>
         </summaryFilterItems>
         <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
         <summaryOperation>max</summaryOperation>

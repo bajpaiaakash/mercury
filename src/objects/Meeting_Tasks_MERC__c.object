@@ -11,6 +11,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Evaluate_Rules_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that flow should kick off to evaluate any rules that may apply to this task : MERC : Created on 18/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Evaluate Rules</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Is_Follow_Up__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Indicates that this task is a follow up task. Used for SLA reporting : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
