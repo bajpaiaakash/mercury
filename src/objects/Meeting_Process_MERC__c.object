@@ -55,6 +55,15 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>Evaluate_Rules_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that a Salesforce Process should kick off that will evaluate rules tied to that process : MERC : Created on 18/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Evaluate Rules</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Max_Completed_Date_MERC__c</fullName>
         <description>The newest completed date of all the child tasks related to the process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>

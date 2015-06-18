@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>Mercury</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
         <members>Meeting_MERC__c.Initiate_Delegate_Management_MERC__c</members>
         <members>Meeting_MERC__c.Meeting_Scope_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Fax_MERC__c</members>
