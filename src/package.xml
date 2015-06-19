@@ -15,6 +15,7 @@
         <members>Meeting_Tasks_MERC__c.Is_Follow_Up__c</members>
         <members>Meeting_Tasks_MERC__c.Meeting_MERC__c</members>
         <members>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Open_Task_MERC__c</members>
         <members>Meeting_Tasks_MERC__c.Task_Status_MERC__c</members>
         <name>CustomField</name>
     </types>

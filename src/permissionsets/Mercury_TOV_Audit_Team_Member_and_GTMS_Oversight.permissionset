@@ -112,6 +112,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Tasks_MERC__c.Open_Task_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
