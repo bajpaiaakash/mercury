@@ -62,20 +62,20 @@ public with sharing class MERC_BudgetVersionController {
     public PageReference activate() {
         //disable validation rules on budget edits
         MERC_Util.disableBudgetEditValidation();
-        String independentrtID= [Select ID From RecordType Where SobjectType = 'Meeting_MERC__C' AND DeveloperName = 'Independent_Sponsorship'].ID;   // Added by Jyoti Gaur
-        String ConsultingrtID= [Select ID From RecordType Where SobjectType = 'Meeting_MERC__C' AND DeveloperName = 'Ad_Hoc_Consulting'].ID;   // Added by Jyoti Gaur
+        //String independentrtID= [Select ID From RecordType Where SobjectType = 'Meeting_MERC__C' AND DeveloperName = 'Independent_Sponsorship'].ID;   // Added by Jyoti Gaur
+        //String ConsultingrtID= [Select ID From RecordType Where SobjectType = 'Meeting_MERC__C' AND DeveloperName = 'Ad_Hoc_Consulting'].ID;   // Added by Jyoti Gaur
         
         //set this budget to active, flip the record type
-        if(budget.Total_Budget_Line_items__c >0 || budget.Meeting_MERC__r.RecordTypeId == independentrtID || budget.Meeting_MERC__r.RecordTypeId == ConsultingrtID || budget.Meeting_MERC__r.Source_MERC__c == 'Veeva'){    // Added by Jyoti Gaur
+        if(budget.Total_Budget_Line_items__c >0){    // Added by Jyoti Gaur
         budget.Status_MERC__c = 'Active';
         budget.RecordTypeId = [Select ID From RecordType Where SobjectType = 'Budget_MERC__c' AND DeveloperName = 'MERC_Budget_Active'].ID;
         update budget;
-         // Start added by Jyoti Gaur
+         // Start added by Jyoti Gaur for US-37784
         }else{
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please add at least one Budget line item in order to Activate the Budget.'));    //Added by Jyoti Gaur
         return null;
         }
-        // end added by Jyoti Gaur
+        // end added by Jyoti Gaur for US-37784
 
         //archive old budgets
         if (budget.Previous_Budget_Revision_MERC__c != null) {
@@ -95,21 +95,21 @@ public with sharing class MERC_BudgetVersionController {
     }
 
     public PageReference finalize() {
-        String independentrtID= [Select ID From RecordType Where SobjectType = 'Meeting_MERC__C' AND DeveloperName = 'Independent_Sponsorship'].ID;  // Added by Jyoti Gaur
-        String ConsultingrtID= [Select ID From RecordType Where SobjectType = 'Meeting_MERC__C' AND DeveloperName = 'Ad_Hoc_Consulting'].ID;   // Added by Jyoti Gaur
+        //String independentrtID= [Select ID From RecordType Where SobjectType = 'Meeting_MERC__C' AND DeveloperName = 'Independent_Sponsorship'].ID;  // Added by Jyoti Gaur
+        //String ConsultingrtID= [Select ID From RecordType Where SobjectType = 'Meeting_MERC__C' AND DeveloperName = 'Ad_Hoc_Consulting'].ID;   // Added by Jyoti Gaur
         
       try {
-            if(this.budget.Total_Budget_Line_items__c >0 || this.budget.Meeting_MERC__r.RecordTypeId == independentrtID || this.budget.Meeting_MERC__r.RecordTypeId == ConsultingrtID || this.budget.Meeting_MERC__r.Source_MERC__c == 'Veeva'){     //Added by Jyoti Gaur                                   
+            if(this.budget.Total_Budget_Line_items__c >0){     //Added by Jyoti Gaur for US-37784                                   
             this.budget.RecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'MERC_Budget_Final' AND SobjectType = 'Budget_Merc__c'].ID;
             this.budget.Status_MERC__c = 'Final';
             update this.budget;
-            return this.controller.view();                      //Added by Jyoti Gaur
+            return this.controller.view();                      //Added by Jyoti Gaur for US-37784
             }else{
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'Please add at least one Budget line item in order to Finalise the Budget.'));    //Added by Jyoti Gaur
         }}catch(Exception e) {
             ApexPages.addMessages(e);
         }
-        return null;        //Modified by Jyoti Gaur
+        return null;        //Modified by Jyoti Gaur for US-37784
     }
 
     //clone callback to set budget line item versioning fields

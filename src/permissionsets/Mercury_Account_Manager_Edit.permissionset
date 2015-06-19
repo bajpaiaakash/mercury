@@ -7,4 +7,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <label>Mercury Account Manager - Edit</label>
+	<recordTypeVisibilities>
+        <recordType>Budget_MERC__c.MERC_Budget_Active</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Budget_MERC__c.MERC_Budget_Archived</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Budget_MERC__c.MERC_Budget_Draft</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Budget_MERC__c.MERC_Budget_Final</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+
 </PermissionSet>
