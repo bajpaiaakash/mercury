@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <applicationVisibilities>
-        <application>Mercury</application>
-        <visible>true</visible>
-    </applicationVisibilities>
     <description>Permission set to give the MPC access to edit the objects they should have access to edit</description>
     <fieldPermissions>
         <editable>false</editable>
