@@ -25,4 +25,5 @@
     <tab>Web_Service_Error_GLBL__c</tab>
     <tab>standard-Dashboard</tab>
     <tab>standard-report</tab>
+    <tab>Meeting_Process_Logic_MERC__c</tab>
 </CustomApplication>

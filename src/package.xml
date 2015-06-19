@@ -10,7 +10,6 @@
         <members>Meeting_Participant_MERC__c.Contact_Details_Fax_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Mobile_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Work_Phone_MERC__c</members>
-        <members>Meeting_Process_MERC__c.Meeting_Participant_MERC__c</members>
         <members>Meeting_Tasks_MERC__c.Completed_Date_MERC__c</members>
         <members>Meeting_Tasks_MERC__c.Evaluate_Rules_MERC__c</members>
         <members>Meeting_Tasks_MERC__c.Is_Follow_Up__c</members>
@@ -60,6 +59,18 @@
         <members>Meeting_MERC__c.Meeting_Program</members>
         <members>Meeting_MERC__c.Registered</members>
         <name>RecordType</name>
+    </types>
+    <types>
+        <members>Preferences_and_Consent_GLBL__c.Clear_Consent_Effective_Date_Capture</members>
+        <members>Preferences_and_Consent_GLBL__c.Clear_Effective_Date_CMS</members>
+        <members>Preferences_and_Consent_GLBL__c.Copy_Effective_Date_CMS</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Preferences_and_Consent_GLBL__c.MERC_Clear Consent Effective Date Capture</members>
+        <members>Preferences_and_Consent_GLBL__c.MERC_Clear Down CMS Fields</members>
+        <members>Preferences_and_Consent_GLBL__c.MERC_Copy CMS Fields to Capture Fields</members>
+        <name>WorkflowRule</name>
     </types>
     <version>33.0</version>
 </Package>
