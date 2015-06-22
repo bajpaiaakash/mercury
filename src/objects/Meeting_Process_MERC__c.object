@@ -93,6 +93,18 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Meeting_Process_Logic_Key_MERC__c</fullName>
+        <description>Used to compare Meeting Process key to Meeting Process Logic Key. This will return a match and automate logic : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Process_Type_MERC__c)</formula>
+        <inlineHelpText>Creates a key for the meeting process which matches a key from the meeting process logic object to trigger the next wave of automation</inlineHelpText>
+        <label>Meeting Process Logic Key</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Min_Completed_Date_MERC__c</fullName>
         <description>The oldest completed date on meeting tasks related to this meeting process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>

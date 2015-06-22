@@ -38,6 +38,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Meeting_Process_Logic_Key_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Process_MERC__c.Min_Completed_Date_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>

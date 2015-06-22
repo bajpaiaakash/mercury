@@ -31,6 +31,10 @@
                 <behavior>Readonly</behavior>
                 <field>Open_Task_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Meeting_Process_Logic_Key_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
