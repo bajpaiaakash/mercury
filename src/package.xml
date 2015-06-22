@@ -13,6 +13,9 @@
         <members>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</members>
         <members>Meeting_Tasks_MERC__c.Open_Task_MERC__c</members>
         <members>Meeting_Tasks_MERC__c.Task_Status_MERC__c</members>
+        <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_CMS_MERC__c</members>
+        <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_Cap_GLBL__c</members>
+        <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_GLBL__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -29,6 +32,7 @@
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
         <members>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</members>
+        <members>Preferences_and_Consent_GLBL__c-GLBL_Consent</members>
         <name>Layout</name>
     </types>
     <types>
@@ -62,6 +66,10 @@
         <members>Preferences_and_Consent_GLBL__c.Clear_Effective_Date_CMS</members>
         <members>Preferences_and_Consent_GLBL__c.Copy_Effective_Date_CMS</members>
         <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Preferences_and_Consent_GLBL__c.RTI_Pref_and_Consent_Updated</members>
+        <name>WorkflowOutboundMessage</name>
     </types>
     <types>
         <members>Preferences_and_Consent_GLBL__c.MERC_Clear Consent Effective Date Capture</members>

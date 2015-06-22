@@ -116,6 +116,21 @@
         <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_CMS_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Active</layout>
     </layoutAssignments>
@@ -140,6 +155,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Preferences_and_Consent_GLBL__c-GLBL_Consent</layout>
     </layoutAssignments>
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>

@@ -116,6 +116,21 @@
         <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_CMS_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <label>Mercury Legal - Edit</label>
     <recordTypeVisibilities>
         <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>
