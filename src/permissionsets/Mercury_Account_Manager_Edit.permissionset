@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>MERC_TravelProposalsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_TravelProposalsControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <description>Permission set to give the Account Manager access to edit the objects they should have access to edit</description>
     <fieldPermissions>
         <editable>false</editable>
@@ -141,7 +149,21 @@
         <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Proposal_Counter_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Travel_Itinerary_MERC__c.Status_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <label>Mercury Account Manager - Edit</label>
+    <pageAccesses>
+        <apexPage>MERC_TravelProposals</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>
         <visible>true</visible>

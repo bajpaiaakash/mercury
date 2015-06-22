@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>MERC_TravelProposalsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_TravelProposalsControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>false</editable>
@@ -141,6 +149,16 @@
         <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Proposal_Counter_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Active</layout>
     </layoutAssignments>
@@ -173,6 +191,10 @@
         <endAddress>255.255.255.255</endAddress>
         <startAddress>0.0.0.0</startAddress>
     </loginIpRanges>
+    <pageAccesses>
+        <apexPage>MERC_TravelProposals</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>

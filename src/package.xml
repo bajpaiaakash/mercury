@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>MERC_TravelProposalsController</members>
+        <members>MERC_TravelProposalsControllerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>MERC_TravelProposals</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
         <members>Meeting_MERC__c.Initiate_Delegate_Management_MERC__c</members>
         <members>Meeting_MERC__c.Meeting_Scope_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Fax_MERC__c</members>
@@ -17,6 +26,8 @@
         <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_CMS_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_Cap_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_GLBL__c</members>
+        <members>Travel_Itinerary_MERC__c.Proposal_Counter_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Status_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>
