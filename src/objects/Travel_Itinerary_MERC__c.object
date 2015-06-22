@@ -61,4 +61,41 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <recordTypes>
+        <fullName>MERC_Travel_Proposal</fullName>
+        <active>true</active>
+        <description>Used to create Travel Proposals for Meeting Participants</description>
+        <label>Travel Proposal</label>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Proposed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ticketed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
 </CustomObject>

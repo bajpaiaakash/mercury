@@ -71,6 +71,7 @@
         <members>Meeting_MERC__c.Meeting_Active</members>
         <members>Meeting_MERC__c.Meeting_Program</members>
         <members>Meeting_MERC__c.Registered</members>
+        <members>Travel_Itinerary_MERC__c.MERC_Travel_Proposal</members>
         <name>RecordType</name>
     </types>
     <types>

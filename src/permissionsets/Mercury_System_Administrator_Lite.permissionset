@@ -191,6 +191,10 @@
         <recordType>Meeting_MERC__c.Registered</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Travel_Itinerary_MERC__c.MERC_Travel_Proposal</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
     <userPermissions>
         <enabled>true</enabled>
         <name>ApiEnabled</name>
