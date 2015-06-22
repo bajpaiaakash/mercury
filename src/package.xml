@@ -35,7 +35,7 @@
         <members>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</members>
         <members>Preferences_and_Consent_GLBL__c-GLBL_Consent</members>
         <name>Layout</name>
-    </types> 
+    </types>
     <types>
         <members>Mercury_Account_Manager_Edit</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
