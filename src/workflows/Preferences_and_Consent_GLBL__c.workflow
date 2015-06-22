@@ -108,7 +108,7 @@
         </actions>
         <active>true</active>
         <description>Copies the Values entered into the CMS Fields and inserts them to the Capture Fields: MERC : Created on 12/5/2013 by Oliver Dunford, Mavens Consulting</description>
-        <formula>($Profile.Name  = &apos;GSO Basic User_Salesforce&apos; || $Profile.Name  = &apos;GSO Basic User_Platform&apos; || $Profile.Name  = &apos;System Administrator&apos;)    &amp;&amp;    ISNEW()     ||    (  TEXT(Cmnctn_Chnl_Cd_CMS_MERC__c)  = &apos;D022&apos;    &amp;&amp;    (  ISCHANGED(Cmnctn_Chnl_Desc_CMS_MERC__c)  ||   ISCHANGED(Cmnctn_Chnl_Cd_CMS_MERC__c)  ||  ISCHANGED(Cnsnt_Sts_Desc_CMS_MERC__c)   )    )</formula>
+        <formula>($Profile.Name  = &apos;GSO Basic User_Salesforce&apos; || $Profile.Name  = &apos;GSO Basic User_Platform&apos; || $Profile.Name  = &apos;System Administrator&apos;)    &amp;&amp;    ISNEW()     ||    (  TEXT(Cmnctn_Chnl_Cd_CMS_MERC__c)  = &apos;D022&apos;    &amp;&amp;    (  ISCHANGED(Cmnctn_Chnl_Desc_CMS_MERC__c)  ||   ISCHANGED(Cmnctn_Chnl_Cd_CMS_MERC__c)  ||  ISCHANGED(Cnsnt_Sts_Desc_CMS_MERC__c)   || ISCHANGED(Efctv_Start_Dt_CMS_MERC__c))    )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
