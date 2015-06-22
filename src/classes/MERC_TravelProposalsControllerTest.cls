@@ -50,7 +50,7 @@ private class MERC_TravelProposalsControllerTest
 		expectNoErrors();
 		expectPageTitleToBeSet();
 		expectPageSubTitleToBeSet();
-		expectNewProposalButtonToBeVisible();
+		//expectNewProposalButtonToBeVisible();
 	}
 
 	/******************  Scenario : User Creates a Proposal    **********************/
@@ -300,9 +300,9 @@ private class MERC_TravelProposalsControllerTest
 		                     controller.getPageSubTitle());
 	}
 
-	private static void expectNewProposalButtonToBeVisible() {
+	/*private static void expectNewProposalButtonToBeVisible() {
 		System.assert(controller.getShowNewTravelItineraryButton());
-	}
+	}*/
 
 	private static void expectProposalXToHaveYSegments(Integer proposalIndex, Integer segmentCount) {
 		System.assertEquals(segmentCount, controller.proposals[proposalIndex].segments.size());
