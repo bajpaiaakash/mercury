@@ -68,10 +68,6 @@
         <members>Preferences_and_Consent_GLBL__c.Copy_Effective_Date_CMS</members>
         <name>WorkflowFieldUpdate</name>
     </types>
-    <types> 
-        <members>Preferences_and_Consent_GLBL__c.RTI_Pref_and_Consent_Updated</members>
-        <name>WorkflowOutboundMessage</name>
-    </types>
     <types>
         <members>Preferences_and_Consent_GLBL__c.MERC_Clear Consent Effective Date Capture</members>
         <members>Preferences_and_Consent_GLBL__c.MERC_Clear Down CMS Fields</members>

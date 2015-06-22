@@ -30,41 +30,6 @@
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
-    <outboundMessages>
-        <fullName>RTI_Pref_and_Consent_Updated</fullName>
-        <apiVersion>30.0</apiVersion>
-        <description>Sends selected fields to Veeva orgs for update</description>
-        <endpointUrl>https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated</endpointUrl>
-        <fields>Account_External_Id_GLBL__c</fields>
-        <fields>Account_Name_GLBL__c</fields>
-        <fields>Cmnctn_Chnl_Cd_Cap_GLBL__c</fields>
-        <fields>Cmnctn_Chnl_Desc_Cap_GLBL__c</fields>
-        <fields>Cmnctn_Sub_Chnl_Cd_Cap_GLBL__c</fields>
-        <fields>Cmnctn_Sub_Chnl_Desc_Cap_GLBL__c</fields>
-        <fields>Cnsnt_Cntct_Dtl_Txt_Cap_GLBL__c</fields>
-        <fields>Cnsnt_Prps_Cd_Cap_GLBL__c</fields>
-        <fields>Cnsnt_Prps_Desc_Cap_GLBL__c</fields>
-        <fields>Cnsnt_Sts_Cd_Cap_GLBL__c</fields>
-        <fields>Cnsnt_Sts_Desc_Cap_GLBL__c</fields>
-        <fields>Cnsnt_Typ_Cd_Cap_GLBL__c</fields>
-        <fields>CreatedById</fields>
-        <fields>CreatedDate</fields>
-        <fields>Efctv_End_Dt_Cap_GLBL__c</fields>
-        <fields>Efctv_Start_Dt_Cap_GLBL__c</fields>
-        <fields>HCP_Country_of_Residence_Stamped_MERC__c</fields>
-        <fields>Id</fields>
-        <fields>LastModifiedById</fields>
-        <fields>LastModifiedDate</fields>
-        <fields>Mercury_External_Id_MERC__c</fields>
-        <fields>Name</fields>
-        <fields>RecordTypeId</fields>
-        <fields>Transparency_Reporting_Opt_Out_MERC__c</fields>
-        <includeSessionId>true</includeSessionId>
-        <integrationUser>mercuryintegration.veeva@gso1.lly</integrationUser>
-        <name>RTI - Pref and Consent Updated</name>
-        <protected>false</protected>
-        <useDeadLetterQueue>false</useDeadLetterQueue>
-    </outboundMessages>
     <rules>
         <fullName>MERC_Clear Consent Effective Date Capture</fullName>
         <actions>
