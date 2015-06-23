@@ -62,5 +62,5 @@
         <members>Meeting_MERC__c.Registered</members>
         <name>RecordType</name>
     </types>
-    <version>31.0</version>
+    <version>34.0</version>
 </Package>
