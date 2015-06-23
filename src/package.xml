@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>GLBL_GenericRelatedListController</members>
+        <members>MERC_MeetingDateTimesController</members>
+        <members>MERC_MeetingParticipantNewEditController</members>
+        <members>MERC_MeetingTeamManagerController</members>
+        <members>MERC_ParticipantTovStampHandler</members>
         <members>MERC_TravelProposalsController</members>
         <members>MERC_TravelProposalsControllerTest</members>
         <name>ApexClass</name>
