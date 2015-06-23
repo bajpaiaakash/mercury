@@ -379,10 +379,10 @@ public with sharing class MERC_TestFactory {
 
     public static Budget_MERC__c insertBudget(String meetingId, boolean flag) {
 
-        return insertBulkBudgets(new List<Meeting_MERC__c>{new Meeting_MERC__c(Id=meetingId)},flag).get(0);
+        return insertBulkBudgets(new List<Meeting_MERC__c>{new Meeting_MERC__c(Id=meetingId)},flag).get(0);  //Modified by Jyoti Gaur for US-37784 on 01 June
     }
 
-    public static List<Budget_MERC__c> insertBulkBudgets(List<Meeting_MERC__c> meetings, boolean flag1) {
+    public static List<Budget_MERC__c> insertBulkBudgets(List<Meeting_MERC__c> meetings, boolean flag1) {  //Modified by Jyoti Gaur for US-37784 on 01 June
         List<Budget_MERC__c> budgets = new List<Budget_MERC__c>();
         Id budgetRecordTypeId = [Select ID From RecordType Where SobjectType = 'Budget_MERC__c' AND DeveloperName = 'MERC_Budget_Draft'].Id;
         Budget_MERC__c bdgt = null;
@@ -407,7 +407,7 @@ public with sharing class MERC_TestFactory {
         insert budgets;
         List<Budget_Line_Item_MERC__c> BLI=insertBudgetLineItems(budgets[0].Id, 5);
         List<Budget_MERC__c> bdgtlist=[select id,Meeting_MERC__c,Status_MERC__c,Cost_Center_MERC__c,RecordTypeId,Previous_Budget_Revision_MERC__c,Total_Budget_Line_items__c from Budget_MERC__c where id =:budgets[0].Id];
-        budgets[0] = bdgtlist[0];
+        budgets[0] = bdgtlist[0];   //Modified by Jyoti Gaur for US-37784 on 01 June
         return budgets;
     }
     
