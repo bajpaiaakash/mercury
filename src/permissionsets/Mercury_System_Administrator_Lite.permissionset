@@ -80,6 +80,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Next_Reminder_is_Unresponsive_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Process_MERC__c.Number_of_Cancelled_Tasks_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -91,6 +96,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Process_MERC__c.Number_of_Follow_Up_Tasks_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Number_of_Incomplete_Unresponsive__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

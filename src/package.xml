@@ -41,6 +41,26 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>CMS_Dashboard_Folder</members>
+        <members>CMS_Dashboard_Folder/Dashboard_CMS_Meetings_MERC</members>
+        <members>MERC_CMS_Local</members>
+        <members>MERC_Dashboard_Cork</members>
+        <members>MERC_Dashboard_Cork/Cases_MERC</members>
+        <members>MERC_Dashboard_Cork/MERC_CMS_Cork</members>
+        <members>MERC_Dashboard_Local_MPC</members>
+        <members>MERC_Dashboard_Local_MPC/MERC_CMS_Local_MPC</members>
+        <members>MERC_Dashboard_SLA</members>
+        <members>MERC_Dashboard_SLA/SLA_Metrics</members>
+        <members>MERC_Dashboards_in_Development</members>
+        <members>Meetings_Dashboard_Folder</members>
+        <members>Meetings_Dashboard_Folder/Meetings_MERC</members>
+        <name>Dashboard</name>
+    </types>
+    <types>
+        <members>MERC_Dashboard_Development</members>
+        <name>Group</name>
+    </types>
+    <types>
         <members>Meeting_MERC__c-MERC_Active</members>
         <members>Meeting_MERC__c-MERC_Completed</members>
         <members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>

@@ -121,6 +121,16 @@
         <type>Summary</type>
     </fields>
     <fields>
+        <fullName>Next_Reminder_is_Unresponsive_MERC__c</fullName>
+        <description>Indicates that the next reminder to be created should be relabeled as Unresponsive : MERC : Created on 29/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Number_of_Follow_Up_Tasks_MERC__c = 3 &amp;&amp;  Number_of_Incomplete_Unresponsive__c = 0</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Next Reminder is Unresponsive</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Number_of_Cancelled_Tasks_MERC__c</fullName>
         <description>Counts the number of Cancelled taks related to the process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -164,6 +174,26 @@
             <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
             <operation>notEqual</operation>
             <value>Completed - Task Not Needed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Incomplete_Unresponsive__c</fullName>
+        <description>Indicates that the number of unresponsive tasks that are incomplete : MERC : Created on 29/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Number of Incomplete Unresponsive</label>
+        <summaryFilterItems>
+            <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Incomplete</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Meeting_Tasks_MERC__c.Name</field>
+            <operation>startsWith</operation>
+            <value>Unresponsive</value>
         </summaryFilterItems>
         <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
