@@ -31,4 +31,16 @@
         <trackTrending>false</trackTrending>
         <type>Phone</type>
     </fields>
+    <fields>
+        <fullName>Email_to_Invite_HCP_to_Portal_MERC__c</fullName>
+        <description>Email address entered by Sales Rep if HCP needs inviting to the Portal - Label Renamed for R6 Mercury Release. Oliver Dunford 10th Jan.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Not required if “Service provider” box is checked on HCP profile. You must ask HCP to provide this data to you for the purposes of logistics and for web services.</inlineHelpText>
+        <label>Email Address for Meetings/Logistics</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
 </CustomObject>

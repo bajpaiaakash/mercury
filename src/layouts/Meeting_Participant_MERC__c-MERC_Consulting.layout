@@ -290,11 +290,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Contact_Details_Work_Phone_MERC__c</field>
+                <field>Contact_Details_Mobile_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Contact_Details_Mobile_MERC__c</field>
+                <field>Contact_Details_Work_Phone_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

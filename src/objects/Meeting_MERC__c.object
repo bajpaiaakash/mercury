@@ -5,6 +5,7 @@
         <fullName>Initiate_Delegate_Management_MERC__c</fullName>
         <description>Indicates that delegate manage processes should be used for this meeting : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Select “Yes” in order to trigger the automated delegate management tasks in Meeting Participant Processes.</inlineHelpText>
         <label>Initiate Delegate Management</label>
         <picklist>
             <picklistValues>

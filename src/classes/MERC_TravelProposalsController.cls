@@ -294,7 +294,7 @@ public with sharing class MERC_TravelProposalsController {
 		queryString += 'WHERE Meeting_Participant_MERC__c = \'' + participant.Id + '\' ';
 		queryString += 'AND RecordTypeId = \'' + proposalRecordTypeId + '\' ';
 		queryString += 'AND Status_MERC__c != \'Cancelled\' ';
-		queryString += 'ORDER BY Status_MERC__c';
+		queryString += 'ORDER BY CreatedDate DESC'; //Status_MERC__c';
 
 		System.debug('-----------> query String ' + queryString);
 		List<Travel_Itinerary_MERC__c> proposalsAndChildren = Database.query(queryString);
