@@ -2,6 +2,22 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <fields>
+        <fullName>SAP_Vendor_Validation_Required_MERC__c</fullName>
+        <description>Checks whether a Payee records needs validation should they have been updated since the last validation review, based upon DI validation Date.  Does not adjust to TimeZones but is roughly accurate : MERC : Created on 16/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF( 
+LastModifiedDate  &gt;=  SAP_Vendor_Last_Validated_Date_MERC__c  
+, &quot;Yes&quot;, &quot;No&quot;
+)</formula>
+        <inlineHelpText>Highlights all Payee records that have been updated since the last review (based upon the Payee Validation Date).</inlineHelpText>
+        <label>SAP Vendor Validation Required</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Tax_Id_MERC__c</fullName>
         <description>HCP Tax Id, gathered for each Payee record.  This may or may not be the same for each Payee record.  Feeds into the Invoice record and the Invoice .pdf document for generation. Oliver Dunford 17th Feb 2014.</description>
         <externalId>false</externalId>

@@ -72,6 +72,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Current_Task_Due_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Current_Task_Name_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -193,6 +198,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Payee_MERC__c.SAP_Vendor_Validation_Required_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -16,7 +16,6 @@
     </types>
     <types>
         <members>Account.Contract_Signatory_MERC__c</members>
-        <members>Account.Contracting_Party_Validation_Date_MERC__c</members>
         <members>Account.DI_Validation_Required_MERC__c</members>
         <members>Account.Designated_Indiv_Validation_Date_MERC__c</members>
         <members>Meeting_MERC__c.Initiate_Delegate_Management_MERC__c</members>
@@ -24,6 +23,7 @@
         <members>Meeting_Participant_MERC__c.Contact_Details_Fax_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Mobile_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Work_Phone_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Current_Task_Due_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Current_Task_Name_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Email_to_Invite_HCP_to_Portal_MERC__c</members>
         <members>Meeting_Tasks_MERC__c.Completed_Date_MERC__c</members>
@@ -34,8 +34,7 @@
         <members>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</members>
         <members>Meeting_Tasks_MERC__c.Open_Task_MERC__c</members>
         <members>Meeting_Tasks_MERC__c.Task_Status_MERC__c</members>
-        <members>Payee_MERC__c.Payee_Validation_Date_MERC__c</members>
-        <members>Payee_MERC__c.Payee_Validation_Required_MERC__c</members>
+        <members>Payee_MERC__c.SAP_Vendor_Validation_Required_MERC__c</members>
         <members>Payee_MERC__c.Tax_Id_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_CMS_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_Cap_GLBL__c</members>
