@@ -31,6 +31,21 @@
     <description>Permission set to give permission to verify the TOV accuracy and completeness for transparencey reporting.</description>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Contract_Signatory_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.DI_Validation_Required_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_MERC__c.Initiate_Delegate_Management_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -56,12 +71,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_Participant_MERC__c.Email_to_Invite_HCP_to_Portal_MERC__c</field>
-        <readable>true</readable>
+        <field>Meeting_Participant_MERC__c.Current_Task_Name_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_Process_MERC__c.Evaluate_Rules_MERC__c</field>
+        <field>Meeting_Participant_MERC__c.Email_to_Invite_HCP_to_Portal_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -76,17 +91,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Max_Non_Followup_Completed_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Process_MERC__c.Meeting_Process_Logic_Key_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Process_MERC__c.Min_Completed_Date_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_Process_MERC__c.Next_Reminder_is_Unresponsive_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -178,6 +193,11 @@
         <editable>false</editable>
         <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Payee_MERC__c.Tax_Id_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

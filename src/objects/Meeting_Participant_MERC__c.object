@@ -35,6 +35,18 @@
         <type>Phone</type>
     </fields>
     <fields>
+        <fullName>Current_Task_Name_MERC__c</fullName>
+        <description>The latest process information from to be shared with users : MERC : Created on 30/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Current Task Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Email_to_Invite_HCP_to_Portal_MERC__c</fullName>
         <description>Email address entered by Sales Rep if HCP needs inviting to the Portal - Label Renamed for R6 Mercury Release. Oliver Dunford 10th Jan.</description>
         <externalId>false</externalId>

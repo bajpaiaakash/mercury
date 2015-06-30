@@ -56,15 +56,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Evaluate_Rules_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Indicates that a Salesforce Process should kick off that will evaluate rules tied to that process : MERC : Created on 18/06/2015 by Kyle Thornton, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Evaluate Rules</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>HCP_Country_of_Residence_Stamped_MERC__c</fullName>
         <description>HCP Country of Residence stamped from the HCP Country of Residence from the Account object. Needed to drive visibility against territory for Meeting Process records. Created 30/06/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -85,6 +76,22 @@
             <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
             <operation>equals</operation>
             <value>Completed - Continue Follow Up, Completed - Process Complete, Completed - Process Cancelled, Completed - Unresponsive, Completed - Task Not Needed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Max_Non_Followup_Completed_Date_MERC__c</fullName>
+        <description>The date of the last Non-Followup Record. Used in code to determine when a Reminder should be unresponsive instead : MERC : Created on 30/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Max Non-Followup Completed Date</label>
+        <summarizedField>Meeting_Tasks_MERC__c.Completed_Date_MERC__c</summarizedField>
+        <summaryFilterItems>
+            <field>Meeting_Tasks_MERC__c.Is_Follow_Up__c</field>
+            <operation>equals</operation>
+            <value>False</value>
         </summaryFilterItems>
         <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
         <summaryOperation>max</summaryOperation>
@@ -131,16 +138,6 @@
         <summaryOperation>min</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
-    </fields>
-    <fields>
-        <fullName>Next_Reminder_is_Unresponsive_MERC__c</fullName>
-        <description>Indicates that the next reminder to be created should be relabeled as Unresponsive : MERC : Created on 29/06/2015 by Kyle Thornton, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <formula>Number_of_Follow_Up_Tasks_MERC__c = 3 &amp;&amp;  Number_of_Incomplete_Unresponsive__c + Number_of_Unresponsive_Tasks_MERC__c  = 0</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Next Reminder is Unresponsive</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Number_of_Cancelled_Tasks_MERC__c</fullName>
