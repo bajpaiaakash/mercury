@@ -2,6 +2,18 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <fields>
+        <fullName>SAP_Vendor_Last_Validated_Date_MERC__c</fullName>
+        <defaultValue>Now()</defaultValue>
+        <description>The date that the Payee record was created or checked for changes : MERC : Created on 16/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date/time that the Payee was created or last verified following record updates.</inlineHelpText>
+        <label>SAP Vendor Last Validated Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>SAP_Vendor_Validation_Required_MERC__c</fullName>
         <description>Checks whether a Payee records needs validation should they have been updated since the last validation review, based upon DI validation Date.  Does not adjust to TimeZones but is roughly accurate : MERC : Created on 16/06/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
