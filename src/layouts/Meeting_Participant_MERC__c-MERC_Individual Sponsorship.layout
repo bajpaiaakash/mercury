@@ -433,11 +433,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Next_Follow_Up_Date_MERC__c</field>
+                <field>Current_Task_Name_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Follow_Up_Status_MERC__c</field>
+                <field>Current_Task_Due_Date_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

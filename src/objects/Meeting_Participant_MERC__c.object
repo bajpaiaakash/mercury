@@ -5,6 +5,7 @@
         <fullName>Contact_Details_Fax_MERC__c</fullName>
         <description>Contact information populated against the MP in Mercury or via the Salesrep in Veeva.  To be manually cleared down and copied to Account record by Regional CMS : MERC : Created on 17/06/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Data that HCP has provided to Meeting Owner or CFT that has invited him/her for logistics/meetings or contract purposes. This data will be transferred at account level by CMS teams.</inlineHelpText>
         <label>Contact Details - Fax</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -15,6 +16,7 @@
         <fullName>Contact_Details_Mobile_MERC__c</fullName>
         <description>Contact information populated against the MP in Mercury or via the Salesrep in Veeva.  To be manually cleared down and copied to Account record by Regional CMS : MERC : Created on 17/06/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Data that HCP has provided to Meeting Owner or CFT that has invited him/her for logistics/meetings or contract purposes. This data will be transferred at account level by CMS teams.</inlineHelpText>
         <label>Contact Details - Mobile</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -25,6 +27,7 @@
         <fullName>Contact_Details_Work_Phone_MERC__c</fullName>
         <description>Contact information populated against the MP in Mercury or via the Salesrep in Veeva.  To be manually cleared down and copied to Account record by Regional CMS : MERC : Created on 17/06/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Data that HCP has provided to Meeting Owner or CFT that has invited him/her for logistics/meetings or contract purposes. This data will be transferred at account level by CMS teams.</inlineHelpText>
         <label>Contact Details - Work Phone</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -35,7 +38,7 @@
         <fullName>Email_to_Invite_HCP_to_Portal_MERC__c</fullName>
         <description>Email address entered by Sales Rep if HCP needs inviting to the Portal - Label Renamed for R6 Mercury Release. Oliver Dunford 10th Jan.</description>
         <externalId>false</externalId>
-        <inlineHelpText>Not required if “Service provider” box is checked on HCP profile. You must ask HCP to provide this data to you for the purposes of logistics and for web services.</inlineHelpText>
+        <inlineHelpText>Data that HCP has provided to Meeting Owner or CFT that has invited him/her for logistics/meetings or contract purposes. This data will be transferred at account level by CMS teams.</inlineHelpText>
         <label>Email Address for Meetings/Logistics</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

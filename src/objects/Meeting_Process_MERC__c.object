@@ -44,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Groups to-do items for all meeting management functions : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
@@ -62,6 +63,17 @@
         <label>Evaluate Rules</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Country_of_Residence_Stamped_MERC__c</fullName>
+        <description>HCP Country of Residence stamped from the HCP Country of Residence from the Account object. Needed to drive visibility against territory for Meeting Process records. Created 30/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>HCP Country of Residence (Stamped)</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Max_Completed_Date_MERC__c</fullName>
@@ -124,7 +136,7 @@
         <fullName>Next_Reminder_is_Unresponsive_MERC__c</fullName>
         <description>Indicates that the next reminder to be created should be relabeled as Unresponsive : MERC : Created on 29/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Number_of_Follow_Up_Tasks_MERC__c = 3 &amp;&amp;  Number_of_Incomplete_Unresponsive__c = 0</formula>
+        <formula>Number_of_Follow_Up_Tasks_MERC__c = 3 &amp;&amp;  Number_of_Incomplete_Unresponsive__c + Number_of_Unresponsive_Tasks_MERC__c  = 0</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Next Reminder is Unresponsive</label>
         <trackTrending>false</trackTrending>
@@ -296,6 +308,18 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>Unique_MP_Process_MERC__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Ensures only a single process of the same type is allowed for each MP : MERC : Created on 30/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Unique MP Process</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
     <label>Meeting Process</label>
     <nameField>
         <label>Process Name</label>
@@ -303,5 +327,5 @@
     </nameField>
     <pluralLabel>Meeting Processes</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

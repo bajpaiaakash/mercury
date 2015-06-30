@@ -71,7 +71,7 @@
             <picklist>Initiate_Delegate_Management_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Yes</fullName>
@@ -119,7 +119,7 @@
             <picklist>Initiate_Delegate_Management_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Yes</fullName>
@@ -167,7 +167,7 @@
             <picklist>Initiate_Delegate_Management_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Yes</fullName>
@@ -215,7 +215,7 @@
             <picklist>Initiate_Delegate_Management_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Yes</fullName>
@@ -263,7 +263,7 @@
             <picklist>Initiate_Delegate_Management_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Yes</fullName>
@@ -311,7 +311,7 @@
             <picklist>Initiate_Delegate_Management_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Yes</fullName>
@@ -359,7 +359,7 @@
             <picklist>Initiate_Delegate_Management_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Yes</fullName>

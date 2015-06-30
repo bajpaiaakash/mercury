@@ -66,6 +66,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Process_MERC__c.HCP_Country_of_Residence_Stamped_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Process_MERC__c.Max_Completed_Date_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -132,6 +137,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Process_MERC__c.Process_Type_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Unique_MP_Process_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
