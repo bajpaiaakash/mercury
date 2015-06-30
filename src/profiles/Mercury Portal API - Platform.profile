@@ -37,6 +37,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Contracting_Party_Change_Reviewed_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Contracting_Party_Review_Required_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>

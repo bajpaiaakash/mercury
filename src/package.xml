@@ -16,6 +16,7 @@
     </types>
     <types>
         <members>Account.Contract_Signatory_MERC__c</members>
+        <members>Account.Contracting_Party_Change_Reviewed_MERC__c</members>
         <members>Account.Contracting_Party_Review_Required_MERC__c</members>
         <members>Account.DI_Validation_Required_MERC__c</members>
         <members>Account.Designated_Indiv_Validation_Date_MERC__c</members>

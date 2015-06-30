@@ -24,6 +24,17 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Contracting_Party_Change_Reviewed_MERC__c</fullName>
+        <defaultValue>IF($RecordType.DeveloperName = &apos;Contracting_Party_GLBL&apos;, Now(),NULL)</defaultValue>
+        <description>The date that the Contracting Party record was created or checked for changes : MERC : Created on 16/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date/time that the Contracting Party was created or last verified following record updates.</inlineHelpText>
+        <label>Contracting Party Change Reviewed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Contracting_Party_Review_Required_MERC__c</fullName>
         <description>Checks whether a CP records needs validation it&apos;s the record has been updated since the last review. Does not adjust to TimeZones but is roughly accurate : MERC : Created on 16/06/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
