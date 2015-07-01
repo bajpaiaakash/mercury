@@ -2,6 +2,19 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <fields>
+        <fullName>Account_Name_MERC__c</fullName>
+        <description>Used to pull account name down. Initially added because Process Builder was not accessing Account_MERC__r.Name properly : MERC : Created on 18/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.FirstName + &apos; &apos; + Account_MERC__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Contact_Details_Fax_MERC__c</fullName>
         <description>Contact information populated against the MP in Mercury or via the Salesrep in Veeva.  To be manually cleared down and copied to Account record by Regional CMS : MERC : Created on 17/06/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -68,4 +81,51 @@
         <type>Email</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Evaluate_Meeting_Process_Logic_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to kick-off Meeting Process Logic and Automation.  Set via workflow, unchecked when code runs : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Evaluate Meeting Process Logic</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Process_Logic_Key_MERC__c</fullName>
+        <description>Used to compare Meeting Participant Key against the Key in Meeting Process Logic object. This will then find a match and generate automation : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Meeting_MERC__r.Initiate_Delegate_Management_MERC__c) &amp; &quot;;&quot; &amp;  TEXT(Status_MERC__c) &amp; &quot;;&quot; &amp; IF(Sales_Rep_MERC__c &lt;&gt; &quot;&quot; , &quot;TRUE&quot;, &quot;FALSE&quot;)</formula>
+        <inlineHelpText>Used to match a corresponding key from the Meeting Process Logic object.  This will then trigger the necessary automation</inlineHelpText>
+        <label>Meeting Process Logic Key</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <recordTypes>
+        <fullName>Consulting</fullName>
+        <active>true</active>
+        <description>For Consulting Projects with no meeting and no logistical requirements</description>
+        <label>Consulting</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Delegate_MERC</fullName>
+        <active>true</active>
+        <description>A delegate attending a Lilly meeting or an Independent Meeting as a group.</description>
+        <label>Delegate</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Individual_Sponsorship</fullName>
+        <active>true</active>
+        <description>Sponsoring of an individual to attend an Independent Meeting.</description>
+        <label>Individual Sponsorship</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Service_Provider_MERC</fullName>
+        <active>true</active>
+        <description>HCP contracted to provide services for a Meeting including  includes Consulting and Advisory Meetings</description>
+        <label>Service Provider</label>
+    </recordTypes>
 </CustomObject>

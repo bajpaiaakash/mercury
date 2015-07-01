@@ -2,6 +2,15 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <fields>
+        <fullName>Evaluate_Meeting_Process_Logic_MERC_c__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to kick-off Meeting Process Logic and Automation. Set via workflow, unchecked when code runs : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Evaluate Meeting Process Logic</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Proposal_Counter_MERC__c</fullName>
         <description>Captures the number of proposals for the associated meting participant. Initially created for triggering of delegate management processes : MERC : Created on 19/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>
