@@ -124,6 +124,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Meeting_Start_Date_MERC__c</fullName>
+        <description>The meeting start date : MERC : Created on 01/07/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>DATEVALUE( Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Min_Completed_Date_MERC__c</fullName>
         <description>The oldest completed date on meeting tasks related to this meeting process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>
