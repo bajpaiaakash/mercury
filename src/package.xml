@@ -124,8 +124,6 @@
         <name>PermissionSet</name>
     </types>
     <types>
-        <members>GSO Basic User_Platform</members>
-        <members>GSO Basic User_Salesforce</members>
         <members>Mercury Integration MVI - Platform</members>
         <members>Mercury Metadata API</members>
         <members>Mercury Portal API - Platform</members>
