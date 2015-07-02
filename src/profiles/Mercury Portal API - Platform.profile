@@ -34,6 +34,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_TestFactory</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_TravelProposalsController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -130,6 +134,136 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Meeting_Process_Logic_Key_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Create_New_Process_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Create_New_Task_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Description_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.First_Travel_Proposal_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Initiate_Delegate_Management_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Meeting_Participant_Key_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Meeting_Participant_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Meeting_Process_Key_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Meeting_Task_Key_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Meeting_Task_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.New_Due_Date_Direction_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.New_Process_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.New_Task_Due_Date_Days_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.New_Task_Due_Date_Relative_to_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.New_Task_Name_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.New_Task_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Process_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Travel_Proposal_Key_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Travel_Proposal_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Update_Existing_Task_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Update_Task_Completed_Date_To_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Update_Task_Due_Date_To_Today_Plus_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Update_Task_Name_To_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Update_Task_Status_From_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Update_Task_Status_To_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Veeva_Meeting_Participant_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -350,6 +484,22 @@
         <layout>Meeting_Process_Logic_MERC__c-MERC_Meeting_Participant</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Meeting_Process_Logic_MERC__c-MERC_Meeting_Participant</layout>
+        <recordType>Meeting_Process_Logic_MERC__c.MERC_Meeting_Participant</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Process_Logic_MERC__c-MERC_Meeting_Process</layout>
+        <recordType>Meeting_Process_Logic_MERC__c.MERC_Meeting_Process</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Process_Logic_MERC__c-MERC_Meeting_Task</layout>
+        <recordType>Meeting_Process_Logic_MERC__c.MERC_Meeting_Task</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Process_Logic_MERC__c-MERC_Travel_Proposal</layout>
+        <recordType>Meeting_Process_Logic_MERC__c.MERC_Travel_Proposal</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Meeting_Process_MERC__c-MERC_Meeting_Process</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -427,6 +577,26 @@
         <default>true</default>
         <recordType>Meeting_Participant_MERC__c.Service_Provider_MERC</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_Process_Logic_MERC__c.MERC_Meeting_Participant</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_Process_Logic_MERC__c.MERC_Meeting_Process</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_Process_Logic_MERC__c.MERC_Meeting_Task</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_Process_Logic_MERC__c.MERC_Travel_Proposal</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

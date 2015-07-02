@@ -1,0 +1,1736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Stores business logic for processing Mercury Meeting Process and Task automation for Delegate Management and other activities : MERC : Created on 19/06/2015 by Oliver Dunford, Mavens Consulting</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Process_Logic_Handler_Fields_MERC</fullName>
+        <description>MERC_MeetingProcessLogicHandler class. Used to assist querying of all fields without needing to modify code : MERC : Created on 22/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <displayedFields>
+            <field>Create_New_Task_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Task_Status_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>New_Task_Due_Date_Relative_to_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>New_Due_Date_Direction_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Create_New_Process_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Initiate_Delegate_Management_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Participant_Key_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Participant_Status_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Process_Key_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Process_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Veeva_Meeting_Participant_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>First_Travel_Proposal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_Task_Status_To_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_Task_Due_Date_To_Today_Plus_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_Task_Completed_Date_To_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_Task_Name_To_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_Task_Status_From_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_Existing_Task_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Travel_Proposal_Key_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Travel_Proposal_Status_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Id</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>New_Task_Status_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>New_Task_Name_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>New_Task_Due_Date_Days_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>New_Process_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Task_Key_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Process Logic Handler Fields</label>
+    </fieldSets>
+    <fields>
+        <fullName>Create_New_Process_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to trigger the creation of a new process : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Create New Process</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Create_New_Task_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates whether the creation of a Task is needed : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Create New Task</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Description_MERC__c</fullName>
+        <description>The overall description for what the logic does : MERC : Created on 22/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>First_Travel_Proposal_MERC__c</fullName>
+        <description>Stores either TRUE or FALSE.  Used to Indicate if it&apos;s the First Travel Proposal or not which can be used to create a new process or continue an existing process : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>First Travel Proposal</label>
+        <picklist>
+            <picklistValues>
+                <fullName>TRUE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FALSE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Initiate_Delegate_Management_MERC__c</fullName>
+        <description>Indicates what state the Initiate Delegate Management field should be on the parent meeting in order for this logic to run: MERC : Created on 19/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Initiate Delegate Management</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_Key_MERC__c</fullName>
+        <description>The composite key which can be used to match records to the process logic : MERC : Created on 22/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(RecordType.DeveloperName = &quot;MERC_Meeting_Participant&quot;, 
+TEXT( Initiate_Delegate_Management_MERC__c ) + 
+&apos;;&apos; + 
+TEXT( Meeting_Participant_Status_MERC__c ) +
+&apos;;&apos; + 
+IF(Veeva_Meeting_Participant_MERC__c, &apos;TRUE&apos;, &apos;FALSE&apos;)
+,
+&quot;&quot;)</formula>
+        <label>Meeting Participant Key</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_Status_MERC__c</fullName>
+        <description>The Status of the Meeting Participant for which this logic should be run : MERC : Created on 22/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invited</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Process_Key_MERC__c</fullName>
+        <description>The key used to match a Meeting Process record to a Meeting Process Logic Rule : MERC : Created on 22/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(RecordType.DeveloperName = &quot;MERC_Meeting_Process&quot;, 
+TEXT( Process_MERC__c )
+, &quot;&quot;)</formula>
+        <label>Meeting Process Key</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Task_Key_MERC__c</fullName>
+        <description>Generates the key based on known criteria fields, used to trigger the next wave of Task automation : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(RecordType.DeveloperName = &quot;MERC_Meeting_Task&quot;, 
+
+TEXT(Process_MERC__c) &amp; &quot;;&quot; &amp;  TEXT(Meeting_Task_Status_MERC__c)
+, &quot;&quot;)</formula>
+        <label>Meeting Task Key</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Task_Status_MERC__c</fullName>
+        <description>Used to generate the Meeting Task key for trigger the next set of automated Tasks : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Task Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>New_Due_Date_Direction_MERC__c</fullName>
+        <description>Indicates whether to add or subtract days from the &quot;New Due Date Relative To&quot; field : MERC : Created on 01/07/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>New Due Date Direction</label>
+        <picklist>
+            <picklistValues>
+                <fullName>After</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Before</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>New_Process_MERC__c</fullName>
+        <description>Sets the Process Type of any created Process records : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>New Process</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pre-Meeting Information</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>New_Task_Due_Date_Days_MERC__c</fullName>
+        <description>The number of days from today/completed date that the new task should be due : MERC : Created on 22/06/2015 by Oliver Dunford</description>
+        <externalId>false</externalId>
+        <label>New Task Due Date Days</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Task_Due_Date_Relative_to_MERC__c</fullName>
+        <description>The api name of the field on the current object which the due date is relative to. e.g. if value is &apos;Meeting_Start_Date_MERC__c&apos; and record type is MERC_Meeting_Process then date is relative to the Meeting start date on the process object : MERC : Created on 01/07/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>New Task Due Date Relative to</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Task_Name_MERC__c</fullName>
+        <description>Sets the Task Name of the Task being created : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>New Task Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Task_Status_MERC__c</fullName>
+        <description>Sets the Status of any created Task records : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>New Task Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Process_MERC__c</fullName>
+        <description>Inidicates which Process the rule belongs to : MERC : Created on 22/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Process</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pre-Meeting Information</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Proposal_Key_MERC__c</fullName>
+        <description>The key for Travel Proposal Process.  Used to determine the next logic steps : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF( RecordType.DeveloperName = &quot;MERC_Travel_Proposal&quot;,
+
+TEXT(Process_MERC__c)  &amp; &quot;;&quot; &amp; TEXT(First_Travel_Proposal_MERC__c)  &amp; &quot;;&quot; &amp; TEXT(Travel_Proposal_Status_MERC__c)
+
+, &quot;&quot;)</formula>
+        <label>Travel Proposal Key</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Travel_Proposal_Status_MERC__c</fullName>
+        <description>Used to generate a Travel Proposal Key to determine Meeting Process automation steps : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Travel Proposal Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Proposed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ticketed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready for Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Update_Existing_Task_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates whether a Task Update is needed : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Update Existing Task</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Update_Task_Completed_Date_To_MERC__c</fullName>
+        <description>Sets the completion date for Task updates : MERC : Created on 22/06/2015 by Oliver Dunford</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The options for this are &quot;Today&quot;, an empty cell or &quot;Null&quot;.  Today will be set to Today&apos;s date unless the value is manually populated.  An empty cell will leave the field intact and make no changes.  The &quot;Null&quot; option will blank out the existing value.</inlineHelpText>
+        <label>Update Task Completed Date To</label>
+        <picklist>
+            <picklistValues>
+                <fullName>null</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Today</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Update_Task_Due_Date_To_Today_Plus_MERC__c</fullName>
+        <description>Sets the Task due for existing Task records : MERC : Created on 22/06/2015 by Oliver Dunford</description>
+        <externalId>false</externalId>
+        <label>Update Task Due Date To Today Plus</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Update_Task_Name_To_MERC__c</fullName>
+        <description>Updates the Task Name of the Task being updated : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Update Task Name To</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Update_Task_Status_From_MERC__c</fullName>
+        <description>For Task Updates the value that will be replaced with the From Task Status field : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Update Task Status From</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Update_Task_Status_To_MERC__c</fullName>
+        <description>For Task Updates the value that will be set for the Task Status post record update : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Update Task Status To</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Veeva_Meeting_Participant_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates the rule should be run only when the meeting participatnt came from Veeva: MERC : Created on 22/06/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Veeva Meeting Participant</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Meeting Process Logic</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Description_MERC__c</columns>
+        <columns>Meeting_Participant_Key_MERC__c</columns>
+        <columns>Meeting_Process_Key_MERC__c</columns>
+        <columns>Meeting_Task_Key_MERC__c</columns>
+        <columns>Travel_Proposal_Key_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>MPL-{0000}</displayFormat>
+        <label>Meeting Progress Logic Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Meeting Process Logic</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>MERC_Meeting_Participant</fullName>
+        <active>true</active>
+        <description>Used to show logic for Meeting Participant automation only</description>
+        <label>Meeting Participant</label>
+        <picklistValues>
+            <picklist>First_Travel_Proposal_MERC__c</picklist>
+            <values>
+                <fullName>FALSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TRUE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Initiate_Delegate_Management_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Participant_Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Task_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Due_Date_Direction_MERC__c</picklist>
+            <values>
+                <fullName>After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Before</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Process_MERC__c</picklist>
+            <values>
+                <fullName>Pre-Meeting Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Task_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_MERC__c</picklist>
+            <values>
+                <fullName>Pre-Meeting Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Proposal_Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ticketed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Completed_Date_To_MERC__c</picklist>
+            <values>
+                <fullName>Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>null</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Status_From_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Status_To_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MERC_Meeting_Process</fullName>
+        <active>true</active>
+        <description>Used to show logic for Meeting Process automation only</description>
+        <label>Meeting Process</label>
+        <picklistValues>
+            <picklist>First_Travel_Proposal_MERC__c</picklist>
+            <values>
+                <fullName>FALSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TRUE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Initiate_Delegate_Management_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Participant_Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Task_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Due_Date_Direction_MERC__c</picklist>
+            <values>
+                <fullName>After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Before</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Process_MERC__c</picklist>
+            <values>
+                <fullName>Pre-Meeting Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Task_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_MERC__c</picklist>
+            <values>
+                <fullName>Pre-Meeting Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Proposal_Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ticketed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Completed_Date_To_MERC__c</picklist>
+            <values>
+                <fullName>Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>null</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Status_From_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Status_To_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MERC_Meeting_Task</fullName>
+        <active>true</active>
+        <description>Used to show logic for Meeting Task automation only</description>
+        <label>Meeting Task</label>
+        <picklistValues>
+            <picklist>First_Travel_Proposal_MERC__c</picklist>
+            <values>
+                <fullName>FALSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TRUE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Initiate_Delegate_Management_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Participant_Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Task_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Due_Date_Direction_MERC__c</picklist>
+            <values>
+                <fullName>After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Before</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Process_MERC__c</picklist>
+            <values>
+                <fullName>Pre-Meeting Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Task_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_MERC__c</picklist>
+            <values>
+                <fullName>Pre-Meeting Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Proposal_Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ticketed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Completed_Date_To_MERC__c</picklist>
+            <values>
+                <fullName>Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>null</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Status_From_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Status_To_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MERC_Travel_Proposal</fullName>
+        <active>true</active>
+        <description>Used to show logic for Travel Proposal automation only</description>
+        <label>Travel Proposal</label>
+        <picklistValues>
+            <picklist>First_Travel_Proposal_MERC__c</picklist>
+            <values>
+                <fullName>FALSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TRUE</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Initiate_Delegate_Management_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Participant_Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Task_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Due_Date_Direction_MERC__c</picklist>
+            <values>
+                <fullName>After</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Before</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Process_MERC__c</picklist>
+            <values>
+                <fullName>Pre-Meeting Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Task_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Process_MERC__c</picklist>
+            <values>
+                <fullName>Pre-Meeting Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Proposal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Proposal_Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ticketed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Completed_Date_To_MERC__c</picklist>
+            <values>
+                <fullName>Today</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>null</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Status_From_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Update_Task_Status_To_MERC__c</picklist>
+            <values>
+                <fullName>Completed - Continue Follow Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Process Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed - Unresponsive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
