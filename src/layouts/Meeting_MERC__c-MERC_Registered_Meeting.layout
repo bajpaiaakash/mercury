@@ -375,6 +375,7 @@
     <relatedLists>
         <customButtons>Add_Participants_MERC</customButtons>
         <customButtons>Mass_Approve_Participants_MERC</customButtons>
+        <customButtons>Update_Meeting_Tasks_MERC</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Account.NAME</fields>

@@ -107,6 +107,7 @@
         <members>Meeting_Process_MERC__c-MERC_Meeting_Process</members>
         <members>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</members>
         <members>Payee_MERC__c-MERC_Payee</members>
+        <members>PersonAccount-GLBL_HCP Account</members>
         <members>PersonAccount-MERC_Designated Individual</members>
         <members>Preferences_and_Consent_GLBL__c-GLBL_Consent</members>
         <name>Layout</name>
@@ -124,6 +125,8 @@
         <name>PermissionSet</name>
     </types>
     <types>
+        <members>GSO Basic User_Platform</members>
+        <members>GSO Basic User_Salesforce</members>
         <members>Mercury Integration MVI - Platform</members>
         <members>Mercury Metadata API</members>
         <members>Mercury Portal API - Platform</members>
