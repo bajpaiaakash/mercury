@@ -107,7 +107,6 @@
         <members>Meeting_Process_MERC__c-MERC_Meeting_Process</members>
         <members>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</members>
         <members>Payee_MERC__c-MERC_Payee</members>
-        <members>PersonAccount-GLBL_HCP Account</members>
         <members>PersonAccount-MERC_Designated Individual</members>
         <members>Preferences_and_Consent_GLBL__c-GLBL_Consent</members>
         <name>Layout</name>

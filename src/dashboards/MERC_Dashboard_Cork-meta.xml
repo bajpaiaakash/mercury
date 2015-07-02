@@ -5,10 +5,5 @@
         <sharedTo>MERC_Dashboard_Development</sharedTo>
         <sharedToType>Group</sharedToType>
     </folderShares>
-    <folderShares>
-        <accessLevel>View</accessLevel>
-        <sharedTo>MERC_Meetings_CMS_Cork</sharedTo>
-        <sharedToType>Group</sharedToType>
-    </folderShares>
     <name>Dashboard Cork</name>
 </DashboardFolder>

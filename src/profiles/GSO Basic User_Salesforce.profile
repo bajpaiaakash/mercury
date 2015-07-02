@@ -532,22 +532,6 @@
         <layout>Payee_MERC__c-MERC_Payee</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-GLBL_HCP Account</layout>
-        <recordType>PersonAccount.Contracting_Party_GLBL</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-GLBL_HCP Account</layout>
-        <recordType>PersonAccount.Contracting_Party_GLBL</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-GLBL_HCP Account</layout>
-        <recordType>PersonAccount.HCP_GLBL</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-GLBL_HCP Account</layout>
-        <recordType>PersonAccount.HCP_GLBL</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>PersonAccount-MERC_Designated Individual</layout>
         <recordType>PersonAccount.Designated_Individual_GLBL</recordType>
     </layoutAssignments>
