@@ -11,6 +11,17 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Meeting_Process_Logic_Key_MERC__c</fullName>
+        <description>Used to compare against a matching key in the Meeting Process Logic object to drive the next set of automation : MERC : Created on 22/06/2015</description>
+        <externalId>false</externalId>
+        <formula>&quot;Travel Proposal;&quot; &amp;  IF(Proposal_Counter_MERC__c &lt;= 1, &quot;TRUE&quot;, &quot;FALSE&quot;) &amp; &quot;;&quot; &amp; TEXT( Status_MERC__c )</formula>
+        <label>Meeting Process Logic Key</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Proposal_Counter_MERC__c</fullName>
         <description>Captures the number of proposals for the associated meting participant. Initially created for triggering of delegate management processes : MERC : Created on 19/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>

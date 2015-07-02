@@ -451,6 +451,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Meeting_Process_Logic_Key_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Travel_Itinerary_MERC__c.Proposal_Counter_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
