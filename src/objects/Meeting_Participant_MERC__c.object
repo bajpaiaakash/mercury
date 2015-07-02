@@ -128,4 +128,18 @@
         <description>HCP contracted to provide services for a Meeting including  includes Consulting and Advisory Meetings</description>
         <label>Service Provider</label>
     </recordTypes>
+    <webLinks>
+        <fullName>Update_Meeting_Tasks_MERC</fullName>
+        <availability>online</availability>
+        <description>Launches a custom page to ensure Meeting Tasks can be updated on mass for Meeting Processes : MERC : Created in 02/07/2015 by Oliver Dunford</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Update Meeting Tasks</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/apex/MERC_MeetingTaskEditor?id={!Meeting_MERC__c.Id}</url>
+    </webLinks>
 </CustomObject>
