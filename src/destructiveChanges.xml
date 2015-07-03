@@ -4,7 +4,7 @@
       <members>MERC_TestFactory</members>
       <name>ApexClass</name>
   </types>
-  <types>
+  <types> 
       <members>Meeting_Tasks_MERC__c.Change_Process_End_Date_MERC__c</members>
       <members>Meeting_Tasks_MERC__c.Change_Process_Start_Date_MERC__c</members>
       <members>Meeting_Tasks_MERC__c.Check_for_Changes_MERC__c</members>
