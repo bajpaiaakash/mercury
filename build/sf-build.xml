@@ -11,25 +11,28 @@
 	<!-- Deployment targets                         -->
 	<!-- ========================================== -->
 	<target name="deploy_metadata">
-		<echo message="START: SFDC Deployment" />
-		<sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src.dir}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" testLevel="${sf.testLevel}" logType="${sf.logType}">
-	 
-			<!-- DO NOT REMOVE THE BELOW COMMENT. THIS IS A PLACEHOLDER THAT IS REPLACED BY THE TESTS THAT SHOULD BE RUN FOR THIS BUILD. -->
-			<!--runTests-->
-	   </sf:deploy>
+	<echo message="START: SFDC Deployment" />
+	<sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src.dir}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" testLevel="${sf.testLevel}" logType="${sf.logType}">
+ 
+	<!-- DO NOT REMOVE THE BELOW COMMENT. THIS IS A PLACEHOLDER THAT IS REPLACED BY THE TESTS THAT SHOULD BE RUN FOR THIS BUILD. -->
+       <!--runTests-->
+ 
+	</sf:deploy>
 	</target>
+
 
 	<!-- ========================================== -->
 	<!-- File token replacement                     -->
-	<!-- ========================================== -->
+	<!-- ========================================== -->      
 	<target name="replaceTestsFragment">
-		<property name="placeholder.pattern"><![CDATA[[<]!--runTests--[>]]]></property>
-		<loadfile property="replacement.data" srcFile="${replacement.file}"/>
-		<replaceregexp file="sf-build.xml" flags="gs">
-			<regexp pattern="${placeholder.pattern}"/>
-			<substitution expression="${replacement.data}"/>
-		</replaceregexp>
+	<property name="placeholder.pattern"><![CDATA[[<]!--runTests--[>]]]></property>
+	<loadfile property="replacement.data" srcFile="${replacement.file}"/>
+       <replaceregexp file="sf-build.xml" flags="gs">
+       <regexp pattern="${placeholder.pattern}"/>
+	<substitution expression="${replacement.data}"/>
+	</replaceregexp>
 	</target>
+
 	
 	
 	<target name="list_metadata">
