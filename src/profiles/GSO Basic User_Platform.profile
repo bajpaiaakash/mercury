@@ -54,6 +54,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Contract_Signatory_MERC__c</field>

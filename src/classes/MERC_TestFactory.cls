@@ -393,23 +393,37 @@ public with sharing class MERC_TestFactory {
         return pList;
     }
 
-    public static Budget_MERC__c insertBudget(String meetingId) {
+	public static Budget_MERC__c insertBudget(String meetingId, boolean flag) {
 
-        return insertBulkBudgets(new List<Meeting_MERC__c>{new Meeting_MERC__c(Id=meetingId)}).get(0);
+        return insertBulkBudgets(new List<Meeting_MERC__c>{new Meeting_MERC__c(Id=meetingId)},flag).get(0);  //Modified by Jyoti Gaur for US-37784 on 01 June
     }
 
-    public static List<Budget_MERC__c> insertBulkBudgets(List<Meeting_MERC__c> meetings) {
+    public static List<Budget_MERC__c> insertBulkBudgets(List<Meeting_MERC__c> meetings, boolean flag1) {  //Modified by Jyoti Gaur for US-37784 on 01 June
         List<Budget_MERC__c> budgets = new List<Budget_MERC__c>();
         Id budgetRecordTypeId = [Select ID From RecordType Where SobjectType = 'Budget_MERC__c' AND DeveloperName = 'MERC_Budget_Draft'].Id;
+        Budget_MERC__c bdgt = null;
+        if(flag1 == true){
+                bdgt= new Budget_MERC__c();
+                bdgt.Meeting_MERC__c     = MERC_TestFactory.insertMeetings(1).get(0).id;
+                bdgt.Status_MERC__c      = 'Draft';
+                bdgt.Cost_Center_MERC__c = '123';
+                bdgt.RecordTypeId        = budgetRecordTypeId;
+                insert bdgt;
+        }
+        
         for (Meeting_MERC__c meeting : meetings) {
             Budget_MERC__c b      = new Budget_MERC__c();
             b.Meeting_MERC__c     = meeting.Id;
             b.Status_MERC__c      = 'Draft';
             b.Cost_Center_MERC__c = '1234567';
             b.RecordTypeId        = budgetRecordTypeId;
+            b.Previous_Budget_Revision_MERC__c = bdgt.id;
             budgets.add(b);
         }
         insert budgets;
+        List<Budget_Line_Item_MERC__c> BLI=insertBudgetLineItems(budgets[0].Id, 5);
+        List<Budget_MERC__c> bdgtlist=[select id,Meeting_MERC__c,Status_MERC__c,Cost_Center_MERC__c,RecordTypeId,Previous_Budget_Revision_MERC__c,Total_Budget_Line_items__c from Budget_MERC__c where id =:budgets[0].Id];
+        budgets[0] = bdgtlist[0];   //Modified by Jyoti Gaur for US-37784 on 01 June
         return budgets;
     }
 

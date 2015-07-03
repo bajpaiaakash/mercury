@@ -55,6 +55,11 @@
     </classAccesses>
     <custom>true</custom>
     <description>Work in Process - This will ultimately be new Portal API Profile. KLorenti</description>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Contract_Signatory_MERC__c</field>

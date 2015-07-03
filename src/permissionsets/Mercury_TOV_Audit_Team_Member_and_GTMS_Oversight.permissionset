@@ -53,7 +53,12 @@
         <enabled>false</enabled>
     </classAccesses>
     <description>Permission set to give permission to verify the TOV accuracy and completeness for transparencey reporting.</description>
-    <fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
+	<fieldPermissions>
         <editable>false</editable>
         <field>Account.Contract_Signatory_MERC__c</field>
         <readable>true</readable>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>GLBL_BaseEditControllerTest</members>
+        <members>MERC_BudgetVersionController</members>
+        <members>MERC_BudgetVersionControllerTest</members>
+        <members>MERC_ContentVersionHandlerTest</members>
+        <members>MERC_NewContentControllerTest</members>
         <members>GLBL_GenericRelatedListController</members>
         <members>MERC_CancelDelegateMgmtProcesses</members>
         <members>MERC_MeetingDateTimesController</members>
@@ -16,6 +21,8 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>MERC_ActivateBudget</members>
+        <members>MERC_FinalizeBudgetConfirm</members>
         <members>MERC_TravelProposals</members>
         <name>ApexPage</name>
     </types>
@@ -32,6 +39,7 @@
         <name>CustomApplication</name>
     </types>
     <types>
+		<members>Budget_MERC__c.Total_Budget_Line_items__c</members>
         <members>Account.Contract_Signatory_MERC__c</members>
         <members>Account.Contracting_Party_Change_Reviewed_MERC__c</members>
         <members>Account.Contracting_Party_Review_Required_MERC__c</members>
@@ -95,6 +103,10 @@
         <name>Group</name>
     </types>
     <types>
+        <members>Budget_MERC__c-MERC_Budget_Active</members>
+        <members>Budget_MERC__c-MERC_Budget_Archived</members>
+        <members>Budget_MERC__c-MERC_Budget_Draft</members>
+        <members>Budget_MERC__c-MERC_Budget_Final</members>
         <members>Account-MERC_Contracting_Party</members>
         <members>Meeting_MERC__c-MERC_Active</members>
         <members>Meeting_MERC__c-MERC_Completed</members>
@@ -117,23 +129,32 @@
     </types>
     <types>
         <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Case_Management_Access</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
         <members>Mercury_Legal_Edit</members>
         <members>Mercury_Med_Director_Edit</members>
+        <members>Mercury_Meeting_ExactTarget_Email_MERC</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
         <members>Mercury_Reporting_and_Dashboards</members>
         <members>Mercury_System_Administrator_Lite</members>
         <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
         <members>Mercury_Travel_Agent_Edit</members>
+		<members>Mercury_Portal_API_Edit</members>
         <name>PermissionSet</name>
     </types>
     <types>
         <members>GSO Basic User_Platform</members>
         <members>GSO Basic User_Salesforce</members>
+        <members>Mercury Integration CST - Platform</members>
+        <members>Mercury Integration Docusign - Platform</members>
+        <members>Mercury Integration ExactTarget - Platform</members>
         <members>Mercury Integration MVI - Platform</members>
+        <members>Mercury Integration ODS - Platform</members>
+        <members>Mercury Integration SAP - Platform</members>
         <members>Mercury Metadata API</members>
         <members>Mercury Portal API - Platform</members>
+        <members>Mercury Project Team</members>
         <name>Profile</name>
     </types>
     <types>
