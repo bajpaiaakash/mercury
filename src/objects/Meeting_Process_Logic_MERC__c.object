@@ -735,6 +735,8 @@ TEXT(Process_MERC__c)  &amp; &quot;;&quot; &amp; TEXT(First_Travel_Proposal_MERC
         <columns>Meeting_Process_Key_MERC__c</columns>
         <columns>Meeting_Task_Key_MERC__c</columns>
         <columns>Travel_Proposal_Key_MERC__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>

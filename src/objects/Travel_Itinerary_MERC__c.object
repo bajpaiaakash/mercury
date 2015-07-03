@@ -34,6 +34,826 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Segment_Begin_Timezone_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment Begin Timezone</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Line Islands Time (Pacific/Kiritimati)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chatham Daylight Time (Pacific/Chatham)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Zealand Daylight Time (Pacific/Auckland)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phoenix Islands Time (Pacific/Enderbury)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fiji Summer Time (Pacific/Fiji)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tonga Time (Pacific/Tongatapu)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magadan Time (Asia/Kamchatka)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Norfolk Islands Time (Pacific/Norfolk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lord Howe Daylight Time (Australia/Lord_Howe)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australian Eastern Daylight Time (Australia/Sydney)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Solomon Islands Time (Pacific/Guadalcanal)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australian Central Daylight Time (Australia/Adelaide)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australian Eastern Standard Time (Australia/Brisbane)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australian Central Standard Time (Australia/Darwin)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Korean Standard Time (Asia/Seoul)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Japan Standard Time (Asia/Tokyo)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hong Kong Time (Asia/Hong_Kong)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malaysia Time (Asia/Kuala_Lumpur)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Philippine Time (Asia/Manila)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>China Standard Time (Asia/Shanghai)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Singapore Standard Time (Asia/Singapore)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Taipei Standard Time (Asia/Taipei)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australian Western Standard Time (Australia/Perth)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indochina Time (Asia/Bangkok)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indochina Time (Asia/Ho_Chi_Minh)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western Indonesia Time (Asia/Jakarta)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Myanmar Time (Asia/Rangoon)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bangladesh Time (Asia/Dhaka)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nepal Time (Asia/Kathmandu)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>India Standard Time (Asia/Colombo)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>India Standard Time (Asia/Kolkata)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pakistan Time (Asia/Karachi)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Uzbekistan Time (Asia/Tashkent)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yekaterinburg Time (Asia/Yekaterinburg)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Afghanistan Time (Asia/Kabul)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Azerbaijan Time (Asia/Baku)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gulf Standard Time (Asia/Dubai)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Georgia Time (Asia/Tbilisi)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Armenia Time (Asia/Yerevan)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Iran Standard Time (Asia/Tehran)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>East African Time (Africa/Nairobi)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arabian Standard Time (Asia/Baghdad)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arabian Standard Time (Asia/Kuwait)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arabian Standard Time (Asia/Riyadh)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Further-eastern European Time (Europe/Minsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Moscow Standard Time (Europe/Moscow)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Africa/Cairo)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>South Africa Standard Time (Africa/Johannesburg)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Asia/Beirut)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Israel Standard Time (Asia/Jerusalem)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Athens)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Bucharest)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Helsinki)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Istanbul)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Africa/Algiers)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Amsterdam)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Berlin)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Brussels)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Paris)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Prague)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Rome)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western European Time (Africa/Casablanca)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (Europe/Dublin)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western European Time (Europe/Lisbon)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (Europe/London)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (GMT)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>East Greenland Time (America/Scoresbysund)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Azores Time (Atlantic/Azores)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cape Verde Time (Atlantic/Cape_Verde)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Brasilia Summer Time (America/Sao_Paulo)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>South Georgia Time (Atlantic/South_Georgia)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Argentina Time (America/Argentina/Buenos_Aires)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chile Summer Time (America/Santiago)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Newfoundland Standard Time (America/St_Johns)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Atlantic Standard Time (America/Halifax)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Atlantic Standard Time (America/Puerto_Rico)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Atlantic Standard Time (Atlantic/Bermuda)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Venezuela Time (America/Caracas)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Colombia Time (America/Bogota)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern Standard Time (America/Indiana/Indianapolis)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Peru Time (America/Lima)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern Standard Time (America/New_York)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern Standard Time (America/Panama)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central Standard Time (America/Chicago)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central Standard Time (America/El_Salvador)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central Standard Time (America/Mexico_City)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mountain Standard Time (America/Denver)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mountain Standard Time (America/Mazatlan)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mountain Standard Time (America/Phoenix)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pacific Standard Time (America/Los_Angeles)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pacific Standard Time (America/Tijuana)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pitcairn Time (Pacific/Pitcairn)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Alaska Standard Time (America/Anchorage)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gambier Time (Pacific/Gambier)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marquesas Time (Pacific/Marquesas)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hawaii-Aleutian Standard Time (America/Adak)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hawaii-Aleutian Standard Time (Pacific/Honolulu)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Niue Time (Pacific/Niue)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Samoa Standard Time (Pacific/Pago_Pago)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PBattisson Test Zone (Pacific/Kiritimati)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Segment_End_Timezone_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment End Timezone</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Line Islands Time (Pacific/Kiritimati)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chatham Daylight Time (Pacific/Chatham)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Zealand Daylight Time (Pacific/Auckland)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phoenix Islands Time (Pacific/Enderbury)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fiji Summer Time (Pacific/Fiji)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tonga Time (Pacific/Tongatapu)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magadan Time (Asia/Kamchatka)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Norfolk Islands Time (Pacific/Norfolk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lord Howe Daylight Time (Australia/Lord_Howe)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australian Eastern Daylight Time (Australia/Sydney)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Solomon Islands Time (Pacific/Guadalcanal)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australian Central Daylight Time (Australia/Adelaide)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australian Eastern Standard Time (Australia/Brisbane)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australian Central Standard Time (Australia/Darwin)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Korean Standard Time (Asia/Seoul)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Japan Standard Time (Asia/Tokyo)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hong Kong Time (Asia/Hong_Kong)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malaysia Time (Asia/Kuala_Lumpur)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Philippine Time (Asia/Manila)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>China Standard Time (Asia/Shanghai)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Singapore Standard Time (Asia/Singapore)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Taipei Standard Time (Asia/Taipei)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australian Western Standard Time (Australia/Perth)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indochina Time (Asia/Bangkok)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indochina Time (Asia/Ho_Chi_Minh)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western Indonesia Time (Asia/Jakarta)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Myanmar Time (Asia/Rangoon)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bangladesh Time (Asia/Dhaka)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nepal Time (Asia/Kathmandu)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>India Standard Time (Asia/Colombo)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>India Standard Time (Asia/Kolkata)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pakistan Time (Asia/Karachi)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Uzbekistan Time (Asia/Tashkent)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yekaterinburg Time (Asia/Yekaterinburg)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Afghanistan Time (Asia/Kabul)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Azerbaijan Time (Asia/Baku)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gulf Standard Time (Asia/Dubai)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Georgia Time (Asia/Tbilisi)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Armenia Time (Asia/Yerevan)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Iran Standard Time (Asia/Tehran)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>East African Time (Africa/Nairobi)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arabian Standard Time (Asia/Baghdad)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arabian Standard Time (Asia/Kuwait)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arabian Standard Time (Asia/Riyadh)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Further-eastern European Time (Europe/Minsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Moscow Standard Time (Europe/Moscow)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Africa/Cairo)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>South Africa Standard Time (Africa/Johannesburg)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Asia/Beirut)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Israel Standard Time (Asia/Jerusalem)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Athens)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Bucharest)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Helsinki)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Istanbul)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Africa/Algiers)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Amsterdam)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Berlin)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Brussels)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Paris)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Prague)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Rome)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western European Time (Africa/Casablanca)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (Europe/Dublin)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western European Time (Europe/Lisbon)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (Europe/London)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (GMT)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>East Greenland Time (America/Scoresbysund)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Azores Time (Atlantic/Azores)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cape Verde Time (Atlantic/Cape_Verde)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Brasilia Summer Time (America/Sao_Paulo)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>South Georgia Time (Atlantic/South_Georgia)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Argentina Time (America/Argentina/Buenos_Aires)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chile Summer Time (America/Santiago)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Newfoundland Standard Time (America/St_Johns)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Atlantic Standard Time (America/Halifax)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Atlantic Standard Time (America/Puerto_Rico)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Atlantic Standard Time (Atlantic/Bermuda)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Venezuela Time (America/Caracas)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Colombia Time (America/Bogota)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern Standard Time (America/Indiana/Indianapolis)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Peru Time (America/Lima)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern Standard Time (America/New_York)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern Standard Time (America/Panama)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central Standard Time (America/Chicago)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central Standard Time (America/El_Salvador)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central Standard Time (America/Mexico_City)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mountain Standard Time (America/Denver)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mountain Standard Time (America/Mazatlan)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mountain Standard Time (America/Phoenix)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pacific Standard Time (America/Los_Angeles)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pacific Standard Time (America/Tijuana)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pitcairn Time (Pacific/Pitcairn)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Alaska Standard Time (America/Anchorage)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gambier Time (Pacific/Gambier)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marquesas Time (Pacific/Marquesas)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hawaii-Aleutian Standard Time (America/Adak)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hawaii-Aleutian Standard Time (Pacific/Honolulu)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Niue Time (Pacific/Niue)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Samoa Standard Time (Pacific/Pago_Pago)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PBattisson Test Zone (Pacific/Kiritimati)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Status_MERC__c</fullName>
         <description>If the HCP cancels travel or does not use it, the record can be Cancelled.  This then removes any ToV from the associated meeting for that HCP.  Oliver Dunford 11th June 2014.</description>
         <externalId>false</externalId>
@@ -86,6 +906,804 @@
         <active>true</active>
         <description>Used to create Travel Proposals for Meeting Participants</description>
         <label>Travel Proposal</label>
+        <picklistValues>
+            <picklist>Segment_Begin_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Afghanistan Time %28Asia%2FKabul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alaska Standard Time %28America%2FAnchorage%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arabian Standard Time %28Asia%2FBaghdad%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arabian Standard Time %28Asia%2FKuwait%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arabian Standard Time %28Asia%2FRiyadh%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Argentina Time %28America%2FArgentina%2FBuenos_Aires%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Armenia Time %28Asia%2FYerevan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Atlantic Standard Time %28America%2FHalifax%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Atlantic Standard Time %28America%2FPuerto_Rico%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Atlantic Standard Time %28Atlantic%2FBermuda%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australian Central Daylight Time %28Australia%2FAdelaide%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australian Central Standard Time %28Australia%2FDarwin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australian Eastern Daylight Time %28Australia%2FSydney%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australian Eastern Standard Time %28Australia%2FBrisbane%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australian Western Standard Time %28Australia%2FPerth%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Azerbaijan Time %28Asia%2FBaku%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Azores Time %28Atlantic%2FAzores%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bangladesh Time %28Asia%2FDhaka%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brasilia Summer Time %28America%2FSao_Paulo%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cape Verde Time %28Atlantic%2FCape_Verde%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Africa%2FAlgiers%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Standard Time %28America%2FChicago%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Standard Time %28America%2FEl_Salvador%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Standard Time %28America%2FMexico_City%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chatham Daylight Time %28Pacific%2FChatham%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chile Summer Time %28America%2FSantiago%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>China Standard Time %28Asia%2FShanghai%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colombia Time %28America%2FBogota%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>East African Time %28Africa%2FNairobi%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>East Greenland Time %28America%2FScoresbysund%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Africa%2FCairo%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Asia%2FBeirut%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern Standard Time %28America%2FIndiana%2FIndianapolis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern Standard Time %28America%2FNew_York%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern Standard Time %28America%2FPanama%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fiji Summer Time %28Pacific%2FFiji%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gambier Time %28Pacific%2FGambier%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Georgia Time %28Asia%2FTbilisi%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gulf Standard Time %28Asia%2FDubai%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hawaii-Aleutian Standard Time %28America%2FAdak%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hawaii-Aleutian Standard Time %28Pacific%2FHonolulu%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hong Kong Time %28Asia%2FHong_Kong%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>India Standard Time %28Asia%2FColombo%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>India Standard Time %28Asia%2FKolkata%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indochina Time %28Asia%2FBangkok%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indochina Time %28Asia%2FHo_Chi_Minh%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iran Standard Time %28Asia%2FTehran%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Israel Standard Time %28Asia%2FJerusalem%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japan Standard Time %28Asia%2FTokyo%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korean Standard Time %28Asia%2FSeoul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Line Islands Time %28Pacific%2FKiritimati%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lord Howe Daylight Time %28Australia%2FLord_Howe%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magadan Time %28Asia%2FKamchatka%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysia Time %28Asia%2FKuala_Lumpur%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marquesas Time %28Pacific%2FMarquesas%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mountain Standard Time %28America%2FDenver%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mountain Standard Time %28America%2FMazatlan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mountain Standard Time %28America%2FPhoenix%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Myanmar Time %28Asia%2FRangoon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nepal Time %28Asia%2FKathmandu%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand Daylight Time %28Pacific%2FAuckland%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newfoundland Standard Time %28America%2FSt_Johns%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Niue Time %28Pacific%2FNiue%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norfolk Islands Time %28Pacific%2FNorfolk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pacific Standard Time %28America%2FLos_Angeles%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pacific Standard Time %28America%2FTijuana%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pakistan Time %28Asia%2FKarachi%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peru Time %28America%2FLima%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Philippine Time %28Asia%2FManila%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phoenix Islands Time %28Pacific%2FEnderbury%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pitcairn Time %28Pacific%2FPitcairn%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samoa Standard Time %28Pacific%2FPago_Pago%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singapore Standard Time %28Asia%2FSingapore%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Solomon Islands Time %28Pacific%2FGuadalcanal%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Africa Standard Time %28Africa%2FJohannesburg%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Georgia Time %28Atlantic%2FSouth_Georgia%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taipei Standard Time %28Asia%2FTaipei%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tonga Time %28Pacific%2FTongatapu%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uzbekistan Time %28Asia%2FTashkent%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venezuela Time %28America%2FCaracas%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Africa%2FCasablanca%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western Indonesia Time %28Asia%2FJakarta%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yekaterinburg Time %28Asia%2FYekaterinburg%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_End_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Afghanistan Time %28Asia%2FKabul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Alaska Standard Time %28America%2FAnchorage%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arabian Standard Time %28Asia%2FBaghdad%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arabian Standard Time %28Asia%2FKuwait%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Arabian Standard Time %28Asia%2FRiyadh%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Argentina Time %28America%2FArgentina%2FBuenos_Aires%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Armenia Time %28Asia%2FYerevan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Atlantic Standard Time %28America%2FHalifax%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Atlantic Standard Time %28America%2FPuerto_Rico%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Atlantic Standard Time %28Atlantic%2FBermuda%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australian Central Daylight Time %28Australia%2FAdelaide%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australian Central Standard Time %28Australia%2FDarwin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australian Eastern Daylight Time %28Australia%2FSydney%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australian Eastern Standard Time %28Australia%2FBrisbane%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australian Western Standard Time %28Australia%2FPerth%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Azerbaijan Time %28Asia%2FBaku%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Azores Time %28Atlantic%2FAzores%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bangladesh Time %28Asia%2FDhaka%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brasilia Summer Time %28America%2FSao_Paulo%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cape Verde Time %28Atlantic%2FCape_Verde%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Africa%2FAlgiers%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Standard Time %28America%2FChicago%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Standard Time %28America%2FEl_Salvador%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central Standard Time %28America%2FMexico_City%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chatham Daylight Time %28Pacific%2FChatham%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chile Summer Time %28America%2FSantiago%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>China Standard Time %28Asia%2FShanghai%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colombia Time %28America%2FBogota%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>East African Time %28Africa%2FNairobi%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>East Greenland Time %28America%2FScoresbysund%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Africa%2FCairo%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Asia%2FBeirut%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern Standard Time %28America%2FIndiana%2FIndianapolis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern Standard Time %28America%2FNew_York%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern Standard Time %28America%2FPanama%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fiji Summer Time %28Pacific%2FFiji%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gambier Time %28Pacific%2FGambier%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Georgia Time %28Asia%2FTbilisi%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gulf Standard Time %28Asia%2FDubai%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hawaii-Aleutian Standard Time %28America%2FAdak%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hawaii-Aleutian Standard Time %28Pacific%2FHonolulu%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hong Kong Time %28Asia%2FHong_Kong%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>India Standard Time %28Asia%2FColombo%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>India Standard Time %28Asia%2FKolkata%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indochina Time %28Asia%2FBangkok%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indochina Time %28Asia%2FHo_Chi_Minh%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iran Standard Time %28Asia%2FTehran%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Israel Standard Time %28Asia%2FJerusalem%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japan Standard Time %28Asia%2FTokyo%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Korean Standard Time %28Asia%2FSeoul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Line Islands Time %28Pacific%2FKiritimati%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lord Howe Daylight Time %28Australia%2FLord_Howe%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magadan Time %28Asia%2FKamchatka%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysia Time %28Asia%2FKuala_Lumpur%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marquesas Time %28Pacific%2FMarquesas%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mountain Standard Time %28America%2FDenver%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mountain Standard Time %28America%2FMazatlan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mountain Standard Time %28America%2FPhoenix%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Myanmar Time %28Asia%2FRangoon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nepal Time %28Asia%2FKathmandu%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand Daylight Time %28Pacific%2FAuckland%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Newfoundland Standard Time %28America%2FSt_Johns%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Niue Time %28Pacific%2FNiue%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norfolk Islands Time %28Pacific%2FNorfolk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pacific Standard Time %28America%2FLos_Angeles%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pacific Standard Time %28America%2FTijuana%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pakistan Time %28Asia%2FKarachi%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peru Time %28America%2FLima%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Philippine Time %28Asia%2FManila%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phoenix Islands Time %28Pacific%2FEnderbury%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pitcairn Time %28Pacific%2FPitcairn%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Samoa Standard Time %28Pacific%2FPago_Pago%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singapore Standard Time %28Asia%2FSingapore%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Solomon Islands Time %28Pacific%2FGuadalcanal%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Africa Standard Time %28Africa%2FJohannesburg%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Georgia Time %28Atlantic%2FSouth_Georgia%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taipei Standard Time %28Asia%2FTaipei%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tonga Time %28Pacific%2FTongatapu%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uzbekistan Time %28Asia%2FTashkent%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venezuela Time %28America%2FCaracas%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Africa%2FCasablanca%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western Indonesia Time %28Asia%2FJakarta%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yekaterinburg Time %28Asia%2FYekaterinburg%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Status_MERC__c</picklist>
             <values>

@@ -158,7 +158,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
         get {
             if (parent == null) {
                 String fieldString = String.join(parentFields, ',');
-                parent = Database.query('Select '+String.escapeSingleQuotes(fieldString)+' From '+parentObjectAPIName+' Where Id = \''+ApexPages.currentPage().getParameters().get('id')+'\'');
+                parent = Database.query('Select '+String.escapeSingleQuotes(fieldString)+' From '+String.escapeSingleQuotes(parentObjectAPIName)+' Where Id = \''+String.escapeSingleQuotes(ApexPages.currentPage().getParameters().get('id'))+'\'');
             }
             return parent;
         }
@@ -235,9 +235,9 @@ global with sharing virtual class GLBL_GenericRelatedListController {
     public String getSOQLQuery(String fieldString, String fromObject, String whereClause, String orderBy) {
         String soql;
         if (this.recordTypeDeveloperNames != null) {
-            soql = 'Select '+String.escapeSingleQuotes(fieldString)+' From '+String.escapeSingleQuotes(childObjectAPIName)+' Where '+String.escapeSingleQuotes(parentFieldAPIName)+' = \''+ApexPages.currentPage().getParameters().get('id')+'\' AND RecordType.DeveloperName in :recordTypeDeveloperNames';
+            soql = 'Select '+String.escapeSingleQuotes(fieldString)+' From '+String.escapeSingleQuotes(childObjectAPIName)+' Where '+String.escapeSingleQuotes(parentFieldAPIName)+' = \''+String.escapeSingleQuotes(ApexPages.currentPage().getParameters().get('id'))+'\' AND RecordType.DeveloperName in :recordTypeDeveloperNames';
         } else {
-            soql = 'Select '+String.escapeSingleQuotes(fieldString)+' From '+String.escapeSingleQuotes(childObjectAPIName)+' Where '+String.escapeSingleQuotes(parentFieldAPIName)+' = \''+ApexPages.currentPage().getParameters().get('id')+'\'';
+            soql = 'Select '+String.escapeSingleQuotes(fieldString)+' From '+String.escapeSingleQuotes(childObjectAPIName)+' Where '+String.escapeSingleQuotes(parentFieldAPIName)+' = \''+String.escapeSingleQuotes(ApexPages.currentPage().getParameters().get('id'))+'\'';
         }
         if (orderBy != null) {
             soql = soql += ' order by '+String.escapeSingleQuotes(orderBy);

@@ -9,6 +9,7 @@
         <members>MERC_MeetingTeamManagerController</members>
         <members>MERC_ParticipantTovStampHandler</members>
         <members>MERC_TestFactory</members>
+        <members>MERC_TimeZoneUtility</members>
         <members>MERC_TravelProposalsController</members>
         <members>MERC_TravelProposalsControllerTest</members>
         <members>MERC_TriggerHandlerStateManager</members>
@@ -39,6 +40,7 @@
         <members>Meeting_MERC__c.Evaluate_Meeting_Process_Logic_MERC__c</members>
         <members>Meeting_MERC__c.Initiate_Delegate_Management_MERC__c</members>
         <members>Meeting_MERC__c.Meeting_Scope_MERC__c</members>
+        <members>Meeting_MERC__c.Meeting_Time_Zone_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Account_Name_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Fax_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contact_Details_Mobile_MERC__c</members>
@@ -57,6 +59,8 @@
         <members>Travel_Itinerary_MERC__c.Evaluate_Meeting_Process_Logic_MERC_c__c</members>
         <members>Travel_Itinerary_MERC__c.Meeting_Process_Logic_Key_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Proposal_Counter_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Segment_Begin_Timezone_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Segment_End_Timezone_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Status_MERC__c</members>
         <name>CustomField</name>
     </types>
@@ -113,6 +117,7 @@
     </types>
     <types>
         <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
         <members>Mercury_Legal_Edit</members>
         <members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>

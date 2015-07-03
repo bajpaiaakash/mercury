@@ -140,6 +140,6 @@
         <openType>sidebar</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>/apex/MERC_MeetingTaskEditor?id={!Meeting_MERC__c.Id}</url>
+        <url>/apex/MERC_MeetingTaskEditor?meetingid={!Meeting_MERC__c.Id}</url>
     </webLinks>
 </CustomObject>
