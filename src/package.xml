@@ -125,6 +125,7 @@
         <members>Payee_MERC__c-MERC_Payee</members>
         <members>PersonAccount-MERC_Designated Individual</members>
         <members>Preferences_and_Consent_GLBL__c-GLBL_Consent</members>
+		<members>Invoice_MERC__c-MERC_Credit Note</members>
         <name>Layout</name>
     </types>
     <types>
