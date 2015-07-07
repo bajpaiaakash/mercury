@@ -5,12 +5,28 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>GLBL_BaseEditControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_GenericRelatedListController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_BudgetVersionController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_BudgetVersionControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_CancelDelegateMgmtProcesses</apexClass>
         <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ContentVersionHandlerTest</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingDateTimesController</apexClass>
@@ -26,6 +42,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingTeamManagerController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_NewContentControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -55,11 +75,6 @@
     <description>Permission set to give the Medical Director access to read and edit fields</description>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
         <field>Account.Contract_Signatory_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -82,6 +97,11 @@
         <editable>false</editable>
         <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -489,6 +509,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <label>Mercury Medical Director - Edit</label>
+    <pageAccesses>
+        <apexPage>MERC_ActivateBudget</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_FinalizeBudgetConfirm</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_TravelProposals</apexPage>
         <enabled>false</enabled>

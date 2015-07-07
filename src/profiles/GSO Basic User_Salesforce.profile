@@ -6,11 +6,27 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>GLBL_BaseEditControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_GenericRelatedListController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_BudgetVersionController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_BudgetVersionControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_CancelDelegateMgmtProcesses</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ContentVersionHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -27,6 +43,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingTeamManagerController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_NewContentControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -54,11 +74,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Contract_Signatory_MERC__c</field>
@@ -83,6 +98,11 @@
         <editable>false</editable>
         <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -490,6 +510,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Active</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Active</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -560,8 +583,20 @@
         <recordType>PersonAccount.Designated_Individual_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>PersonAccount-MERC_Designated Individual</layout>
+        <recordType>PersonAccount.Designated_Individual_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Preferences_and_Consent_GLBL__c-GLBL_Consent</layout>
     </layoutAssignments>
+    <pageAccesses>
+        <apexPage>MERC_ActivateBudget</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_FinalizeBudgetConfirm</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_TravelProposals</apexPage>
         <enabled>false</enabled>

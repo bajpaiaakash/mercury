@@ -2,16 +2,16 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>GLBL_BaseEditControllerTest</members>
+        <members>GLBL_GenericRelatedListController</members>
         <members>MERC_BudgetVersionController</members>
         <members>MERC_BudgetVersionControllerTest</members>
-        <members>MERC_ContentVersionHandlerTest</members>
-        <members>MERC_NewContentControllerTest</members>
-        <members>GLBL_GenericRelatedListController</members>
         <members>MERC_CancelDelegateMgmtProcesses</members>
+        <members>MERC_ContentVersionHandlerTest</members>
         <members>MERC_MeetingDateTimesController</members>
         <members>MERC_MeetingParticipantNewEditController</members>
         <members>MERC_MeetingProcessLogicHandler</members>
         <members>MERC_MeetingTeamManagerController</members>
+        <members>MERC_NewContentControllerTest</members>
         <members>MERC_ParticipantTovStampHandler</members>
         <members>MERC_TestFactory</members>
         <members>MERC_TimeZoneUtility</members>
@@ -35,16 +35,20 @@
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>Mercury_WSAPI</members>
+        <name>ConnectedApp</name>
+    </types>
+    <types>
         <members>Mercury</members>
         <name>CustomApplication</name>
     </types>
     <types>
-		<members>Budget_MERC__c.Total_Budget_Line_items__c</members>
         <members>Account.Contract_Signatory_MERC__c</members>
         <members>Account.Contracting_Party_Change_Reviewed_MERC__c</members>
         <members>Account.Contracting_Party_Review_Required_MERC__c</members>
         <members>Account.DI_Validation_Required_MERC__c</members>
         <members>Account.Designated_Indiv_Validation_Date_MERC__c</members>
+        <members>Budget_MERC__c.Total_Budget_Line_items__c</members>
         <members>Meeting_MERC__c.Evaluate_Meeting_Process_Logic_MERC__c</members>
         <members>Meeting_MERC__c.Initiate_Delegate_Management_MERC__c</members>
         <members>Meeting_MERC__c.Meeting_Scope_MERC__c</members>
@@ -103,11 +107,12 @@
         <name>Group</name>
     </types>
     <types>
+        <members>Account-MERC_Contracting_Party</members>
         <members>Budget_MERC__c-MERC_Budget_Active</members>
         <members>Budget_MERC__c-MERC_Budget_Archived</members>
         <members>Budget_MERC__c-MERC_Budget_Draft</members>
         <members>Budget_MERC__c-MERC_Budget_Final</members>
-        <members>Account-MERC_Contracting_Party</members>
+        <members>Invoice_MERC__c-MERC_Credit Note</members>
         <members>Meeting_MERC__c-MERC_Active</members>
         <members>Meeting_MERC__c-MERC_Completed</members>
         <members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>
@@ -125,7 +130,6 @@
         <members>Payee_MERC__c-MERC_Payee</members>
         <members>PersonAccount-MERC_Designated Individual</members>
         <members>Preferences_and_Consent_GLBL__c-GLBL_Consent</members>
-		<members>Invoice_MERC__c-MERC_Credit Note</members>
         <name>Layout</name>
     </types>
     <types>
@@ -137,11 +141,11 @@
         <members>Mercury_Meeting_ExactTarget_Email_MERC</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_Portal_API_Edit</members>
         <members>Mercury_Reporting_and_Dashboards</members>
         <members>Mercury_System_Administrator_Lite</members>
         <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
         <members>Mercury_Travel_Agent_Edit</members>
-		<members>Mercury_Portal_API_Edit</members>
         <name>PermissionSet</name>
     </types>
     <types>

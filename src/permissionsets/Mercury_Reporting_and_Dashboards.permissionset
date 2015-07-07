@@ -5,11 +5,27 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>GLBL_BaseEditControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_GenericRelatedListController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_BudgetVersionController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_BudgetVersionControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_CancelDelegateMgmtProcesses</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ContentVersionHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -26,6 +42,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingTeamManagerController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_NewContentControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -76,6 +96,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -484,6 +509,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <label>Mercury Reporting and Dashboards</label>
+    <pageAccesses>
+        <apexPage>MERC_ActivateBudget</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_FinalizeBudgetConfirm</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_TravelProposals</apexPage>
         <enabled>false</enabled>

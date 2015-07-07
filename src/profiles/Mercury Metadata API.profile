@@ -6,11 +6,27 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>GLBL_BaseEditControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_GenericRelatedListController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_BudgetVersionController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_BudgetVersionControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_CancelDelegateMgmtProcesses</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ContentVersionHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -27,6 +43,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingTeamManagerController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_NewContentControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -55,12 +75,7 @@
     </classAccesses>
     <custom>true</custom>
     <description>For a portal background task that queries the Salesforce Metadata API. SFDC requires the User accessing the Metadata API must have the &quot;Modify All Data&quot; Permission (only available with a full SF license) Created 03/28/2014 by KLorenti, Mavens Consulting</description>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
-        <readable>true</readable>
-    </fieldPermissions>    
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Contract_Signatory_MERC__c</field>
         <readable>true</readable>
@@ -84,6 +99,11 @@
         <editable>false</editable>
         <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -491,6 +511,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Active</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Active</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -750,6 +773,14 @@
         <object>Meeting_Tasks_MERC__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <pageAccesses>
+        <apexPage>MERC_ActivateBudget</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_FinalizeBudgetConfirm</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_TravelProposals</apexPage>
         <enabled>false</enabled>

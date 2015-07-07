@@ -6,12 +6,28 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>GLBL_BaseEditControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_GenericRelatedListController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_BudgetVersionController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_BudgetVersionControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_CancelDelegateMgmtProcesses</apexClass>
         <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ContentVersionHandlerTest</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingDateTimesController</apexClass>
@@ -28,6 +44,10 @@
     <classAccesses>
         <apexClass>MERC_MeetingTeamManagerController</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_NewContentControllerTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ParticipantTovStampHandler</apexClass>
@@ -55,11 +75,6 @@
     </classAccesses>
     <custom>true</custom>
     <description>Work in Process - This will ultimately be new Portal API Profile. KLorenti</description>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Contract_Signatory_MERC__c</field>
@@ -84,6 +99,11 @@
         <editable>false</editable>
         <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -491,6 +511,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Active</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Meeting_Participant_MERC__c-MERC_Consulting</layout>
         <recordType>Meeting_Participant_MERC__c.Consulting</recordType>
     </layoutAssignments>
@@ -548,6 +571,14 @@
         <endAddress>255.255.255.255</endAddress>
         <startAddress>0.0.0.0</startAddress>
     </loginIpRanges>
+    <pageAccesses>
+        <apexPage>MERC_ActivateBudget</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_FinalizeBudgetConfirm</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_TravelProposals</apexPage>
         <enabled>false</enabled>
