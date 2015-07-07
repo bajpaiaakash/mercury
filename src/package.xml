@@ -10,6 +10,7 @@
         <members>MERC_MeetingDateTimesController</members>
         <members>MERC_MeetingParticipantNewEditController</members>
         <members>MERC_MeetingProcessLogicHandler</members>
+        <members>MERC_MeetingTaskEditorController</members>
         <members>MERC_MeetingTeamManagerController</members>
         <members>MERC_NewContentControllerTest</members>
         <members>MERC_ParticipantTovStampHandler</members>
@@ -23,6 +24,7 @@
     <types>
         <members>MERC_ActivateBudget</members>
         <members>MERC_FinalizeBudgetConfirm</members>
+        <members>MERC_MeetingTaskEditor</members>
         <members>MERC_TravelProposals</members>
         <name>ApexPage</name>
     </types>

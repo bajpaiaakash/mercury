@@ -1,0 +1,184 @@
+<apex:page showHeader="true" sidebar="true" tabStyle="Meeting_Participant_MERC__c" controller="MERC_MeetingTaskEditorController">
+	<style>
+		input.navigation, span.navigation {
+			margin: 0px 5px;
+		}
+	</style>
+	<apex:form >
+
+		<apex:pageMessages id="messages"/>
+
+		<!-- RENDER IF NO ERRORS -->
+		<apex:outputPanel layout="none" rendered="{!noErrors}">
+			<apex:sectionHeader title="Tasks" subtitle="{!meetingHeader}"/>
+
+			<apex:pageBlock id="thePageBlock">
+				<div style="text-align:center;">
+					<apex:commandButton value="Back to Meeting" action="{!returnToMeeting}"/>
+				</div>
+
+				<!-- FILTERS -->
+				<apex:actionFunction name="updateList" action="{!updateTasks}" rerender="thePageBlock" status="tableStatus"/>
+				<apex:pageBlockSection title="Filters" collapsible="False">
+					<apex:inputField value="{!filterProcess.Process_Type_MERC__c}" onchange="updateList();"/>
+					<apex:inputField value="{!filterTask.Task_Status_MERC__c}" onchange="updateList();"/>
+				</apex:pageBlockSection>
+				<!-- END FILTERS -->
+
+
+
+				<apex:pageBlockSection title="Tasks" collapsible="False" columns="1">
+					<!-- TASK NAVIGATION-->
+					<apex:outputPanel id="navigation" layout="block" style="text-align:center;">
+						<!-- FIRST & PREVIOUS BUTTONS -->
+						<apex:outputPanel layout="none" rendered="{!meetingTasks.hasPrevious}">
+							<apex:commandButton value="<< First"
+							                    action="{!meetingTasks.first}"
+							                    rerender="taskTable, messages, navigation"
+							                    styleClass="navigation"
+							                    status="tableStatus"
+							                    onclick="hideToggleValues(true);"/>
+							<apex:commandButton value="< Previous"
+							                    action="{!meetingTasks.previous}"
+							                    rerender="taskTable, messages, navigation"
+							                    styleClass="navigation"
+							                    status="tableStatus"
+							                    onclick="hideToggleValues(true);"/>
+					    </apex:outputPanel>
+					    <apex:outputPanel layout="none" rendered="{!NOT(meetingTasks.hasPrevious)}">
+							<apex:commandButton value="<< First" disabled="true" styleClass="navigation"/>
+							<apex:commandButton value="< Previous" disabled="true" styleClass="navigation"/>
+					    </apex:outputPanel>
+					    <!-- END FIRST & PREVIOUS BUTTONS -->
+
+						<!-- PAGE COUNTER -->
+						<span class="navigation">
+							<apex:outputText value="Page {!meetingTasks.pageNumber} of {!CEILING(meetingTasks.resultSize / meetingTasks.pageSize)}"
+							                 rendered="{!meetingTasks.resultSize > 0}"/>
+						</span>
+						<!-- END PAGE COUNTER -->
+
+					    <!-- NEXT & LAST BUTTONS -->
+					    <apex:outputPanel layout="none" rendered="{!meetingTasks.hasNext}">
+							<apex:commandButton value="Next >"
+							                    action="{!meetingTasks.next}"
+							                    rendered="{!meetingTasks.hasNext}"
+							                    rerender="taskTable, messages, navigation"
+							                    styleClass="navigation"
+							                    status="tableStatus"
+							                    onclick="hideToggleValues(true);"/>
+							<apex:commandButton value="Last >>"
+							                    action="{!meetingTasks.last}"
+							                    rendered="{!meetingTasks.hasNext}"
+							                    rerender="taskTable, messages, navigation"
+							                    styleClass="navigation"
+							                    status="tableStatus"
+							                    onclick="hideToggleValues(true);"/>
+						</apex:outputPanel>
+						<apex:outputPanel layout="none" rendered="{!NOT(meetingTasks.hasNext)}">
+							<apex:commandButton value="Next >" disabled="true" styleClass="navigation"/>
+							<apex:commandButton value="Last >>" disabled="true" styleClass="navigation"/>
+						</apex:outputPanel>
+						<!-- NEXT & LAST BUTTONS -->
+					</apex:outputPanel>
+					<!-- END TASK NAVIGATION-->
+				</apex:pageBlockSection>
+
+
+
+				<!-- APPLY VALUE TO SELECTED ROWS -->
+				<span id="toggleValues" style="display:none">
+					<apex:outputPanel >
+						<apex:outputText value="Set Selected To: "/>
+						<apex:inputField value="{!updateTask.Task_Status_MERC__c}"/>
+						<apex:actionStatus id="applyStatus">
+							<apex:facet name="stop">
+								<apex:commandButton value="Apply" action="{!updateSelected}" rerender="taskTable" status="applyStatus"/>
+							</apex:facet>
+							<apex:facet name="start">
+								Processing...
+							</apex:facet>
+						</apex:actionStatus>
+					</apex:outputPanel>
+				</span>
+				<!-- END APPLY VALUE TO SELECTED ROWS -->
+
+
+
+				<!-- LIST TASKS -->
+				<apex:outputPanel id="taskTable">
+					<apex:actionStatus id="tableStatus">
+						<apex:facet name="stop">
+							<apex:pageBlockTable value="{!tasks}" var="task">
+								<apex:column >
+									<apex:facet name="header">
+										<input type="checkbox" id="selectAll" style="display:{!IF(meetingTasks.resultSize == 0, 'none', '')}"/>
+										<script>
+											document.getElementById('selectAll').addEventListener('change', function() {
+												toggleAll(this);
+											});
+										</script>
+									</apex:facet>
+									<apex:inputCheckbox value="{!task.selected}" styleClass="selectBox"/>
+								</apex:column>
+								<apex:column value="{!task.detail.Name}"/>
+								<apex:column value="{!task.detail.Task_Status_MERC__c}"/>
+								<apex:column value="{!task.detail.Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Account_MERC__r.Name}"/>
+								<apex:column value="{!task.detail.Meeting_Process_MERC__c}"/>
+								<apex:column value="{!task.detail.Meeting_Process_MERC__r.Process_Status_MERC__c}"/>
+								<apex:column value="{!task.detail.Meeting_Process_MERC__r.Meeting_Participant_MERC__c}" styleClass="meeting-participant"/>
+								<apex:column value="{!task.detail.Meeting_Process_MERC__r.Meeting_Participant_MERC__r.RecordTypeId}"/>
+							</apex:pageBlockTable>
+						</apex:facet>
+						<apex:facet name="start">
+							Updating...
+						</apex:facet>
+					</apex:actionStatus>
+					<script>
+						// The scripts below will be reloaded every time the taskTable is rerendered
+						// add event listener when selectBox is checked to check of uncheck the toggle all checkbox appropriately
+						var checkboxes = document.querySelectorAll('input.selectBox');
+						for (var i=0; i<checkboxes.length; i++) {
+							checkboxes[i].addEventListener('change', function() {
+								toggleCheckboxes();
+							});
+						}
+
+						// make all meeting participant links open in a new window
+						var participantLinks = document.querySelectorAll('td.meeting-participant a');
+						for (var i=0; i<participantLinks.length; i++) {
+							participantLinks[i].target = '_blank';
+						}
+					</script>
+				</apex:outputPanel>
+				<!-- END LIST TASKS -->
+			</apex:pageBlock>
+		</apex:outputPanel>
+		<!-- END RENDER IF NO ERRORS -->
+	</apex:form>
+
+
+	<script>
+		// update all checkboxes when the toggleAll checkbox is checked or unchecked. Set checkboxes to value of toggleAll checkbox
+		var toggleAll = function(triggerEl) {
+			var elements = document.querySelectorAll('.selectBox');
+			for(var i=0; i<elements.length; i++) {
+				elements[i].checked = triggerEl.checked;
+			}
+			document.getElementById('toggleValues').style.display = triggerEl.checked ? '' : 'none';
+		}
+
+		// when a checkbox is selected, if all other checkboxes on the page are selected then set the toggleAll checkbox to checked
+		// set it to unchecked otherwise
+		var toggleCheckboxes = function() {
+			var count = document.querySelectorAll('input.selectBox:checked').length;
+			count > 0 ? hideToggleValues(false) : hideToggleValues(true);
+			document.getElementById('selectAll').checked = (count == document.querySelectorAll('input.selectBox').length);
+		}
+
+		// show or hide the toggle values dropdown and button
+		var hideToggleValues = function(hide) {
+			document.getElementById('toggleValues').style.display = hide ? 'none' : '';
+		}
+	</script>
+</apex:page>

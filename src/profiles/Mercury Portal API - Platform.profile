@@ -42,6 +42,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingTaskEditorController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_MeetingTeamManagerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -578,6 +582,10 @@
     <pageAccesses>
         <apexPage>MERC_FinalizeBudgetConfirm</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_MeetingTaskEditor</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_TravelProposals</apexPage>
