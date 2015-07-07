@@ -35,10 +35,6 @@
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>Mercury_WSAPI</members>
-        <name>ConnectedApp</name>
-    </types>
-    <types>
         <members>Mercury</members>
         <name>CustomApplication</name>
     </types>
