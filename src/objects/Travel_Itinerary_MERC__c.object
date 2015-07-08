@@ -434,6 +434,10 @@
                 <fullName>Samoa Standard Time (Pacific/Pago_Pago)</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>PBattisson Test Zone (Pacific/Kiritimati)</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
@@ -838,6 +842,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Samoa Standard Time (Pacific/Pago_Pago)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PBattisson Test Zone (Pacific/Kiritimati)</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
