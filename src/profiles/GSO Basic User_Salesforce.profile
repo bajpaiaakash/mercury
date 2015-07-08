@@ -587,10 +587,6 @@
         <recordType>PersonAccount.Designated_Individual_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-MERC_Designated Individual</layout>
-        <recordType>PersonAccount.Designated_Individual_GLBL</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Preferences_and_Consent_GLBL__c-GLBL_Consent</layout>
     </layoutAssignments>
     <pageAccesses>
