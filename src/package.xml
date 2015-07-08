@@ -172,7 +172,12 @@
         <members>Meeting_Participant_MERC__c.Delegate_MERC</members>
         <members>Meeting_Participant_MERC__c.Individual_Sponsorship</members>
         <members>Meeting_Participant_MERC__c.Service_Provider_MERC</members>
+        <members>Travel_Itinerary_MERC__c.Air_MERC</members>
+        <members>Travel_Itinerary_MERC__c.Bus</members>
+        <members>Travel_Itinerary_MERC__c.Car_MERC</members>
+        <members>Travel_Itinerary_MERC__c.Hotel_MERC</members>
         <members>Travel_Itinerary_MERC__c.MERC_Travel_Proposal</members>
+        <members>Travel_Itinerary_MERC__c.Rail_MERC</members>
         <name>RecordType</name>
     </types>
     <types>

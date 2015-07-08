@@ -278,10 +278,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>HCP_Info_Package_Comm_Details_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Send_HCP_Info_Package_to_Rep__c</field>
             </layoutItems>
             <layoutItems>
