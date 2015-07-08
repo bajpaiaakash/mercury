@@ -20,7 +20,7 @@
         <members>MERC_TravelProposalsControllerTest</members>
         <members>MERC_TriggerHandlerStateManager</members>
         <name>ApexClass</name>
-    </types>
+    </types> 
     <types>
         <members>MERC_ActivateBudget</members>
         <members>MERC_FinalizeBudgetConfirm</members>
