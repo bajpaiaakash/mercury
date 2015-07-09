@@ -68,6 +68,7 @@
         <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_GLBL__c</members>
         <members>Travel_Itinerary_MERC__c.Evaluate_Meeting_Process_Logic_MERC_c__c</members>
         <members>Travel_Itinerary_MERC__c.Meeting_Process_Logic_Key_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Ordering_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Proposal_Counter_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Segment_Begin_Timezone_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Segment_End_Timezone_MERC__c</members>

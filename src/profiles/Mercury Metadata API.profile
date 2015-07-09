@@ -496,6 +496,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Ordering_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Travel_Itinerary_MERC__c.Proposal_Counter_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>

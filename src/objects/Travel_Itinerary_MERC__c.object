@@ -22,6 +22,40 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Ordering_MERC__c</fullName>
+        <description>Used to order Travel Itinerary related list : MERC : Created on 9th July 2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF( RecordType.DeveloperName = &apos;MERC_Travel_Proposal&apos;, Name &amp; 
+TEXT(CASE(Proposal_Counter_MERC__c,1,9, 
+                             2,8,
+                             3,7,
+                             4,6,
+                             5,5,
+                             6,4,
+                             7,3,
+                             8,2,
+                             9,1,
+                             0
+))
+, Travel_Proposal_MERC__r.Name &amp; &quot; - &quot; &amp;  
+TEXT(CASE(Segment_Number__c,1,9, 
+                             2,8,
+                             3,7,
+                             4,6,
+                             5,5,
+                             6,4,
+                             7,3,
+                             8,2,
+                             9,1,
+                             0
+)))</formula>
+        <label>Ordering</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Proposal_Counter_MERC__c</fullName>
         <description>Captures the number of proposals for the associated meting participant. Initially created for triggering of delegate management processes : MERC : Created on 19/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>
