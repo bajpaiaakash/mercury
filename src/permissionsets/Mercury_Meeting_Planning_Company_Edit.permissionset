@@ -378,7 +378,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Process_MERC__c.Process_Type_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
