@@ -556,6 +556,22 @@
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
+        <recordType>Budget_MERC__c.MERC_Budget_Active</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Budget_MERC__c.MERC_Budget_Archived</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Budget_MERC__c.MERC_Budget_Draft</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Budget_MERC__c.MERC_Budget_Final</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

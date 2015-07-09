@@ -694,8 +694,9 @@
         <fields>Sgmnt_Bgin_TS_MERC__c</fields>
         <fields>Sgmnt_End_TS_MERC__c</fields>
         <fields>Status_MERC__c</fields>
+        <fields>Ordering_MERC__c</fields>
         <relatedList>Travel_Itinerary_MERC__c.Meeting_Participant_MERC__c</relatedList>
-        <sortField>NAME</sortField>
+        <sortField>Ordering_MERC__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>

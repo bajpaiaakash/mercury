@@ -517,6 +517,22 @@
         <layout>Budget_MERC__c-MERC_Budget_Active</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Active</layout>
+        <recordType>Budget_MERC__c.MERC_Budget_Active</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Archived</layout>
+        <recordType>Budget_MERC__c.MERC_Budget_Archived</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Draft</layout>
+        <recordType>Budget_MERC__c.MERC_Budget_Draft</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Final</layout>
+        <recordType>Budget_MERC__c.MERC_Budget_Final</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Active</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -605,6 +621,26 @@
         <apexPage>MERC_TravelProposals</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Budget_MERC__c.MERC_Budget_Active</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Budget_MERC__c.MERC_Budget_Archived</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Budget_MERC__c.MERC_Budget_Draft</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Budget_MERC__c.MERC_Budget_Final</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>

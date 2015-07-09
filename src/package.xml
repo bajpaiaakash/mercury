@@ -161,6 +161,10 @@
         <name>Profile</name>
     </types>
     <types>
+        <members>Budget_MERC__c.MERC_Budget_Active</members>
+        <members>Budget_MERC__c.MERC_Budget_Archived</members>
+        <members>Budget_MERC__c.MERC_Budget_Draft</members>
+        <members>Budget_MERC__c.MERC_Budget_Final</members>
         <members>Meeting_MERC__c.Ad_Hoc_Consulting</members>
         <members>Meeting_MERC__c.Completed</members>
         <members>Meeting_MERC__c.Forecasted</members>

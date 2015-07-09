@@ -12,4 +12,26 @@
         <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
+    <recordTypes>
+        <fullName>MERC_Budget_Active</fullName>
+        <active>true</active>
+        <label>Active</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MERC_Budget_Archived</fullName>
+        <active>true</active>
+        <label>Archived</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MERC_Budget_Draft</fullName>
+        <active>true</active>
+        <description>The initial budget for a Meeting.  Used to enter original amounts during initial forecasting/registration.</description>
+        <label>Draft</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MERC_Budget_Final</fullName>
+        <active>true</active>
+        <description>Finalised budget, cannot be modified</description>
+        <label>Final</label>
+    </recordTypes>
 </CustomObject>
