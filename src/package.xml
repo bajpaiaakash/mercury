@@ -181,6 +181,25 @@
         <name>RecordType</name>
     </types>
     <types>
+        <members>HCP_Contracts_MERC</members>
+        <members>MERC_Meeting_Participants_with_or_without_Contract</members>
+        <members>MERC_Meeting_Participants_with_or_without_Invoices</members>
+        <members>MERC_Meetings_Meeting_Participants_Meeting_Tasks</members>
+        <members>Meetings_with_Budgets_with_Budget_Line_Items</members>
+        <members>Meetings_with_Meeting_Days_with_Daily_Attendance_TOV</members>
+        <members>Meetings_with_Meeting_Days_with_Hotel_Allocation</members>
+        <members>Meetings_with_Meeting_Email_Sends_with_Meeting_Participant_Email_Sends</members>
+        <members>Meetings_with_Meeting_Participants_with_Daily_Attendance_TOV</members>
+        <members>Meetings_with_Meeting_Participants_with_Participant_Agendas</members>
+        <members>Meetings_with_Meeting_Participants_without_Travel</members>
+        <members>Meetings_with_Participants_Without_Invoices_MERC</members>
+        <members>Meetings_with_Participants_and_Invoices</members>
+        <members>Meetings_with_Registration_Questions_with_Answers</members>
+        <members>Meetings_with_Registration_Questions_with_Answers_with_Responses</members>
+        <members>Meetings_with_Registration_Questions_with_Responses</members>
+        <name>ReportType</name>
+    </types>
+    <types>
         <members>Meeting_Process_MERC__c</members>
         <name>SharingRules</name>
     </types>
