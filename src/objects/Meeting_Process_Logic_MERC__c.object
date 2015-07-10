@@ -731,6 +731,7 @@ TEXT(Process_MERC__c)  &amp; &quot;;&quot; &amp; TEXT(First_Travel_Proposal_MERC
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Description_MERC__c</columns>
+        <columns>RECORDTYPE</columns>
         <columns>Meeting_Participant_Key_MERC__c</columns>
         <columns>Meeting_Process_Key_MERC__c</columns>
         <columns>Meeting_Task_Key_MERC__c</columns>

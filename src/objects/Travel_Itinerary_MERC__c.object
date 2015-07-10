@@ -25,30 +25,58 @@
         <fullName>Ordering_MERC__c</fullName>
         <description>Used to order Travel Itinerary related list : MERC : Created on 9th July 2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF( RecordType.DeveloperName = &apos;MERC_Travel_Proposal&apos;, Name &amp; 
-TEXT(CASE(Proposal_Counter_MERC__c,1,9, 
-                             2,8,
-                             3,7,
-                             4,6,
-                             5,5,
-                             6,4,
-                             7,3,
-                             8,2,
-                             9,1,
-                             0
-))
-, Travel_Proposal_MERC__r.Name &amp; &quot; - &quot; &amp;  
-TEXT(CASE(Segment_Number__c,1,9, 
-                             2,8,
-                             3,7,
-                             4,6,
-                             5,5,
-                             6,4,
-                             7,3,
-                             8,2,
-                             9,1,
-                             0
-)))</formula>
+        <formula>IF
+	(RecordType.DeveloperName = &apos;MERC_Travel_Proposal&apos;, 
+		Name &amp; TEXT(CASE(Proposal_Counter_MERC__c,	1,99, 
+                             						2,98,
+                             						3,97,
+                             						4,96,
+                             						5,95,
+                             						6,94,
+                             						7,93,
+                             						8,92,
+                             						9,91,
+													10,90,
+													11,89,
+													12,87,
+													13,86,
+													14,85,
+													0
+					)
+	)
+,
+
+IF
+	(((RecordType.DeveloperName = &apos;Air_MERC&apos;) || (RecordType.DeveloperName = &apos;Bus&apos;) || (RecordType.DeveloperName = &apos;Rail_MERC&apos;))
+
+	, 
+		Travel_Proposal_MERC__r.Name &amp; &quot; - &quot; &amp; TEXT(CASE(Segment_Number__c,	1,99, 
+                             												2,98,
+                             												3,97,
+                             												4,96,
+                             												5,95,
+                             												6,94,
+                             												7,93,
+                             												8,92,
+                             												9,91,
+                             												10,90,
+																			11,89,
+																			12,87,
+																			13,86,
+																			14,85,
+                             												0
+
+													)
+	)
+,
+
+IF
+	(((RecordType.DeveloperName = &apos;Car_MERC&apos;) || (RecordType.DeveloperName = &apos;Hotel_MERC&apos;))
+	,
+		Name,Name
+	)
+	)
+)</formula>
         <label>Ordering</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
