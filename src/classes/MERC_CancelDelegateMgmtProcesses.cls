@@ -40,7 +40,7 @@ public with sharing class MERC_CancelDelegateMgmtProcesses implements GLBL_Trigg
 
 	    	if (triggeredSobjectType == Meeting_Participant_MERC__c.SObjectType) {
 	    		for (Meeting_Participant_MERC__c participant : (List<Meeting_Participant_MERC__c>)Trigger.new) {
-	    			if (participant.Status_MERC__c == 'Declined'){
+	    			if (participant.Status_MERC__c == 'Declined' || participant.Status_MERC__c == 'Cancelled'){
 	    				cancelParticipantIds.add(participant.Id);
 	    			}
 	    		}
@@ -52,7 +52,6 @@ public with sharing class MERC_CancelDelegateMgmtProcesses implements GLBL_Trigg
 	    }
 	}
 
-	@future
 	static void execute(Set<Id> paricipantIds) {
 		List<Meeting_Tasks_MERC__c> tasksToCancel = [SELECT Id,
 		                                                    Task_Status_MERC__c

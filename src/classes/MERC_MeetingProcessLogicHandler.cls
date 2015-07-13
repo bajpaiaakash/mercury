@@ -131,12 +131,23 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 				Meeting_Process_Logic_MERC__c logicRecord = logicRecords.get(participant.Meeting_Process_Logic_Key_MERC__c);
 
 				//evaluate whether a new process is needed
-				if (String.isNotBlank(logicRecord.New_Process_MERC__c)) {
-					insertableMeetingProcesses.add(
-						new Meeting_Process_MERC__c(Name = participant.Account_Name_MERC__c + ' - ' + logicRecord.New_Process_MERC__c,
-													Process_Type_MERC__c        = logicRecord.New_Process_MERC__c,
-					                                Meeting_Participant_MERC__c = participant.id)
-					);
+				if (logicRecord.Create_New_Process_MERC__c && String.isNotBlank(logicRecord.New_Process_MERC__c)) {
+
+					//only create process when one does not already exist
+					Boolean processNeeded = true;
+					for (Meeting_Process_MERC__c process : participantsWithProcesses.get(participant.Id).Meeting_Processes__r) {
+						if (process.Process_Type_MERC__c == logicRecord.New_Process_MERC__c) {
+							processNeeded = false;
+						}
+					}
+
+					if (processNeeded) {
+						insertableMeetingProcesses.add(
+							new Meeting_Process_MERC__c(Name = participant.Account_Name_MERC__c + ' - ' + logicRecord.New_Process_MERC__c,
+														Process_Type_MERC__c        = logicRecord.New_Process_MERC__c,
+						                                Meeting_Participant_MERC__c = participant.id)
+						);
+					}
 				}
 
 				//iterate over the processes and find the one that matches the logic record
@@ -216,6 +227,7 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 
 		Map<String, Meeting_Process_Logic_MERC__c> logicRecords = getLogicRecords('MERC_Meeting_Task', 'Meeting_Task_Key_MERC__c');
 		Set<Id> participantIds = new Set<Id>();
+		Set<Id> allParticipantIds = new Set<Id>();
 
 		//handle existing records in the before trigger and new records in the after trigger
 		if (Trigger.isBefore) {
@@ -291,6 +303,7 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 			                                      WHERE Id IN :Trigger.new];
 
 			for (Meeting_Tasks_MERC__c task : tasks) {
+				participantIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
 				if (logicRecords.containsKey(task.Meeting_Process_Logic_Key_MERC__c)) {
 					System.debug('##### Matched logic Record ' + logicRecords.get(task.Meeting_Process_Logic_Key_MERC__c).id);
 					Meeting_Process_Logic_MERC__c logicRecord = logicRecords.get(task.Meeting_Process_Logic_Key_MERC__c);
@@ -302,7 +315,6 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 								          task.Completed_Date_MERC__c)
 						);
 					}
-					participantIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
 				}
 			}
 
