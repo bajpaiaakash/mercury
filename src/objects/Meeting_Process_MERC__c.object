@@ -151,6 +151,22 @@
         <type>Summary</type>
     </fields>
     <fields>
+        <fullName>Next_Task_Due_Date_MERC__c</fullName>
+        <description>Used to display the next Task Due Date : MERC : Created on 14/07/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Next Task Due Date</label>
+        <summarizedField>Meeting_Tasks_MERC__c.Due_Date_MERC__c</summarizedField>
+        <summaryFilterItems>
+            <field>Meeting_Tasks_MERC__c.Task_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Incomplete</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Number_of_Cancelled_Tasks_MERC__c</fullName>
         <description>Counts the number of Cancelled taks related to the process : MERC : Created on 17/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -244,6 +260,17 @@
         <summaryOperation>count</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Ordering_MERC__c</fullName>
+        <description>Used to order Meeting Process reports and lists : MERC : Created on 14/07/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISNULL(Next_Task_Due_Date_MERC__c) , &quot;Completed&quot;, TEXT(Next_Task_Due_Date_MERC__c))</formula>
+        <label>Ordering</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Process_End_Date__c</fullName>

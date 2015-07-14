@@ -505,9 +505,11 @@
         <fields>NAME</fields>
         <fields>Process_Type_MERC__c</fields>
         <fields>Process_Status_MERC__c</fields>
-        <fields>Process_Start_Date_MERC__c</fields>
-        <fields>Process_End_Date__c</fields>
+        <fields>Next_Task_Due_Date_MERC__c</fields>
+        <fields>Ordering_MERC__c</fields>
         <relatedList>Meeting_Process_MERC__c.Meeting_Participant_MERC__c</relatedList>
+        <sortField>Ordering_MERC__c</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <customButtons>Update_Responses_MERC</customButtons>

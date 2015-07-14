@@ -5,7 +5,7 @@
         <fullName>Account_Name_MERC__c</fullName>
         <description>Used to pull account name down. Initially added because Process Builder was not accessing Account_MERC__r.Name properly : MERC : Created on 18/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Account_MERC__r.FirstName + &apos; &apos; + Account_MERC__r.LastName</formula>
+        <formula>Account_MERC__r.LastName + &apos;, &apos; + Account_MERC__r.FirstName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account Name</label>
         <required>false</required>

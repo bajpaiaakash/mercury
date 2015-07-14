@@ -6,9 +6,6 @@
 * Author: Kyle Thornton (Mavens Consulting)
 * Created Date: June 9, 2015
 *
-* Modified By:
-* Modified Date:
-* Modification Description:
 */
 
 public with sharing class MERC_MeetingTaskEditorController {
@@ -25,7 +22,7 @@ public with sharing class MERC_MeetingTaskEditorController {
 	public Boolean                 noErrors   { get; private set; }
 	public List<Task>              tasks = new List<Task>();
 
-	private String meetingId;
+	public String meetingId;
 	private Integer pageNumber;
 
 	public MERC_MeetingTaskEditorController() {

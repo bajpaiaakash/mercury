@@ -193,6 +193,18 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Ordering_MERC__c</fullName>
+        <description>Used to order Tasks by the up and coming Due Dates of Open Tasks : MERC : Created on 14/07/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(TEXT(Task_Status_MERC__c) = &quot;Incomplete&quot;, TEXT(Due_Date_MERC__c), &quot;Completed&quot;)</formula>
+        <label>Ordering</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Process_Type_MERC__c</fullName>
         <description>Indicates the meeting type : MERC : Created on 22/06/2015 by Kyle Thornton, Mavens Consulting</description>
         <externalId>false</externalId>

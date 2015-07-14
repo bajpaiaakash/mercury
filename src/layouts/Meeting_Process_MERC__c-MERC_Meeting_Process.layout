@@ -79,8 +79,9 @@
         <fields>Task_Status_MERC__c</fields>
         <fields>Completed_Date_MERC__c</fields>
         <fields>CREATED_DATE</fields>
+        <fields>Ordering_MERC__c</fields>
         <relatedList>Meeting_Tasks_MERC__c.Meeting_Process_MERC__c</relatedList>
-        <sortField>CREATED_DATE</sortField>
+        <sortField>Ordering_MERC__c</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

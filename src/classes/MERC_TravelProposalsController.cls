@@ -157,7 +157,10 @@ public with sharing class MERC_TravelProposalsController {
 	//VF page New Proposal Button
 	public void addProposal() {
 		TravelProposal proposal = new TravelProposal(participant);
+		List<TravelProposal> tempProposals = proposals;
+		proposals = new List<TravelProposal>();
 		proposals.add(proposal);
+		proposals.addAll(tempProposals);
 	}
 
 	//generate page title and subtitle

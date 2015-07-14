@@ -46,6 +46,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingTaskEditorControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_MeetingTeamManagerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -336,6 +340,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Next_Task_Due_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Process_MERC__c.Number_of_Cancelled_Tasks_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -362,6 +371,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Process_MERC__c.Number_of_Unresponsive_Tasks_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_MERC__c.Ordering_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -442,6 +456,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Tasks_MERC__c.Open_Task_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Tasks_MERC__c.Ordering_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

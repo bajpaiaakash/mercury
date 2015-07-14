@@ -1766,7 +1766,7 @@ IF
             </values>
             <values>
                 <fullName>Confirmed</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>In Progress</fullName>

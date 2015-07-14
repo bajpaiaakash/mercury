@@ -60,6 +60,7 @@ public with sharing class MERC_CancelDelegateMgmtProcesses implements GLBL_Trigg
 		                                                AND Task_Status_MERC__c LIKE 'Incomplete%'];
 		for (Meeting_Tasks_MERC__c task : tasksToCancel) {
 			task.Task_Status_MERC__c = 'Completed - Process Cancelled';
+			task.Completed_Date_MERC__c = Date.today();
 		}
 
 		MERC_LockedRecordHandler.overrideLockCheck = true;
