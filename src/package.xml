@@ -48,6 +48,8 @@
         <members>Account.DI_Validation_Required_MERC__c</members>
         <members>Account.Designated_Indiv_Validation_Date_MERC__c</members>
         <members>Budget_MERC__c.Total_Budget_Line_items__c</members>
+        <members>Meeting_MERC__c.Customer_Facing_End_Time_MERC__c</members>
+        <members>Meeting_MERC__c.Customer_Facing_Start_Time_MERC__c</members>
         <members>Meeting_MERC__c.Evaluate_Meeting_Process_Logic_MERC__c</members>
         <members>Meeting_MERC__c.Initiate_Delegate_Management_MERC__c</members>
         <members>Meeting_MERC__c.Meeting_Scope_MERC__c</members>
@@ -208,6 +210,10 @@
     <types>
         <members>Meeting_Process_MERC__c</members>
         <name>SharingRules</name>
+    </types>
+    <types>
+        <members>Travel_Itinerary_MERC__c.No_Segment_Status_Chnge_B4_Proposal_MERC</members>
+        <name>ValidationRule</name>
     </types>
     <types>
         <members>Meeting_Participant_MERC__c.Update_Meeting_Tasks_MERC</members>

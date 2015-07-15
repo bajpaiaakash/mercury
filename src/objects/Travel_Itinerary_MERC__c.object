@@ -5885,4 +5885,17 @@ IF
             </values>
         </picklistValues>
     </recordTypes>
+    <validationRules>
+        <fullName>No_Segment_Status_Chnge_B4_Proposal_MERC</fullName>
+        <active>true</active>
+        <description>14JULY2015 BHo - This validation rule will prevent a user from changing the status of a Segment to Confirmed before changing the status of the Proposal.</description>
+        <errorConditionFormula>((RecordType.DeveloperName = &quot;Air_MERC&quot;) ||
+(RecordType.DeveloperName = &quot;Bus&quot;) ||
+(RecordType.DeveloperName = &quot;Rail_MERC&quot;))
+&amp;&amp;
+TEXT(Status_MERC__c) = &quot;Confirmed&quot;
+&amp;&amp;
+TEXT(Travel_Proposal_MERC__r.Status_MERC__c) = &quot;Draft&quot;</errorConditionFormula>
+        <errorMessage>The Status of each Segment can only be set to Cancelled, please use the Travel Proposal Status to indicate the progress of the Proposal, the Segment Status values will then automatically get updated.</errorMessage>
+    </validationRules>
 </CustomObject>

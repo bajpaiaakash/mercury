@@ -2,6 +2,35 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <fields>
+        <fullName>Customer_Facing_End_Time_MERC__c</fullName>
+        <description>Transforms the meeting end time in the timezone of the meeting to ensure a direct mapping to Veeva’s LOV end time field.  Thus removing complexity from the integration and incorporating in configuration. Oliver Dunford 25th March 2014.</description>
+        <externalId>false</externalId>
+        <formula>MID(End_Time_In_Meeting_Time_Zone_MERC__c,(FIND(&quot;:&quot;,End_Time_In_Meeting_Time_Zone_MERC__c)-2),2)
+&amp;
+MID(End_Time_In_Meeting_Time_Zone_MERC__c,(FIND(&quot;:&quot;,End_Time_In_Meeting_Time_Zone_MERC__c)),3)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Facing End Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Facing_Start_Time_MERC__c</fullName>
+        <description>Transforms the meeting start time in the timezone of the meeting to ensure a direct mapping to Veeva&apos;s LOV start time field.  Thus removing complexity from the integration and incorporating in configuration. Oliver Dunford 25th March 2014.</description>
+        <externalId>false</externalId>
+        <formula>MID(Start_Time_In_Meeting_Time_Zone__c,(FIND(&quot;:&quot;,Start_Time_In_Meeting_Time_Zone__c)-2),2)
+&amp;
+MID(Start_Time_In_Meeting_Time_Zone__c,(FIND(&quot;:&quot;,Start_Time_In_Meeting_Time_Zone__c)),3)</formula>
+        <label>Customer Facing Start Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Evaluate_Meeting_Process_Logic_MERC__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Used to kick-off Meeting Process Logic and Automation.  Set via workflow, unchecked when code runs : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>

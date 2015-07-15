@@ -114,6 +114,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_MERC__c.Customer_Facing_End_Time_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_MERC__c.Customer_Facing_Start_Time_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_MERC__c.Evaluate_Meeting_Process_Logic_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
