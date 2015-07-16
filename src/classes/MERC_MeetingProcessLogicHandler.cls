@@ -285,6 +285,8 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 					if (taskCounter >= 3) {
 						task.Name = 'Unresponsive - Escalate to Business';
 						task.Is_Follow_Up__c = false;
+					} else {
+						task.Name = 'Reminder ' + (1+taskCounter);
 					}
 				}
 			}
@@ -396,7 +398,7 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 						List<Meeting_Tasks_MERC__c> travelProposalTasks = meetingParticipantIdToTravelTasks.get(ti.Meeting_Participant_MERC__c);
 						for (Meeting_Tasks_MERC__c task : travelProposalTasks) {
 
-							//use startsWith because incomplete tasks will start with inocmplete
+							//use startsWith because incomplete tasks will start with incomplete
 							if (task.Task_Status_MERC__c.startsWith(statusToFind)) {
 								System.debug('##### Task is: ' + task);
 								evaluateExistingTask(task, logicRecord);

@@ -82,11 +82,8 @@
 														action="{!doNothing}"
 														rerender="proposal"/>
 								</apex:inputField>
-								<apex:outputField value="{!proposal.detail.Status_MERC__c}" rendered="{!proposal.statusLocked}">
-									<apex:actionSupport event="onchange"
-														action="{!doNothing}"
-														rerender="proposal"/>
-								</apex:outputField>
+								<apex:outputField value="{!proposal.detail.Status_MERC__c}" rendered="{!proposal.statusLocked}"/>
+
 								<apex:pageBlockSectionItem >
 									<apex:commandButton value="Clone Proposal" action="{!proposal.cloneProposal}" rendered="{!proposal.detail.Status_MERC__c = 'Rejected' && cloneRender}"/>
 								</apex:pageBlockSectionItem>
@@ -153,10 +150,14 @@
 													</table>
 												</td>
 												<td style="padding-top:20px;" class="inner-table">
-													<apex:pageBlockSection columns="2" rendered="{!segment.display}">
+													<apex:pageBlockSection columns="2">
 														<apex:repeat value="{!segment.segmentFields}" var="field">
-															<apex:inputField value="{!segment.detail[field.fieldPath]}" rendered="{!proposal.editable}" required="{!field.DBRequired || field.Required}"/>
-															<apex:outputField value="{!segment.detail[field.fieldPath]}" rendered="{! NOT(proposal.editable)}" />
+															<!-- Booking information is a special case. It should be editable except when the status is cancelled or rejected -->
+															<apex:inputField value="{!segment.detail[field.fieldPath]}"
+															                 rendered="{!proposal.editable || (field.fieldPath = 'Booking_Information_MERC__c' && proposal.detail.Status_MERC__c != 'Cancelled' && proposal.detail.Status_MERC__c != 'Rejected')}"
+															                 required="{!field.DBRequired || field.Required}"/>
+															<apex:outputField value="{!segment.detail[field.fieldPath]}"
+															                  rendered="{! NOT(proposal.editable) || (field.fieldPath = 'Booking_Information_MERC__c' && (proposal.detail.Status_MERC__c = 'Cancelled' || proposal.detail.Status_MERC__c = 'Rejected'))}" />
 														</apex:repeat>
 													</apex:pageBlockSection>
 												</td>

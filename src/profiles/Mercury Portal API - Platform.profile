@@ -30,6 +30,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETDataExtensionProcessor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ETMeetingEmailSendExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_MeetingDateTimesController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -206,6 +214,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Process_Logic_MERC__c.First_Travel_Proposal_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Process_Logic_MERC__c.Force_Unique_Process_Logic_Record_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -639,6 +652,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_TravelProposals</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MeetingEmailSend</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>

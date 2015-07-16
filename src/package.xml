@@ -7,6 +7,8 @@
         <members>MERC_BudgetVersionControllerTest</members>
         <members>MERC_CancelDelegateMgmtProcesses</members>
         <members>MERC_ContentVersionHandlerTest</members>
+        <members>MERC_ETDataExtensionProcessor</members>
+        <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_MeetingDateTimesController</members>
         <members>MERC_MeetingParticipantNewEditController</members>
         <members>MERC_MeetingProcessLogicHandler</members>
@@ -27,6 +29,7 @@
         <members>MERC_FinalizeBudgetConfirm</members>
         <members>MERC_MeetingTaskEditor</members>
         <members>MERC_TravelProposals</members>
+        <members>MeetingEmailSend</members>
         <name>ApexPage</name>
     </types>
     <types>
@@ -103,6 +106,10 @@
         <members>Meetings_Dashboard_Folder</members>
         <members>Meetings_Dashboard_Folder/Meetings_MERC</members>
         <name>Dashboard</name>
+    </types>
+    <types>
+        <members>Logo_s_Images</members>
+        <name>Document</name>
     </types>
     <types>
         <members>MERC_Dashboard_Development</members>
@@ -220,6 +227,7 @@
         <name>WebLink</name>
     </types>
     <types>
+        <members>Meeting_Process_Logic_MERC__c</members>
         <members>Meeting_Process_MERC__c</members>
         <name>Workflow</name>
     </types>

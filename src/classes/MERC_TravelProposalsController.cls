@@ -364,7 +364,8 @@ public with sharing class MERC_TravelProposalsController {
 		get {
 			if (segmentFields == null) {
 				segmentFields = new Set<String>();
-				segmentFields.addAll( new List<String>{'RecordTypeId', 'RecordType.Name', 'Travel_Proposal_MERC__c','Segment_Number__c','Status_MERC__c', 'Meeting_Participant_MERC__c', 'Account_MERC__c'});
+				segmentFields.addAll( new List<String>{'RecordTypeId', 'RecordType.Name', 'Travel_Proposal_MERC__c', 'Segment_Number__c', 'Status_MERC__c',
+					                                   'Meeting_Participant_MERC__c', 'Account_MERC__c', 'Travel_Proposal_MERC__r.Status_MERC__c'});
 				segmentFields.addall(timeZoneFields);
 				for (Schema.FieldSet fieldSet : itineraryFieldSets.values()) {
 					for (Schema.FieldSetMember field : fieldSet.getFields()) {
@@ -409,19 +410,7 @@ public with sharing class MERC_TravelProposalsController {
 	public class TravelProposal {
 		public Travel_Itinerary_MERC__c detail { get; set; } //the proposal itinerary
 		public List<Segment> segments          { get; set; } //the segments making up this proposal
-
-		//is the status on the proposal locked?
-		public Boolean statusLocked { 
-			get {
-				if (statusLocked == false) {
-					return false;
-				}
-				else {
-					return statusLocked;
-				}
-			}
-			set;
-		}
+		public Boolean statusLocked            { get; set; } //is the status on the proposal locked?
 
 		//Given a participant, create a new travel itinerary linked to the proper records,
 		//initialize segments, and add a new segment to the list
@@ -517,13 +506,11 @@ public with sharing class MERC_TravelProposalsController {
 		}
 
 		public Integer getProposalCount(Id participantId, Id accountId) {
-			Integer i =    [SELECT COUNT()
-							FROM Travel_Itinerary_MERC__c 
-							WHERE RecordTypeId = :MERC_TravelProposalsController.proposalRecordTypeId
-							AND Meeting_Participant_MERC__c = :participantId
-							AND Account_MERC__c = :accountId];
-			
-			return i;
+			return [SELECT COUNT()
+					  FROM Travel_Itinerary_MERC__c
+					 WHERE RecordTypeId = :MERC_TravelProposalsController.proposalRecordTypeId
+					   AND Meeting_Participant_MERC__c = :participantId
+					   AND Account_MERC__c = :accountId];
 		}
 	}
 
@@ -533,6 +520,7 @@ public with sharing class MERC_TravelProposalsController {
 	public class Segment {
 		public Travel_Itinerary_MERC__c detail { get; set; }
 		public String segmentType              { get; set; }
+		private String proposalStatus;
 
 		public Segment(Travel_Itinerary_MERC__c itinerary, Boolean newSegment) {
 			if (newSegment) {
@@ -545,10 +533,12 @@ public with sharing class MERC_TravelProposalsController {
 														   Segment_Begin_Timezone_MERC__c=itinerary.Meeting_Time_Zone_MERC__c,
 														   Segment_End_Timezone_MERC__c=itinerary.Meeting_Time_Zone_MERC__c);
 				this.segmentType = '';
+				this.proposalStatus = itinerary.Status_MERC__c;
 			} else {
 				//this isn't a new segment so just wrap it and set the segment type
 				this.detail = itinerary;
 				this.segmentType = MERC_TravelProposalsController.itineraryRecordTypesById.get(itinerary.RecordTypeId).DeveloperName;
+				this.proposalStatus = itinerary.Travel_Proposal_MERC__r.Status_MERC__c;
 			}
 		}
 
@@ -557,7 +547,7 @@ public with sharing class MERC_TravelProposalsController {
 		 	// if we can't convert the segment type then it hasn't been set so we should not return the object to be saved.
 			if (String.isNotBlank(segmentType) && MERC_TravelProposalsController.itineraryRecordTypesByDeveloperName.containsKey(segmentType)) {
 				this.detail.RecordTypeId = MERC_TravelProposalsController.itineraryRecordTypesByDeveloperName.get(segmentType).Id;
-				return this.detail; 
+				return this.detail;
 			}
 			return null;
 		}
@@ -567,11 +557,6 @@ public with sharing class MERC_TravelProposalsController {
 				this.detail.RecordTypeId = MERC_TravelProposalsController.itineraryRecordTypesByDeveloperName.get(segmentType).Id;
 			}
 			return;
-		}
-
-		//only display segment info if the segment is not cancelled
-		public Boolean getDisplay() {
-			return true; //this.detail.Status_MERC__c != 'Cancelled';
 		}
 
 		//return the fields to be displayed based on the segment type
