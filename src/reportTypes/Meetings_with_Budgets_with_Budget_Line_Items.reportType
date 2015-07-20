@@ -1194,6 +1194,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Total_Budget_Line_items__c</field>
+            <table>Meeting_MERC__c.Budgets__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Total_Unit_Savings_MERC__c</field>
             <table>Meeting_MERC__c.Budgets__r</table>
         </columns>

@@ -74,7 +74,6 @@ private class MERC_TravelProposalsControllerTest
 
 		expectProposalXSegmentYFieldsToBeUndefined(0,0);
 		givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
-		//expectProposalXSegmentYFieldsToBeShown(0,0);
 		expectAirSegmentFieldsToBeDisplayedForProposalXSegmentY(0,0);
 
 		givenTheUserCompletesProposalXSegmentYInformation(0,0);
@@ -143,7 +142,6 @@ private class MERC_TravelProposalsControllerTest
 
 		Test.startTest();
 		givenTheUserChangesProposalXSegmentYToCancelled(0,0);
-//		expectProposalXSegmentYFieldsToBeHidden(0,0);
 
 		givenTheUserClicksSave();
 		expectProposalXToHaveYSegments(0,0);
@@ -341,18 +339,10 @@ private class MERC_TravelProposalsControllerTest
 			System.assert(types.contains(option.getValue()));
 		}
 	}
-	/*
-	private static void expectProposalXSegmentYFieldsToBeHidden(Integer proposalIndex, Integer segmentIndex) {
-		System.assertEquals(false, controller.proposals[proposalIndex].segments[segmentIndex].getDisplay());
-	} */
 
 	private static void expectProposalXSegmentYFieldsToBeUndefined(Integer proposalIndex, Integer segmentIndex) {
 		System.assert(controller.proposals[proposalIndex].segments[segmentIndex].getSegmentFields().isEmpty());
 	}
-	/*
-	private static void expectProposalXSegmentYFieldsToBeShown(Integer proposalIndex, Integer segmentIndex) {
-		System.assert(controller.proposals[proposalIndex].segments[segmentIndex].getDisplay());
-	} */
 
 	private static void expectProposalXSegmentsToBeHidden(Integer proposalIndex) {
 		System.assertEquals(false, controller.proposals[proposalIndex].getDisplaySegments());

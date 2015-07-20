@@ -1293,6 +1293,16 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Current_Task_Due_Date_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Current_Task_Name_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Sales_Rep_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>
@@ -2101,6 +2111,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Max_Non_Followup_Completed_Date_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Meeting_Participant_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r</table>
         </columns>
@@ -2111,12 +2126,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_Start_Date_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Min_Completed_Date_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Meeting_Process_Logic_Key_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Next_Task_Due_Date_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r</table>
         </columns>
         <columns>
@@ -2147,6 +2172,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Number_of_Unresponsive_Tasks_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Ordering_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r</table>
         </columns>
         <columns>
@@ -2280,6 +2310,16 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Open_Task_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r.Meeting_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Ordering_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r.Meeting_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Process_Type_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r.Meeting_Tasks__r</table>
         </columns>
         <columns>

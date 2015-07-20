@@ -41,7 +41,15 @@
         </actions>
         <active>true</active>
         <description>Sets the Evaluate Meeting Process logic to true to kick off Meeting Task generation / updates : MERC : Created on 29/06/2015 by Oliver Dunford, Mavens Consulting</description>
-        <formula>ISNEW() || ( RecordType.DeveloperName = &quot;MERC_Travel_Proposal&quot; &amp;&amp;  TEXT(Meeting_Participant_MERC__r.Meeting_MERC__r.Initiate_Delegate_Management_MERC__c) = &quot;YES&quot; &amp;&amp; ISCHANGED( Status_MERC__c ))</formula>
+        <formula>ISNEW() 
+
+|| 
+
+( RecordType.DeveloperName = &quot;MERC_Travel_Proposal&quot; &amp;&amp;  TEXT(Meeting_Participant_MERC__r.Meeting_MERC__r.Initiate_Delegate_Management_MERC__c) = &quot;YES&quot; &amp;&amp; ISCHANGED( Status_MERC__c ))
+
+|| 
+
+ Meeting_Participant_MERC__r.Has_Travel_Process_MERC__c</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

@@ -65,6 +65,7 @@
         <members>Meeting_Participant_MERC__c.Current_Task_Name_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Email_to_Invite_HCP_to_Portal_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Evaluate_Meeting_Process_Logic_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Has_Travel_Process_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Meeting_Process_Logic_Key_MERC__c</members>
         <members>Payee_MERC__c.SAP_Vendor_Last_Validated_Date_MERC__c</members>
         <members>Payee_MERC__c.SAP_Vendor_Validation_Required_MERC__c</members>
@@ -77,7 +78,10 @@
         <members>Travel_Itinerary_MERC__c.Ordering_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Proposal_Counter_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Segment_Begin_Timezone_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Segment_End_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Segment_End_Timezone_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Sgmnt_Bgin_TS_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Sgmnt_End_TS_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Status_MERC__c</members>
         <name>CustomField</name>
     </types>

@@ -74,34 +74,50 @@ public with sharing class MERC_TravelProposalsController {
 
 	@TestVisible
 	private Boolean saveProposals() {
-		//build a list of itineraries
-		List<Travel_Itinerary_MERC__c> itinerariesToUpsert = new List<Travel_Itinerary_MERC__c>();
+		/*
+		 *	Build a list of itineraries
+		 *	Segments are seperated from proposals to ensure 
+		 *	flows do not update both at the same time
+		 *	thus causing a recursive save on the segment.
+		 */
+		List<Travel_Itinerary_MERC__c> proposalsToUpsert = new List<Travel_Itinerary_MERC__c>();
+		List<Travel_Itinerary_MERC__c> segmentsToUpsert = new List<Travel_Itinerary_MERC__c>();
+		Boolean err = false;
 
 		for (TravelProposal proposal : proposals) {
-			itinerariesToUpsert.add(proposal.detail);
-			itinerariesToUpsert.addAll(proposal.getTravelItineraries());
-			if (proposal.detail.Status_MERC__c == 'Rejected' || proposal.detail.Status_MERC__c == 'Ticketed') {
+			proposalsToUpsert.add(proposal.detail);
+			segmentsToUpsert.addAll(proposal.getTravelItineraries());
+			if (proposal.detail.Status_MERC__c == 'Rejected') {
 				proposal.statusLocked = true;
 			} else {
 				proposal.statusLocked = false;
 			}
-
 		}
 
+
 		//convert date time fields to UTC
-		tz.convertDateTimes(itinerariesToUpsert, true);
+		tz.convertDateTimes(proposalsToUpsert, true);
+		tz.convertDateTimes(segmentsToUpsert, true);
 
 		try {
-			upsert itinerariesToUpsert;
+			/*
+			 *	Segments are inserted first to ensure flows do 
+			 *	not update both proposals and segments  same time
+			 *	thus causing a recursive save on the segment.
+			 */
+			upsert segmentsToUpsert;
+			upsert proposalsToUpsert;
 		} catch (System.Exception ex) {
-			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Travel_Proposals_Error_updating_proposals_segments + ex.getMessage()));
+			ApexPages.addMessages(ex);
 			//convert date time fields back for display
-			tz.convertDateTimes(itinerariesToUpsert, false);
+			tz.convertDateTimes(proposalsToUpsert, false);
+			tz.convertDateTimes(segmentsToUpsert, false);
 			return false;
 		}
 
 		//save succeeded
 		return true;
+
 	}
 
 	//VF page Save button
@@ -432,7 +448,7 @@ public with sharing class MERC_TravelProposalsController {
 		//given an existing proposal, extract the segments and add them to the segments list
 		public TravelProposal(Travel_Itinerary_MERC__c proposal) {
 			this.detail = proposal;
-			if (detail.Status_MERC__c == 'Rejected' || detail.Status_MERC__c == 'Ticketed') {
+			if (detail.Status_MERC__c == 'Rejected') {
 				this.statusLocked = true;
 			} else {
 				this.statusLocked = false;

@@ -92,6 +92,16 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Has_Travel_Process_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates this meeting participant has a travel process. Used by the meeting process workflow on the travel itinerary object. This fied is set by the MERC_MeetingProcessLogicHandler : MERC : Created on 17/07/2015 by Kyle Thornton, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Has Travel Process</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Meeting_Process_Logic_Key_MERC__c</fullName>
         <description>Used to compare Meeting Participant Key against the Key in Meeting Process Logic object. This will then find a match and generate automation : MERC : Created on 22/06/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>

@@ -41,7 +41,7 @@
         </actions>
         <active>true</active>
         <description>Updates Evaluate Meeting Process Logic and sets to True should the trigger needed : MERC : Created on 29/06/2015 by Oliver Dunford</description>
-        <formula>ISNEW() || ( TEXT(Meeting_MERC__r.Initiate_Delegate_Management_MERC__c) = &quot;Yes&quot; &amp;&amp; ISCHANGED( Status_MERC__c ))</formula>
+        <formula>ISNEW() || ISCHANGED( Status_MERC__c )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

@@ -226,6 +226,16 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Current_Task_Due_Date_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Current_Task_Name_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Customer_Id_GLBL__c</field>
             <table>Meeting_Participant_MERC__c</table>
         </columns>

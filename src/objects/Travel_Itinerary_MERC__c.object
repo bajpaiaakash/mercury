@@ -502,6 +502,17 @@ IF
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Segment_End_MERC__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the end date/time for the Travel Segment. For Hotels, the Time will be taken from the Check-out time listed against the Hotel on the Meeting Vendor record.</inlineHelpText>
+        <label>Segment End</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Segment_End_Timezone_MERC__c</fullName>
         <externalId>false</externalId>
         <label>Segment End Timezone</label>
@@ -906,6 +917,28 @@ IF
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sgmnt_Bgin_TS_MERC__c</fullName>
+        <description>The begin date and time of this segment.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the start date/time for the Travel Segment. For Hotels, the Time will be taken from the Check-in time listed against the Hotel on the Meeting Vendor record.</inlineHelpText>
+        <label>Segment Begin Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Sgmnt_End_TS_MERC__c</fullName>
+        <description>The end date and time of this segment.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the end date/time for the Travel Segment. For Hotels, the Time will be taken from the Check-out time listed against the Hotel on the Meeting Vendor record.</inlineHelpText>
+        <label>Segment End Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Status_MERC__c</fullName>

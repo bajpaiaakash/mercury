@@ -124,6 +124,7 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 
 		//we now have two Maps which will allow us to navigate from meeting participant to Meeting tasks. Process the participants
 		for (Meeting_Participant_MERC__c participant : participantsToProcess) {
+			System.debug('### participant.Meeting_Process_Logic_Key_MERC__c is ' + participant.Meeting_Process_Logic_Key_MERC__c);
 
 			if (logicRecords.containsKey(participant.Meeting_Process_Logic_Key_MERC__c)) {
 
@@ -152,12 +153,16 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 
 				//iterate over the processes and find the one that matches the logic record
 				Meeting_Process_MERC__c currentProcess;
+				System.debug('### participant processes are : ' + participantsWithProcesses.get(participant.Id).Meeting_Processes__r);
 				for (Meeting_Process_MERC__c process : participantsWithProcesses.get(participant.Id).Meeting_Processes__r) {
 					if (process.Process_Type_MERC__c == logicRecord.Process_MERC__c) {
 						currentProcess = process;
+						System.debug('### Found process : ' + currentProcess);
 						break;
 					}
 				}
+
+				System.debug('### Current Process is : ' + currentProcess);
 
 				if (currentProcess != null) {
 					for (Meeting_Tasks_MERC__c task : processesIdToTasks.get(currentProcess.Id)) {
@@ -181,7 +186,10 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 				}
 			}
 		}
+		System.debug('### Inserting Meeting Processes ' + insertableMeetingProcesses);
 		insert insertableMeetingProcesses;
+
+		System.debug('### Upserting Process Tasks ' + upsertableTasks);
 		upsert upsertableTasks;
 
 		rollupMeetingParticipants(participantsWithProcesses.keySet());
@@ -196,6 +204,7 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 		Map<String, Meeting_Process_Logic_MERC__c> logicRecords = getLogicRecords('MERC_Meeting_Process', 'Meeting_Process_Key_MERC__c');
 		List<Meeting_Tasks_MERC__c> newTasks = new List<Meeting_Tasks_MERC__c>();
 		Set<Id> participantIds = new Set<Id>();
+		List<Meeting_Participant_MERC__c> participantsWithTravelProcesses =  new List<Meeting_Participant_MERC__c>();
 
 		for (Meeting_Process_MERC__c process : (List<Meeting_Process_MERC__c>)Trigger.new) {
 			if (logicRecords.containsKey(process.Meeting_Process_Logic_Key_MERC__c )) {
@@ -215,9 +224,14 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 					participantIds.add(process.Meeting_Participant_MERC__c);
 				}
 			}
+
+			if (process.Process_Type_MERC__c == 'Travel Proposal') {
+				participantsWithTravelProcesses.add(new Meeting_Participant_MERC__c(Id=process.Meeting_Participant_MERC__c, Has_Travel_Process_MERC__c=true));
+			}
 		}
 
 		insert newTasks;
+		update participantsWithTravelProcesses;
 
 		rollupMeetingParticipants(participantIds);
 	}
@@ -379,8 +393,8 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 				//get the logic record
 				Meeting_Process_Logic_MERC__c logicRecord = logicRecords.get(ti.Meeting_Process_Logic_Key_MERC__c);
 
-				//if a new process needs to be created
-				if (logicRecord.Create_New_Process_MERC__c) {
+				//if a new process needs to be created (one does not already exist)
+				if (logicRecord.Create_New_Process_MERC__c && !meetingParticipantIdToTravelTasks.containsKey(ti.Meeting_Participant_MERC__c)) {
 					insertableMeetingProcesses.add(
 						new Meeting_Process_MERC__c(Name = participantsWithAccountName.get(ti.Meeting_Participant_MERC__c).Account_Name_MERC__c + ' - ' + logicRecord.New_Process_MERC__c,
 													Process_Type_MERC__c        = logicRecord.New_Process_MERC__c,
@@ -409,7 +423,9 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 				}
 			}
 		}
+
 		insert insertableMeetingProcesses;
+
 		upsert new List<Meeting_Tasks_MERC__c>(upsertableTasks);
 
 		rollupMeetingParticipants(meetingParticipantIds);
