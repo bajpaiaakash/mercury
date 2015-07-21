@@ -38,4 +38,24 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Validation_Required_MERC__c</fullName>
+        <description>This field is updated by a workflow rule to check whether or not validation is required.  Workflow rule will set this to No if the &quot;SAP Vendor Last Validated Date&quot; field is modified by Billy Ho on 20July2005</description>
+        <externalId>false</externalId>
+        <label>Validation Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
 </CustomObject>

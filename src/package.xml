@@ -70,6 +70,7 @@
         <members>Payee_MERC__c.SAP_Vendor_Last_Validated_Date_MERC__c</members>
         <members>Payee_MERC__c.SAP_Vendor_Validation_Required_MERC__c</members>
         <members>Payee_MERC__c.Tax_Id_MERC__c</members>
+        <members>Payee_MERC__c.Validation_Required_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_CMS_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_Cap_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_GLBL__c</members>
