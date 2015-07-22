@@ -40,7 +40,7 @@
         <externalId>false</externalId>
         <formula>IF( 
 RecordType.DeveloperName = &apos;Contracting_Party_GLBL&apos; &amp;&amp; 
-LastModifiedDate &gt; Contracting_Party_Change_Reviewed_MERC__c , &quot;Yes&quot;, &quot;No&quot; 
+(LastModifiedDate - (1/1440)) &gt; Contracting_Party_Change_Reviewed_MERC__c , &quot;Yes&quot;, &quot;No&quot; 
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>Contracting Parties should be verified post initial creation and each time a record is updated.  This highlights all records that need verification.</inlineHelpText>
@@ -56,7 +56,7 @@ LastModifiedDate &gt; Contracting_Party_Change_Reviewed_MERC__c , &quot;Yes&quot
         <externalId>false</externalId>
         <formula>IF( 
 RecordType.DeveloperName = &apos;Designated_Individual_GLBL&apos; &amp;&amp; 
-NOW() &gt; Designated_Indiv_Validation_Date_MERC__c + (((24* 365) * 60) + 0)/1440 
+(NOW()- (1/1440)) &gt; Designated_Indiv_Validation_Date_MERC__c + (((24* 365) * 60) + 0)/1440 
 , &quot;Yes&quot;, &quot;No&quot;
 )</formula>
         <inlineHelpText>Highlights all Designated Individual records that have not been reviewed for a Year or more.</inlineHelpText>

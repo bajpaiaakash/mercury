@@ -17,7 +17,10 @@
         <fullName>SAP_Vendor_Validation_Required_MERC__c</fullName>
         <description>Checks whether a Payee records needs validation should they have been updated since the last validation review, based upon DI validation Date.  Does not adjust to TimeZones but is roughly accurate : MERC : Created on 16/06/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF( TEXT(Validation_Required_MERC__c) = &quot;No&quot;, &quot;No&quot;, &quot;Yes&quot;)</formula>
+        <formula>IF( 
+(LastModifiedDate - (1/1440))&gt;= SAP_Vendor_Last_Validated_Date_MERC__c 
+, &quot;Yes&quot;, &quot;No&quot; 
+)</formula>
         <inlineHelpText>Highlights all Payee records that have been updated since the last review (based upon the Payee Validation Date).</inlineHelpText>
         <label>SAP Vendor Validation Required</label>
         <required>false</required>

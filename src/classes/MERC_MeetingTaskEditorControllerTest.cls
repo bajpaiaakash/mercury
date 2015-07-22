@@ -24,12 +24,30 @@ private class MERC_MeetingTaskEditorControllerTest {
 
 		insert process;
 
-		Meeting_Tasks_MERC__c task = new Meeting_Tasks_MERC__c(
+		List<Meeting_Tasks_MERC__c> tasks = new List<Meeting_Tasks_MERC__c>();
+
+		Meeting_Tasks_MERC__c task0 = new Meeting_Tasks_MERC__c(
 			Meeting_Process_MERC__c = process.Id,
 			Task_Status_MERC__c = 'Completed - Process Complete'
 			);
 
-		insert task;
+		tasks.add(task0);
+
+		Meeting_Tasks_MERC__c task1 = new Meeting_Tasks_MERC__c(
+			Meeting_Process_MERC__c = process.Id,
+			Task_Status_MERC__c = 'Completed - Process Complete'
+			);
+
+		tasks.add(task1);
+
+		Meeting_Tasks_MERC__c task2 = new Meeting_Tasks_MERC__c(
+			Meeting_Process_MERC__c = process.Id,
+			Task_Status_MERC__c = 'Completed - Process Complete'
+			);
+
+		tasks.add(task2);
+
+		insert tasks;
 
 		return meeting;
 
@@ -73,7 +91,30 @@ private class MERC_MeetingTaskEditorControllerTest {
 		pageRef = controller.returnToMeeting();
 
 		System.debug('##### updateSelected = ' + controller.updateSelected());
+		controller.tasks[0].selected = true;
+		controller.updateTask.Task_Status_MERC__c = 'Complete - Unresponsive';
 		pageRef = controller.updateSelected();
+
+		controller.tasks[0].selected = true;
+		controller.tasks[1].selected = true;
+		controller.updateTask.Task_Status_MERC__c = 'Complete - Process Complete';
+		pageRef = controller.updateSelected();
+
+		System.debug('##### accountNameSuffix = ' + controller.accountNameSuffix);
+		System.assertEquals(controller.meetingProcessSuffix, ' ');
+		System.assertEquals(controller.meetingTaskSuffix, ' ');
+		System.assertEquals(controller.meetingParticipantSuffix, ' ');
+		System.assertEquals(controller.recordTypeSuffix, ' ');
+		System.assertEquals(controller.taskStatusSuffix, ' ');
+		System.assertEquals(controller.dueDateSuffix, ' ');
+		System.assertEquals(controller.accountNameSuffix, '^');
+
+		controller.sortField = 'Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Account_MERC__r.Name';
+		System.assertEquals(controller.accountNameSuffix, 'v');		
+
+		controller.sortField = 'Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Account_MERC__r.Name';
+		System.assertEquals(controller.accountNameSuffix, '^');		
+
 
 	}
 
@@ -83,7 +124,5 @@ private class MERC_MeetingTaskEditorControllerTest {
 		Test.setCurrentPage(pageRef);    
 
 		MERC_MeetingTaskEditorController controller = new MERC_MeetingTaskEditorController();
-
-
 	}
 }

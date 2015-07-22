@@ -5,13 +5,16 @@
         <members>GLBL_GenericRelatedListController</members>
         <members>MERC_BudgetVersionController</members>
         <members>MERC_BudgetVersionControllerTest</members>
+        <members>MERC_CancelDelegateMgmtProcessTest</members>
         <members>MERC_CancelDelegateMgmtProcesses</members>
         <members>MERC_ContentVersionHandlerTest</members>
         <members>MERC_ETDataExtensionProcessor</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_MeetingDateTimesController</members>
+        <members>MERC_MeetingDateTimesControllerTest</members>
         <members>MERC_MeetingParticipantNewEditController</members>
         <members>MERC_MeetingProcessLogicHandler</members>
+        <members>MERC_MeetingProcessLogicHandlerTest</members>
         <members>MERC_MeetingTaskEditorController</members>
         <members>MERC_MeetingTaskEditorControllerTest</members>
         <members>MERC_MeetingTeamManagerController</members>
