@@ -344,7 +344,7 @@
     </fields>
     <fields>
         <fullName>Unique_MP_Process_MERC__c</fullName>
-        <caseSensitive>false</caseSensitive>
+        <caseSensitive>true</caseSensitive>
         <description>Ensures only a single process of the same type is allowed for each MP : MERC : Created on 30/06/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Unique MP Process</label>

@@ -207,6 +207,7 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 		List<Meeting_Participant_MERC__c> participantsWithTravelProcesses =  new List<Meeting_Participant_MERC__c>();
 
 		for (Meeting_Process_MERC__c process : (List<Meeting_Process_MERC__c>)Trigger.new) {
+			System.debug('##### ' + process.Meeting_Process_Logic_Key_MERC__c + ' AND logic records are ' + logicRecords);
 			if (logicRecords.containsKey(process.Meeting_Process_Logic_Key_MERC__c )) {
 				Meeting_Process_Logic_MERC__c logicRecord = logicRecords.get(process.Meeting_Process_Logic_Key_MERC__c );
 				if (logicRecord.Create_New_Task_MERC__c) {
@@ -388,6 +389,7 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 
 		//iterate over the itineraries in the trigger
 		for (Travel_Itinerary_MERC__c ti : (List<Travel_Itinerary_MERC__c>)Trigger.new) {
+			System.debug('##### ti.Meeting_Process_Logic_Key_MERC__c ' + ti.Meeting_Process_Logic_Key_MERC__c + ' and logic records are ' + logicRecords);
 			//if a logic record matches the current key
 			if (logicRecords.containsKey(ti.Meeting_Process_Logic_Key_MERC__c)) {
 				//get the logic record
