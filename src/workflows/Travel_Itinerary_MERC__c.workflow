@@ -49,7 +49,7 @@
 
 || 
 
- Meeting_Participant_MERC__r.Has_Travel_Process_MERC__c</formula>
+(Meeting_Participant_MERC__r.Has_Travel_Process_MERC__c &amp;&amp; ISCHANGED( Status_MERC__c ))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
