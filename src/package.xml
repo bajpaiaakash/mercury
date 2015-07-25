@@ -3,6 +3,7 @@
     <types>
         <members>GLBL_BaseEditControllerTest</members>
         <members>GLBL_GenericRelatedListController</members>
+        <members>GLBL_GenericRelatedListControllerTest</members>
         <members>MERC_BudgetVersionController</members>
         <members>MERC_BudgetVersionControllerTest</members>
         <members>MERC_CancelDelegateMgmtProcessTest</members>
@@ -18,6 +19,7 @@
         <members>MERC_MeetingTaskEditorController</members>
         <members>MERC_MeetingTaskEditorControllerTest</members>
         <members>MERC_MeetingTeamManagerController</members>
+        <members>MERC_MeetingTeamManagerControllerTest</members>
         <members>MERC_NewContentControllerTest</members>
         <members>MERC_ParticipantTovStampHandler</members>
         <members>MERC_TestFactory</members>

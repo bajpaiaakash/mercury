@@ -18,16 +18,18 @@ private class MERC_MeetingProcessLogicHandlerTest {
 	static List<Travel_Itinerary_MERC__c> proposals;
 
 	static {
-		meetings     = Merc_TestFactory.insertMeetings(1);
-		accounts     = Merc_TestFactory.insertAccounts(200);
-		participants = Merc_TestFactory.insertParticipants(meetings[0].Id, accounts, 'Approved');
+		//See @testSetup at the bottom of the class
+		meetings = [SELECT Id, Initiate_Delegate_Management_MERC__c FROM Meeting_MERC__c];
+		participants = [SELECT Id, Status_MERC__c, Evaluate_Meeting_Process_Logic_MERC__c, Account_MERC__c FROM Meeting_Participant_MERC__c];
+
+		//once lookup rollup summaries are gone this might be possible to remove.
+		MERC_TriggerHandlerStateManager.deactivateAll();
+		MERC_TriggerHandlerStateManager.activate(MERC_MeetingProcessLogicHandler.class);
 	}
 
 	/**** SCENARIO : Process being created should spawn new task ****/
 	@isTest
 	static void newProcessShouldCreateNewTask() {
-		givenAProcessLogicRecordForPreMeetingInformation();
-
 		Test.startTest();
 		whenPreMeetingInformationProcessCreatedFor(participants);
 		Test.stopTest();
@@ -38,18 +40,44 @@ private class MERC_MeetingProcessLogicHandlerTest {
 	/**** SCENARIO: participant updated to invited should spawn the registration process ****/
 	@isTest
 	static void invitedParticipantsShouldGetRegProcessCreated() {
-		givenAProcessLogicRecordForInvitedMercuryParticipant();
 		givenTheMeetingHasInitiateDelegateManagement('Yes');
 
 		Test.startTest();
 		whenTheParticipantsStatusBecomes('Invited');
-
 		Test.stopTest();
 
 		expectProcessToBeCreatedFor(participants, 'Registration');
+		expectTasksToBeCreatedForProcessesFor(participants);
 	}
 
-	/**** SCENARIO: invited participants accep ****/
+	/**** SCENARIO: invited participant when reminded spawn new reminders ****/
+	@isTest
+	static void invitedParticipantsNeedReminder() {
+		givenTheMeetingHasInitiateDelegateManagement('Yes');
+		whenTheParticipantsStatusBecomes('Invited');
+
+		Test.startTest();
+		whenTheParticipantsInvitesHaveBeenSent();
+		Test.stopTest();
+
+		expectRemindersToHaveBeenCreated('1');
+	}
+
+	/**** SCENARIO: invited participant when reminded spawn new reminders ****/
+	@isTest
+	static void remindedParticipantsNeedAnotherReminder() {
+		givenTheMeetingHasInitiateDelegateManagement('Yes');
+		whenTheParticipantsStatusBecomes('Invited');
+
+		Test.startTest();
+		whenTheParticipantsInvitesHaveBeenSent();
+		whenTheParticipantsHaveBeenReminded();
+		Test.stopTest();
+
+		expectRemindersToHaveBeenCreated('2');
+	}
+
+	/**** SCENARIO: invited participants accept ****/
 	@isTest
 	static void acceptedParticipantsShouldHaveRegProcessClosedPreMeeetingStarted() {
 		//once lookup rollup summaries are gone this might be possible to remove.
@@ -58,8 +86,6 @@ private class MERC_MeetingProcessLogicHandlerTest {
 
 		givenTheMeetingHasInitiateDelegateManagement('Yes');
 		givenTheParticipantsHaveBeenInvited();
-		givenAProcessLogicRecordForAcceptedMercuryParticipant();
-		givenAProcessLogicRecordForPreMeetingInformation();
 
 		Test.startTest();
 		whenTheParticipantsStatusBecomes('Accepted');
@@ -72,91 +98,38 @@ private class MERC_MeetingProcessLogicHandlerTest {
 	/***** SCENARIO : Travel Proposal moving to Ready For Proposal kicks off process *****/
 	@isTest
 	private static void travelProposalReadyForProposalKicksOffProcess() {
-		//once lookup rollup summaries are gone this might be possible to remove.
-		MERC_TriggerHandlerStateManager.deactivateAll();
-		MERC_TriggerHandlerStateManager.activate(MERC_MeetingProcessLogicHandler.class);
-
 		givenTheMeetingHasInitiateDelegateManagement('Yes');
-		givenAProcessLogicRecordForTravelProposalReady();
 
 		givenTravelProposalsAreInDraft(participants);
 		Test.startTest();
-		whenTravelProposalsAreReadyForProposal();
+		whenTravelProposalsAre('Ready for Proposal');
 		Test.stopTest();
 
 		expectProcessToBeCreatedFor(participants, 'Travel Proposal');
 	}
 
+	/***** SCENARIO : Travel Proposal moving from Ready For Proposal to proposal updates process *****/
+	@isTest
+	private static void travelProposalProposedUpdatesTravelProcess() {
+		givenTheMeetingHasInitiateDelegateManagement('Yes');
+
+		givenTravelProposalsAreInDraft(participants);
+		whenTravelProposalsAre('Ready for Proposal');
+		Test.startTest();
+		whenATravelProposalIs('Proposed'); //this is not and cannot be bulkified due to process builder actions
+		Test.stopTest();
+
+		expectFirstSendProposalToBeCompleted();
+		expectFirstTravelProcessToHaveAReminder();
+	}
+
 	/**************************************************
 	**************** TEST SETUP METHODS ***************
 	***************************************************/
-	private static void givenAProcessLogicRecordForPreMeetingInformation() {
-		//create a rule that spawns task when process is created
-		Id mpTypeId = Schema.SObjectType.Meeting_Process_Logic_MERC__c.getRecordTypeInfosByName().get('Meeting Process').getRecordTypeId();
-		insert new Meeting_Process_Logic_MERC__c(Description_MERC__c = 'New Pre-Meeting Information Process Created',
-												 RecordTypeId = mpTypeId,
-												 Process_MERC__c = 'Pre-Meeting Information',
-												 Create_New_Task_MERC__c = true,
-												 New_Task_Name_MERC__c = 'Send Pre-Meeting Information',
-												 New_Task_Status_MERC__c = 'Incomplete',
-			                                     New_Task_Due_Date_Days_MERC__c = 7,
-			                                     New_Due_Date_Direction_MERC__c = 'Before',
-			                                     New_Task_Due_Date_Relative_to_MERC__c = 'Meeting_Start_Date_MERC__c');
-        //clear the cached rules
-		MERC_MeetingProcessLogicHandler.meetingProcessLogicRecordsByType = null;
-	}
-
-	private static void givenAProcessLogicRecordForInvitedMercuryParticipant() {
-		//create a rule that initates the reg process when the (Mercury) participants are invited.
-		Id mpTypeId = Schema.SObjectType.Meeting_Process_Logic_MERC__c.getRecordTypeInfosByName().get('Meeting Participant').getRecordTypeId();
-		insert new Meeting_Process_Logic_MERC__c(Description_MERC__c = 'Mercury Meeting Participant is Invited',
-												 RecordTypeId = mpTypeId,
-												 Initiate_Delegate_Management_MERC__c = 'Yes',
-			                                     Meeting_Participant_Status_MERC__c = 'Invited',
-			                                     Veeva_Meeting_Participant_MERC__c = false,
-			                                     Process_MERC__c = 'Registration',
-			                                     Create_New_Process_MERC__c = true,
-			                                     New_Process_MERC__c = 'Registration');
-		//clear the cached rules
-		MERC_MeetingProcessLogicHandler.meetingProcessLogicRecordsByType = null;
-	}
-
-	private static void givenAProcessLogicRecordForAcceptedMercuryParticipant() {
-		//create a rule that initates the reg process when the (Mercury) participants are invited.
-		Id mpTypeId = Schema.SObjectType.Meeting_Process_Logic_MERC__c.getRecordTypeInfosByName().get('Meeting Participant').getRecordTypeId();
-		insert new Meeting_Process_Logic_MERC__c(Description_MERC__c = 'Mercury Meeting Participant is Invited',
-												 RecordTypeId = mpTypeId,
-												 Initiate_Delegate_Management_MERC__c = 'Yes',
-			                                     Meeting_Participant_Status_MERC__c = 'Accepted',
-			                                     Veeva_Meeting_Participant_MERC__c = false,
-			                                     Process_MERC__c = 'Registration',
-			                                     Create_New_Process_MERC__c = true,
-			                                     New_Process_MERC__c = 'Pre-Meeting Information',
-			                                     Update_Existing_Task_MERC__c = true,
-			                                     Update_Task_Status_From_MERC__c = 'Incomplete',
-			                                     Update_Task_Status_To_MERC__c = 'Completed - Task Not Needed',
-			                                     Update_Task_Completed_Date_To_MERC__c = 'Today');
-		//clear the cached rules
-		MERC_MeetingProcessLogicHandler.meetingProcessLogicRecordsByType = null;
-	}
 
 	private static void givenTheMeetingHasInitiateDelegateManagement(String status) {
 		meetings[0].Initiate_Delegate_Management_MERC__c = status;
 		update meetings[0];
-	}
-
-	private static void givenAProcessLogicRecordForTravelProposalReady() {
-		//create a rule that initates the travel process when the travel propoasl is ready for propsal
-		Id mpTypeId = Schema.SObjectType.Meeting_Process_Logic_MERC__c.getRecordTypeInfosByName().get('Travel Proposal').getRecordTypeId();
-		insert new Meeting_Process_Logic_MERC__c(Description_MERC__c = 'First Travel Proposal Ready for Proposal',
-												 RecordTypeId = mpTypeId,
-												 First_Travel_Proposal_MERC__c = 'TRUE',
-			                                     Travel_Proposal_Status_MERC__c = 'Ready for Proposal',
-			                                     Process_MERC__c = 'Travel Proposal',
-			                                     Create_New_Process_MERC__c = true,
-			                                     New_Process_MERC__c = 'Travel Proposal');
-		//clear the cached rules
-		MERC_MeetingProcessLogicHandler.meetingProcessLogicRecordsByType = null;
 	}
 
 	private static void givenTravelProposalsAreInDraft(List<Meeting_Participant_MERC__c> mps) {
@@ -185,21 +158,7 @@ private class MERC_MeetingProcessLogicHandlerTest {
 		}
 
 		update participants;
-		insert processes;
-
-		List<Meeting_Tasks_MERC__c> tasks = new List<Meeting_Tasks_MERC__c>();
-		for (Meeting_Process_MERC__c process : processes) {
-			tasks.add(new Meeting_Tasks_MERC__c(Name='Send Registration',
-				                                Task_Status_MERC__c = 'Completed - Continue Follow Up',
-				                                Meeting_Process_MERC__c = process.id,
-				                                Due_Date_MERC__c = Date.today().addDays(7),
-				                                Completed_Date_MERC__c = Date.today()));
-			tasks.add(new Meeting_Tasks_MERC__c(Name='Reminder 1',
-				                                Task_Status_MERC__c = 'Incomplete',
-				                                Meeting_Process_MERC__c = process.id,
-				                                Due_Date_MERC__c = Date.today().addDays(7)));
-		}
-		insert tasks;
+		MERC_MeetingProcessLogicHandler.meetingProcessLogicRecordsByType = null;
 	}
 
 	/**************************************************
@@ -227,11 +186,40 @@ private class MERC_MeetingProcessLogicHandlerTest {
 		update participants;
 	}
 
-	private static void whenTravelProposalsAreReadyForProposal() {
+	private static void whenTravelProposalsAre(String status) {
 		for (Travel_Itinerary_MERC__c proposal : proposals) {
-			proposal.Status_MERC__c = 'Ready for Proposal';
+			proposal.Status_MERC__c = status;
 		}
 		update proposals;
+	}
+
+	private static void whenATravelProposalIs(String status) {
+		proposals[0].Status_MERC__c = status;
+		update proposals[0];
+	}
+
+	private static void whenTheParticipantsInvitesHaveBeenSent() {
+		List<Meeting_Tasks_MERC__c> tasks = [SELECT Id,
+			                                        Task_Status_MERC__c
+			                                   FROM Meeting_Tasks_MERC__c
+			                                  WHERE Name = 'Send Registration'
+			                                    AND Meeting_Process_MERC__r.Meeting_Participant_MERC__c IN :participants];
+		for (Meeting_Tasks_MERC__c task : tasks) {
+			task.Task_Status_MERC__c = 'Completed - Continue Follow Up';
+		}
+		update tasks;
+	}
+
+	private static void whenTheParticipantsHaveBeenReminded() {
+		List<Meeting_Tasks_MERC__c> tasks = [SELECT Id,
+			                                        Task_Status_MERC__c
+			                                   FROM Meeting_Tasks_MERC__c
+			                                  WHERE Name = 'Reminder 1'
+			                                    AND Meeting_Process_MERC__r.Meeting_Participant_MERC__c IN :participants];
+		for (Meeting_Tasks_MERC__c task : tasks) {
+			task.Task_Status_MERC__c = 'Completed - Continue Follow Up';
+		}
+		update tasks;
 	}
 
 	/**************************************************
@@ -241,8 +229,6 @@ private class MERC_MeetingProcessLogicHandlerTest {
 		System.assertEquals(mps.size(), [SELECT Id
 	                                       FROM Meeting_Tasks_MERC__c
 	                                      WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__c IN : mps].size());
-	                                        //AND Name = 'Send Pre-Meeting Information'
-	                                        //AND Task_Status_MERC__c = 'Incomplete'].size());
 	}
 
 	private static void expectProcessToBeCreatedFor(List<Meeting_Participant_MERC__c> mps, String processType) {
@@ -260,6 +246,132 @@ private class MERC_MeetingProcessLogicHandlerTest {
 		                                            WHERE Meeting_Participant_MERC__c IN :mps
 		                                              AND Process_Status_MERC__c = 'Completed'
 		                                              AND Process_Type_MERC__c = :processType];
+
 		System.assertEquals(mps.size(), processes.size(), processType + ' processes not completed');
 	}
+
+	private static void expectRemindersToHaveBeenCreated(String reminderNum) {
+		String reminder = 'Reminder ' + reminderNum;
+		System.assertEquals(participants.size(),
+			                [SELECT COUNT()
+			  		           FROM Meeting_Tasks_MERC__c
+			  	              WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__c IN :participants
+			  			        AND Name = :reminder],
+			  			    'Reminders not created correctly');
+	}
+
+	private static void expectFirstSendProposalToBeCompleted() {
+		System.assertEquals(1,
+			                [SELECT COUNT()
+			                   FROM Meeting_Tasks_MERC__c
+			                  WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__c = :participants[0].Id
+			                    AND Name = 'Send Travel Proposal'
+			                    AND Task_Status_MERC__c = 'Completed - Continue Follow Up'],
+			                'Send Travel Proposal Task Not closed');
+	}
+
+	private static void expectFirstTravelProcessToHaveAReminder() {
+		System.assertEquals(1,
+			                [SELECT COUNT()
+			                   FROM Meeting_Tasks_MERC__c
+			                  WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__c = :participants[0].Id
+			                    AND Name = 'Reminder 1'
+			                    AND Task_Status_MERC__c = 'Incomplete'],
+			                'Reminder Task Not created');
+	}
+
+
+	/**************************************************
+	********* MEETING PROCESS LOGIC LOADER ************
+	*************************************************
+	This can be replaced with test.loaddata using a static resource
+	once it has been deployed to production. We need to load with
+	record types and the ids will change from org to org until it hits
+	productions so we will just create all of the rules here.
+	*/
+
+	@testSetup
+	private static void insertProcessLogicRules() {
+		List<Meeting_Process_Logic_MERC__c> logicRecords = new List<Meeting_Process_Logic_MERC__c>();
+
+		Id mpTypeId = Schema.SObjectType.Meeting_Process_Logic_MERC__c.getRecordTypeInfosByName().get('Meeting Task').getRecordTypeId();
+		logicRecords.add(createLogicRecord(mpTypeId,'Registration Closed with continued follow up',null,null,FALSE,'Registration',null,null,'Completed - Continue Follow Up',TRUE,TRUE,'Completed - Continue Follow Up',null,'Reminder + count followup +1',null,'Incomplete',null,FALSE,'Today',7,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Travel Proposal Closed with Complete - Continue Follow Up',null,null,FALSE,'Travel Proposal',null,null,'Completed - Continue Follow Up',TRUE,TRUE,'Completed - Continue Follow Up',null,'Reminder + count followup +1',null,'Incomplete',null,FALSE,'Today',7,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Travel Proposal Closed with Completed - Process Cancelled',null,null,FALSE,'Travel Proposal',null,null,'Completed - Process Cancelled',FALSE,TRUE,'Completed - Process Cancelled',null,null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Travel Proposal Closed with Completed - Process Complete',null,null,FALSE,'Travel Proposal',null,null,'Completed - Process Complete',FALSE,TRUE,'Completed - Process Complete',null,null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Registration Closed with Process Cancelled',null,null,FALSE,'Registration',null,null,'Completed - Process Cancelled',FALSE,TRUE,'Completed - Process Cancelled',null,null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Pre-Meeting Information Completed - Process Cancelled',null,null,FALSE,'Pre-Meeting Information',null,null,'Completed - Process Cancelled',FALSE,TRUE,'Completed - Process Cancelled',null,null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Travel Proposal Closed with Completed - Unresponsive',null,null,FALSE,'Travel Proposal',null,null,'Completed - Unresponsive',FALSE,TRUE,'Completed - Unresponsive',null,null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Pre-Meeting Information Completed - Process Complete',null,null,FALSE,'Pre-Meeting Information',null,null,'Completed - Process Complete',FALSE,TRUE,'Completed - Process Complete',null,null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Registration Closed with Process Unresponsive',null,null,FALSE,'Registration',null,null,'Completed - Unresponsive',FALSE,TRUE,'Completed - Process Cancelled',null,null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Registration Closed with Process Complete',null,null,FALSE,'Registration',null,null,'Completed - Process Complete',FALSE,TRUE,'Completed - Process Complete',null,null,null,null,null,FALSE,'Today',null,null,null,null));
+
+		mpTypeId = Schema.SObjectType.Meeting_Process_Logic_MERC__c.getRecordTypeInfosByName().get('Travel Proposal').getRecordTypeId();
+		logicRecords.add(createLogicRecord(mpTypeId,'First Travel Proposal Ready for Proposal','Yes',null,FALSE,'Travel Proposal','TRUE','Ready for Proposal',null,FALSE,FALSE,null,null,null,null,null,'Travel Proposal',TRUE,null,null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Subsquent Travel Proposal Ready for Proposal','Yes',null,FALSE,'Travel Proposal','FALSE','Ready for Proposal',null,FALSE,TRUE,'Completed - Process Cancelled','Incomplete',null,'Send Revised Proposal',null,null,FALSE,null,null,7,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'First Travel Proposal Proposed','Yes',null,FALSE,'Travel Proposal','TRUE','Proposed',null,FALSE,TRUE,'Incomplete','Completed - Continue Follow Up',null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Subsequent Travel Proposal Proposed','Yes',null,FALSE,'Travel Proposal','FALSE','Proposed',null,TRUE,TRUE,'Incomplete','Completed - Continue Follow Up','Reminder <count followup> + 1',null,'Incomplete',null,FALSE,'Today',7,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'First Travel Proposal Rejected','Yes',null,FALSE,'Travel Proposal','TRUE','Rejected',null,FALSE,TRUE,'Incomplete','Completed - Process Cancelled',null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Other Travel Proposals Rejected','Yes',null,FALSE,'Travel Proposal','FALSE','Rejected',null,FALSE,TRUE,'Incomplete','Completed - Process Cancelled',null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'First Travel Proposal Accepted','Yes',null,FALSE,'Travel Proposal','TRUE','Accepted',null,FALSE,TRUE,'Incomplete','Completed - Task Not Needed',null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Subsequent Travel Proposal Accepted','Yes',null,FALSE,'Travel Proposal','FALSE','Accepted',null,FALSE,TRUE,'Incomplete','Completed - Task Not Needed',null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'First Travel Proposal Cancelled','Yes',null,FALSE,'Travel Proposal','TRUE','Cancelled',null,FALSE,TRUE,'Incomplete','Completed - Process Cancelled',null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Subsequent Travel Proposal Cancelled','Yes',null,FALSE,'Travel Proposal','FALSE','Cancelled',null,FALSE,TRUE,'Incomplete','Completed - Process Cancelled',null,null,null,null,FALSE,'Today',null,null,null,null));
+
+		mpTypeId = Schema.SObjectType.Meeting_Process_Logic_MERC__c.getRecordTypeInfosByName().get('Meeting Participant').getRecordTypeId();
+		logicRecords.add(createLogicRecord(mpTypeId,'Mercury Meeting Participant is Invited','Yes','Invited',FALSE,'Registration',null,null,null,FALSE,FALSE,null,null,null,null,null,'Registration',TRUE,null,null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Veeva Meeting Participant Invited','Yes','Invited',TRUE,'Registration',null,null,null,FALSE,FALSE,null,null,null,null,null,'Registration',TRUE,null,null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Mercury Meeting Participant Accepts','Yes','Accepted',FALSE,'Registration',null,null,null,FALSE,TRUE,'Incomplete','Completed - Task Not Needed',null,null,null,'Pre-Meeting Information',TRUE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Veeva Meeting Participant Accpets','Yes','Accepted',TRUE,'Registration',null,null,null,FALSE,TRUE,'Incomplete','Completed - Task Not Needed',null,null,null,'Pre-Meeting Information',TRUE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Mercury Meeting Participant Declines','Yes','Declined',FALSE,'Registration',null,null,null,FALSE,TRUE,'Incomplete','Completed - Process Cancelled',null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Veeva Meeting Participant Declines','Yes','Declined',TRUE,'Registration',null,null,null,FALSE,TRUE,'Incomplete','Completed - Process Cancelled',null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Mercury Meeting Participant Declines','No','Declined',FALSE,'Registration',null,null,null,FALSE,TRUE,'Incomplete','Completed - Process Cancelled',null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Veeva Meeting Participant Declines','No','Declined',TRUE,'Registration',null,null,null,FALSE,TRUE,'Incomplete','Completed - Process Cancelled',null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Mercury Meeting Participant Accepts','No','Accepted',FALSE,'Registration',null,null,null,FALSE,TRUE,'Incomplete','Completed - Task Not Needed',null,null,null,null,FALSE,'Today',null,null,null,null));
+		logicRecords.add(createLogicRecord(mpTypeId,'Veeva Meeting Participant Accpets','No','Accepted',TRUE,'Registration',null,null,null,FALSE,TRUE,'Incomplete','Completed - Task Not Needed',null,null,null,null,FALSE,'Today',null,null,null,null));
+
+		mpTypeId = Schema.SObjectType.Meeting_Process_Logic_MERC__c.getRecordTypeInfosByName().get('Meeting Process').getRecordTypeId();
+		logicRecords.add(createLogicRecord(mpTypeId,'New Pre-Meeting Information Process Created',null,null,FALSE,'Pre-Meeting Information',null,null,null,TRUE,FALSE,null,null,'Send Pre-Meeting Information',null,'Incomplete',null,FALSE,null,7,null,'Meeting_Start_Date_MERC__c','Before'));
+		logicRecords.add(createLogicRecord(mpTypeId,'New Registration Process Created',null,null,FALSE,'Registration',null,null,null,TRUE,FALSE,null,null,'Send Registration',null,'Incomplete',null,FALSE,null,7,null,null,'After'));
+		logicRecords.add(createLogicRecord(mpTypeId,'New Travel Proposal Process Created',null,null,FALSE,'Travel Proposal',null,null,null,TRUE,FALSE,null,null,'Send Travel Proposal',null,'Incomplete',null,FALSE,null,7,null,null,'After'));
+
+		insert logicRecords;
+
+		meetings     = Merc_TestFactory.insertMeetings(1);
+		accounts     = Merc_TestFactory.insertAccounts(200);
+		participants = Merc_TestFactory.insertParticipants(meetings[0].Id, accounts, 'Approved');
+	}
+
+	private static Meeting_Process_Logic_MERC__c createLogicRecord(Id recTypeId, String description, String initateDelMgmt,
+					                                               String mpStatus, Boolean veevaParticipant, String process, String firstTrvlProp,
+					                                               String trvlPropStatus, String meetingTaskStatus,
+					                                               Boolean createNewTask, Boolean updateExistingTask, String updateTaskFrom,
+					                                               String updateTaskTo, String newTaskName,String updateTaskNameTo,
+					                                               String newTaskStatus,String newProcess,Boolean createNewProcess,String updateCompletedDateTo,
+					                                               Decimal newTaskDueDateDays,Decimal dueDatePlus, String newDateRelativeTo, String newDueDateDirection) {
+						 return new Meeting_Process_Logic_MERC__c(RecordTypeId = recTypeId,
+						                                                 DESCRIPTION_MERC__C = description,
+						                                                 INITIATE_DELEGATE_MANAGEMENT_MERC__C = initateDelMgmt,
+						                                                 MEETING_PARTICIPANT_STATUS_MERC__C = mpStatus,
+						                                                 VEEVA_MEETING_PARTICIPANT_MERC__C = veevaParticipant,
+						                                                 PROCESS_MERC__C = process,
+						                                                 FIRST_TRAVEL_PROPOSAL_MERC__C = firstTrvlProp,
+						                                                 TRAVEL_PROPOSAL_STATUS_MERC__C = trvlPropStatus,
+						                                                 MEETING_TASK_STATUS_MERC__C = meetingTaskStatus,
+						                                                 CREATE_NEW_TASK_MERC__C  = createNewTask,
+						                                                 UPDATE_EXISTING_TASK_MERC__C = updateExistingTask,
+						                                                 UPDATE_TASK_STATUS_FROM_MERC__C = updateTaskFrom,
+																		 UPDATE_TASK_STATUS_TO_MERC__C = updateTaskTo,
+																		 NEW_TASK_NAME_MERC__C = newTaskName,
+																		 UPDATE_TASK_NAME_TO_MERC__C = updateTaskNameTo,
+																		 NEW_TASK_STATUS_MERC__C = newTaskStatus,
+																		 NEW_PROCESS_MERC__C = newProcess,
+																		 CREATE_NEW_PROCESS_MERC__C = createNewProcess,
+																		 UPDATE_TASK_COMPLETED_DATE_TO_MERC__C = updateCompletedDateTo,
+																		 NEW_TASK_DUE_DATE_DAYS_MERC__C = newTaskDueDateDays,
+																		 UPDATE_TASK_DUE_DATE_TO_TODAY_PLUS_MERC__C = dueDatePlus,
+																		 NEW_TASK_DUE_DATE_RELATIVE_TO_MERC__C = newDateRelativeTo,
+																		 NEW_DUE_DATE_DIRECTION_MERC__C = newDueDateDirection);
+	}
+
 }

@@ -11,8 +11,6 @@ private class MERC_BudgetVersionControllerTest {
     static Budget_MERC__c b;
     static List<Budget_Line_Item_MERC__c> budgetLines;
     
-    
-
     static {
         MERC_TestFactory.insertMercuryCustomSettings();
         mtgs = MERC_TestFactory.insertMeetings(1);
@@ -65,6 +63,17 @@ private class MERC_BudgetVersionControllerTest {
         System.assertEquals('Final', [Select Status_MERC__c From Budget_MERC__c WHERE ID = :b.Id].Status_MERC__c);
     
     }
-    
-    
+
+    @isTest static void test_should_fail_to_finalize_budged() {
+
+        Budget_MERC__c budgetNoLines = MERC_TestFactory.insertStandAloneBudget();
+
+        PageReference finalizePage = Page.MERC_FinalizeBudgetConfirm;
+        ApexPages.StandardController stdController = new ApexPages.StandardController(budgetNoLines);
+        MERC_BudgetVersionController controller = new MERC_BudgetVersionController(stdController);
+        controller.finalize();
+
+        System.assertNotEquals('Final', [Select Status_MERC__c From Budget_MERC__c WHERE ID = :budgetNoLines.Id].Status_MERC__c);    
+
     }
+}

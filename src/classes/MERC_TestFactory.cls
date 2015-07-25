@@ -393,6 +393,19 @@ public with sharing class MERC_TestFactory {
         return pList;
     }
 
+    public static Budget_MERC__c insertStandAloneBudget() {
+        Id budgetRecordTypeId = [Select ID From RecordType Where SobjectType = 'Budget_MERC__c' AND DeveloperName = 'MERC_Budget_Draft'].Id;
+        Budget_MERC__c budget = null;
+
+        budget = new Budget_MERC__c();
+        budget.Meeting_MERC__c     = MERC_TestFactory.insertMeetings(1).get(0).id;
+        budget.Status_MERC__c      = 'Draft';
+        budget.Cost_Center_MERC__c = '123';
+        budget.RecordTypeId        = budgetRecordTypeId;
+        insert budget;
+        return budget;
+    }
+
 	public static Budget_MERC__c insertBudget(String meetingId, boolean flag) {
 
         return insertBulkBudgets(new List<Meeting_MERC__c>{new Meeting_MERC__c(Id=meetingId)},flag).get(0);  //Modified by Jyoti Gaur for US-37784 on 01 June

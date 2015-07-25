@@ -44,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Stores business logic for processing Mercury Meeting Process and Task automation for Delegate Management and other activities : MERC : Created on 19/06/2015 by Oliver Dunford, Mavens Consulting</description>

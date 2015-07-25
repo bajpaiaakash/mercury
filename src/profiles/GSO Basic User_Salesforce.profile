@@ -14,6 +14,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GLBL_GenericRelatedListControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_BudgetVersionController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -71,6 +75,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingTeamManagerController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingTeamManagerControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
