@@ -9,8 +9,6 @@
         <members>MERC_CancelDelegateMgmtProcessTest</members>
         <members>MERC_CancelDelegateMgmtProcesses</members>
         <members>MERC_ContentVersionHandlerTest</members>
-        <members>MERC_ETDataExtensionProcessor</members>
-        <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_MeetingDateTimesController</members>
         <members>MERC_MeetingDateTimesControllerTest</members>
         <members>MERC_MeetingParticipantNewEditController</members>
@@ -34,7 +32,6 @@
         <members>MERC_FinalizeBudgetConfirm</members>
         <members>MERC_MeetingTaskEditor</members>
         <members>MERC_TravelProposals</members>
-        <members>MeetingEmailSend</members>
         <name>ApexPage</name>
     </types>
     <types>
