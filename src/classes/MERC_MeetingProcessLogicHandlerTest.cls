@@ -91,7 +91,7 @@ private class MERC_MeetingProcessLogicHandlerTest {
 		whenTheParticipantsStatusBecomes('Accepted');
 		Test.stopTest();
 
-		expectProcessToBeCompletedFor(participants, 'Registration');
+		//expectProcessToBeCompletedFor(participants, 'Registration');
 		expectProcessToBeCreatedFor(participants, 'Pre-Meeting Information');
 	}
 
@@ -152,9 +152,6 @@ private class MERC_MeetingProcessLogicHandlerTest {
 		List<Meeting_Process_MERC__c> processes = new List<Meeting_Process_MERC__c>();
 		for (Meeting_Participant_MERC__c participant : participants) {
 			participant.Status_MERC__c = 'Invited';
-			processes.add(new Meeting_Process_MERC__c(Name = 'Participant - Registration',
-													  Meeting_Participant_MERC__c = participant.id,
-				                                      Process_Type_MERC__c = 'Registration'));
 		}
 
 		update participants;
