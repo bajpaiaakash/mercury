@@ -37,14 +37,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_ETDataExtensionProcessor</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MERC_ETMeetingEmailSendExtension</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MERC_MeetingDateTimesController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -638,10 +630,6 @@
     <pageAccesses>
         <apexPage>MERC_TravelProposals</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>MeetingEmailSend</apexPage>
-        <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
         <recordType>Budget_MERC__c.MERC_Budget_Active</recordType>
