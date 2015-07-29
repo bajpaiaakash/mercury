@@ -346,9 +346,13 @@ public with sharing class MERC_TestFactory {
 
     public static List<Meeting_Tasks_MERC__c> insertBulkMeetingTasks(List<Meeting_Participant_MERC__c> participants) {
         List<Meeting_Tasks_MERC__c> tasks = new List<Meeting_Tasks_MERC__c>();
+        Meeting_Process_MERC__c process = new Meeting_Process_MERC__c(Meeting_Participant_MERC__c = participants.get(0).Id);
+        insert process;
+
         for (Meeting_Participant_MERC__c participant : participants) {
             Meeting_Tasks_MERC__c task = new Meeting_Tasks_MERC__c();
             //task.Meeting_Participant_MERC__c = participant.Id;
+            task.Meeting_Process_MERC__c = process.Id;
             tasks.add(task);
         }
 

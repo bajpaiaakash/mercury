@@ -10,6 +10,8 @@
         <members>MERC_CancelDelegateMgmtProcessTest</members>
         <members>MERC_CancelDelegateMgmtProcesses</members>
         <members>MERC_ContentVersionHandlerTest</members>
+        <members>MERC_DailyAttendanceControllerStressTest</members>
+        <members>MERC_DailyAttendanceControllerTest</members>
         <members>MERC_MeetingDateTimesController</members>
         <members>MERC_MeetingDateTimesControllerTest</members>
         <members>MERC_MeetingParticipantNewEditController</members>
