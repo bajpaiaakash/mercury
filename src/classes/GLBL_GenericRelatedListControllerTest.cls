@@ -15,6 +15,7 @@ public class GLBL_GenericRelatedListControllerTest {
 		System.runAs(testUser) {
 			Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
 			List<Meeting_Day_MERC__c> participants = MERC_TestFactory.insertMeetingDays(meeting.Id, 1);
+			RecordType rt = [SELECT DeveloperName FROM RecordType WHERE DeveloperName = 'Completed' AND SObjectType = 'Meeting_MERC__c'];
 
 			PageReference testPage = Page.Get_Started;
 			testPage.getParameters().put('id', meeting.Id);
@@ -64,6 +65,60 @@ public class GLBL_GenericRelatedListControllerTest {
 			controller.goToServer();
 		}
 	}
+
+	@isTest static void test_meeting_budget_for_meeting() {
+		System.runAs(testUser) {
+
+			
+
+
+			Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
+
+			Id budgetRecordTypeId = [SELECT Id FROM RecordType WHERE DeveloperName = 'MERC_Budget_Final' LIMIT 1].Id;
+			Budget_MERC__c budget = new Budget_MERC__c(Meeting_MERC__c = meeting.Id, RecordTypeId = budgetRecordTypeId);
+			insert budget;
+
+			List<Budget_MERC__c> budgets = new List<Budget_MERC__c> {budget};
+
+			PageReference testPage = Page.Get_Started;
+			testPage.getParameters().put('id', meeting.Id);
+			testPage.getParameters().put('rtdn', 'MERC_Budget_Final');
+			Test.setCurrentPage(testPage);
+
+			setController = new ApexPages.StandardSetController(new List<Meeting_MERC__c>());
+			GLBL_GenericRelatedListController controller = new GLBL_GenericRelatedListController(
+																					setController,
+																					'Meeting_MERC__c',
+																					'Budget_MERC__c',
+																					'Meeting_MERC__c',
+																					new List<String>{'Id','Name'},
+																					new List<String>{'Name', 'Budget_Date_MERC__c', 'RecordTypeId'},
+																					'Budget_Date_MERC__c');
+
+
+			system.assertEquals(meeting.Id, controller.parent.Id);
+
+			system.assertEquals(1, controller.children.size());
+
+			controller.add();
+
+			system.assertEquals(1, controller.children.size());
+
+			GLBL_GenericRelatedListController.GenericSobjectWrapper md = controller.children.get(0);
+			md.so.put('Budget_Date_MERC__c', Date.today().addDays(1));
+
+			PageReference p = controller.save();
+
+			system.debug('save result ref ---> '+p);
+			system.debug(ApexPages.getMessages());
+
+			system.assertEquals(1, [SELECT count() FROM Budget_MERC__c WHERE Meeting_MERC__c = :meeting.Id]);
+
+			////this facilitates ajax, but no assertions needed
+			controller.goToServer();
+		}
+	}
+
 	//we choose a generic case here so it can be used in any org
 	//@isTest static void test_opportunities_for_accounts() {
 	//	List<Account> accounts = MERC_TestFactory.insertBusinessAccounts(1, [SELECT ID FROM RecordType WHERE SObjectType = 'Account' and DeveloperName = 'Vendor_GLBL'].ID);
