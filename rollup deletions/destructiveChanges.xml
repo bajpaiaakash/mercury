@@ -61,6 +61,12 @@
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>Account.of_Contracting_Parties_MERC__c</members>
+        <members>Account.of_Designated_Individuals_MERC__c</members>
+        <members>Preferences_and_Consent_GLBL__c.Dietary_Preferences_Complete_MERC__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
         <members>LookupChild_GLBL__c</members>
         <members>LookupParent_GLBL__c</members>
         <members>LookupRollupSummaryLog_GLBL__c</members>
