@@ -39,14 +39,6 @@ public with sharing class MERC_TestFactory {
         List<sObject> fmvSettings = Test.loadData(FMV_Settings_MERC__c.sObjectType, 'FMV_MERC');
     }
 
-    //public static void loadDeclarativeRollupSummaries() {
-    //    List<sObject> rollups = Test.loadData(LookupRollupSummary_GLBL__c.sObjectType, 'DeclarativeRollupTestData_MERC');
-    //}
-
-    //public static void loadDeclarativeRollupNonAggregateSummaries() {
-    //    List<sObject> rollups = Test.loadData(LookupRollupSummary_GLBL__c.sObjectType, 'DeclarativeRollupNonAggregateTestData_MERC');
-    //}
-
     public static List<Account> insertBusinessAccounts(Integer numberOfAccounts, Id recordTypeId) {
         List<Account> accs = new List<Account>();
         for (Integer i = 0; i < numberOfAccounts; i++) {
