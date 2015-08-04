@@ -40,7 +40,8 @@ public class MERC_MeetingParticipantRollups implements Queueable {
 							   (SELECT Contract_Request_Status_MERC__c
 							   	  FROM HCP_Contracts__r)
 					      FROM Meeting_Participant_MERC__c
-					     WHERE Id IN :participantIds];
+					     WHERE Id IN :participantIds
+					     FOR UPDATE];
 
 		Set<Id> participantAccountIds = new Set<Id>();
 

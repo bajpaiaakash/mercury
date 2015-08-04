@@ -40,7 +40,8 @@ public class MERC_AccountRollups implements Queueable{
                               FROM Consent__r
                              WHERE Preference_Type_MERC__c = 'Meals Allergy Preferences')
                       FROM Account
-                      WHERE Id IN :accountIds];
+                      WHERE Id IN :accountIds
+                      FOR UPDATE];
 
         Set<String> allocatedCapMeetingStatuses  = new Set<String>{'Registered', 'Active'};
         Set<String> allocatedCapExcludedStatuses = new Set<String>{'Cancelled', 'Rejected', 'Declined'};

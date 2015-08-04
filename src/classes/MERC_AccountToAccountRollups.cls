@@ -26,7 +26,8 @@ public with sharing class MERC_AccountToAccountRollups implements Queueable{
 						   (SELECT Id FROM Designated_Individuals__r),
 						   (SELECT Id FROM HCPs_Contracting_Party__r)
 		              FROM Account
-		             WHERE Id IN :accountIds];
+		             WHERE Id IN :accountIds
+		             FOR UPDATE];
 
 		for (Account account : accounts) {
 			//Designated Individual Count
