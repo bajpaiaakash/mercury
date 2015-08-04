@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>of_Contracting_Parties_MERC__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>Calculates # of Contracting Parties for HCP using Lookup Summary Tool. Created 05/06/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># of Contracting Parties</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Designated_Individuals_MERC__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>Calculates # of Designated Individual for HCP using Lookup Summary Tool. Created 05/06/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># of Designated Individuals</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>
