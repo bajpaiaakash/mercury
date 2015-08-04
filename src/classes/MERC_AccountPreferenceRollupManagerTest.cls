@@ -11,8 +11,6 @@ private class MERC_AccountPreferenceRollupManagerTest {
 	static User testUser = MERC_TestFactory.getTestingUser();
 
 	static {
-		MERC_TestFactory.loadDeclarativeRollupSummaries();
-
 		System.runAs(runningUser) {
 			accounts = MERC_TestFactory.insertAccounts(100);
 		}
@@ -20,14 +18,10 @@ private class MERC_AccountPreferenceRollupManagerTest {
 
 	@isTest static void test_should_rollup_dietary_preferences_to_account() {
 		System.runAs(testUser) {
-			//insert a preference
-			MERC_TestFactory.insertPreferenceForAccounts(accounts, 'Meals Allergy Preferences', 'Halal', false);
-
-			system.assertEquals(1, [SELECT Count_Dietary_Preferences_MERC__c FROM Account WHERE Id = :accounts.get(0).ID].Count_Dietary_Preferences_MERC__c);
-			system.assertEquals(1, [SELECT Count_Dietary_Preferences_MERC__c FROM Account WHERE Id = :accounts.get(50).ID].Count_Dietary_Preferences_MERC__c);
 
 			Test.startTest();
-			//insert two more preferences
+			//insert three preferences
+			MERC_TestFactory.insertPreferenceForAccounts(accounts, 'Meals Allergy Preferences', 'Halal', false);
 			MERC_TestFactory.insertPreferenceForAccounts(accounts, 'Meals Allergy Preferences', 'Kosher', false);
 			MERC_TestFactory.insertPreferenceForAccounts(accounts, 'Meals Allergy Preferences', 'Vegetarian', false);
 			Test.stopTest();
