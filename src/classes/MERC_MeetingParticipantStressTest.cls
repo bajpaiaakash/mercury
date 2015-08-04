@@ -1,6 +1,6 @@
 @isTest
 private class MERC_MeetingParticipantStressTest {
-	
+
 	static List<Meeting_MERC__c> meetings;
 	static List<Account> accounts;
 	static List<Meeting_Day_MERC__c> meetingDays;
@@ -11,7 +11,6 @@ private class MERC_MeetingParticipantStressTest {
 	static Meeting_MERC__c meeting;
 
 	static {
-		MERC_TestFactory.loadDeclarativeRollupSummaries();
 		//accounts = MERC_TestFactory.insertAccounts(100); //insert 100 accounts
 		accounts = [SELECT ID, FirstName, LastName, RecordTypeId, PersonEmail FROM Account WHERE RecordTypeId = :MERC_TestFactory.hcpRecordTypeId limit 100];
 		meetings = MERC_TestFactory.insertMeetings(1); //insert 1 meetings
@@ -25,5 +24,5 @@ private class MERC_MeetingParticipantStressTest {
 	@isTest static void run_stress_test() {
 		MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts);
 	}
-	
+
 }
