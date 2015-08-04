@@ -17,7 +17,11 @@ global class MERC_HcpCapYearlyCalculationJob implements Database.Batchable<sObje
 	}
 
    	global void execute(Database.BatchableContext BC, List<sObject> scope) {
-		update GLBL_RollupService.rollup(scope);
+		Set<Id> accountIdsForRollup = new Set<Id>();
+		for (Meeting_Participant_MERC__c mp : (List<Meeting_Participant_MERC__c>)scope) {
+			accountIdsForRollup.add(mp.Account_MERC__c);
+		}
+		System.enqueueJob(new MERC_AccountRollups(accountIdsForRollup));
 	}
 
 	global void finish(Database.BatchableContext BC) {
