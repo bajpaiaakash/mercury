@@ -18,6 +18,16 @@ public with sharing class MERC_AccountDesignatedIndividualsCounter implements GL
     }
 
     public void execute(List<SObject> sobjects) {
-        GLBL_RollupService.triggerHandler(sobjects);
+        Set<Id> parentAccountIds = new Set<Id>();
+        for (Account account : (List<Account>) sobjects) {
+            parentAccountIds.add(account.HCP_Designated_Individuals_MERC__c);
+            parentAccountIds.add(account.HCP_Contracting_Party_MERC__c);
+        }
+
+        //only enqueue the job if there is at least one non null Id
+        parentAccountIds.remove(null);
+        if (!parentAccountIds.isEmpty()) {
+            System.enqueueJob(new MERC_AccountToAccountRollups(parentAccountIds));
+        }
     }
 }
