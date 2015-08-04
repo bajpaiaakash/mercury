@@ -24,26 +24,6 @@ private class MERC_HcpCapYearlyCalculationJobTest {
 						Planned_Budget_MERC__c               =10000
 			);
 		}
-
-		List<LookupRollupSummary_GLBL__c> lrs = new List<LookupRollupSummary_GLBL__c>();
-		lrs.add( new LookupRollupSummary_GLBL__c(
-				Active_GLBL__c                    = true,
-				AggregateOperation_GLBL__c        = 'Sum',
-				AggregateResultField_GLBL__c      = 'Allocated_CAP_MERC__c',
-				CalculationMode_GLBL__c           = 'Developer',
-				ChildObject_GLBL__c               = 'Meeting_Participant_MERC__c',
-				FieldToAggregate_GLBL__c          = 'Final_Fee_MERC__c',
-				Name                              = 'Allocated Cap Batch',
-				OverrideTriggerValidation_GLBL__c = true,
-				ParentObject_GLBL__c              = 'Account',
-				RelationshipCriteria_GLBL__c      = 'Meeting_MERC__r.End_Date_of_Event_MERC__c = THIS_YEAR '
-				                                  + 'AND Meeting_MERC__r.Meeting_Status_MERC__c IN(\'Registered\', \'Active\') '
-				                                  + 'AND Include_CAP_Roll_Up_MERC__c = TRUE '
-				                                  + 'AND Status_MERC__c NOT IN(\'Cancelled\', \'Rejected\', \'Declined\')',
-				RelationshipField_GLBL__c         = 'Account_MERC__c',
-				TreatZeroAsNull_GLBL__c           = false
-		));
-		insert lrs;
 	}
 
 	@isTest static void test_batch_job() {
