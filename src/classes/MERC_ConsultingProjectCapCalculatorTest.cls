@@ -19,7 +19,6 @@ private class MERC_ConsultingProjectCapCalculatorTest {
 		meetingDays = MERC_TestFactory.insertMeetingDays(meetings.get(0).Id, 3); //insert 3 days
 		participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts); //insert 5 participants
 		participants2 = MERC_TestFactory.insertParticipants(meetings.get(1).Id, accounts); //insert 5 participants
-		MERC_TestFactory.loadDeclarativeRollupSummaries();
 	}
 
 	@isTest static void basic_test() {
