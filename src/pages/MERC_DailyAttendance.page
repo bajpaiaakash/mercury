@@ -84,12 +84,71 @@
 					<apex:commandButton value="Save" action="{!saveAll}" rendered="{!$ObjectType.Daily_Attendance_TOV_MERC__c.Fields.Confirm_ToV_Reporting_Change_MERC__c.updateable}"/>
 					<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
 				</apex:pageBlockButtons>
-				<apex:pageMessages />
+				<apex:pageMessages id="messages"/>
 				<div class="selectActions">
 					<apex:commandButton value="Set Selected To Attended" rendered="{!not(hasError)}" action="{!setSelectedToAttended}" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" rerender="mainBlock"/>
 					<apex:commandButton value="Set Selected To No-Show" rendered="{!not(hasError)}" action="{!setSelectedToNoShow}" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" rerender="mainBlock"/>
 				</div>
-				<apex:pageBlockTable value="{!participants}" var="p" styleclass="attendanceTable" rendered="{!not(hasError)}">
+
+				<apex:outputPanel id="navigation" layout="block" style="text-align:center;">
+					<!-- FIRST & PREVIOUS BUTTONS -->
+					<apex:outputPanel layout="none" rendered="{!tovs.hasPrevious}">
+						<apex:commandButton value="<< First"
+											action="{!tovs.first}"
+											rerender="attendanceTable, messages, navigation"
+											styleClass="navigation"
+											status="tableStatus"
+											onclick="toggleLoading()"
+											oncomplete="bindDomHandlers();toggleLoading()"/>
+						<apex:commandButton value="< Previous"
+											action="{!tovs.previous}"
+											rerender="attendanceTable, messages, navigation"
+											styleClass="navigation"
+											status="tableStatus"
+											onclick="toggleLoading()"
+											oncomplete="bindDomHandlers();toggleLoading()"/>
+					</apex:outputPanel>
+					<apex:outputPanel layout="none" rendered="{!NOT(tovs.hasPrevious)}">
+						<apex:commandButton value="<< First" disabled="true" styleClass="navigation"/>
+						<apex:commandButton value="< Previous" disabled="true" styleClass="navigation"/>
+					</apex:outputPanel>
+					<!-- END FIRST & PREVIOUS BUTTONS -->
+
+					<!-- PAGE COUNTER -->
+					<span class="navigation">
+						<apex:outputText value="Page {!tovs.pageNumber} of {!CEILING(tovs.resultSize / tovs.pageSize)}"
+										 rendered="{!tovs.resultSize > 0}"/>
+					</span>
+					<!-- END PAGE COUNTER -->
+
+					<!-- NEXT & LAST BUTTONS -->
+					<apex:outputPanel layout="none" rendered="{!tovs.hasNext}">
+						<apex:commandButton value="Next >"
+											action="{!tovs.next}"
+											rendered="{!tovs.hasNext}"
+											rerender="attendanceTable, messages, navigation"
+											styleClass="navigation"
+											status="tableStatus"
+											onclick="toggleLoading()"
+											oncomplete="bindDomHandlers();toggleLoading()"/>
+						<apex:commandButton value="Last >>"
+											action="{!tovs.last}"
+											rendered="{!tovs.hasNext}"
+											rerender="attendanceTable, messages, navigation"
+											styleClass="navigation"
+											status="tableStatus"
+											onclick="toggleLoading()"
+											oncomplete="bindDomHandlers();toggleLoading()"/>
+					</apex:outputPanel>
+					<apex:outputPanel layout="none" rendered="{!NOT(tovs.hasNext)}">
+						<apex:commandButton value="Next >" disabled="true" styleClass="navigation"/>
+						<apex:commandButton value="Last >>" disabled="true" styleClass="navigation"/>
+					</apex:outputPanel>
+					<!-- NEXT & LAST BUTTONS -->
+				</apex:outputPanel>
+				<!-- END TASK NAVIGATION-->
+
+				<apex:pageBlockTable value="{!participants}" var="p" styleclass="attendanceTable" rendered="{!not(hasError)}" id="attendanceTable">
 					<apex:column headerValue="Attended" width="30">
 						<apex:facet name="header">
 							<input type="checkbox" id="chkSelectAll"/>
