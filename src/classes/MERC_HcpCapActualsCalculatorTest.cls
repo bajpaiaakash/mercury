@@ -10,13 +10,10 @@ private class MERC_HcpCapActualsCalculatorTest {
 		accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'GB'); //insert 5 accounts
 		meetings = MERC_TestFactory.insertMeetings(1); //insert 2 meetings
 		participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts); //insert 5 participants
-		MERC_TestFactory.loadDeclarativeRollupSummaries();
 	}
 
-//	@isTest 
+	@isTest
 	static void test_should_rollup_reserved_cap_to_account() {
-		Test.startTest();
-
 		Meeting_MERC__c m = meetings.get(0);
 		m.Meeting_Status_MERC__c = 'Forecasted';
 		update m;
@@ -30,15 +27,19 @@ private class MERC_HcpCapActualsCalculatorTest {
 		p1.Include_CAP_Roll_Up_MERC__c = true;
 		update p1;
 
+		Set<Id> accountIds = new Set<Id>();
+		for (Account account : accounts) {
+			accountIds.add(account.Id);
+		}
+		Test.startTest();
+		System.enqueueJob(new MERC_AccountRollups(accountIds));
 		Test.stopTest();
 
 		system.assertEquals(95, [Select Reserved_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Reserved_CAP_MERC__c);
 	}
 
-//	@isTest 
+    @isTest
 	static void test_should_rollup_allocated_cap_to_account() {
-		Test.startTest();
-
 		Meeting_MERC__c m = meetings.get(0);
 		m.Meeting_Status_MERC__c = 'Forecasted';
 		update m;
@@ -66,13 +67,19 @@ private class MERC_HcpCapActualsCalculatorTest {
 
 		p1.Final_Fee_MERC__c = 95;
 		update p1;
-		
+
+		Set<Id> accountIds = new Set<Id>();
+		for (Account account : accounts) {
+			accountIds.add(account.Id);
+		}
+		Test.startTest();
+		System.enqueueJob(new MERC_AccountRollups(accountIds));
 		Test.stopTest();
 
 		system.assertEquals(95, [Select Allocated_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Allocated_CAP_MERC__c);
 	}
 
-	@isTest 
+	@isTest
 	static void test_should_rollup_allocated_cap_multicurrency() {
 		p('starting test...');
 		p('UserInfo currency = '+UserInfo.getDefaultCurrency());
@@ -108,20 +115,22 @@ private class MERC_HcpCapActualsCalculatorTest {
 		m.City_of_Meeting_MERC__c = 'Philadelphia';
 		update m;
 
-		Test.startTest();
-
 		p1.Final_Fee_MERC__c = 95;
 		update p1;
-		
+
+		Set<Id> accountIds = new Set<Id>();
+		for (Account account : accounts) {
+			accountIds.add(account.Id);
+		}
+		Test.startTest();
+		System.enqueueJob(new MERC_AccountRollups(accountIds));
 		Test.stopTest();
 
 		system.assertEquals(95, [Select Allocated_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Allocated_CAP_MERC__c);
 	}
 
-//	@istest 
+	@istest
 	static void test_speaking_paid_cap() {
-		Test.startTest();
-
 		Meeting_MERC__c m = meetings.get(0);
 		m.Meeting_Status_MERC__c = 'Forecasted';
 		update m;
@@ -160,6 +169,13 @@ private class MERC_HcpCapActualsCalculatorTest {
 		p1.Services_Rendered_MERC__c = 'Yes';
 		update p1;
 
+		Set<Id> accountIds = new Set<Id>();
+		for (Account account : accounts) {
+			accountIds.add(account.Id);
+		}
+
+		Test.startTest();
+		System.enqueueJob(new MERC_AccountRollups(accountIds));
 		Test.stopTest();
 
 		system.assertEquals(95, [Select Speaking_Paid_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Speaking_Paid_CAP_MERC__c);
