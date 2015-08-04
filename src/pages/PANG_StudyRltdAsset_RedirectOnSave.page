@@ -1,0 +1,2 @@
+<apex:page standardController="PANG_Related_Data_Asset__c" extensions="PANG_RedirectOnSave" action="{!onloadFromStudy}" >
+</apex:page>

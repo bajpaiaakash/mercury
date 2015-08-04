@@ -1,0 +1,82 @@
+<apex:component controller="QDUX_VVMyAlertsController" allowDML="true">
+    <script>
+    window.onload=function()
+    {
+        alertLoad();
+     };
+    </script>
+    <apex:form >
+        <apex:actionFunction name="alertLoad" reRender="alertList, pageMesssages" action="{!notificationAlert}" status="myStatus" />
+    </apex:form>
+    <apex:outputPanel id="alerts" rendered="true">
+            <div class="divContainer">
+                <div class="divHeader">
+                    <div style="display: inline-block;">
+                        <apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/bell.png')}"/>
+                        
+                        <span class="homeWidgetHeader">Alerts</span>
+                    </div>
+                </div>
+                
+                <apex:actionStatus id="myStatus"  >
+                    
+                    <apex:facet name="start">
+                        <apex:outputText >
+                            Retrieving Alerts &nbsp;
+						<apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/spinner-gif-red.gif')}"/>
+                        </apex:outputText>
+                    </apex:facet>
+                    <apex:facet name="stop">
+                    </apex:facet>
+                    
+                </apex:actionStatus>
+                
+                <apex:outputPanel id="noAlerts" rendered="false" >
+                    <div style="border-top:1px solid #e5e5e5; padding-left:15px; padding-bottom: 15px; padding-top: 15px; padding-right: 15px;">
+                        <apex:outputPanel rendered="{!isException}">
+                            <apex:pageMessages ></apex:pageMessages>
+                        </apex:outputPanel>
+                        <apex:image styleClass="imgAlignMiddle"  value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/accept.png')}"></apex:image>
+                        <apex:outputText style="padding-left:5px; color: #52B3D9; font-size: 14px; font-family: DINWebPro" value="No Alerts available!!!"> </apex:outputText>
+                    </div>
+                </apex:outputPanel>
+                
+                <apex:outputPanel id="alertList" >
+                    <apex:dataTable value="{!vvAlerts}" var="v" width="100%">
+                        <apex:column style="border-top:1px solid #e5e5e5; padding-left:15px; padding-bottom: 15px; padding-top: 15px; padding-right: 15px;" >
+                            <apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/exclamation.png')}" rendered="{!if(today()> v.task_dueDate , true, false)}"/>
+                            <apex:image styleClass="imgAlignMiddle"  value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/emblem-important.png')}" rendered="{!if(v.task_dueDate >= today() && v.task_dueDate <= today()+4, true, false)}"/>
+                            <apex:image styleClass="imgAlignMiddle"  value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/accept.png')}" rendered="{!if(v.task_dueDate > today()+5, true, false)}"/>
+                        </apex:column>
+                        
+                        <apex:column styleClass="homeWidgetfont" style="border-top:1px solid #e5e5e5; padding-left:15px; padding-bottom: 15px; padding-top: 15px; padding-right: 15px;">
+                            <a target="_blank" href="{!v.docURL}" style="color:#52B3D9; text-decoration: none;">
+                                {!v.vName} - Doc Id: {!v.workflow_document_id} - {!v.task_name} 
+                                <br/>	
+                                Due Date:
+                                <apex:outputText value="{0,date,MM/dd/yyyy}"> 
+                                    <apex:param value="{!v.task_dueDate}" /> 
+                                </apex:outputText>
+                            </a>
+                        </apex:column>
+                    
+                    </apex:dataTable>
+                    
+                </apex:outputPanel>
+                
+            </div>
+            <apex:outputPanel >
+                <br/>
+                <div class="divContainer" style="padding:10px;">
+                    <apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/exclamation.png')}" 
+                                width="20"/> <span class="homeWidgetfont">Overdue Task</span> <br/>
+                    <apex:image styleClass="imgAlignMiddle"  value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/emblem-important.png')}" 
+                                width="20"/>  <span class="homeWidgetfont">Task due within 5 days </span> <br/> 
+                    <apex:image styleClass="imgAlignMiddle"  value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/accept.png')}" 
+                                width="20" /> <span class="homeWidgetfont">Task due in over a week</span>         
+                </div>
+            </apex:outputPanel>
+            
+        </apex:outputPanel>
+    
+</apex:component>

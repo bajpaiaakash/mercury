@@ -1,0 +1,56 @@
+<apex:page standardController="C3AP_Affiliate__c" extensions="C3APMainPage">
+       <style>
+            .headerStyle {
+                font-size:50px;
+                 color:#fff;
+             }
+       </style>
+<apex:stylesheet value="{!$Resource.C3AP_CSS}"/>
+ <apex:form >
+ <apex:pageBlock id="AffSelect" mode="Edit">
+
+        <center><p/>
+            <apex:outputText value="{!$Label.C3AP_To_Get_Started} "/> 
+            <apex:selectList size="1" value="{!listvalue}">
+            <apex:selectOptions value="{!optionlist}"/>
+            <apex:actionSupport event="onchange" reRender="Affchange, Info" action="{!homepage}" />
+            </apex:selectList>
+        </center>
+        <p/>
+        </apex:pageBlock>
+        <apex:pageBlock mode="Edit" id="Affchange" >       
+            <apex:pageBlockSection columns="2" rendered="{!listvalue!=$Label.C3AP_Select_Affiliate}">         
+                <apex:outputPanel rendered="{!!displayLocalText }">             
+                    <apex:outputField value="{!selectedaffiliate.C3AP_Home_Page__c}"/>
+                </apex:outputPanel> 
+                 <apex:outputPanel rendered="{!displayLocalText }">             
+                    <apex:outputField value="{!selectedaffiliate.C3AP_Local_Home_Page__c}"/>
+                </apex:outputPanel>     
+                <apex:pageBlockSection columns="2">             
+                    <!--<apex:image url="{!$Resource.C3AP_C3AppLogo}" width="170%" height="100%"/>
+                    <p/>-->
+                    <apex:commandButton value="{!$Label.C3AP_New_Contract_Request}" action="{!newContract}" />
+                    <p/><p/><p/><p/>
+                    <apex:commandButton value="{!$Label.C3AP_Search_Existing_Request}" action="{!searchContract}"/>   
+                    <p/>
+                    <apex:commandButton value="{!$Label.C3AP_My_Contract_Requests}" action="{!URLFOR($Action.C3AP_Contract_Request__c.Tab,$ObjectType.C3AP_Contract_Request__c)}"/>                            
+                </apex:pageBlockSection>                                      
+            </apex:pageBlockSection>          
+ <!--           <apex:pageBlockSection columns="1" title="{!$Label.C3AP_Additional_Guidance_Information}" rendered="{!listvalue!=$Label.C3AP_Select_Affiliate}" >-->
+                <apex:pageBlockTable value="{!lstAdditionalLinks}" var="l" rendered="{!listvalue!=$Label.C3AP_Select_Affiliate}">
+                  <apex:column headerValue="{!$Label.C3AP_Additional_Links_For_Information}" headerClass="headerStyle">
+                   <a href="/servlet/servlet.FileDownload?file={!l.id}" download="{!l.Name}">{!l.Name}</a>     
+                  </apex:column>
+                  <apex:column headerValue="{!$Label.C3AP_Description}">
+                  {!l.Description}
+                  </apex:column>
+                </apex:pageBlockTable>
+              <apex:outputPanel rendered="{!listvalue!=$Label.C3AP_Select_Affiliate}" >
+               <p/>
+               <apex:outputText rendered="{!lstAdditionalLinks.size== 0}" value="{!$Label.C3AP_No_Additional_Guidance}" />
+               <p/>
+              </apex:outputPanel>
+  <!--          </apex:pageBlockSection>    -->  
+      </apex:pageBlock>       
+ </apex:form>
+</apex:page>

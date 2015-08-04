@@ -1,0 +1,20 @@
+<apex:component controller="QDUX_ApplicationLinkController" allowDML="true"> 
+    <div class="divContainer">
+        <div class="divHeader">
+            <div style="display: inline-block;">
+                <apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/report.png')}"/>
+                <span class="homeWidgetHeader">Common Links </span>
+            </div>
+        </div>
+        <apex:repeat value="{!ApplicationLinks}" var="app">
+            <div style="border-top:1px solid #e5e5e5; padding:15px 15px 15px 15px;">
+                <apex:outputLink style="text-decoration:none;" value="{!app.Link_URL__c}" target="_blank" >
+                    <apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/link.png')}"/>
+                    <span style="padding-left:5px; color: #52B3D9; font-size: 14px; font-family: DINWebPro">{!app.Link_Name__c}</span>
+                </apex:outputLink>
+            </div>
+        </apex:repeat>
+       
+    </div> 
+ 
+</apex:component>

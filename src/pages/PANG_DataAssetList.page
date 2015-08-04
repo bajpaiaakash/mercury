@@ -1,0 +1,253 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="false" controller="PANG_DataAssetList" readonly="true" id="thePage">
+
+
+    <script type='text/javascript'>
+    	function isValidSearchString(searchString) {
+            var SEARCH_TRIGGER_THRESHOLD = 2;
+            var trimmedSearchString = searchString.trim();
+
+	            if (trimmedSearchString.length >= SEARCH_TRIGGER_THRESHOLD) {
+	                return true;
+	            } else {
+	                return false;
+	            }
+        }
+    
+        function noenter(ev)  {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+            	var searchString = (document.getElementsByClassName("keyword_DataAsset_Search_Text"))[0].value;
+            	if (isValidSearchString(searchString)){
+                	doSearchAf();
+                }
+                return false;
+             } else {
+                  return true;
+             }
+         }
+    </script>
+ 
+    <title>Data Asset</title>
+
+    <c:PANG_Index />
+
+    <apex:form id="theForm">
+
+        <apex:actionFunction name="doSearchAf" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+
+        <div class='content'>
+
+            <div class='fixed-container list-view'>
+
+                <div class='filters-wrapper'>
+
+                    <!--The below page logic will display the total number of data assets per filter-->
+                    <div class="filter-header container">
+                        <apex:outputpanel id="resultsize">
+                            <span class='result-count'>{!cDataAssetListCntlr.ResultSize} Data Assets</span>
+                        </apex:outputpanel>
+                         <apex:outputlink value="/apex/PANG_CreateDataAsset" styleClass="create-new enabled l-yellow">Submit a New Data Asset</apex:outputlink>
+                        <span class='icon-large-caret down'></span>
+                    </div>
+
+                    <!--The below page logic will display the check box filters for various fields and the pivot-->
+                    <div class='filter-container container'>
+
+                        <!--Start of Output Panel-->
+                        <apex:outputpanel id="therapueticareaCol">
+
+                            <!--Therapuetic Area field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-4'>
+                                <ul class='filter-column'>
+                                    <li >Therapeutic Area</li>
+                                    <apex:repeat value="{!mDataAssetObjectStructure['Relevant_Therapeutic_Area__c']}" var="Tarea">
+                                        <li >
+                                            <apex:inputCheckbox value="{!Tarea.isSelected}" style="outline: 2px solid green background-color: #d0e4fe;" >
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label for='{!Tarea.Label}'>{!Tarea.Label} ({!mCategoyCount[Tarea.Label]})</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                            <!--Region field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-3'>
+                                <ul class='filter-column'>
+                                    <li >Region</li>
+                                    <apex:repeat value="{!mDataAssetObjectStructure['Region__c']}" var="Region">
+                                        <li>
+                                            <apex:inputCheckbox value="{!Region.isSelected}" >
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label>{!Region.Label}</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                            <!--Type of Database field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-3'>
+                                <ul class='filter-column'>
+                                    <li>Database Type</li>
+                                    <apex:repeat value="{!mDataAssetObjectStructure['Type_of_Database__c']}" var="TypeofDatabase">
+                                        <li>
+                                            <apex:inputCheckbox value="{!TypeofDatabase.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label>{!TypeofDatabase.Label} ({!mCategoyCount[TypeofDatabase.Label]})</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                            <!--Access Method field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-2'>
+                                <ul class='filter-column'>
+                                    <li>Access Method</li>
+                                    <apex:repeat value="{!mDataAssetObjectStructure['Access_Method__c']}" var="AccessMethod">
+                                        <li>
+                                            <apex:inputCheckbox value="{!AccessMethod.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label>{!AccessMethod.Label} ({!mCategoyCount[AccessMethod.Label]})</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                            <!--Pivot for Owner Types-->
+                            <div class='pivot-container col-md-12'>
+                                <span class='label'>{!oDataAssetOptions.size-1} Owner Types</span>
+                                <label>
+                                <apex:selectList multiselect="false" size="1" value="{!sOwnerType}">
+                                    <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                    <apex:selectOptions value="{!oDataAssetOptions}" />
+                                </apex:selectList>
+                            </label>
+                            </div>
+
+                            <!--End of Output Panel-->
+                        </apex:outputpanel>
+
+                    </div>
+
+                </div>
+                
+
+                <!--Below page logic contains local search Bar-->
+                <div class='type-ahead-search-wrapper container'>
+                    <span class='icon-find'></span>
+                    <apex:inputtext value="{!sSearchWord}" html-placeholder="Search Data Assets" onkeypress="return noenter(event);" styleClass="keyword_DataAsset_Search_Text"/>
+                    <apex:commandButton Value="Go" action="{!FetchDataForCriteria}" Styleclass="button create-new l-yellow" disabled="false" rerender="PaginationPanel,therapueticareaCol,resultsize"/>
+                    <apex:outputlink value="/apex/PANG_DataAssetList" StyleClass="filter-reset">Clear All</apex:outputlink>
+                </div>
+                                
+                
+                <!--Start of Output Panel which contains Results after filter search-->
+                <apex:outputpanel id="Listcontent">
+
+                    <!--Results container HTML-->
+                    <div class='results-header container l-yellow'>
+
+                        <!--Name column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Name" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Name" value="Name" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Name'}"/>
+                        </div>
+                        
+                        <!--Therapeutic Area column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Therapeutic Area" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Therapeutic Area" value="Relevant_Therapeutic_Area__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Relevant_Therapeutic_Area__c'}"/>
+                        </div>
+                        
+                        <!--Region column of the results displayed-->
+                        <div class='result-header-item col-md-2'>Region
+                        </div>
+                        
+                        <!--Database Type column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Database Type" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Type_of_Database__c" value="Type_of_Database__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Type_of_Database__c'}" />
+                            
+                        </div>
+
+                        <!--Access method column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Access Method" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Access_Method__c" value="Access_Method__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Access_Method__c'}"/>
+                        </div>
+
+                        
+
+                         <!--Asset Status column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Asset Status" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Asset_Status__c" value="Asset_Status__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Asset_Status__c'}"/>
+                        </div>
+
+                    </div>
+
+                    <!--End of Output Panel which contains Results after filter search-->
+                </apex:outputpanel>
+
+            </div>
+
+            <!--Start of div for pagination-->
+            <div class='results-wrapper'>
+
+                <apex:outputpanel id="PaginationPanel">
+
+                   <div class='results container'>
+                        <apex:repeat value="{!DataAssets}" var="ODataAsset">
+                            <div class='result-item col-md-12'>
+
+                                <div class='col-md-2'>
+                                    <apex:outputLink value="/{!ODataAsset.Id}">{!ODataAsset.Name}</apex:outputLink>
+                                </div>
+                                <div class='col-md-2'>{!ODataAsset.Relevant_Therapeutic_Area__c}</div>
+                                <div class='col-md-2'>{!ODataAsset.Region__c}</div>
+                                <div class='col-md-2'>{!ODataAsset.Type_of_Database__c}</div>
+                                <div class='col-md-2'>{!ODataAsset.Access_Method__c}</div>
+                                <div class='col-md-2'>{!ODataAsset.Asset_Status__c}</div>
+
+                            </div>
+                        </apex:repeat>
+                    </div>
+                    
+                    <apex:outputPanel rendered="{!cDataAssetListCntlr.ResultSize>0}">
+                    <div class='pagination container'>
+                        <span class='col-md-12'>Displaying {!((cDataAssetListCntlr.pagenumber-1)*cDataAssetListCntlr.pagesize)+1}-{!IF(cDataAssetListCntlr.ResultSize < ((cDataAssetListCntlr.pagenumber)*cDataAssetListCntlr.pagesize),cDataAssetListCntlr.ResultSize,((cDataAssetListCntlr.pagenumber)*cDataAssetListCntlr.pagesize))} of {!cDataAssetListCntlr.ResultSize}</span>
+                        <div class='indicator-container col-md-12'>
+                            <apex:actionregion >
+                                <apex:commandlink styleClass="indicator icon-arrow left" rendered="{!IF(AND(lPageNumbers.size <> 0,lPageNumbers[0]!=1),true,false)}" action="{!PreviousPageSeries}" rerender="Listcontent,PaginationPanel"/>
+                                <apex:repeat value="{!lPageNumbers}" var="obj">
+                                    <apex:commandlink styleClass="{!if(obj==cDataAssetListCntlr.pagenumber,'indicator current','indicator')}" value="{!obj}" action="{!GoToPageNumber}" rerender="PaginationPanel">
+                                        <apex:param name="{!obj}" value="{!obj}" assignTo="{!iPageNumber}" />
+                                    </apex:commandlink>
+                                </apex:repeat>
+                                <apex:commandlink styleClass="indicator icon-arrow right" action="{!NextPageSeries}" rendered="{!IF(AND(lPageNumbers.size <> 0,dPageCount > lPageNumbers[lPageNumbers.size-1]),true,false)}" rerender="Listcontent,PaginationPanel" />
+                            </apex:actionregion>
+                        </div>
+                    </div>
+                    </apex:outputPanel>
+                </apex:outputpanel>
+
+            </div>
+
+        </div>
+
+    </apex:form>
+
+</apex:page>

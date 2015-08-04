@@ -1,0 +1,105 @@
+<apex:component controller="PANG_Index_Controller" id="theComponent">
+   
+    <apex:form >  
+     
+    <apex:actionFunction name="doSearchglobal" action="{!populateGlobalURL}"/>
+      <head>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+            <meta name="viewport" content="width=device-width" />
+            <apex:stylesheet value="{!URLFOR($Resource.PANG_R3Style,'vendor/bootstrap/bootstrap.css')}" />
+            <apex:stylesheet value="{!URLFOR($Resource.PANG_R3Style,'vendor/jqueryui/themes/base/jquery-ui.css')}" />
+            <apex:stylesheet value="{!URLFOR($Resource.PANG_R3Style,'assets/pangaea-1.0.0.css')}" />
+
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'vendor/lodash/lodash.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'vendor/jquery/jquery.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'vendor/jqueryui/jquery-ui.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'vendor/squeezeBox/jquery.squeezeBox.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'src/js/dataSourcingReq.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'src/js/forms.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style, 'src/helpers/helper-condition.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'src/js/global-search.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'src/js/header.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'src/js/home.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'src/js/list-view.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'src/js/pangaea.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'src/js/select-request.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.PANG_R3Style,'src/js/validator.js')}" />
+            
+         <script type='text/javascript'>
+          
+            function isValidSearchString(searchString) {
+	            var SEARCH_TRIGGER_THRESHOLD = 2;
+	            var trimmedSearchString = searchString.trim();
+	
+		            if (trimmedSearchString.length >= SEARCH_TRIGGER_THRESHOLD) {
+		                return true;
+		            } else {
+		                return false;
+		            }
+            }
+            
+            function clickSearch(ev)  {
+            	if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+            
+            		var searchString = (document.getElementsByClassName("keyword_Global_Search"))[0].value;            
+             			if (isValidSearchString(searchString)){
+                    		doSearchglobal();
+                		}
+                	return false;
+             	} else {
+                  	return true;
+             	}
+             }
+            </script>   
+
+
+        </head>
+
+        <body>
+            
+            <div class='header-wrapper'>
+                <header class='container'>
+                    <div class='logo pull-left'>
+                        <a href="/apex/PANG_homepage">
+                            <span class='icon-lilly'></span>
+                            <span><apex:image url="{!URLFOR($Resource.PANG_R3Style, 'assets/img/green_pangaea.png')}" width="90" height="20"/></span></a>
+                    </div>
+                    <div class='search col-md-2'>
+                        <span class='icon-find col-md-3'></span>
+                        <span class='col-md-9'>Search</span>
+                        <div class='query col-md-9'>
+                            <apex:inputText value="{!searchWord}" html-placeholder="Keyword" onkeypress="return clickSearch(event);" styleclass="keyword_Global_Search" />
+                            <div class='options-header col-md-5'>
+                                <div class="global-search-filter pull-left">
+                                    <span class='label'>Search Everything</span>
+                                    <span class='icon-arrow down font-xl'></span>
+                                </div>
+                                <apex:commandLink action="{!populateGlobalURL}" styleclass="icon-small-caret right initiate-search" />
+                            </div>
+                            <div class='options col-md-3'>
+                                <ul class='dropdown'>
+                                    <li><apex:inputCheckbox value="{!Everything}" /><strong>Everything</strong></li>
+                                    <li><apex:inputCheckbox value="{!Studies}" />Studies</li>
+                                    <li><apex:inputCheckbox value="{!DataAssets}" />Data Assets</li>
+                                    <li><apex:inputCheckbox value="{!Partnerships}" />Partnerships</li>
+                                    <li><apex:inputCheckbox value="{!Requests}" />Requests</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <span class='icon-close col-md-1'></span>
+
+                    <div class='pull-left tabs'>
+                        <apex:outputlink value="/apex/PANG_studylist" StyleClass="{!IF($CurrentPage.name=='PANG_studylist','entity study active','entity study')}" disabled="{!IsInc}" title="{!SetTitle}"><span>Studies</span></apex:outputlink>
+                        <apex:outputlink value="/apex/PANG_DataAssetlist" styleclass="{!IF($CurrentPage.name=='PANG_DataAssetlist' || $CurrentPage.name=='PANG_CreateDataAsset','entity data-assets active','entity data-assets')}"><span>Data Assets</span></apex:outputlink>
+                        <apex:outputlink value="/apex/PANG_PartnerShipList" styleclass="{!IF($CurrentPage.name=='PANG_PartnerShipList' || $CurrentPage.name=='PANG_CreatePartnership','entity partnerships active','entity partnerships')}"><span>Partnerships</span></apex:outputlink>
+                        <apex:outputlink value="apex/PANG_RequestList" styleclass="{!IF($CurrentPage.name=='PANG_RequestList' || $CurrentPage.name=='PANG_SelectRequest' || $CurrentPage.name=='PANG_CreateRequests','entity requests active','entity requests')}"><span>Requests</span></apex:outputlink>
+                    </div>
+                    <a href="{!homeurl}" class='col-md-1 sprite-salesforce'></a>
+
+                </header>
+            </div>
+
+        </body>
+    </apex:form>
+</apex:component>

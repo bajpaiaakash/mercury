@@ -1,0 +1,3 @@
+<apex:page showHeader="false" > 
+    <chatter:feed entityId="0F9b0000000HdPo"/>
+</apex:page>

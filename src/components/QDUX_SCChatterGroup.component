@@ -1,0 +1,66 @@
+<apex:component controller="QDUX_SearchPageResultController" allowDML="true" >
+    
+    
+    <apex:form >
+        <apex:actionFunction name="collabGroup" action="{!init}" reRender="chatterGroup, pageMesssages" status="myStatus" oncomplete="myFunction()"/>
+        <apex:actionStatus id="myStatus"  >
+            
+            <apex:facet name="start">
+                <apex:outputText >
+                    Retrieving Groups &nbsp;
+                    <apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/spinner-gif-red.gif')}"/>
+                </apex:outputText>
+            </apex:facet>
+            <apex:facet name="stop">
+            </apex:facet>
+            
+        </apex:actionStatus>
+    </apex:form>
+    <apex:attribute name="componentType" description="...." type="String" required="true" assignTo="{!component}"/>
+    
+    <apex:outputPanel id="chatterGroup">
+        <apex:outputPanel rendered="{!collabList.size>0}">
+            <div class="searchResultBlock">
+                <span class="searchResultHeader">
+                    Chatter Group Result <br/>
+                </span>
+                
+                <table id="chatterGroupResult" class="display">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Group Name</th>
+                            <th>Description</th>
+                            <th>Number of Members</th>
+                            <th>Ask Question</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:variable value="{!0}" var="v1"/>
+                        <apex:repeat value="{!collabList}" var="ch">
+                            <tr>
+                                <td>
+                                    <apex:variable var="v1" value="{!v1 + 1}"/> {!V1}
+                                </td>
+                                <td>{!ch.Name}</td>
+                                <td>{!ch.Description}</td>
+                                <td>{!ch.membercount}</td>
+                                <td>
+                                    <apex:form >
+                                        <apex:commandLink target="_blank" action="/{!ch.id}" >
+                                            <apex:image value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/premium_support.png')}" styleClass="imgAlignMiddle"/>
+                                        </apex:commandLink>
+                                    </apex:form>
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+                
+            </div>
+        </apex:outputPanel>
+    </apex:outputPanel>
+    
+    
+</apex:component>

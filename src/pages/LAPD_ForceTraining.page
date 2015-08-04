@@ -1,0 +1,170 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Force.com Training</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+                    <div class="col_full">
+                        <h4>Instructor Based Training</h4>
+
+                        <div id="posts" class="events small-thumbs">
+                            <div class="entry clearfix">
+                                <div class="entry-image">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcetraining/flightschool.jpg')}" alt="Flight School" />
+                                </div>
+                                <div class="entry-c">
+                                    <div class="entry-title">
+                                        <h2>Flight School</h2>
+                                    </div>
+                                    <div class="entry-content">
+                                        <p>Flight School provides an overview of the Cirrus Methodology and delivery processes. Flight School is also required to gain access to Cirrus’s Project Management Tool, Mission Control.</p>
+                                        <p><Strong>Who should go:</Strong> This training is primary for core project team members.</p>
+                                        <p><strong><a href="/sfc/p/b0000000Z7IN/a/b0000000TPk7/gVUnJo4NmoVEImZghZ553SZfq.m.EdxAdm7gwUv7KMk" target="_blank">Download Flight School User Guide</a></strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col_full">
+                            <h5>Flight School Schedule</h5>
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>Date</th>
+                                  <th>Time (Indy)</th>
+                                  <th>Location</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr class="active">
+                                  <td>14-Apr-15</td>
+                                  <td>09:00 - 11:30</td>
+                                  <td>73-7-B and <a href="https://meet.network.lilly.com/wallace_tonya_t'ere/73GQD36H" target="_blank">Lync Conference</a> - <a href="https://dialin.lilly.com/" target="_blank"> Phone</a> (ID: 28268561)</td>
+                                </tr>
+                                <tr>
+                                  <td>28-Apr-15</td>
+                                  <td>09:00 - 11:30</td>
+                                  <td>73-6-A and <a href="https://meet.network.lilly.com/wallace_tonya_t'ere/73GQD36H" target="_blank">Lync Conference</a> - <a href="https://dialin.lilly.com/" target="_blank"> Phone</a> (ID: 28268561)</td>
+                                </tr>
+                                <tr class="active">
+                                  <td>12-May-15</td>
+                                  <td>09:00 - 11:30</td>
+                                  <td>73-7-B and <a href="https://meet.network.lilly.com/wallace_tonya_t'ere/73GQD36H" target="_blank">Lync Conference</a> - <a href="https://dialin.lilly.com/" target="_blank"> Phone</a> (ID: 28268561)</td>
+                                </tr>
+                                <tr>
+                                  <td>26-May-15</td>
+                                  <td>09:00 - 11:30</td>
+                                  <td>73-6-B and <a href="https://meet.network.lilly.com/wallace_tonya_t'ere/73GQD36H" target="_blank">Lync Conference</a> - <a href="https://dialin.lilly.com/" target="_blank"> Phone</a> (ID: 28268561)</td>
+                                </tr>
+                                <tr class="active">
+                                  <td>09-Jun-15</td>
+                                  <td>09:00 - 11:30</td>
+                                  <td>73-7-B and <a href="https://meet.network.lilly.com/wallace_tonya_t'ere/73GQD36H" target="_blank">Lync Conference</a> - <a href="https://dialin.lilly.com/" target="_blank"> Phone</a> (ID: 28268561)</td>
+                                </tr>
+                                <tr class="active">
+                                  <td>23-Jun-15</td>
+                                  <td>09:00 - 11:30</td>
+                                  <td>73-7-B and <a href="https://meet.network.lilly.com/wallace_tonya_t'ere/73GQD36H" target="_blank">Lync Conference</a> - <a href="https://dialin.lilly.com/" target="_blank"> Phone</a> (ID: 28268561)</td>
+                                </tr>
+                                <tr class="active">
+                                  <td>14-Jul-15</td>
+                                  <td>09:00 - 11:30</td>
+                                  <td>73-7-B and <a href="https://meet.network.lilly.com/wallace_tonya_t'ere/73GQD36H" target="_blank">Lync Conference</a> - <a href="https://dialin.lilly.com/" target="_blank"> Phone</a> (ID: 28268561)</td>
+                                </tr>
+                               </tbody>
+                            </table>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="col_full">
+                            <h4>Optional Training</h4>
+
+                            <div id="posts" class="events small-thumbs">
+                                <div class="entry clearfix">
+                                    <div class="entry-image">
+                                            <apex:outputLink value="{! $Page.LAPD_ForceTrainingMICO}">
+                                                <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcetraining/mico.jpg')}" alt="Misson Control" />
+                                            </apex:outputLink>
+                                    </div>
+                                    <div class="entry-c">
+                                        <div class="entry-title">
+                                            <h2>Mission Control</h2>
+                                        </div>
+                                        <ul class="entry-meta clearfix">
+                                            <li><a href="/apex/LAPD_ForceTrainingMICO"><i class="icon-time"></i> Self Service Videos</a></li>
+                                        </ul>
+                                        <div class="entry-content">
+                                            <p>Mission Control Training provides an in depth look at the main project management tool required that all developers use.</p> 
+                                            <p><Strong>Who should go:</Strong> This training is valuable for project and team leaders that will be accessing Mission Control.</p>
+                                            <p><strong><a href="/sfc/p/b0000000Z7IN/a/b0000000TPkC/Pgc6mj5T.OYMmzUd99UsR9YrSvP_5peS1ChhGkUXFxg" target="_blank">Download Flight School User Guide</a></strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="entry clearfix">
+                                    <div class="entry-image">
+                                            <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcetraining/agile.jpg')}" alt="Agile" />
+                                    </div>
+                                    <div class="entry-c">
+                                        <div class="entry-title">
+                                            <h2>Introduction to Agile</h2>
+                                        </div>
+                                        <ul class="entry-meta clearfix">
+                                            <li><i class="icon-time"></i> As Required</li>
+                                            <li><i class="icon-map-marker2"></i> TBD</li>
+                                        </ul>
+                                        <div class="entry-content">
+                                            <p>Introduction to Agile provides project teams with the basics of the Agile Project Management Method. The Cirrus Methodology is based off of the Agile Method.</p>
+                                            <p><Strong>Who should go:</Strong> This training is supplemental for project team members and anyone else who wants to learn more about the Agile Project Management Method.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="entry clearfix">
+                                    <div class="entry-image">
+                                            <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcetraining/groundcrew.jpg')}" alt="Ground Crew" />
+                                    </div>
+                                    <div class="entry-c">
+                                        <div class="entry-title">
+                                            <h2>Ground Crew</h2>
+                                        </div>
+                                        <ul class="entry-meta clearfix">
+                                            <li><i class="icon-time"></i> As Required</li>
+                                            <li><i class="icon-map-marker2"></i> TBD</li>
+                                        </ul>
+                                        <div class="entry-content">
+                                            <p>Ground Crew training is ideal for those supporting, steering, or evangelizing Cirrus Projects.</p>
+                                            <p><Strong>Who should go:</Strong> This training is primary for evangelists, steering committees, quality reps, and supporting members of the project team.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

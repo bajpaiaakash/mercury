@@ -1,0 +1,2 @@
+<apex:page standardController="ACED_KPO_Metric__c" extensions="ACED_RedirectOnNew" action="{!Redirect}" >
+</apex:page>

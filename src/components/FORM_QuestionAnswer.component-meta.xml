@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>32.0</apiVersion>
+    <description>The question answer layout for forms, extracted into its own component so that it can be used across different columned layouts</description>
+    <label>FORM_QuestionAnswer</label>
+</ApexComponent>

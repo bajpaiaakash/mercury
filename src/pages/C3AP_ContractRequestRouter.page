@@ -1,0 +1,3 @@
+<apex:page standardController="C3AP_Contract_Request__c" extensions="C3AP_HomePageRouter" action="{!init}" >
+	<!-- routing page taking the user to the C3 homepage -->
+</apex:page>

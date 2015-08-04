@@ -1,0 +1,37 @@
+<apex:component >
+	<div style="width:100%; min-height:30px; background-color: #D5D2CA; color:#D0E7F7;" id="my-element" >
+        <div class="centerDiv" align="center">
+            <apex:outputLink style="text-decoration:none;" target="_self" value="/apex/QDUX_Home">
+                <apex:image styleClass="imgAlignMiddle" height="20" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/darkblueicons/Home-32.png')}"/>
+                <span class="tableFont" >Home</span>
+            </apex:outputLink>
+        </div>
+        <div class="centerDiv" align="center" >
+            <apex:outputLink style="text-decoration:none;" target="_self" value="/apex/QDUX_MyDocDashboard?Library=My Documents">
+                <apex:image styleClass="imgAlignMiddle" height="20" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/darkblueicons/Folder-32.png')}"/>
+                <span class="tableFont" >My Documents</span>
+            </apex:outputLink>
+        </div>
+        
+        <div class="centerDiv" align="center" >
+            <apex:outputLink style="text-decoration:none;" target="_self" value="/apex/QDUX_MyDocDashboard?Library=Recent Documents">
+                <apex:image styleClass="imgAlignMiddle" height="20" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/darkblueicons/Clock-32.png')}"/>
+                <span class="tableFont">Recent Documents</span>
+            </apex:outputLink>
+        </div>   
+        
+        <div class="centerDiv" align="center" >
+            <apex:outputLink style="text-decoration:none;" target="_self" value="/apex/QDUX_MyDocDashboard?Library=Favorites">
+                <apex:image styleClass="imgAlignMiddle" height="20" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/darkblueicons/Star-32.png')}"/>
+                <span class="tableFont">Favorites</span>
+            </apex:outputLink>
+        </div>
+        
+        <div class="centerDiv" align="center" >
+            
+            <apex:image styleClass="imgAlignMiddle" height="20" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/darkblueicons/User-32.png')}"/>
+            <span class="tableFont">My Role</span>
+            
+        </div>
+    </div>
+</apex:component>

@@ -1,0 +1,242 @@
+<apex:page showHeader="true" sidebar="true" tabStyle="Meeting_Participant_MERC__c" standardController="Meeting_Participant_MERC__c" recordSetVar="a" extensions="MERC_MassApproveParticipantsController">
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.dataTables.min.js')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/jquery.dataTables.css')}"/>
+	<apex:sectionHeader title="{!meeting.Name}" subtitle="{!$ObjectType.Meeting_Participant_MERC__c.labelPlural}" />
+	<style>
+		.activeTab {
+			background-color: #f1f1f1;
+			padding: 6px 17px;
+			font-size: 16px;
+			background-image: none;
+			cursor: pointer;
+		}
+
+		.inactiveTab {
+			background-color: #fff;
+			padding: 5px 17px;
+			font-size: 16px;
+			background-image: none;
+			opacity: 0.6;
+			cursor: pointer;
+		}
+
+		table.attendanceTable tr {
+			cursor:pointer;
+		}
+
+		select.selectMeetingDay {
+			font-size:16px !important;
+		}
+
+		div.selectActions {
+			padding:5px;
+			background-color: #ffc;
+			border:1px solid #390;
+			margin-bottom: 5px;
+			display: none;
+		}
+
+		div.selectActions.show {
+			display: inline-block;
+		}
+
+		div.selectActions.hide {
+			display: none;
+		}
+	</style>
+	<script>
+		var j = jQuery.noConflict();
+
+		j(function() {
+			bindDomHandlers();
+		})
+
+		function bindDomHandlers() {
+			//set up the tables for client side pagination
+			j(".participantTable").dataTable();
+
+			// When a checkbox is clicked in a participant table (there are multiple tables)
+			// determine what the type is and pass it to the checkForSelected function
+			j("table.participantTable tr input.chkSelected").click(function() {
+				checkForSelected(j(this).data('type'));
+			});
+
+			//listen for a click on a toggle all checkbox and toggle all checkboxes appropriately
+			j("input.toggleSelectAll").on("click", function() {
+				var jThis = j(this);
+				j("."+jThis.attr("id")+"Column .chkSelected").prop("checked", jThis.prop("checked"));
+				if (jThis.prop("checked")) {
+					showMassActions(jThis.attr("id"));
+				} else {
+					hideMassActions(jThis.attr("id"));
+				}
+			});
+		}
+
+		// based on the type passed in, find all checkboxes with a simliar class and determine if all
+		// are selected and if so, show the appropriate mass action buttons. There are multiple tables
+		// so we need to be specific about which actions to show or they all will show.
+		//
+		// also check to see if all checkboxes are selected and if so check the appropriate select all
+		// toggle checkbox, otherwise uncheck it.
+		function checkForSelected(type) {
+			var selectedBoxes = j("table.participantTable tr input."+type+".chkSelected:checked");
+			if (selectedBoxes.size() === 0) {
+				hideMassActions("select"+type);
+			} else {
+				showMassActions("select"+type);
+			}
+
+			var allSelectBoxes = j("table.participantTable tr input."+type+".chkSelected");
+			j("#select"+type).attr("checked", selectedBoxes.size() === allSelectBoxes.size());
+
+		}
+
+		function showMassActions(tab) {
+			j("div.selectActions."+tab+"Actions").removeClass("hide").addClass("show");
+		}
+
+		function hideMassActions(tab) {
+			j("div.selectActions."+tab+"Actions").removeClass("show").addClass("hide");
+		}
+	</script>
+	<apex:form >
+		<div class="loading-wrapper" style="position:relative;">
+			<apex:pageBlock title="Meeting Participants" id="mainBlock">
+				<apex:pageBlockButtons >
+					<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
+				</apex:pageBlockButtons>
+
+				<apex:pageMessages id="messages"/>
+
+				<apex:tabPanel id="thePanel" switchType="client" selectedTab="pendingTab" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
+
+					<!-- PENDING TAB -->
+					<apex:tab label="Pending Approval" title="Pending Approval" name="pendingTab" id="pendingTab">
+						<apex:pageMessage summary="No participants pending approval for this meeting." severity="Info" strength="3" rendered="{!participantsPendingApproval.participants.size == 0}"/>
+						<apex:outputPanel rendered="{!participantsPendingApproval.participants.size > 0}">
+							<div class="selectPendingActions selectActions">
+								<apex:commandButton value="Approve Selected" action="{!participantsPendingApproval.approveSelected}" onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
+								<apex:commandButton value="Reject Selected"  action="{!participantsPendingApproval.rejectSelected}"  onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
+							</div>
+							<apex:pageBlockTable value="{!participantsPendingApproval.participants}" var="p" styleClass="participantTable">
+								<apex:column styleClass="selectPendingColumn">
+									<apex:facet name="header">
+										<input type="checkbox" id="selectPending" class="toggleSelectAll"/>
+									</apex:facet>
+									<apex:inputCheckbox value="{!p.selected}" styleClass="chkSelected Pending" html-data-type="Pending"/>
+								</apex:column>
+								<apex:column headerValue="{!$ObjectType.Meeting_Participant_MERC__c.fields.Status_MERC__c.label}">
+									<apex:selectList size="1" value="{!p.detail.Status_MERC__c}" onchange="toggleLoading();updateSingleParticipant('{!p.detail.id}', this.value)">
+										<apex:selectOption itemLabel="Pending Approval" itemValue="Pending Approval"/>
+										<apex:selectOptions value="{!statusOptions}"/>
+									</apex:selectList>
+								</apex:column>
+								<apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Mass_Approve_Meeting_Participants_MERC}" var="field">
+									<apex:column value="{!p.detail[field]}"/>
+								</apex:repeat>
+							</apex:pageBlockTable>
+						</apex:outputPanel>
+					</apex:tab>
+
+					<!-- APPROVED TAB -->
+					<apex:tab label="Approved" title="Approved" name="approvedTab" id="approvedTab">
+						<apex:pageMessage summary="No participants currently have a status of approved for this meeting." severity="Info" strength="3" rendered="{!participantsApproved.participants.size == 0}"/>
+						<apex:outputPanel rendered="{!participantsApproved.participants.size > 0}">
+							<div class="selectApprovedActions selectActions">
+								<apex:commandButton value="Reject Selected"  action="{!participantsApproved.rejectSelected}"  onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
+								<apex:commandButton value="Invite Selected"  action="{!participantsApproved.inviteSelected}"  onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
+							</div>
+							<apex:pageBlockTable value="{!participantsApproved.participants}" var="p" styleClass="participantTable">
+								<apex:column styleClass="selectApprovedColumn">
+									<apex:facet name="header">
+										<input type="checkbox" id="selectApproved" class="toggleSelectAll"/>
+									</apex:facet>
+									<apex:inputCheckbox value="{!p.selected}" styleClass="chkSelected Approved" html-data-type="Approved"/>
+								</apex:column>
+								<apex:column headerValue="{!$ObjectType.Meeting_Participant_MERC__c.fields.Status_MERC__c.label}">
+									<apex:selectList size="1" value="{!p.detail.Status_MERC__c}" onchange="toggleLoading();updateSingleParticipant('{!p.detail.id}', this.value)">
+										<apex:selectOptions value="{!statusOptions}"/>
+										<apex:selectOption itemLabel="Invited" itemValue="Invited"/>
+									</apex:selectList>
+								</apex:column>
+								<apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Mass_Approve_Meeting_Participants_MERC}" var="field">
+									<apex:column value="{!p.detail[field]}"/>
+								</apex:repeat>
+							</apex:pageBlockTable>
+						</apex:outputPanel>
+					</apex:tab>
+
+					<!-- INVITED TAB -->
+					<apex:tab label="Invited" title="Invited" name="invitedTab" id="invitedTab">
+						<apex:pageMessage summary="No participants currently have a status of invited for this meeting." severity="Info" strength="3" rendered="{!participantsInvited.participants.size == 0}"/>
+						<apex:outputPanel rendered="{!participantsInvited.participants.size > 0}">
+							<div class="selectInvitedActions selectActions">
+								<apex:commandButton value="Reject Selected"  action="{!participantsApproved.rejectSelected}"  onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
+								<apex:commandButton value="Approve Selected"  action="{!participantsInvited.approveSelected}"  onclick="toggleLoading()" oncomplete="refreshTables();" rerender="messages"/>
+							</div>
+							<apex:pageBlockTable value="{!participantsInvited.participants}" var="p" styleClass="participantTable">
+								<apex:column styleClass="selectInvitedColumn">
+									<apex:facet name="header">
+										<input type="checkbox" id="selectInvited" class="toggleSelectAll"/>
+									</apex:facet>
+									<apex:inputCheckbox value="{!p.selected}" styleClass="chkSelected Invited" html-data-type="Invited"/>
+								</apex:column>
+								<apex:column headerValue="{!$ObjectType.Meeting_Participant_MERC__c.fields.Status_MERC__c.label}">
+									<apex:selectList size="1" value="{!p.detail.Status_MERC__c}" onchange="toggleLoading();updateSingleParticipant('{!p.detail.id}', this.value)">
+										<apex:selectOptions value="{!statusOptions}"/>
+										<apex:selectOption itemLabel="Invited" itemValue="Invited"/>
+									</apex:selectList>
+								</apex:column>
+								<apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Mass_Approve_Meeting_Participants_MERC}" var="field">
+									<apex:column value="{!p.detail[field]}"/>
+								</apex:repeat>
+							</apex:pageBlockTable>
+						</apex:outputPanel>
+					</apex:tab>
+
+					<!-- REJECTED TAB -->
+					<apex:tab label="Rejected" title="Rejected" name="rejectedTab" id="rejectedTab">
+						<apex:pageMessage summary="No participants currently have a status of rejected for this meeting." severity="Info" strength="3" rendered="{!participantsRejected.participants.size == 0}"/>
+						<apex:outputPanel rendered="{!participantsRejected.participants.size > 0}">
+							<div class="selectRejectedActions selectActions">
+								<apex:commandButton value="Approve Selected"  action="{!participantsRejected.approveSelected}"  onclick="toggleLoading()" oncomplete="refreshTables();" rerender="messages"/>
+								<apex:commandButton value="Invite Selected"  action="{!participantsApproved.inviteSelected}"  onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
+							</div>
+							<apex:pageBlockTable value="{!participantsRejected.participants}" var="p" styleClass="participantTable">
+								<apex:column styleClass="selectRejectedColumn">
+									<apex:facet name="header">
+										<input type="checkbox" id="selectRejected" class="toggleSelectAll"/>
+									</apex:facet>
+									<apex:inputCheckbox value="{!p.selected}" styleClass="chkSelected Rejected" html-data-type="Rejected"/>
+								</apex:column>
+								<apex:column headerValue="{!$ObjectType.Meeting_Participant_MERC__c.fields.Status_MERC__c.label}">
+									<apex:selectList size="1" value="{!p.detail.Status_MERC__c}" onchange="toggleLoading();updateSingleParticipant('{!p.detail.id}', this.value)">
+										<apex:selectOptions value="{!statusOptions}"/>
+										<apex:selectOption itemLabel="Invited" itemValue="Invited"/>
+									</apex:selectList>
+								</apex:column>
+								<apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Mass_Approve_Meeting_Participants_MERC}" var="field">
+									<apex:column value="{!p.detail[field]}"/>
+								</apex:repeat>
+							</apex:pageBlockTable>
+						</apex:outputPanel>
+					</apex:tab>
+
+				</apex:tabPanel>
+			</apex:pageBlock>
+			<c:MERC_LoadingMask />
+		</div>
+
+		<apex:actionFunction name="updateSingleParticipant" action="{!updateSingleParticipant}" reRender="thePanel,messages" oncomplete="refreshTables()">
+			<apex:param name="participantId" assignTo="{!activeParticipantId}" value=""/>
+			<apex:param name="participantStatus" assignTo="{!activeParticipantStatus}" value=""/>
+		</apex:actionFunction>
+
+		<!-- makes call to controller that forces refresh of data -->
+		<apex:actionFunction name="refreshTables" action="{!refreshTables}" oncomplete="bindDomHandlers();toggleLoading();" reRender="thePanel"/>
+	</apex:form>
+</apex:page>

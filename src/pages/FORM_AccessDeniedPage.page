@@ -1,0 +1,11 @@
+<apex:page showheader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false">
+	<apex:composition template="FORM_Template">
+		<apex:define name="body">
+        	<div class="row">
+	        	<div class="col-md-12">
+                	<center> {!$Label.FORM_Access_Denied}</center>
+            	</div>
+        	</div>
+		</apex:define>
+	</apex:composition>	
+</apex:page>

@@ -1,0 +1,1101 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Pattern Library</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_full">
+                        <h4>Default Header</h4>
+                        Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them. Because they change things. They invent. They imagine. They heal. They explore. They create. They inspire. They push the human race forward.
+                    </div>
+
+                    <div class="col_half">
+                        <h5>Sub Header</h5>
+                        Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.
+                    </div>
+
+                    <div class="col_half col_last">
+                        <h5>Sub Header</h5>
+                        Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.
+                    </div>
+
+                    <div class="col_two_fifth">
+                        <h5>Sub Header</h5>
+                        Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.
+                    </div>
+
+                    <div class="col_three_fifth col_last">
+                        <h5>Sub Header</h5>
+                        Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them. Because they change things. They invent. They imagine. They heal. They explore. They create. They inspire. They push the human race forward.
+                    </div>
+
+                    <div class="col_one_third">
+                        <h5>Sub Header</h5>
+                        Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently.
+                    </div>
+
+                    <div class="col_two_third col_last">
+                        <h5>Sub Header</h5>
+                        Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them. Because they change things. They invent. They imagine. They heal. They explore. They create. They inspire. They push the human race forward.
+                    </div>
+
+                    <div class="divider"><i class="icon-circle"></i></div>
+
+                    <div class="col_full">
+                        <div class="heading-block">
+                            <h2>Big Title</h2>
+                            <span>Sub Title</span>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Input Boxes</h4>
+                        <label for="textbox">Title <small>*</small></label>
+                        <input type="text" id="textbox" name="textbox" value="" class="required sm-form-control" />
+                    </div>
+
+                    <div class="col_full">
+                        <label for="description">Short Description</label>
+                        <textarea id="ldescription" name="description" class="sm-form-control" rows="6" cols="30"></textarea>
+                    </div>
+
+                    <div class="col_full">
+                        <label for="question">Question</label>
+                        <select id="question" name="question" class="sm-form-control">
+                            <option value="">-- Select One --</option>
+                            <option value="one">Option One</option>
+                            <option value="two">Option Two</option>
+                            <option value="three">Option Three</option>
+                            <option value="four">Option Four</option>
+                        </select>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Tabbed Navigation</h4>
+                        <div class="tabs clearfix" id="tab-3">
+
+                            <ul class="tab-nav tab-nav2 clearfix">
+                                <li><a href="#tabs-1">Tab One</a></li>
+                                <li><a href="#tabs-2">Tab Two</a></li>
+                                <li><a href="#tabs-3">Tab Three</a></li>
+                                <li><a href="#tabs-4">Tab Four</a></li>
+                            </ul>
+
+                            <div class="tab-container">
+
+                                <div class="tab-content clearfix" id="tabs-1">
+                                    Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules.
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-2">
+                                    Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo.
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-3">
+                                    Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them.
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-4">
+                                    Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them. 
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Alternative Tabbed Navigation</h4>
+                        <div class="tabs side-tabs nobottommargin clearfix" id="tab-6">
+
+                            <ul class="tab-nav tab-nav2 clearfix">
+                                <li><a href="#tabs-5">Tab One</a></li>
+                                <li><a href="#tabs-6">Tab Two</a></li>
+                                <li><a href="#tabs-7">Tab Three</a></li>
+                                <li><a href="#tabs-8">Tab Four</a></li>
+                            </ul>
+
+                            <div class="tab-container">
+
+                                <div class="tab-content clearfix" id="tabs-5">
+                                    Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules.
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-6">
+                                    Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo.
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-7">
+                                    Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them.
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-8">
+                                    Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them. 
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Buttons</h4>
+                        <a href="#" class="button button-mini"><i class="icon-cloud"></i>Button</a>
+                        <a href="#" class="button button-small"><i class="icon-mobile"></i>Button</a>
+                        <a href="#" class="button"><i class="icon-chat"></i>Button</a>
+                        <a href="#" class="button button-large">Button</a>
+                        <a href="#" class="button button-xlarge tright">Button<i class="icon-circle-arrow-right"></i></a>
+                        <br />
+                        <a href="#" class="button button-desc"><div>Really Big Button<span>Say Something Clever Here</span></div></a>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Alerts</h4>
+                        <div class="alert alert-success">
+                          <i class="icon-gift"></i><strong>Well done!</strong> You successfully read this important alert message.
+                        </div>
+                        <div class="alert alert-info">
+                          <i class="icon-hand-up"></i><strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+                        </div>
+                        <div class="alert alert-warning">
+                          <i class="icon-warning-sign"></i><strong>Warning!</strong> Better check yourself, you're not looking too good.
+                        </div>
+                        <div class="alert alert-danger">
+                          <i class="icon-remove-sign"></i><strong>Oh snap!</strong> Change a few things up and try submitting again.
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Alerts - Closable</h4>
+                        <div class="alert alert-success">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <i class="icon-gift"></i><strong>Well done!</strong> You successfully read this <a href="#" class="alert-link">important alert message</a>.
+                        </div>
+                        <div class="alert alert-info">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <i class="icon-hand-up"></i><strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+                        </div>
+                        <div class="alert alert-warning">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <i class="icon-warning-sign"></i><strong>Warning!</strong> Better check yourself, you're not looking too good.
+                        </div>
+                        <div class="alert alert-danger nobottommargin">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <i class="icon-remove-sign"></i><strong>Oh snap!</strong> Change a few things up and try submitting again.
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+                        
+                    <div class="col_full">
+                        <div class="fancy-title title-border title-center"><h3>Bold Header 1</h3></div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <div class="fancy-title title-dotted-border title-center"><h3>Bold Header 2</h3></div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <div class="col_one_fourth nobottommargin">
+                            <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                                <div class="fbox-icon">
+                                    <a href="#"><i class="i-alt noborder icon-globe"></i></a>
+                                </div>
+                                <h3>Title 01<span class="subtitle">Sub Title</span></h3>
+                            </div>
+                        </div>
+
+                        <div class="col_one_fourth nobottommargin">
+                            <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                                <div class="fbox-icon">
+                                    <a href="#"><i class="i-alt noborder icon-user-md"></i></a>
+                                </div>
+                                <h3>Title 02<span class="subtitle">Sub Title</span></h3>
+                            </div>
+                        </div>
+
+                        <div class="col_one_fourth nobottommargin">
+                            <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                                <div class="fbox-icon">
+                                    <a href="#"><i class="i-alt noborder icon-cogs"></i></a>
+                                </div>
+                                <h3>Title 03<span class="subtitle">Sub Title</span></h3>
+                            </div>
+                        </div>
+
+                        <div class="col_one_fourth nobottommargin col_last">
+                            <div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
+                                <div class="fbox-icon">
+                                    <a href="#"><i class="i-alt noborder icon-bolt"></i></a>
+                                </div>
+                                <h3>Title 04<span class="subtitle">Sub Title</span></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div><div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Comparison Chart</h4>
+                        <div class="pricing bottommargin clearfix">
+
+                            <div class="col-md-3">
+                                <div class="pricing-box">
+                                    <div class="pricing-title">
+                                        <h3>Small</h3>
+                                    </div>
+                                    <div class="pricing-features">
+                                        <ul>
+                                            <li><strong>Full</strong> Access</li>
+                                            <li><i class="icon-code"></i> SCM and CI</li>
+                                            <li><strong>50</strong> Dev Hours</li>
+                                            <li><strong>Basic</strong> Support</li>
+                                        </ul>
+                                    </div>
+                                    <div class="pricing-action">
+                                        <a href="#" class="btn btn-danger btn-block btn-lg">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="pricing-box best-price">
+                                    <div class="pricing-title">
+                                        <h3>Medium</h3>
+                                        <span>Most Popular</span>
+                                    </div>
+                                    <div class="pricing-features">
+                                        <ul>
+                                            <li><strong>Full</strong> Access</li>
+                                            <li><i class="icon-code"></i> SCM and CI</li>
+                                            <li><strong>100</strong> Dev Hours</li>
+                                            <li><strong>Standard</strong> Support</li>
+                                            <li>
+                                                <i class="icon-star3"></i>
+                                                <i class="icon-star3"></i>
+                                                <i class="icon-star3"></i>
+                                                <i class="icon-star3"></i>
+                                                <i class="icon-star3"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="pricing-action">
+                                        <a href="#" class="btn btn-danger btn-block btn-lg bgcolor border-color">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="pricing-box">
+                                    <div class="pricing-title">
+                                        <h3>Large</h3>
+                                    </div>
+                                    <div class="pricing-features">
+                                        <ul>
+                                            <li><strong>Full</strong> Access</li>
+                                            <li><i class="icon-code"></i> SCM and CI</li>
+                                            <li><strong>250</strong> Dev Hours</li>
+                                            <li><strong>Standard</strong> Support</li>
+                                        </ul>
+                                    </div>
+                                    <div class="pricing-action">
+                                        <a href="#" class="btn btn-danger btn-block btn-lg">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="pricing-box">
+                                    <div class="pricing-title">
+                                        <h3>X-Large</h3>
+                                    </div>
+                                    <div class="pricing-features">
+                                        <ul>
+                                            <li><strong>Full</strong> Access</li>
+                                            <li><i class="icon-code"></i> SCM and CI</li>
+                                            <li><strong>500</strong> Dev Hours</li>
+                                            <li><strong>Custom</strong> Support</li>
+                                        </ul>
+                                    </div>
+                                    <div class="pricing-action">
+                                        <a href="#" class="btn btn-danger btn-block btn-lg">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Testimonials</h4>
+                        <div class="fslider testimonial bottommargin-lg" data-animation="fade" data-arrows="false">
+                            <div class="flexslider">
+                                <div class="slider-wrap">
+                                    <div class="slide">
+                                        <div class="testi-content">
+                                            <p>I liked that it was easy to enter my story this weekend on my phone. Also, I find that the title / teaser that is sent when someone enters a story makes me want more, so I open the stories out of genuine interest.</p>
+                                            <div class="testi-meta">
+                                                Jennifer Wynn-IAPI
+                                                <span>SafeStart Stories</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slide">
+                                        <div class="testi-content">
+                                            <p>The use of Chatter within Mission Control allows me to have "in-context" conversations about my project, reducing the need to use e-mail and ensuring I'm always upto date.</p>
+                                            <div class="testi-meta">
+                                                Matthew Bull
+                                                <span>Cirrus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full nobottommargin clearfix">
+                    <h4>Contacts</h4>
+                        <div class="col_one_fourth">
+                            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                                <div class="fbox-icon">
+                                    <i class="icon-map-marker2"></i>
+                                </div>
+                                <h3>Find Us<span class="subtitle">Location</span></h3>
+                            </div>
+                        </div>
+
+                        <div class="col_one_fourth">
+                            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                                <div class="fbox-icon">
+                                    <i class="icon-phone2"></i>
+                                </div>
+                                <h3>Call Us<span class="subtitle">Name - (123) 456 7891</span></h3>
+                            </div>
+                        </div>
+
+                        <div class="col_one_fourth">
+                            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                                <div class="fbox-icon">
+                                    <i class="icon-video"></i>
+                                </div>
+                                <h3>Lync IM or Video<span class="subtitle">Name</span></h3>
+                            </div>
+                        </div>
+
+                        <div class="col_one_fourth col_last">
+                            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                                <div class="fbox-icon">
+                                    <i class="icon-chat"></i>
+                                </div>
+                                <h3>Social on Chatter<span class="subtitle">@Cirrus</span></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Team</h4>
+                        <div id="oc-team" class="owl-carousel team-carousel bottommargin">
+                            <div class="oc-item">
+                                <div class="team">
+                                    <div class="team-image">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template" width="400px" />
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-title"><h4>Name 01</h4><span>Title</span></div>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-email2"></i>
+                                            <i class="icon-email2"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-mobile"></i>
+                                            <i class="icon-mobile"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oc-item">
+                                <div class="team">
+                                    <div class="team-image">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template" width="400px" />
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-title"><h4>Name 02</h4><span>Title</span></div>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-email2"></i>
+                                            <i class="icon-email2"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-mobile"></i>
+                                            <i class="icon-mobile"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="oc-item">
+                                <div class="team">
+                                    <div class="team-image">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template" width="400px" />
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-title"><h4>Name 03</h4><span>Title</span></div>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-email2"></i>
+                                            <i class="icon-email2"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-mobile"></i>
+                                            <i class="icon-mobile"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>                        
+                            <div class="oc-item">
+                                <div class="team">
+                                    <div class="team-image">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template" width="400px" />
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-title"><h4>Name 04</h4><span>Title</span></div>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-email2"></i>
+                                            <i class="icon-email2"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-mobile"></i>
+                                            <i class="icon-mobile"></i>
+                                        </a>
+                                        <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <apex:includeScript value="{!URLFOR($Resource.LAPD_Assets, 'js/snippets/team.js')}" />
+                    </div>
+                    
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                    <h4>Team</h4>
+                        <div class="row">
+                            <div class="col-md-6 bottommargin">
+                                <div class="team team-list clearfix">
+                                    <div class="team-image">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Profile Picture" />
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-title"><h4>Name</h4><span>Title</span></div>
+                                        <div class="team-content">
+                                            <p>Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 bottommargin">
+                                <div class="team team-list clearfix">
+                                    <div class="team-image">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Profile Picture" />
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-title"><h4>Name</h4><span>Title</span></div>
+                                        <div class="team-content">
+                                            <p>Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="clear"></div>
+                             
+                            <div class="col-md-6 bottommargin">
+                                <div class="team team-list clearfix">
+                                    <div class="team-image">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Profile Picture" />
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-title"><h4>Name</h4><span>Title</span></div>
+                                        <div class="team-content">
+                                            <p>Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 bottommargin">
+                                <div class="team team-list clearfix">
+                                    <div class="team-image">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Profile Picture" />
+                                    </div>
+                                    <div class="team-desc">
+                                        <div class="team-title"><h4>Name</h4><span>Title</span></div>
+                                        <div class="team-content">
+                                            <p>Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Slider</h4>
+                        <div class="fslider">
+                            <div class="flexslider">
+                                <div class="slider-wrap">
+                                    <div class="slide"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/3.jpg')}" alt="Slider 1" /></div>
+                                    <div class="slide"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/3.jpg')}" alt="Slider 2" /></div>
+                                    <div class="slide"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/3.jpg')}" alt="Slider 3" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                       <h4>Toggles</h4>
+
+                        <div class="toggle">
+                            <div class="togglet"><i class="toggle-closed icon-ok-circle"></i><i class="toggle-open icon-remove-circle"></i>Toggle Title</div>
+                            <div class="togglec">Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.</div>
+                        </div>
+
+                        <div class="toggle">
+                            <div class="togglet"><i class="toggle-closed icon-ok-circle"></i><i class="toggle-open icon-remove-circle"></i>Toggle Title</div>
+                            <div class="togglec">Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.</div>
+                        </div>
+
+                        <div class="toggle toggle-bg">
+                            <div class="togglet"><i class="toggle-closed icon-ok-circle"></i><i class="toggle-open icon-remove-circle"></i>Toggle Title with Background</div>
+                            <div class="togglec">Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.</div>
+                        </div>
+
+                        <div class="toggle toggle-bg">
+                            <div class="togglet"><i class="toggle-closed icon-ok-circle"></i><i class="toggle-open icon-remove-circle"></i>Toggle Title with Background</div>
+                            <div class="togglec">Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.</div>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Quote</h4>
+                        <blockquote>
+                            <p>Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.</p>
+                            <footer>Apple</footer>
+                        </blockquote>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Process Steps</h4>
+                        <div id="processTabs">
+                            <ul class="process-steps bottommargin clearfix">
+                                <li>
+                                    <a href="#ptab1" class="i-circled i-bordered i-alt divcenter">1</a>
+                                    <h5>Step 01</h5>
+                                </li>
+                                <li>
+                                    <a href="#ptab2" class="i-circled i-bordered i-alt divcenter">2</a>
+                                    <h5>Step 02</h5>
+                                </li>
+                                <li>
+                                    <a href="#ptab3" class="i-circled i-bordered i-alt divcenter">3</a>
+                                    <h5>Step 03</h5>
+                                </li>
+                                <li>
+                                    <a href="#ptab4" class="i-circled i-bordered i-alt divcenter">4</a>
+                                    <h5>Step 04</h5>
+                                </li>
+                            </ul>
+                            <div>
+                                <div id="ptab1">
+                                    <p>Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.</p>
+                                </div>
+                                <div id="ptab2">
+                                    <p>Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.</p>
+                                </div>
+                                <div id="ptab3">
+                                    <p>Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.</p>
+                                </div>
+                                <div id="ptab4">
+                                    <p>Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <apex:includeScript value="{!URLFOR($Resource.LAPD_Assets, 'js/snippets/process.js')}" />
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Grid Layouts</h4>
+                        <ul class="clients-grid grid-6 nobottommargin clearfix">
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                            <li><a href="#"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template Image" /></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Charts</h4>  
+                        <div class="col_half" id="lineChart" style="opacity: 0;">
+                            <h5 class="center">Line Chart</h5>
+                            <canvas id="lineChartCanvas" width="547" height="300"></canvas>
+                        </div>
+
+                        <div class="col_half col_last" id="barChart" style="opacity: 0;">
+                            <h5 class="center">Bar Chart</h5>
+                            <canvas id="barChartCanvas" width="547" height="300"></canvas>
+                        </div>
+
+                        <div class="col_half" id="pieChart" style="opacity: 0;">
+                            <h5 class="center">Pie Chart</h5>
+                            <canvas id="pieChartCanvas" width="547" height="300"></canvas>
+                        </div>
+
+                        <div class="col_half col_last" id="doughnutChart" style="opacity: 0;">
+                            <h5 class="center">Doughnut Chart</h5>
+                            <canvas id="doughnutChartCanvas" width="547" height="300"></canvas>
+                        </div>
+
+                        <apex:includeScript value="{!URLFOR($Resource.LAPD_Assets, 'js/snippets/charts.js')}" />
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <div class="promo promo-dark promo-flat bottommargin">
+                            <h3>Think Different <span>cirrus@lilly.com</span></h3>
+                            <span>Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The ones who see things differently.</span>
+                            <a href="#" class="button button-xlarge button-rounded">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Youtube Embed</h4>
+                        <apex:iframe src="https://www.youtube.com/embed/eBA9pgrAES4?rel=0&amp;showinfo=0" width="560" height="315" frameborder="0" />
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Youtube Embed (Lightbox)</h4>
+                        <div class="col_two_fifth">
+                            <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe">
+                                <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forceintroduction/dfkeynote.jpg')}" alt="Dreamforce 2014 Keynote" />
+                                <span class="i-overlay"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/icons/play.png')}" alt="Play" /></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+        
+                    <div class="col_full">
+                        <div class="col_one_fourth center">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-cloud"></i>
+                            <div class="counter counter-large" style="color: #1abc9c;"><span data-from="0" data-to="5000" data-refresh-interval="50" data-speed="2000"></span></div>
+                            <h5>Apps Deployed</h5>
+                        </div>
+
+                        <div class="col_one_fourth center">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-code"></i>
+                            <div class="counter counter-large" style="color: #e74c3c;"><span data-from="0" data-to="60000" data-refresh-interval="50" data-speed="2000"></span></div>
+                            <h5>Lines of Code</h5>
+                        </div>
+
+                        <div class="col_one_fourth center">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-user"></i>
+                            <div class="counter counter-large" style="color: #3498db;"><span data-from="0" data-to="500" data-refresh-interval="50" data-speed="2000"></span></div>
+                            <h5>Evangelists</h5>
+                        </div>
+
+                        <div class="col_one_fourth center col_last">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-cup"></i>
+                            <div class="counter counter-large" style="color: #9b59b6;"><span data-from="0" data-to="5" data-refresh-interval="50" data-speed="2000"></span></div>
+                            <h5>Teas Spilt</h5>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Single Event</h4>
+                        <div id="posts" class="events small-thumbs">
+                            <div class="entry clearfix">
+                                <div class="entry-image">
+                                    <a href="#">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template" />
+                                        <div class="entry-date">10<span>Apr</span></div>
+                                    </a>
+                                </div>
+                                <div class="entry-c">
+                                    <div class="entry-title">
+                                        <h2><a href="#">Event Title</a></h2>
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><a href="#"><i class="icon-time"></i> 20:00 - 21:00</a></li>
+                                        <li><a href="#"><i class="icon-map-marker2"></i>London Time</a></li>
+                                    </ul>
+                                    <div class="entry-content">
+                                        <p>Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                    <h4>Portfolio Viewer</h4>
+                    <ul id="portfolio-filter" class="clearfix">
+                        <li class="activeFilter"><a href="#" data-filter="*">Show All</a></li>
+                        <li><a href="#" data-filter=".pf-culture">Culture</a></li>
+                        <li><a href="#" data-filter=".pf-service">Process</a></li>
+                        <li><a href="#" data-filter=".pf-service">Service</a></li>
+                        <li><a href="#" data-filter=".pf-technology">Technology</a></li>
+                        <li><a href="#" data-filter=".pf-innovation">Innovation</a></li>                     
+                    </ul>
+
+                    <div id="portfolio-shuffle">
+                        <i class="icon-random"></i>
+                    </div>
+
+                    <div class="clear"></div>
+
+                        <div id="portfolio" class="portfolio-3 clearfix">
+
+                            <article class="portfolio-item pf-technology pf-innovation">
+                                <div class="portfolio-image">
+                                    <a href="#">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template" />
+                                    </a>
+                                    <div class="portfolio-overlay">
+                                        <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                        <a href="#" class="right-icon"><i class="icon-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="portfolio-desc">
+                                    <h3><a href="#">Title 01</a></h3>
+                                    <span><a href="#">Technology</a>, <a href="#">Innovation</a></span>
+                                </div>
+                            </article>
+
+                            <article class="portfolio-item pf-culture pf-service">
+                                <div class="portfolio-image">
+                                    <a href="#">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template" />
+                                    </a>
+                                    <div class="portfolio-overlay">
+                                        <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                        <a href="#" class="right-icon"><i class="icon-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="portfolio-desc">
+                                    <h3><a href="#">Title 02</a></h3>
+                                    <span><a href="#">Culture</a>, <a href="#">Service</a></span>
+                                </div>
+                            </article>
+
+                            <article class="portfolio-item pf-service">
+                                <div class="portfolio-image">
+                                    <a href="#">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template" />
+                                    </a>
+                                    <div class="portfolio-overlay">
+                                        <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                        <a href="#" class="right-icon"><i class="icon-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="portfolio-desc">
+                                    <h3><a href="#">Title 03</a></h3>
+                                    <span><a href="#">Service</a></span>
+                                </div>
+                            </article>
+
+                            <article class="portfolio-item pf-culture pf-process">
+                                <div class="portfolio-image">
+                                    <a href="#">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template" />
+                                    </a>
+                                    <div class="portfolio-overlay">
+                                        <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                        <a href="#" class="right-icon"><i class="icon-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="portfolio-desc">
+                                    <h3><a href="#">Title 04</a></h3>
+                                    <span><a href="#">Culture</a>, <a href="#">Process</a></span>
+                                </div>
+                            </article>
+
+                            <article class="portfolio-item pf-technology pf-innovation">
+                                <div class="portfolio-image">
+                                    <a href="#">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template" />
+                                    </a>
+                                    <div class="portfolio-overlay">
+                                        <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                        <a href="#" class="right-icon"><i class="icon-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="portfolio-desc">
+                                    <h3><a href="#">Title 05</a></h3>
+                                    <span><a href="#">Technology</a>, <a href="#">Innovation</a></span>
+                                </div>
+                            </article>
+
+                            <article class="portfolio-item pf-cultue pf-innovation">
+                                <div class="portfolio-image">
+                                    <a href="#">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Template" />
+                                    </a>
+                                    <div class="portfolio-overlay">
+                                        <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                        <a href="#" class="right-icon"><i class="icon-comments"></i></a>
+                                    </div>
+                                </div>
+                                <div class="portfolio-desc">
+                                    <h3><a href="#">Title 06</a></h3>
+                                    <span><a href="#">Culture</a>, <a href="#">Innovation</a></span>
+                                </div>
+                            </article>
+
+                        </div>
+                        <apex:includeScript value="{!URLFOR($Resource.LAPD_Assets, 'js/snippets/portfoliotags.js')}" />
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <div id="oc-portfolio" class="owl-carousel portfolio-carousel">
+
+                            <div class="oc-item">
+                                <div class="iportfolio">
+                                    <div class="portfolio-image">
+                                        <a href="portfolio-single.html">
+                                            <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Force.com" width="400px" />
+                                        </a>
+                                        <div class="portfolio-overlay">
+                                            <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                            <a href="portfolio-single.html" class="right-icon"><i class="icon-comments"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-desc">
+                                        <h3><a href="portfolio-single.html">Title</a></h3>
+                                        <span><a href="#">Technology</a>, <a href="#">Innovation</a></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="oc-item">
+                                <div class="iportfolio">
+                                    <div class="portfolio-image">
+                                        <a href="portfolio-single.html">
+                                            <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="DevOps" width="400px" />
+                                        </a>
+                                        <div class="portfolio-overlay">
+                                            <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                            <a href="portfolio-single.html" class="right-icon"><i class="icon-comments"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-desc">
+                                        <h3><a href="portfolio-single.html">Title</a></h3>
+                                        <span><a href="#">Culture</a></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="oc-item">
+                                <div class="iportfolio">
+                                    <div class="portfolio-image">
+                                        <a href="#">
+                                            <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Agile" width="400px" />
+                                        </a>
+                                        <div class="portfolio-overlay">
+                                            <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                            <a href="portfolio-single-video.html" class="right-icon"><i class="icon-comments"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-desc">
+                                        <h3><a href="portfolio-single-video.html">Title</a></h3>
+                                        <span><a href="#">Culture</a>, <a href="#">Process</a></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="oc-item">
+                                <div class="iportfolio">
+                                    <div class="portfolio-image">
+                                        <a href="portfolio-single.html">
+                                            <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Continuous Integration" width="400px" />
+                                        </a>
+                                        <div class="portfolio-overlay">
+                                            <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                            <a href="portfolio-single.html" class="right-icon"><i class="icon-comments"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-desc">
+                                        <h3><a href="portfolio-single.html">Title</a></h3>
+                                        <span><a href="#">Technology</a>, <a href="#">Innovation</a></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="oc-item">
+                                <div class="iportfolio">
+                                    <div class="portfolio-image">
+                                        <a href="portfolio-single.html">
+                                            <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/1.jpg')}" alt="Force Fest" width="400px" />
+                                        </a>
+                                        <div class="portfolio-overlay">
+                                            <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                            <a href="portfolio-single.html" class="right-icon"><i class="icon-comments"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-desc">
+                                        <h3><a href="portfolio-single.html">Title</a></h3>
+                                        <span><a href="#">Culture</a></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <apex:includeScript value="{!URLFOR($Resource.LAPD_Assets, 'js/snippets/portfoliocarousel.js')}" />
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full clearfix">
+                        <h4>Panels</h4>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Title</h3>
+                            </div>
+                            <div class="panel-body">
+                                Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules.   
+                            </div>
+                        </div>
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Title</h3>
+                            </div>
+                            <div class="panel-body">
+                                Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules.
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Title</h3>
+                            </div>
+                            <div class="panel-body">
+                                Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules.
+                            </div>
+                        </div>
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Title</h3>
+                            </div>
+                            <div class="panel-body">
+                                Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full">
+                        <h4>Image Gallery</h4>
+                        <div class="masonry-thumbs col-4" data-big="4" data-lightbox="gallery">
+                            <a href="#" data-lightbox="gallery-item"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/2.jpg')}" alt="Template Image" /></a>
+                            <a href="#" data-lightbox="gallery-item"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/2.jpg')}" alt="Template Image" /></a>
+                            <a href="#" data-lightbox="gallery-item"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/2.jpg')}" alt="Template Image" /></a>
+                            <a href="#" data-lightbox="gallery-item"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/2.jpg')}" alt="Template Image" /></a>
+                            <a href="#" data-lightbox="gallery-item"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/2.jpg')}" alt="Template Image" /></a>
+                            <a href="#" data-lightbox="gallery-item"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/2.jpg')}" alt="Template Image" /></a>
+                            <a href="#" data-lightbox="gallery-item"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/2.jpg')}" alt="Template Image" /></a>
+                            <a href="#" data-lightbox="gallery-item"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/2.jpg')}" alt="Template Image" /></a>
+                            <a href="#" data-lightbox="gallery-item"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/templates/2.jpg')}" alt="Template Image" /></a>
+                        </div>
+                    </div>
+
+                    <div class="divider divider-center"><a href="#" data-scrollto="#header"><i class="icon-chevron-up"></i></a></div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

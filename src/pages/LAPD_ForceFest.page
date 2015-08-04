@@ -1,0 +1,124 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>ForceFest II: Tour de Force</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_three_fifth">
+                        <h3>ForceFest is Back!</h3>
+                        <h4>Running from <span>06-JUL-2015</span> to <span>27-JUL-2015</span></h4>
+                        <p>Tour de Force is a contest for Lilly Associates to create an app on the Force.com by Cirrus platform as a Citizen Developer. Take Force.com out for a spin and experience how easy it is to create an app using clicks not code.</p>
+                        <p>Apps can be developed by teams or individuals and prizes will be awarded to both entry categories. Join your colleagues in creating apps that solve your most urgent business needs and compete to win great prizes!</p>
+                        <p>The Cirrus Team is here to support your journey on the Tour. Learning classes will begin in June, and Chatter and Phone a Friend Fridays will help you get your questions answered quickly.</p>
+                    </div>
+                    <div class="col_two_fifth col_last">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=1_zzz0ohwm&playerId=kaltura_player_1426775600&cache_st=1426775600&width=50%&height=277"></script>
+                        <p>2014 ForceFest Winner - Ryan Knopp</p>
+                    </div>
+
+                    <div class="line"></div>
+                    
+                    <div class="col_three_fifth">
+                        <h4>How to Register</h4>
+                        <p>Register for ForceFest II: Tour de Force by joining the chatter group <a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9b0000000HdbB" target="_blank">@Tour de Force</a>. Joining the group ensures you receive the most up to date information but will not commit you to participating in the Tour.</p>
+                    </div>
+                    <div class="col_two_fifth col_last">
+                        <div class="divcenter center clearfix">
+                            <a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9b0000000HdbB" target="_blank" class="button button-desc"><div>Register Now<span>@Tour de Force</span></div></a>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+                 
+                    <div class="col_full">
+                        <h4>Learning Sessions</h4>
+                        <p>Train to go the distance by attending a brief, 90-minute course delivered by the Cirrus Team. Learning sessions will cover:</p>
+                        <div class="margin-list">
+                            <li>What is Cirrus.</li>
+                            <li>What is Force.com by Cirrus.</li>
+                            <li>Citizen Developer (GSO2) Process and Training.</li>
+                            <li>How to Build an App.</li>
+                        </div>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Date</th>
+                              <th>Time (Indy)</th>
+                              <th>Location</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="active">
+                              <td>16-Jun-15</td>
+                              <td>09:00 - 10:30 EST</td>
+                              <td><a href="https://meet.lilly.com/sturm_shellie/K8PZ8FJ2" target="_blank">Lync Conference</a> - <a href="https://dialin.lilly.com/" target="_blank"> Phone</a> (ID: 599122)</td>
+                            </tr>
+                            <tr>
+                              <td>17-Jun-15</td>
+                              <td>08:00 - 09:30 EST</td>
+                              <td><a href="https://meet.lilly.com/sturm_shellie/K8PZ8FJ2" target="_blank">Lync Conference</a> - <a href="https://dialin.lilly.com/" target="_blank"> Phone</a> (ID: 599122)</td>
+                            </tr>
+                            <tr class="active">
+                              <td>23-Jun-15</td>
+                              <td>08:00 - 09:30 EST</td>
+                              <td><a href="https://meet.lilly.com/sturm_shellie/K8PZ8FJ2" target="_blank">Lync Conference</a> - <a href="https://dialin.lilly.com/" target="_blank"> Phone</a> (ID: 599122)</td>
+                            </tr>
+                            <tr>
+                              <td>24-Jun-15</td>
+                              <td>09:00 - 10:30 EST</td>
+                              <td><a href="https://meet.lilly.com/sturm_shellie/K8PZ8FJ2" target="_blank">Lync Conference</a> - <a href="https://dialin.lilly.com/" target="_blank"> Phone</a> (ID: 599122)</td>
+                            </tr>
+                           </tbody>
+                        </table>
+                        <p>Watch your email for meeting invitations. Simply attend the session that best fits your schedule, no pre-registration is required.</p>
+                    </div>
+
+                    <div class="line"></div>
+                 
+                    <div class="col_full">
+                        <div class="col_half">
+                            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                                <div class="fbox-icon">
+                                    <a href="mailto:konstantinou_christos@lilly.com"><i class="icon-mail"></i></a>
+                                </div>
+                                <h3>Email Christos Konstantinou</h3>
+                            </div>
+                        </div>
+
+                        <div class="col_half col_last">
+                            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                                <div class="fbox-icon">
+                                    <a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9b0000000HdbB" target="_blank"><i class="icon-chat"></i></a>
+                                </div>
+                                <h3>@Tour de Force on Chatter</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

@@ -1,0 +1,3 @@
+<apex:page tabStyle="JLGO_GrantRequest__c">
+    <apex:enhancedList type="JLGO_GrantRequest__c" customizable="true" height="600" rowsPerPage="50" />
+</apex:page>

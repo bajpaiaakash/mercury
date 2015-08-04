@@ -1,0 +1,113 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="true" standardcontroller="PANG_Data_Asset__c" extensions="PANG_CreateDataAssetController">
+
+    <c:PANG_Index />
+    <title>Create Data Asset</title>
+    
+    <div class='content'>
+    <apex:form id="datasourcingform">
+            
+      <!-- body partial, used for adding pages to layout -->
+      <div class="datasourcingrequest row">
+        <div class="col-md-12 section-1 center bannercolor l-yellow">
+            <div class="pattern"></div>
+            <div class="dsr-heading heading font-xl">Submit a Data Asset Record</div>
+            <div class="dsr-content font-m">
+                Share what you know about this new Real World Data source.
+            </div>
+        </div>
+        <div class="section-2 col-md-12 center">
+        
+            
+            <div class="sfdc-errorMessage">
+            <apex:pagemessages escape="false" ></apex:pagemessages>
+        </div>
+        <apex:outputPanel rendered="{!isSaved}">
+        <div class="container">
+            <div class="instruction font-s"> * Required Field</div>
+        </div>
+            <!--form action="" method="" id='datasourcingform'-->
+                <div class="table">
+                    
+                    <div class="table-row">
+                        <div class="table-cell font-m bold">Data Asset Name<span class='required'>*</span></div>
+                        <div class="table-cell font-r">
+                            <div class="table-row">
+                                <Apex:inputField required="true" value="{!oDataAsset.Name}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell font-m bold">Description of Database<span class='required'>*</span></div>
+                        <div class="table-cell font-r">
+                            <div class="table-row">
+                                <Apex:inputField required="true" value="{!oDataAsset.Description_of_Database__c}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell font-m bold">Company Name</div>
+                        <div class="table-cell font-r">
+                            <div class="table-row">
+                                <Apex:inputField value="{!oDataAsset.Company_Name__c}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell font-m bold">Vendor Contact Information</div>
+                        <div class="table-cell font-r">
+                            <div class="table-row">
+                                <Apex:inputField value="{!oDataAsset.Vendor_Contact__c}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell font-m bold">Website</div>
+                        <div class="table-cell font-r">
+                            <div class="table-row">
+                                <Apex:inputField value="{!oDataAsset.Website__c}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell font-m bold">Therapeutic Area</div>
+                        <div class="table-cell font-r">
+                            <div class="table-row">
+                                <Apex:inputField value="{!oDataAsset.Relevant_Therapeutic_Area__c}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell font-m bold">Type of Database</div>
+                        <div class="table-cell font-r">
+                            <div class="table-row">
+                                <Apex:inputField value="{!oDataAsset.Type_of_Database__c}"/>
+                            </div>
+                        </div>
+                    </div>                  
+                </div>
+                <!------------Uploading Documents--------------------------->
+                <div class="center highlight-section">
+                <h3>{!$label.PANG_Form_AttachmentTitle}</h3>     
+                <br/><br/>           
+                
+                <apex:inputfile value="{!attachmentBody1}" filename="{!attachmentName1}" size="10" />   <br/><br/>
+                <apex:inputfile value="{!attachmentBody2}" filename="{!attachmentName2}" size="10" />   <br/><br/>
+                <apex:inputfile value="{!attachmentBody3}" filename="{!attachmentName3}" size="10" />   <br/><br/>
+               
+                
+                </div>
+                
+                <!------------Saving the Form--------------------------->
+                <div class="center">
+                    <apex:commandButton styleClass="button btn-submit font-m" value="Submit" action="{!saveApplicant}" />
+                </div>
+                <div class="center">
+                <apex:outputLink styleClass="lnk-cancel" value="/apex/PANG_DataAssetlist?nameOfTab=DataAsset">Cancel</apex:outputLink>
+            </div>
+            <!--/form-->
+            </apex:outputPanel>
+        </div>
+    </div>
+    </apex:form>
+    </div>
+</apex:page>

@@ -1,0 +1,165 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="false" controller="PANG_HomePage" cache="true">
+
+    <title>Home</title>
+    <c:PANG_Index />
+	<div class="resolution-notification medium"><p><apex:outputText value="{!$Label.PANG_Resolution_Error_Medium}" escape="false"/><span class="icon-close pull-right"></span></p> </div>
+    <div class="resolution-notification small"><p><apex:outputText value="{!$Label.PANG_Resolution_Error}" escape="false"/><span class="icon-close pull-right"></span></p> </div>
+    <div class='content'>
+        <div class="home">
+            <div class="section-1 center bannercolor black">
+                <div class="pattern"></div>
+                <div class="middle container">
+                    <apex:image styleClass="img img-world tc" url="{!URLFOR($Resource.PANG_R3Style,'assets/img/1026-Cells_1200x1200.png')}" />
+                    <div class='tc'>
+                        <h1 class="font-xxl heading">
+                            Real World Evidence
+                        </h1>
+                        <div class="font-xl clear left">
+                            <div><strong>Connect. Collaborate. Contribute.</strong></div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                        <button class="button btn-contribute font-m bold">Contribute to Pangaea</button>
+                    <span class="spn-or font-r"> </span>
+                    <apex:outputlink styleClass="button btn-request font-m bold" value="/apex/PANG_SelectRequest">Submit a Request</apex:outputlink>
+                </div>
+                <div class="interaction hide">
+                    <div class="contribute hide">
+                        <div class="contribute-heading font-m">What would you like to add?</div>
+                        <div class="contribute-buttons">
+                            <apex:outputlink value="/apex/PANG_CreateDataAsset" styleClass="button btn-newdataset font-r">Submit a New Data Asset</apex:outputlink>
+                            <apex:outputlink value="/apex/PANG_CreatePartnership?recTypeName=RWE_Partnership_Exploration" styleClass="button font-r btn-newdataset">New RWE Partnership Exploration</apex:outputlink>
+                        </div>
+                    </div>
+                    <div class="return">
+                        <span class="icon icon-close font-r" title="return"></span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-12 section-2">
+                <div class="section-content center">
+                    <div class="font-xl heading">
+                        Explore <span class='green_pangaea'></span>
+                    </div>
+                    <div class="font-r">Enter a small world with big possibilities.</div>
+                    <div class="icons-container container">
+                        <div class="">
+                            <div class="col-md-3">
+                                <apex:outputlink value="/apex/PANG_Studylist" disabled="{!IsInc}" title="{!SetTitle}">
+                                    <div class="center l-blue">
+
+                                        <div class="font-xxxl counts">{!mCategoyCount['Study']}</div>
+                                        <div class="font-xl icn-content">Studies</div>
+
+                                    </div>
+                                </apex:outputLink>
+
+                            </div>
+                            <div class="col-md-3">
+                                <apex:outputlink value="/apex/PANG_DataAssetList">
+                                    <div class="center l-yellow">
+                                        <div class="font-xxxl counts">{!mCategoyCount['DataAssets']}</div>
+                                        <div class="font-xl icn-content">Data Assets</div>
+                                    </div>
+                                </apex:outputLink>
+                            </div>
+                            <div class="col-md-3">
+                                <apex:outputlink value="/apex/PANG_partnershiplist">
+                                    <div class="center l-orange">
+                                        <div class="font-xxxl counts">{!mCategoyCount['Partnerships']}</div>
+                                        <div class="font-xl icn-content">Partnerships</div>
+                                    </div>
+                                </apex:outputLink>
+                            </div>
+                            <div class="col-md-3">
+                                <apex:outputlink value="/apex/PANG_requestList">
+                                    <div class="center l-green">
+                                        <div class="font-xxxl counts">{!mCategoyCount['Request']}</div>
+                                        <div class="font-xl icn-content">Requests</div>
+
+                                    </div>
+                                </apex:outputLink>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 section-3">
+                <div class="section-content center">
+                    <div class="font-xl heading">
+                        More Ways to Connect
+                    </div>
+                    <div class="font-r"></div>
+                    <div class="connect-container container">
+                        <div class="">
+                            <div class="col-md-4">
+                                <div class="left">
+                                    <apex:outputlink value="{!IF(ISNULL(ChatterGroupId),'/_ui/core/chatter/ui/ChatterPage','/_ui/core/chatter/groups/GroupProfilePage?g=' + ChatterGroupId)}">
+                                        <i class="icon col-md-4 icn-people "></i>
+                                        <div class="icn-content col-md-8">Connect with Lilly RWE Community</div>
+                                    </apex:outputlink>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="left">
+                                    <apex:outputlink value="/sfc/#workspaces">
+                                        <i class="icon col-md-4 icn-browse"></i>
+                                        <div class="icn-content col-md-8">Access Pangaea Content Libraries</div>
+                                    </apex:outputlink>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="left">
+                                    <apex:outputlink value="/00O/o">
+                                        <i class="icon col-md-4 icn-browse-reports"></i>
+                                        <div class="icn-content col-md-8">Browse Reports And Dashboards</div>
+                                    </apex:outputlink>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 section-4">
+                <div class="section-content container center font-r">
+                    <div class='row'>
+                        <div class="col-md-5">
+                            <h3>Help Pangaea Grow</h3>
+                            <p>Share your ideas for future functionality</p>
+                            <div>
+                                <apex:outputLink styleClass="button btn-share-idea font-r" value="/ideas/ideaList.apexp">Share Your Ideas</apex:outputLink>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-md-offset-2">
+                            <h3>Pangaea Support</h3>
+                            <p>Access training materials, FAQs, technical support</p>
+                            <div>
+                                <apex:outputLink styleClass="button btn-share-idea font-r" value="/apex/PANG_GetHelp">Get Help</apex:outputLink>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 section-5">
+                <div class="section-content center font-l">
+                    <apex:outputLink styleClass="font-r" value="https://lillyei.northernlight.com/dashboard.php?id=133">Go to RWE External Intelligence Portal</apex:outputLink>
+                </div>
+            </div>
+            <div class="col-md-12 multilayer">
+                <div class="color-layer l-blue"></div>
+                <div class="color-layer l-yellow"></div>
+                <div class="color-layer l-orange"></div>
+                <div class="color-layer l-green"></div>
+            </div>
+            <div class="col-md-12 footer">
+                <div class="container">
+                    <div class="copyright">&copy; 2015 Eli Lilly Company. All rights reserved</div>
+                    <!-- <div class="help">Need Help <span class="icon icn-questionmark">?</span></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</apex:page>

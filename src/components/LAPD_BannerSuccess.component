@@ -1,0 +1,8 @@
+<apex:component >
+<div class="promo promo-light promo-full promo-uppercase">
+    <div class="container clearfix">
+        <h3>Discover the amazing <span><apex:outputLink value="{! $Page.LAPD_ForceSuccess}">successes</apex:outputLink></span> that have already been achieved!</h3>
+        <span>Force.com by Cirrus provides an incredibly versatile development platform, allowing Lilly to focus on Business Value, not Technology.</span>
+    </div>
+</div>
+</apex:component>

@@ -1,0 +1,67 @@
+<apex:page sidebar="false" showHeader="false" >
+    <head>
+        <title>QDUX Search Page</title>
+        
+    </head>
+	<div class="divBody" >
+        <!-- Header-->
+        <c:QDUX_Header ></c:QDUX_Header>
+        <!-- End of Header -->
+        <c:QDUX_SearchBar ></c:QDUX_SearchBar>
+        <!-- End of Search Bar -->
+        <br/><br/>
+        <!-- Widgets -->
+        <div class="searchPageWrapper" >
+            <apex:outputPanel id="searchResults">
+                <c:QDUX_SCRecomProc componentType="Process Link" ></c:QDUX_SCRecomProc>
+                <c:QDUX_SCVVResults componentType="{!$Label.QDUX_Quality_Docs_Label}" ></c:QDUX_SCVVResults> 
+                <c:QDUX_SCVVResults componentType="{!$Label.QDUX_ETMF_Label}" ></c:QDUX_SCVVResults> 
+                <c:QDUX_SCChatterGroup componentType="CollabGroup" ></c:QDUX_SCChatterGroup>
+            </apex:outputPanel>
+        </div>
+            <!-- End of Widgets -->
+    </div>
+    <!-- Footer -->
+    <c:QDUX_footer ></c:QDUX_footer>
+    <!-- END OF FOOTER -->
+    
+    <apex:stylesheet value="{!$Resource.QDUX_SearchBarCSS}"/>
+    <apex:stylesheet value="{!$Resource.QDUX_CSS}"/>
+    <apex:includeScript value="{!URLFOR($Resource.QDUXResources, 'QDUXResources/jquery-1.11.1.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.QDUXResources, 'QDUXResources/jquery.dataTables.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.QDUXResources, 'QDUXResources/jquerydataTables.css')}"/>
+    <script>
+    j$ = jQuery.noConflict();
+    window.onload=function()
+    {
+        collabGroup(); 
+        Quality_Docs();
+        eTMF();
+    	myFunction();
+    };
+    
+    function myFunction() {
+        var contactTable = j$('[id$="chatterGroupResult"]').DataTable({
+            destroy: true,
+            "pageLength": 5,
+            "lengthChange": false
+        });
+        var contactTable = j$('[id$="vvResult{!$Label.QDUX_ETMF_Label}"]').DataTable({
+            destroy: true,
+            "pageLength": 5,
+            "lengthChange": false
+        });
+        var contactTable = j$('[id$="vvResult{!$Label.QDUX_Quality_Docs_Label}"]').DataTable({
+            destroy: true,
+            "pageLength": 5,
+            "lengthChange": false
+        });
+               
+        var contactTable = j$('[id$="commonLinksResult"]').DataTable({
+            destroy: true,
+            "pageLength": 5,
+            "lengthChange": false
+        });
+        }
+    </script>
+</apex:page>

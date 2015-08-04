@@ -1,0 +1,240 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="false" controller="PANG_RequestList" readonly="true" id="thePage">
+
+
+    <script type='text/javascript'>
+    	function isValidSearchString(searchString) {
+            var SEARCH_TRIGGER_THRESHOLD = 2;
+            var trimmedSearchString = searchString.trim();
+
+	            if (trimmedSearchString.length >= SEARCH_TRIGGER_THRESHOLD) {
+	                return true;
+	            } else {
+	                return false;
+	            }
+        }
+    
+    
+        function noenter(ev)  {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+            	var searchString = (document.getElementsByClassName("keyword_Request_Search_Text"))[0].value;
+            	if (isValidSearchString(searchString)){
+                	doSearchAf();
+                }
+                return false;
+             } else {
+                  return true;
+             }
+         }
+    </script>
+
+    <title>Request</title>
+
+  <c:PANG_Index />
+
+    <apex:form id="theForm">
+
+        <apex:actionFunction name="doSearchAf" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+
+        <div class='content'>
+
+            <div class='fixed-container list-view'>
+
+                <div class='filters-wrapper'>
+
+                    <!--The below page logic will display the total number of Requests per filter-->
+                    <div class="filter-header container">
+                        <apex:outputpanel id="resultsize">
+                            <span class='result-count'>{!cRequestListCntlr.ResultSize} Requests</span>
+                        </apex:outputpanel>
+                         <apex:outputlink value="/apex/PANG_SelectRequest" styleClass="create-new enabled l-green">Create a New Request</apex:outputlink>
+                        <span class='icon-large-caret down'></span>
+                    </div>
+
+                    <!--The below page logic will display the check box filters for various fields and the pivot-->
+                    <div class='filter-container container'>
+
+                        <!--Start of Output Panel-->
+                        <apex:outputpanel id="therapueticareaCol">
+
+                            <!--Therapuetic Area field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-4'>
+                                <ul class='filter-column'>
+                                    <li >Therapeutic Area</li>
+                                    <apex:repeat value="{!mRequestObjectStructure['Therapeutic_Area_Primary__c']}" var="Tarea">
+                                        <li>
+                                            <apex:inputCheckbox value="{!Tarea.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label for='{!Tarea.Label}'>{!Tarea.Label} ({!mCategoyCount[Tarea.Label]})</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                            <!--Region field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-3'>
+                                <ul class='filter-column'>
+                                    <li >Region</li>
+                                    <apex:repeat value="{!mRequestObjectStructure['Region__c']}" var="Region">
+                                        <li >
+                                            <apex:inputCheckbox value="{!Region.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label>{!Region.Label}</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                             <!--Record Type filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-3 request-type'>
+                                <ul class='filter-column'>
+                                    <li >Request Type</li>
+                                    <apex:repeat value="{!mRequestObjectStructure['RecordTypeDevName']}" var="Status">
+                                        <li class=''>
+                                            <apex:inputCheckbox value="{!Status.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label>{!Status.Label} ({!mCategoyCount[Status.Label]})</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+                            
+                            
+                            <!--Status field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-2 status'>
+                                <ul class='filter-column'>
+                                    <li >Status</li>
+                                    <apex:repeat value="{!mRequestObjectStructure['Request_Status__c']}" var="Status">
+                                        <li >
+                                            <apex:inputCheckbox value="{!Status.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label>{!Status.Label} ({!mCategoyCount[Status.Label]})</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+                            
+                            
+
+                             <!--End of Output Panel-->
+                        </apex:outputpanel>
+
+                    </div>
+
+                </div>
+                
+
+                <!--Below page logic contains local search Bar-->
+                <div class='type-ahead-search-wrapper container'>
+                    <span class='icon-find'></span>
+                    <apex:inputtext value="{!sSearchWord}" html-placeholder="Search Requests" onkeypress="return noenter(event);" styleClass="keyword_Request_Search_Text"/>
+                    <apex:commandButton Value="Go" action="{!FetchDataForCriteria}" Styleclass="button create-new l-green" disabled="false" rerender="PaginationPanel,therapueticareaCol,resultsize"/>
+                    <apex:outputlink value="/apex/PANG_RequestList" StyleClass="filter-reset">Clear All</apex:outputlink>
+                </div>
+                
+                
+                <!--Start of Output Panel which contains Results after filter search-->
+                <apex:outputpanel id="Listcontent">
+
+                    <!--Results container HTML-->
+                    <div class='results-header container l-green'>
+
+                        <!--Name column of the results displayed-->
+                        <div class='result-header-item col-md-3 sort-by'>
+                            <apex:commandlink value="Request Name" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Name" value="Name" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Name'}"/>
+                        </div>
+                        
+                        <!--Request Type column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Request Type" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Therapeutic Area" value="Therapeutic_Area_Primary__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Therapeutic_Area_Primary__c'}"/>
+                        </div>
+                                                
+                        <!--RequestorType column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Requestor" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Requestor__r.name" value="Requestor__r.name" assignTo="{!sField}" />
+                            </apex:commandlink>                           
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Requestor__r.name'}" />
+                            
+                        </div>
+
+                        <!--Request Status method column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Request Status" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Request_Status__c" value="Request_Status__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Request_Status__c'}"/>
+                        </div>
+
+                        
+
+                         <!--Proposed Due Date Status column of the results displayed-->
+                        <div class='result-header-item col-md-3 sort-by'>
+                            <apex:commandlink value="Proposed Due Date" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Proposed_Due_Date__c" value="Proposed_Due_Date__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Proposed_Due_Date__c'}"/>
+                        </div>
+                        
+                        
+
+                    </div>
+
+                    <!--End of Output Panel which contains Results after filter search-->
+                </apex:outputpanel>
+
+            </div>
+
+            <!--Start of div for pagination-->
+            <div class='results-wrapper'>
+
+                <apex:outputpanel id="PaginationPanel">
+
+                    <div class='results container'>
+                        <apex:repeat value="{!Requests}" var="oRequest">
+                            <div class='result-item col-md-12'>
+
+                                <div class='col-md-3'><apex:outputLink value="/{!oRequest.Id}">{!oRequest.Name}</apex:outputLink></div>                                
+                                <div class='col-md-2'>{!oRequest.RecordType.Name}</div>
+                                <div class='col-md-2'>{!oRequest.Requestor__r.name}</div>
+                                <div class='col-md-2'>{!oRequest.Request_Status__c}</div>
+                                <div class='col-md-3'><apex:outputfield value="{!oRequest.Proposed_Due_Date__c}"/></div>
+
+                            </div>
+                        </apex:repeat>
+                    </div>
+                    
+                    <apex:outputPanel rendered="{!cRequestListCntlr.ResultSize>0}">
+                    <div class='pagination container'>
+                        <span class='col-md-12'>Displaying {!((cRequestListCntlr.pagenumber-1)*cRequestListCntlr.pagesize)+1}-{!IF(cRequestListCntlr.ResultSize < ((cRequestListCntlr.pagenumber)*cRequestListCntlr.pagesize),cRequestListCntlr.ResultSize,((cRequestListCntlr.pagenumber)*cRequestListCntlr.pagesize))} of {!cRequestListCntlr.ResultSize}</span>
+                        <div class='indicator-container col-md-12'>
+                            <apex:actionregion >
+                                <apex:commandlink styleClass="indicator icon-arrow left" rendered="{!IF(AND(lPageNumbers.size <> 0,lPageNumbers[0]!=1),true,false)}" action="{!PreviousPageSeries}" rerender="Listcontent,PaginationPanel"/>
+                                <apex:repeat value="{!lPageNumbers}" var="obj">
+                                    <apex:commandlink styleClass="{!if(obj==cRequestListCntlr.pagenumber,'indicator current','indicator')}" value="{!obj}" action="{!GoToPageNumber}" rerender="PaginationPanel">
+                                        <apex:param name="{!obj}" value="{!obj}" assignTo="{!iPageNumber}" />
+                                    </apex:commandlink>
+                                </apex:repeat>
+                                <apex:commandlink styleClass="indicator icon-arrow right" action="{!NextPageSeries}" rendered="{!IF(AND(lPageNumbers.size <> 0,dPageCount > lPageNumbers[lPageNumbers.size-1]),true,false)}" rerender="Listcontent,PaginationPanel" />
+                            </apex:actionregion>
+                        </div>
+                    </div>
+                    </apex:outputPanel>
+                </apex:outputpanel>
+
+            </div>
+
+        </div>
+
+    </apex:form>
+
+</apex:page>

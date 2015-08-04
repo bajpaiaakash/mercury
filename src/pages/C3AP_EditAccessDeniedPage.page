@@ -1,0 +1,3 @@
+<apex:page standardController="C3AP_Contract_Request_Answer__c" showheader="true" sidebar="true" standardStylesheets="true" applyBodyTag="true">
+    <apex:pageMessage severity="error" strength="3" summary="{!$Label.C3AP_EditAccessDenied}"/>   
+</apex:page>

@@ -1,0 +1,78 @@
+<apex:component >
+  <apex:attribute name="question" type="GLBL_Form_Execution_Question_Answer__c" description="String" required="true" />
+  <apex:attribute name="index" type="Integer" description="The index of the question loop" required="true" />
+  <apex:attribute name="selectOptions" type="map" description="Select options if this is a picklist question" />
+
+  <apex:variable var="requiredField" value="{!IF(question.Mandatory__c = true, 'required', '')}" />
+    <apex:variable var="characterLimit" value="{!IF(ISBLANK(question.Character_Limit__c), 256, question.Character_Limit__c)}"/>
+    <apex:variable var="columns" value="{!IF(question.Attachment_allowed__c == TRUE, 'col-md-11 col-sm-10 col-xs-10', 'col-md-12 col-sm-12 col-xs-12')}" />
+
+  <!-- the question text-->
+    <div class="question row">
+        <div class="col-md-12 bottom-space form-group has-feedback">
+            <apex:outputText value="{!index}" />.&nbsp;
+            <apex:outputText value="{!question.Question_Text__c}" />
+            <br/>
+        </div>
+    </div>
+
+    <!-- the answer inputs (dependent on question type -->
+    <div class="answer row" id="{!question.Source_Question__c}">
+        <div class="{!columns} bottom-space">
+          <!-- Picklist -->
+          <apex:outputPanel rendered="{!(question.Question_Type__c == $Label.FORM_Question_Type_Picklist)}" layout="block" styleClass="form-group has-feedback">
+                <apex:selectList id="picklistInput" value="{!question.Response_Text__c}" size="1"
+                                onchange="saveValue(this.value,'{!question.Id}');"
+                                styleClass="form-control input-select {!requiredField}">
+                    <apex:selectOptions value="{!selectOptions}" />
+                </apex:selectList>
+      </apex:outputPanel>
+
+          <!-- Free Text -->
+          <apex:outputPanel rendered="{!(question.Question_Type__c == $Label.FORM_Question_Type_Free_Text)}" layout="block" styleClass="form-group has-feedback">
+                <apex:inputText id="textInput" value="{!question.Response_Text__c}"
+                                styleClass="input-text form-control {!requiredField}"
+                                onchange="saveValue(this.value,'{!question.Id}');" maxlength="{!characterLimit}" />
+          </apex:outputPanel>
+
+          <!-- Currency -->
+          <apex:outputPanel rendered="{!(question.Question_Type__c == $Label.FORM_Question_Type_Currency)}" layout="block" styleClass="form-group has-feedback">
+                <apex:inputText id="currencyInput" value="{!question.Response_Text__c}"
+                                styleClass="input-text form-control {!requiredField}" html-data-validate-type="currency" html-data-validate-decimals="{!IF(question.Decimal_Places__c = 0, '0', question.Decimal_Places__c)}"
+                                onchange="saveValue(this.value,'{!question.Id}');" maxlength="{!characterLimit}" />
+          </apex:outputPanel>
+
+          <!-- Number -->
+          <apex:outputPanel rendered="{!(question.Question_Type__c == $Label.FORM_Question_Type_Number)}" layout="block" styleClass="form-group has-feedback">
+                <apex:inputText id="numberInput" value="{!question.Response_Text__c}"
+                                styleClass="input-text form-control {!requiredField}" html-data-validate-type="number"
+                                onchange="saveValue(this.value,'{!question.Id}');" maxlength="{!characterLimit}" />
+          </apex:outputPanel>
+        </div>
+        <apex:outputPanel rendered="{!(question.Attachment_allowed__c == TRUE)}" styleClass="bottom-space" layout="block">
+            <a class="btn btn-default btn-md" style="height:33px" href="#"  onclick = "return Forms_JS.openPopup('/apex/GLBL_AttachmentPage?ParentId={!question.Id}&ParentName={!question.Name}&retURL=/apex/FORM_ResumeFormPage?id={!question.Form_Execution__c}')" >
+              <!--  onclick="window.open('/apex/GLBL_AttachmentPage?ParentId={!question.Id}&ParentName={!question.Name}&retURL=/apex/FORM_ResumeFormPage?id={!question.Form_Execution__c}',
+                        'newwindow', 'width=900, height=800'); return false;" > target="_blank"> -->
+               
+               <script>
+                  function openpopup(){                  
+                    if((typeof sforce != 'undefined') && (sforce != null)){
+                       // Salesforce1 Navigation
+                          sforce.one.navigateToURL('/apex/GLBL_AttachmentPage?ParentId={!question.Id}&ParentName={!question.Name}&retURL=/apex/FORM_ResumeFormPage?id={!question.Form_Execution__c}');                        
+                    }
+                    else{
+                      // Set the Window's URL
+                      window.open('/apex/GLBL_AttachmentPage?ParentId={!question.Id}&ParentName={!question.Name}&retURL=/apex/FORM_ResumeFormPage?id={!question.Form_Execution__c}',  'newwindow', 'width=900, height=800');                       
+                      return false;  
+                    } 
+                  }
+               
+               </script>          
+                <span class="glyphicon glyphicon-paperclip" style="height:33px"></span>
+            </a>
+              <!-- <apex:commandbutton onclick="saveAttachment('{!question.Id}');" action="{!attachFiletoFormExecutionQuestionAnswer}"
+                                   style="bgcolor:white;background-image:url({!$Resource.FORM_Paper_Clip});height:30px;width:15px;border-width:0px;background-repeat:no-repeat;cursor:pointer;" id="attach-btn" /> -->
+            <!-- <div id="result">[Results]</div> -->
+        </apex:outputPanel>
+    </div>
+</apex:component>

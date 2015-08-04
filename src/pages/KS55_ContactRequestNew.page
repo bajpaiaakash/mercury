@@ -1,0 +1,62 @@
+<apex:page standardController="KS55_Contact_Request__c" extensions="KS55_ContactRequestNew" id="thePage" action="{!validateDelete}">
+    <c:GLBL_StatusSpinner />
+    <apex:pagemessages />
+    <apex:outputPanel rendered="{!isVisible}">
+        <apex:form id="theForm" rendered="{!and(contReq.Submitted_TF__c!=true,contreq.Status__c != 'Completed')}">
+
+            <apex:sectionHeader title="Contact Request Edit" subtitle="New Contact Request" />
+            <apex:inputField value="{!KS55_Contact_Request__c.Business_Units__c}" style="display:none;visible:false;" id="theBu" />
+            <apex:inputField value="{!KS55_Contact_Request__c.Approver__c}" style="display:none;visible:false;" />
+            <apex:inputField value="{!KS55_Contact_Request__c.Operations__c}" style="display:none;visible:false;" />
+            <apex:inputField value="{!KS55_Contact_Request__c.Status__c}" style="display:none" />
+            <apex:inputHidden value="{!KS55_Contact_Request__c.Account_Name__r.Business_Unit__c}" />
+
+            <apex:pageblock id="CREdit" title="Contact Request Edit" mode="edit">
+                <apex:pageblockbuttons >
+                    <apex:commandButton action="{!save}" value="Save"></apex:commandbutton>
+                    <apex:commandButton action="{!quicksave}" value="Save & New">
+                        <apex:actionSupport event="oncomplete" action="{!Saveandnew}" />
+                    </apex:commandbutton>
+                    <apex:commandButton action="{!cancel}" value="Cancel"></apex:commandbutton>
+                </apex:pageblockbuttons>
+
+                <apex:pageblocksection id="KS55_Contact_Request_Information" title="Information" columns="1">
+                    <apex:outputField value="{!contReq.Account_Name__c}" style="width: 550px;" rendered="{!and(contReq.Account_Name__c!=null,contReq.Id==null,isFromAccRelList)}" />
+                    <apex:pageBlockSectionItem helptext="{!$ObjectType.KS55_Contact_Request__c.Fields.Account_Name__c.inlinehelptext}" rendered="{!not(and(contReq.Account_Name__c!=null,contReq.Id==null,isFromAccRelList))}">
+                        <apex:outputLabel value="{!$ObjectType.KS55_Contact_Request__c.Fields.Account_Name__c.Label}" for="actname" />
+                        <apex:actionRegion id="subsec">
+                            <apex:inputField value="{!contReq.Account_Name__c}" style="width: 550px;" required="true" id="actname">
+                                <apex:actionSupport event="onchange" action="{!SelectAccount}" rerender="theForm,test" status="LoadingStatusSpinner" />
+                                <apex:actionSupport event="onselect" action="{!SelectAccount}" rerender="theForm" status="LoadingStatusSpinner" />
+                            </apex:inputfield>
+                        </apex:actionRegion>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:repeat value="{!$ObjectType.KS55_Contact_Request__c.fieldsets.Contact_Layout}" var="fieldValue">
+                        <apex:pageblockSectionItem helptext="{!$ObjectType['KS55_Contact_Request__c'].fields[fieldValue].inlinehelptext}">
+                            <apex:outputLabel value="{!$ObjectType['KS55_Contact_Request__c'].fields[fieldValue].Label}" />
+                            <apex:inputfield value="{!contReq[fieldValue]}" required="true" />
+                        </apex:pageblockSectionItem>
+                    </apex:repeat>
+
+                    <apex:pageblockSectionItem helptext="{!$ObjectType.KS55_Contact_Request__c.Fields.Contact_To_Have_Access_Tool__c.inlinehelptext}">
+                        <apex:outputLabel value="{!$ObjectType.KS55_Contact_Request__c.Fields.Contact_To_Have_Access_Tool__c.Label}" for="breakerField" />
+                        <apex:outputPanel styleClass="requiredInput" layout="block">
+                            <apex:outputPanel styleClass="requiredBlock" layout="block" />
+                            <apex:actionRegion id="test">
+                                <apex:inputField value="{!contReq.Contact_To_Have_Access_Tool__c}" id="breakerField" required="true" />
+                            </apex:actionRegion>
+                        </apex:outputPanel>
+                    </apex:pageblockSectionItem>
+
+                    <apex:inputfield value="{!contReq.Approver__c}" />
+                    <apex:inputfield value="{!contReq.Operations__c}" />
+                    <apex:pageblockSectionItem helptext="{!$ObjectType.KS55_Contact_Request__c.Fields.Status__c.inlinehelptext}">
+                        <apex:outputLabel value="{!$ObjectType.KS55_Contact_Request__c.Fields.Status__c.Label}" for="breakerField" />
+                        <apex:outputField value="{!contReq.Status__c}" id="breakerField" />
+                    </apex:pageblockSectionItem>
+                </apex:pageblocksection>
+            </apex:pageblock>
+        </apex:form>
+    </apex:outputPanel>
+</apex:page>

@@ -1,0 +1,72 @@
+<apex:component controller="QDUX_VVMyDocController" allowDml="true"> 
+  <apex:form >
+    	<apex:actionFunction name="mydoc{!id}" action="{!initialize}" reRender="{!$Component.vvSearchResult}, pageMesssages" status="myStatus" oncomplete="myFunction()"/>
+        <apex:actionStatus id="myStatus"  >
+            
+            <apex:facet name="start">
+                <apex:outputText >
+                    Retrieving {!SUBSTITUTE(Vault, '_', ' ')} &nbsp;
+                    <apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/spinner-gif-red.gif')}"/>
+                </apex:outputText>
+            </apex:facet>
+            <apex:facet name="stop">
+            </apex:facet>
+            
+        </apex:actionStatus>
+    </apex:form>
+    
+    <apex:attribute name="Library" description="This component will display documents for the following: My Library, Recent Documents, and Favorites" type="String" required="true" assignTo="{!filter}"/>
+    <apex:attribute name="Vault" description="The component will display document results for Veeva Vault" type="String" required="true" assignTo="{!vaultName}"/>
+    <apex:attribute name="id" description="The component will display document results for Veeva Vault" type="String" required="true" />
+    	
+    	
+        <apex:outputPanel id="vvSearchResult">
+            <apex:outputPanel rendered="{!MyDocuments.size > 0}">
+                <div style="width:100%;">
+                    <br/>
+                    <div>
+                        <span style="font-family: DINWebPro; font-size: 16px;">{!SUBSTITUTE(VaultName, '_', ' ')} - Results : {!MyDocuments.size} <br/></span>
+                    </div>
+                    <br/>
+                    
+                    <table id="doc{!id}" class="display">
+                        <thead>
+                            <tr>
+                                <th>Document Name</th>
+                                <th>Document Type </th>
+                                <th>Sub Type</th>
+                                <th>Document Link</th>
+                                <th>Created Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:variable value="{!0}" var="v1"/>
+                            <apex:repeat value="{!MyDocuments}" var="vv">
+                                <tr>
+                                    <td>{!vv.docName}</td>
+                                    <td>{!vv.doctype}</td>
+                                    <td>{!vv.subType}</td>
+                                    <td>
+                                        <a href="{!urlprefix}{!vv.docId}" target="_blank">Link</a>
+                                    </td>
+                                    <td>
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                            <apex:param value="{!vv.createdDate}"/> 
+                                        </apex:outputText>
+                                    </td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </div>
+            </apex:outputPanel>
+        </apex:outputPanel>
+   
+    
+    
+	<apex:includeScript value="{!URLFOR($Resource.QDUXResources, 'QDUXResources/jquery-1.11.1.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.QDUXResources, 'QDUXResources/jquery.dataTables.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.QDUXResources, 'QDUXResources/jquerydataTables.css')}"/>
+    
+    
+</apex:component>

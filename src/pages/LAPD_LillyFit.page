@@ -1,0 +1,143 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>LillyFit</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                    <div class="container clearfix">
+
+                        <div class="heading-block center">
+                            <h2>Ten Questions = One Answer</h2>
+                            <span>LillyFit will assess which platform is the best fit to support your request</span>
+                        </div>
+
+                        <div class="divcenter center bottommargin clearfix">
+                            <a href="https://gso.my.salesforce.com/apex/FORM_StartFormPage?id=a2zb0000000PKpD" target="_blank">
+                                <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/lillyfit/lillyfit.png')}" alt="LillyFit" width="60%" />
+                            </a>
+                        </div>
+
+                        <div class="col_one_third bottommargin">
+
+                            <div class="feature-box fbox-plain">
+                                <div class="fbox-icon">
+                                    <a href="#"><i class="i-alt">1.</i></a>
+                                </div>
+                                <h3>Title &amp; Description</h3>
+                                <p>Provide a name and short description for your project.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="col_one_third bottommargin">
+
+                            <div class="feature-box fbox-plain">
+                                <div class="fbox-icon">
+                                    <a href="#"><i class="i-alt">2.</i></a>
+                                </div>
+                                <h3>Ten Questions</h3>
+                                <p>Answer the ten multiple choice questions. If you are unable to answer a question, select the closest match.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="col_one_third bottommargin col_last">
+
+                            <div class="feature-box fbox-plain">
+                                <div class="fbox-icon">
+                                    <a href="#"><i class="i-alt">3.</i></a>
+                                </div>
+                                <h3>Submit</h3>
+                                <p>Once complete you will be provided with an instant result and the Cirrus demand team will automatically be notified.</p>
+                            </div>
+
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="col_one_third bottommargin">
+                            <div class="feature-box fbox-plain">
+                                <div class="fbox-icon">
+                                    <i class="icon-user"></i>
+                                </div>
+                                <h3>Audience</h3>
+                                <p>Who is the intended audience?</p>
+                            </div>
+                        </div>
+
+                        <div class="col_one_third bottommargin">
+                            <div class="feature-box fbox-plain">
+                                <div class="fbox-icon">
+                                   <i class="icon-tablet"></i>
+                                </div>
+                                <h3>Mobile</h3>
+                                <p>Do you need mobile access?</p>
+                            </div>
+                        </div>
+
+                        <div class="col_one_third bottommargin col_last">
+                            <div class="feature-box fbox-plain">
+                                <div class="fbox-icon">
+                                    <i class="icon-chat"></i>
+                                </div>
+                                <h3>Social</h3>
+                                <p>Do you need social collaboration?</p>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-plain">
+                                <div class="fbox-icon">
+                                    <i class="icon-globe"></i>
+                                </div>
+                                <h3>Integrations</h3>
+                                <p>Do you need to connect to other systems?</p>
+                            </div>
+                        </div>
+
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-plain">
+                                <div class="fbox-icon">
+                                    <i class="icon-data"></i>
+                                </div>
+                                <h3>Data</h3>
+                                <p>What type of data do you need?</p>
+                            </div>
+                        </div>
+
+                        <div class="col_one_third col_last">
+                            <div class="feature-box fbox-plain">
+                                <div class="fbox-icon">
+                                    <i class="icon-graph"></i>
+                                </div>
+                                <h3>Reporting</h3>
+                                <p>Do you need reporting and analytics?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

@@ -1,0 +1,233 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="false" controller="PANG_PartnerShipList" readonly="true" id="thePage">
+    <script type='text/javascript'>
+    	function isValidSearchString(searchString) {
+            var SEARCH_TRIGGER_THRESHOLD = 2;
+            var trimmedSearchString = searchString.trim();
+
+	            if (trimmedSearchString.length >= SEARCH_TRIGGER_THRESHOLD) {
+	                return true;
+	            } else {
+	                return false;
+	            }
+        }    
+    
+        function noenter(ev)  {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+            	var searchString = (document.getElementsByClassName("keyword_Partnership_Search_Text"))[0].value;
+            	if (isValidSearchString(searchString)){
+                	doSearchAf();
+                }
+                return false;
+             } else {
+                  return true;
+             }
+         }
+    </script>   
+    
+
+ 
+    <title>Partnership</title>
+
+    <c:PANG_Index />
+
+    <apex:form id="theForm">
+
+        <apex:actionFunction name="doSearchAf" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+
+        <div class='content'>
+
+            <div class='fixed-container list-view'>
+
+                <div class='filters-wrapper'>
+
+                    <!--The below page logic will display the total number of Partnerships per filter-->
+                    <div class="filter-header container">
+                        <apex:outputpanel id="resultsize">
+                            <span class='result-count'>{!cPartnershipListCntlr.ResultSize} RWE Partnerships</span>
+                        </apex:outputpanel>
+                        <apex:outputlink value="/apex/PANG_CreatePartnership?recTypeName=RWE_Partnership_Exploration" styleClass="create-new enabled l-orange">New RWE Partnership Exploration</apex:outputlink>
+                        <span class='icon-large-caret down'></span>
+                        <div class="pull-right psl-learn-more">
+                            <select  onchange="window.location.href = this.options[this.selectedIndex].value;">
+                                 <option value="PANG_PartnerShipList">Additional Resources</option>
+                                 <option value="{!$label.PANG_Non_Lilly_RWE_Partnerships}">Non-Lilly RWE Partnerships</option> 
+                                 <option value="{!$label.PANG_RWE_Partnership_Brain_Trust_Library}">RWE Partnership Brain Trust Library</option>
+                                 <option value="{!$label.PANG_Connect_with_RWE_Partnership_Brain_Trust}">Connect with RWE Partnership Brain Trust</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--The below page logic will display the check box filters for various fields and the pivot-->
+                    <div class='filter-container container'>
+
+                        <!--Start of Output Panel-->
+                        <apex:outputpanel id="therapueticareaCol">
+
+                            <!--Partnership Status field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-5'>
+                                <ul class='filter-column'>
+                                    <li >RWE Partnership Status</li>
+                                    <apex:repeat value="{!mPartnershipStructure['Partnership_Status__c']}" var="Tarea">
+                                        <li>
+                                            <apex:inputCheckbox value="{!Tarea.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label for='{!Tarea.Label}'>{!Tarea.Label} ({!mCategoyCount[Tarea.Label]})</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                            <!--Partnership Sponsor field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-4'>
+                                <ul class='filter-column'>
+                                    <li >RWE Partnership Sponsor</li>
+                                    <apex:repeat value="{!mPartnershipStructure['Partnership_Sponsor__c']}" var="Region">
+                                        <li>
+                                            <apex:inputCheckbox value="{!Region.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label>{!Region.Label}</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                                              
+                            <div class='filter-column-wrapper col-md-3'>
+                                <ul class='filter-column'>
+                                    <li >RWE Partner Region</li>
+                                    <apex:repeat value="{!mPartnershipStructure['Region__c']}" var="Region">
+                                        <li>
+                                            <apex:inputCheckbox value="{!Region.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label>{!Region.Label}</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+                            
+                            
+                            <!--Pivot for Partnership Types-->
+                            <div class='pivot-container col-md-12'>
+                                <span class='label'>{!oPartnershipTypeOptions.size-1} RWE Partnership Types</span>
+                                <label>
+                                <apex:selectList multiselect="false" size="1" value="{!sPartnershipType}">
+                                    <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                    <apex:selectOptions value="{!oPartnershipTypeOptions}" />
+                                </apex:selectList>
+                            </label>
+                            </div>
+
+                            <!--End of Output Panel-->
+                        </apex:outputpanel>
+
+                    </div>
+
+                </div>
+                
+
+                <!--Below page logic contains local search Bar-->
+                <div class='type-ahead-search-wrapper container'>
+                    <span class='icon-find'></span>
+                    <apex:inputtext value="{!sSearchWord}" html-placeholder="Search RWE Partnerships" onkeypress="return noenter(event);" styleClass="keyword_Partnership_Search_Text"/>
+                    <apex:commandButton Value="Go" action="{!FetchDataForCriteria}" Styleclass="button create-new l-orange" disabled="false" rerender="PaginationPanel,therapueticareaCol,resultsize"/>
+                    <apex:outputlink value="/apex/PANG_PartnerShipList" StyleClass="filter-reset">Clear All</apex:outputlink>
+                </div>
+                
+                
+                <!--Start of Output Panel which contains Results after filter search-->
+                <apex:outputpanel id="Listcontent">
+
+                    <!--Results container HTML-->
+                    <div class='results-header container l-orange'>
+
+                        <!--Name column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Name" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Name" value="Name" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Name'}"/>
+                        </div>
+                        <!--Partnership Sponsor column of the results displayed-->
+                        <div class='result-header-item col-md-3 sort-by'>
+                            <apex:commandlink value="RWE Partnership Sponsor" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Partnership_Sponsor__c" value="Partnership_Sponsor__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Partnership_Sponsor__c'}" />
+                            
+                        </div>
+                        
+                        <!--Partner type column of the results displayed-->
+                        <div class='result-header-item col-md-3'> RWE Partner Type
+                        </div>
+
+                        
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:Outputtext value="RWE Partner Region"/>
+                        </div>
+
+                        
+
+                        <!--Status column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Status" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Partnership_Status__c" value="Partnership_Status__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Partnership_Status__c'}"/>
+                        </div>
+
+                    </div>
+
+                    <!--End of Output Panel which contains Results after filter search-->
+                </apex:outputpanel>
+
+            </div>
+
+            <!--Start of div for pagination-->
+            <div class='results-wrapper'>
+
+                <apex:outputpanel id="PaginationPanel">
+
+                    <div class='results container'>
+                        <apex:repeat value="{!Partnerships}" var="oPartnership">
+                            <div class='result-item col-md-12'>
+
+                                <div class='col-md-2'>
+                                    <apex:outputLink value="/{!oPartnership.Id}">{!oPartnership.Name}</apex:outputLink>
+                                </div>
+                                <div class='col-md-3'>{!oPartnership.Partnership_Sponsor__c}</div>
+                                <div class='col-md-3'>{!oPartnership.Type_of_Partner__c }</div>
+                                <div class='col-md-2'>{!oPartnership.Region__c}</div>
+                                <div class='col-md-2'>{!oPartnership.Partnership_Status__c}</div>
+
+                            </div>
+                        </apex:repeat>
+                    </div>
+                    <apex:outputPanel rendered="{!cPartnershipListCntlr.ResultSize>0}">
+                    <div class='pagination container'>
+                        <span class='col-md-12'>Displaying {!((cPartnershipListCntlr.pagenumber-1)*cPartnershipListCntlr.pagesize)+1}-{!IF(cPartnershipListCntlr.ResultSize < ((cPartnershipListCntlr.pagenumber)*cPartnershipListCntlr.pagesize),cPartnershipListCntlr.ResultSize,((cPartnershipListCntlr.pagenumber)*cPartnershipListCntlr.pagesize))} of {!cPartnershipListCntlr.ResultSize}</span>
+                        <div class='indicator-container col-md-12'>
+                            <apex:actionregion >
+                                <apex:commandlink styleClass="indicator icon-arrow left" rendered="{!IF(AND(lPageNumbers.size <> 0,lPageNumbers[0]!=1),true,false)}" action="{!PreviousPageSeries}" rerender="Listcontent,PaginationPanel"/>
+                                <apex:repeat value="{!lPageNumbers}" var="obj">
+                                    <apex:commandlink styleClass="{!if(obj==cPartnershipListCntlr.pagenumber,'indicator current','indicator')}" value="{!obj}" action="{!GoToPageNumber}" rerender="PaginationPanel">
+                                        <apex:param name="{!obj}" value="{!obj}" assignTo="{!iPageNumber}" />
+                                    </apex:commandlink>
+                                </apex:repeat>
+                                <apex:commandlink styleClass="indicator icon-arrow right" action="{!NextPageSeries}" rendered="{!IF(AND(lPageNumbers.size <> 0,dPageCount > lPageNumbers[lPageNumbers.size-1]),true,false)}" rerender="Listcontent,PaginationPanel" />
+                            </apex:actionregion>
+                        </div>
+                    </div>
+                    </apex:outputPanel>
+                </apex:outputpanel>
+
+            </div>
+
+        </div>
+
+    </apex:form>
+
+</apex:page>

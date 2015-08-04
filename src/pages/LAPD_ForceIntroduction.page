@@ -1,0 +1,137 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Force.com by Cirrus</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_full">
+                        <h4>What is Force.com?</h4>
+                        Force.com is a cloud computing Platform as a Service (PaaS) from Salesforce.com. It includes a set of tools and services that enable anyone to quickly and easily develop applications that are instantly social and mobile.
+                    </div>
+
+                    <div class="col_full">
+                        Below are a number of curated videos that provide a great overview of the Salesforce.com eco-system and the Force.com platform.
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=1_sa2vwxc9&playerId=kaltura_player_1426775668&cache_st=1426775668&width=100%&height=277"></script>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Force.com by Cirrus</h5>
+                        Lilly has a great heritage with Salesforce.com. We started in 2010 with Trialforce, used to manage our clinic trials, before becoming the first pharmaceutical company to deploy Veeva CRM globally. We have since deployed a number of other global applications, which led us to positioning Force.com as our primary rapid application development platform. 
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <a href="https://www.youtube.com/watch?v=c2FgFfXt2Kw?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe">
+                            <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forceintroduction/customercompany.jpg')}" alt="Customer Company" />
+                            <span class="i-overlay"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/icons/play.png')}" alt="Play" /></span>
+                        </a>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Becoming a Customer Company</h5>
+                        Health care is on the verge of a fundamental technology-based transformation, where we will see an increased focus on "multi-channel engagement”, with digital (web, apps, connected devices, etc.) being a key driver. Customer expectation has also shifted, where people no longer expect just a product, accompanied by generic / static content. Instead customers increasingly expect a relationship that is on equal terms, one that is personalised, always available and always up to date.
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <a href="https://www.youtube.com/watch?v=4tu1zj1XGHM?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe">
+                            <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forceintroduction/sfdcoverview.jpg')}" alt="Salesforce.com Overview" />
+                            <span class="i-overlay"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/icons/play.png')}" alt="Play" /></span>
+                        </a>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Salesforce.com Ecosystem</h5>
+                        Salesforce connects you with your customers in a whole new way with Sales Cloud, Service Cloud, Marketing Cloud, Analytics Cloud, Community Cloud, all build on the Force.com Platform.
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <a href="https://www.youtube.com/watch?v=tsMcD8f_u34?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe">
+                            <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forceintroduction/forcelightning.jpg')}" alt="Force.com with Lightning" />
+                            <span class="i-overlay"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/icons/play.png')}" alt="Play" /></span>
+                        </a>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Force.com with Lightning</h5>
+                        Force.com is a platform as a service (PaaS) that allows developers to create multitenant applications. Force.com applications can be built declaratively (clicks, not code) or using Apex (a Java-like programming language) and Visualforce (an XML syntax used to generate HTML). With Lightning, built using the open-source Aura Framework, developers can build cutting edge user interfaces.
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <a href="https://www.youtube.com/watch?v=0V6w_xhOz3c?showinfo=0" class="left-icon" data-lightbox="iframe">
+                            <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forceintroduction/sfdcmobile.jpg')}" alt="Salesforce.com Mobile" />
+                            <span class="i-overlay"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/icons/play.png')}" alt="Play" /></span>
+                        </a>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Salesforce1 Mobile App and Mobile SDK</h5>
+                        The Salesforce1 Mobile App and Mobile SDK provides everyone with unlimited capabilities for creating beautiful mobile apps powered by customer data. The latest release of the Mobile SDK can be used by developers of all levels and includes advanced features for secure offline storage, data sync, push notifications and native platform functionality. 
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <a href="https://www.youtube.com/watch?v=eBA9pgrAES4?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe">
+                            <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forceintroduction/dfkeynote.jpg')}" alt="Dreamforce 2014 Keynote" />
+                            <span class="i-overlay"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/icons/play.png')}" alt="Play" /></span>
+                        </a>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Mike Meadows at Dreamforce 2014</h5>
+                        Mike Meadows (Lilly CTO) recently presented (10:35) at the largest IT conference in the world (Dreamforce 2014). He described how Lilly IT must transform to become bimodal; delivering World Class IT operations, whilst enabling an innovative and agile IT organization that can strike quickly to capitalize on new business opportunities.
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <a href="https://www.youtube.com/watch?v=WdW_lTB5OT0?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe">
+                            <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forceintroduction/sfdc2014q4.jpg')}" alt="Salesforce.com 2014 Q4 Highlights" />
+                            <span class="i-overlay"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/icons/play.png')}" alt="Play" /></span>
+                        </a>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Salesforce.com 2015 Q1 Highlights</h5>
+                        The Salesforce.com first quarter (February 2015 - April 2015) highlights.
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

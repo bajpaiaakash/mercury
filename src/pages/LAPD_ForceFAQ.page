@@ -1,0 +1,154 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Force.com FAQ</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_full">
+                        The most popular frequently asked questions can be found below. To download the full list please click <a href="/sfc/p/b0000000Z7IN/a/b0000000TPmD/hobK3c.4_TLO_a4bx2XkoeBR_LjqeLAyBEkcgjVdEQY" target="_blank">here</a>.
+                    </div>
+
+                    <div class="postcontent nobottommargin clearfix">
+
+                        <ul id="portfolio-filter" class="clearfix">
+                        
+                            <li class="activeFilter"><a href="#" data-filter="all">All</a></li>
+                            <li><a href="#" data-filter=".faq-culture">Culture</a></li>
+                            <li><a href="#" data-filter=".faq-people">People</a></li>
+                            <li><a href="#" data-filter=".faq-process">Process</a></li>
+                            <li><a href="#" data-filter=".faq-technology">Technology</a></li>
+                        
+                        </ul>
+
+                        <div class="clear"></div>
+
+                        <div id="faqs" class="faqs">
+
+                            <div class="toggle faq faq-culture faq-technology">
+                                <div class="togglet"><i class="toggle-closed icon-comments-alt"></i><i class="toggle-open icon-comments-alt"></i>Why is Cirrus Unique?</div>
+                                <div class="togglec">Cirrus embodies best practices from Agile methodology to ensure your applications are developed through a continuous, iterative process as they navigate production to provide a best in class product at the conclusion of the project cycle.</div>
+                            </div>
+
+                            <div class="toggle faq faq-technology">
+                                <div class="togglet"><i class="toggle-closed icon-cloud"></i><i class="toggle-open icon-cloud"></i>What is Force.com?</div>
+                                <div class="togglec">Force.com is a cloud computing PaaS system from Salesforce.com, which includes a set of tools and services that make it faster and easier to create employee-facing applications that are instantly social and mobile.</div>
+                            </div>
+
+                            <div class="toggle faq faq-technology">
+                                <div class="togglet"><i class="toggle-closed icon-cloud"></i><i class="toggle-open icon-cloud"></i>What are a few benefits of using Force.com by Cirrus?</div>
+                                <div class="togglec">Time to value, collaboration, customer engagement, innovation, and back office. Flight School and Vendor Training provide greater detail on the Force.com by Cirrus value proposition.</div>
+                            </div>
+
+                            <div class="toggle faq faq-technology">
+                                <div class="togglet"><i class="toggle-closed icon-cloud"></i><i class="toggle-open icon-cloud"></i>What is the GSO1?</div>
+                                <div class="togglec">The Global Services Org (GSO) is Lilly's enterprise Force.com platform. It is the default environment for all enterprise applications built on Force.com and it comes with a suite of foundational capabilities that every application can take advantage of (all about re-use!)</div>
+                            </div>
+
+                            <div class="toggle faq faq-technology">
+                                <div class="togglet"><i class="toggle-closed icon-cloud"></i><i class="toggle-open icon-cloud"></i>What is the GSO2?</div>
+                                <div class="togglec">GSO2 is the Force.com org for non-business critical applications and allows Cirrus Citizen Developers to build their own applications.  Cirrus still provides oversight of the platform, but GSO2 is the quickest way to get an application from Ideation into Production.</div>
+                            </div>                            
+
+                            <div class="toggle faq faq-technology">
+                                <div class="togglet"><i class="toggle-closed icon-cloud"></i><i class="toggle-open icon-cloud"></i>What is the GSO3?</div>
+                                <div class="togglec">GSO3 is the patient-facing instance of Force.com, currently not available beyond the Customer Support Program Project.  In the future, any applications that are highly critical and patient facing will reside in this org.</div>
+                            </div>
+
+                            <div class="toggle faq faq-technology">
+                                <div class="togglet"><i class="toggle-closed icon-cloud"></i><i class="toggle-open icon-cloud"></i>What is Forms Builder?</div>
+                                <div class="togglec">Forms Builder is an application build on the GSO that allows Forms to quickly be built and distributed. If you have a project that requires simple capture and reporting of data, Forms Builder might be a good track for your project.</div>
+                            </div>
+
+                            <div class="toggle faq faq-technology">
+                                <div class="togglet"><i class="toggle-closed icon-code"></i><i class="toggle-open icon-code"></i>What is the AppExchange?</div>
+                                <div class="togglec">It’s a marketplace for cloud computing web applications built for the Salesforce.com community. Over 2,000 applications are available on the AppExchange that have been created by trusted partners and individuals.  To learn more about the AppExchange, go to <a href="https://appexchange.salesforce.com" target="_blank">https://appexchange.salesforce.com</a></div>
+                            </div>  
+
+                            <div class="toggle faq faq-technology">
+                                <div class="togglet"><i class="toggle-closed icon-code"></i><i class="toggle-open icon-code"></i>Where are the “rules of the road” found?</div>
+                                <div class="togglec">Cirrus has a Developers Guidelines and SOPs that should be reviewed. Flight School training also addresses the key aspects of the SDLC and is required to gain access to Mission Control.</div>
+                            </div>
+
+                            <div class="toggle faq faq-process faq-technology">
+                                <div class="togglet"><i class="toggle-closed icon-cloud"></i><i class="toggle-open icon-cloud"></i>How do I see if my idea could be built in force.com?</div>
+                                <div class="togglec">Lilly has a self-assessment questionnaire you can fill in about your idea. This questionnaire will give you an indication if your idea is a good fit for force.com or another of Lilly’s enterprise technologies.  Once you have a great idea, access LaunchPad  to conduct your LillyFit Assessment and determine if your technology is a good fit for development on Force.com by Cirrus.</div>
+                            </div>
+
+                            <div class="toggle faq faq-process">
+                                <div class="togglet"><i class="toggle-closed icon-question"></i><i class="toggle-open icon-question"></i>How do I get Started with Cirrus?</div>
+                                <div class="togglec">Getting involved with Cirrus is simple. Once you have a great idea, access LaunchPad  to conduct your LillyFit Assessment and determine if your technology is a good fit for development on Force.com by Cirrus. If it is, the Cirrus Team will contact you to gather more information and start the process.</div>
+                            </div>
+
+                            <div class="toggle faq faq-process">
+                                <div class="togglet"><i class="toggle-closed icon-repeat"></i><i class="toggle-open icon-repeat"></i>What is Mission Control (MICO)?</div>
+                                <div class="togglec">Mission Control is a project management tool built on the Force.com platform that is used to enable the Cirrus development methodology. Mission Control is designed to be a “one stop shop” for managing Cirrus delivery processes including risks, issues, development sprints, epics and user stories, tests, defects and more while leveraging the collaborative benefits of Salesforce.com.</div>
+                            </div>
+
+                            <div class="toggle faq faq-process">
+                                <div class="togglet"><i class="toggle-closed icon-repeat"></i><i class="toggle-open icon-repeat"></i>Is development with Cirrus time-intensive?</div>
+                                <div class="togglec">It can be. Your integration within the project team is critical to designing the best business solution application.  Your active involvement in the team is what helps fuel success. You will discuss the Roles and Responsibilities with your Team POC after the Initial Project Review Meeting.</div>
+                            </div>
+
+                            <div class="toggle faq faq-process">
+                                <div class="togglet"><i class="toggle-closed icon-repeat"></i><i class="toggle-open icon-repeat"></i>What is an MVP?</div>
+                                <div class="togglec">Think of a Minimum viable product (MVP) as a minimum shippable product. Cirrus leverages the Agile development methodology, which is based on delivering sprints resulting in (initially) Minimum Viable Products (MVPs) allowing end users to see value faster. MVPs represent the core minimium viable product that results in a functioning product at the end of each Sprint. Teams should work deliver an MVP at the end of each sprint. Being an MVP does not necessarily mean the results will actually be delivered to customers. That is a business decision; MVP is a state of confidence that it could be delivered if needed.</div>
+                            </div>                            
+
+                            <div class="toggle faq faq-process faq-people">
+                                <div class="togglet"><i class="toggle-closed icon-user"></i><i class="toggle-open icon-user"></i>What are some of the responsibilities of the Product Owner?</div>
+                                <div class="togglec">Owns the application requirements (user stories) and is a representative of all the stakeholders on a project. Responsible for clarifying and prioritizing user stories, making decisions where necessary, facilitating communication between implementation team and project stakeholders, and ultimately accepting or rejecting delivered user stories. The product owner has authority over the business process/data that the computer system supports or enables. Ultimately the product owner is responsible for determining extent of validation activities using risk-based approach and ensures system is adequately validated throughout the development and release lifecycle.</div>
+                            </div>
+
+                            <div class="toggle faq faq-process faq-people">
+                                <div class="togglet"><i class="toggle-closed icon-user"></i><i class="toggle-open icon-user"></i>What is the citizen developer (Builder) scope?</div>
+                                <div class="togglec">Citizen Developers are authorized on a basis of specific criteria that promote a rapid value to market solution for end users. See <a href="/sfc/p/b0000000Z7IN/a/b0000000TPmh/T1hMqT92qg45yowY.mhGCwNqZH6aHfHEFHQNz9MwknQ" target="_blank">Citizen Developer Welcome Kit</a>.</div>
+                            </div>
+
+                            <div class="toggle faq faq-process faq-people">
+                                <div class="togglet"><i class="toggle-closed icon-user"></i><i class="toggle-open icon-user"></i>What are some of the responsibilities of the Business Integrators?</div>
+                                <div class="togglec">The business integrator is the primary Lilly point of contact with Cirrus team. This liaison between business and IT assists with demand management, and working with the business on user stories and other project needs.</div>
+                            </div>
+
+                            <div class="toggle faq faq-process faq-people">
+                                <div class="togglet"><i class="toggle-closed icon-user"></i><i class="toggle-open icon-user"></i>What are some of the responsibilities of the Cirrus POC?</div>
+                                <div class="togglec">The Cirrus POC will assist project teams developing applications on the Cirrus GSO, providing assistance as needed with process, tools and technology related items. To help with your success, they facilitate checkpoints for projects assigned a POC.</div>
+                            </div>  
+
+                            <div class="toggle faq faq-process faq-people">
+                                <div class="togglet"><i class="toggle-closed icon-user"></i><i class="toggle-open icon-user"></i>How do I give external people access to Force.com?</div>
+                                <div class="togglec">There are a couple of options, but it depends on the use case. We have a couple of projects that have leveraged SalesForce Communities. These are designed to provide external access to an application. There is a cost associated with this, either based on per login, or per named user. If these are some type of system integrator or other... 3rd party partner, you can also OnBoard then in FieldGlass and manage them. If you want to find more about Sales Force communities functionality and licensing please reach out to our Demand Manager.</div>
+                            </div>                          
+
+                        </div>
+
+                        <apex:includeScript value="{!URLFOR($Resource.LAPD_Assets, 'js/snippets/faq.js')}" />
+
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

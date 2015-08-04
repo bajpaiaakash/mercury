@@ -1,0 +1,5 @@
+<apex:page standardController="ACED_Delivery_Actuals__c" extensions="ACED_Refresh_eInteractions" action="{!Refreshdata}">
+<apex:pageMessages />
+<apex:detail />
+  
+</apex:page>

@@ -1,0 +1,67 @@
+<apex:page sidebar="false" showHeader="false"  >
+    <div class="divBody">
+        <!-- Header-->
+        <c:QDUX_Header ></c:QDUX_Header>
+        <!-- End of Header -->
+        
+        <!-- Search Bar -->
+        <c:QDUX_SearchBar ></c:QDUX_SearchBar>
+        
+        <!-- End of Search Bar --> 
+        <br/><br/>	
+        
+        <!-- Body Container --> 
+        
+            <div class="searchPageWrapper" >
+                <apex:form >
+                    <apex:commandLink action="/apex/QDUX_MyDocDashboard?Library={!$CurrentPage.parameters.Library}">
+                        <apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/Refresh-32.png')}"/>
+                        <span style="font-family: DINWebPro; font-size: 16px;"> Refresh {!$CurrentPage.parameters.Library}</span>
+                    </apex:commandLink>
+                </apex:form>
+                <apex:outputPanel id="myDocResult">
+                    <c:QDUX_VVMyDoc Library="{!$CurrentPage.parameters.Library}" Vault="{!$Label.QDUX_Quality_Docs_Label}" id="qd"></c:QDUX_VVMyDoc>
+                    <br/>
+                    <c:QDUX_VVMyDoc Library="{!$CurrentPage.parameters.Library}" Vault="{!$Label.QDUX_ETMF_Label}" id="etmf"></c:QDUX_VVMyDoc> 
+                </apex:outputPanel>
+                <br/>
+                
+            </div>
+       </div>
+    <!-- WRAPPER -->
+
+    <!-- Start of Footer -->
+    <c:QDUX_footer ></c:QDUX_footer>
+    <!-- End of Footer -->
+    
+   
+	<!-- Style Sheets -->
+    <apex:stylesheet value="{!$Resource.QDUX_SearchBarCSS}"/>
+    <apex:stylesheet value="{!$Resource.QDUX_CSS}"/>
+    
+    <script>
+    j$ = jQuery.noConflict();
+    window.onload=function()
+    {
+        mydocetmf(); 
+        mydocqd();
+        
+    };
+    function myFunction() {
+        
+        var contactTable1 = j$('[id$="docqd"]').DataTable({
+            destroy: true,
+            "autoWidth": true,
+            "pageLength": 5,
+            "lengthChange": false
+           });
+        var contactTable1 = j$('[id$="docetmf"]').DataTable({
+            destroy: true,
+            "autoWidth": true,
+            "pageLength": 5,
+            "lengthChange": false,
+       });
+    }
+    </script>
+    
+</apex:page>

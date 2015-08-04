@@ -1,0 +1,41 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="false" controller="PANG_HomePage" cache="true">
+
+    <title>Pangaea Support</title>
+    <c:PANG_Index />
+
+
+    <div class='content'>
+        <div class="get-help-page">
+            <div class="container">
+                        <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="font-l left">
+                    Pangaea Support
+                    </h1>
+               
+                <ul class="font-m left">
+                   <li><apex:outputLink styleClass="font-r" value="{!$Label.PANG_Initial_User_Training}">Initial User Training</apex:outputLink>
+                   </li>
+                   <li><apex:outputLink styleClass="font-r" value="{!$Label.PANG_Frequently_Asked_Questions}">Frequently Asked Questions   </apex:outputLink>
+                   </li>
+                   <li><apex:outputLink styleClass="font-r" value="{!$Label.PANG_User_Training_Library}"> Pangaea User Training Library</apex:outputLink>
+                   </li>
+                   <li><apex:outputLink styleClass="font-r" value="{!$Label.PANG_Technical_Support}">Technical Support  </apex:outputLink>
+                   </li>
+                </ul>
+                </div>
+                
+            </div>
+             </div>
+            
+            
+            
+        </div>
+        <div class="footer">
+                <div class="container">
+                    <div class="copyright">&copy; 2015 Eli Lilly Company. All rights reserved</div>
+                </div>
+            </div>
+    </div>
+
+</apex:page>

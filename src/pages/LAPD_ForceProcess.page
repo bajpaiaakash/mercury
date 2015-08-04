@@ -1,0 +1,170 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Force.com Process</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_two_fifth bottommargin">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=1_h2czwku7&playerId=kaltura_player_1426694083&cache_st=1426694083&width=100%&height=277"></script>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h4>Force.com Agile Process</h4>
+                        <p>Agile is a new way of thinking. It’s a group of software development methods based on iterative and incremental development.</p>
+                        <div class="col_full topmargin">
+                            <a href="/sfc/p/b0000000Z7IN/a/b0000000TPk7/gVUnJo4NmoVEImZghZ553SZfq.m.EdxAdm7gwUv7KMk" target="_blank" class="button"><div>Process Overview</div></a>
+                            <a href="/apex/LAPD_ForceTraining" class="button"><div>Training</div></a>
+                            <a href="/sfc/p/b0000000Z7IN/a/b0000000TPkq/WpeFenc09q98ZLImIY3oxDuqSQr6pUi1D4sVsdtIEsI" target="_blank" class="button"><div>Validation Plan</div></a>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_full line hidden-xs">
+                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forceprocess/forceprocess.jpg')}" alt="Force.com Process" />
+                    </div>
+
+                    <div id="processTabs">
+                        <ul class="process-steps topmargin bottommargin clearfix">
+                            <li>
+                                <a href="#ptab1" class="i-circled i-bordered i-alt divcenter">1</a>
+                                <h5>Demand</h5>
+                            </li>
+                            <li>
+                                <a href="#ptab2" class="i-circled i-bordered i-alt divcenter">2</a>
+                                <h5>Sprint 0</h5>
+                            </li>
+                            <li>
+                                <a href="#ptab3" class="i-circled i-bordered i-alt divcenter">3</a>
+                                <h5>Sprinting</h5>
+                            </li>
+                            <li>
+                                <a href="#ptab4" class="i-circled i-bordered i-alt divcenter">4</a>
+                                <h5>Merge and Deploy</h5>
+                            </li>
+                        </ul>
+                        <div>
+                            <div id="ptab1">
+                                <p><strong>Complete Lilly Fit</strong> - Assesses what platform is the best fit for supporting the solution.</p>
+
+                                <p><strong>Complete Information Gathering Meeting</strong> - Once Force.com is validated as the suggested platform, the Cirrus Team will contact you for a brief meeting to gather more information. The demand management team will want to gain an understanding of the following information:</p>
+                                
+                                <div class="margin-list">
+                                    <li>Basic project description.</li>
+                                    <li>Desired delivery date.</li>
+                                    <li>Estimated budget.</li>
+                                    <li>Business case for the application.</li>
+                                    <li>Any pre-documented requirements.</li>
+                                </div>
+
+                                <p><strong>Review Welcome Pack</strong> – Take time to read through the welcome pack you receive after the Information Gathering Meeting.</p>
+
+                                <p><strong>Complete Scoping Review Form</strong> – Complete the Initial Scoping review form and send it to the Demand Management Team before the Project Review Meeting.</p>
+
+                                <p><strong>Complete Initial Scoping Project Review Meeting</strong> - The Cirrus Team will schedule a meeting with you and a Cirrus Solution Architect. The following key decisions will be made:</p>
+
+                                <div class="margin-list">
+                                    <li>Is Force.com the right solution?</li>
+                                    <li>Which is the correct development track – GSO1, Citizen Dev (GSO2), or Forms Generator candidate?</li>
+                                    <li>If GSO1 Track - T-Shirt Size. This will give you a rough estimate on how much your solution will cost.</li>
+                                    <li>Green light to progress and move to vendor selection.</li>
+                                </div>
+
+                            </div>
+                            <div id="ptab2">
+                                <p><strong>Use the WIP and PIC Tools</strong> – Contact your area Computer Systems Quality representative for assistance in completing your PIC. For more information around PIC and WIP refer to our<apex:outputLink value="{! $Page.LAPD_ForceFAQ}"> FAQ</apex:outputLink> section.</p>
+
+                                <p><strong>Create CR</strong> – Follow your local Change Management process to create a project CR. The CR must be approved to develop prior to any development activities within Sprinting.</p>
+
+                                <p><strong>Complete Training</strong> – Complete required training requirements outlined in the <a href="/sfc/p/b0000000Z7IN/a/b0000000TPkg/ShVyThA.rLy9dKE.Mjmu56C6VGNLIWdsUmtykAsZ_Rc" target="_blank">Cirrus Training Plan</a>.</p>
+
+                                <p><strong>Define Roles and Responsibilities</strong> – Align on roles and responsibilities for the project.</p>
+
+                                <p><strong>Obtain Mission Control Access</strong> – Get all project team members’ access to Mission Control so they can begin developing epics / user stories in the system.</p>
+
+                                <p><strong>Kick-Off Project</strong> – Conduct a project kick-off meeting with your POC, Vendor and project team. Ensure everyone is familiar with the Force.com by Cirrus methodology, the Mission Control tool, and their roles and responsibilities.</p>
+
+                                <p><strong>Create the Product Backlog</strong> – Write and prioritize the initial set of epics and user stories to create the Product Backlog. Refining the product backlog is a continuous process that will be conducted during every sprint.</p>
+
+                                <p><strong>Determine Minimum Viable Product (MVP)</strong> – Determine the bare minimum functionality required to get the application into production and receive feedback on future enhancements.</p>
+
+                                <p><strong>Conduct Poker Planning Session (Done by the Vendor)</strong> – In Mission Control, complete the poker planning session to estimate complexity of user stories and prioritize them.</p>
+
+                                <p><strong>Complete Environment and Data Setup</strong> – Request and receive confirmation of an environment setup and access from the Cirrus Release team.</p>
+
+                                <p><strong>Determine Definition of Done</strong> – As a project team, determine the definition of done. A sample definition of done can be accessed <a href="/sfc/p/b0000000Z7IN/a/b0000000TPlU/zb5ock.vbWZjq6BRZksgNmitOufJSlvgEzIHAxOpfjw" target="_blank">here</a>.</p>
+
+                                <p><strong>Obtain Gate 1 Approvals / Cirrus Design Authority</strong> – Obtain approval from Cirrus Team Members to begin Sprinting.</p>
+                            </div>
+                            <div id="ptab3">
+                                <p><strong>Conduct Sprint Planning</strong> – At the beginning of the sprint cycle create a Sprint Backlog from the Product Backlog using the Plan Sprint Activity in Mission Control.</p>
+
+                                <p>Follow the Agile meeting cadence:</p>
+
+                                <div class="margin-list">
+                                    <li><strong>Hold Daily Scrum Meetings</strong> – Hold 15 minute scrum meetings ever day with all project team members. Including the business in the Scrum Meetings aids with transparency and assists the motion of the sprint, constantly elevating and resolving issues quickly.  Any impediments identified within the 15 minute call must be taken offline and resolved immediately.</li>
+                                    <li><strong>Hold Story Definition Meetings</strong> – As needed, hold meetings with the business to continually refine the story definition. Best practice says to set the expectation with the business that they are required to be available on a daily basis in order to offer clarifications to development team.</li>
+                                    <li><strong>Complete User Story Demonstrations</strong> – Conduct a User Story Demonstration in the Test Sandbox as each user story, or set of dependent user stories, is developed. Conducting this on an almost daily basis keeps the number of defects to a minimum and allows for quick readjustment of development if needed.</li>
+                                </div>
+
+                                <p><strong>Use Iterative Testing Throughout The Development Cycle</strong> – Follow the Development and Testing Guidelines. Iterative test expectations are:</p>
+
+                                <div class="margin-list">
+                                    <li>Create / approve test script in conjunction with user stories.</li>
+                                    <li>Complete Unit Testing – validate code by user story in the development sandbox.</li>
+                                    <li>Complete Sprint Acceptance testing – Conduct system and integration testing by user story in the test sandbox.</li>
+                                    <li>Complete User Acceptance Testing (UAT) – Validate, with the business, that the functionality is accurate in the test sandbox.</li>
+                                </div>
+
+                                <p><strong>Follow GCO-Cirrus Master Validation Plan</strong> – Ensure that your project follows the <a href="/sfc/p/b0000000Z7IN/a/b0000000TPkq/WpeFenc09q98ZLImIY3oxDuqSQr6pUi1D4sVsdtIEsI" target="_blank">GCO-Cirrus Master Validation Plan</a> which outlines requirements based upon validation path.</p>
+
+                                <p><strong>Complete a Sprint Demonstration</strong> – After all user stories have passed testing, demonstrate the entire end to end functionality to all team members and stakeholders. This can be scheduled to occur either before or after Gate 2.</p>
+
+                                <p><strong>Pass Gate 2</strong> – Complete the <a href="/sfc/p/b0000000Z7IN/a/b0000000TPkv/v7GAJeTqvJ6q7WJWXbDjrlTioXQo2Ig097yovB734ic" target="_blank">Gate 2 Spreadsheet</a> to determine Project Go / No Go.</p>
+
+                                <p><strong>Verify Project Change Request (CR) is Approved</strong> – All project-level CRs must be approved before the Cirrus CR can be approved.</p>
+
+                                <p><strong>Complete the Sprint Retrospective</strong> – Use the <a href="/sfc/p/b0000000Z7IN/a/b0000000TPlZ/bF.DmfckmqacldvLPHxtd2htYDTQlfv1LACK9nmGrlU" target="_blank">Sprint Retrospective Form</a> to guide the retrospective conversation with your project team.</p>
+                            </div>
+                            <div id="ptab4">
+                                <p><strong>Merge Process Stand-Up Meetings</strong> – One technical representative from the project team should attend in case any merge issues arise and resolution needs to be facilitated.</p>
+
+                                <p><strong>Attend Stand-Up Meetings During the PRE-PRD Test Phase</strong> – A business representative and a technical representative from the project team should attend all PRE-PRD stand-up meetings. The business representative will be asked to provide an update on the validation testing process while the technical representative will facilitate any technical issue resolution.</p>
+
+                                <p><strong>Complete Pre-Production Validation</strong> - Validate that new code is functioning in the pre-prod environment or to test functionality that may require a full set of data not available in test sandboxes.  The Validation results should be chattered on the Release Record in Mission Control. Chatter should include the following items: What was planned for testing, what was actually tested and the testing results. For more information on this, please see the <a href="/sfc/p/b0000000Z7IN/a/b0000000TPkl/l7RtYmjrHSjSGFY6CX0wsKJSQ4k2psWBkyMqJtzVAcQ" target="_blank">Application Verification and Regression Testing Scope in Cirrus Testing SOP</a>.</p>
+
+                                <p><strong>Attend Stand-Up Meetings for Production Deployment</strong> – One technical representative and one business representative from the project team should attend and provide an update on production validation.</p>
+
+                                <p><strong>Complete Production Validation</strong> – Complete a validation check to verify that the production application reflects the updated release. A note should be added to the release record that indicates the success of production deployment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <apex:includeScript value="{!URLFOR($Resource.LAPD_Assets, 'js/snippets/process.js')}" />
+        
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

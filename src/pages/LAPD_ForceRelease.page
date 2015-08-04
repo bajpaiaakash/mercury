@@ -1,0 +1,264 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Force.com Release Management</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_full">
+                        <div class="tabs clearfix" id="tab-3">
+
+                            <ul class="tab-nav tab-nav2 clearfix">
+                                <li><a href="#tabs-1">GSO1</a></li>
+                                <li><a href="#tabs-2">GSO2</a></li>
+                            </ul>
+
+                            <div class="tab-container">
+
+                                <div class="tab-content clearfix" id="tabs-1">
+
+                                    <h4>GSO1 Release Cadence</h4>
+                                    <div class="pricing bottommargin clearfix">
+
+                                        <div class="col-sm-4">
+                                            <div class="pricing-box">
+                                                <div class="pricing-title">
+                                                    <h3>Minor Release</h3>
+                                                    <span>Weekly</span>
+                                                </div>
+                                                <div class="pricing-features">
+                                                    <ul>
+                                                        <li>Pre-Approved Changes Only</li>
+                                                        <li>No Shared Components</li>
+                                                        <li>No Integrations</li>
+                                                        <li>DevOps Managed</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <div class="pricing-box best-price">
+                                                <div class="pricing-title">
+                                                    <h3>Major Release</h3>
+                                                    <span>Monthly</span>
+                                                </div>
+                                                <div class="pricing-features">
+                                                    <ul>
+                                                        <li>Full Deployments</li>
+                                                        <li>Full Shared Components</li>
+                                                        <li>Full Integrations</li>
+                                                        <li>Full Validation</li>
+                                                        <li>DevOps Managed</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <div class="pricing-box">
+                                                <div class="pricing-title">
+                                                    <h3>Service Request</h3>
+                                                    <span>Ad-Hoc</span>
+                                                </div>
+                                                <div class="pricing-features">
+                                                    <ul>
+                                                        <li>Pre-Approved Changes Only</li>
+                                                        <li>User and Data Loading</li>
+                                                        <li>Reports and Libraries</li>
+                                                        <li>DevOps Managed</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="line"></div>
+
+                                    <h4>GSO1 Major Release Dates</h4>
+                                    <div id="posts" class="events small-thumbs">
+                                        <div class="entry clearfix">
+                                            <div class="entry-image">
+                                                <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcerelease/codehandover.jpg')}" alt="Code Handover" />
+                                                    <div class="entry-date">29<span>MAY</span></div>
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h2>Code Handover</h2>
+                                                </div>
+                                                <ul class="entry-meta clearfix">
+                                                    <li><i class="icon-time"></i> 18:00 UK</li>
+                                                </ul>
+                                                <div class="entry-content">
+                                                    <p>All code positioned for the release must be committed to BitBucket prior to this date / time. This code will then be used to deploy into PRE-PRD.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="entry clearfix">
+                                            <div class="entry-image">
+                                                <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcerelease/testing.jpg')}" alt="Testing" />
+                                                    <div class="entry-date">03<span>JUN</span></div>
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h2>Pre-PRD (FULL) Deployment</h2>
+                                                </div>
+                                                <ul class="entry-meta clearfix">
+                                                    <li><i class="icon-time"></i> 20:00 - 21:00 UK</li>
+                                                </ul>
+                                                <div class="entry-content">
+                                                    <p>Code will be deployed into PRE-PRD (FULL), which is an exact replica of PRD (GSO1). This environment will then be made available for testing.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="entry clearfix">
+                                            <div class="entry-image">
+                                                 <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcerelease/golive.jpg')}" alt="Go-Live" />
+                                                    <div class="entry-date">12<span>JUN</span></div>
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h2>PRD (GSO1) Deployment</h2>
+                                                </div>
+                                                <ul class="entry-meta clearfix">
+                                                    <li><i class="icon-time"></i> 20:00 - 21:00 UK</li>
+                                                </ul>
+                                                <div class="entry-content">
+                                                    <p>Code will be deployed into PRD (GSO1).</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="line"></div>
+
+                                    <h4>GSO1 Minor Release Dates</h4>
+                                    <div id="posts" class="events small-thumbs">                                        
+                                        <div class="entry clearfix">
+                                            <div class="entry-image">
+                                                <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcerelease/codehandoverfri.jpg')}" alt="Code Handover" />
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h2>Code Handover</h2>
+                                                </div>
+                                                <ul class="entry-meta clearfix">
+                                                    <li><i class="icon-time"></i> 18:00 UK</li>
+                                                </ul>
+                                                <div class="entry-content">
+                                                    <p>All code positioned for the release must be committed to BitBucket prior to this date / time. This code will then be used to deploy into PRE-PRD.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="entry clearfix">
+                                            <div class="entry-image">
+                                                <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcerelease/testingmon.jpg')}" alt="Testing" />
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h2>Pre-PRD (FULL) Deployment</h2>
+                                                </div>
+                                                <ul class="entry-meta clearfix">
+                                                    <li><i class="icon-time"></i> 20:00 - 21:00 UK</li>
+                                                </ul>
+                                                <div class="entry-content">
+                                                    <p>Code will be deployed into PRE-PRD (FULL), which is an exact replica of PRD (GSO1). This environment will then be made available for testing.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="entry clearfix">
+                                            <div class="entry-image">
+                                                <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcerelease/golivewed.jpg')}" alt="Go-Live" />
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h2>PRD (GSO1) Deployment</h2>
+                                                </div>
+                                                <ul class="entry-meta clearfix">
+                                                    <li><i class="icon-time"></i> 20:00 - 21:00 UK</li>
+                                                </ul>
+                                                <div class="entry-content">
+                                                    <p>Code will be deployed into PRD (GSO1).</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                   
+
+                                </div>
+
+                                <div class="tab-content clearfix" id="tabs-2">
+                                    <h4>GSO2 Weekly Release Dates</h4>
+                                    <p>The GSO2 follows a weekly release cadence for all change types (minor and major). It does not include a PRE-PRD (FULL) Deployment.</p>
+                                    <div id="posts" class="events small-thumbs">
+                                        <div class="entry clearfix">
+                                            <div class="entry-image">
+                                                <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcerelease/codehandoverfri.jpg')}" alt="Code Handover" />
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h2>Code Handover</h2>
+                                                </div>
+                                                <ul class="entry-meta clearfix">
+                                                    <li><i class="icon-time"></i> 18:00 UK</li>
+                                                </ul>
+                                                <div class="entry-content">
+                                                    <p>All code positioned for the release must be committed to BitBucket prior to this date / time. This code will then be used to deploy into PRE-PRD.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="entry clearfix">
+                                            <div class="entry-image">
+                                                <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcerelease/golivemon.jpg')}" alt="Go-Live" />
+                                            </div>
+                                            <div class="entry-c">
+                                                <div class="entry-title">
+                                                    <h2>PRD (GSO2) Deployment</h2>
+                                                </div>
+                                                <ul class="entry-meta clearfix">
+                                                    <li><i class="icon-time"></i> 20:00 - 21:00 UK</li>
+                                                </ul>
+                                                <div class="entry-content">
+                                                    <p>Code will be deployed into PRD (GSO2).</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

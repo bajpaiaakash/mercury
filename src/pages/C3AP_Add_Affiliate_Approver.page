@@ -1,0 +1,17 @@
+<apex:page standardController="C3AP_Affiliate_Approvers__c" tabStyle="C3AP_Affiliate_Approvers__c">
+    <apex:form >
+        <apex:sectionHeader title="{!$Label.C3AP_Affiliate_Approvers}" subtitle="{!IF(C3AP_Affiliate_Approvers__c.Name<>null,C3AP_Affiliate_Approvers__c.Name,'New Affiliate Approver')}" />
+        <apex:pageBlock title="{!$Label.C3AP_Affiliate_Approvers_Edit}" >
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.C3AP_Save}" action="{!save}"/>
+                <apex:commandButton value="{!$Label.C3AP_Cancel}" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="{!$Label.C3AP_Question_Type_Information}" collapsible="false" >
+                    <apex:repeat value="{!$ObjectType.C3AP_Affiliate_Approvers__c.FieldSets.C3AP_Approvers_Page_Layout_Fields}" var="f">
+                        <apex:inputfield value="{!C3AP_Affiliate_Approvers__c[f]}" />
+                    </apex:repeat>  
+            </apex:pageBlockSection>    
+                
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

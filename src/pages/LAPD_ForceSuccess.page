@@ -1,0 +1,286 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Force.com Success Stories</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_two_fifth bottommargin">
+                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcesuccess/formsbuilder.jpg')}" alt="Forms Builder" width="75%" />
+                    </div> 
+                    <div class="col_three_fifth bottommargin col_last">
+                        <div class="heading-block">
+                            <h2>Forms Builder</h2>
+                            <span>Quick and Easy Forms for Everyone</span>
+                        </div>
+                        <p><strong>Customer:</strong> Available for all units/regions.</p>
+                        
+                        <p><strong>Overview:</strong> Form Builder makes creating and deploying forms on Force easier and faster. With Forms Builder, Citizen Developers can quickly create forms to manage business process for any Business Unit or Region.</p>
+                        
+                        <p><strong>Innovation:</strong> Form Builder uses configuration rather than application development.</p>
+                    </div>  
+
+                    <div class="line"></div>
+
+                    <div class="col_three_fifth bottommargin">
+                        <div class="heading-block">
+                            <h2>RWE Pangaea</h2>
+                            <span>Collaboration for RWE</span>
+                        </div>
+                        <p><strong>Overview:</strong> Pangaea represents a seismic shift in how real world evidence and insights are gathered and shared. It will provide easier and faster access to real world data in one open, integrated and collaborative place.</p>
+
+                        <p>Pangaea will help us:</p>
+                        <div class="margin-list">
+                            <li>Streamline collaboration between real world evidence teams globally.</li>
+                            <li>Reduce the time, effort, and costs associated with searching, sharing and leveraging data assets.</li>
+                            <li>Increase productivity and transparency across projects and studies.</li>
+                            <li>Provide a competitive advantage in gaining and maintaining access to medicines for patients.</li>
+                        </div>
+                        <p><strong>Innovation:</strong> A transformation is taking place in the delivery of real world evidence around the world and Pangaea, the new real world evidence portal, is a part of the change at Lilly.</p>
+                    </div>
+                    <div class="col_two_fifth bottommargin col_last">
+                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcesuccess/pangaea.jpg')}" alt="Pangaea" />
+                    </div> 
+
+                    <div class="divider divider-short divider-border divider-center"><i class="icon-like"></i></div>
+
+                    <div class="col_full">
+                        <div class="col_one_fourth center">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-mobile"></i>
+                            <div class="counter counter-large" style="color: #1abc9c;"><span data-from="0" data-to="14" data-refresh-interval="50" data-speed="5000"></span></div>
+                            <h5>Apps Deployed</h5>
+                        </div>
+
+                        <div class="col_one_fourth center">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-tablet"></i>
+                            <div class="counter counter-large" style="color: #e74c3c;"><span data-from="0" data-to="14" data-refresh-interval="50" data-speed="5000"></span></div>
+                            <h5>Apps in Development</h5>
+                        </div>
+
+                        <div class="col_one_fourth center">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-desktop"></i>
+                            <div class="counter counter-large" style="color: #3498db;"><span data-from="0" data-to="12" data-refresh-interval="50" data-speed="5000"></span></div>
+                            <h5>Apps in Hopper</h5>
+                        </div>
+
+                        <div class="col_one_fourth center col_last">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-globe"></i>
+                            <div class="counter counter-large" style="color: #9b59b6;"><span data-from="0" data-to="14000" data-refresh-interval="50" data-speed="5000"></span></div>
+                            <h5>Live Users</h5>
+                        </div>
+                    </div>
+
+                    <div class="divider divider-short divider-border divider-center bottommargin"><i class="icon-like"></i></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=1_1zeldcjj&playerId=kaltura_player_1426779352&cache_st=1426779352&width=100%&height=277"></script>
+                    </div>
+                    <div class="col_three_fifth bottommargin col_last">
+                        <div class="heading-block">
+                            <h2>Mercury</h2>
+                            <span>Meeting Management, Contract to Pay and EFPIA Transparency</span>
+                        </div>
+                        <p><strong>Customer:</strong> Customer Meeting Services.</p>
+
+                        <p><strong>Overview:</strong> Mercury supports Lilly’s newly formed Customer Meeting Services organization through end to end meeting processing. The application enables everything from contracting, to sending invitations, to coordinating honoraria payments and transparency reporting.</p>
+
+                        <p>Mercury empowers Lilly’s ability to report on meeting activities Europe and delivers on the EFPIA required commitments for collection of transparency reporting data starting in 2015.</p>
+
+                        <p><strong>Innovation:</strong> Mercury is a custom-built Force.com app to suit Lilly’s specific CMS needs. It leverages: Force.com, Service Cloud, Heroku, ExactTarget, DocuSign and DrawLoop.</p>
+                    </div> 
+
+                    <div class="line"></div>
+
+                    <div class="col_three_fifth bottommargin">
+                        <div class="heading-block">
+                            <h2>Mission Control</h2>
+                            <span>End-to-End Project and Application Lifecycle Management</span>
+                        </div>
+                        <p><strong>Customer:</strong> Force.com Developers.</p>
+                        
+                        <p><strong>Overview:</strong> Mission Control facilitates the end to end Cirrus Agile process and is the primary tool used by project teams to perform and manage work when developing applications on the GSO. Mission Control was designed to drive a rigorous approach to manage risks, issues, processes, epics, user stories, test scripts and execution, defects and more while leveraging the collaborative benefits of force.com.</p>
+
+                        <p><strong>Innovation:</strong> A key feature of Mission Control is Chatter, a social capability that enables project teams to collaborate around all aspects of project, specifically project management and the application lifecycle management.</p>
+                    </div>
+                    <div class="col_two_fifth bottommargin col_last">
+                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcesuccess/mico.jpg')}" alt="Mission Control" width="75%" /> 
+                    </div>
+
+                    <div class="divider divider-short divider-border divider-center"><i class="icon-like"></i></div>
+
+                    <div class="col_full">
+                        <div class="col_one_fourth center">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-magic"></i>
+                            <div class="counter counter-large" style="color: #1abc9c;"><span data-from="0" data-to="72" data-refresh-interval="50" data-speed="5000"></span></div>
+                            <h5>Active Developers</h5>
+                        </div>
+
+                        <div class="col_one_fourth center">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-user"></i>
+                            <div class="counter counter-large" style="color: #e74c3c;"><span data-from="0" data-to="25" data-refresh-interval="50" data-speed="5000"></span></div>
+                            <h5>Active Advocates</h5>
+                        </div>
+
+                        <div class="col_one_fourth center">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-user2"></i>
+                            <div class="counter counter-large" style="color: #3498db;"><span data-from="0" data-to="35" data-refresh-interval="50" data-speed="5000"></span></div>
+                            <h5>Active Evangelists</h5>
+                        </div>
+
+                        <div class="col_one_fourth center col_last">
+                            <i class="i-plain i-xlarge divcenter nobottommargin icon-like"></i>
+                            <div class="counter counter-large" style="color: #9b59b6;"><span data-from="0" data-to="115" data-refresh-interval="50" data-speed="5000"></span></div>
+                            <h5>Trained Developers</h5>
+                        </div>
+                    </div>
+
+                    <div class="divider divider-short divider-border divider-center bottommargin"><i class="icon-like"></i></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=1_lns9bg9g&playerId=kaltura_player_1427996162&cache_st=1427996162&width=100%&height=277"></script>
+                    </div>
+                    <div class="col_three_fifth bottommargin col_last">
+                        <div class="heading-block">
+                            <h2>MyBusiness</h2>
+                            <span>Real Data Insights</span>
+                        </div>
+                        <p><strong>Customer:</strong> IHS – Lilly USA</p>
+
+                        <p><strong>Overview:</strong> MyBusiness gives field staff and office employee’s better line of sight into their territory’s sales and profitability for better management. The application provides multiple data reports integrated into a single reporting solution with actionable insights individualized to each member of the IHS Sales Team.</p>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_three_fifth bottommargin">
+                        <div class="heading-block">
+                            <h2>SafeStart Stories</h2>
+                            <span>Taking Safety Awareness Social</span>
+                        </div>
+                        <p><strong>Overview:</strong> SafeStart is an advanced safety awareness training program that teaches employees how to recognize and avoid behaviors causing unintentional mistakes and errors not only in the workplace, but also at home and on the road.</p>
+
+                        <p>By encouraging users to share “SafeStart Stories”, story-tellers, listeners and readers relate the principles learned in their training to real-life safety incidents and near-misses. By doing so, they practice the behaviors necessary to reduce the chance of injury.</p>
+
+                        <p><strong>Innovation:</strong> SafeStart Stories utilize integrated social media features such as “liking”, comment threads, and a truly mobile-optimized experience.</p>
+                    </div>
+                    <div class="col_two_fifth bottommargin col_last">
+                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcesuccess/safestart.jpg')}" alt="SafeStart" height="450" />
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcesuccess/iriss.jpg')}" alt="IRISS" />
+                    </div>
+                    <div class="col_three_fifth bottommargin col_last">
+                        <div class="heading-block">
+                            <h2>IRISS</h2>
+                            <span>Facilitating the Approval of Anti-Corruption Documents</span>
+                        </div>
+                        <p><strong>Customer:</strong> G&amp;A</p>
+
+                        <p><strong>Overview:</strong> Lilly needed an Ethics and Compliance (E&amp;C) application to track the assessment and approval of local affiliate documents related to Anti-Corruption. Lilly was able to create an application to provide a central repository for Global Policies, Standards and Procedures related to anti-corruption with the intent of managing exceptions and improving adherence at the local, affiliate level.</p>
+
+                        <p>IRISS allows Lilly to:</p>
+                        <div class="margin-list">
+                            <li>Fill a gap in Reporting, Escalation, and Remediation (RE-3).</li>
+                            <li>Submit policy and procedure documents electronically.</li>
+                            <li>Provide approval capabilities to document content.</li>
+                            <li>Collect and manage Anti-Corruption related documents.</li>
+                            <li>Manage assessments performed on locally-developed content.</li>
+                            <li>Track intermediate activities and statuses during the review / assessment process.</li>
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_three_fifth bottommargin">
+                        <div class="heading-block">
+                            <h2>Lilly IT Conference App</h2>
+                            <span>Mobile Access to Conference Information</span>
+                        </div>
+                        <p><strong>Customer:</strong> Lilly IT</p>
+
+                        <p><strong>Overview:</strong> The IT Conference App provided conference attendees with information about sessions and enabled them to provide real-time feedback via their mobile device.</p>
+
+                        <p><strong>Innovation:</strong> The application leveraged Chatter social collaboration and Salesforce1 native mobile enablement.</p>
+                    </div>
+                    <div class="col_two_fifth bottommargin col_last">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=1_vn2wwog0&playerId=kaltura_player_1427811031&cache_st=1427811031&width=100%&height=277"></script>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcesuccess/launchpad.jpg')}" alt="Launchpad" />
+                    </div>
+                    <div class="col_three_fifth bottommargin col_last">
+                        <div class="heading-block">
+                            <h2>Launchpad</h2>
+                            <span>A Central Location for all things Cirrus</span>
+                        </div>
+                        <p><strong>Customer:</strong> Cirrus.</p>
+
+                        <p><strong>Overview:</strong> Launchpad is more than a web page for Cirrus – It’s a portal for ideation, learning, and innovation. Users can submit new project ideas as well as use LaunchPad to lean about Cirrus processes and projects. Additionally, Launchpad provides a gallery of projects that have been delivered on the Force.com platform to help identify potential reuse opportunities.</p>
+
+                        <p>Launchpad streamlined Cirrus’ demand intake process to efficiently get users from project ideation to kickoff. Now, after completing the simple LillyFit Assessment, LaunchPad provides the user with instant feedback about whether or not they are Fit for Force.</p>
+
+                        <p><strong>Innovation:</strong> Launchpad features a custom developed VisualForce page interface that illustrates the capabilities of the Force.com platform to have a custom designed front end powered by the traditional back end of the Force.com platform.</p>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_three_fifth bottommargin">
+                        <div class="heading-block">
+                            <h2>Elanco Select 55</h2>
+                            <span>Managing Access to the Elanco Knowledge Solutions</span>
+                        </div>
+                        <p><strong>Customer:</strong> Elanco</p>
+
+                        <p><strong>Overview:</strong> Elanco Select 55 provides Access and Authorization to the Elanco Knowledge Solutions (EKS) tools across all species teams and geographic hubs is managed through an Agspan developed application called CIMS. The team had no consistent place for users to go to request new users be added or location to house CDA’s and Privacy Documents related to the requests.</p>
+                    </div>
+                    <div class="col_two_fifth bottommargin col_last">
+                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcesuccess/select55.jpg')}" alt="Elanco Select 55" />
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcesuccess/acedd.jpg')}" alt="ACE Digital Dashboard" /> 
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <div class="heading-block">
+                            <h2>ACE Digital Dashboard</h2>
+                            <span>eAsset Marketing Programs Visualization</span>
+                        </div>
+                        <p><strong>Overview:</strong> ACE Digital Dashboard automated the data capture, analysis, and reporting of eAsset marketing programs. The application has increased team productivity by reducing the number of manual data activities.</p>
+
+                        <p><strong>Innovation:</strong> The application uses a high volume of external calls and apex call outs to web trends for traffic related statistics and google analytics.</p>
+                    </div>
+
+                </div>
+                
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

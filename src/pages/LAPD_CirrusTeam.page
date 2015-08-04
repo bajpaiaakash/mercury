@@ -1,0 +1,444 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Team</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_full bottommargin">
+                        <h4>Cirrus Leadership</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/MikeMeadows.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Mike Meadows</h4><span>CTO</span></div>
+                                    <div class="team-content">
+                                        <p>Chief Technology Officer and sponsor of the Cirrus organization.</p>
+                                        <a href="mailto:meadows_michael_r@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b0000000U5f7&srKp=005&srPos=0&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/RM34540" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/SueGale.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Sue Gale</h4><span>Senior Director</span></div>
+                                    <div class="team-content">
+                                        <p>Senior Director of Cirrus and Enterprise Architecture, part of the GIS Lead Team.</p>
+                                        <a href="mailto:smg@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b0000000Sfap&srKp=005&srPos=0&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/YB73266" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/RichGrogut.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Rich Grogut</h4><span>Director</span></div>
+                                    <div class="team-content">
+                                        <p>Director of Cirrus, leading the Cirrus organization.</p>
+                                        <a href="mailto:grogut_richard@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b0000000SfaB&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/YP79049" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/ProfilePicture.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Rich Gargas</h4><span>OCM Lead</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus OCM Lead, focused on Identity, Communcations and Change Management.</p>
+                                        <a href="mailto:gargas_richard_j@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b0000000U5fM&srKp=005&srPos=1&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/EB33993" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div><div class="line bottommargin-lg"></div>
+
+                    <div class="col_full bottommargin">
+                        <h4>Cirrus DevOps</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/ShellieSturm.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Shellie Sturm</h4><span>DevOps Manager</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus DevOps Manager focused on Development, Operations and Quality.</p>
+                                        <a href="mailto:sturm_shellie@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b00000017CGN&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/RZ96952" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/JeffNottingham.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Jeff Nottingham</h4><span>Support Lead</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus Support Lead, focused on Force.com Operations.</p>
+                                        <a href="mailto:nottingham_jeff_l@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b00000017mXm&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/C194399" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/ChristosKonstantinou.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Christos Konstantinou</h4><span>Demand Manager</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus Demand Manager and Six Sigma Black Belt, focused on project positioning and process improvement.</p>
+                                        <a href="mailto:konstantinou_christos@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b00000016Lud&srKp=005&srPos=0&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/YP79399" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/AndyBearpark.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Andy Bearpark</h4><span>Release Manager</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus Release Manager, coordinating the Force.com release schedule.</p>
+                                        <a href="mailto:bearpark_andrew_k@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b0000000T9BN&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/TerryPolk.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Terry Polk</h4><span>DevOps Operations Associate</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus DevOps Operations, focused on technical delivery within DevOps.</p>
+                                        <a href="mailto:polk_terry_w@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b00000018dKW&srKp=005&srPos=0&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/RZ38972" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/TereWallace.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>T'ere Wallace</h4><span>Point of Contact</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus Point of Contact (PoC), provding a primary contact point for project teams.</p>
+                                        <a href="mailto:wallace_tonya_t'ere@network.lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b000000184dZ&srKp=005&srPos=0&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/StuartGittings.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Stuart Gittings</h4><span>Quality Lead</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus Quality Lead, focused on Quality Assurance and Privacy.</p>
+                                        <a href="mailto:gittings.s@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b0000000SzKx&srKp=005&srPos=0&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/YC05252" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div><div class="line bottommargin-lg"></div>
+                    
+                    <div class="col_full bottommargin">
+                        <h4>Cirrus Architecture</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/MattBull.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Matt Bull</h4><span>Enterprise IT Architect</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus Architect, focused on holistic strategic intiatives. Represents Cirrus as part of Enterprise and BU IT Architecture.</p>
+                                        <a href="mailto:msw_bull@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b0000000SSdC&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/YP79168" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/JonThomas.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Jon Thomas</h4><span>Solution Architect</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus Solution Archiect, focused on solution delivery of Force.com projects. Represents Cirrus as part of GIS Architecture.</p>
+                                        <a href="mailto:j.thomas@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b000000176Ad&srKp=005&srPos=0&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/RZ92792" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/RobBlackketter.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Rob Blackketter</h4><span>Data Architect</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus Data Architect, focued on data and information architecture. Represents Cirrus with the Data Stewards.</p>
+                                        <a href="mailto:blackketter_robert_h@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b00000018FWA&srKp=005&srPos=0&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/AA92645" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/cirrusteam/ChrisReed.jpg')}" alt="Profile Picture" />
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>Chris Reed</h4><span>Security Architect</span></div>
+                                    <div class="team-content">
+                                        <p>Cirrus Security Architect, focused on platform, solution and data architecture. Represents Cirrus as part of Protect Lilly.</p>
+                                        <a href="mailto:chris.reed@lilly.com" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                            <i class="icon-mail"></i>
+                                            <i class="icon-mail"></i>
+                                        </a>
+                                        <a href="/_ui/core/userprofile/UserProfilePage?u=005b00000016lxU&srKp=005&srPos=0&tab=sfdc.ProfilePlatformFeed" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                            <i class="icon-rss"></i>
+                                            <i class="icon-rss"></i>
+                                        </a>
+                                        <a href="https://loop.lilly.com/people/ZZ94065" target="_blank" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                            <i class="icon-chat"></i>
+                                            <i class="icon-chat"></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

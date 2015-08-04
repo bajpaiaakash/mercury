@@ -1,0 +1,287 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" controller="PANG_GlobalSearch" readonly="true" id="thePage" >
+
+<script type='text/javascript'>
+		function isValidSearchString(searchString) {
+            var SEARCH_TRIGGER_THRESHOLD = 2;
+            var trimmedSearchString = searchString.trim();
+
+	            if (trimmedSearchString.length >= SEARCH_TRIGGER_THRESHOLD) {
+	                return true;
+	            } else {
+	                return false;
+	            }
+        }
+		
+		
+        function noenter(ev)  {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+            	var searchString = (document.getElementsByClassName("keyword_Global_Search_Text"))[0].value;
+            	if (isValidSearchString(searchString)){
+                	doSearchAf();
+                }	
+                return false;
+             } else {
+                  return true;
+             }
+         }
+    </script>
+    
+    <title>Global Search</title>
+
+    <c:PANG_Index />
+    <apex:form id="theForm">
+    <apex:actionFunction name="doSearchAf" action="{!Query}" rerender="filterColumns,resultsize,results,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+        <div class='content'>
+
+            <div class='fixed-container global-search'>
+                <div class='filters-wrapper'>
+                    <div class="filter-header container">
+                    
+                        <apex:outputpanel id="resultsize">
+                            <span class='result-count'><apex:outputtext value="{!IF($ObjectType.PANG_Project__c.accessible,(lProjects.size+lDataAsset.size+lPartnerships.size+lRequests.size),(lDataAsset.size+lPartnerships.size+lRequests.size))}"></apex:outputtext> Results for '{!$CurrentPage.parameters.searchWord}'</span>
+                        </apex:outputpanel>
+                        
+                        <span class='icon-large-caret down'></span>
+                    </div>
+                    <div class='filter-container container'>                       
+
+                            <!--Horizontal Object filter checkboxes-->
+                            <div class='col-md-12 entity-container'>
+                            <apex:outputpanel id="filterColumns">
+
+                                <div class='col-md-3 entity-wrapper'>
+                                    <apex:inputcheckbox value="{!isStudies}">
+                                        <apex:actionSupport event="onchange"  action="{!Query}" rerender="filterColumns,resultsize,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                                    </apex:inputcheckbox>
+                                    <label>Studies&nbsp;({!IF(AND(lProjects.size>0,$ObjectType.PANG_Project__c.accessible),lProjects.size,0)})</label>
+                                </div>
+
+                                <div class='col-md-3 entity-wrapper'>
+                                    <apex:inputcheckbox value="{!isDataAssets}">
+                                        <apex:actionSupport event="onchange"  action="{!Query}" rerender="filterColumns,resultsize,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                                    </apex:inputcheckbox>
+                                    <label>Data Assets&nbsp;({!lDataAsset.size})</label>
+                                </div>
+
+                                <div class='col-md-3 entity-wrapper'>
+                                    <apex:inputcheckbox value="{!isPartnerships}">
+                                        <apex:actionSupport event="onchange"  action="{!Query}" rerender="filterColumns,resultsize,results,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                                    </apex:inputcheckbox>
+                                    <label>Partnerships&nbsp;({!lPartnerships.size})</label>
+                                </div>
+
+                                <div class='col-md-3 entity-wrapper'>
+                                    <apex:inputcheckbox value="{!isRequests}">
+                                        <apex:actionSupport event="onchange"  action="{!Query}" rerender="filterColumns,resultsize,results,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                                    </apex:inputcheckbox>
+                                    <label>Requests&nbsp;({!lRequests.size})</label>
+                                </div>
+                                </apex:outputpanel>
+                            </div>
+
+                            <!--Therapuetic Area field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-4'>
+                                <ul class='filter-column'>
+                                    <li class='col-xs-12'>Therapeutic Area</li>
+                                    <apex:repeat value="{!mStudyObjectStructure['TherapeuticArea']}" var="Tarea">
+                                        <li class='col-xs-12'>
+                                            <apex:inputCheckbox value="{!Tarea.isSelected}">
+                                                <apex:actionSupport event="onchange"  action="{!Query}" rerender="filterColumns,resultsize,results,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                                            </apex:inputCheckbox>
+                                            <label>{!Tarea.Label}</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                            <!--Region field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-4'>
+                                <ul class='filter-column'>
+                                    <li class='col-xs-12'>Region</li>
+                                    <apex:repeat value="{!mStudyObjectStructure['Region__c']}" var="Tarea">
+                                        <li class='col-xs-12'>
+                                            <apex:inputCheckbox value="{!Tarea.isSelected}">
+                                                <apex:actionSupport event="onchange"  action="{!Query}" rerender="filterColumns,resultsize,results,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                                            </apex:inputCheckbox>
+                                            <label>{!Tarea.Label}</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                            <!--Time Frame field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-4'>
+                                <ul class='filter-column'>
+                                    <li class='col-xs-12'>Last Modified</li>                                    
+                                        <li class='col-xs-12'>
+                                            <apex:inputCheckbox value="{!mTimeFrameFilter['This Week']}">
+                                                <apex:actionSupport event="onchange"  action="{!Query}" rerender="filterColumns,resultsize,results,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                                            </apex:inputCheckbox>
+                                            <label>This Week</label>
+                                        </li>
+                                        <li class='col-xs-12'>
+                                            <apex:inputCheckbox value="{!mTimeFrameFilter['This Month']}">
+                                                <apex:actionSupport event="onchange"  action="{!Query}" rerender="filterColumns,resultsize,results,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                                            </apex:inputCheckbox>
+                                            <label>This Month</label>
+                                        </li>
+                                        <li class='col-xs-12'>
+                                            <apex:inputCheckbox value="{!mTimeFrameFilter['This Quarter']}">
+                                                <apex:actionSupport event="onchange"  action="{!Query}" rerender="filterColumns,resultsize,results,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                                            </apex:inputCheckbox>
+                                            <label>This Quarter</label>
+                                        </li>
+                                        <li class='col-xs-12'>
+                                            <apex:inputCheckbox value="{!mTimeFrameFilter['This Year']}">
+                                                <apex:actionSupport event="onchange"  action="{!Query}" rerender="filterColumns,resultsize,results,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                                            </apex:inputCheckbox>
+                                            <label>This Year</label>
+                                        </li>
+                                        <li class='col-xs-12'>
+                                            <apex:inputCheckbox value="{!mTimeFrameFilter['Previous Years']}">
+                                                <apex:actionSupport event="onchange"  action="{!Query}" rerender="filterColumns,resultsize,results,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                                            </apex:inputCheckbox>
+                                            <label>Previous Years</label>
+                                        </li>
+                                </ul>
+                            </div>
+                  </div>
+                </div>
+
+                <!--Below page logic contains local search Bar-->
+                <div class='type-ahead-search-wrapper container'>
+                    <span class='icon-find'></span>
+                    <apex:inputtext value="{!sLocalSearch}" html-placeholder="Search Results" onkeypress="return noenter(event);" styleClass="keyword_Global_Search_Text"/>
+                    <apex:commandButton Value="Go" action="{!Query}" Styleclass="button create-new l-medium-gray" disabled="false" rerender="filterColumns,resultsize,results,Studyresults,Requestresults,Partnrresults,DataAssetresults"/>
+                    <apex:outputlink value="/apex/PANG_Global_Search?searchWord={!$CurrentPage.parameters.searchWord}" StyleClass="filter-reset">Clear All</apex:outputlink>
+                </div>
+                
+            </div>
+
+            <div class='search-results-container container'>
+            
+                <!-- Results for Studies-------------------------------------------------------------------------------------------------------------------->
+                <apex:outputpanel id="Studyresults"  >
+                <apex:outputPanel rendered="{!IF(AND(lProjects.size>0,$ObjectType.PANG_Project__c.accessible),true,false)}">
+                <div class='results-fixed-container container'>
+                    <div class='entity-title col-md-12'>
+                     <div class='col-md-11'>Studies&nbsp;&nbsp;({!lProjects.size})</div>
+                    </div>
+                    <div class='results-header l-blue col-md-12'>
+                        <div class='result-header-item col-md-2'>Name</div>
+                        <div class='result-header-item col-md-2'>Study ID</div>
+                        <div class='result-header-item col-md-2'>Study Lead</div>
+                        <div class='result-header-item col-md-2'>Functional Area</div>
+                        <div class='result-header-item col-md-2'>Status</div>
+                        <div class='result-header-item col-md-2'>TPO</div>
+                    </div>
+                </div>
+                <div class='results container'>
+                    <apex:repeat value="{!lProjects}" var="OStudy">
+                        <div class='result-item col-md-12'>
+                            <div class='col-md-2'><apex:outputLink value="/{!OStudy.Id}">{!OStudy.Name}</apex:outputLink></div>
+                            <div class='col-md-2'>{!OStudy.Project_ID__c}</div>
+                            <div class='col-md-2'>{!OStudy.Project_Lead_Owner__r.name}</div>
+                            <div class='col-md-2'>{!OStudy.Functional_Area__c }</div>
+                            <div class='col-md-2'>{!OStudy.Project_Status__c}</div>
+                            <div class='col-md-2'>{!OStudy.TPO__c}</div>
+                        </div>
+                    </apex:repeat>
+                </div>
+                </apex:outputPanel>
+                </apex:outputPanel>
+
+                <!-- Results for Data Assets------------------------------------------------------------------------------------------------------------------------->
+                <apex:outputpanel id="DataAssetresults"  >
+                <apex:outputPanel rendered="{!lDataAsset.size>0}">
+                <div class='results-fixed-container container'>
+                    <div class='entity-title col-md-12'>
+                        <div class='col-md-11'>Data Assets&nbsp;&nbsp;({!lDataAsset.size})</div>
+                    </div>
+                    <div class='results-header l-yellow col-md-12'>
+                        <div class='result-header-item col-md-2'>Name</div>
+                        <div class='result-header-item col-md-2'>THERAPEUTIC AREA</div>
+                        <div class='result-header-item col-md-2'>Region</div>
+                        <div class='result-header-item col-md-2'>Database Type</div>
+                        <div class='result-header-item col-md-2'>Access Method</div>
+                        <div class='result-header-item col-md-2'>Asset Status</div>
+                    </div>
+                </div>
+                <div class='results container'>
+                    <apex:repeat value="{!lDataAsset}" var="OStudy">
+                        <div class='result-item col-md-12'>
+                            <div class='col-md-2'><apex:outputLink value="/{!OStudy.Id}">{!OStudy.Name}</apex:outputLink></div>
+                            <div class='col-md-2'>{!OStudy.Relevant_Therapeutic_Area__c}</div>
+                            <div class='col-md-2'>{!OStudy.Region__C}</div>
+                            <div class='col-md-2'>{!OStudy.Type_of_Database__c}</div>
+                            <div class='col-md-2'>{!OStudy.Access_Method__c}</div>
+                            <div class='col-md-2'>{!OStudy.Asset_Status__c}</div>
+                        </div>
+                    </apex:repeat>
+                </div>
+                </apex:outputPanel>
+                </apex:outputPanel>
+
+                <!-- Results for Partnerships------------------------------------------------------------------------------------------------------------------------->
+                <apex:outputpanel id="Partnrresults"  >
+                <apex:outputPanel rendered="{!lPartnerships.size>0}">
+                <div class='results-fixed-container container'>
+                    <div class='entity-title col-md-12'>
+                        <div class='col-md-11'>Partnerships&nbsp;&nbsp;({!lPartnerships.size})</div>
+                    </div>
+                    <div class='results-header l-orange col-md-12'>
+                        <div class='result-header-item col-md-2'>Name</div>
+                        <div class='result-header-item col-md-3'>RWE PARTNERSHIP SPONSOR</div>
+                        <div class='result-header-item col-md-3'>RWE PARTNER TYPE</div>
+                        <div class='result-header-item col-md-2'>RWE PARTNER REGION</div>
+                        <div class='result-header-item col-md-2'>STATUS</div>
+                    </div>
+                </div>
+                <div class='results container'>
+                    <apex:repeat value="{!lPartnerShips}" var="OStudy">
+                        <div class='result-item col-md-12'>
+                            <div class='col-md-2'><apex:outputLink value="/{!OStudy.Id}">{!OStudy.Name}</apex:outputLink></div>
+                            <div class='col-md-3'>{!OStudy.Partnership_Sponsor__c}</div>
+                            <div class='col-md-3'>{!OStudy.Type_of_Partner__c }</div>
+                            <div class='col-md-2'>{!OStudy.Region__c}</div>
+                            <div class='col-md-2'>{!OStudy.Partnership_Status__c}</div>
+                        </div>
+                    </apex:repeat>
+                </div>
+                </apex:outputPanel>
+                </apex:outputPanel>
+
+                <!-- Results for Requests------------------------------------------------------------------------------------------------------------------------------->
+                <apex:outputpanel id="Requestresults"  >
+                <apex:outputPanel rendered="{!lRequests.size>0}">
+                <div class='results-fixed-container container'>
+                    <div class='entity-title col-md-12'>
+                        <div class='col-md-11'>Requests&nbsp;&nbsp;({!lRequests.size})</div>
+                    </div>
+                    <div class='results-header l-green col-md-12'>
+                        <div class='result-header-item col-md-3'>REQUEST NAME</div>
+                        <div class='result-header-item col-md-2'>REQUEST TYPE</div>
+                        <div class='result-header-item col-md-2'>REQUESTOR</div>
+                        <div class='result-header-item col-md-2'>REQUEST STATUS</div>
+                        <div class='result-header-item col-md-3'>PROPOSED DUE DATE</div>
+                    </div>
+                </div>
+                <div class='results container'>
+                    <apex:repeat value="{!lRequests}" var="OStudy">
+                        <div class='result-item col-md-12'>
+                            <div class='col-md-3'><apex:outputLink value="/{!OStudy.Id}">{!OStudy.Name}</apex:outputLink></div>
+                            <div class='col-md-2'>{!OStudy.RecordType.Name}</div>
+                            <div class='col-md-2'>{!OStudy.Requestor__r.name}</div>
+                            <div class='col-md-2'>{!OStudy.Request_Status__c}</div>
+                            <div class='col-md-3'><apex:outputfield value="{!OStudy.Proposed_Due_Date__c}"/></div>
+                        </div>
+                    </apex:repeat>
+                </div>
+                </apex:outputPanel>
+                </apex:outputPanel>
+               <!----------------------------------------------------------------------------------------------------------------------------------------------->
+            </div>
+        </div>
+
+    </apex:form>
+</apex:page>

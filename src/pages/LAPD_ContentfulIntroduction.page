@@ -1,0 +1,56 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Contentful by Cirrus</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_two_fifth bottommargin">
+                        <a href="https://www.youtube.com/watch?v=Clsi_8MyVkc?rel=0&amp;showinfo=0" class="left-icon" data-lightbox="iframe">
+                            <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/contentfulintroduction/contentful.jpg')}" alt="Contentful" />
+                            <span class="i-overlay"><apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/icons/play.png')}" alt="Play" /></span>
+                        </a>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Contentful - Content-as-a-Service</h5>
+                        Contentful is an API-first approach to content management. Existing content management systems have a legacy, page-centric view of the web. Contentful is different, it's positioned for dynamic and interactive services across multi-channels. For example, Web, Mobile Apps and Connected Devices (Wearables). 
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=0_pl49f3jv&playerId=kaltura_player_1427120262&cache_st=1427120262&width=100%&height=277"></script>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Contentful by Cirrus</h5>
+                        This presentation provides an overview of CaaS and a demonstration of Contentful. It aims to give viewers a basic understand of CaaS and how it fits into an API-Centric Architecture.
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

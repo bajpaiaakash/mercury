@@ -1,0 +1,95 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Principles</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_full">
+                        <h4>Why Principles?</h4>
+                        <p>The Lilly Enterprise IT Architecture principles serve as a set of holistic standards to drive better strategic decision making, by triggering the right architecture conversations.</p>
+						<p>100% compliance is not mandatory, however any deviations must be reviewed by IT Architecture, ensuring enterprise alignment.</p>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <apex:image url="{!URLFOR($Resource.LAPD_EAImages, 'eaimages/eaprinciples/businessprinciples.jpg')}" alt="Business Principles" width="95%" />
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h2>Business Principles</h2>  
+						<p><strong><div class="principle-one">Customer-Centric:</div></strong> The customer expectation has shifted, people want a relationship that is on equal terms, one that is personalized, always available and always up to date.</p>
+						<p><strong><div class="principle-two">Multi-Speed IT:</div></strong> Technology is a disruptor for all industries and is constantly evolving. To remain competitive the enterprise must be able to react to change quickly, without impacting the reliability of foundational services.</p>		
+						<p><strong><div class="principle-three">Speed to Value:</div></strong> In the age of the Internet, customers expect instant value. As a result new capabilities must be enabled as quickly as possible.</p>
+						<p><strong><div class="principle-four">Innovation:</div></strong> Eli Lilly is an innovation driven company, through cutting edge research and development. Innovation can be viewed as the application of better solutions that meet new requirements, inarticulate needs, or existing market needs.</p>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <apex:image url="{!URLFOR($Resource.LAPD_EAImages, 'eaimages/eaprinciples/informationprinciples.jpg')}" alt="Information Principles" width="95%" />
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h2>Information Principles</h2>  
+						<p><strong><div class="principle-one">Valuable Enterprise Asset:</div></strong> Information is an asset that has value to the enterprise and is managed accordingly.</p>
+						<p><strong><div class="principle-two">Consistent Classification:</div></strong> Information must be consistently classified with the intent to capture knowledge.</p>
+						<p><strong><div class="principle-three">Responsibly Curated:</div></strong> Information must be responsibly curated for quality, trust and fit for purpose.</p>
+						<p><strong><div class="principle-four">Easily Consumable:</div></strong> Information is consumable for users to perform their functions.</p>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <apex:image url="{!URLFOR($Resource.LAPD_EAImages, 'eaimages/eaprinciples/applicationprinciples.jpg')}" alt="Application Principles" width="95%" />
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h2>Application Principles</h2> 
+                        <p><strong><div class="principle-one">User Experience First:</div></strong> User Experience is a key part of application design and driving value for the customer and ultimately the business. It focuses on an individuals behaviors, attitudes, and emotions about using a given solution.</p>
+                        <p><strong><div class="principle-two">Separation of Concerns (Decoupled):</div></strong> Separate the application into distinct components (micro-services), such that each section addresses a separate concern. This enables a consistent core, focused on reuse, as well as agility and speed of change for the ever evolving user experience.</p>
+                        <p><strong><div class="principle-three">Keep it Simple (KISS):</div></strong> Strive for the simplest way of doing something. The KISS principle states that most systems work best if they are kept simple rather than made complicated; therefore simplicity should be a key goal in design and unnecessary complexity should be avoided.</p>
+                        <p><strong><div class="principle-four">Minimum Viable Product:</div></strong> A minimum viable product includes the core features that allow the product to be deployed, and no more. This improves quality through iterative testing and drives speed to value.</p>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <apex:image url="{!URLFOR($Resource.LAPD_EAImages, 'eaimages/eaprinciples/technologyprinciples.jpg')}" alt="Technology Principles" width="95%" />
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h2>Technology Principles</h2>  
+						<p><strong><div class="principle-one">API-Centric:</div></strong> APIs are the digital glue that connect all services through a commonly understood (standard pattern) contract. This approach simplifies the exchange of data, exposes reusable capabilities, reduces integration complexity and increasing agility.</p>
+						<p><strong><div class="principle-two">Open Standards:</div></strong> Open standards are non-proprietary. Using open standards enables flexibility, simplifies support and removes the risk of technology debt.</p>
+						<p><strong><div class="principle-three">Modular Design:</div></strong> Deploy in building blocks (non-monolithic), enabling Lilly IT to use the right tool for the job, instead of compromising on a singular monolithic solution.</p>
+						<p><strong><div class="principle-four">Device Agnostic:</div></strong> Ensures applications and services are compatible with any end-point, not just today (apps, web), but tomorrow (wearable technology, etc.) Enabling the right tool for the right job.</p>
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

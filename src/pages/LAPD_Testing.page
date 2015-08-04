@@ -1,0 +1,48 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Force.com Success Stories</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_two_fifth bottommargin">
+                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcesuccess/formsbuilder.jpg')}" alt="Forms Builder" width="75%" />
+                    </div> 
+                    <div class="col_three_fifth bottommargin col_last">
+                        <div class="heading-block">
+                            <h2>Forms Builder</h2>
+                            <span>Quick and Easy Forms for Everyone</span>
+                        </div>
+                        <p><strong>Customer:</strong> Available for all units/regions.</p>
+                        
+                        <p><strong>Overview:</strong> Form Builder makes creating and deploying forms on Force easier and faster. With Forms Builder, Citizen Developers can quickly create forms to manage business process for any Business Unit or Region.</p>
+                        
+                        <p><strong>Innovation:</strong> Form Builder uses configuration rather than application development.</p>
+                    </div>  
+
+                </div>
+                
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

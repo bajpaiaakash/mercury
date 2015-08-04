@@ -1,0 +1,18 @@
+<apex:component controller="QDUX_SearchPageResultController" allowDML="true">
+    
+    <div style="width:100% border:1px solid; padding-top:1%; ">
+        <div style="margin:auto; height:50px;" align="center">
+            <apex:form >
+                <!--<span class="icon"><i class="fa fa-search"></i></span>-->
+                <apex:inputText styleClass="searchText" value="{!strSearch}" onkeypress="return noenter(event);" 
+                                html-placeholder="keywords, document name, site etc..."/>
+                <apex:commandButton value="Search" action="{!search}" accesskey="Enter" 
+                                    style="width: 100px; height:53px;" styleClass="searchButton" >
+                    <!--<apex:param assignTo="{!strSearch}" value="{!strSearch}"/>-->
+                </apex:commandButton>
+            </apex:form>
+        </div>
+        <br/>
+        <apex:pageMessages id="pageMesssages"></apex:pageMessages>
+    </div>
+</apex:component>

@@ -1,0 +1,43 @@
+<apex:page id="pg" standardController="C3AP_Contract_Request__c" extensions="C3APLegalQuestionnaireController" >
+        <script type="text/javascript">
+    function openPdfAttachment1(url)
+    {
+        window.open( url, '_blank', 'width=902,height=540,resizable=1' );
+    }
+</script>
+    <apex:form >
+    <style>
+       body .pbBody table.list tr.dataRow th, body .pbBody table.list tr.dataRow td {
+        border-width: 0 0 0px 0;
+        vertical-align: middle;
+        }
+     </style>
+        <apex:outputpanel id="LegalBlkPanel">
+         <apex:pageBlock id="legalBlk" title="{!$Label.C3AP_Legal_Questions}">
+            <apex:pageBlockTable id="legalBlkTable" value="{!lstSampleWrapperLegal}" var="legalWrapr" columns="2">
+                <apex:column width="80%" style="border-bottom: 1px solid #f2f3f3">
+                    <apex:outputField value="{!legalWrapr.quesObj.C3AP_Question__c}" rendered="{!!displayLocalText }"/>
+                    <apex:outputField value="{!legalWrapr.quesObj.C3AP_Question_Locale__c}" rendered="{!displayLocalText }"/>
+                    <apex:outputLink id="theLink" rendered="{!legalWrapr.quesObj.C3AP_More_Information__c}" onclick="openPdfAttachment1('{!URLFOR($Action.Attachment.Download, legalWrapr.attachmentObj.Id)}'); return false;">{!legalWrapr.moreInformationLink}</apex:outputLink>
+                </apex:column>
+                <apex:column width="20%" style="border-bottom: 1px solid #f2f3f3">
+                <div align="center">
+                    <apex:selectRadio value="{!legalWrapr.userSelection}" onclick="showNextQuestion('{!legalWrapr.quesObj.Id}')">
+                        <apex:selectOptions value="{!Responses}"/>
+                    </apex:selectRadio> 
+                </div>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        </apex:outputpanel>
+        <apex:outputpanel id="cmdLinkPanel">
+            <apex:actionFunction name="showNextQuestion" action="{!getNextQuestion}" rerender="LegalBlkPanel,cmdLinkPanel">
+                <apex:param name="activeQuestionId" value="" />
+            </apex:actionFunction>
+            <div style="text-align:right">
+            	<apex:commandButton action="{!showContractDetails}" value="{!$Label.C3AP_Return_to_Contract_Details}" disabled="{!size != 1}"/>
+            	<apex:commandButton action="{!cancelLegalQues}" value="{!$Label.C3AP_Reset}" />
+            </div>
+        </apex:outputpanel>
+    </apex:form>        
+</apex:page>

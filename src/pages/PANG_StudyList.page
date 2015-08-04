@@ -1,0 +1,231 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="false" controller="PANG_StudyList" readonly="true" id="thePage">
+    <script type='text/javascript'>
+    	function isValidSearchString(searchString) {
+            var SEARCH_TRIGGER_THRESHOLD = 2;
+            var trimmedSearchString = searchString.trim();
+
+	            if (trimmedSearchString.length >= SEARCH_TRIGGER_THRESHOLD) {
+	                return true;
+	            } else {
+	                return false;
+	            }
+        }
+        
+        function noenter(ev)  {
+            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+            	var searchString = (document.getElementsByClassName("keyword_Study_Search_Text"))[0].value;
+            	if (isValidSearchString(searchString)){
+                	doSearchAf();
+                }
+                return false;
+             } else {
+                  return true;
+             }
+         }
+    </script>   
+  
+    <title>Study</title>
+
+    <c:PANG_Index />
+
+    <apex:form id="theForm">
+
+        <apex:actionFunction name="doSearchAf" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+
+        <div class='content'>
+
+            <div class='fixed-container list-view'>
+
+                <div class='filters-wrapper'>
+
+                    <!--The below page logic will display the total number of studies per filter-->
+                    <div class="filter-header container">
+                        <apex:outputpanel id="resultsize">
+                            <span class='result-count'>{!cProjectListCntlr.ResultSize} Studies</span>
+                        </apex:outputpanel>
+                        <apex:outputlink value="/apex/PANG_CreateStudy" styleClass="create-new enabled l-blue">Create New Study</apex:outputlink>
+                        <span class='icon-large-caret down'></span>
+                    </div>
+
+                    <!--The below page logic will display the check box filters for various fields and the pivot-->
+                    <div class='filter-container container'>
+
+                        <!--Start of Output Panel-->
+                        <apex:outputpanel id="therapueticareaCol">
+
+                            <!--Therapuetic Area field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-5'>
+                                <ul class='filter-column'>
+                                    <li >Therapeutic Area</li>
+                                    <apex:repeat value="{!mStudyObjectStructure['Therapeutic_Area_Primary__c']}" var="Tarea">
+                                        <li>
+                                            <apex:inputCheckbox value="{!Tarea.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label for='{!Tarea.Label}'>{!Tarea.Label} ({!mCategoyCount[Tarea.Label]})</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                            <!--Region field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-4'>
+                                <ul class='filter-column'>
+                                    <li>Region</li>
+                                    <apex:repeat value="{!mStudyObjectStructure['Region__c']}" var="Region">
+                                        <li >
+                                            <apex:inputCheckbox value="{!Region.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label>{!Region.Label}</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                            <!--Status field filter checkboxes-->
+                            <div class='filter-column-wrapper col-md-3'>
+                                <ul class='filter-column'>
+                                    <li>Status</li>
+                                    <apex:repeat value="{!mStudyObjectStructure['Project_Status__c']}" var="Status">
+                                        <li >
+                                            <apex:inputCheckbox value="{!Status.isSelected}">
+                                                <apex:actionSupport event="onchange" action="{!FetchDataForCriteria}" rerender="PaginationPanel,therapueticareaCol,resultsize" />
+                                            </apex:inputCheckbox>
+                                            <label>{!Status.Label} ({!mCategoyCount[Status.Label]})</label>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+
+                            <!--End of Output Panel-->
+                        </apex:outputpanel>
+                        
+                        
+
+                    </div>
+
+                </div>
+                
+
+                <!--Below page logic contains local search Bar-->
+                <div class='type-ahead-search-wrapper container'>
+                    <span class='icon-find'></span>
+                    <apex:inputtext value="{!sSearchWord}" html-placeholder="Search Studies" onkeypress="return noenter(event);" styleClass="keyword_Study_Search_Text"/>
+                    <!--<button class='create-new l-blue' disabled="disabled" onclick="doSearchAf()" >Go</button>-->
+                    <apex:commandButton Value="Go" action="{!FetchDataForCriteria}" Styleclass="button create-new l-blue" disabled="false" rerender="PaginationPanel,therapueticareaCol,resultsize"/>
+                    <apex:outputlink value="/apex/PANG_StudyList" StyleClass="filter-reset">Clear All</apex:outputlink>
+                </div>
+                   
+
+                
+                <!--Start of Output Panel which contains Results after filter search-->
+                <apex:outputpanel id="Listcontent">
+
+                    <!--Results container HTML-->
+                    <div class='results-header container l-blue'>
+
+                        <!--Name column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Name" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Name" value="Name" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Name'}"/>
+                        </div>
+                        <!--Study ID column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Study ID" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Project_ID__c" value="Project_ID__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Project_ID__c'}"/>
+                        </div>
+                        <!--Study Lead column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Study Lead" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Project_Lead_Owner__r.name" value="Project_Lead_Owner__r.name" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Project_Lead_Owner__r.name'}" />
+                            
+                        </div>
+                        
+                        <!--Therapeutic Area column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Functional Area" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Functional_Area__c" value="Functional_Area__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Functional_Area__c'}"/>
+                        </div>
+                        <!--Therapeutic Area column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="Study Status" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="Project_Status__c" value="Project_Status__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='Project_Status__c'}"/>
+                        </div>
+
+
+                        <!--TPO Activity column of the results displayed-->
+                        <div class='result-header-item col-md-2 sort-by'>
+                            <apex:commandlink value="TPO" action="{!sort}" rerender="Listcontent,PaginationPanel">
+                                <apex:param name="TPO__c" value="TPO__c" assignTo="{!sField}" />
+                            </apex:commandlink>
+                            <apex:commandLink styleclass="{!IF(contains(sOrder,"ASC"),"icon-arrow up","icon-arrow down")}" rendered="{!sField='TPO__c'}"/>
+                        </div>
+
+                    </div>
+
+                    <!--End of Output Panel which contains Results after filter search-->
+                </apex:outputpanel>
+
+            </div>
+
+            <!--Start of div for pagination-->
+            <div class='results-wrapper'>
+
+                <apex:outputpanel id="PaginationPanel">
+
+                    <div class='results container'>
+                        <apex:repeat value="{!Studies}" var="OStudy">
+                            <div class='result-item col-md-12'>
+
+                                <div class='col-md-2'>
+                                    <apex:outputLink value="/{!OStudy.Id}">{!OStudy.Name}</apex:outputLink>
+                                </div>
+                                <div class='col-md-2'>{!OStudy.Project_ID__c}</div>
+                                <div class='col-md-2'>{!OStudy.Project_Lead_Owner__r.name}</div>
+                                
+                                <div class='col-md-2'>{!OStudy.Functional_Area__c}</div>
+                                <div class='col-md-2'>{!OStudy.Project_Status__c}</div>
+                                <div class='col-md-2'>{!OStudy.TPO__c}</div>
+
+                            </div>
+                        </apex:repeat>
+                    </div>
+                    
+                    <apex:outputPanel rendered="{!cProjectListCntlr.ResultSize>0}">
+                    <div class='pagination container'>                    
+                        <span class='col-md-12'>Displaying {!((cProjectListCntlr.pagenumber-1)*cProjectListCntlr.pagesize)+1}-{!IF(cProjectListCntlr.ResultSize < ((cProjectListCntlr.pagenumber)*cProjectListCntlr.pagesize),cProjectListCntlr.ResultSize,((cProjectListCntlr.pagenumber)*cProjectListCntlr.pagesize))} of {!cProjectListCntlr.ResultSize}</span>
+                        <div class='indicator-container col-md-12'>
+                            <apex:actionregion >
+                                <apex:commandlink styleClass="indicator icon-arrow left" rendered="{!IF(AND(lPageNumbers.size <> 0,lPageNumbers[0]!=1),true,false)}" action="{!PreviousPageSeries}" rerender="Listcontent,PaginationPanel"/>
+                                <apex:repeat value="{!lPageNumbers}" var="obj">
+                                    <apex:commandlink styleClass="{!if(obj==cProjectListCntlr.pagenumber,'indicator current','indicator')}" value="{!obj}" action="{!GoToPageNumber}" rerender="PaginationPanel">
+                                        <apex:param name="{!obj}" value="{!obj}" assignTo="{!iPageNumber}" />
+                                    </apex:commandlink>
+                                </apex:repeat>
+                                <apex:commandlink styleClass="indicator icon-arrow right" action="{!NextPageSeries}" rendered="{!IF(AND(lPageNumbers.size <> 0,dPageCount > lPageNumbers[lPageNumbers.size-1]),true,false)}" rerender="Listcontent,PaginationPanel" />
+                            </apex:actionregion>
+                        </div>
+                    </div>
+                    </apex:outputPanel>
+
+                </apex:outputpanel>
+                   
+            </div>
+
+        </div>
+
+    </apex:form>
+
+</apex:page>

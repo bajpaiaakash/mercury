@@ -1,0 +1,52 @@
+<apex:component controller="QDUX_SearchPageResultController" allowDml="true" >
+    
+	<apex:attribute name="componentType" description="...." type="String" required="true" assignTo="{!component}"/>
+    <apex:form >
+        <apex:actionFunction name="processLinks" action="{!init}" rerender="commonLink" status="myStatus"/>
+    </apex:form>
+    <apex:actionStatus id="myStatus"  >
+        
+        <apex:facet name="start">
+            <apex:outputText >
+                Retrieving Common Process &nbsp;
+                <apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/spinner-gif-red.gif')}"/>
+            </apex:outputText>
+        </apex:facet>
+        <apex:facet name="stop">
+        </apex:facet>
+        
+    </apex:actionStatus>
+    
+    <apex:outputPanel id="commonLink" rendered="{!CommonProcedures.size > 0}">
+        
+        <div class="searchResultBlock">
+            <span class="searchResultHeader">
+                Published Blueworks Process <br/>
+            </span>
+            
+            <table id="commonLinksResult" class="display">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+					<apex:repeat value="{!CommonProcedures}" var="cp">
+                        <tr>
+                            <td>{!cp.Link_Name__c}</td>
+                            <td>{!cp.Link_Description__c}</td>
+                            <td>
+                                <apex:outputLink target="_blank" value="{!cp.Link_URL__c}" type="text/html">{!cp.Link_URL__c}</apex:outputLink>
+                                <!--<a href="{!cp.Link_URL__c}" target="_blank">{!cp.Link_URL__c}</a>-->
+                            </td>
+                            
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+            
+        </div>
+    </apex:outputPanel>
+</apex:component>

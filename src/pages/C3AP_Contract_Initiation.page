@@ -1,0 +1,54 @@
+<apex:page id="pg" standardController="C3AP_Contract_Request__c" extensions="C3APContractInititationController">
+<script type="text/javascript">
+    function openPdfAttachment1(url)
+    {
+        window.open( url, '_blank', 'width=902,height=540,resizable=1' );
+    }
+</script>
+    <apex:sectionHeader id="secHd" title="{!$Label.C3AP_Contract_Request}" Subtitle=""/>
+    <apex:form >
+     <style>
+        body .pbBody table.list tr.dataRow th, body .pbBody table.list tr.dataRow td {
+            border-width: 0 0 0px 0;
+            vertical-align: middle;
+        }
+     </style>
+        <apex:outputPanel id="thePanel">{!$Label.C3AP_Welcome_Text}</apex:outputPanel>
+        <apex:pageBlock id="introBlk" title="{!$Label.C3AP_Introductory_Questions}">
+            <apex:pageBlockTable id="introBlkTable" value="{!lstSampleWrapper}" var="wrapper" columns="2">
+                <apex:column width="80%" style="border-bottom: 1px solid #f2f3f3">
+                    <apex:outputField value="{!wrapper.question.C3AP_Question__c}" rendered="{!!displayLocalText }"/>
+                    <apex:outputField value="{!wrapper.question.C3AP_Question_Locale__c}" rendered="{!displayLocalText }" />
+                    <apex:outputLink id="theLink" rendered="{!wrapper.question.C3AP_More_Information__c}" 
+                        onclick="openPdfAttachment1('{!URLFOR($Action.Attachment.Download, wrapper.attachment.Id)}'); return false;">
+                        {!$Label.C3AP_More_Information}
+                    </apex:outputLink>
+                </apex:column>
+                <apex:column width="20%" style="border-bottom: 1px solid #f2f3f3">
+                    <div align="center">
+                        <apex:selectRadio value="{!wrapper.userSelection}" onclick="showNextQuestion('{!wrapper.question.Id}')" 
+                            disabled="{!showInfoQues}">
+                            <apex:selectOptions value="{!Responses}"/>
+                        </apex:selectRadio>
+                    </div> 
+                </apex:column>
+            </apex:pageBlockTable> 
+            <apex:outputPanel id="InfoPanel" rendered="{!showInfoQues}">
+                    <!-- <apex:outputText style="color:rgb(204,0,0);font-weight: bold;text-align:center" value="{!lstSampleWrapper[0].quesObj.C3AP_Information__c}"> -->
+                    <apex:outputText style="color:rgb(204,0,0);font-weight: bold;text-align:center" value="{!informationText }" escape="false">
+                    </apex:outputText>
+            </apex:outputPanel>
+        </apex:pageBlock> 
+        
+        <apex:outputpanel id="cmdLinkPanel">
+            <apex:actionFunction name="showNextQuestion" action="{!getNextQuestion}" 
+                rerender="introBlkTable,LegalBlkPanel,introBlk,cmdLinkPanel" >
+                <apex:param name="activeQuestionId" value="" />
+            </apex:actionFunction>
+            <div style="text-align:right">
+            	<apex:commandButton action="{!showContractDetails}" value="{!$Label.C3AP_Proceed_to_Contract_Form}" disabled="{!!showLegalQues}" />
+            	<apex:commandButton action="{!reset}" value="{!$Label.C3AP_Reset}" />
+            </div>
+        </apex:outputpanel>
+    </apex:form>        
+</apex:page>

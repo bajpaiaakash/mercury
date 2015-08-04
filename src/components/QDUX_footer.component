@@ -1,0 +1,11 @@
+<apex:component allowDML="true">
+    <div style="position:fixed; bottom:0">
+        <apex:outputLink style="text-decoration:none;" value="/home/home.jsp" rendered="{!$Profile.Name = 'System Administrator'}">
+            <apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/Left-32.png')}"/>
+            <span style="color:#52B3D9;">Back to Salesforce Home</span>
+        </apex:outputLink>
+    </div>
+    
+    
+    
+</apex:component>

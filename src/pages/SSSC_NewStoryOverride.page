@@ -1,0 +1,3 @@
+<apex:page standardController="SSSC_SafeStart_Story__c" extensions="SSSC_NewStoryOverride_Extension" action="{!IF(NOT(ISNULL(storyRedirect)), urlFor($Action.SSSC_SafeStart_Story__c.New, null,[retURL=keyObjectPrefix+"/o"], true),throwError)}">
+ <apex:pageMessages />
+</apex:page>

@@ -1,0 +1,210 @@
+<apex:page standardController="MICO_App__c" extensions="MICO_Import_Logo_To_App" contentType="application/msword#GSO Application Security Controls Form.doc" cache="true" >
+<html xmlns:w="urn:schemas-microsoft-com:office:word">
+<apex:outputText value="{!PrintView}" escape="false"/>
+
+<body>
+
+<style>
+h1  { font-family:Arial;
+    }
+h2  {color:#06696C  ;
+    font-family:Arial;
+    }
+h3  {color:#2781D4  ;
+    font-family:Arial;
+    }
+p   { font-family:Arial;
+    }
+td{font-family:Arial;}  
+th{font-family:Arial;}  
+
+</style>
+<center><img  src="{!cirrusLogoURL}" align="middle" style="top:200px ;padding:0px; position:relative"></img></center>
+<h1 style="text-align: center;">Cirrus</h1>
+<h1 style="text-align: center;"> GSO Application Security Controls Form for {!MICO_App__c.Name}</h1>
+<br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/><br/><br/> <br/><br/>
+<!--<center><img  src="{!lillyLogoURL}" width="100" height="100" align="bottom"></img></center>-->
+<center><h4> GSO Security Controls Form </h4></center>
+
+<br clear="all" style="page-break-before:always"></br>
+<u><h2><b>Revision History</b></h2></u>
+
+<table border="1" style="width:100%">
+    <tr>
+        <th style="background-color: #819FF7;">Rev</th>
+        <th style="background-color: #819FF7;">Revision Date</th>
+        <th style="background-color: #819FF7;">Reason for Revision</th>
+        <th style="background-color: #819FF7;">Revised By</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td><apex:outputText value="{0, date, d MMMM yyyy}"><apex:param value="{!MICO_App__c.LastModifiedDate}" /></apex:outputText></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<h2><u>1. Contents</u></h2>
+<p> 2. Introduction..................................................................................</p>
+<p> 2.1. Purpose........................................................................................</p>
+<p> 3. GSO Application Security Controls Form..............................................</p> 
+<h2><u>2. Introduction</u></h2>
+<h3><u><t></t>2.1. Purpose</u></h3>
+<p>This document captures the GSO Security Controls Form for {!MICO_App__c.Name}. The original blank form is located in the Cirrus DevOps Library in the GSO.</p>
+
+<h2><u>3. GSO Application Security Controls Form</u></h2>
+<table class="twocolumn" border="1" style="width:100%">
+    <tr>
+        <th colspan='2' style="background-color: #819FF7;">Application Overview</th>
+    </tr>
+    <tr>
+        <td>Application Name</td>
+        <td>{!MICO_App__c.Name}</td>
+    </tr>
+    <tr>
+        <td>System Custodian</td>
+        <td><apex:outputField value="{!MICO_App__c.System_Custodian__r.Name}"/></td>
+    </tr>
+    <tr>
+        <td>Application go-live date</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Periodic Review Frequency</td>
+        <td>Annual</td>
+    </tr>
+    <tr>
+        <td>Last Periodic Review Date</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ServiceNow Configuration Item</td>
+        <td>{!MICO_App__c.CMDB_ID__c}</td>
+    </tr>
+    <tr>
+        <td>Access Approver Group</td>
+        <td>{!MICO_App__c.Access_Approver_Group__c}</td>
+    </tr>
+    <tr>
+        <td>Primary Support Group</td>
+        <td>{!MICO_App__c.Primary_Support_Group__c}</td>
+    </tr>
+    
+     <tr>
+        <td>Access Request Knowledge Article Link</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Service accounts used within the application</td>
+        <td></td>
+    </tr>
+    
+     
+    
+</table>
+<br clear="all" style="page-break-before:always"></br>
+<p style="color:red"><b>Document all of the security controls used to secure the application below. Specify the name of the security control and describe its purpose within the application.<br/><br/>
+To create new rows, click in the Description box of each of the below tables and hit the "Tab" button on your keyboard. If you are not utilizing some of the security control types listed below, please leave the table as is.</b></p>
+<br></br>
+
+ <table class="twocolumn" border="1" style="width:100%">
+    <tr>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">Profile</th>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">Description</th>
+    </tr>
+   <!-- <apex:repeat value="{!relatedProfileRecs}" var="x"> -->
+ 
+    <tr> 
+    
+     <td colspan='2' style="width: 50%; text-align: left;"></td>
+     <td colspan='2' style="width: 50%; text-align: left;"></td>
+    </tr>
+   <!-- </apex:repeat> -->
+    </table>
+   
+<br><br><br></br></br></br>
+ <table class="twocolumn" border="1" style="width:100%">
+    <tr>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">Permission Set</th>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">Description</th>
+    </tr>
+    <!--<apex:repeat value="{!relatedPermissionSetRecs}" var="x"> -->
+ 
+    <tr> 
+    
+     <td colspan='2' style="width: 50%; text-align: left;"> </td>
+     <td colspan='2' style="width: 50%; text-align: left;"></td>
+    </tr>
+   <!-- </apex:repeat> -->
+    </table>
+   
+
+<br><br><br></br></br></br>
+<table class="twocolumn" border="1" style="width:100%">
+    <tr>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">Public Group</th>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">Description</th>
+    </tr>
+    <!-- <apex:repeat value="{!relatedPublicGroupRecs}" var="x"> -->
+ 
+    <tr> 
+    
+     <td colspan='2' style="width: 50%; text-align: left;"> </td>
+     <td colspan='2' style="width: 50%; text-align: left;"> </td>
+    </tr>
+    <!-- </apex:repeat> -->
+    </table>
+    
+<br><br><br></br></br></br>
+<table class="twocolumn" border="1" style="width:100%">
+    <tr>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">License Type</th>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">Description</th>
+    </tr>
+    <!-- <apex:repeat value="{!relatedLicenseTypeRecs}" var="x"> -->
+ 
+    <tr> 
+    
+     <td colspan='2' style="width: 50%; text-align: left;"> </td>
+     <td colspan='2' style="width: 50%; text-align: left;"> </td>
+    </tr>
+   <!-- </apex:repeat> -->
+    </table>    
+    
+<br><br><br></br></br></br>
+<table class="twocolumn" border="1" style="width:100%">
+    <tr>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">Territory</th>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">Description</th>
+    </tr>
+    <!-- <apex:repeat value="{!relatedTerritoryRecs}" var="x"> -->
+ 
+    <tr> 
+    
+     <td colspan='2' style="width: 50%; text-align: left;"> </td>
+     <td colspan='2' style="width: 50%; text-align: left;"> </td>
+    </tr>
+   <!-- </apex:repeat>-->
+    </table>
+    
+<br></br><br></br><br></br>
+ <table class="twocolumn" border="1" style="width:100%;">
+    <tr>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">Queue</th>
+    <th colspan='2' style="background-color: #819FF7; width: 50%; text-align: left;">Description</th>
+    </tr>
+    <!--<apex:repeat value="{!relatedQueueRecs}" var="x"> -->
+ 
+    <tr> 
+    
+     <td colspan='2' style="width: 50%; text-align: left;"> </td>
+     <td colspan='2' style="width: 50%; text-align: left;"></td>
+    </tr>
+    <!--</apex:repeat> -->
+    </table>
+   
+
+</body>
+</html>
+
+</apex:page>

@@ -1,0 +1,108 @@
+<apex:page showHeader="false" Controller="GLBL_AttachmentHandler" title="Attach File to {!attparentName}" sidebar="false" standardStylesheets="false">
+    <!--
+        Below script is to validate the selected file
+        a. File size cannot be more than 500KB
+        b. File Should be an Image type
+        c. Image dimension should be of certain dimension as specified in a custom setting
+     -->
+     
+    <apex:includeScript value="{!URLFOR($Resource.Scripts,'/')}" />
+     
+    <apex:form >
+    <apex:composition template="FORM_Template">
+        <apex:define name="header">
+           <apex:outputPanel id="attachHeader" styleClass="panel-header" style="margin-top: 2px" layout="block">
+               <div id="attachHeaderDetails" class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="reference-field" style="padding-bottom: 5px">
+                          <h1> {!$Label.FORM_Attachment_SectionHeader} </h1>      
+                    </div>
+               </div>
+           </apex:outputPanel>
+        </apex:define>  
+        <apex:define name="body">
+            <apex:outputPanel id="attachmentPanel" layout="block" styleClass="panel-body">
+              
+                  <!--  Browse Button -->
+                  <div class="col-md-12">
+                    <div class="row bottom-space">
+                        <apex:outputPanel layout="block">
+                            <strong>{!$Label.FORM_Attachment_Select_File}</strong>
+                        </apex:outputPanel>              
+                        
+                        <apex:inputFile value="{!newAttach.Body}" id="newAttach" 
+                                    contentType="{!newAttach.ContentType}" filename="{!newAttach.Name}"
+                                    fileSize="{!newAttach.BodyLength}" onchange="Forms_JS.validateImage(this);"/>
+                    </div>
+                    
+                    
+                    <!-- Attach and Done button -->
+                    
+                    <div class="row bottom-space">      
+                        <apex:outputPanel layout="block">
+                            <strong>{!$Label.FORM_Attachment_AttachFile}</strong>
+                        </apex:outputPanel>    
+                        <!-- <apex:actionFunction name="attachFile" action="{!saveNewImage}" oncomplete="showUploadDetails()" /> -->
+                          <!-- <button class="btn btn-primary submit" id="attach-btn" onclick="attachFile()">Attach File</button> -->
+                         <apex:commandButton action="{!saveNewImage}" value="Attach File" styleClass="btn btn-default"/>
+                    </div>
+                    <div class="row bottom-space">
+                          <apex:outputpanel id="uploadSuccessMessage" layout="block" styleClass="row">  
+                             <apex:outputPanel id="upload-details" rendered="{!showUploadDetails}" layout="block"> 
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                  <strong>{!$Label.FORM_Attachment_Upload_Success_Message}</strong>
+                                  <div class="row">
+                                      <div class="col-md-2 col-sm-3 col-xs-4">
+                                          <strong>File Name</strong>
+                                      </div>
+                                      <div class="col-md-10 col-sm-9 col-xs-8">
+                                          {!fileName}
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-md-2 col-sm-3 col-xs-4">
+                                          <strong>File Size</strong>
+                                      </div>
+                                      <div class="col-md-10 col-sm-9 col-xs-8">
+                                          {!fileSize}
+                                      </div>
+                                  </div>
+                                </div>                   
+                             </apex:outputPanel>
+                          </apex:outputpanel> 
+                    </div>      
+                    <div class="row bottom-space">     
+                         <apex:outputPanel layout="block">
+                            <strong>{!$Label.FORM_Attachment_Done}</strong>
+                         </apex:outputPanel>
+                    </div>
+                  </div> 
+                    
+            </apex:outputPanel>
+        </apex:define> 
+        <apex:define name="footer">
+          <div class="panel-footer">
+            <apex:commandButton id="cancel-btn" styleClass="btn btn-primary" action="{!cancel}" value="Done" onclick="Forms_JS.closePopup();">              
+            </apex:commandButton>
+          </div>
+        </apex:define>
+        <apex:define name="scripts">
+            <script type="text/javascript"  >
+                var $j = jQuery.noConflict();
+                var noSubmit = false;                
+                
+                $j(document).ready(function() {
+                    Forms_JS.attachmentSettings = Forms_JS.attachmentSettings || {};
+                    Forms_JS.attachmentSettings.height = "{!attSettings.Image_Height__c}";
+                    Forms_JS.attachmentSettings.width = "{!attSettings.Image_Width__c}";
+                    Forms_JS.attachmentSettings.size = "{!attSettings.Image_Size__c}";
+                    Forms_JS.attachmentSettings.FORM_Max_Image_Dimension_Message = "{!JSENCODE($Label.FORM_Max_Image_Dimension_Message)}";
+                    Forms_JS.attachmentSettings.FORM_Max_Image_Size_Message = "{!JSENCODE($Label.FORM_Max_Image_Size_Message)}";
+                    Forms_JS.attachmentSettings.FORM_Invalid_Image = "{!JSENCODE($Label.FORM_Invalid_Image)}";
+                });
+            </script>    
+            
+       </apex:define>     
+  </apex:composition> 
+  </apex:form>
+  
+</apex:page>

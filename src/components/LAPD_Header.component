@@ -1,0 +1,80 @@
+<apex:component >
+        <header id="header">
+
+            <div id="header-wrap">
+
+                <div class="container clearfix">
+
+                    <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                    <div id="logo">
+                        <a href="/apex/LAPD_Home" class="standard-logo" data-dark-logo="images/cirrus-logo.png">
+                            <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/cirrus-logo.png')}" alt="Cirrus Logo" />
+                        </a>
+                        <a href="/apex/LAPD_Home" class="retina-logo" data-dark-logo="images/cirrus-logo@2x.png">
+                            <apex:image url="{!URLFOR($Resource.LAPD_Assets, 'images/cirrus-logo@2x.png')}" alt="Cirrus Logo" />
+                        </a>
+                    </div>
+
+                    <nav id="primary-menu">
+
+                        <ul>
+                            <li><apex:outputLink value="{! $Page.LAPD_Home}"><div>Home</div></apex:outputLink>
+                            </li>
+
+                            <li><apex:outputLink value="#"><div>Cirrus</div></apex:outputLink>
+                                 <ul>
+                                    <li><apex:outputLink value="{! $Page.LAPD_CirrusMission}"><div>Mission</div></apex:outputLink></li>
+                                    <li><apex:outputLink value="{! $Page.LAPD_CirrusTeam}"><div>Team</div></apex:outputLink></li>
+                                </ul>
+                            </li>
+
+                            <li class="mega-menu"><apex:outputLink value="#"><div>Services</div></apex:outputLink>
+                                <div class="mega-menu-content style-2 col-4 clearfix">
+                                    <ul>
+                                        <li class="mega-menu-title"><apex:outputLink value="#"><div>Force.com by Cirrus</div></apex:outputLink>
+                                            <ul>
+                                                <li><apex:outputLink value="{! $Page.LAPD_ForceIntroduction}"><div>Introduction</div></apex:outputLink></li>
+                                                <li><apex:outputLink value="{! $Page.LAPD_ForceSuccess}"><div>Success Stories</div></apex:outputLink></li>
+                                                <li><apex:outputLink value="{! $Page.LAPD_ForceProcess}"><div>Process</div></apex:outputLink></li>
+                                                <li><apex:outputLink value="{! $Page.LAPD_ForceRelease}"><div>Release Schedule</div></apex:outputLink></li>
+                                                <li><apex:outputLink value="{! $Page.LAPD_ForceTechnology}"><div>Technology</div></apex:outputLink></li>
+                                                <li><apex:outputLink value="{! $Page.LAPD_ForceTraining}"><div>Training</div></apex:outputLink></li>
+                                                <li><apex:outputLink value="{! $Page.LAPD_ForceDeveloper}"><div>Developer Guidelines</div></apex:outputLink></li>
+                                                <li><apex:outputLink value="{! $Page.LAPD_ForceSupport}"><div>Support</div></apex:outputLink></li>
+                                                <li><apex:outputLink value="{! $Page.LAPD_ForceFAQ}"><div>FAQ</div></apex:outputLink></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li class="mega-menu-title"><apex:outputLink value="#"><div>Contentful by Cirrus</div></apex:outputLink>
+                                            <ul>
+                                                <li><apex:outputLink value="{! $Page.LAPD_ContentfulIntroduction}"><div>Introduction</div></apex:outputLink></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li><apex:outputLink value="{! $Page.LAPD_LillyFit}"><div>LillyFit</div></apex:outputLink>
+                            </li>
+
+                            <li><apex:outputLink value="{! $Page.LAPD_ForceFest}"><div>ForceFest</div></apex:outputLink>
+                            </li>
+
+                            <li><apex:outputLink value="{! $Page.LAPD_Help}"><div>Help</div></apex:outputLink>
+                            </li>
+
+                            <li><apex:outputLink value="/home/home.jsp"><div>Close</div></apex:outputLink>
+                            </li>
+
+                        </ul>
+
+                    </nav>
+
+                </div>
+                
+            </div>
+
+        </header>
+</apex:component>

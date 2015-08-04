@@ -1,0 +1,77 @@
+<apex:page id="FORM_Template" showheader="false" sidebar="false" standardStylesheets="false">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Form Builder</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <apex:includeScript value="{!URLFOR($Resource.FORM_Resource, '/js/FormsJS.js')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FORM_Resource, '/css/bootstrap/css/bootstrap.min.css')}"/> 
+        <!--<apex:stylesheet value="{!URLFOR($Resource.LPAD_Assets, 'styles/vendor.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.LPAD_Assets, 'styles/main.css')}" /> -->
+
+        <!-- Move this to a separate CSS file -->
+        <style>
+		body {
+			background: #eee;
+		}
+	    .question {
+	        margin-bottom: 5px;
+	        font-weight: bold;
+	    }
+	    .bottom-space {
+	        margin-bottom: 15px;
+	    }
+	    .reference-field {
+	        margin-bottom: 10px;
+	    }
+	    .error-message {
+	        padding: 5px;
+	        border: 1px solid #fee;
+	        background: #fee !important;
+	        border-radius: 4px;
+	        margin-top: 5px;
+	    }
+	    .form-logo {
+	    	float: right;
+	    }
+	    #formExecution {
+	    	margin-top: 10px;
+	    }
+		</style>
+    </head>
+
+    <body>
+        <!--<script src="{!URLFOR($Resource.LPAD_Assets, 'scripts/vendor.js')}" />
+        <script src="{!URLFOR($Resource.LPAD_Assets, 'scripts/plugins.js')}" />
+        <script src="{!URLFOR($Resource.LPAD_Assets, 'scripts/main.js')}" /> -->
+        <div class="container-fluid" style="margin-top: 10px;">
+        	<div class="panel panel-default">
+        		<apex:outputPanel id="formHeader" layout="block">
+			        <apex:insert name="header">
+			        </apex:insert>
+		        </apex:outputPanel>
+
+		        <apex:outputPanel id="formBody" layout="block">
+			        <apex:insert name="body">
+			        </apex:insert>
+		        </apex:outputPanel>
+
+		        <apex:outputPanel id="formFooter" layout="block">
+			        <apex:insert name="footer">
+			        </apex:insert>
+		        </apex:outputPanel>
+	        </div>
+        </div>
+        <apex:insert name="scripts">
+        </apex:insert>
+        <script type="text/javascript">
+        var Forms_JS = Forms_JS || {};
+        </script>
+    </body>
+
+</apex:page>

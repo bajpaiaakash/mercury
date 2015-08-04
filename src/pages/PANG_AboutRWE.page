@@ -1,0 +1,200 @@
+<apex:page controller="PANG_AboutRWEController" tabStyle="Pangaea__tab" >
+   <style>
+     .tertiaryPalette {
+       background-color: #D52B1E !important;
+       border-color: #000000 !important;
+       font-size:1.35em
+        } 
+        
+        .pbBody{
+            background-color: #ffffff !important;
+           border-color: #ffffff !important;
+        
+        }
+        .bPageBlock{
+            background-color: #ffffff !important;
+           border-color: #ffffff !important;
+        
+        }
+        
+        .reportIcon{
+            background-image: url(/img/sprites/master.png);
+            background-position: 0 -1274px;
+            width: 32px;
+            height: 32px;
+        }
+    </style>
+    
+    <apex:form >
+        <apex:pageblock title="Welcome to Pangaea">
+           <apex:facet name="header">
+              <img src="{!$Resource.PANG_Pangaea_About_Page_Logo}"  />
+           <p></p>
+           <h1 style="font-size:1.5em; font-style:italic; color:#275E37">&nbsp;Pangaea is a new environment for request management, collaboration and knowledge management. </h1>
+    
+          </apex:facet>
+     
+<!-- Begin "Now take me to..." Useful links within Pangaea-->
+       <apex:pageBlockSection columns="2" title="Now take me to..." collapsible="false" >
+
+    <!--New Request Link-->
+        <apex:pageblocksectionItem >
+            <apex:outputlabel style="font-size:1.25em; font-family:arial" > Need to Create a New RWE Request</apex:outputlabel>
+                     <apex:outputLink value="{!URLFOR($Action.PANG_Request__c.New)}" id="NewRequestLink">
+                          <apex:image width="35" url="{!URLFOR($Resource.PANG_Pangaea_Logos, 'PANG_RWE_Request_png.png')}" >
+                          </apex:image>
+                     </apex:outputLink>
+        </apex:pageblocksectionItem>            
+    <!--End New Request Link-->
+    
+    <!--Partnerships Link-->
+            <apex:pageblocksectionItem >
+                        <apex:outputlabel style="font-size:1.25em;"> Information about RWE Partnerships</apex:outputlabel>
+                        <apex:outputLink value="/{!$ObjectType.PANG_Partnership__c.keyPrefix}/o" id="PartnershipLink" >
+                             <apex:image width="35" url="{!URLFOR($Resource.PANG_Pangaea_Logos, 'PANG_RWE_Partnerships_png.png')}" >
+                             </apex:image>
+                        </apex:outputLink>
+            </apex:pageblocksectionItem>
+    <!--End Partnerships Link-->
+
+    <!--Check Status of Request-->
+            <apex:pageblocksectionItem >
+                        <apex:outputlabel style="font-size:1.25em;"> Need to Check Status of an Existing RWE Request</apex:outputlabel>
+                        <apex:outputLink value="/{!$ObjectType.PANG_Request__c.keyPrefix}/o" id="RequestLink" >
+                             <apex:image width="35" url="{!URLFOR($Resource.PANG_Pangaea_Logos, 'PANG_RWE_Request_Status_png.png')}" >
+                             </apex:image>
+                        </apex:outputLink>
+            </apex:pageblocksectionItem>
+    <!--End Check Statusof Request-->
+
+
+
+    <!--RWE Community Chatter Group Link-->
+
+            <apex:pageblocksectionItem >
+                        <apex:outputlabel style="font-size:1.25em"> Connect with Lilly RWE Community</apex:outputlabel>
+                        <apex:outputLink value="{!IF(ISNULL(ChatterGroupId),'/_ui/core/chatter/ui/ChatterPage','/_ui/core/chatter/groups/GroupProfilePage?g=' + ChatterGroupId)}" id="ChatterLink" >
+                             <apex:image width="35" url="{!URLFOR($Resource.PANG_Pangaea_Logos, 'PANG_Chatter_Link_png.png')}" >
+                             </apex:image>
+                        </apex:outputLink>
+            </apex:pageblocksectionItem> 
+
+
+    <!--End RWE Community Chatter Group Link-->
+
+        
+    <!--Project History Link-->
+
+
+            <apex:pageblocksectionItem >
+                        <apex:outputlabel style="font-size:1.25em;" > Information about RWE Study History</apex:outputlabel>
+                        <apex:outputLink value="/{!$ObjectType.PANG_Project__c.keyPrefix}/o" id="ProjectsLink" >
+                             <apex:image width="35" url="{!URLFOR($Resource.PANG_Pangaea_Logos, 'PANG_RWE_Projects_png.png')}" >
+                             </apex:image>
+                        </apex:outputLink>
+            </apex:pageblocksectionItem>
+
+    <!--End Project History Link-->
+
+
+    <!--External Links--> 
+
+            <apex:pageblocksectionItem >
+                        <apex:outputlabel style="font-size:1.25em;"> RWE External Intelligence Portal</apex:outputlabel>
+                        <apex:outputLink value="https://lillyei.northernlight.com/dashboard.php?id=133" id="RequestLink" >
+                             <apex:image width="35" url="{!URLFOR($Resource.PANG_Pangaea_Logos, 'PANG_External_Link_png.png')}" >
+                             </apex:image>
+                        </apex:outputLink>
+            </apex:pageblocksectionItem>
+
+    <!--End External Links--> 
+
+
+    <!--Data Assets Link--> 
+
+        <apex:pageblocksectionItem >
+                        <apex:outputlabel style="font-size:1.25em;"> Information about RWE Data Assets</apex:outputlabel>
+                        <apex:outputLink value="/{!$ObjectType.PANG_Data_Asset__c.keyPrefix}/o" id="AssetsLink" >
+                             <apex:image width="35" url="{!URLFOR($Resource.PANG_Pangaea_Logos, 'PANG_RWE_Data_Assets_png.png')}" >
+                             </apex:image>
+                        </apex:outputLink>
+            </apex:pageblocksectionItem>
+            
+
+    <!--End Data Assets Link-->            
+
+
+    <!--Pangaea Training Link-->             
+            <apex:pageblocksectionItem >
+                        <apex:outputlabel style="font-size:1.25em;"> Pangaea User Training</apex:outputlabel>
+                        <apex:outputLink value="{!IF(ISNULL(TrainingLibraryId),'/sfc/#workspaces','/sfc/#workspaceView?selectedWorkspaceId=' + TrainingLibraryId)}" id="PangaeaLibraryLink" >
+                             <apex:image width="35" url="{!URLFOR($Resource.PANG_Pangaea_Logos, 'PANG_Pangaea_User_Training_png.png')}" >
+                             </apex:image>
+                        </apex:outputLink>
+            </apex:pageblocksectionItem>   
+  
+    <!--End Pangaea Training Link-->            
+
+    <!--Blank Space-->                          
+  
+    <!--End Blank Space-->
+        <apex:pageblocksectionItem >
+
+        </apex:pageblocksectionItem>   
+    <!--Provide Feedback Link-->             
+
+           
+            <apex:pageblocksectionItem >
+                <apex:outputlabel style="font-size:1.25em;" > Provide Feedback</apex:outputlabel>
+                <apex:outputLink value="/ideas/ideaList.apexp" id="IdeasLink" >
+                     <apex:image url="/img/icon/ideabubble32.png" >
+                     </apex:image>
+                </apex:outputLink>
+            </apex:pageblocksectionItem>  
+  
+    <!--End Provide Feedback Link-->  
+
+</apex:pageBlockSection>
+
+<!--End "Now take me to..."-->          
+        
+<!-- Begin "Enter a small world" This section should contain intro text for Pangaea-->
+            
+            <apex:pageBlockSection title="Enter a small world with big possibilities" collapsible="false" columns="1">
+              
+                <span style="font-size:1.25em;">
+
+
+
+               
+               Pangaea represents a seismic shift in how real world evidence and insights are gathered and shared. It will provide easier and faster access to real world data in one open, integrated and collaborative place. Pangaea will help us:
+               
+              
+               
+               
+               <ul type="square">
+                   <li>Streamline collaboration between real world evidence teams globally</li>
+                   <li>Reduce the time, effort, and costs associated with searching, sharing and leveraging data assets</li>
+                   <li>Increase productivity and transparency across projects and studies</li>
+                   <li>Experiences for patients</li>
+                   <li>Provide a competitive advantage in gaining and maintaining access to medicines for patients</li>
+               </ul>    
+               
+               
+               
+               
+               <p>A transformation is taking place in the delivery of real world evidence around the world and Pangaea, the new real world evidence portal, is a part of the change at Lilly. .</p> 
+
+               <p>The new real world evidence portal, Pangaea, is here. Making research more robust and our community more collaborative.</p>
+
+               </span>
+                  
+            </apex:pageBlockSection>
+            
+<!--End "Enter a small world section"--> 
+        
+        </apex:pageblock>
+    </apex:form>
+
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

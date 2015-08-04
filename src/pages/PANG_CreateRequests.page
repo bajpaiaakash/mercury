@@ -1,0 +1,913 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false" standardStylesheets="true" standardcontroller="PANG_Request__c" extensions="PANG_CreateRequestController">
+
+    <c:PANG_Index />
+    <title>Create Request</title>
+
+    <div class='content'>
+        <apex:form id="datasourcingform">
+
+            <!-----------------------------Data Mart Project Form-------------------------------------------------------------------->
+
+            <apex:outputPanel rendered="{!$CurrentPage.parameters.recTypeName=='Internal_Real_World_Data_Analysis'}">
+                <!-- body partial, used for adding pages to layout -->
+                <div class="datasourcingrequest row">
+                    <div class="col-md-12 section-1 center bannercolor l-green">
+                        <div class="pattern"></div>
+                        <div class="dsr-heading heading font-xl">Data Mart Project</div>
+                        <div class="dsr-content font-m">
+                            Consultation, feasibility, design and execution of Data Mart studies.
+                        </div>
+                    </div>
+                    <div class="section-2 col-md-12 center">
+                        <div class="sfdc-errorMessage">
+                            <apex:pagemessages escape="false"></apex:pagemessages>
+                        </div>
+                        <apex:outputPanel rendered="{!oRequest.id == null}">
+                            <div class="container">
+                                <div class="instruction font-s"> * Required Field</div>
+                            </div>
+                            <!--form action="" method="" id='datasourcingform'-->
+                            <div class="table">
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold bold">Request Name <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row" validate='true' validationtype="alphabets">
+                                            <apex:inputField required="true" value="{!oRequest.Name}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row requestor-field">
+                                            <Apex:inputField required="true" value="{!oRequest.Requestor__c}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor Function<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Requestor_Functional_Area__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Therapeutic Area<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Therapeutic_Area_Primary__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Intended Use of Deliverable</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Application_of_Deliverable__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Study/Project ID</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Study_Alias_Project_ID__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Description</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Description__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Proposed Due Date</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Proposed_Due_Date__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                            <apex:actionregion >
+                                <div class="center highlight-section">
+                                    <h3>Data Mart Data Selection</h3>
+                                    <div class="table">
+                                        <div class="table-row">
+                                            <!-- <div class="table-cell font-m bold">Inhouse Data Assets</div> -->
+                                            <div class="table-cell font-r">
+                                                <apex:dataTable value="{!lDisplayAssets}" var="Ast" styleClass="table" id="linksTable">
+                                                    <apex:column width="5%">
+                                                        <apex:inputCheckbox value="{!Ast.isSelected}">
+                                                            <apex:actionSupport event="onchange" rerender="linksTable,acknowledge" action="{!displayAcknowledge}" />
+                                                        </apex:inputCheckbox>
+                                                    </apex:column>
+
+                                                    <apex:column headerclass="font-r" headerValue="Data Asset">
+                                                        <apex:outputText Styleclass="font-r" value="{!Ast.oDataAsset.name}" />
+                                                    </apex:column>
+
+                                                    <apex:column headerclass="font-r" headerValue="Contractual Obligations">
+                                                        <apex:variable var="absoluteurl" value="{!IF(CONTAINS(Ast.oDataAsset.Documentation_Link__c,"//"),Ast.oDataAsset.Documentation_Link__c,"http://"+Ast.oDataAsset.Documentation_Link__c)}"></apex:variable>
+                                                        <apex:outputlink value="{!absoluteurl}" rendered="{!Ast.isSelected}" target="_blank" >{!Ast.oDataAsset.Documentation_Link__c}</apex:outputlink>
+                                                    </apex:column>
+                                                </apex:dataTable>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="font-r center">
+                                        <apex:outputpanel id="acknowledge">
+                                            <apex:inputCheckbox rendered="{!isAcknowledge}" value="{!isAcknowledgeChecked}" /> &nbsp;&nbsp;
+                                            <apex:outputtext rendered="{!isAcknowledge}" value="I understand and will comply with the Data Mart contractual obligations" />
+                                        </apex:outputpanel>
+                                        </div>
+                                </div>
+                            </apex:actionregion>
+
+                            
+
+                            <!------------Uploading Documents--------------------------->
+
+                            <div class="center highlight-section">
+                                <h3>{!$Label.PANG_Form_AttachmentTitle}</h3>
+                                <br/><br/>           
+                
+                                    <apex:inputfile value="{!attachmentBody1}" filename="{!attachmentName1}" size="10" />   <br/><br/>
+                                    <apex:inputfile value="{!attachmentBody2}" filename="{!attachmentName2}" size="10" />   <br/><br/>
+                                    <apex:inputfile value="{!attachmentBody3}" filename="{!attachmentName3}" size="10" />   <br/><br/>
+                                </div>
+
+
+                            <div class="center">
+                                <apex:commandButton styleClass="button btn-submit font-m" value="Submit" action="{!save}" />
+                            </div>
+                            <div class="center">
+                                <apex:outputLink styleClass="lnk-cancel" value="/apex/PANG_RequestList?nameOfTab=Request">Cancel</apex:outputLink>
+                            </div>
+                        </apex:outputPanel>
+                    </div>
+                </div>
+            </apex:outputPanel>
+
+            <!-----------------------------This is RWE Data Sourcing Request Form-------------------------------------------------------------------->
+
+            <apex:outputPanel rendered="{!$CurrentPage.parameters.recTypeName=='Data_Sourcing'}">
+                <!-- body partial, used for adding pages to layout -->
+                <div class="datasourcingrequest row">
+                    <div class="col-md-12 section-1 center bannercolor l-green">
+                        <div class="pattern"></div>
+                        <div class="dsr-heading heading font-xl">RWE Data Sourcing Request</div>
+                        <div class="dsr-content font-m">
+                            Consultation to identify and assess Real World data assets for research.
+                        </div>
+                    </div>
+                    <div class="section-2 col-md-12 center">
+                        <div class="sfdc-errorMessage">
+                            <apex:pagemessages escape="false"></apex:pagemessages>
+                        </div>
+                        <apex:outputPanel rendered="{!oRequest.id == null}">
+                            <div class="container">
+                                <div class="instruction font-s"> * Required Field</div>
+                            </div>
+
+                            <!--form action="" method="" id='datasourcingform'-->
+                            <div class="table">
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold bold">Request Name <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row" validate='true' validationtype="alphabets">
+                                            <apex:inputField required="true" value="{!oRequest.Name}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row requestor-field">
+                                            <Apex:inputField required="true" value="{!oRequest.Requestor__c}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor Function<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Requestor_Functional_Area__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Therapeutic Area<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Therapeutic_Area_Primary__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Description</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Description__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">What Makes It Unique</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.What_Makes_It_Unique__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Customers Leading Candidate</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Customer_s_Leading_Candidate_s__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Proposed Due Date</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Proposed_Due_Date__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+                            <!------------Uploading Documents--------------------------->
+
+                            <div class="center highlight-section">
+                                <h3>{!$Label.PANG_Form_AttachmentTitle}</h3>
+                                <br/><br/>           
+                
+                                    <apex:inputfile value="{!attachmentBody1}" filename="{!attachmentName1}" size="10" />   <br/><br/>
+                                    <apex:inputfile value="{!attachmentBody2}" filename="{!attachmentName2}" size="10" />   <br/><br/>
+                                    <apex:inputfile value="{!attachmentBody3}" filename="{!attachmentName3}" size="10" />   <br/><br/>
+
+                            </div>
+
+                            <div class="center">
+                                <apex:commandButton styleClass="button btn-submit font-m" value="Submit" action="{!save}" />
+                            </div>
+                            <div class="center">
+                                <apex:outputLink styleClass="lnk-cancel" value="/apex/PANG_RequestList?nameOfTab=Request">Cancel</apex:outputLink>
+                            </div>
+                        </apex:outputPanel>
+                    </div>
+                </div>
+            </apex:outputPanel>
+
+            <!-----------------------------This is RWE Strategic Consultation Request Form-------------------------------------------------------------------->
+
+            <apex:outputPanel rendered="{!$CurrentPage.parameters.recTypeName=='RWE_Strategic_Consultation'}">
+                <!-- body partial, used for adding pages to layout -->
+                <div class="datasourcingrequest row">
+                    <div class="col-md-12 section-1 center bannercolor l-green">
+                        <div class="pattern"></div>
+                        <div class="dsr-heading heading font-xl">RWE Strategic Consultation Request</div>
+                        <div class="dsr-content font-m">
+                            Consultation on leveraging RWE, Inc. services and Real World Data in research plan development and execution.
+                        </div>
+                    </div>
+                    <div class="section-2 col-md-12 center">
+                        <div class="sfdc-errorMessage">
+                            <apex:pagemessages escape="false"></apex:pagemessages>
+                        </div>
+                        <apex:outputPanel rendered="{!oRequest.id == null}">
+                            <div class="container">
+                                <div class="instruction font-s"> * Required Field</div>
+                            </div>
+                            <!--form action="" method="" id='datasourcingform'-->
+                            <div class="table">
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold bold">Request Name <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row" validate='true' validationtype="alphabets">
+                                            <apex:inputField required="true" value="{!oRequest.Name}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row requestor-field">
+                                            <Apex:inputField required="true" value="{!oRequest.Requestor__c}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor Function<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Requestor_Functional_Area__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Therapeutic Area<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Therapeutic_Area_Primary__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Description</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Description__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Proposed Due Date</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Proposed_Due_Date__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!------------Uploading Documents--------------------------->
+
+                            <div class="center highlight-section">
+                                <h3>{!$Label.PANG_Form_AttachmentTitle}</h3>
+                                <br/><br/>           
+                
+                                    <apex:inputfile value="{!attachmentBody1}" filename="{!attachmentName1}" size="10" />   <br/><br/>
+                                    <apex:inputfile value="{!attachmentBody2}" filename="{!attachmentName2}" size="10" />   <br/><br/>
+                                    <apex:inputfile value="{!attachmentBody3}" filename="{!attachmentName3}" size="10" />   <br/><br/>
+
+                            </div>
+
+                            <div class="center">
+                                <apex:commandButton styleClass="button btn-submit font-m" value="Submit" action="{!save}" />
+                            </div>
+                            <div class="center">
+                                <apex:outputLink styleClass="lnk-cancel" value="/apex/PANG_RequestList?nameOfTab=Request">Cancel</apex:outputLink>
+                            </div>
+                        </apex:outputPanel>
+                    </div>
+                </div>
+            </apex:outputPanel>
+
+            <!-----------------------------This is EXPERT or ACT Consultation Request Form-------------------------------------------------------------------->
+
+            <apex:outputPanel rendered="{!$CurrentPage.parameters.recTypeName=='EXPERT_or_ACT_Consultation'}">
+                <!-- body partial, used for adding pages to layout -->
+                <div class="datasourcingrequest row">
+                    <div class="col-md-12 section-1 center bannercolor l-green">
+                        <div class="pattern"></div>
+                        <div class="dsr-heading heading font-xl">EXPERT or ACT Consultation Request</div>
+                        <div class="dsr-content font-m">
+                            Scientific advice and expertise on study ideas, appropriate outcomes and their measures, analytical methods, etc.
+                        </div>
+                    </div>
+                    <div class="section-2 col-md-12 center">
+                        <div class="sfdc-errorMessage">
+                            <apex:pagemessages escape="false"></apex:pagemessages>
+                        </div>
+                        <apex:outputPanel rendered="{!oRequest.id == null}">
+                            <div class="container">
+                                <div class="instruction font-s"> * Required Field</div>
+                            </div>
+                            <div class="table">
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold bold">Request Name <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row" validate='true' validationtype="alphabets">
+                                            <apex:inputField required="true" value="{!oRequest.Name}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row requestor-field">
+                                            <Apex:inputField required="true" value="{!oRequest.Requestor__c}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor Function<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Requestor_Functional_Area__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Therapeutic Area<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Therapeutic_Area_Primary__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Study/Project ID<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Study_Alias_Project_ID__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Study Type</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Study_Design_Type__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Study Category</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Study_Category__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Consult Type</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row multi-select-picklist">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Consult_Type__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Consultation Effort</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Consultant_Resource_Effort__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Description</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Description__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Proposed Due Date</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Proposed_Due_Date__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!------------Uploading Documents--------------------------->
+
+                            <div class="center highlight-section">
+                                <h3>{!$Label.PANG_Form_AttachmentTitle}</h3>
+                                <br/><br/>           
+                
+                                    <apex:inputfile value="{!attachmentBody1}" filename="{!attachmentName1}" size="10" />   <br/><br/>
+                                    <apex:inputfile value="{!attachmentBody2}" filename="{!attachmentName2}" size="10" />   <br/><br/>
+                                    <apex:inputfile value="{!attachmentBody3}" filename="{!attachmentName3}" size="10" />   <br/><br/>
+
+                            </div>
+                            <div class="center">
+                                <apex:commandButton styleClass="button btn-submit font-m" value="Submit" action="{!save}" />
+                            </div>
+                            <div class="center">
+                                <apex:outputLink styleClass="lnk-cancel" value="/apex/PANG_RequestList?nameOfTab=Request">Cancel</apex:outputLink>
+                            </div>
+                        </apex:outputPanel>
+                    </div>
+                </div>
+            </apex:outputPanel>
+
+            <!-----------------------------This is EXPERT Review Request Form-------------------------------------------------------------------->
+
+            <apex:outputPanel rendered="{!$CurrentPage.parameters.recTypeName=='EXPERT_Review'}">
+                <!-- body partial, used for adding pages to layout -->
+                <div class="datasourcingrequest row">
+                    <div class="col-md-12 section-1 center bannercolor l-green">
+                        <div class="pattern"></div>
+                        <div class="dsr-heading heading font-xl">EXPERT Review Request</div>
+                        <div class="dsr-content font-m">
+                            Scientific review and evaluation of observational study designs (Quality System required)
+                        </div>
+                    </div>
+                    <div class="section-2 col-md-12 center">
+                        <div class="sfdc-errorMessage">
+                            <apex:pagemessages escape="false"></apex:pagemessages>
+                        </div>
+                        <apex:outputPanel rendered="{!oRequest.id == null}">
+                            <div class="container">
+                                <div class="instruction font-s"> * Required Field</div>
+                            </div>
+                            <!--form action="" method="" id='datasourcingform'-->
+                            <div class="table">
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold bold">Request Name <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row" validate='true' validationtype="alphabets">
+                                            <apex:inputField value="{!oRequest.Name}" required="True" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row requestor-field">
+                                            <Apex:inputField required="true" value="{!oRequest.Requestor__c}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor Function<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Requestor_Functional_Area__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Therapeutic Area<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Therapeutic_Area_Primary__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Review Request Type<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.EXPERT_Review_Type__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Study/Project ID<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Study_Alias_Project_ID__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Study Type<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Study_Design_Type__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Study Category<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Study_Category__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Proposed Due Date</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Proposed_Due_Date__c}" />
+                                            </label>
+                                        </div>
+                                    </div> 
+                                </div>
+                               
+                            </div>
+                            <!------------Rendering FDMMA section if only US is selected in Region field--------------------------->
+                            
+                            
+                             <apex:actionRegion >
+                                
+                                <div class="table">
+                                    <div class="table-row">
+                                                    <div class="table-cell font-m bold">Region</div>
+                                        <div class="table-cell font-r">
+                                            <div class="table-row multi-select-picklist">
+                                                <label>
+                                                    <apex:inputField value="{!oRequest.Region__c}">
+                                                        <apex:actionSupport event="onchange" rerender="FDMAtext1,FDMAtext2,FDMAtext3,FDMAtext4,FDMAHEADER" />
+                                                    </apex:inputfield>
+                                                </label>
+                                            </div>
+                                        </div>
+                                     </div>
+                                 </div>   
+                                    
+                                    <apex:outputPanel id="FDMAHEADER">
+                                        <apex:outputPanel rendered="{!if(len(oRequest.Region__c)==2,true,false)}">
+                                            <div class="table-row">
+                                                <div class="center highlight-section fdama114">
+                                                <h3>FDAMA114 - Complete Only for United States Studies</h3></div>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:outputPanel>
+                                    <div class="table">
+                                    <div class="table-row">
+                                        <div class="table-cell font-m bold">
+                                            <apex:outputPanel id="FDMAtext1">
+                                                <apex:outputlabel rendered="{!if(len(oRequest.Region__c)==2,true,false)}">Research FDAMA114 Eligible</apex:outputlabel>
+                                            </apex:outputPanel>
+                                        </div>
+                                        <div class="table-cell font-r">
+                                            <div class="table-row">
+                                                <label>
+                                                    <apex:outputPanel id="FDMAtext2">
+                                                        <apex:inputField rendered="{!if(len(oRequest.Region__c)==2,true,false)}" value="{!oRequest.Research_FDAMA114_Eligible__c}" />
+                                                    </apex:outputPanel>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                      
+                                    <div class="table-row">
+                                        <div class="table-cell font-m bold">
+                                            <apex:outputPanel id="FDMAtext3">
+                                                <apex:outputlabel rendered="{!if(len(oRequest.Region__c)==2,true,false)}">FDAMA114 Review Cycle</apex:outputlabel>
+                                            </apex:outputPanel>
+                                        </div>
+                                        <div class="table-cell font-r">
+                                            <div class="table-row">
+                                                <label>
+                                                    <apex:outputPanel id="FDMAtext4">
+                                                        <apex:inputField value="{!oRequest.FDAMA_Review_Cycle__c}" rendered="{!if(len(oRequest.Region__c)==2,true,false)}" />
+                                                    </apex:outputPanel>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div> 
+                                   
+                                </apex:actionRegion>
+                                
+                                <!------------------uploading documents------------------------------->
+                                
+                          <div class="center highlight-section">
+                                                       
+                                <h3>{!$Label.PANG_Form_AttachmentTitle}</h3>
+                                <br/><br/>           
+                
+                                    <apex:inputfile value="{!attachmentBody1}" filename="{!attachmentName1}" size="10" />   <br/><br/>
+                                    <apex:inputfile value="{!attachmentBody2}" filename="{!attachmentName2}" size="10" />   <br/><br/>
+                                    <apex:inputfile value="{!attachmentBody3}" filename="{!attachmentName3}" size="10" />   <br/><br/>
+
+                            </div>
+
+                            <div class="center">
+                                <apex:commandButton styleClass="button btn-submit font-m" value="Submit" action="{!save}" />
+                            </div>
+                            <div class="center">
+                                <apex:outputLink styleClass="lnk-cancel" value="/apex/PANG_RequestList?nameOfTab=Request">Cancel</apex:outputLink>
+                            </div>
+                            <!--/form-->
+                        </apex:outputPanel>
+                    </div>
+                </div>
+            </apex:outputPanel>
+
+            <!-----------------------------This is EXPERT Exception Request Form-------------------------------------------------------------------->
+
+            <apex:outputPanel rendered="{!$CurrentPage.parameters.recTypeName=='EXPERT_Exception'}">
+                <!-- body partial, used for adding pages to layout -->
+                <div class="datasourcingrequest row">
+                    <div class="col-md-12 section-1 center bannercolor l-green">
+                        <div class="pattern"></div>
+                        <div class="dsr-heading heading font-xl">EXPERT Exception Request</div>
+                        <div class="dsr-content expert-exception font-m">
+                            This Quality System required tool is used to document the rationale for not accepting all key comments noted in an EXPERT review or for protocols and protocol amendments that do not require EXPERT review as determined by the medical/functional director.
+                        </div>
+                    </div>
+                    <div class="section-2 col-md-12 center">
+                        <div class="sfdc-errorMessage">
+                            <apex:pagemessages escape="false"></apex:pagemessages>
+                        </div>
+                        <apex:outputPanel rendered="{!oRequest.id == null}">
+                            <div class="container">
+                                <div class="instruction font-s"> * Required Field</div>
+                            </div>
+                            <div class="table">
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold bold">Request Name <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row" validate='true' validationtype="alphabets">
+                                            <apex:inputField value="{!oRequest.Name}" required="True" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor <span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row requestor-field">
+                                            <Apex:inputField required="true" value="{!oRequest.Requestor__c}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Requestor Function<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Requestor_Functional_Area__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Study/Project ID<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Study_Alias_Project_ID__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Business Unit<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Business_Unit_Primary__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Rationale For Process Exception<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.Rationale_for_Process_Exception__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">EXPERT Exception Approver<span class='required'>*</span></div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row requestor-field">
+                                            <label>
+                                                <apex:inputField required="true" value="{!oRequest.EXPERT_Exception_Approver__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-row">
+                                    <div class="table-cell font-m bold">Additional EXPERT Exception Approver</div>
+                                    <div class="table-cell font-r">
+                                        <div class="table-row requestor-field">
+                                            <label>
+                                                <apex:inputField value="{!oRequest.Additional_EXPERT_Exception_Approver__c}" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <!------------Saving the Form--------------------------->
+
+                            <div class="center">
+                                <apex:commandButton styleClass="button btn-submit font-m" value="Submit" action="{!save}" />
+                            </div>
+                            <div class="center">
+                                <apex:outputLink styleClass="lnk-cancel" value="/apex/PANG_RequestList?nameOfTab=Request">Cancel</apex:outputLink>
+                            </div>
+
+                        </apex:outputPanel>
+                    </div>
+                </div>
+            </apex:outputPanel>
+
+        </apex:form>
+
+    </div>
+</apex:page>

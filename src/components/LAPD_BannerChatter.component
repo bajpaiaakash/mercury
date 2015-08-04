@@ -1,0 +1,7 @@
+<apex:component >
+    <a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9b0000000HdbB" target="_blank" class="button button-full center tright topmargin footer-stick">
+        <div class="container clearfix">
+            Register for <strong>ForceFest II: Tour De Force</strong>  
+        </div>
+    </a>
+</apex:component>

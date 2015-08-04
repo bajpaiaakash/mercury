@@ -1,0 +1,134 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Force.com Support</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_full">
+                        <p>The GSO Care Model consists of the people, processes, and technology that are responsible for the Global Services Org at Lilly. For more detailed information, frequently asked questions, or to locate service request forms within ServiceNow, navigate <a href="https://lilly.service-now.com/kb_view.do?sysparm_article=KB0093114" target="_blank">here</a>. If you are unable to find the relevant information or would like to have a more in depth discussion, please visit the<apex:outputLink value="{! $Page.LAPD_CirrusTeam}"> team</apex:outputLink> section of Launchpad in order to locate the appropriate contacts.</p>
+                    </div>
+
+                    <div class="divider divider-short divider-border divider-center"><i class="icon-cogs"></i></div>
+
+                    <div class="divcenter center clearfix">
+                        <a href="/sfc/p/b0000000Z7IN/a/b0000000TPiu/_SyCyGKgg0GhPYfOMT0raTWhcBU9YBCJUL.6jiyueVg" class="button button-desc" target="_blank"><div>Download<span>Support Documentation</span></div></a>
+                        <a href="https://lilly.service-now.com/kb_view.do?sysparm_article=KB0093114" target="_blank" class="button button-desc"><div>ServiceNow<span>Service Requests</span></div></a>
+                        <a href="/apex/LAPD_CirrusTeam" class="button button-desc"><div>Cirrus Team<span>Questions</span></div></a>
+                    </div>
+
+                    <div class="divider divider-short divider-border divider-center"><i class="icon-cogs"></i></div>
+
+                    <div class="col_full">
+                        <h4>Support Structure</h4>
+                        <div class="pricing clearfix">
+
+                            <div class="col-md-4">
+                                <div class="pricing-box">
+                                    <div class="pricing-title">
+                                        <h3>Lilly Service Desk</h3>
+                                        <span>Level One</span>
+                                        <span>ServiceNow</span>
+                                    </div>
+                                    <div class="pricing-features">
+                                        <ul>
+                                            <li>Incident <strong>Logging</strong></li>
+                                            <li>Incident <strong>Resolution</strong></li>
+                                            <li>Incident <strong>Tracking</strong></li>
+                                            <li>Incident <strong>Escalation</strong></li>
+                                            <li>End User <strong>Communications</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="pricing-box">
+                                    <div class="pricing-title">
+                                        <h3>Application Custodians</h3>
+                                        <span>Level Two</span>
+                                        <span>ServiceNow</span>
+                                    </div>
+                                    <div class="pricing-features">
+                                        <ul>
+                                            <li>Application <strong>Assessment</strong></li>
+                                            <li>Application <strong>Resolution</strong></li>
+                                            <li>Flagging <strong>Root Cause Analysis</strong></li>
+                                            <li>Incident <strong>Escalation</strong></li>
+                                            <li>Application <strong>Communications</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="pricing-box">
+                                    <div class="pricing-title">
+                                        <h3>Cirrus DevOps</h3>
+                                        <span>Level Three</span>
+                                        <span>ServiceNow / Mission Control</span>
+                                    </div>
+                                    <div class="pricing-features">
+                                        <ul>
+                                            <li>Platform <strong>Governance</strong></li>
+                                            <li>Regression <strong>Testing</strong></li>
+                                            <li>User <strong>Access Management</strong></li>
+                                            <li>Application <strong>Service Requests</strong></li>
+                                            <li>Incident <strong>Analysis &amp; Resolution</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="col_full">
+                            <h4>Understanding the Types of Care</h4>
+                            <p>There are two types of support that are available for your application – Hypercare and GSO Care.</p>
+                        </div>
+
+                        <div class="col_half">
+                            <h5>Hypercare</h5>
+                            <p>The vendor partner will provide short-term application support while other sprints are in progress and during the hypercare period. The hypercare period is typically 2-6 weeks after the last deployment sprint, depending on complexity of the project.</p>
+                        </div>
+
+                        <div class="col_half col_last">
+                            <h5>GSO Care</h5>
+                            <p>Cirrus DevOps Team will accept applications into GSO Care following the completion of the hypercare period. The DevOps Team is responsible for supporting the platform and performing service requests on behalf of applications in GSO Care or GSO Care Plus.</p>
+                            <div class="margin-list">
+                                <li>Platform Support.</li>
+                                <li>Access Management.</li>
+                                <li>Service Requests, Minor Enhancements and Break Fix (40h / Quarter / App).</li>
+                            </div>
+                        </div>             
+
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

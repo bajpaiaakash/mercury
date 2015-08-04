@@ -1,0 +1,86 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Force.com Training - Mission Control</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_two_fifth bottommargin">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=1_8rucg8bz&playerId=kaltura_player_1427808429&cache_st=1427808429&width=100%&height=277"></script>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Mission Control Introduction Video</h5>
+                        Mission Control is a project management tool built on the Force.com platform that is used to enable the Cirrus development methodology. Mission Control is designed to be a “one stop shop” for managing Cirrus delivery processes including risks, issues, development sprints, epics and user stories, tests, defects and more while leveraging the collaborative benefits of Salesforce.com.
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=1_ky7idsw2&playerId=kaltura_player_1427808526&cache_st=1427808526&width=100%&height=277"></script>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Mission Control 101 - Sprint Planning</h5>
+                        In Agile, sprint planning includes the entire project team. The product owner describes the highest priority features to the team. The team asks enough questions that they can turn a high-level user story of the product backlog into the more detailed tasks of the sprint backlog.
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=1_zpk7gu3p&playerId=kaltura_player_1427808615&cache_st=1427808615&width=100%&height=277"></script>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Mission Control 102 - Writing Epics and User Stories</h5>
+                        Agile enables you to handle customer requirements without having to create vast requirement documents. Mission Control is designed to make epics and user stories easy to write by providing structure and direction for each component.
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=1_nxwg3yb1&playerId=kaltura_player_1427808709&cache_st=1427808709&width=100%&height=277"></script>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Mission Control 103 - Sprint Execution</h5>
+                        Mission Control facilitates the sprint execution process, allowing the project team to view information for a particular development sprint, including status, start and end dates, remaining days, associated meetings, and associated user stories.
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="col_two_fifth bottommargin">
+                        <script src="https://cdnapisec.kaltura.com/p/1759891/sp/175989100/embedIframeJs/uiconf_id/24639831/partner_id/1759891?autoembed=true&entry_id=1_2vrrixpl&playerId=kaltura_player_1427808778&cache_st=1427808778&width=100%&height=277"></script>
+                    </div>
+
+                    <div class="col_three_fifth bottommargin col_last">
+                        <h5>Mission Control 104 - Other Functionality</h5>
+                        The strength of Mission Control is not that it does the quality basics, it's that it fully integrates all aspects of quality delivery. User Stories link to risks, issues, questions, decisions and more - it is a complete information base about any Cirrus project.
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

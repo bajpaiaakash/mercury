@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Public</cacheControl>
+    <contentType>text/plain</contentType>
+    <description>QDUX JSON File to be used for mock testing to pass coverage. This document contains positive search results from Quality Docs.</description>
+</StaticResource>

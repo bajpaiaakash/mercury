@@ -1,0 +1,190 @@
+<apex:page showheader="false" controller="FORM_FormExecutionPageController" sidebar="false" standardStylesheets="false" applyBodyTag="false">
+    <apex:includeScript value="{!URLFOR($Resource.Scripts,'/')}" />
+    <apex:composition template="FORM_Template">
+        <apex:define name="header">
+            <apex:outputPanel styleClass="panel-header" style="margin-top: 2px" rendered="{!(!isFormSubmitted && !isFormCancelled)}" layout="block">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 hidden-xs pull-right">
+                    <img src="{!formTemplate.Logo_Image__c}" alt="" style="margin: 5px" class="img-responsive form-logo"/>
+                </div>
+                <!-- Information about the execution -->
+                <div id="executionDetails" class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-md-12" style="margin-top: 20px">
+                        <div class="reference-field" style="padding-bottom: 5px">
+                            <p><apex:outputText styleClass="h2" value="{!formExecution.Form_Name__c}"></apex:outputText></p>
+                            <p><apex:outputText style="font-weight: bold" value="{!formExecution.Description__c}"></apex:outputText></p>
+                        </div>
+                        <div class="reference-field hidden-xs">
+                            <p>{!$Label.FORM_Execution_Number}:&nbsp;<apex:outputText style="font-weight: bold" value="{!formExecution.Name}"></apex:outputText></p>
+                            <p>{!$Label.FORM_Execution_Executed_By}:&nbsp;<apex:outputText style="font-weight: bold" value="{!$User.FirstName} {!$User.LastName}"></apex:outputText></p>
+                            <p>{!$Label.FORM_Execution_Status}: &nbsp;<apex:outputText style="font-weight: bold" value="{!formExecution.Execution_Status__c}"></apex:outputText></p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </apex:outputPanel>
+        </apex:define>
+        <apex:define name="body">
+            <apex:outputPanel id="formExecution" layout="block" styleClass="panel-body">
+                <div class="row">
+                    <apex:outputPanel id="submitMessage" layout="block" styleClass="row">
+                        <apex:outputPanel rendered="{!isFormSubmitted}">
+                            <div class="col-md-12">
+                                <center>{!$Label.FORM_Execution_Submit_Message}</center>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                    <apex:outputPanel id="cancelMessage" layout="block" styleClass="row">
+                        <apex:outputPanel rendered="{!isFormCancelled}">
+                            <div class="col-md-12">
+                                <center>{!$Label.FORM_Execution_Cancel_Message}</center>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                    <!-- The Form -->
+                    <apex:form rendered="{!(!isFormSubmitted && !isFormCancelled)}">
+                        <apex:actionFunction name="cancelForm" action="{!cancelForm}" reRender="formExecution, cancelMessage, formHeader, formFooter" />
+                        <apex:actionFunction name="submitForm" action="{!submitForm}" reRender="formExecution, submitMessage, formHeader, formFooter" />
+
+                        <!-- List of form execution questions -->
+                        <apex:variable var="i" value="{!1}" />
+                        <div class="col-md-12">
+                            <!-- Move question answer divs into a separate component and call this component within an appropriate 6 column or 12 column div based on two column flag -->
+                            <apex:outputPanel id="layoutSingleColumn" rendered="{!!formTemplate.Two_Column_Layout__c}" layout="block" styleClass="question-layout">
+                                <apex:repeat value="{!formExecutionQuestionAnswers}" var="questionAnswer" >
+                                    <c:FORM_QuestionAnswer index="{!i}" question="{!questionAnswer}"  selectOptions="{!formTemplateSelectOptionsMap[questionAnswer.Source_Question__c]}">
+                                    </c:FORM_QuestionAnswer>
+                                    <apex:variable var="i" value="{!i+1}"/>
+                                </apex:repeat>
+                            </apex:outputPanel>
+                            <apex:outputPanel id="layoutTwoColumn" rendered="{!formTemplate.Two_Column_Layout__c}" layout="block" styleClass="question-layout">
+                                <apex:repeat value="{!formExecutionQuestionAnswersMap}" var="questionAnswer" >
+                                    <apex:variable var="j" value="{!0}" />
+                                    <apex:repeat value="{!questionAnswer}" var="qn">
+                                        <!-- Render open <div class="row"> when j==0, start of the two column block for two questions -->
+                                        <apex:outputText value="{!twoColumnOpenDiv}" rendered="{! j == 0 }" escape="false" />
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <c:FORM_QuestionAnswer index="{!i}" question="{!qn}"  selectOptions="{!formTemplateSelectOptionsMap[qn.Source_Question__c]}">
+                                                </c:FORM_QuestionAnswer>
+                                            </div>
+                                        <!-- Render close </div> when j==1, end of the two column block for two questions -->
+                                        <apex:outputText value="{!twoColumnCloseDiv}" rendered="{! j == 1 }" escape="false" />
+                                        <apex:variable var="j" value="{!j+1}" />
+                                        <apex:variable var="i" value="{!i+1}" />
+                                    </apex:repeat>
+                                </apex:repeat>
+                            </apex:outputPanel>
+                        </div>
+                    </apex:form>
+                </div>
+            </apex:outputPanel>
+        </apex:define>
+        <apex:define name="footer">
+            <apex:outputPanel rendered="{!(!isFormSubmitted && !isFormCancelled)}" layout="block" styleClass="panel-footer">
+                <!-- the submit buttons and save message -->
+                <div class="row">
+                    <apex:outputPanel style="align:center">
+                        <!-- message displayed when form is completed -->
+                        <div class="row">
+                            <div id="saveSuccessMessage" style="display:none; margin-bottom: 10px" class="col-md-12">
+                                <center>{!$Label.FORM_Execution_Save_Message}</center>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    <div class="col-md-4 col-sm-3 col-xs-8">
+						<button class="btn btn-danger" id="cancel-btn">Cancel</button>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-4 pull-right text-right">
+                        <button class="btn btn-default" id="save-btn">Save</button>
+                        &nbsp;
+                        <button class="btn btn-primary submit" id="submit-btn">Submit</button>           
+                    </div>
+                </div>
+            </apex:outputPanel>
+        </apex:define>
+        <apex:define name="scripts">
+            <script type="text/javascript">
+                var $j = jQuery.noConflict();
+                var noSubmit = false;
+
+                $j(document).ready(function() {
+
+                    /**
+                     * Skip To Questions handlers
+                     */
+                    var disabledControls = {};
+
+                    var disableInterveningControls = function(source, dest) {
+                        var start = false;
+                        //Disable all intervening question inputs/selects
+                        $j(".question-layout").find(".answer.row").each(function() {
+                            if ($j(this).attr("id") == source) {
+                                start = true;
+                                //we just found our source control
+                                //so continue the next iteration
+                                return true;
+                            }
+                            //Only disable controls that are between the source question and the destination question
+                            if (start) {
+                                if ($j(this).attr("id") == dest) {
+                                    //This is our skip to question, not disabling this
+                                    start = false;
+                                    return false;
+                                } else {
+                                    disabledControls[source].push($j(this).attr("id"));
+                                    $j(".form-control", this).prop('disabled', 'disabled');
+                                }
+                            }
+                        });
+                    };
+
+                    <apex:repeat value="{!answerOptionsSkipToQuestionsMap}" var="questionId">
+                    //Source question div, look for the picklist and bind on change event
+                    $j("#{!questionId} select").on("change", function() {
+                        var questionId = "{!questionId}";
+                        //Keep track of any controls disabled by this question ID
+                        disabledControls[questionId] = disabledControls[questionId] || [];
+                        //Re-enable any disabled controls that were disabled by this question ID
+                        //to handle the case if there are more skip to associated with other answers in this question
+                        //and the user selects another option which should re-enable some control
+                        disabledControls[questionId] = $j.map(disabledControls[questionId], function(value) {
+                            $j("#"+value+" .form-control").prop('disabled', false);
+                            //let's also trim this array one at a time
+                            return null;
+                        });
+
+                        //If we have just selected the default choice, skip any further processing
+                        if ($j(this).val() == '{!$Label.FORM_Execution_Picklist_Default}') {
+                            return;
+                        }
+
+                        //List all answer options that have a skip to question associated
+                        <apex:repeat value="{!answerOptionsSkipToQuestionsMap[questionId]}" var="answerOptionId">
+                        if ($j(this).val() == "{!answerOptionId}") {
+                            //Found a match
+                            disableInterveningControls("{!questionId}", "{!answerOptionsSkipToQuestionsMap[questionId][answerOptionId]}");
+                            $j("#{!answerOptionsSkipToQuestionsMap[questionId][answerOptionId]} .form-control").focus();
+                        }
+
+                        </apex:repeat>
+                    });
+
+                    //Handle saved values, immediately trigger change to disable any relevant questions
+                    $j("#{!questionId} select").trigger("change");
+                    </apex:repeat>
+                });
+
+                // save the answer entered using VF remoting
+                function saveValue(answer,question) {
+                    //alert('answer is: ' + answer + 'questionId is: ' + question);
+                    Visualforce.remoting.Manager.invokeAction ( '{!$RemoteAction.FORM_FormExecutionPageController.remoteSaveAnswer}',
+                                                                answer, question, handleResult);
+                }
+
+                function handleResult(result, event) {
+                    //alert("Did the save work?" + result);
+                }
+            </script>
+        </apex:define>
+    </apex:composition>
+</apex:page>

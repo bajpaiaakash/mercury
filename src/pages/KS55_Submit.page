@@ -1,0 +1,14 @@
+<apex:page standardController="KS55_Contact_Request__c" extensions="KS55_Submit" action="{!SubmitForApproval}">
+   <apex:form >
+      <apex:pageMessages escape="false"/>
+      <br/> &nbsp;  &nbsp;  &nbsp;  
+      <apex:commandButton value="Go Back" action="{!URLFOR('/' + $CurrentPage.parameters.Id, null)}" immediate="true"/>
+      <apex:inputHidden value="{!KS55_Contact_Request__c.Account_Name__r.Id}"/>
+      <apex:inputHidden value="{!KS55_Contact_Request__c.Account_Name__r.Documentation_Date_Expire__c}"/>
+      <apex:inputHidden value="{!KS55_Contact_Request__c.Account_Name__r.Documentation_Date_Signed__c}"/>
+      <apex:inputHidden value="{!KS55_Contact_Request__c.Account_Name__r.Signed_Documentation_In_Place__c}"/>
+      <apex:inputHidden value="{!KS55_Contact_Request__c.Account_Name__r.Status__c}"/>
+      <apex:inputHidden value="{!KS55_Contact_Request__c.Status__c}"/>
+      <apex:inputHidden value="{!KS55_Contact_Request__c.Account_Name__r.name}"/>
+   </apex:form>
+</apex:page>

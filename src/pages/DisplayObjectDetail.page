@@ -1,0 +1,78 @@
+<apex:page controller="DisplayObjectDetail" readOnly="true">
+	<apex:pageBlock title="Objects Included in Customer Meeting Services Permission Set">
+		<apex:pageBlockTable value="{!ObjList}" var="obj">
+			<apex:column headerValue="Label">
+				<apex:repeat value="{!obj.label}" var="label">
+					{!label}
+				</apex:repeat>
+			</apex:column>
+			<apex:column headerValue="API Name">
+				<apex:repeat value="{!obj.apiName}" var="apiName">
+					{!apiName}
+				</apex:repeat>
+			</apex:column>
+			<apex:column headerValue="Accessible to {!$User.FirstName}">
+				<apex:repeat value="{!obj.accessible}" var="access">
+					{!access}
+				</apex:repeat>
+			</apex:column>
+		</apex:pageBlockTable>
+	</apex:pageBlock>
+	<apex:pageBlock title="Objects Not Saveable with API">
+		<apex:pageBlockTable value="{!CantSaveList}" var="cant">
+			<apex:column headerValue="Label">
+				<apex:repeat value="{!cant.label}" var="label">
+					{!label}
+				</apex:repeat>
+			</apex:column>
+			<apex:column headerValue="API Name">
+				<apex:repeat value="{!cant.apiName}" var="apiName">
+					{!apiName}
+				</apex:repeat>
+			</apex:column>
+			<apex:column headerValue="Accessible to {!$User.FirstName}">
+				<apex:repeat value="{!cant.accessible}" var="access">
+					{!access}
+				</apex:repeat>
+			</apex:column>
+		</apex:pageBlockTable>
+	</apex:pageBlock>
+	<apex:pageBlock title="Feed, Share and History Objects">
+		<apex:pageBlockTable value="{!OtherList}" var="other">
+			<apex:column headerValue="Label">
+				<apex:repeat value="{!other.label}" var="label">
+					{!label}
+				</apex:repeat>
+			</apex:column>
+			<apex:column headerValue="API Name">
+				<apex:repeat value="{!other.apiName}" var="apiName">
+					{!apiName}
+				</apex:repeat>
+			</apex:column>
+			<apex:column headerValue="Accessible to {!$User.FirstName}">
+				<apex:repeat value="{!other.accessible}" var="access">
+					{!access}
+				</apex:repeat>
+			</apex:column>
+		</apex:pageBlockTable>
+	</apex:pageBlock>
+	<apex:pageBlock title="Custom Settings">
+		<apex:pageBlockTable value="{!CustomSettingList}" var="cs">
+			<apex:column headerValue="Label">
+				<apex:repeat value="{!cs.label}" var="label">
+					{!label}
+				</apex:repeat>
+			</apex:column>
+			<apex:column headerValue="API Name">
+				<apex:repeat value="{!cs.apiName}" var="apiName">
+					{!apiName}
+				</apex:repeat>
+			</apex:column>
+			<apex:column headerValue="Accessible to {!$User.FirstName}">
+				<apex:repeat value="{!cs.accessible}" var="access">
+					{!access}
+				</apex:repeat>
+			</apex:column>
+		</apex:pageBlockTable>
+	</apex:pageBlock>
+</apex:page>

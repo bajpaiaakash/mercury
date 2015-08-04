@@ -1,0 +1,2 @@
+<apex:page standardController="PANG_Request__c" extensions="PANG_AutoPopulateFieldsOnRequest" action="{!autoPopulateFieldsOnRequest}" >
+</apex:page>

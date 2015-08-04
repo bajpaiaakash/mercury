@@ -1,0 +1,18 @@
+<apex:component >
+        <footer id="footer" class="dark">
+
+             <div id="copyrights">
+
+                <div class="container clearfix">
+
+                    <div class="col_half">
+                        &copy; 2015 Eli Lilly &amp; Company<br />
+                        <div class="copyright-links"><apex:outputLink value="{! $Page.LAPD_Launchpad}">Launchpad v2.0.3</apex:outputLink> / <apex:outputLink value="{! $Page.LAPD_Help}"><div>Contact</div></apex:outputLink></div>
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </footer>
+</apex:component>

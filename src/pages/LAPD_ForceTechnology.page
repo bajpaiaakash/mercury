@@ -1,0 +1,219 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Force.com Technology</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_full">
+                        <div class="tabs clearfix" id="tab-3">
+
+                            <ul class="tab-nav tab-nav2 clearfix">
+                                <li><a href="#tabs-1">Why Force.com?</a></li>
+                                <li><a href="#tabs-2">Org Strategy</a></li>
+                                <li><a href="#tabs-3">GSO Architecture</a></li>
+                                <li><a href="#tabs-4">GSO Capabilities</a></li>
+                                <li><a href="#tabs-5">Positioning</a></li>
+                                <li><a href="#tabs-6">Information Classification &amp; GxP</a></li>
+                            </ul>
+
+                            <div class="tab-container">
+
+                                <div class="tab-content clearfix" id="tabs-1">                                      
+                                    <div class="col_three_fifth">
+                                        <p>On the surface, Force.com (owned by Salesforce.com) may seem like an odd choice for an Enterprise Application Platform, why not Microsoft or Google?</p>
+
+                                        <blockquote>
+                                            <p>"Continuing innovation over the years produced an offering with a broad portfolio of capabilities to create applications that are mobile, social and highly scalable, with identity management, and some flow control, portal and big data capabilities. The platform is open for interoperability via multiple classes of APIs, including REST, SOAP, streaming and batch. Most recently, the vendor introduced Salesforce1 Lightning, a new, mobile­first composite application development platform to advance the agility, productivity and user­centricity of its platform."</p>
+                                            <footer>Gartner (2015 MQ for Enterprise aPaaS)</footer>
+                                        </blockquote>
+
+                                        <p>During the Lilly evaluation we identified six key areas that help answer the question "Why Force.com?". Reviewed individually, each area could easily be challenged, however when understood as a whole the Salesforce.com value proposition becomes very compelling.</p>
+                                    </div>
+                                    <div class="col_two_fifth col_last">    
+                                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcetechnology/paasmq.jpg')}" alt="Gartner PaaS MQ" />
+                                    </div>
+                                    
+                                    <div class="line"></div>
+
+                                    <h4>1. API-Centric Architecture</h4>
+                                     
+                                    <p>Salesforce.com was a pioneer in API-Centric Architecture, meaning every Force.com feature and capability has a corresponding API, reducing "lock in" and enabling massive flexibility for developers.</p>
+                                    <p>API-Centric design is the cornerstone of what is widely accepted as the next iteration of business development, where having a well-developed API is poised to be the way in which business relationships are established and maintained in a online, 24/7 digital economy (<a href="http://apievangelist.com/" target="_blank">apievangelist.com</a>). This is especially true in a world where everything is connected (people, devices, apps, data, etc.)</p>
+
+                                    <h4>2. Rapid Application Development</h4>
+                                     
+                                    <p>Force.com is a true enterprise Platform as a Service (PaaS), which means your developers can focus on creating amazing applications, instead of worrying about the infrastructure, operating system or middleware.</p>
+                                    <p>Any application built on the Force.com PaaS is elastically scalable, secure and compliant, thanks to their industry leading multi-tenant architecture, which handles approximately two billion transactions per day (<a href="http://trust.salesforce.com/" target="_blank">trust.salesforce.com</a>).</p>
+                                    <p>Force.com is the current (MAR-2015) Gartner Magic Quadrant Leader for Enterprise PaaS.</p>
+                                     
+                                    <h4>3. Declarative Development</h4>
+                                     
+                                    <p>Force.com is a declarative development platform, meaning anyone can create complex applications using clicks, not code. This enables the business (not IT) to directly contribute to the creation of applications. It's estimated that 80% of a Force.com application can be created using declarative development (the other 20% coming from code).</p>
+                                    <p>Don't worry if you're a true software developer, Force.com has you covered with powerful capabilities such as APEX (JAVA-like language), Visualforce, Mobile SDK and Heroku (which enables endless development opportunities).</p>
+                                     
+                                    <h4>4. Social Integration</h4>
+                                     
+                                    <p>It's clear that the future of collaboration is social. The "working out loud" revolution has already changed the consumer world and it's widely expected that business is next. Force.com is social at its core, leveraging a capability known as Chatter to drive collaboration and provide context to data.</p>
+                                     
+                                    <h4>5. End Point Agnostic (Mobile Optimized)</h4>
+                                     
+                                    <p>Thanks to the Lightning framework, all Force.com applications are end point agnostic, with no additional coding required. For example, if you open a Force.com application in the browser on a PC, you'll get served a user interface optimized for mouse and keyboard. However if you open the same application on a tablet or smartphone, the experience will instantly optimise for mobile. Essentially, develop once, use everywhere!</p>
+                                    <p>Built using Lightining, the Salesforce1 Mobile App delivers a native experience to iOS, Android and Windows Phone. This, alongside the powerful Mobile SDK and Wear Developer Pack, guarantees you can build the best customer experience, regardless of the end point.</p>
+                                     
+                                    <h4>6. Aggressive Expansion</h4>
+                                     
+                                    <p>The AppExchange is a rapidly expanding marketplace (2000+ apps) where anyone can submit or install applications built on the Force.com PaaS (many for free). This covers everything from specific functionality (e.g. eSignatures, etc.) to full applications (e.g. ERP solutions, etc).</p>
+                                    <p>Salesforce.com are the market leaders in Sales, Service and Marketing, they are also industry pioneers with their multi-tenant, API-Centric Architecture. This, alongside their aggressive growth and acquisitions (Radian6, ExactTarget, Heroku, EdgeSpring, etc), proves that they are not resting on their laurels.</p>
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-2">
+                                    <p>A fundamental part of the Force.com platform is an “organisation” or “org”.</p>
+ 
+                                    <p>At a high level, a Force.com org is a logical instance of data and metadata for a set of users. An org is bound by both capacity limits (number of users and storage) and execution computing resources (query sizes and API limits). These limits depend on your agreement with Salesforce.com and/or your license type.</p>
+                                     
+                                    <p>As part of the Force.com Enterprise Agreement we have the following limits:</p>
+                                    
+                                    <div class="margin-list">
+                                        <li><strong>Platform Licenses:</strong> 49,076</li>
+                                        <li><strong>Floating Platform Licenses:</strong> 120,000</li>
+                                        <li><strong>Data Storage Limit:</strong> 5.6TB</li>
+                                        <li><strong>File Storage Limit:</strong> 96.2TB</li>
+                                        <li><strong>Max API Requests:</strong> 245,800,000 per day</li>
+                                    </div>
+                                     
+                                    <p>Every user working on the Force.com platform will do so inside an org.</p>
+
+                                    <h4>Lilly Force.com Org Overview:</h4>
+                                    
+                                    <div class="col_two_fifth">    
+                                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcetechnology/orgstrategy.jpg')}" alt="Org Strategy" />
+                                    </div>
+
+                                    <div class="col_three_fifth col_last">
+                                        <p>The Global Services Org (GSO) Architecture is followed across all Cirrus owned environments.</p>
+
+                                        <p>The Global Services Org (GSO1) is the primary enterprise environment for Lilly, covering all applications and services including quality critical and validated. Only approved vendors can develop for the GSO.</p>
+
+                                        <p>The Citizen Developer Org (GSO2) is focused on “Speed to Value”, driving non-quality critical and non-validated applications and services developed by Lilly internal teams.</p>
+
+                                        <p>The Patient Services Org (GSO3) is focused on “Patient Services” and is the highest security environment. Only approved vendors can develop for the GSO3.</p>
+
+                                        <div class="margin-list">
+                                            <li><strong>GSO1</strong> - Default Enterprise Environment</li>
+                                            <li><strong>GSO2</strong> - Citizen Focused</li>
+                                            <li><strong>GSO3</strong> - Patient Focused</li>
+                                        </div>
+                                    </div>     
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-3">
+                                    <div class="col_full bottommargin">
+                                        <p>The Lilly Force.com Architecture (covering security, data governance, integrations, etc.) is known as the "Global Services Org (GSO) Architecture". As a result every org managed by Cirrus will have the codename "GSO", for example GSO1, GSO2, GSO3, etc.</p>
+                                    </div>
+
+                                    <div class="col_full bottommargin hidden-xs">
+                                        <h4>GSO Logical Architecture Overview:</h4>
+                                        <div class="divcenter center">
+                                            <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcetechnology/gsoarchitecture.jpg')}" alt="GSO Architecture" width="75%" />
+                                        </div>
+                                    </div>
+
+                                    <h4>GSO Architecture Value Proposition:</h4>
+
+                                    <p><strong>Capability Roadmap:</strong> The GSO is continuously improving through regular releases and the Force.com three release roadmap. All releases are seamless (managed by DevOps) and new features are available to all developers and existing applications instantly.</p>
+
+                                    <p><strong>DevOps:</strong> Development in the GSO follows an agile methodology, with a application called Mission Control facilitating the end-to-end process. Development leverages high levels of automation via Continuous Integration techniques (DevOps Culture).</p>
+
+                                    <p><strong>Integrations:</strong> The GSO is an API-Centric Architecture, meaning that every feature and capability can be accessed via RESTful web services. More complicated integration requirements are managed by a number of supported ETL integration services (e.g. Informatica).</p>
+
+                                    <p><strong>Data:</strong> A number of master data sources have be pre-positioned in the GSO, providing native access to popular data (e.g. Employee, Customer, Product). These data sources are automatically synchronised and can be easily referenced or extended for custom development purposes.</p>
+
+                                    <p><strong>Shared Services (AppExchange):</strong> To simplify development, the GSO includes a number of reusable services. These cover custom built applications (e.g. Customer Search Tool) and thousands of packages found on the Force.com AppExchange.</p>
+
+                                    <p><strong>Security:</strong> Security is a core part of the GSO, which includes a suite if identity services (Onboarding, Authentication, Authorisation and Accounting), as well as a robust multi-tenant security model that is “Protect Lilly” approved for Red Data.</p>
+
+                                    <p><strong>Force.com:</strong> The industry leading PaaS; instantly scalable, social enabled and mobile optimized.</p>
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-4">
+                                    <p>The Global Services Org (GSO) Architecture includes a suite of foundational capabilities to help simplify development, reduce costs through reuse and drive speed to value.</p>
+
+                                    <h4>GSO Architecture Capabilities:</h4>
+
+                                    <p><strong>User Management:</strong> All user access (profiles, permission sets, etc) will be managed via a centralised enterprise capability delivered by SailPoint IIQ, which helps guarantee that the GSO remains secure and controlled. For example, if a user changes roles or is off-boarded, their access permissions will automatically be updated in the GSO. As an application developer you don't need to do anything to enable this capability, it's available straight out of the box!</p>
+
+                                    <p><strong>User Authentication:</strong> All user authentication will be managed via Lilly Single Sign-On (SSO). Therefore any application built in the GSO will automatically leverage SSO for web and mobile access, no additional setup or configuration is required!</p>
+
+                                    <p><strong>Standard Integration Services and Data:</strong> One of the main challenges with any application development is gaining access to data (often hosted in Lilly). The GSO has a number of standard integration services, covering everything from batch to real-time. It also has pre-positioned data, that any application can instantly leverage (no new integrations required). For example, the GSO already has access to Employee data, Customer Master, Product Master, SAP, etc. The list of re-usable integrated services and data will continue to grow as more applications get developed, with Box, SharePoint, ServiceNow and Documentum already on the roadmap!</p>
+
+                                    <p><strong>Standard Reusable Packages:</strong> The GSO has a suite of re-usable components, some will be custom applications written by Lilly (for example, the Customer Search Tool), while others will be installed from the AppExchange. The AppExchange has thousands of applications available that can be installed on the platform with a few simple clicks! A great example of an AppExchange application that is already installed is DocuSign, which enables eSignatures for Mercury. As DocuSign is connected to the platform (not specifically Mercury) it can be re-used by other Lilly Force.com applications.</p>
+
+                                    <p><strong>Mobile Optimised (Salesforce1):</strong> Thanks to the Aura framework, all Force.com applications are end point agnostic, with no additional coding required. For example, if you open a Force.com application in the browser on a PC, you'll get served a user interface optimised for mouse and keyboard. However if you open the same application on a tablet or smartphone, the experience will instantly optimise for mobile. Essentially, develop once, use everywhere!</p>
+
+                                    <p><strong>Social Enabled (Chatter):</strong> Alongside mobile optimisation, Force.com is social at its core, leveraging a capability known as Chatter to drive collaboration and provide context to data. The "working out loud" revolution has already changed the consumer world and it's widely expected that business is next!</p>
+
+                                    <p><strong>Open APIs:</strong> Salesforce.com was a pioneer in API-Centric Architecture, meaning every Force.com feature and capability has a corresponding API, reducing "lock in" and enabling massive flexibility for developers. API-Centric design is the cornerstone of what is widely accepted as the next iteration of business development, where having a well-developed API is poised to be the way in which business relationships are established and maintained in a online, 24/7 digital economy (apievangelist.com). This is especially true in a world where everything is connected (people, devices, apps, data, etc).</p>
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-5">
+                                    <p>The Force.com PaaS is “not a silver bullet”. Its positioning is very specific and focused on a few key value propositions. To be successful it must be integrated into a broader IT eco-system. For example, Force.com is not designed to manage large quantities of unstructured data (e.g. video), therefore it must be integrated with another services such as Box and/or Kaltura.</p>
+                                    <div class="divcenter center">
+                                        <apex:image url="{!URLFOR($Resource.LAPD_ExtendedImages, 'extendedimages/forcetechnology/forcepositioning.jpg')}" alt="Force.com Positioning" width="95%" />
+                                    </div>
+                                </div>
+                                <div class="tab-content clearfix" id="tabs-6">
+                                    <h4>Information Classification</h4>
+                                    
+                                    <p>The following statement was discussed and approved with the Cirrus Steering Committee on 27-Feb-2015, and was approved for communication. The Steering Committee consisted of: Mike Meadows, John VandeWiele, Jen Oleksiew, Sue Gale, Rich Gargas, Chris Reed, Rich Grogut. This statement is considered effective, and will be reviewed and revised over time.</p>
+
+                                    <p>The Force.com platform that Cirrus provides has sufficiently developed the Global Services Org (GSO) Architecture to <strong>accept orange CCI</strong> and with proper risk discussions <strong>can also accept Red CCI</strong>. We already have application use cases that consume, store and transform information that has been classified as red CCI in production. We are not however ready to open this up without any guidance or controls, and these uses cases were approved because the appropriate risk assessment and controls were put in place.</p>
+                                     
+                                    <p><strong>However, it is very important that every use case with information classified as red, have the appropriate risk mitigation conversation to ensure the specific use case and scenario is acceptable, and appropriate controls are put in place.</strong></p>
+                                     
+                                    <p>Currently, the Cirrus Steering Committee is the governing body that needs to be informed of the use case, and to validate that the appropriate risk mitigations are in place. Before coming to the Cirrus Steering Committee you should also engage your area’s Information Security Liaison to help prepare for the discussion.</p>
+
+                                    <p>It is also important to note, that as the Information Classification framework is in continuous evolution as it matures, Cirrus will continue to partner and make further recommendations that will be implemented by our Force.com Security Roadmap. This will include integration into myAccess @ Lilly, advanced testing, security monitoring and potentially encryption services.</p>
+                                     
+                                    <p>For questions, please contact<apex:outputLink value="{! $Page.LAPD_CirrusTeam}"> Chris Reed</apex:outputLink> our Security Liason for force.com by Cirrus, or<apex:outputLink value="{! $Page.LAPD_CirrusTeam}"> Richard Grogut</apex:outputLink>.</p>
+                                    
+                                    <h4>GxP</h4>
+
+                                    <p>The Cirrus platforms (GSO1, GSO2) and methodology have not yet been sufficiently developed to support the requirements of highly regulated applications, such as those impacting Current Good Manufacturing Practice (cGMP) or critical applications impacting Good Clinical Practice (GCP). GCP will require some discussion prior completely excluding this and this can be done in collaboration with Quality.</p>
+
+                                    <p>Cirrus processes and support tools have been assessed by Computer Systems Quality Assurance (CSQA) and have been determined to be sufficient to support existing uses for Good Promotional Practices (GPP) and Lilly Quality Critical Systems.</p>
+
+                                    <p>Cirrus is not in a position to support highly regulated GMP or GCP (excluding certain cases) applications  at this point in time.  As a part of the Global Customer Support Program, the Cirrus team will continue to develop processes and controls to allow it to support highly regulated applications later in 2015.</p>
+
+                                    <p>No Apps targeting the existing Cirrus platforms (GSO1, GSO2) should plan to initiate development work on GMP or critical GCP projects until a second Self Inspection, planned for late 2015, has been completed and shows that the requirements for such systems can be supported.</p>
+
+                                    <p>If you have any questions or concerns, please reach out to your quality representative or<apex:outputLink value="{! $Page.LAPD_CirrusTeam}"> Stuart Gittings</apex:outputLink>.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

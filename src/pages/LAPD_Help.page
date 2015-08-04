@@ -1,0 +1,74 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Help</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_full nobottommargin clearfix">
+
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                                <div class="fbox-icon">
+                                    <a href="mailto:LaunchPad@lists.lilly.com"><i class="icon-mail"></i></a>
+                                </div>
+                                <h3>Email the Cirrus Team</h3>
+                            </div>
+                        </div>
+
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                                <div class="fbox-icon">
+                                    <a href="/chatter/groups/GroupProfilePage?g=0F9b0000000HdPo" target="_blank"><i class="icon-rss"></i></a>
+                                </div>
+                                <h3>Follow on Chatter</h3>
+                            </div>
+                        </div>
+
+                        <div class="col_one_third col_last">
+                            <div class="feature-box fbox-center fbox-bg fbox-plain">
+                                <div class="fbox-icon">
+                                    <a href="https://loop.lilly.com/groups/cirrus" target="_blank"><i class="icon-chat"></i></a>
+                                </div>
+                                <h3>Social on The Loop</h3>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="line hidden-xs"></div>
+
+                    <div class="col_full hidden-xs">
+                        <p>If you have any questions or concerns, please don't hesitate to post below - <strong>@Cirrus</strong>.</p> 
+                    </div>
+
+                    <div class="divcenter center hidden-xs">
+                        <apex:iframe src="{! $Page.LAPD_ChatterHelp}" frameborder="0" scrolling="1" />
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

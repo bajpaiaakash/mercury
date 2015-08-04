@@ -1,0 +1,102 @@
+<apex:component controller="QDUX_SearchPageResultController" allowDml="true">
+    
+    
+	<apex:attribute name="componentType" description="...." type="String" required="true" assignTo="{!component}"/>
+	
+    <apex:form >
+        
+        <apex:actionFunction name="{!componentType}" action="{!init}" reRender="vvSearchResult, pageMesssages" status="myStatus" oncomplete="myFunction()"/>
+        <apex:actionStatus id="myStatus"  >
+            
+            <apex:facet name="start">
+                <apex:outputText >
+                    Retrieving {!SUBSTITUTE(componentType, '_', ' ')} &nbsp;
+                    <apex:image styleClass="imgAlignMiddle" value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/spinner-gif-red.gif')}"/>
+                </apex:outputText>
+            </apex:facet>
+            <apex:facet name="stop">
+            </apex:facet>
+            
+        </apex:actionStatus>
+        <apex:outputPanel id="vvSearchResult" >
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:outputPanel rendered="{!resultList.size >0}">
+                <div class="searchResultBlock">
+                    <span class="searchResultHeader">
+                        {!SUBSTITUTE(componentType, '_', ' ')}: Search Results
+                    </span>  
+                    
+                    <table id="vvResult{!componentType}" class="display">
+                        <thead>
+                            <tr>
+                                <th>Order</th>
+                                <th>Doc Number</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th>Sub Type</th>
+                                <th>Classification</th>
+                                <th>Status</th>
+                                
+                                <!-- OUTPUT PANEL FOR QUALITY DOCS ONLY -->
+                                <apex:outputPanel rendered="{!ComponentType == 'Quality Docs'}">
+                                    <th>Audience</th>
+                                    <th>Record Series Code </th>
+                                </apex:outputPanel>
+                                <th>Effective Date</th>
+                                <th>Approved Date</th>
+                                <th>Released Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:variable value="{!0}" var="v1"/>
+                            <apex:repeat value="{!resultList}" var="r">
+                                <tr>
+                                    <td>
+                                        <apex:variable var="v1" value="{!v1 + 1}"/> {!V1}
+                                    </td>
+                                    <td> 
+                                        <a href="{!urlprefix}{!r.veevaId}" target="_blank">
+                                            {!r.document_number}
+                                        </a>
+                                    </td>
+                                    <td>{!r.docName}</td>
+                                    <td>{!r.docDescription}</td>
+                                    <td>{!r.Type}</td>
+                                    <td>{!r.SubType}</td>
+                                    <td>{!r.Classification}</td>
+                                    <td>{!r.Status}</td>
+                                    <apex:outputPanel rendered="{!ComponentType == 'Quality Docs'}">
+                                        <td>{!Substitute(
+                                            Substitute(r.strAudience,'(', ''),
+                                            ')', '')}
+                                        </td>
+                                        <td>{!r.record_series_code} </td>
+                                    </apex:outputPanel>
+                                    <td>
+                                        <apex:outputText value="{0,date,MM/dd/yyyy}"> 
+                                            <apex:param value="{!r.effectiveDate}" /> 
+                                        </apex:outputText>
+                                    </td>
+                                    <td><apex:outputText value="{0,date,MM/dd/yyyy}"> 
+                                        <apex:param value="{!r.approvedDate}" /> 
+                                        </apex:outputText>
+                                    </td>
+                                    <td><apex:outputText value="{0,date,MM/dd/yyyy}"> 
+                                        <apex:param value="{!r.released_date}" /> 
+                                        </apex:outputText>
+                                    </td>
+                                    
+                                </tr>
+                            </apex:repeat>
+                            
+                            
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+    
+</apex:component>

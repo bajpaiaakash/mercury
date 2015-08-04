@@ -1,0 +1,121 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false">
+
+<apex:composition template="LAPD_Template">
+
+    <apex:define name="main">
+
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>Force.com Developer Guidelines</h1>
+            </div>
+        
+        </section>
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div class="col_full">
+
+                        <p>Before starting development on Force.com please download and review the following documents. These documents describe the GSO Architecture standards, for example: Namespacing, Security Model, etc.</p>
+
+                        <div class="divider divider-short divider-border divider-center"><i class="icon-code"></i></div>
+
+                        <div class="divcenter center clearfix">
+                            <a href="/sfc/p/b0000000Z7IN/a/b0000000TPiG/3xdVw42aDl6G6NgI5vKPMZV4MR.wix8HlX8z91kN7WQ" target="_blank" class="button button-desc"><div>Download<span>GSO Developer Guidelines</span></div></a>
+                            <a href="/sfc/p/b0000000Z7IN/a/b0000000TPiL/Y772QT.woj2PMK1S8kl92EgRVwJjthVL0ea65pHVdFk" target="_blank" class="button button-desc"><div>Download<span>GSO Permission Guide</span></div></a>
+                            <a href="/sfc/p/b0000000Z7IN/a/b0000000TPiQ/jZt14xwdLJNzWJY3gbAiH_g8WxzghhZF0h1HqnZkV7I" target="_blank" class="button button-desc"><div>Download<span>GSO Security Overview</span></div></a>
+                        </div>
+
+                        <div class="divider divider-short divider-border divider-center"><i class="icon-code"></i></div>
+
+                        <h3>Getting Started</h3>
+
+                        <p>There are a number of different ways to develop applications on Force.com, ranging from declarative development (click’s not code) to APEX, an object oriented programming language similar to Java. Regardless of your development method, there are number of developer good practices and tools that will help set you up for success.</p>
+
+                        <p>The<apex:outputLink value="{! $Page.LAPD_ForceTechnology}"> Global Services Org (GSO)</apex:outputLink> is a shared environment. There are a number of advantages to being a shared environment, but this makes it especially important that all of our developers are “good citizens”.</p>
+
+                        <p>To enable our good citizenship, Cirrus created the GSO Design and Development Guidelines. Additionally there is a suite of recommended tools for your use as needed depending on your specific case.</p>
+                        
+                        <div class="line"></div>
+
+                        <h4>Integrated Development Environment (IDE)</h4>
+                         
+                        <p>An IDE is a software application that provides facilities to programmers for software development. This includes a source code editor, build automation tools, debugger and sometimes code completion features.</p>
+
+                        <p>There are two IDE tools that are available for use With Force.com:</p>
+
+                        <p><strong><a href="https://eclipse.org/" target="_blank">Eclipse</a></strong></p>
+
+                        <p>Is an IDE that is cross platform (Windows, Mac, Linux), has a rich community and supports thousands of plugins for many programming languages. Salesforce.com has an Eclipse plugin specifically for Force.com development.  Additionally, Eclipse has a comprehensive reference library for beginners and experienced developers. It can be downloaded for free from "<a href="https://developer.salesforce.com/page/Force.com_IDE_Installation" target="_blank">developer.force.com</a>".</p>
+
+                        <p><strong><a href="http://mavensmate.com/" target="_blank">MavensMate</a></strong></p>
+
+                        <p>Is an open source Force.com IDE developed by one of our approved vendors (Mavens). It’s integration with the popular text editor Sublime text is quickly propelling it to becoming the community standard for Force.com development. Using MavensMate is suggested for developing a mid-complexity applications (APEX, Visualforce, etc.)</p>
+
+                        <div class="line"></div>
+                         
+                        <h4>Source Code Management (SCM)</h4>
+                         
+                        <p>A common misunderstanding when developing on Force.com is that you don’t need source code management. The reason that I often hear is that “I have no code, it’s all declarative”. It is important to remember that Force.com is a metadata driven architecture, therefore metadata describes the data structures in your environment and the declarative functionality implemented on the platform (e.g. your application).</p>
+
+                        <p>This means, it is still import to use source code management for version control, even if it is just tracking the metadata changes.</p>
+
+                        <p><strong><a href="http://git-scm.com/" target="_blank">Git Distributed Source Control Management</a></strong></p>
+
+                        <p>Git is a distributed Source Code Management system with an emphasis on speed and data integrity. The Cirrus Git environment is the cloud-based services BitBucket. This is where all projects developing on the GSO store their source code (e.g. metadata). This enables the Cirrus team to track all development and tag code for releases.</p>
+                        
+                        <div class="line"></div>
+
+                        <h4>Continuous Integration (CI)</h4>
+                         
+                        <p>Continuous integration is the practice of merging all developer code with a shared mainline on a regular cadence. It enables automated testing and reporting on isolated changes in a larger code base allowing developers to rapidly find and solve defects.</p>
+
+                        <p>CI facilitates the Agile development process of constantly testing your code to ensure that it doesn’t “break the build”.</p>
+                        
+                        <p><strong><a href="https://jenkins-ci.org/" target="_blank">Jenkins</a></strong></p>
+
+                        <p>Cirrus leverages Jenkins, an open-source continues integration tool. The Jenkins environment is a cloud-based service called CloudBees. The Cirrus release team uses CloudBees to facilitate the code merge and testing process when moving code between environments (pre-production, production, etc.)</p>
+
+                        <p>All development teams are encouraged to leverage CloudBees to drive CI within their own project development. This helps ensure that all code handed-over to Cirrus has been thoroughly tested and reduces the risk of issues when merging with the larger (shared) code base.</p>
+
+                        <div class="line"></div>
+                         
+                        <h4>Development Environments</h4>
+                         
+                        <p>Every production Force.com environment comes with a suite of development sandboxes. These sandboxes can be created ad-hoc and are a direct replica of production but do not include any data. After a sandbox is created, test data will need to be loaded either manually or via an integration tool (e.g. MuleSoft, Informatica, etc.)</p>
+                         
+                        <p>All development teams building for the GSO will be given three sandboxes:</p>
+                        
+                        <div class="margin-list">
+                            <li><strong>DEV</strong> = Main development environment.</li>
+                            <li><strong>CI</strong> = Continues integration merge / build test environment.</li>
+                            <li><strong>TEST</strong> = Formal user acceptance testing environment.</li>
+                        </div>
+
+                        <p>A traditional development pattern would be...</p>
+                         
+                        <strong><p>1. All development will occur in the DEV environment, leveraging an IDE (e.g. <a href="http://mavensmate.com/" target="_blank">MavensMate</a>) and source code management (e.g. <a href="https://bitbucket.org/">BitBucket</a>).</p>
+                        <p>2. The project teams will then build their code (multiple times per day) into the CI environment leveraging continues integration (e.g. <a href="https://www.cloudbees.com/">CloudBees</a>). This will confirm that their development does not break the build.</p>
+                        <p>3. Finally, any code positioned for a release to the GSO will be moved into the TEST environment (leveraging CloudBees), where formal testing (including UAT) can occur.</p></strong>
+                         
+                        <p>The entire development process is owed and managed by the development team, offering complete autonomy.</p>
+
+                    </div>
+
+                </div>
+
+                <c:LAPD_BannerChatter />
+
+            </div>
+
+        </section>
+
+    </apex:define>
+    
+</apex:composition>
+
+</apex:page>

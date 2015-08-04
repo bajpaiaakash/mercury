@@ -1,0 +1,2 @@
+<apex:page standardController="GLBL_Form_Template__c" extensions="FORM_ExecutorSharingPageController" action="{!init}">
+</apex:page>

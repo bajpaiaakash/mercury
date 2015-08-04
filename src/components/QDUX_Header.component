@@ -1,0 +1,22 @@
+<apex:component allowDML="true"> 
+    <div style="width:100%; height:60px; background-color: #566284;">
+        <apex:image value="{!URLFOR($Resource.QDUXIcons, 'QDUXIcons/White/LillyLogo_White.png')}" height="70"/>
+        
+        <div style="float:right; height:100%; width:300px; background-color:#566284;" >
+            <div style="  padding: 15px; font-size: 18px;  font-family: Arial Narrow; color: white;">
+                <apex:outputLink style="text-decoration:none;" value="/home/home.jsp">
+                    <span style="color:white;" class="lillyFont">
+                        Welcome {!$User.FirstName} {!$User.LastName}
+                    </span>
+                </apex:outputLink>
+            </div>
+       
+        </div>
+    </div>
+    
+    <c:QDUX_Banner ></c:QDUX_Banner>
+    <c:QDUX_MyWorkBanner ></c:QDUX_MyWorkBanner>
+    
+    
+
+</apex:component>

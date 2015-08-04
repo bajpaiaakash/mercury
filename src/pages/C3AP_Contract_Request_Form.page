@@ -1,0 +1,188 @@
+<apex:page standardController="C3AP_Contract_Request__c" extensions="C3APContractForm,C3APAmendContractRequest" id="pg1">
+  <apex:sectionHeader title="{!$Label.C3AP_Contract_Request_Form}"/> 
+  <apex:pageBlock mode="edit" id="pb1">
+  <apex:form id="Upload">
+    <p/>        
+
+<script type="text/javascript">
+    var s;
+    var cId;
+    function confirmSave (contractId,confirmationMessage){
+        cId = contractId;
+        s = confirm(confirmationMessage);      
+            if(s == true){
+                var x = Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.C3APAmendContractRequest.saveAmendedContract}',
+                contractId, 
+                function handleResult(result, event) {                  
+                }
+            );                  
+        }  
+    }
+    
+    function redirectAfterAmend(){
+        if(s == true){
+           document.getElementById("{!$Component.pg1.pb1.Upload.pbs1.sveBtn}").click();
+        }
+        else{
+            window.location.href = '/apex/C3AP_Contract_Request_Form?ContractId='+cId;
+        }
+    }
+     
+</script>
+    <apex:pageblockSection title="{!$Label.C3AP_Contract_Details}" columns="2" rendered="{!isReadOnly==true}" id="pbs1">
+        <apex:outputPanel style="text-align:center; width:200%" layout="block" id="op1">
+            <apex:commandButton action="{!cancel}" value="{!$Label.C3AP_Discard_Changes}" rendered="{!NOT(isAmendRequest)}"/>  &nbsp;   
+            <apex:commandButton rendered="{!AND(($User.Id==contractrequest.C3AP_ATC_Approver__c||$User.Id==contractrequest.C3AP_Legal_Approver__c|| isReminderDateEditable),NOT(isAmendRequest))}" action="{!save}" value="{!$Label.C3AP_Save_Contract_Request}" id="saveBtn" /> &nbsp;
+            <apex:commandButton action="{!save}" style="visibility:hidden;" id="sveBtn" /> 
+            <apex:actionRegion >
+                <apex:commandButton value="{!$Label.C3AP_One} {!$Label.C3AP_Contract_Attachments}" action="{!preUpload}" rendered="{!AND(NOT(renderUpload),OR(isReminderDateEditable,isAdmin), isReadOnly, isAmendRequest)}"/>  
+            </apex:actionRegion>
+            <apex:commandButton action="{!toIntroductory}" value="{!$Label.C3AP_Review_Introductory_Questions}" rendered="{!isAmendRequest}"/>
+            <apex:commandButton action="{!toLegal}" value="{!$Label.C3AP_Review_Legal_Questions}" rendered="{!isAmendRequest}"/>
+            <apex:commandButton value="{!$Label.C3AP_Save_Amendments}" onclick="confirmSave('{!contractRequest.Id}','{!JSENCODE($Label.C3AP_Amend_ATC_Approver)}');" rendered="{!isAmendRequest}" oncomplete="redirectAfterAmend()"/>                  
+        </apex:outputPanel> 
+    <br/>
+             <apex:pageMessages />        
+    <br/>         
+         <apex:outputField value="{!contractrequest.Name}"/>
+         <apex:outputField value="{!contractrequest.C3AP_ETP_ID__c}"/>       
+         <apex:outputField value="{!contractrequest.C3AP_Status__c}"/>          
+         <apex:outputField value="{!contractrequest.C3AP_ETP_Entity_Name__c}" />   
+         <apex:outputField value="{!contractrequest.ownerid}"/>                  
+         <apex:outputField value="{!contractrequest.C3AP_ETP_Contact_Name__c}" />    
+         <apex:outputField value="{!contractrequest.C3AP_Department__c}"/>                         
+         <apex:outputField value="{!contractrequest.C3AP_ETP_Contact_Number__c}"/> 
+         <apex:outputField value="{!contractrequest.C3AP_Contract_Template__c}"/>    
+         <apex:outputField value="{!contractrequest.C3AP_Commencement_Date__c}"/> 
+         <apex:outputField value="{!contractrequest.C3AP_Contract_Type__c}"/>                                 
+
+         <apex:inputField value="{!contractrequest.C3AP_Expiry_Date__c}" rendered="{!isExpiryDateEditable}"/> 
+         <apex:outputField value="{!contractrequest.C3AP_Expiry_Date__c}" rendered="{!NOT(isExpiryDateEditable)}"/>           
+         
+         <apex:outputField value="{!contractrequest.C3AP_Services__c}"/>
+         
+         <apex:inputField value="{!contractrequest.C3AP_Reminder_Date__c}" rendered="{!isReminderDateEditable}"/> 
+         <apex:outputField value="{!contractrequest.C3AP_Reminder_Date__c}" rendered="{!NOT(isReminderDateEditable)}"/>      
+     
+         
+         <apex:inputField value="{!contractrequest.C3AP_Other_Contract_Archival_System__c}"/>
+         
+     </apex:pageblockSection>
+
+    <apex:pageBlockSection id="Ap2" title="{!$Label.C3AP_Contract_Request_Approval}" rendered="{!AND((legalDone==true && isReadOnly == true),isAmendRequest)}" columns="1">         
+         <apex:outputField value="{!contractrequest.C3AP_ATC_Approver__c}" label="{!$Label.C3AP_ATC_Approver}"  rendered="{!AND(contractrequest.C3AP_ATC_Approval_Required__c,NOT(OR($User.Id==contractrequest.C3AP_ATC_Approver__c,AND(isAmendRequest,isContractInitiator))))}" />
+         <apex:inputField value="{!contractrequest.C3AP_ATC_Approver_ID__c}" label="{!$Label.C3AP_ATC_Approver}"  rendered="{!AND(contractrequest.C3AP_ATC_Approval_Required__c,OR($User.Id==contractrequest.C3AP_ATC_Approver__c,AND(isAmendRequest,isContractInitiator)))}" />         
+         <apex:outputField value="{!contractrequest.C3AP_Legal_Approver__c}" label="{!$Label.C3AP_Legal_Approver}" rendered="{!AND(contractrequest.C3AP_Legal_Approver_Required__c,NOT(OR(isAmendRequest,$User.Id==contractrequest.C3AP_Legal_Approver__c)))}"/> 
+         <apex:inputField value="{!contractrequest.C3AP_Legal_Approver_ID__c}" label="{!$Label.C3AP_Legal_Approver}"  rendered="{!AND(contractrequest.C3AP_Legal_Approver_Required__c,OR(isAmendRequest,$User.Id==contractrequest.C3AP_Legal_Approver__c))}" />                   
+         <apex:outputField value="{!contractrequest.C3AP_ATS_Approver_ID__c}" label="{!$Label.C3AP_ATS_Approver}" rendered="{!NOT(OR(isAmendRequest,isATSApprover))}" /> 
+         <apex:inputField value="{!contractrequest.C3AP_ATS_Approver_ID__c}" label="{!$Label.C3AP_ATS_Approver}" rendered="{!OR(isAmendRequest,isATSApprover)}" /> 
+    </apex:pageBlockSection>
+
+
+    
+    <apex:pageblockSection id="Det" title="{!$Label.C3AP_Contract_Details}" columns="2" rendered="{!isReadOnly==false}">
+
+    <apex:outputPanel style="text-align:center; width:200%" layout="block" >      
+         <apex:commandButton action="{!save}" value="{!$Label.C3AP_Save_Contract_Request}" /> &nbsp;
+         <apex:commandButton action="{!cancel}" value="{!$Label.C3AP_Discard_Changes}" />  &nbsp;                       
+    </apex:outputPanel>  
+          <br/>
+         <apex:pageMessages />                  
+         <br/>
+         <apex:inputField value="{!contractrequest.Name}"/>
+         <apex:inputField value="{!contractrequest.C3AP_ETP_ID__c}"/>      
+         <apex:outputField value="{!contractrequest.C3AP_Status__c}"/>          
+         <apex:inputField value="{!contractrequest.C3AP_ETP_Entity_Name__c}" required="true"/>                   
+         <apex:outputField value="{!contractrequest.ownerid}"/>           
+         <apex:inputField value="{!contractrequest.C3AP_ETP_Contact_Name__c}" required="true"/>                    
+         <apex:inputField value="{!contractrequest.C3AP_Department__c}" required="true"/>        
+         <apex:inputField value="{!contractrequest.C3AP_ETP_Contact_Number__c}"/>    
+         <apex:inputField value="{!contractrequest.C3AP_Contract_Template__c}" required="true"/>                         
+         <apex:inputField value="{!contractrequest.C3AP_Commencement_Date__c}" required="true" />          
+         
+
+         <apex:actionRegion >                                                      
+           <apex:outputPanel id="ctype" title="Contract Type">            
+           <label class="labelCol vfLabelColTextWrap" style="font-weight: bold;font-size: 91%;color: #4a4a56;display: block;float: left;margin-right: 8px;margin-left: 15.75%;" for="ct" id="ctLabel" >{!$Label.C3AP_Contract_Type}</label>  
+           <div class="requiredInput">
+           <div class="requiredBlock" style="background-color: #C00; position: absolute; left:36%; width: 3px; top: 1px; bottom: 1px"/>
+                <apex:inputField style="border-left-width:1px;border-top-width:1px;" value="{!contractrequest.C3AP_Contract_Type__c}" id="ct">
+                             <apex:actionSupport event="onchange" reRender="button"/>
+                </apex:inputField>
+           </div>
+           </apex:outputPanel>  
+        </apex:actionRegion>    
+         <apex:inputField value="{!contractrequest.C3AP_Expiry_Date__c}" />
+         <apex:inputField value="{!contractrequest.C3AP_Services__c}"/>  
+         <apex:inputField value="{!contractrequest.C3AP_Reminder_Date__c}"/>              
+         
+         <apex:inputField value="{!contractrequest.C3AP_Other_Contract_Archival_System__c}" />
+                       
+         <apex:outputPanel style="display:none;" >
+           <apex:inputField value="{!contractrequest.Affiliate__c}" />
+         </apex:outputPanel>  
+         <p/>   
+    </apex:pageblockSection>
+
+   
+    <apex:pageBlockSection id="Ap" title="{!$Label.C3AP_Contract_Request_Approval}" rendered="{!legalDone==true && isReadOnly==false}" columns="1"> 
+         <apex:outputText >{!$Label.C3AP_Approver_Guidance}<p/></apex:outputText> 
+         <apex:inputField value="{!contractrequest.C3AP_ATC_Approver_ID__c}"  rendered="{!contractrequest.C3AP_ATC_Approval_Required__c}" required="true"/>
+         <apex:inputField value="{!contractrequest.C3AP_Legal_Approver_ID__c}"  rendered="{!contractrequest.C3AP_Legal_Approver_Required__c}" required="true"/>  
+         <apex:inputField value="{!contractrequest.C3AP_ATS_Approver_ID__c}" required="true"/>  
+    </apex:pageBlockSection>
+
+
+    <apex:pageBlockSection title="{!$Label.C3AP_Contract_Attachments}" columns="1" rendered="{!renderUpload}" >     
+        
+        <apex:outputPanel layout="block" style="text-align:center;">
+            <apex:commandButton value="{!$Label.C3AP_Upload_and_Save}" action="{!upload}"/>
+            <apex:actionRegion >          
+                <apex:commandButton value="{!$Label.C3AP_Close_Upload}" action="{!closeUpload}" />           
+            </apex:actionRegion>
+        </apex:outputPanel>
+              
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="{!$Label.C3AP_File_for_Upload}" for="file"/>
+            <apex:inputFile value="{!forupload.body}" filename="{!forupload.Name}" title="{!$Label.C3AP_Choose}" />
+        </apex:pageBlockSectionItem>
+        
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="{!$Label.C3AP_Attachment_Type}" for="file"/>
+            <apex:outputpanel layout="block" styleClass="requiredInput">
+                <apex:outputpanel layout="block" styleClass="requiredBlock"/>
+                <apex:selectList value="{!attachmentType}" size="1" title="{!$Label.C3AP_Attachment_Type}">
+                    <apex:selectOptions value="{!AttachmentTypes}" />
+                </apex:selectList>
+            </apex:outputpanel>
+        </apex:pageBlockSectionItem>                          
+        <apex:inputField value="{!forupload.description}" style="width:90%" label="{!$Label.C3AP_Comments}"/>
+        <p/>
+    </apex:pageBlockSection>    
+   
+     
+    <apex:outputPanel style="text-align:center;" layout="block">      
+       <apex:commandButton value="{!$Label.C3AP_Get_Contract_Template}" action="{!getTemplate}" rendered="{!renderUpload==false && isReadOnly==false}" reRender="Download, Det, "/> &nbsp;   
+       <apex:actionRegion >               
+           <apex:commandButton value="{!$Label.C3AP_Two} {!$Label.C3AP_Contract_Attachments}" action="{!preUpload}" rendered="{!AND(NOT(renderUpload),OR(isReminderDateEditable,isAdmin), NOT(isReadOnly))}"/>  
+       </apex:actionRegion>  &nbsp;    
+       <apex:commandButton value="{!$Label.C3AP_Legal_Review}" action="{!toLegal}" rendered="{!NumberOfAttachments>0  && isReadOnly==false && NOT(RenderUpload)}"/>
+    </apex:outputPanel>
+    <p/>     
+     
+   </apex:form>  
+  </apex:pageBlock>  
+
+  <apex:pageBlock id="Download" mode="edit">
+    <apex:pageBlockSection columns="1" title="{!$Label.C3AP_Contract_Template_Download}" rendered="{!renderTemplate}">
+       <apex:pageBlockTable value="{!lstDocument}" var="l">
+         <apex:column headerValue="{!$Label.C3AP_Contract_Template}">
+             <a href="/servlet/servlet.FileDownload?file={!l.id}" download="{!l.Name}">{!l.Name} ({!$Label.C3AP_Click_to_Download})</a>      
+         </apex:column>
+        <apex:column value="{!l.ContentType}"/> 
+       </apex:pageBlockTable>
+       <apex:outputText rendered="{!(lstDocument.size = 0)}" value="{!$Label.C3AP_No_Templates_Available}"/>
+    </apex:pageBlockSection>  
+ </apex:pageblock>        
+
+</apex:page>

@@ -1,0 +1,85 @@
+<apex:page docType="html-5.0" showHeader="false" standardStylesheets="false" id="thePage">
+
+
+    <title>Select Request</title>
+    
+    <c:PANG_Index />
+        
+    <div class='content'>
+      <!-- body partial, used for adding pages to layout -->
+      <div class= 'select-request'>
+        <div class='banner-wrapper bannercolor l-green'>
+            <div class="pattern"></div>
+            <div class='banner container'>
+                <span class='col-md-12 font-xl'>Select a Request.</span>
+                <span class='col-md-12'>Select your request type to begin the request process.</span>
+                <apex:outputLink value="/apex/PANG_CreateRequests?recTypeName=RWE_Strategic_Consultation" styleClass="create-new button">Not Sure</apex:outputLink>
+                <a href="/apex/PANG_homepage" class='col-md-12'>Back to Homepage</a>
+            </div>
+        </div>
+        <div class='request-types-container container'>
+        
+        <div class='request-item'>
+            <span class='name bold font-xl'>Data Mart Project</span>
+            <p class='description font-r'>Consultation, feasibility, design and execution of Data Mart studies.</p>
+            <apex:outputlink styleclass="create-new button center" value="/apex/PANG_CreateRequests?recTypeName=Internal_Real_World_Data_Analysis">Begin Request</apex:outputlink>
+        </div>
+        
+        <div class='request-item'>
+            <span class='name bold font-xl'>RWE Data Sourcing</span>
+            <p class='description font-r'>Consultation to identify and assess Real World data assets for research.</p>
+            <apex:outputlink styleclass="create-new button center" value="/apex/PANG_CreateRequests?recTypeName=Data_Sourcing">Begin Request</apex:outputlink>
+        </div>
+        
+        <div class='request-item'>
+            <span class='name bold font-xl'>RWE Partnership Exploration</span>
+            <p class='description font-r'>Initiate the exploration of a new RWE partnership between Lilly and an external organization.</p>
+            <apex:outputlink styleclass="create-new button center" value="/apex/PANG_CreatePartnership?recTypeName=RWE_Partnership_Exploration">Begin Request</apex:outputlink>
+        </div>
+        
+        <div class='request-item'>
+            <span class='name bold font-xl'>RWE Strategic Consultation</span>
+            <p class='description font-r'>Consultation on leveraging RWE, Inc. services and Real World Data in research planning, development and execution.</p>
+            <apex:outputlink styleclass="create-new button center" value="/apex/PANG_CreateRequests?recTypeName=RWE_Strategic_Consultation">Begin Request</apex:outputlink>
+        </div>
+        
+        <div class='expert-consult-wrapper'>
+             <div>
+                <span class="font-xl bold pull-left">EXPERT</span>
+             <div>
+                <button class='hide-options'>Select Request Type</button>
+            </div>
+                <p class="font-r">
+                     EXPERT is a cross-functional group aiming to improve naturalistic research. We provide informal advice and formal reviews of observational or pragmatic study designs.
+                </p>
+            </div>
+            
+        </div>
+        <div class='col-md-12 expert-requests-wrapper hidden'>
+        
+            <div class='request-item'>
+                <span class='name font-xl bold'>EXPERT or ACT Consultation</span>
+                <p class='description font-r'>Scientific advice and expertise on study ideas, appropriate outcomes and their measures, analytical methods, etc.</p>
+                <apex:outputlink styleclass="create-new button center" value="/apex/PANG_CreateRequests?recTypeName=EXPERT_or_ACT_Consultation">Begin Request</apex:outputlink>
+            </div>
+            
+            <div class='request-item'>
+                <span class='name font-xl bold'>EXPERT Review</span>
+                <p class='description font-r'>Scientific review and evaluation of observational study designs (Quality System required)</p>
+                <apex:outputlink styleclass="create-new button center" value="/apex/PANG_CreateRequests?recTypeName=EXPERT_Review">Begin Request</apex:outputlink>
+            </div>
+            
+            <div class='request-item'>
+                <span class='name font-xl bold'>EXPERT Exception</span>
+                <p class='description font-r'>This Quality System required tool is used to document the rationale for not accepting all key comments noted in an EXPERT review or for protocols and protocol amendments that do not require EXPERT review as determined by the medical/functional director.</p>
+                <apex:outputlink styleclass="create-new button center" value="/apex/PANG_CreateRequests?recTypeName=EXPERT_Exception">Begin Request</apex:outputlink>
+            </div>
+        
+        </div>
+
+    </div>
+</div>
+    </div>
+
+ 
+</apex:page>
