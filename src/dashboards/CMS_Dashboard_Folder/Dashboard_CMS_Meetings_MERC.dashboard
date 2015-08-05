@@ -81,7 +81,7 @@
             <groupingColumn>Invoice_MERC__c.Submitted_for_Payment_Date_MERC__c</groupingColumn>
             <header>Expense Reimbursements</header>
             <legendPosition>Bottom</legendPosition>
-            <report>MERC_Regional_CMS/Expense_Reimbursements</report>
+            <report>MERC_CMS_Regional/Expense_Reimbursements</report>
             <showPercentage>false</showPercentage>
             <showValues>false</showValues>
             <sortBy>RowLabelAscending</sortBy>
