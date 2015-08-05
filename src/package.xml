@@ -207,7 +207,7 @@
         <name>RecordType</name>
     </types>
     <types>
-        <members>MERC_Regional_CMS/Expense_Reimbursements</members>
+        <members>MERC_CMS_Regional/Expense_Reimbursements</members>
         <name>Report</name>
     </types>
     <types>
