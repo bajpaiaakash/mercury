@@ -111,7 +111,24 @@ public class MERC_MeetingParticipantRollups implements Queueable {
 			}
 		}
 
-		update participants;
+		//Mercury has a lot going on and occassionaly the system will run into locked rows.
+		//If we encounter an unable to lock row then we will retry (up to 3 times)
+		MERC_TriggerHandlerStateManager.deactivateAll();
+
+		Integer attempts = 3;
+		while(attempts > 0) {
+			try {
+				attempts--;
+				update participants;
+				attempts = 0;
+			} catch (System.DmlException dmlEx) {
+	       	    if (!dmlEx.getMessage().contains('UNABLE_TO_LOCK_ROW') || attempts == 0) {
+	               	attempts = 0;  // exit on any other exception
+					throw dmlEx;  // throw exception after MAX_ATTEMPTS
+				}
+	       	} // end of catch
+		} // end of while retry loop
+
 
 		participantAccountIds.remove(null);
 

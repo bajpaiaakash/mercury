@@ -39,6 +39,18 @@ public with sharing class MERC_AccountToAccountRollups implements Queueable{
 
 		//No need to trigger anything so turn off all triggers
 	    MERC_TriggerHandlerStateManager.deactivateAll();
-	    update accounts;
+	    Integer attempts = 3;
+	    while(attempts > 0) {
+          	try {
+            	attempts--;
+            	update accounts;
+            	attempts = 0;
+          	} catch (System.DmlException dmlEx) {
+                if (!dmlEx.getMessage().contains('UNABLE_TO_LOCK_ROW') || attempts == 0) {
+                    attempts = 0;  // exit on any other exception
+              		throw dmlEx;  // throw exception after MAX_ATTEMPTS
+            	}
+           	} // end of catch
+        } // end of while retry loop
 	}
 }

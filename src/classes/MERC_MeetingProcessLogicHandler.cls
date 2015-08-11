@@ -621,7 +621,19 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 		}
 
 		MERC_TriggerHandlerStateManager.deactivateAll();
-		update participantsToUpdate;
+		Integer attempts = 3;
+		while(attempts > 0) {
+			try {
+				attempts--;
+				update participantsToUpdate;
+				attempts = 0;
+			} catch (System.DmlException dmlEx) {
+	       	    if (!dmlEx.getMessage().contains('UNABLE_TO_LOCK_ROW') || attempts == 0) {
+	               	attempts = 0;  // exit on any other exception
+					throw dmlEx;  // throw exception after MAX_ATTEMPTS
+				}
+	       	} // end of catch
+		} // end of while retry loop
 		MERC_TriggerHandlerStateManager.activateAll();
 	}
 }
