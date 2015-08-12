@@ -20,14 +20,29 @@ public with sharing class MERC_AccountToAccountRollups implements Queueable{
 
 	public void execute(QueueableContext context) {
 		List<Account> accounts;
-		accounts = [SELECT Id,
-						   Designated_Individual_Counter_MERC__c,
-						   Contracting_Parties_Counter_MERC__c,
-						   (SELECT Id FROM Designated_Individuals__r),
-						   (SELECT Id FROM HCPs_Contracting_Party__r)
-		              FROM Account
-		             WHERE Id IN :accountIds
-		             FOR UPDATE];
+		Integer MAX_ATTEMPTS = 3;
+
+        Integer attempts = MAX_ATTEMPTS;
+        //query for accounts, may need to retry attempt if records are locked by another asynchronous process
+        while (attempts > 0) {
+          	try {
+            	attempts--;
+              	accounts = [SELECT Id,
+								   Designated_Individual_Counter_MERC__c,
+								   Contracting_Parties_Counter_MERC__c,
+								   (SELECT Id FROM Designated_Individuals__r),
+								   (SELECT Id FROM HCPs_Contracting_Party__r)
+				              FROM Account
+				             WHERE Id IN :accountIds
+				             FOR UPDATE];
+              	attempts = 0; //successfully queried record, exit loop
+          	} catch (System.QueryException qEx) {
+            	if (!qEx.getMessage().contains('Record Currently Unavailable') || attempts == 0) {
+                	attempts = 0;  // exit on any other exception
+              		throw qEx;  // throw exception after MAX_ATTEMPTS attempts
+            	}
+          	}
+        }
 
 		for (Account account : accounts) {
 			//Designated Individual Count
@@ -39,7 +54,9 @@ public with sharing class MERC_AccountToAccountRollups implements Queueable{
 
 		//No need to trigger anything so turn off all triggers
 	    MERC_TriggerHandlerStateManager.deactivateAll();
-	    Integer attempts = 3;
+
+	    //update accounts, may need to retry attempt if records are locked by another asynchronous process
+	    attempts = MAX_ATTEMPTS;
 	    while(attempts > 0) {
           	try {
             	attempts--;

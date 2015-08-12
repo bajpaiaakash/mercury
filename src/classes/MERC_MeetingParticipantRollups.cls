@@ -21,27 +21,41 @@ public class MERC_MeetingParticipantRollups implements Queueable {
 	}
 
 	public void execute(QueueableContext context) {
+		Integer MAX_ATTEMPTS = 3;
 		List<Meeting_Participant_MERC__c> participants;
-		participants = [SELECT Id,
-							   Account_MERC__c,
-							   Total_Hotel_ToV_MERC__c,
-							   Total_Food_Beverage_ToV_MERC__c,
-							   Total_Ground_Transporation_ToV_MERC__c,
-							   Total_Individual_Transport_ToV_MERC__c,
-							   Total_Registration_ToV_MERC__c,
-							   Number_of_Contracts_MERC__c,
-							   Number_of_Completed_Contracts_MERC__c,
-							   (SELECT Est_Hotel_ToV_MERC__c,
-							   		   Est_Food_Bev_ToV_MERC__c,
-							   		   Est_Grp_Grnd_Transp_MERC__c,
-							   		   Est_Indv_Transfer_MERC__c,
-							   		   Est_Reg_Amt_ToV_MERC__c
-							   	  FROM Daily_Attendance_TOV_MERC__r),
-							   (SELECT Contract_Request_Status_MERC__c
-							   	  FROM HCP_Contracts__r)
-					      FROM Meeting_Participant_MERC__c
-					     WHERE Id IN :participantIds
-					     FOR UPDATE];
+		Integer attempts = MAX_ATTEMPTS;
+		//query for participants, may need to retry attempt if records are locked by another asynchronous process
+		while (attempts > 0) {
+			try {
+				attempts--;
+				participants = [SELECT Id,
+									   Account_MERC__c,
+									   Total_Hotel_ToV_MERC__c,
+									   Total_Food_Beverage_ToV_MERC__c,
+									   Total_Ground_Transporation_ToV_MERC__c,
+									   Total_Individual_Transport_ToV_MERC__c,
+									   Total_Registration_ToV_MERC__c,
+									   Number_of_Contracts_MERC__c,
+									   Number_of_Completed_Contracts_MERC__c,
+									   (SELECT Est_Hotel_ToV_MERC__c,
+									   		   Est_Food_Bev_ToV_MERC__c,
+									   		   Est_Grp_Grnd_Transp_MERC__c,
+									   		   Est_Indv_Transfer_MERC__c,
+									   		   Est_Reg_Amt_ToV_MERC__c
+									   	  FROM Daily_Attendance_TOV_MERC__r),
+									   (SELECT Contract_Request_Status_MERC__c
+									   	  FROM HCP_Contracts__r)
+							      FROM Meeting_Participant_MERC__c
+							     WHERE Id IN :participantIds
+							     FOR UPDATE];
+				attempts = 0;
+			} catch (System.QueryException qEx) {
+				if (!qEx.getMessage().contains('Record Currently Unavailable') || attempts == 0) {
+	               	attempts = 0;  // exit on any other exception
+					throw qEx;  // throw exception after MAX_ATTEMPTS attempts
+				}
+			}
+		}
 
 		Set<Id> participantAccountIds = new Set<Id>();
 
@@ -112,10 +126,10 @@ public class MERC_MeetingParticipantRollups implements Queueable {
 		}
 
 		//Mercury has a lot going on and occassionaly the system will run into locked rows.
-		//If we encounter an unable to lock row then we will retry (up to 3 times)
 		MERC_TriggerHandlerStateManager.deactivateAll();
 
-		Integer attempts = 3;
+		//update participants, may need to retry attempt if records are locked by another asynchronous process
+		attempts = MAX_ATTEMPTS;
 		while(attempts > 0) {
 			try {
 				attempts--;

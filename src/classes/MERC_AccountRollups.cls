@@ -21,27 +21,42 @@ public class MERC_AccountRollups implements Queueable{
 
     public void execute(QueueableContext context) {
         List<Account> accounts;
-        accounts = [SELECT Id,
-                           Allocated_CAP_MERC__c,
-                           Speaking_Paid_CAP_MERC__c,
-                           Reserved_CAP_MERC__c,
-                           Count_Dietary_Preferences_MERC__c,
-                           HCP_Designated_Individuals_MERC__c,
-                           HCP_Contracting_Party_MERC__c,
-                           (SELECT Final_Fee_Rollup_MERC__c,
-                                   Proposed_Final_Fee_Rollup_MERC__c,
-                                   Status_MERC__c,
-                                   Services_Rendered_MERC__c,
-                                   Meeting_MERC__r.Meeting_Status_MERC__c
-                              FROM Event_Participants__r
-                             WHERE Meeting_MERC__r.End_Date_of_Event_MERC__c = THIS_YEAR
-                               AND Include_CAP_Roll_Up_MERC__c = TRUE),
-                           (SELECT Id
-                              FROM Consent__r
-                             WHERE Preference_Type_MERC__c = 'Meals Allergy Preferences')
-                      FROM Account
-                      WHERE Id IN :accountIds
-                      FOR UPDATE];
+        Integer MAX_ATTEMPTS = 3;
+
+        Integer attempts = MAX_ATTEMPTS;
+        //query for accounts, may need to retry attempt if records are locked by another asynchronous process
+        while (attempts > 0) {
+          try {
+              attempts--;
+              accounts = [SELECT Id,
+                               Allocated_CAP_MERC__c,
+                               Speaking_Paid_CAP_MERC__c,
+                               Reserved_CAP_MERC__c,
+                               Count_Dietary_Preferences_MERC__c,
+                               HCP_Designated_Individuals_MERC__c,
+                               HCP_Contracting_Party_MERC__c,
+                               (SELECT Final_Fee_Rollup_MERC__c,
+                                       Proposed_Final_Fee_Rollup_MERC__c,
+                                       Status_MERC__c,
+                                       Services_Rendered_MERC__c,
+                                       Meeting_MERC__r.Meeting_Status_MERC__c
+                                  FROM Event_Participants__r
+                                 WHERE Meeting_MERC__r.End_Date_of_Event_MERC__c = THIS_YEAR
+                                   AND Include_CAP_Roll_Up_MERC__c = TRUE),
+                               (SELECT Id
+                                  FROM Consent__r
+                                 WHERE Preference_Type_MERC__c = 'Meals Allergy Preferences')
+                          FROM Account
+                          WHERE Id IN :accountIds
+                          FOR UPDATE];
+              attempts = 0;
+          } catch (System.QueryException qEx) {
+            if (!qEx.getMessage().contains('Record Currently Unavailable') || attempts == 0) {
+                      attempts = 0;  // exit on any other exception
+              throw qEx;  // throw exception after MAX_ATTEMPTS attempts
+            }
+          }
+        }
 
         Set<String> allocatedCapMeetingStatuses  = new Set<String>{'Registered', 'Active'};
         Set<String> allocatedCapExcludedStatuses = new Set<String>{'Cancelled', 'Rejected', 'Declined'};
@@ -88,7 +103,8 @@ public class MERC_AccountRollups implements Queueable{
 
         //No need to trigger anything so turn off all triggers
         MERC_TriggerHandlerStateManager.deactivateAll();
-        Integer attempts = 3;
+        //update accounts, may need to retry attempt if records are locked by another asynchronous process
+        attempts = MAX_ATTEMPTS;
         while(attempts > 0) {
             try {
                 attempts--;
