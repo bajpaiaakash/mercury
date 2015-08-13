@@ -1,3 +1,0 @@
-<apex:page controller="GLBL_NewButtonPrepopController" action="{!redirect}">
-			<apex:pagemessages id="pageMessage"/>
-</apex:page>
