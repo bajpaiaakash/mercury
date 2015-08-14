@@ -1,125 +1,214 @@
 <project name="Lilly Cirrus GSO Deployment" basedir="." xmlns:sf="antlib:com.salesforce">
 
-	<!-- ========================================== -->
-	<!-- Default properties                         -->
-	<!-- ========================================== -->
-	<property file="sf-build.properties"/>
-	<property name="src.dir" value="../src"/>
-	<property name="src_env.dir" value="../src_env"/>
-	
-	<!-- ========================================== -->
-	<!-- Deployment targets                         -->
-	<!-- ========================================== -->
-	<target name="deploy_metadata">
+                <!-- ========================================== -->
+                <!-- Default properties                         -->
+                <!-- ========================================== -->
+                <property file="sf-build.properties"/>
+                <property name="src.dir" value="../src"/>
+                <property name="src_env.dir" value="../src_env"/>
+                
+                <!-- ========================================== -->
+                <!-- Deployment targets                         -->
+                <!-- ========================================== -->
+                <target name="deploy_metadata">
 
-		<echo message="START: SFDC Deployment" />
-		<sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src.dir}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" runAllTests="${sf.runAllTests}" logType="${sf.logType}" />
-	</target>
+                                <echo message="START: SFDC Deployment" />
+                                <sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src.dir}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" testLevel="${sf.testLevel}" logType="${sf.logType}">
+                                        <runTest>MERC_AccountPreferenceRollupManagerTest</runTest>
+										<runTest>MERC_AddMeetingParticipantsCntlrTest</runTest>
+										<runTest>MERC_AddressCountryStampTriggerTest</runTest>
+										<runTest>MERC_AgendaBuilderControllerTest</runTest>
+										<runTest>MERC_AgendaItemNewEditControllerTest</runTest>
+										<runTest>MERC_AnonymiseNonHCPDataHandlerTest</runTest>
+										<runTest>MERC_BudgetVersionControllerTest</runTest>
+										<runTest>MERC_CancelDelegateMgmtProcessTest</runTest>
+										<runTest>MERC_ConsultingProjectCapCalculatorTest</runTest>
+										<runTest>MERC_ContentVersionHandlerTest</runTest>
+										<runTest>MERC_DailyAttendanceControllerStressTest</runTest>
+										<runTest>MERC_DailyAttendanceControllerTest</runTest>
+										<runTest>MERC_DeleteNotifyMock</runTest>
+										<runTest>MERC_DeleteNotifyServiceTest</runTest>
+										<runTest>MERC_DocusignEmbeddedSignatureSrvcTest</runTest>
+										<runTest>MERC_DocusignRecipientStatusHandlerTest</runTest>
+										<runTest>MERC_DocusignServiceMock</runTest>
+										<runTest>MERC_DocusignServiceTest</runTest>
+										<runTest>MERC_ETAccountEmailTriggerImpl_Test</runTest>
+										<runTest>MERC_ETAuthorizerCallout_Mock</runTest>
+										<runTest>MERC_ETAuthorizer_Test</runTest>
+										<runTest>MERC_ETDataExtensionCallout_Mock</runTest>
+										<runTest>MERC_ETDataExtensionPopulateCallout_Mock</runTest>
+										<runTest>MERC_ETDataExtensionProcessor_Test</runTest>
+										<runTest>MERC_ETEndToEndDataExtCallouts_Mock</runTest>
+										<runTest>MERC_ETMeetingEmailSendExtension_Test</runTest>
+										<runTest>MERC_ETMeetingEmailSendFutureProc_Test</runTest>
+										<runTest>MERC_ETMeetingEmailSendTriggerImpl_Test</runTest>
+										<runTest>MERC_ETMeetingParticTrackingContExt_Test</runTest>
+										<runTest>MERC_ETSendAndAuthorize_Mock</runTest>
+										<runTest>MERC_ETSendDefinitionCallout_Mock</runTest>
+										<runTest>MERC_ETSendDefinitionProcessor_Test</runTest>
+										<runTest>MERC_ETSubscriberFutureProcessor_Test</runTest>
+										<runTest>MERC_ETSubscriberProcessorCallout_Mock</runTest>
+										<runTest>MERC_ETSubscriberProcessor_Test</runTest>
+										<runTest>MERC_ETTestUtils</runTest>
+										<runTest>MERC_HandleDocusignAttachmentInsertTest</runTest>
+										<runTest>MERC_HcpCapActualsCalculatorTest</runTest>
+										<runTest>MERC_HcpCapLimitCalculatorTest</runTest>
+										<runTest>MERC_HcpCapYearlyCalculationJobTest</runTest>
+										<runTest>MERC_HcpCapYearlyCalculationScheduleTest</runTest>
+										<runTest>MERC_HCPContractRollupManagerTest</runTest>
+										<runTest>MERC_HotelAllocationCalculatorTest</runTest>
+										<runTest>MERC_InvoiceCreditNoteControllerTest</runTest>
+										<runTest>MERC_InvoiceInvalidationControllerTest</runTest>
+										<runTest>MERC_InvoiceXmlControllerTest</runTest>
+										<runTest>MERC_InvoiceXmlWriterTest</runTest>
+										<runTest>MERC_LockedInvoiceDeleteHandlerTest</runTest>
+										<runTest>MERC_LockedRecordHandlerTest</runTest>
+										<runTest>MERC_MassApproveParticipantsCntrlrTest</runTest>
+										<runTest>MERC_MeetingCancellationHandlerTest</runTest>
+										<runTest>MERC_MeetingContentStampHandlerTest</runTest>
+										<runTest>MERC_MeetingCurrencyUpdateHandlerTest</runTest>
+										<runTest>MERC_MeetingDateTimesControllerTest</runTest>
+										<runTest>MERC_MeetingDayManagerControllerTest</runTest>
+										<runTest>MERC_MeetingDayNewEditControllerTest</runTest>
+										<runTest>MERC_MeetingNewEditControllerTest</runTest>
+										<runTest>MERC_MeetingParticipantCurrencyCnvrtTest</runTest>
+										<runTest>MERC_MeetingParticipantNewEditCtrlTest</runTest>
+										<runTest>MERC_MeetingParticipantStressTest</runTest>
+										<runTest>MERC_MeetingParticipantTovValidationTest</runTest>
+										<runTest>MERC_MeetingProcessLogicHandlerTest</runTest>
+										<runTest>MERC_MeetingTaskEditorControllerTest</runTest>
+										<runTest>MERC_MeetingTeamManagerControllerTest</runTest>
+										<runTest>MERC_MergedAccountApexTest</runTest>
+										<runTest>MERC_MergedAccountsControllerTest</runTest>
+										<runTest>MERC_MergeHistoryStampTriggerHandlerTest</runTest>
+										<runTest>MERC_MVIMeetingTimeZoneHandlerTest</runTest>
+										<runTest>MERC_NewContentControllerTest</runTest>
+										<runTest>MERC_NewEditControllersTest</runTest>
+										<runTest>MERC_ParticipantFMVCalculatorTest</runTest>
+										<runTest>MERC_ParticipantStatusCalculatorTest</runTest>
+										<runTest>MERC_ParticipantTovStampHandlerTest</runTest>
+										<runTest>MERC_PrefConsentMappingHandlerTest</runTest>
+										<runTest>MERC_PrimaryMeetingOwnerHandlerTest</runTest>
+										<runTest>MERC_RegistrationResponsesControllerTest</runTest>
+										<runTest>MERC_RequestHCPSignatureControllerTest</runTest>
+										<runTest>MERC_TeamMemberDeletePMOTest</runTest>
+										<runTest>MERC_TeamMemberShareHandlerTest</runTest>
+										<runTest>MERC_TestFactory</runTest>
+										<runTest>MERC_TOVCalculatorTest</runTest>
+										<runTest>MERC_TOVNonAggregateCalculatorTest</runTest>
+										<runTest>MERC_TOVRoundingTest</runTest>
+										<runTest>MERC_TravelItineraryNewEditTest</runTest>
+										<runTest>MERC_TravelProposalsControllerTest</runTest>
+										<runTest>MERC_TriggerHandlerStateManagerTest</runTest>
+										<runTest>MERC_UtilTest</runTest>
+										<runTest>MERC_XmlWriterRestResourceTest</runTest>
+										<runTest>MERC_XmlWriterTest</runTest>                        
+                                </sf:deploy>        
+ 
+                </target>
 
-	<target name="deploy_metadata_org_specific">	
-		<sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src_env.dir}/${org}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" runAllTests="${sf.runAllTests}" logType="${sf.logType}" />
-	</target>
-	
-	
-	<target name="list_metadata">
-	  	<sf:listMetadata
-		    username="${sf.deploy.username}${org}"
-		    password="${sf.deploy.password}"
-		    serverurl="${sf.deploy.serverurl}"
-		    metadataType="CustomField"
-		    resultFilePath="${file}"/>
-	</target>
-	<!-- ======================================================================================= -->
-	<!-- For comparing fields added during sprint:                                               -->
-	<!-- = Run list_metadata against a pre-sprint, and post-sprint orgs                          -->
-	<!-- = Use "type" or "more" on windows to cat output, and install grep to filter by FullName -->
-	<!-- = use sort to ensure both files display data in the same order                          -->
-	<!-- = Install notepad++ to do file comparisons                                              -->
-	<!-- ======================================================================================= -->
-	
-	
-	<target name="describe_metadata">
-	  	<sf:describeMetadata
-		    username="${sf.deploy.username}${org}"
-		    password="${sf.deploy.password}"
-		    serverurl="${sf.deploy.serverurl}"
-		    resultFilePath="{file}"/>
-	</target>
-	
-	<!-- ========================================== -->
-	<!-- For handling static resources              -->
-	<!-- ========================================== -->
-	<target name="do-resources">
-		<antcall target="clean" />
-		<antcall target="compress" />
-		<antcall target="copy-resources" />
-		<antcall target="deploy-resources" />
-	</target>
+                <target name="deploy_metadata_org_specific">            
+                                <sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src_env.dir}/${org}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" runAllTests="${sf.runAllTests}" logType="${sf.logType}" />
+                </target>
+                
+                
+                <target name="list_metadata">
+                                <sf:listMetadata
+                                    username="${sf.deploy.username}${org}"
+                                    password="${sf.deploy.password}"
+                                    serverurl="${sf.deploy.serverurl}"
+                                    metadataType="CustomField"
+                                    resultFilePath="${file}"/>
+                </target>
+                <!-- ======================================================================================= -->
+                <!-- For comparing fields added during sprint:                                               -->
+                <!-- = Run list_metadata against a pre-sprint, and post-sprint orgs                          -->
+                <!-- = Use "type" or "more" on windows to cat output, and install grep to filter by FullName -->
+                <!-- = use sort to ensure both files display data in the same order                          -->
+                <!-- = Install notepad++ to do file comparisons                                              -->
+                <!-- ======================================================================================= -->
+                
+                
+                <target name="describe_metadata">
+                                <sf:describeMetadata
+                                    username="${sf.deploy.username}${org}"
+                                    password="${sf.deploy.password}"
+                                    serverurl="${sf.deploy.serverurl}"
+                                    resultFilePath="{file}"/>
+                </target>
+                
+                <!-- ========================================== -->
+                <!-- For handling static resources              -->
+                <!-- ========================================== -->
+                <target name="do-resources">
+                                <antcall target="clean" />
+                                <antcall target="compress" />
+                                <antcall target="copy-resources" />
+                                <antcall target="deploy-resources" />
+                </target>
 
-	<!-- Delete all resource files in this directory. -->
-	<target name="clean" description="Deletes compressed versions of all present files.">
-		<delete>
-		  <fileset dir="../Static Resources/src/staticresources" includes="*.resource"/>
-		</delete>
-	</target>
+                <!-- Delete all resource files in this directory. -->
+                <target name="clean" description="Deletes compressed versions of all present files.">
+                                <delete>
+                                  <fileset dir="../Static Resources/src/staticresources" includes="*.resource"/>
+                                </delete>
+                </target>
   
-	<!-- Compile less code into css for collab. -->
-	<target name="compile-less" description="Compile the less code for collaborate">
-		<delete>
-			<fileset dir="../Static Resources/Collaborate_Assets/css" includes="*.css"/>
-		</delete>
-		
-		<antcall target="compile-less-file"><param name="less.filename" value="styles" /></antcall>
-		<antcall target="compile-less-file"><param name="less.filename" value="home" /></antcall>
-		<antcall target="compile-less-file"><param name="less.filename" value="LandingPage" /></antcall>
-		<antcall target="compile-less-file"><param name="less.filename" value="login" /></antcall>
-		<antcall target="compile-less-file"><param name="less.filename" value="reset" /></antcall>
-		<antcall target="compile-less-file"><param name="less.filename" value="SiteLogin" /></antcall>
-		
-	</target>
+                <!-- Compile less code into css for collab. -->
+                <target name="compile-less" description="Compile the less code for collaborate">
+                                <delete>
+                                                <fileset dir="../Static Resources/Collaborate_Assets/css" includes="*.css"/>
+                                </delete>
+                                
+                                <antcall target="compile-less-file"><param name="less.filename" value="styles" /></antcall>
+                                <antcall target="compile-less-file"><param name="less.filename" value="home" /></antcall>
+                                <antcall target="compile-less-file"><param name="less.filename" value="LandingPage" /></antcall>
+                                <antcall target="compile-less-file"><param name="less.filename" value="login" /></antcall>
+                                <antcall target="compile-less-file"><param name="less.filename" value="reset" /></antcall>
+                                <antcall target="compile-less-file"><param name="less.filename" value="SiteLogin" /></antcall>
+                                
+                </target>
   
-	<target name="compile-less-file">
-		<exec executable="cmd.exe" osfamily="windows" output="../Static Resources/Collaborate_Assets/css/${less.filename}.css">
-			<arg value="/c"/>
-			<arg value="recess"/>
-			<arg value="../Static Resources/Collaborate_Assets/less/${less.filename}.less"/>
-			<arg value="-compile"/>
-		</exec>
-		
-		<chmod file="compileLess.sh" perm="u+x" osfamily="mac"/>
-		<exec executable="/bin/sh" osfamily="mac">
-			<arg value="compileLess.sh"/>
-			<arg value="${less.filename}"/>
-		</exec>
-	</target>
+                <target name="compile-less-file">
+                                <exec executable="cmd.exe" osfamily="windows" output="../Static Resources/Collaborate_Assets/css/${less.filename}.css">
+                                                <arg value="/c"/>
+                                                <arg value="recess"/>
+                                                <arg value="../Static Resources/Collaborate_Assets/less/${less.filename}.less"/>
+                                                <arg value="-compile"/>
+                                </exec>
+                                
+                                <chmod file="compileLess.sh" perm="u+x" osfamily="mac"/>
+                                <exec executable="/bin/sh" osfamily="mac">
+                                                <arg value="compileLess.sh"/>
+                                                <arg value="${less.filename}"/>
+                                </exec>
+                </target>
 
-	<!-- Compress all the specified folders. -->
-	<target name="compress" description="Compress all the folders in this directory.">
-		<zip destfile="../Static Resources/src/staticresources/Collaborate_Assets.resource">
-			<zipfileset dir="../Static Resources/Collaborate_Assets" prefix=""/>
-		</zip>
-		
-		<zip destfile="../Static Resources/src/staticresources/Collaborate_InternalAssets.resource">
-			<zipfileset dir="../Static Resources/Collaborate_InternalAssets" prefix=""/>
-		</zip>
-	</target>
+                <!-- Compress all the specified folders. -->
+                <target name="compress" description="Compress all the folders in this directory.">
+                                <zip destfile="../Static Resources/src/staticresources/Collaborate_Assets.resource">
+                                                <zipfileset dir="../Static Resources/Collaborate_Assets" prefix=""/>
+                                </zip>
+                                
+                                <zip destfile="../Static Resources/src/staticresources/Collaborate_InternalAssets.resource">
+                                                <zipfileset dir="../Static Resources/Collaborate_InternalAssets" prefix=""/>
+                                </zip>
+                </target>
 
-	<!-- Copy all the following folders to ../src/staticresources -->
-	<target name="copy-resources" description="Move all compressed files to src directory.">
-		<copy todir="../src/staticresources">
-			<fileset dir="../Static Resources/src/staticresources">
-				<include name="**/*.resource"/>
-			</fileset>
-		</copy>
-	</target>
+                <!-- Copy all the following folders to ../src/staticresources -->
+                <target name="copy-resources" description="Move all compressed files to src directory.">
+                                <copy todir="../src/staticresources">
+                                                <fileset dir="../Static Resources/src/staticresources">
+                                                                <include name="**/*.resource"/>
+                                                </fileset>
+                                </copy>
+                </target>
 
-	<!-- Deploy it to dev -->
-	<target name="deploy-resources">
-		<antcall target="deploy_metadata">
-			<param name="src.dir" value="../Static Resources/src/" />
-			<param name="org" value="${org}" />
-		</antcall>
-	</target>
-	
+                <!-- Deploy it to dev -->
+                <target name="deploy-resources">
+                                <antcall target="deploy_metadata">
+                                                <param name="src.dir" value="../Static Resources/src/" />
+                                                <param name="org" value="${org}" />
+                                </antcall>
+                </target>
 </project>
-    

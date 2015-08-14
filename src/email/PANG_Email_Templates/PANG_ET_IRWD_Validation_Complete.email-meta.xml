@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <available>true</available>
-    <encodingKey>ISO-8859-1</encodingKey>
-    <name>PANG_ET_IRWD_Validation_Complete</name>
-    <style>none</style>
-    <subject>An RWE {!PANG_Request__c.RecordType} Request Requires your attention</subject>
-    <type>text</type>
-</EmailTemplate>
