@@ -13,9 +13,10 @@ public with sharing class CreateCaseRedirectControllerMVN {
         if(ApexPages.currentPage().getParameters().get('def_account_id') != null)
             accountId = ApexPages.currentPage().getParameters().get('def_account_id');
     }
-  
+
     public void getRedirect () {
-        newCase = new Case();
+        Id recTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Case' AND DeveloperName='MERC_Mercury_Cases' limit 1].Id;
+        newCase = new Case(RecordTypeId=recTypeId);
         if(accountId != null){
            newCase.AccountId = accountId;
            newCase.ContactId = [select PersonContactId from Account where Id = :accountId].PersonContactId;
