@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>GLBL_Error_Log__c.Data_External_ID__c</members>
+        <members>GLBL_Error_Log__c.Data_Last_Modified_Date__c</members>
+        <members>GLBL_Error_Log__c.Data_Last_Modified_User__c</members>
+        <members>GLBL_Error_Log__c.Data_SFDC_ID__c</members>
+        <members>GLBL_Error_Log__c.Error_Code__c</members>
+        <members>GLBL_Error_Log__c.Severity__c</members>
+        <members>GLBL_Error_Log__c.Source_Object__c</members>
+        <members>GLBL_Error_Log__c.Source_System__c</members>
+        <members>GLBL_Error_Log__c.Target_Object__c</members>
+        <members>GLBL_Error_Log__c.Target_System__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Mercury Integration MVI - Platform</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>Account</members>
+        <members>Meeting_MERC__c</members>
+        <members>Meeting_Participant_MERC__c</members>
+        <name>Workflow</name>
+    </types>
+	    <types>
         <members>GLBL_BaseEditController</members>
         <members>GLBL_BaseEditControllerTest</members>
         <members>GLBL_DescribeLayoutTest</members>
         <name>ApexClass</name>
-    </types>
-    <types>
-        <members>Meeting_MERC__c.MERC_Complete</members>
-        <name>WorkflowRule</name>
     </types>
     <version>34.0</version>
 </Package>

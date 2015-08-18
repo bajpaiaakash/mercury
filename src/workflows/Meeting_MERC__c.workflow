@@ -35,4 +35,29 @@
         <formula>ISCHANGED(Meeting_Status_MERC__c) &amp;&amp; TEXT(Meeting_Status_MERC__c)  = &quot;Complete&quot; &amp;&amp;  RecordType.DeveloperName &lt;&gt; &quot;Independent_Sponsorship&quot; &amp;&amp;  RecordType.DeveloperName &lt;&gt; &quot;Ad_Hoc_Consulting&quot; &amp;&amp; RecordType.DeveloperName &lt;&gt; &quot;Meeting_Program&quot;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
+	   <outboundMessages>
+        <fullName>RTI_Meeting_Update_ICRT</fullName>
+        <apiVersion>34.0</apiVersion>
+        <endpointUrl>https://ps1w2-obm.rt.informaticacloud.com/active-bpel/services/REST/SalesforceNotificationRESTPort?processName=prcs_GSO_MVI_MTV_MTG_upsrt</endpointUrl>
+        <fields>Id</fields>
+        <includeSessionId>true</includeSessionId>
+        <integrationUser>icrtmercuryintegration.veeva@gso1.lly</integrationUser>
+        <name>RTI - Meeting Update_ICRT</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+	    <rules>
+        <fullName>RTI - Meeting Updated</fullName>
+        <actions>
+            <name>RTI_Meeting_Update_ICRT</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <actions>
+            <name>RTI_Meeting_Updated_MERC</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(NOT(CONTAINS(LastModifiedBy.Username,&apos;mvibatch.integration@&apos;)),NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)),NOT( TEXT(Type_MERC__c) = &apos;Internal&apos;))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
 </Workflow>
