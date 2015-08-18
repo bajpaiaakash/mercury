@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>MERC_AccountDesignatedIndividualsCounter</members>
+        <members>MERC_AccountPreferenceRollupManager</members>
+        <members>MERC_AccountPreferenceRollupManagerTest</members>
+        <members>MERC_AccountRollups</members>
+        <members>MERC_AccountToAccountRollups</members>
+        <members>MERC_AnonymiseNonHCPDataHandlerTest</members>
+        <members>MERC_ConsultingProjectCapCalculatorTest</members>
+        <members>MERC_DailyAttendanceController</members>
+        <members>MERC_DailyAttendanceControllerStressTest</members>
+        <members>MERC_DailyAttendanceControllerTest</members>
+        <members>MERC_HCPContractRollupManager</members>
+        <members>MERC_HcpCapActualsCalculator</members>
+        <members>MERC_HcpCapActualsCalculatorTest</members>
+        <members>MERC_HcpCapYearlyCalculationJob</members>
+        <members>MERC_HcpCapYearlyCalculationJobTest</members>
+        <members>MERC_MeetingParticipantRollups</members>
+        <members>MERC_MeetingParticipantStressTest</members>
+        <members>MERC_TOVCalculator</members>
+        <members>MERC_TOVCalculatorTest</members>
+        <members>MERC_TOVNonAggregateCalculatorTest</members>
+        <members>MERC_TOVRoundingTest</members>
+        <members>MERC_TestFactory</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>MERC_DailyAttendance</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>MERC_Invoice</members>
+        <members>MERC_MeetingParticipant</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
         <members>Account.Heroku_Connect_External_Id_MERC__c</members>
         <members>Account.NIF_Number_MERC__c</members>
         <members>Invoice_MERC__c.Invoice_Received_Date_MERC__c</members>
