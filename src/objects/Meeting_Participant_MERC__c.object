@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>CFT_Logistics_Comments_MERC__c</fullName>
+        <description>Used to communicate Meeting Participant Logistics Comments with Customer Facing Users in Veeva/Mercury : MERC : Created on 18/08/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Logistics comments entered by Customer Facing User viewable and editable by Regional and Local teams. Country privacy and compliance requirements must apply</inlineHelpText>
+        <label>CFT Logistics Comments</label>
+        <length>256</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Invoice_Received_Date_MERC__c</fullName>
+        <description>Date that CMS Regional has received the valid invoice (if required) - populated via process flow : MERC : Created on 13/08/2015 by Billy Ho, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date that CMS Regional has received the valid invoice (if required)</inlineHelpText>
+        <label>Invoice Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+</CustomObject>

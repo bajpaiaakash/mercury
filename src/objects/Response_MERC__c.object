@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Answer_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used to tie a response to an applicable answer so that answer information can be pulled down to the record : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Answer</label>
+        <referenceTo>Answer_MERC__c</referenceTo>
+        <relationshipLabel>Responses</relationshipLabel>
+        <relationshipName>Responses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Links to the Meeting Participant object.  Lookup Relationship due to data model limitations : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant</label>
+        <referenceTo>Meeting_Participant_MERC__c</referenceTo>
+        <relationshipLabel>Responses</relationshipLabel>
+        <relationshipName>Responses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Set via workflow for integration with external systems : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response_Text_MERC__c</fullName>
+        <description>Stores the HCPs response to free text questions : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the free text response from the HCP here.  Leave blank should a free text response not be applicable for this question.</inlineHelpText>
+        <label>Response Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>
