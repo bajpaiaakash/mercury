@@ -1,4 +1,37 @@
 public with sharing class MERC_ETMeetingEmailSendExtension {
+
+    private final Meeting_MERC__c meeting;
+    public Sonoma_ET_Config__c Config { get; private set; }
+    public boolean IsAllChecked { get; set; }
+    public boolean DeDup { get; set; }
+    public boolean DisableIndividualTracking { get; set; }
+    public String SendTime { get; set; }
+    public boolean OptIn { get; set; }
+    public boolean ShowParticipantGrid { get; set; }
+    public String base64Thumbnail { get; private set; }
+
+    //filters for select participant page
+    public List<SelectOption> processType { get; set; }
+    public String processTypeSelected {get; set;}
+    
+    public List<SelectOption> communicationPreference { get; set; }
+    public String communicationPreferenceSelected {get; set;}
+    
+    public List<SelectOption> countryOfResidence { get; set; }
+    public String countryOfResidenceSelected {get; set;}
+    
+    public List<SelectOption> status { get; set; }
+    public String statusSelected {get; set;}
+
+    public List<SelectOption> preferredLanguage { get; set; }
+    public String preferredLanguageSelected {get; set;}
+
+    public List<SelectOption> hasEmail { get; set; }
+    public String hasEmailSelected {get; set;}
+
+    public List<SelectOption> recordType { get; set; }
+    public String recordTypeSelected {get; set;}
+
     public MERC_ETMeetingEmailSendExtension(ApexPages.StandardController stdController) {
         this.meeting = (Meeting_MERC__c)stdController.getRecord();
         if (meeting == null || meeting.Id == null) {
@@ -18,14 +51,83 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         email = new MERC_ETFolderedEmail();
 
         SendTime = 'now';
+
+        Set<string> communicationPreferenceSet = new Set<string>(); //used for checking for dupes
+        
+        //prep the SelectOption lists
+        communicationPreference = anySelectOptionBuilder();
+        preferredLanguage = anySelectOptionBuilder();
+
+        //build select options that are solely based on the participants for the meeting
+        for( Meeting_Participant_MERC__c p : [SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c, 
+                                                     Record_Type_MERC__c, Has_Signed_Contract_MERC__c, 
+                                                     Account_MERC__r.Name, Account_MERC__r.FirstName, 
+                                                     Account_MERC__r.PersonEmail, 
+                                                     Account_MERC__r.LastName, 
+                                                     Account_MERC__r.Communication_Preference_MERC__c,  
+                                                     Account_MERC__r.Title_Desc_GLBL__c, 
+                                                     Account_MERC__r.Sfx_Nm_GLBL__c,
+                                                     Account_MERC__r.Prfrd_Lang_Cd_GLBL__c
+                                                FROM Meeting_Participant_MERC__c 
+                                               WHERE Meeting_MERC__c = :meeting.Id]) {
+            if (p.Account_MERC__r.Communication_Preference_MERC__c != null && !communicationPreferenceSet.contains(p.Account_MERC__r.Communication_Preference_MERC__c)) {
+                communicationPreference.add(new SelectOption(p.Account_MERC__r.Communication_Preference_MERC__c,p.Account_MERC__r.Communication_Preference_MERC__c));
+                preferredLanguage.add(new SelectOption(p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c,p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c));
+            }
+        }
+
+        // prep the record type SelectOption list
+        recordType = anySelectOptionBuilder();
+
+        //find all record types and build SelectOption list
+        for(RecordType rt : [SELECT Name FROM RecordType  WHERE SObjectType = 'Meeting_Participant_MERC__c' AND IsActive = TRUE]) {
+            recordType.add(new SelectOption(rt.Id,rt.Name));
+        }
+
+        //Retrieve all process type info.        
+        Schema.DescribeFieldResult processTypeFieldResult = Meeting_Process_MERC__c.Process_Type_MERC__c.getDescribe();
+        List<Schema.PicklistEntry> processTypePLE = processTypeFieldResult.getPicklistValues();
+        processType = selectOptionListBuilder(processTypePLE);
+
+        //Retrieve all country of residence info.        
+        Schema.DescribeFieldResult countryOfResidenceFieldResult = Account.Country_of_Residence_GLBL__c.getDescribe();
+        List<Schema.PicklistEntry> countryOfResidencePLE = countryOfResidenceFieldResult.getPicklistValues();
+        countryOfResidence = selectOptionListBuilder(countryOfResidencePLE);
+
+        //Retrieve all participant status info.        
+        Schema.DescribeFieldResult statusFieldResult = Meeting_Participant_MERC__c.Status_MERC__c.getDescribe();
+        List<Schema.PicklistEntry> statusPLE = statusFieldResult.getPicklistValues();
+        status = selectOptionListBuilder(statusPLE);
+
+        //Build hasEmail selectOption
+        hasEmail = anySelectOptionBuilder();
+        hasEmail.add(new SelectOption('Yes','Yes'));
+        hasEmail.add(new SelectOption('No','No'));
+
+        processTypeSelected = 'Any';
+        communicationPreferenceSelected = 'Any';
+        countryOfResidenceSelected = 'Any';
+        statusSelected = 'Any';
+        preferredLanguageSelected = 'Any';
+        hasEmailSelected = 'Any';
+        recordTypeSelected = 'Any';
     }
 
-    public boolean IsAllChecked { get; set; }
-    public boolean DeDup { get; set; }
-    public boolean DisableIndividualTracking { get; set; }
-    public String SendTime { get; set; }
-    public boolean OptIn { get; set; }
-    public boolean ShowParticipantGrid { get; set; }
+    private List<SelectOption> selectOptionListBuilder(List<Schema.PicklistEntry> pleList) {
+        List<SelectOption> result = anySelectOptionBuilder();
+        for (Schema.PicklistEntry ple : pleList) {
+                if(ple.getValue() != null && ple.isActive()) {
+                result.add(new SelectOption(ple.getValue(),ple.getLabel()));
+            }
+        }
+        return result;
+    }
+
+    private List<SelectOption> anySelectOptionBuilder() {
+        List<SelectOption> result = new List<SelectOption>();
+        result.add(new SelectOption('Any','Any'));
+        return result;
+    }
 
     // this opportunity is just to hold the future send date of the email send, so that we can get the standard sfdc
     // date time picker.
@@ -39,12 +141,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         set;
     }
 
-    private final Meeting_MERC__c meeting;
-    public Sonoma_ET_Config__c Config { get; private set; }
 
     public Integer getParticipantCount() {
         Integer totalParticipants = 0;
-        for (SelectedWrapper w : Participants) {
+        for (SelectedWrapper w : participants) {
             if (w.IsSelected)
                 totalParticipants++;
         }
@@ -53,7 +153,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     public PageReference Send() {
         List<Meeting_Participant_MERC__c> parts = new List<Meeting_Participant_MERC__c>();
-        for (SelectedWrapper w : Participants) {
+        for (SelectedWrapper w : participants) {
             if (w.IsSelected) {
                 parts.Add(w.Participant);
             }
@@ -91,46 +191,149 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         }
     }
 
-    /* Region: participants */
-    public List<SelectedWrapper> Participants {
+    /*
+        - creates standardSetController allowing for pagination of records
+        - query is built dynamically based on the Process and Process State Filters
+    */
+    public ApexPages.StandardSetController meetingParticipants {
         get 
         {
-            if (Participants == null) {
-                List<Meeting_Participant_MERC__c> ps = [SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c,
-                                                            Record_Type_MERC__c, Has_Signed_Contract_MERC__c,
-                                                            Account_MERC__r.Name, Account_MERC__r.FirstName,
-                                                            Account_MERC__r.PersonEmail, Account_MERC__r.LastName,
-                                                            Account_MERC__r.Communication_Preference_MERC__c,
-                                                            Account_MERC__r.Prfrd_Lang_Cd_GLBL__c,
-                                                            Account_MERC__r.Title_Desc_GLBL__c, Account_MERC__r.Sfx_Nm_GLBL__c
-                                                        FROM Meeting_Participant_MERC__c 
-                                                        WHERE Meeting_MERC__c = :meeting.Id];
+            if (meetingParticipants == null) {
+                String  soql =  'SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c, ';
+                        soql += '       Record_Type_MERC__c, Has_Signed_Contract_MERC__c, ';
+                        soql += '       Account_MERC__r.Name, Account_MERC__r.FirstName, ';
+                        soql += '       Account_MERC__r.PersonEmail, Account_MERC__r.LastName, ';
+                        soql += '       Account_MERC__r.Communication_Preference_MERC__c, ';
+                        soql += '       Account_MERC__r.Prfrd_Lang_Cd_GLBL__c, ';
+                        soql += '       Account_MERC__r.Title_Desc_GLBL__c, Account_MERC__r.Sfx_Nm_GLBL__c, ';
+                        soql += '       Account_MERC__r.Country_of_Residence_GLBL__c';
+                        soql += '  FROM Meeting_Participant_MERC__c ';
+                        soql += ' WHERE Meeting_MERC__c = \'' + meeting.Id + '\'';
+                if (processTypeSelected != 'Any') {
+                        soql += '   AND Id in (SELECT Meeting_Participant_MERC__c ';
+                        soql += '                FROM Meeting_Process_MERC__c ';
+                        soql += '               WHERE Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + meeting.Id + '\' ';
+                        soql += '                 AND Process_Type_MERC__c = \'' + processTypeSelected + '\')';
+                }
+                if (communicationPreferenceSelected != 'Any') {
+                        soql += '   AND Account_MERC__r.Communication_Preference_MERC__c = \'' + communicationPreferenceSelected + '\'';
+                }
+                if (countryOfResidenceSelected != 'Any') {
+                        soql += '   AND Country_of_Residence_MERC__c = \'' + countryOfResidenceSelected + '\'';
+                }
+                if (statusSelected != 'Any') {
+                        soql += '   AND Status_MERC__c \'' + statusSelected + '\'';
+                }
+                if (preferredLanguageSelected != 'Any') {
+                        soql += '   AND Account_MERC__r.Prfrd_Lang_Cd_GLBL__c \'' + preferredLanguageSelected + '\'';
+                }
+                if (recordTypeSelected != 'Any') {
+                        soql += '   AND RecordType.Id = \'' + recordTypeSelected + '\'';
+                }
+                if (hasEmailSelected == 'Yes') {
+                        soql += '   AND Account_MERC__r.PersonEmail != null';
+                } else if (hasEmailSelected == 'No') {
+                        soql += '   AND Account_MERC__r.PersonEmail = null';
+                }
 
-                Participants = new List<SelectedWrapper>();
-                for (Meeting_Participant_MERC__c p : ps) {
-                    Participants.add(new SelectedWrapper(p));
+                meetingParticipants = new ApexPages.StandardSetController(Database.getQueryLocator(soql));
+                meetingParticipants.setPageSize(20);
+
+                // If page number is set then update the page number in the meeting tasks
+                if (pageNumber != null) {
+                    meetingParticipants.setPageNumber(pageNumber);
                 }
             }
-            return Participants;
+            return meetingParticipants;
         }
         private set;
     }
 
+    // returns a list of wrapper objects for the sObjects in the current page set
+    public List<SelectedWrapper> participants {
+        get {
+            participants = new List<SelectedWrapper>();
+            for (Meeting_Participant_MERC__c participant : (List<Meeting_Participant_MERC__c>)meetingParticipants.getRecords())
+                participants.add(new SelectedWrapper(participant));
+            return participants;
+        }
+        private set;
+    }
+
+    /*
+        - null out meeting tasks so that the standard set controller can be requeried with new filters
+        - null out pageNumber so that the requeried meetingParticipants will start at page 1
+    */
+    public PageReference updateParticipants() {
+        meetingParticipants = null;
+        pageNumber = null;
+        return null;
+    }
+
+    // indicates whether there are more records after the current page set.
+    public Boolean hasNext {
+        get {
+            return (meetingParticipants != null) && meetingParticipants.getHasNext();
+        }
+        set;
+    }
+
+    // indicates whether there are more records before the current page set.
+    public Boolean hasPrevious {
+        get {
+            return (meetingParticipants != null) && meetingParticipants.getHasPrevious();
+        }
+        set;
+    }
+
+    // returns the page number of the current page set
+    public Integer pageNumber {
+        get {
+            return meetingParticipants.getPageNumber();
+        }
+        set;
+    }
+
+    // returns the first page of records
+     public void first() {
+         meetingParticipants.first();
+     }
+
+     // returns the last page of records
+     public void last() {
+         meetingParticipants.last();
+     }
+
+     // returns the previous page of records
+     public void previous() {
+         meetingParticipants.previous();
+     }
+
+     // returns the next page of records
+     public void next() {
+         meetingParticipants.next();
+     }
+
+     // returns the PageReference of the original page, if known, or the home page.
+     public void cancel() {
+         meetingParticipants.cancel();
+     }
+
     public void SelectAllClicked() {
-        for (SelectedWrapper w : Participants)
+        for (SelectedWrapper w : participants)
             w.IsSelected = IsAllChecked;
     }
 
     @TestVisible
     private class SelectedWrapper
     {
+        public Meeting_Participant_MERC__c Participant { get; private set; }
+        public boolean IsSelected { get; set; }
+
         public SelectedWrapper(Meeting_Participant_MERC__c p) {
             this.Participant = p;
             this.IsSelected = false;
         }
-
-        public Meeting_Participant_MERC__c Participant { get; private set; }
-        public boolean IsSelected { get; set; }
     }
 
     public void ShowGrid() {
@@ -335,7 +538,59 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             email.title=EncodingUtil.urlDecode(apexPages.currentPage().getParameters().get('emailSubject'),'UTF-8').replace('\\"','"');
         }
         showEmailChooser=false;
+        this.base64Thumbnail = retrieveThumbnailForEmailSend(email.id);
         System.debug('Email = ' + email);
+    }
+
+    public String retrieveThumbnailForEmailSend(String emailId) {
+        System.debug('retrieveThumbnailForEmailSend: '+emailId);
+        // String soapAuthToken = [SELECT et4ae5__exacttarget_Oauth_token__c FROM user WHERE id=:userInfo.getUserId() LIMIT 1].et4ae5__exacttarget_Oauth_token__c;
+
+        et4ae5__configuration__c c=[SELECT et4ae5__integration_type__c,et4ae5__username__c,et4ae5__password__c,et4ae5__auth_api_url__c,et4ae5__retry__c,et4ae5__root_rest_api_url__c FROM et4ae5__configuration__c LIMIT 1];
+        string ceScope=[SELECT et4ae5__exacttarget_Oauth_token__c FROM user WHERE id=:userInfo.getUserId() LIMIT 1].et4ae5__exacttarget_Oauth_token__c;
+        string token='';
+        if(c.et4ae5__integration_type__c=='Enterprise2.0')
+        {
+            if (BusinessUnit == null) return '';
+
+            string mid=BusinessUnit.et4ae5__Business_Unit_ID__c;
+            system.debug('mid: '+mid);
+            token=callControl.oauthScoped(c.et4ae5__username__c,c.et4ae5__password__c,ceScope,mid,c.et4ae5__auth_api_url__c);
+        }
+        else
+        {
+            token=callControl.oauthScopedNoMid(c.et4ae5__username__c,c.et4ae5__password__c,ceScope,c.et4ae5__auth_api_url__c);
+        }
+
+        System.debug('oauth token is: '+token);
+        et4ae5__Configuration__c configInfo = [SELECT et4ae5__Root_Rest_API_URL__c, et4ae5__url_root__c, et4ae5__url_part__c
+                                       FROM et4ae5__Configuration__c
+                                       ORDER BY LastModifiedDate DESC
+                                       LIMIT 1];
+
+        String thumbnailURL = configInfo.et4ae5__Root_Rest_API_URL__c;
+        thumbnailURL = thumbnailURL.replace('rest', configInfo.et4ae5__url_root__c);
+        thumbnailURL += String.format('/{0}/utilities/ImageThumbnailSecure.ashx/?h={1}&w={2}&emailid={3}&oauth_token={4}', 
+                                      new List<String> { configInfo.et4ae5__url_part__c, '700', '700', emailId, token });
+        System.Debug('thumbnailURL: ' + thumbnailURL);
+        
+        HttpRequest req = new HttpRequest();
+        req.setMethod('GET');
+        req.setEndpoint(thumbnailURL);
+        req.setHeader('Content-Type', 'application/json');
+        req.setHeader('Accept', 'application/json');
+        req.setTimeout(5000);
+
+        Http h = new Http();
+        HttpResponse res = h.send(req);
+        
+        System.debug('res body: ' + res.getBody());
+        ImageThumbnailSecureResponse thumbnailResponse = (ImageThumbnailSecureResponse)JSON.deserialize(res.getBody(), ImageThumbnailSecureResponse.class);
+        return thumbnailResponse.data;
+    }
+
+    public class ImageThumbnailSecureResponse {
+        public String data;
     }
 
     public string getSyncPayload()

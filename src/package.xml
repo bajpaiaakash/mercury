@@ -3,9 +3,15 @@
     <types>
         <members>MERC_ETDataExtensionProcessor</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
+        <members>MERC_MeetingTaskEditorController</members>
+        <members>MERC_MeetingTaskEditorControllerTest</members>
+        <members>MERC_TravelProposalsController</members>
+        <members>MERC_TravelProposalsControllerTest</members>
         <name>ApexClass</name>
     </types>
     <types>
+        <members>MERC_MeetingTaskEditor</members>
+        <members>MERC_TravelProposals</members>
         <members>MeetingEmailSend</members>
         <name>ApexPage</name>
     </types>
