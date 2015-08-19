@@ -69,6 +69,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_RegistrationResponsesController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_TOVCalculator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -122,6 +126,26 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Invoice_Received_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Consulting_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Delegate_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Individual_Sponsorship_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Service_Provider_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

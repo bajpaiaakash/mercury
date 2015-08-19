@@ -69,6 +69,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_RegistrationResponsesController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_TOVCalculator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -127,6 +131,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Registration_Question_MERC__c.Consulting_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registration_Question_MERC__c.Delegate_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registration_Question_MERC__c.Individual_Sponsorship_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registration_Question_MERC__c.Service_Provider_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Response_MERC__c.Answer_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -182,6 +206,9 @@
     <layoutAssignments>
         <layout>PersonAccount-GLBL_HCP Account</layout>
         <recordType>PersonAccount.HCP_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Registration_Question_MERC__c-MERC_Question_Layout</layout>
     </layoutAssignments>
     <loginHours>
         <fridayEnd>1440</fridayEnd>
