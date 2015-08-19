@@ -27,7 +27,7 @@
         <members>Account.RTI - Account Updated</members>
         <members>Meeting_MERC__c.MERC_Complete</members>
         <members>Meeting_MERC__c.RTI - Meeting Updated</members>
-        <members>Meeting_Participant_MERC__c.RTI - Meeting Participant  Updated</members>
+        <members>Meeting_Participant_MERC__c.RTI - Meeting Participant Updated</members>
         <name>WorkflowRule</name>
     </types>
 	<types>

@@ -12,7 +12,7 @@
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
     <rules>
-        <fullName>RTI - Meeting Participant  Updated</fullName>
+        <fullName>RTI - Meeting Participant Updated</fullName>
         <actions>
             <name>RTI_Meeting_Participant_Update_ICRT</name>
             <type>OutboundMessage</type>
