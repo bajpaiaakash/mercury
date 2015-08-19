@@ -25,6 +25,19 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Existing_Contract_Info_MERC__c</fullName>
+        <description>This field must be mandatory if Contract Already Exists field has been checked.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide information and references of existing contract for audit purposes.</inlineHelpText>
+        <label>Existing Contract Info</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Invoice_Received_Date_MERC__c</fullName>
         <description>Date that CMS Regional has received the valid invoice (if required) - populated via process flow : MERC : Created on 13/08/2015 by Billy Ho, Mavens Consulting.</description>
         <externalId>false</externalId>
