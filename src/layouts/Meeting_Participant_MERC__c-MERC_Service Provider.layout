@@ -83,11 +83,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Contract_not_required_MERC__c</field>
+                <field>Contract_Already_Exists_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Contract_not_required_reason_MERC__c</field>
+                <field>Existing_Contract_Info_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

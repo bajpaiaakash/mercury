@@ -18,6 +18,7 @@
         <members>MERC_HcpCapYearlyCalculationJobTest</members>
         <members>MERC_MeetingParticipantRollups</members>
         <members>MERC_MeetingParticipantStressTest</members>
+        <members>MERC_RegistrationResponsesController</members>
         <members>MERC_TOVCalculator</members>
         <members>MERC_TOVCalculatorTest</members>
         <members>MERC_TOVNonAggregateCalculatorTest</members>
@@ -41,7 +42,12 @@
         <members>Meeting_MERC__c.CFT_Meeting_Instructions_MERC__c</members>
         <members>Meeting_MERC__c.Local_CMS_Review_Completed_MERC__c</members>
         <members>Meeting_Participant_MERC__c.CFT_Logistics_Comments_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Contract_not_required_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Invoice_Received_Date_MERC__c</members>
+        <members>Registration_Question_MERC__c.Consulting_MERC__c</members>
+        <members>Registration_Question_MERC__c.Delegate_MERC__c</members>
+        <members>Registration_Question_MERC__c.Individual_Sponsorship_MERC__c</members>
+        <members>Registration_Question_MERC__c.Service_Provider_MERC__c</members>
         <members>Response_MERC__c.Answer_MERC__c</members>
         <members>Response_MERC__c.Meeting_Participant_MERC__c</members>
         <members>Response_MERC__c.Mercury_External_Id_MERC__c</members>
@@ -65,6 +71,7 @@
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
         <members>PersonAccount-GLBL_HCP Account</members>
+        <members>Registration_Question_MERC__c-MERC_Question_Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -115,6 +122,10 @@
         <members>Meetings_with_Registration_Questions_with_Answers_with_Responses</members>
         <members>Meetings_with_Registration_Questions_with_Responses</members>
         <name>ReportType</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c.Generate_Documents_MERC</members>
+        <name>WebLink</name>
     </types>
     <types>
         <members>Meeting_MERC__c.MERC_Update_Local_CMS_Review</members>

@@ -24,4 +24,26 @@
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
+    <webLinks>
+        <fullName>Generate_Documents_MERC</fullName>
+        <availability>online</availability>
+        <description>Used to kick-off Mass Loop.  Custom button to ensure we&apos;re not deploying managed components : MERC : Created on 17/08/2015 by Oliver Dunford, Mavens Consulting</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Generate Documents</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+var ids = {!GETRECORDIDS( $ObjectType.Meeting_Participant_MERC__c )};
+if (!ids || ids.length &lt; 1)
+    alert(&apos;Please select at least one record.&apos;);
+else
+{
+    var url = &quot;/apex/loop__masslooplus?retURL=&quot; + encodeURI(window.location.pathname+window.location.search) + &quot;&amp;contactfield=&quot;;
+    url += &quot;&amp;recordIds=&quot;+ids.join(&apos;,&apos;);
+    url += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
+    window.location.href = url;
+}</url>
+    </webLinks>
 </CustomObject>
