@@ -18,12 +18,19 @@
         <name>Profile</name>
     </types>
     <types>
-        <members>Account</members>
-        <members>Meeting_MERC__c</members>
-        <members>Meeting_Participant_MERC__c</members>
-        <name>Workflow</name>
+        <members>Account.RTI_Account_Update_ICRT</members>
+        <members>Meeting_MERC__c.RTI_Meeting_Update_ICRT</members>
+        <members>Meeting_Participant_MERC__c.RTI_Meeting_Participant_Update_ICRT</members>
+        <name>WorkflowOutboundMessage</name>
     </types>
-	    <types>
+    <types>
+        <members>Account.RTI - Account Updated</members>
+        <members>Meeting_MERC__c.MERC_Complete</members>
+        <members>Meeting_MERC__c.RTI - Meeting Updated</members>
+        <members>Meeting_Participant_MERC__c.RTI - Meeting Participant  Updated</members>
+        <name>WorkflowRule</name>
+    </types>
+	<types>
         <members>GLBL_BaseEditController</members>
         <members>GLBL_BaseEditControllerTest</members>
         <members>GLBL_DescribeLayoutTest</members>

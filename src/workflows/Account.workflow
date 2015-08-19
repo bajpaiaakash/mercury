@@ -7,11 +7,11 @@
         <fields>Id</fields>
         <includeSessionId>true</includeSessionId>
         <integrationUser>icrtmercuryintegration.veeva@gso1.lly</integrationUser>
-        <name>RTI - Account Update_ICRT</name>
+        <name>RTI - Account Update ICRT</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
-	<rules>
+    <rules>
         <fullName>RTI - Account Updated</fullName>
         <actions>
             <name>RTI_Account_Update_ICRT</name>
