@@ -14,6 +14,17 @@
         <visibleLines>5</visibleLines>
     </fields>
     <fields>
+        <fullName>Contract_Already_Exists_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>A contract should already be in place and thus a new contract is not required.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that a valid contract is in place and a new contract is not required for this Meeting. The Service Provider has been added to the Meeting for logistics or ToV purposes.</inlineHelpText>
+        <label>Contract Already Exists</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Invoice_Received_Date_MERC__c</fullName>
         <description>Date that CMS Regional has received the valid invoice (if required) - populated via process flow : MERC : Created on 13/08/2015 by Billy Ho, Mavens Consulting.</description>
         <externalId>false</externalId>
