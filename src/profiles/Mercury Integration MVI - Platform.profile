@@ -130,6 +130,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Existing_Contract_Info_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Invoice_Received_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
