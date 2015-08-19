@@ -56,11 +56,6 @@
         <name>CustomField</name>
     </types>
     <types>
-        <members>MERC_Stamp_Invoice_Info_to_MP_Created_Record</members>
-        <members>MERC_Stamp_Invoice_Info_to_MP_Edited_Record</members>
-        <name>Flow</name>
-    </types>
-    <types>
         <members>Meeting_MERC__c-MERC_Active</members>
         <members>Meeting_MERC__c-MERC_Completed</members>
         <members>Meeting_MERC__c-MERC_Consulting_Project</members>
