@@ -115,6 +115,10 @@
                 <behavior>Edit</behavior>
                 <field>Accountable_Business_Contact_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Communication_Channel_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
