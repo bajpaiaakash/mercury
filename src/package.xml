@@ -46,6 +46,7 @@
         <members>Meeting_MERC__c.CFT_Meeting_Instructions_MERC__c</members>
         <members>Meeting_MERC__c.Local_CMS_Review_Completed_MERC__c</members>
         <members>Meeting_Participant_MERC__c.CFT_Logistics_Comments_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Communication_Channel_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contract_Already_Exists_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Existing_Contract_Info_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Invoice_Received_Date_MERC__c</members>
