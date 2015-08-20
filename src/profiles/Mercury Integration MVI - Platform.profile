@@ -229,6 +229,11 @@
     </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Case.MERC_Mercury_Cases</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

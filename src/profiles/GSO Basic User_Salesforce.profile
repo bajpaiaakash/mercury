@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+<Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
         <apexClass>MERC_AccountDesignatedIndividualsCounter</apexClass>
         <enabled>false</enabled>
@@ -92,7 +92,7 @@
         <apexClass>MERC_TestFactory</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <description>Used to grant access to create/deploy Dashboards and Reports for Mercury</description>
+    <custom>true</custom>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Heroku_Connect_External_Id_MERC__c</field>
@@ -124,14 +124,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Contract_Already_Exists_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Existing_Contract_Info_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -159,9 +159,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Response_MERC__c.Answer_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -178,50 +178,131 @@
         <field>Response_MERC__c.Response_Text_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <label>Mercury Reporting and Dashboards</label>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Active</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Active</layout>
+        <recordType>Meeting_MERC__c.Meeting_Active</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Completed</layout>
+        <recordType>Meeting_MERC__c.Completed</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Consulting_Project</layout>
+        <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Forecasted_Meeting</layout>
+        <recordType>Meeting_MERC__c.Forecasted</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Independent_Sponsorship</layout>
+        <recordType>Meeting_MERC__c.Independent_Sponsorship</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Registered_Meeting</layout>
+        <recordType>Meeting_MERC__c.Registered</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Participant_MERC__c-MERC_Service Provider</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-GLBL_HCP Account</layout>
+        <recordType>PersonAccount.Contracting_Party_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-GLBL_HCP Account</layout>
+        <recordType>PersonAccount.Contracting_Party_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-GLBL_HCP Account</layout>
+        <recordType>PersonAccount.HCP_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-GLBL_HCP Account</layout>
+        <recordType>PersonAccount.HCP_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Registration_Question_MERC__c-MERC_Question_Layout</layout>
+    </layoutAssignments>
     <pageAccesses>
         <apexPage>MERC_DailyAttendance</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Case.MERC_Mercury_Cases</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Meeting_MERC__c.Completed</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Meeting_MERC__c.Forecasted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Meeting_MERC__c.Independent_Sponsorship</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Meeting_MERC__c.Meeting_Active</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Meeting_MERC__c.Meeting_Program</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>true</default>
         <recordType>Meeting_MERC__c.Registered</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
+    <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
-        <name>CanUseNewDashboardBuilder</name>
+        <name>AllowViewKnowledge</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>CreateCustomizeDashboards</name>
+        <name>ApiEnabled</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AssignTopics</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChatterFileLink</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChatterInternalUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChatterInviteExternalUsers</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChatterOwnGroups</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CreateCustomizeFilters</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -229,11 +310,47 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EditMyDashboards</name>
+        <name>CreateTopics</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ManageDynamicDashboards</name>
+        <name>DistributeFromPersWksp</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditEvent</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditOppLineItemUnitPrice</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditTask</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditTopics</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EmailMass</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EmailSingle</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EnableNotifications</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ExportReport</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>MassInlineEdit</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -241,10 +358,14 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ScheduleJob</name>
+        <name>SendSitRequests</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ViewMyTeamsDashboards</name>
+        <name>SubmitMacrosAllowed</name>
     </userPermissions>
-</PermissionSet>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewHelpLink</name>
+    </userPermissions>
+</Profile>

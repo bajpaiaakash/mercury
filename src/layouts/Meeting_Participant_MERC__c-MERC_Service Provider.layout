@@ -81,14 +81,6 @@
                 <behavior>Readonly</behavior>
                 <field>Record_Type_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Contract_Already_Exists_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Existing_Contract_Info_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -146,6 +138,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Accountable_Business_Contact_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Communication_Channel_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -628,6 +624,14 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Invoice_Received_Date_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contract_Already_Exists_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Existing_Contract_Info_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

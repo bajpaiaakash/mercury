@@ -184,6 +184,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
+        <recordType>Case.MERC_Mercury_Cases</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

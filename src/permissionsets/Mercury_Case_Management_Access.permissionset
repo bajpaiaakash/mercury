@@ -92,7 +92,7 @@
         <apexClass>MERC_TestFactory</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <description>Used to grant access to create/deploy Dashboards and Reports for Mercury</description>
+    <description>Provides access to only the Case Management functionality</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Heroku_Connect_External_Id_MERC__c</field>
@@ -178,14 +178,14 @@
         <field>Response_MERC__c.Response_Text_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <label>Mercury Reporting and Dashboards</label>
+    <label>Mercury Case Management Access</label>
     <pageAccesses>
         <apexPage>MERC_DailyAttendance</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
         <recordType>Case.MERC_Mercury_Cases</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>
@@ -217,34 +217,6 @@
     </recordTypeVisibilities>
     <userPermissions>
         <enabled>true</enabled>
-        <name>CanUseNewDashboardBuilder</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>CreateCustomizeDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>CreateCustomizeReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditMyDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManageDynamicDashboards</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>RunReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ScheduleJob</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewMyTeamsDashboards</name>
+        <name>TransferAnyCase</name>
     </userPermissions>
 </PermissionSet>
