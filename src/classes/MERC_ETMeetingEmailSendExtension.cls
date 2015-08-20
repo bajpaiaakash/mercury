@@ -10,28 +10,229 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     public boolean ShowParticipantGrid { get; set; }
     public String base64Thumbnail { get; private set; }
 
+    public Set<Id> selectedParticipantIds { get; set; }
+
     //filters for select participant page
-    public List<SelectOption> processType { get; set; }
-    public String processTypeSelected {get; set;}
-    
     public List<SelectOption> communicationPreference { get; set; }
     public String communicationPreferenceSelected {get; set;}
     
     public List<SelectOption> countryOfResidence { get; set; }
     public String countryOfResidenceSelected {get; set;}
-    
-    public List<SelectOption> status { get; set; }
-    public String statusSelected {get; set;}
-
-    public List<SelectOption> preferredLanguage { get; set; }
-    public String preferredLanguageSelected {get; set;}
 
     public List<SelectOption> hasEmail { get; set; }
     public String hasEmailSelected {get; set;}
 
+    public List<SelectOption> participantStatus { get; set; }
+    public String participantStatusSelected {get; set;}
+
+    public List<SelectOption> preferredLanguage { get; set; }
+    public String preferredLanguageSelected {get; set;}
+
+    public List<SelectOption> processType { get; set; }
+    public String processTypeSelected {get; set;}
+
+    public List<SelectOption> proposalStatus {get; set;}
+    public String proposalStatusSelected {get; set;}
+    public Boolean proposalStatusRender {
+        get {
+            return (processTypeSelected == 'Travel Proposal');
+        }
+        private set;
+    }
+
     public List<SelectOption> recordType { get; set; }
     public String recordTypeSelected {get; set;}
 
+    public List<SelectOption> taskStatus { 
+        get {
+            Set<string> taskStatusSet = new Set<string>();
+            taskStatus = selectOptionListInitialize();
+            for (Meeting_Tasks_MERC__c t : [SELECT Task_Status_MERC__c 
+                                              FROM Meeting_Tasks_MERC__c 
+                                             WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id
+                                               AND Meeting_Process_MERC__r.Process_Type_MERC__c = :processTypeSelected
+                                          ORDER BY Task_Status_MERC__c]) {
+                if (t.Task_Status_MERC__c != null && !taskStatusSet.contains(t.Task_Status_MERC__c)) {
+                    taskStatusSet.add(t.Task_Status_MERC__c);
+                    taskStatus.add(new SelectOption(t.Task_Status_MERC__c,t.Task_Status_MERC__c));
+                }
+            }
+            taskStatus = sortOptionList(taskStatus);
+            return taskStatus;
+        } 
+        set; 
+    }
+    public String taskStatusSelected {get; set;}
+    public Boolean taskStatusRender {
+        get {
+            return (processTypeSelected != '-Any-');
+        }
+        private set;
+    }
+
+
+    // Sorting suffixes
+    public String headerTitleSuffix { 
+        get {
+            if (sortField == 'Account_MERC__r.Title_Desc_GLBL__c') {
+                if (sortDirection == 'ASC') {
+                    return '^';
+                } else {
+                    return 'v';
+                }
+            }
+            else {
+                return ' ';
+            }
+        }
+        set; 
+    }
+
+    public String headerFirstNameSuffix { 
+        get {
+            if (sortField == 'Account_MERC__r.FirstName') {
+                if (sortDirection == 'ASC') {
+                    return '^';
+                } else {
+                    return 'v';
+                }
+            }
+            else {
+                return ' ';
+            }
+        }
+        set; 
+    }
+
+    public String headerLastNameSuffix { 
+        get {
+            if (sortField == 'Account_MERC__r.LastName') {
+                if (sortDirection == 'ASC') {
+                    return '^';
+                } else {
+                    return 'v';
+                }
+            }
+            else {
+                return ' ';
+            }
+        }
+        set; 
+    }
+
+    public String headerSuffixSuffix { 
+        get {
+            if (sortField == 'Account_MERC__r.Sfx_Nm_GLBL__c') {
+                if (sortDirection == 'ASC') {
+                    return '^';
+                } else {
+                    return 'v';
+                }
+            }
+            else {
+                return ' ';
+            }
+        }
+        set; 
+    }
+
+    public String headerEmailSuffix { 
+        get {
+            if (sortField == 'Account_MERC__r.PersonEmail') {
+                if (sortDirection == 'ASC') {
+                    return '^';
+                } else {
+                    return 'v';
+                }
+            }
+            else {
+                return ' ';
+            }
+        }
+        set; 
+    }
+
+    public String headerStatusSuffix { 
+        get {
+            if (sortField == 'Status_MERC__c') {
+                if (sortDirection == 'ASC') {
+                    return '^';
+                } else {
+                    return 'v';
+                }
+            }
+            else {
+                return ' ';
+            }
+        }
+        set; 
+    }
+
+    public String headerRecordTypeSuffix { 
+        get {
+            if (sortField == 'Record_Type_MERC__c') {
+                if (sortDirection == 'ASC') {
+                    return '^';
+                } else {
+                    return 'v';
+                }
+            }
+            else {
+                return ' ';
+            }
+        }
+        set; 
+    }
+
+    public String headerCommPrefSuffix { 
+        get {
+            if (sortField == 'Account_MERC__r.Communication_Preference_MERC__c') {
+                if (sortDirection == 'ASC') {
+                    return '^';
+                } else {
+                    return 'v';
+                }
+            }
+            else {
+                return ' ';
+            }
+        }
+        set; 
+    }
+
+    public String headerPrefLangSuffix { 
+        get {
+            if (sortField == 'Account_MERC__r.Prfrd_Lang_Cd_GLBL__c') {
+                if (sortDirection == 'ASC') {
+                    return '^';
+                } else {
+                    return 'v';
+                }
+            }
+            else {
+                return ' ';
+            }
+        }
+        set; 
+    }
+
+    public String headerCountrySuffix { 
+        get {
+            if (sortField == 'Account_MERC__r.Country_of_Residence_GLBL__c') {
+                if (sortDirection == 'ASC') {
+                    return '^';
+                } else {
+                    return 'v';
+                }
+            }
+            else {
+                return ' ';
+            }
+        }
+        set; 
+    }
+
+    //constructor
     public MERC_ETMeetingEmailSendExtension(ApexPages.StandardController stdController) {
         this.meeting = (Meeting_MERC__c)stdController.getRecord();
         if (meeting == null || meeting.Id == null) {
@@ -52,80 +253,119 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         SendTime = 'now';
 
-        Set<string> communicationPreferenceSet = new Set<string>(); //used for checking for dupes
-        
-        //prep the SelectOption lists
-        communicationPreference = anySelectOptionBuilder();
-        preferredLanguage = anySelectOptionBuilder();
+        //sets to check for dupes in the SelectOption lists.
+        Set<string> communicationPreferenceSet = new Set<string>(); 
+        Set<String> participantStatusSet = new Set<string>();
+        Set<string> preferredLanguageSet = new Set<string>(); 
+        Set<string> processTypeSet = new Set<string>(); 
+        Set<string> proposalStatusSet = new Set<string>(); 
+        Set<string> countryOfResidenceSet = new Set<String>(); 
+        Set<string> statusSet = new Set<String>();
 
-        //build select options that are solely based on the participants for the meeting
-        for( Meeting_Participant_MERC__c p : [SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c, 
-                                                     Record_Type_MERC__c, Has_Signed_Contract_MERC__c, 
-                                                     Account_MERC__r.Name, Account_MERC__r.FirstName, 
-                                                     Account_MERC__r.PersonEmail, 
-                                                     Account_MERC__r.LastName, 
-                                                     Account_MERC__r.Communication_Preference_MERC__c,  
-                                                     Account_MERC__r.Title_Desc_GLBL__c, 
-                                                     Account_MERC__r.Sfx_Nm_GLBL__c,
-                                                     Account_MERC__r.Prfrd_Lang_Cd_GLBL__c
-                                                FROM Meeting_Participant_MERC__c 
-                                               WHERE Meeting_MERC__c = :meeting.Id]) {
-            if (p.Account_MERC__r.Communication_Preference_MERC__c != null && !communicationPreferenceSet.contains(p.Account_MERC__r.Communication_Preference_MERC__c)) {
-                communicationPreference.add(new SelectOption(p.Account_MERC__r.Communication_Preference_MERC__c,p.Account_MERC__r.Communication_Preference_MERC__c));
-                preferredLanguage.add(new SelectOption(p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c,p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c));
+        //prep the SelectOption lists
+        communicationPreference = selectOptionListInitialize();
+        countryOfResidence = selectOptionListInitialize();
+        hasEmail = selectOptionListInitialize();
+        participantStatus = selectOptionListInitialize();
+        preferredLanguage = selectOptionListInitialize();
+        processType = selectOptionListInitialize();
+        proposalStatus = selectOptionListInitialize();
+        recordType = selectOptionListInitialize();
+
+
+        //Retrieve all country of residence info to build labels and values for SelectOptions later.
+        Schema.DescribeFieldResult countryOfResidenceFieldResult = Account.Country_of_Residence_GLBL__c.getDescribe();
+        List<Schema.PicklistEntry> pleList = countryOfResidenceFieldResult.getPicklistValues();
+        Map<String,String> countryOfResidenceLabelMap = new Map<String,String>();
+        for (Schema.PicklistEntry ple : pleList) {
+            if(ple.getValue() != null && ple.isActive()) {
+                countryOfResidenceLabelMap.put(ple.getValue(),ple.getLabel());
             }
         }
 
-        // prep the record type SelectOption list
-        recordType = anySelectOptionBuilder();
+        //build select options that are solely based on the participants for the meeting
+        for (Meeting_Participant_MERC__c p : [SELECT Account_MERC__r.Communication_Preference_MERC__c,
+                                                     Account_MERC__r.Country_of_Residence_GLBL__c,
+                                                     Account_MERC__r.Prfrd_Lang_Cd_GLBL__c,
+                                                     Status_MERC__c
+                                                FROM Meeting_Participant_MERC__c 
+                                               WHERE Meeting_MERC__c = :meeting.Id]) {
+            if (p.Account_MERC__r.Communication_Preference_MERC__c != null && !communicationPreferenceSet.contains(p.Account_MERC__r.Communication_Preference_MERC__c)) {
+                communicationPreferenceSet.add(p.Account_MERC__r.Communication_Preference_MERC__c);
+                communicationPreference.add(new SelectOption(p.Account_MERC__r.Communication_Preference_MERC__c,p.Account_MERC__r.Communication_Preference_MERC__c));
+            }
+            if (p.Account_MERC__r.Country_of_Residence_GLBL__c != null && !countryOfResidenceSet.contains(p.Account_MERC__r.Country_of_Residence_GLBL__c)) {
+                countryOfResidenceSet.add(p.Account_MERC__r.Country_of_Residence_GLBL__c);
+                countryOfResidence.add(new SelectOption(p.Account_MERC__r.Country_of_Residence_GLBL__c,countryOfResidenceLabelMap.get(p.Account_MERC__r.Country_of_Residence_GLBL__c)));
+            }
+            if (p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c != null && !preferredLanguageSet.contains(p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c)) {
+                preferredLanguageSet.add(p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c);
+                preferredLanguage.add(new SelectOption(p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c,p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c));
+            }
+            if (p.Status_MERC__c != null && !participantStatusSet.contains(p.Status_MERC__c)) {
+                participantStatusSet.add(p.Status_MERC__c);
+                participantStatus.add(new SelectOption(p.Status_MERC__c,p.Status_MERC__c));
+            }
+
+        }
+
+        //build process type select options that are solely based on the participants for the meeting
+        for (Meeting_Process_MERC__c p : [SELECT Process_Type_MERC__c 
+                                            FROM Meeting_Process_MERC__c 
+                                           WHERE Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id
+                                        ORDER BY Process_Type_MERC__c]) {
+            if (p.Process_Type_MERC__c != null && !processTypeSet.contains(p.Process_Type_MERC__c)) {
+                processTypeSet.add(p.Process_Type_MERC__c);
+                processType.add(new SelectOption(p.Process_Type_MERC__c,p.Process_Type_MERC__c));
+            }
+        }
+
+
+
+        for (Travel_Itinerary_MERC__c t : [SELECT Status_MERC__c 
+                                             FROM Travel_Itinerary_MERC__c
+                                            WHERE Travel_Proposal_MERC__c = null
+                                              AND Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id]) {
+            if (t.Status_MERC__c != null && !proposalStatusSet.contains(t.Status_MERC__c)) {
+                proposalStatusSet.add(t.Status_MERC__c);
+                proposalStatus.add(new SelectOption(t.Status_MERC__c,t.Status_MERC__c));
+            } 
+        }
 
         //find all record types and build SelectOption list
         for(RecordType rt : [SELECT Name FROM RecordType  WHERE SObjectType = 'Meeting_Participant_MERC__c' AND IsActive = TRUE]) {
             recordType.add(new SelectOption(rt.Id,rt.Name));
         }
 
-        //Retrieve all process type info.        
-        Schema.DescribeFieldResult processTypeFieldResult = Meeting_Process_MERC__c.Process_Type_MERC__c.getDescribe();
-        List<Schema.PicklistEntry> processTypePLE = processTypeFieldResult.getPicklistValues();
-        processType = selectOptionListBuilder(processTypePLE);
-
-        //Retrieve all country of residence info.        
-        Schema.DescribeFieldResult countryOfResidenceFieldResult = Account.Country_of_Residence_GLBL__c.getDescribe();
-        List<Schema.PicklistEntry> countryOfResidencePLE = countryOfResidenceFieldResult.getPicklistValues();
-        countryOfResidence = selectOptionListBuilder(countryOfResidencePLE);
-
-        //Retrieve all participant status info.        
-        Schema.DescribeFieldResult statusFieldResult = Meeting_Participant_MERC__c.Status_MERC__c.getDescribe();
-        List<Schema.PicklistEntry> statusPLE = statusFieldResult.getPicklistValues();
-        status = selectOptionListBuilder(statusPLE);
-
         //Build hasEmail selectOption
-        hasEmail = anySelectOptionBuilder();
         hasEmail.add(new SelectOption('Yes','Yes'));
         hasEmail.add(new SelectOption('No','No'));
 
-        processTypeSelected = 'Any';
-        communicationPreferenceSelected = 'Any';
-        countryOfResidenceSelected = 'Any';
-        statusSelected = 'Any';
-        preferredLanguageSelected = 'Any';
-        hasEmailSelected = 'Any';
-        recordTypeSelected = 'Any';
+        //set defaults
+        communicationPreferenceSelected = '-Any-';
+        countryOfResidenceSelected = '-Any-';
+        hasEmailSelected = '-Any-';
+        participantStatusSelected = '-Any-';
+        preferredLanguageSelected = '-Any-';
+        processTypeSelected = '-Any-';
+        proposalStatusSelected = '-Any-';
+        recordTypeSelected = '-Any-';
+        taskStatusSelected = '-Any-';
+        selectedParticipantIds = new Set<Id>();
+
+        //sort the SelectOptionLists
+        communicationPreference = sortOptionList(communicationPreference);
+        countryOfResidence = sortOptionList(countryOfResidence);
+        participantStatus = sortOptionList(participantStatus);
+        preferredLanguage = sortOptionList(preferredLanguage);
+        processType = sortOptionList(processType);
+        recordType = sortOptionList(recordType);
+
     }
 
-    private List<SelectOption> selectOptionListBuilder(List<Schema.PicklistEntry> pleList) {
-        List<SelectOption> result = anySelectOptionBuilder();
-        for (Schema.PicklistEntry ple : pleList) {
-                if(ple.getValue() != null && ple.isActive()) {
-                result.add(new SelectOption(ple.getValue(),ple.getLabel()));
-            }
-        }
-        return result;
-    }
-
-    private List<SelectOption> anySelectOptionBuilder() {
+    private List<SelectOption> selectOptionListInitialize() {
         List<SelectOption> result = new List<SelectOption>();
-        result.add(new SelectOption('Any','Any'));
+        result.add(new SelectOption('-Any-','-Any-'));
         return result;
     }
 
@@ -141,22 +381,28 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         set;
     }
 
+    public List<Meeting_Participant_MERC__c> getSelectedParticipants() { 
+        return [SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c, 
+                       Record_Type_MERC__c, Has_Signed_Contract_MERC__c, 
+                       Account_MERC__r.Name, Account_MERC__r.FirstName, 
+                       Account_MERC__r.PersonEmail, 
+                       Account_MERC__r.LastName, 
+                       Account_MERC__r.Communication_Preference_MERC__c,  
+                       Account_MERC__r.Title_Desc_GLBL__c, 
+                       Account_MERC__r.Sfx_Nm_GLBL__c,
+                       Account_MERC__r.Prfrd_Lang_Cd_GLBL__c
+                  FROM Meeting_Participant_MERC__c 
+                 WHERE Id in :selectedParticipantIds];
+    }
 
     public Integer getParticipantCount() {
-        Integer totalParticipants = 0;
-        for (SelectedWrapper w : participants) {
-            if (w.IsSelected)
-                totalParticipants++;
-        }
-        return totalParticipants;
+        return selectedParticipantIds.size();
     }
 
     public PageReference Send() {
         List<Meeting_Participant_MERC__c> parts = new List<Meeting_Participant_MERC__c>();
-        for (SelectedWrapper w : participants) {
-            if (w.IsSelected) {
-                parts.Add(w.Participant);
-            }
+        for (Meeting_Participant_MERC__c p : getSelectedParticipants()) {
+            parts.Add(p);
         }
 
         if (parts.size() == 0) {
@@ -198,8 +444,18 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     public ApexPages.StandardSetController meetingParticipants {
         get 
         {
+            Set<Id> taskStatusIds = new Set<Id>();
+            if (taskStatusSelected != '-Any-') {
+                for (Meeting_Tasks_MERC__c task : [SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c 
+                                                     FROM Meeting_Tasks_MERC__c 
+                                                    WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id 
+                                                      AND Task_Status_MERC__c = :taskStatusSelected]) {
+                    taskStatusIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
+                }
+            }
+
             if (meetingParticipants == null) {
-                String  soql =  'SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c, ';
+                String  soql =  'SELECT Status_MERC__c, Docusign_Contract_Status_MERC__c, ';
                         soql += '       Record_Type_MERC__c, Has_Signed_Contract_MERC__c, ';
                         soql += '       Account_MERC__r.Name, Account_MERC__r.FirstName, ';
                         soql += '       Account_MERC__r.PersonEmail, Account_MERC__r.LastName, ';
@@ -209,33 +465,51 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                         soql += '       Account_MERC__r.Country_of_Residence_GLBL__c';
                         soql += '  FROM Meeting_Participant_MERC__c ';
                         soql += ' WHERE Meeting_MERC__c = \'' + meeting.Id + '\'';
-                if (processTypeSelected != 'Any') {
+                if (processTypeSelected != '-Any-') {
+                    if (processTypeSelected != 'Travel Proposal') {
+                        proposalStatusSelected = '-Any-';
+                    }
                         soql += '   AND Id in (SELECT Meeting_Participant_MERC__c ';
                         soql += '                FROM Meeting_Process_MERC__c ';
                         soql += '               WHERE Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + meeting.Id + '\' ';
-                        soql += '                 AND Process_Type_MERC__c = \'' + processTypeSelected + '\')';
+                        soql += '                 AND Process_Type_MERC__c = \'' + String.escapeSingleQuotes(processTypeSelected) + '\') ';
+                } else if (processTypeSelected == '-Any-'){
+                    taskStatusSelected = '-Any-';
+                    proposalStatusSelected = '-Any-';
                 }
-                if (communicationPreferenceSelected != 'Any') {
-                        soql += '   AND Account_MERC__r.Communication_Preference_MERC__c = \'' + communicationPreferenceSelected + '\'';
+                if (proposalStatusSelected != '-Any-') {
+                        soql += '   AND Id in (SELECT Meeting_Participant_MERC__c '; 
+                        soql += '                FROM Travel_Itinerary_MERC__c ';
+                        soql += '               WHERE Travel_Proposal_MERC__c = null ';
+                        soql += '                 AND Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + meeting.Id + '\' ';
+                        soql += '                 AND Status_MERC__c  = \'' + String.escapeSingleQuotes(proposalStatusSelected) + '\') ';
                 }
-                if (countryOfResidenceSelected != 'Any') {
-                        soql += '   AND Country_of_Residence_MERC__c = \'' + countryOfResidenceSelected + '\'';
+                if (communicationPreferenceSelected != '-Any-') {
+                        soql += '   AND Account_MERC__r.Communication_Preference_MERC__c = \'' + String.escapeSingleQuotes(communicationPreferenceSelected) + '\'';
                 }
-                if (statusSelected != 'Any') {
-                        soql += '   AND Status_MERC__c \'' + statusSelected + '\'';
+                if (countryOfResidenceSelected != '-Any-') {
+                        soql += '   AND Country_of_Residence_MERC__c = \'' + String.escapeSingleQuotes(countryOfResidenceSelected) + '\'';
                 }
-                if (preferredLanguageSelected != 'Any') {
-                        soql += '   AND Account_MERC__r.Prfrd_Lang_Cd_GLBL__c \'' + preferredLanguageSelected + '\'';
+                if (participantStatusSelected != '-Any-') {
+                        soql += '   AND Status_MERC__c = \'' + String.escapeSingleQuotes(participantStatusSelected) + '\'';
                 }
-                if (recordTypeSelected != 'Any') {
-                        soql += '   AND RecordType.Id = \'' + recordTypeSelected + '\'';
+                if (preferredLanguageSelected != '-Any-') {
+                        soql += '   AND Account_MERC__r.Prfrd_Lang_Cd_GLBL__c = \'' + String.escapeSingleQuotes(preferredLanguageSelected) + '\'';
+                }
+                if (recordTypeSelected != '-Any-') {
+                        soql += '   AND RecordType.Id = \'' + String.escapeSingleQuotes(recordTypeSelected) + '\'';
                 }
                 if (hasEmailSelected == 'Yes') {
                         soql += '   AND Account_MERC__r.PersonEmail != null';
                 } else if (hasEmailSelected == 'No') {
                         soql += '   AND Account_MERC__r.PersonEmail = null';
                 }
+                if (taskStatusSelected != '-Any-') {
+                        soql += '   AND Id in :TaskStatusIds ';
+                }
+                        soql += 'ORDER BY ' + String.escapeSingleQuotes(sortField) + ' ' + String.escapeSingleQuotes(sortDirection);
 
+                System.debug(Logginglevel.ERROR,'#### SOQL = ' + soql);
                 meetingParticipants = new ApexPages.StandardSetController(Database.getQueryLocator(soql));
                 meetingParticipants.setPageSize(20);
 
@@ -249,25 +523,82 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         private set;
     }
 
+
+    // the current field to sort by. defaults to last name
+    public String sortField {
+        // To set a Field for sorting.
+        get  { 
+                if (sortField == null) {
+                    sortField = 'Account_MERC__r.LastName';
+                }
+                return sortField;  
+            }
+        set {
+            if (sortField == value) {
+                if (sortDirection == 'ASC') {
+                    sortDirection = 'DESC';
+                } else {
+                    sortDirection = 'ASC';
+                }
+            }
+            sortField = value;
+        }
+    } 
+
+    public String sortDirection { 
+        get {
+            if (sortDirection == null) {
+                sortDirection = 'ASC';
+            }
+            return sortDirection;
+        } 
+        set; 
+    }
+
     // returns a list of wrapper objects for the sObjects in the current page set
     public List<SelectedWrapper> participants {
         get {
-            participants = new List<SelectedWrapper>();
-            for (Meeting_Participant_MERC__c participant : (List<Meeting_Participant_MERC__c>)meetingParticipants.getRecords())
-                participants.add(new SelectedWrapper(participant));
+            if(participants == null) {
+                participants = new List<SelectedWrapper>();
+                for (Meeting_Participant_MERC__c participant : (List<Meeting_Participant_MERC__c>)meetingParticipants.getRecords()) {
+
+                    if (selectedParticipantIds.contains(participant.Id)) { 
+                        participants.add(new SelectedWrapper(participant, true));
+                    } else { 
+                        participants.add(new SelectedWrapper(participant));
+                    }
+                }
+            }
             return participants;
         }
         private set;
     }
+
+
 
     /*
         - null out meeting tasks so that the standard set controller can be requeried with new filters
         - null out pageNumber so that the requeried meetingParticipants will start at page 1
     */
     public PageReference updateParticipants() {
+        collectParticipantIds();
         meetingParticipants = null;
+        participants = null;
         pageNumber = null;
         return null;
+    }
+
+
+    public void collectParticipantIds() {
+        for (SelectedWrapper wrapper : participants) {
+            if(wrapper.IsSelected) {
+                selectedParticipantIds.add(wrapper.Participant.Id);
+            } else if (!wrapper.IsSelected && selectedParticipantIds.contains(wrapper.Participant.Id)) {
+                selectedParticipantIds.remove(wrapper.Participant.Id);
+            }
+        }
+        System.debug(Logginglevel.ERROR,'#### collectParticipantIds() complete. selectedParticipantIds = ' + selectedParticipantIds);
+        participants = null;
     }
 
     // indicates whether there are more records after the current page set.
@@ -296,27 +627,31 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     // returns the first page of records
      public void first() {
-         meetingParticipants.first();
+        collectParticipantIds();
+        meetingParticipants.first();
      }
 
      // returns the last page of records
      public void last() {
-         meetingParticipants.last();
+        collectParticipantIds();
+        meetingParticipants.last();
      }
 
      // returns the previous page of records
      public void previous() {
-         meetingParticipants.previous();
+        collectParticipantIds();
+        meetingParticipants.previous();
      }
 
      // returns the next page of records
      public void next() {
-         meetingParticipants.next();
+        collectParticipantIds();
+        meetingParticipants.next();
      }
 
      // returns the PageReference of the original page, if known, or the home page.
      public void cancel() {
-         meetingParticipants.cancel();
+        meetingParticipants.cancel();
      }
 
     public void SelectAllClicked() {
@@ -334,6 +669,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             this.Participant = p;
             this.IsSelected = false;
         }
+
+        public SelectedWrapper(Meeting_Participant_MERC__c p, Boolean b) {
+            this.Participant = p;
+            this.IsSelected = b;
+        }
     }
 
     public void ShowGrid() {
@@ -341,6 +681,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     }
 
     public void HideGrid() {
+        collectParticipantIds();
         ShowParticipantGrid = false;
     }
     /* End region: participants */
@@ -600,5 +941,35 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         postBody+='"properties":[{"name":"SubscriberRetentionPeriod","value":"1"},{"name":"ThresholdCount","value":"250"}]}}}';
         system.debug('sync postbody: '+postBody);
         return postBody;
+    }
+
+    //  This is a simple quicksort algorithm to sort a SelectOption list by label alphabetically.    
+    public List<SelectOption> sortOptionList(List<SelectOption> listToSort)  {
+        
+        if(listToSort == null || listToSort.size() <= 1) {
+            List<SelectOption> result = new List<SelectOption> ();
+            result.addAll(listToSort);
+            return result;                 
+        }
+        
+        List<SelectOption> Less = new List<SelectOption>();     
+        List<SelectOption> Greater = new List<SelectOption>();  
+            
+        integer pivot = 0;              
+        // save the pivot and remove it from the list       
+        SelectOption pivotValue = listToSort[pivot];        
+        listToSort.remove(pivot);               
+        for(SelectOption x : listToSort) {          
+            if(x.getLabel().compareTo(pivotValue.getLabel()) <= 0) {
+                Less.add(x);
+            } else if(x.getLabel().compareTo(pivotValue.getLabel()) > 0) {
+                Greater.add(x);
+            }   
+        }       
+        List<SelectOption> result = new List<SelectOption> ();      
+        result.addAll(SortOptionList(Less));
+        result.add(pivotValue); 
+        result.addAll(SortOptionList(Greater)); 
+        return result;    
     }
 }

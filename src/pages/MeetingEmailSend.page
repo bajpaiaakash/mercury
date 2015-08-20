@@ -5,15 +5,6 @@
 
 	<script type="text/javascript">
 		$j = jQuery.noConflict();
-		$j(document).ready(function () {
-			$j("[id$=participantGrid]").tablesorter({
-				headers: {
-					0: {
-						sorter: false
-					}
-				}
-			});
-		});
 
 		var isSent = false;
 		function preventDoubleSend(button){
@@ -57,6 +48,9 @@
 
 		<!--SELECT RECIPIENTS-->
 		<apex:pageBlock id="participantBlock" title="Select Recipients" rendered="{!ShowParticipantGrid}">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Update Recipients" action="{!HideGrid}" />
+            </apex:pageBlockButtons>
 
 			<!--MEETING INFO SECTION-->
 			<apex:pageBlockSection title="Meeting Data" collapsible="False">
@@ -68,16 +62,24 @@
 			<!--END OF MEETING INFO-->
 
 			<!-- FILTERS -->
-			<apex:actionFunction name="updateList" action="{!updateParticipants}" rerender="thePageBlock, tableStatus" status="tableStatus"/>
-			<apex:pageBlockSection title="Filters" collapsible="False" columns="3">
-				<apex:selectList label="Process Type" value="{!processTypeSelected}" multiselect="false" size="1" onchange="updateList();">
-					<apex:selectOptions value="{!processType}" />
+			<apex:actionFunction name="updateList" action="{!updateParticipants}" rerender="thePageBlock, tableStatus, filters" status="tableStatus"/>
+			<apex:pageBlockSection id="filters" title="Filters" collapsible="False" columns="3">
+				<apex:pageBlockSectionItem helpText="{!$ObjectType.Meeting_Process_MERC__c.fields.Process_Type_MERC__c.InlineHelpText}">
+					{!$ObjectType.Meeting_Process_MERC__c.fields.Process_Type_MERC__c.label}
+					<apex:selectList label="Process Type" value="{!processTypeSelected}" multiselect="false" size="1" onchange="updateList();">
+						<apex:selectOptions value="{!processType}" />
+					</apex:selectList>
+				</apex:pageBlockSectionItem>
+				<apex:selectList label="Task Status" value="{!taskStatusSelected}" multiselect="false" size="1" rendered="{!taskStatusRender}" onchange="updateList();">
+					<apex:selectOptions value="{!taskStatus}" />
 				</apex:selectList>
-								<apex:pageBlockSectionItem />
-
-				<apex:pageBlockSectionItem />
-				<apex:selectList label="Participant Status" value="{!statusSelected}" multiselect="false" size="1" onchange="updateList();">
-					<apex:selectOptions value="{!status}" />
+				<apex:pageBlockSectionItem rendered="{!!taskStatusRender}" />
+				<apex:selectList label="Proposal Status" value="{!proposalStatusSelected}" multiselect="false" size="1" rendered="{!proposalStatusRender}" onchange="updateList();">
+					<apex:selectOptions value="{!taskStatus}" />
+				</apex:selectList>
+				<apex:pageBlockSectionItem rendered="{!!proposalStatusRender}" />
+				<apex:selectList label="Participant Status" value="{!participantStatusSelected}" multiselect="false" size="1" onchange="updateList();">
+					<apex:selectOptions value="{!participantStatus}" />
 				</apex:selectList>
 				<apex:selectList label="Preferred Language" value="{!preferredLanguageSelected}" multiselect="false" size="1" onchange="updateList();">
 					<apex:selectOptions value="{!preferredLanguage}" />
@@ -103,13 +105,13 @@
 					<!-- FIRST & PREVIOUS BUTTONS -->
 					<apex:outputPanel layout="none" rendered="{!meetingParticipants.hasPrevious}">
 						<apex:commandButton value="<< First"
-											action="{!meetingParticipants.first}"
+											action="{!first}"
 											rerender="participantTable, messages, navigation"
 											styleClass="navigation"
 											status="tableStatus"
 											/>
 						<apex:commandButton value="< Previous"
-											action="{!meetingParticipants.previous}"
+											action="{!previous}"
 											rerender="participantTable, messages, navigation"
 											styleClass="navigation"
 											status="tableStatus"
@@ -131,14 +133,14 @@
 					<!-- NEXT & LAST BUTTONS -->
 					<apex:outputPanel layout="none" rendered="{!meetingParticipants.hasNext}">
 						<apex:commandButton value="Next >"
-											action="{!meetingParticipants.next}"
+											action="{!next}"
 											rendered="{!meetingParticipants.hasNext}"
 											rerender="participantTable, messages, navigation"
 											styleClass="navigation"
 											status="tableStatus"
 											/>
 						<apex:commandButton value="Last >>"
-											action="{!meetingParticipants.last}"
+											action="{!last}"
 											rendered="{!meetingParticipants.hasNext}"
 											rerender="participantTable, messages, navigation"
 											styleClass="navigation"
@@ -157,9 +159,6 @@
 			<apex:outputPanel id="participantTable">
 				<apex:actionStatus id="tableStatus">
 					<apex:facet name="stop">	
-						<apex:pageBlockButtons >
-							<apex:commandButton value="Update Recipients" action="{!HideGrid}" />
-						</apex:pageBlockButtons>
 						<apex:actionStatus startText="(selecting all...)" id="selectAllStatus"/>
 						<apex:pageBlockTable value="{!participants}" var="participant" id="participantGrid" styleClass="tablesorter" >
 							<apex:column >
@@ -173,18 +172,82 @@
 								</apex:facet>
 								<apex:inputCheckbox value="{!participant.IsSelected}" styleClass="selectBox" onclick="updateSelectAllCheckBox(this)" />
 							</apex:column>
-							<apex:column headerValue="Title" value="{!participant.Participant.Account_MERC__r.Title_Desc_GLBL__c}"/>
-							<!-- <apex:column headerValue="Full Name" value="{!participant.Participant.Account_MERC__r.Name}" /> -->
-							<apex:column headerValue="First Name" value="{!participant.Participant.Account_MERC__r.FirstName}" />
-							<apex:column headerValue="Last Name" value="{!participant.Participant.Account_MERC__r.LastName}" />
-							<apex:column headerValue="Suffix" value="{!participant.Participant.Account_MERC__r.Sfx_Nm_GLBL__c}"/>
-							<apex:column headerValue="Email" value="{!participant.Participant.Account_MERC__r.PersonEmail}" />
-							<apex:column headerValue="Status" value="{!participant.Participant.Status_MERC__c}" />
-							<!-- <apex:column headerValue="Docusign Contract Status" value="{!participant.Participant.Docusign_Contract_Status_MERC__c}" /> -->
-							<apex:column headerValue="Record Type" value="{!participant.Participant.Record_Type_MERC__c}" />
-							<apex:column headerValue="Communication Preference" value="{!participant.Participant.Account_MERC__r.Communication_Preference_MERC__c}" />
-							<apex:column headerValue="Preferred Language" value="{!participant.Participant.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c}" />
-							<apex:column headerValue="Country of Residence" value="{!participant.Participant.Account_MERC__r.Country_of_Residence_GLBL__c}" />
+                            <apex:column value="{!participant.Participant.Account_MERC__r.Title_Desc_GLBL__c}">
+                                <apex:facet name="header">
+                                    <apex:commandLink value="{!$ObjectType.Account.Fields.Title_Desc_GLBL__c.Label} {!headerTitleSuffix}" action="{!updateParticipants}" rerender="navigatoin, participantTable, messages">
+                                        <apex:param name="sortField" value="Account_MERC__r.Title_Desc_GLBL__c" assignTo="{!sortField}"/>
+                                    </apex:commandLink>
+                                </apex:facet>
+                            </apex:column>
+                            <apex:column>
+                                <apex:facet name="header">
+                                    <apex:commandLink value="{!$ObjectType.Account.Fields.FirstName.Label} {!headerFirstNameSuffix}" action="{!updateParticipants}" rerender="navigatoin, participantTable, messages">
+                                        <apex:param name="sortField" value="Account_MERC__r.FirstName" assignTo="{!sortField}"/>
+                                    </apex:commandLink>
+                                </apex:facet>
+                                <apex:outputLink value="/{!participant.Participant.id}">
+                                    <apex:outputText value="{!participant.Participant.Account_MERC__r.FirstName}"/>
+                                </apex:outputLink>
+                            </apex:column>
+                            <apex:column>
+                                <apex:facet name="header">
+                                    <apex:commandLink value="{!$ObjectType.Account.Fields.LastName.Label} {!headerLastNameSuffix}" action="{!updateParticipants}" rerender="navigatoin, participantTable, messages">
+                                        <apex:param name="sortField" value="Account_MERC__r.LastName" assignTo="{!sortField}"/>
+                                    </apex:commandLink>
+                                </apex:facet>
+                                <apex:outputLink value="/{!participant.Participant.id}">
+                                    <apex:outputText value="{!participant.Participant.Account_MERC__r.LastName}"/>
+                                </apex:outputLink>
+                            </apex:column>
+                            <apex:column value="{!participant.Participant.Account_MERC__r.Sfx_Nm_GLBL__c}">
+                                <apex:facet name="header">
+                                    <apex:commandLink value="{!$ObjectType.Account.Fields.Sfx_Nm_GLBL__c.Label} {!headerSuffixSuffix}" action="{!updateParticipants}" rerender="navigatoin, participantTable, messages">
+                                        <apex:param name="sortField" value="Account_MERC__r.Sfx_Nm_GLBL__c" assignTo="{!sortField}"/>
+                                    </apex:commandLink>
+                                </apex:facet>
+                            </apex:column>
+                            <apex:column value="{!participant.Participant.Account_MERC__r.PersonEmail}">
+                                <apex:facet name="header">
+                                    <apex:commandLink value="{!$ObjectType.Account.Fields.PersonEmail.Label} {!headerEmailSuffix}" action="{!updateParticipants}" rerender="navigatoin, participantTable, messages">
+                                        <apex:param name="sortField" value="Account_MERC__r.PersonEmail" assignTo="{!sortField}"/>
+                                    </apex:commandLink>
+                                </apex:facet>
+                            </apex:column>
+                            <apex:column value="{!participant.Participant.Status_MERC__c}">
+                                <apex:facet name="header">
+                                    <apex:commandLink value="{!$ObjectType.Meeting_Participant_MERC__c.Fields.Status_MERC__c.Label} {!headerStatusSuffix}" action="{!updateParticipants}" rerender="navigatoin, participantTable, messages">
+                                        <apex:param name="sortField" value="Status_MERC__c" assignTo="{!sortField}"/>
+                                    </apex:commandLink>
+                                </apex:facet>
+                            </apex:column>
+                            <apex:column value="{!participant.Participant.Record_Type_MERC__c}">
+                                <apex:facet name="header">
+                                    <apex:commandLink value="{!$ObjectType.Meeting_Participant_MERC__c.Fields.Record_Type_MERC__c.Label} {!headerRecordTypeSuffix}" action="{!updateParticipants}" rerender="navigatoin, participantTable, messages">
+                                        <apex:param name="sortField" value="Record_Type_MERC__c" assignTo="{!sortField}"/>
+                                    </apex:commandLink>
+                                </apex:facet>
+                            </apex:column>
+                            <apex:column value="{!participant.Participant.Account_MERC__r.Communication_Preference_MERC__c}">
+                                <apex:facet name="header">
+                                    <apex:commandLink value="{!$ObjectType.Account.Fields.Communication_Preference_MERC__c.Label} {!headerCommPrefSuffix}" action="{!updateParticipants}" rerender="navigatoin, participantTable, messages">
+                                        <apex:param name="sortField" value="Account_MERC__r.Communication_Preference_MERC__c" assignTo="{!sortField}"/>
+                                    </apex:commandLink>
+                                </apex:facet>
+                            </apex:column>
+                            <apex:column value="{!participant.Participant.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c}">
+                                <apex:facet name="header">
+                                    <apex:commandLink value="{!$ObjectType.Account.Fields.Prfrd_Lang_Cd_GLBL__c.Label} {!headerPrefLangSuffix}" action="{!updateParticipants}" rerender="navigatoin, participantTable, messages">
+                                        <apex:param name="sortField" value="Account_MERC__r.Prfrd_Lang_Cd_GLBL__c" assignTo="{!sortField}"/>
+                                    </apex:commandLink>
+                                </apex:facet>
+                            </apex:column>
+                            <apex:column value="{!participant.Participant.Account_MERC__r.Country_of_Residence_GLBL__c}">
+                                <apex:facet name="header">
+                                    <apex:commandLink value="{!$ObjectType.Account.Fields.Country_of_Residence_GLBL__c.Label} {!headerCountrySuffix}" action="{!updateParticipants}" rerender="navigatoin, participantTable, messages">
+                                        <apex:param name="sortField" value="Account_MERC__r.Country_of_Residence_GLBL__c" assignTo="{!sortField}"/>
+                                    </apex:commandLink>
+                                </apex:facet>
+                            </apex:column>
 						</apex:pageBlockTable>
 					</apex:facet>
 					<apex:facet name="start">
