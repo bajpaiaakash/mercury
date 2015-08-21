@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>Communication_Channel_MERC__c</fullName>
+        <description>This field displays Communication Channel(originally coming from Preference &amp; Consent record).</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Communication_Channel_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Communication Channel</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Already_Exists_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>A contract should already be in place and thus a new contract is not required.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that a valid contract is in place and a new contract is not required for this Meeting. The Service Provider has been added to the Meeting for logistics or ToV purposes.</inlineHelpText>
+        <label>Contract Already Exists</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Existing_Contract_Info_MERC__c</fullName>
+        <description>This field must be mandatory if Contract Already Exists field has been checked.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide information and references of existing contract for audit purposes.</inlineHelpText>
+        <label>Existing Contract Info</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <validationRules>
+        <fullName>MERC_Existing_Contract_Info_must_filled</fullName>
+        <active>true</active>
+        <description>If Contract Already Exists checkbox has been selected then Existing Contract Info must be filled.</description>
+        <errorConditionFormula>Contract_Already_Exists_MERC__c = true  &amp;&amp;  Existing_Contract_Info_MERC__c = &apos;&apos;</errorConditionFormula>
+        <errorMessage>Existing Contract Info: Information must be provided if Contract Already Exists has been marked.</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Account.Communication_Channel_MERC__c</members>
+        <members>Meeting_MERC__c.Therapeutic_Area_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Communication_Channel_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Contract_Already_Exists_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Existing_Contract_Info_MERC__c</members>
+        <members>Preferences_and_Consent_GLBL__c.Communication_Channel_MERC__c</members>
+        <members>Preferences_and_Consent_GLBL__c.Preference_Sub_Type_MERC__c</members>
+        <members>Preferences_and_Consent_GLBL__c.Preference_Type_MERC__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
+        <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
+        <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
+        <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <members>PersonAccount-GLBL_HCP Account</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <members>Mercury_Legal_Edit</members>
+        <members>Mercury_Meeting_Owner_Edit</members>
+        <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c.MERC_Existing_Contract_Info_must_filled</members>
+        <members>Travel_Itinerary_MERC__c.Travel_Date_Range</members>
+        <name>ValidationRule</name>
+    </types>
+    <types>
+        <members>HCP_Contract_MERC__c.MERC_Update_Contract_Received_Date</members>
+        <members>Preferences_and_Consent_GLBL__c.Set_Communication_chnl_Account</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>HCP_Contract_MERC__c.MERC_Set_Contract_Received_Date</members>
+        <members>Preferences_and_Consent_GLBL__c.MERC_Set Communication Channel</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>34.0</version>
+</Package>
