@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <validationRules>
+        <fullName>Travel_Date_Range</fullName>
+        <active>true</active>
+        <description>Ensure that a Travel/Segment date is within 3 days +/- of the Meeting Start or End Date.  This is to accommodate shoulder dates but also limit the dates that can be chosen.  Created on 02/17/2014 by KLorenti.  Modified 4/21/2014 J Adams</description>
+        <errorConditionFormula>(
+
+/* Segment starts in within 4 days of Meeting start */
+ Sgmnt_Bgin_TS_MERC__c &lt; ( Meeting_Start_Date_Time_MERC__c - 4)||
+
+/* Segment ends within 4 days of Meeting end */
+ Sgmnt_End_TS_MERC__c &gt; ( Meeting_End_Date_Time_MERC__c + 4)
+ 
+ )</errorConditionFormula>
+        <errorMessage>The Segment Dates selected must be within 3 +/- days of the start or end of the meeting.</errorMessage>
+    </validationRules>
+</CustomObject>

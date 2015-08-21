@@ -1,5 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to store registration questions for a meeting : MERC : Created on 13/04/2015 by Oliver Dunford, Mavens Consulting</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Answer_Type_MERC__c</fullName>
+        <description>Used to define the type of response expected from the end user or HCP : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defines the answer format for the question.  For example &apos;Select Many&apos; would ensure the user had to select more than one response.</inlineHelpText>
+        <label>Answer Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Text</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Select One</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Select Many</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>Consulting_MERC__c</fullName>
         <defaultValue>false</defaultValue>
@@ -34,6 +113,70 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Relationship to the Mercury Meeting.  Visibility to questions driven from meeting level access : MERC : Created on 13/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Meeting_MERC__c.RecordType.Name</field>
+                <operation>notEqual</operation>
+                <value>Ad_Hoc_Consulting, Meeting_Program</value>
+            </filterItems>
+            <infoMessage>Please select &quot;All Fields&quot; and try your search again.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Registration Questions</relationshipLabel>
+        <relationshipName>Registration_Questions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Set via workflow for integration with external systems : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Number_MERC__c</fullName>
+        <description>Used to order the questions in a logical order in the related list and on the web service : MERC : Created on 13/04/205 by Oliver Dunford</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populate to ensure questions can be ordered correctly in Mercury and on the Web Services for the HCP.</inlineHelpText>
+        <label>Order Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question_MERC__c</fullName>
+        <description>The question text presented to the HCP when asking a flexible registration question : MERC : Created on 13/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The question that will be shown to the HCP.</inlineHelpText>
+        <label>Question</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Service_Provider_MERC__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Used to indicate this question is applicable for this record type of Meeting Participant : MERC : Created on 10/08/2015 by Oliver Dunford, Mavens Consulting</description>
@@ -44,4 +187,14 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+    <label>Registration Question</label>
+    <nameField>
+        <displayFormat>Q-{00000}</displayFormat>
+        <label>Question Reference</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Registration Questions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

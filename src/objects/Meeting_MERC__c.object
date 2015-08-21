@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
+	<fields>
+        <fullName>Therapeutic_Area_MERC__c</fullName>
+        <description>Capture Therapeutic Area of Meeting. Updated 11/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Therapeutic Area</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Neuroscience</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Autoimmune</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bone, Muscle, Joint (BMJ)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <fields>
         <fullName>CFT_Meeting_Instructions_MERC__c</fullName>
         <description>Used to communicate Meeting Instructions with Customer Facing Users in Veeva/Mercury : MERC : Created on 18/08/2015 by Oliver Dunford, Mavens Consulting</description>

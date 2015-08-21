@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
-    <fields>
-        <fullName>CFT_Logistics_Comments_MERC__c</fullName>
-        <description>Used to communicate Meeting Participant Logistics Comments with Customer Facing Users in Veeva/Mercury : MERC : Created on 18/08/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Logistics comments entered by Customer Facing User viewable and editable by Regional and Local teams. Country privacy and compliance requirements must apply</inlineHelpText>
-        <label>CFT Logistics Comments</label>
-        <length>256</length>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>5</visibleLines>
-    </fields>
-    <fields>
+	<fields>
         <fullName>Communication_Channel_MERC__c</fullName>
         <description>This field displays Communication Channel(originally coming from Preference &amp; Consent record).</description>
         <externalId>false</externalId>
@@ -25,6 +13,18 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CFT_Logistics_Comments_MERC__c</fullName>
+        <description>Used to communicate Meeting Participant Logistics Comments with Customer Facing Users in Veeva/Mercury : MERC : Created on 18/08/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Logistics comments entered by Customer Facing User viewable and editable by Regional and Local teams. Country privacy and compliance requirements must apply</inlineHelpText>
+        <label>CFT Logistics Comments</label>
+        <length>256</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>Contract_Already_Exists_MERC__c</fullName>
@@ -83,4 +83,11 @@ else
     window.location.href = url;
 }</url>
     </webLinks>
+	<validationRules>
+        <fullName>MERC_Existing_Contract_Info_must_filled</fullName>
+        <active>true</active>
+        <description>If Contract Already Exists checkbox has been selected then Existing Contract Info must be filled.</description>
+        <errorConditionFormula>Contract_Already_Exists_MERC__c = true  &amp;&amp;  Existing_Contract_Info_MERC__c = &apos;&apos;</errorConditionFormula>
+        <errorMessage>Existing Contract Info: Information must be provided if Contract Already Exists has been marked.</errorMessage>
+    </validationRules>
 </CustomObject>
