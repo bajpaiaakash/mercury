@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Answer_Text_MERC__c</fullName>
+        <description>Holds the answer text for each possible Answer for any given Registration Question</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The answer text displayed to the user e.g. &quot;Monday Lunch&quot;</inlineHelpText>
+        <label>Answer Text</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Pulls down meeting id. Used by trigger to pass to locked record handler</description>
+        <externalId>false</externalId>
+        <formula>Registration_Question_MERC__r.Meeting_MERC__c</formula>
+        <label>Meeting</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Set via workflow for integration with external systems : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Number_MERC__c</fullName>
+        <description>Used to Order the Answers for usabilty : MERC : Created on 13/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use the order to sequence the Answers as they&apos;re shown to the HCP/User.</inlineHelpText>
+        <label>Order Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

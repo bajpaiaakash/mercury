@@ -19,6 +19,7 @@
         <members>MERC_MeetingParticipantRollups</members>
         <members>MERC_MeetingParticipantStressTest</members>
         <members>MERC_RegistrationResponsesController</members>
+        <members>MERC_RegistrationResponsesControllerTest</members>
         <members>MERC_TOVCalculator</members>
         <members>MERC_TOVCalculatorTest</members>
         <members>MERC_TOVNonAggregateCalculatorTest</members>
@@ -28,11 +29,16 @@
     </types>
     <types>
         <members>MERC_DailyAttendance</members>
+        <members>MERC_RegistrationResponses</members>
         <name>ApexPage</name>
     </types>
     <types>
+        <members>MERC_Answer</members>
         <members>MERC_Invoice</members>
         <members>MERC_MeetingParticipant</members>
+        <members>MERC_MeetingTask</members>
+        <members>MERC_RegistrationQuestion</members>
+        <members>MERC_Response</members>
         <name>ApexTrigger</name>
     </types>
     <types>
@@ -40,8 +46,13 @@
         <name>BusinessProcess</name>
     </types>
     <types>
+        <members>Account.Communication_Channel_MERC__c</members>
         <members>Account.Heroku_Connect_External_Id_MERC__c</members>
         <members>Account.NIF_Number_MERC__c</members>
+        <members>Answer_MERC__c.Answer_Text_MERC__c</members>
+        <members>Answer_MERC__c.Meeting_MERC__c</members>
+        <members>Answer_MERC__c.Mercury_External_Id_MERC__c</members>
+        <members>Answer_MERC__c.Order_Number_MERC__c</members>
         <members>Invoice_MERC__c.Invoice_Received_Date_MERC__c</members>
         <members>Meeting_MERC__c.CFT_Meeting_Instructions_MERC__c</members>
         <members>Meeting_MERC__c.Local_CMS_Review_Completed_MERC__c</members>
@@ -50,15 +61,30 @@
         <members>Meeting_Participant_MERC__c.Contract_Already_Exists_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Existing_Contract_Info_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Invoice_Received_Date_MERC__c</members>
-        <members>Registration_Question_MERC__c.Consulting_MERC__c</members>
-        <members>Registration_Question_MERC__c.Delegate_MERC__c</members>
-        <members>Registration_Question_MERC__c.Individual_Sponsorship_MERC__c</members>
-        <members>Registration_Question_MERC__c.Service_Provider_MERC__c</members>
-        <members>Response_MERC__c.Answer_MERC__c</members>
-        <members>Response_MERC__c.Meeting_Participant_MERC__c</members>
-        <members>Response_MERC__c.Mercury_External_Id_MERC__c</members>
-        <members>Response_MERC__c.Response_Text_MERC__c</members>
         <name>CustomField</name>
+    </types>
+    <types>
+        <members>Generic_Cancel</members>
+        <members>Generic_Processing</members>
+        <members>Generic_Save</members>
+        <members>Registration_Questions_Answer_Required</members>
+        <members>Registration_Questions_Clear_Responses</members>
+        <members>Registration_Questions_Cleared_Responses</members>
+        <members>Registration_Questions_Confirm_Delete</members>
+        <members>Registration_Questions_Error_Deleting_Responses</members>
+        <members>Registration_Questions_Error_Inserting_Responses</members>
+        <members>Registration_Questions_Invalid_Participant</members>
+        <members>Registration_Questions_No_Participant_Id</members>
+        <members>Registration_Questions_Responses_For</members>
+        <members>Registration_Questions_Select_Many</members>
+        <members>Registration_Questions_Select_One</members>
+        <members>Registration_Questions_Text</members>
+    <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>Registration_Question_MERC__c</members>
+        <members>Response_MERC__c</members>
+        <name>CustomObject</name>
     </types>
     <types>
         <members>Meeting_MERC__c-MERC_Active</members>
@@ -91,6 +117,7 @@
         <name>PermissionSet</name>
     </types>
     <types>
+        <members>GSO Basic User_Platform</members>
         <members>GSO Basic User_Salesforce</members>
         <members>Mercury Integration MVI - Platform</members>
         <members>Mercury Metadata API</members>
@@ -136,11 +163,19 @@
         <name>WebLink</name>
     </types>
     <types>
+        <members>Answer_MERC__c</members>
+        <members>Registration_Question_MERC__c</members>
+        <members>Response_MERC__c</members>
+        <name>Workflow</name>
+    </types>
+    <types>
         <members>Meeting_MERC__c.MERC_Update_Local_CMS_Review</members>
+        <members>Meeting_Tasks_MERC__c.MERC_Stamp_External_Id_Meeting_Task</members>
         <name>WorkflowFieldUpdate</name>
     </types>
     <types>
         <members>Meeting_MERC__c.MERC Meeting Active Date</members>
+        <members>Meeting_Tasks_MERC__c.MERC_Set External Id - Meeting Tasks</members>
         <name>WorkflowRule</name>
     </types>
     <version>34.0</version>
