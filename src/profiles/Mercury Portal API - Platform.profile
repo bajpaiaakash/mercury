@@ -99,9 +99,9 @@
     <custom>true</custom>
     <description>Work in Process - This will ultimately be new Portal API Profile. KLorenti</description>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Communication_Channel_MERC__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -152,11 +152,6 @@
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.CFT_Logistics_Comments_MERC__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_Participant_MERC__c.Communication_Channel_MERC__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
