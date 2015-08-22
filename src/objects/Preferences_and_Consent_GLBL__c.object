@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>Account_Field_Update_MERC__c</fullName>
+        <description>This field should be populated via workflow with a string in the following format
+
+&lt;account_field_api_name&gt;=&lt;value&gt;
+
+Where account_field_api_name is the name of the field we should write to and &lt;value&gt; is the value that we should write into that field.</description>
+        <externalId>false</externalId>
+        <label>Account Field Update</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Name_GLBL__c</fullName>
+        <description>Used by Portal API to hold the full name of the HCP modifying the their global consent and will be populated by the API when a record is created or updated. Created 05/22/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Full name of the HCP modifying their global consent on the Web Service.</inlineHelpText>
+        <label>Account Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Active_MERC__c</fullName>
+        <description>Determines whether a Preference or Consent record is active or not. Created 06/199/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>(ISBLANK(Efctv_End_Dt_GLBL__c)||
+Efctv_End_Dt_GLBL__c &gt;= Today())
+
+|| 
+
+(ISBLANK(Efctv_End_Dt_Cap_GLBL__c) ||
+Efctv_End_Dt_Cap_GLBL__c &gt;= Today())</formula>
+        <label>Active</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disclaimer_Cap_GLBL__c</fullName>
+        <description>Captured if updated Consent record via Web Service.  Never refreshed from ODS, sent to Veeva via the interface.  Oliver Dunford 15th May 2014.</description>
+        <externalId>false</externalId>
+        <label>Disclaimer (Capture)</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Document_Id_Cap_GLBL__c</fullName>
+        <description>Manually typed in document Id.  Used by CMS Cork upon record entry and passed to the Capture field for Interface mapping. Oliver Dunford 15th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the document Id of scanned and uploaded document.  This will form of proof of request and reference the original source document.</inlineHelpText>
+        <label>Document Id (Capture)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>JanRain_Id_Cap_GLBL__c</fullName>
+        <description>Pulled from the HCPs Id logged into the Portal, preferably an Id of the HCP. Oliver Dunford 16th May 2014.</description>
+        <externalId>false</externalId>
+        <label>JanRain Id (Capture)</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Label_Capture_Cap_GLBL__c</fullName>
+        <description>Captures the label presented to the HCP upon entry of the consent record.  Written to interface into Veeva, not refreshed with ODS info. Oliver Dunford 16th May 2014.</description>
+        <externalId>false</externalId>
+        <label>Label (Capture)</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sub_Status_Cap_GLBL__c</fullName>
+        <defaultValue>&quot;EXPLICIT&quot;</defaultValue>
+        <description>Hard coded with Explicit, flows through into Veeva but does not get refreshed or set by the ODS information.</description>
+        <externalId>false</externalId>
+        <label>Sub Status (Capture)</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Name_GLBL__c</fullName>
+        <description>User Name, used to capture the user that created the record, either the CMS Cork user or the Web Service user.  Oliver Dunford 15th May 2014.</description>
+        <externalId>false</externalId>
+        <formula>$User.FirstName  &amp; &quot; &quot; &amp; $User.LastName</formula>
+        <label>User Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

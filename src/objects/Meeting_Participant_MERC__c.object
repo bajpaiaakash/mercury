@@ -2,6 +2,41 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <fields>
+        <fullName>Active_on_Web_Service_MERC__c</fullName>
+        <description>Indicates whether or not the Meeting Participant should be available on the Web Service.  Created 05/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>CASE(Status_MERC__c,
+&apos;Invited&apos;, 1,
+&apos;Accepted&apos;, 1,
+&apos;Declined&apos;, 1, 
+0) == 1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Active on Web Service</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Air_Travel_No_Longer_Required_MERC__c</fullName>
+        <description>Used by portal to capture if Meeting Participant no longer requires Air Travel, if Air Travel was previously required. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Was Air Travel offered and then declined</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>CFT_Logistics_Comments_MERC__c</fullName>
         <description>Used to communicate Meeting Participant Logistics Comments with Customer Facing Users in Veeva/Mercury : MERC : Created on 18/08/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -14,12 +49,56 @@
         <visibleLines>5</visibleLines>
     </fields>
     <fields>
+        <fullName>Congress_Additional_Information_MERC__c</fullName>
+        <description>Populated by the HCP if they need to provide additional information on the Web Service for Congress Registration : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Congress Additional Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Congress_Membership_Id_MERC__c</fullName>
+        <description>Captures Registration Id of HCP for Independent Meetings: MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Congress Membership Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Contract_Already_Exists_MERC__c</fullName>
         <defaultValue>false</defaultValue>
         <description>A contract should already be in place and thus a new contract is not required.</description>
         <externalId>false</externalId>
         <inlineHelpText>Indicates that a valid contract is in place and a new contract is not required for this Meeting. The Service Provider has been added to the Meeting for logistics or ToV purposes.</inlineHelpText>
         <label>Contract Already Exists</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dietary_Preferences_Step_Complete_MERC__c</fullName>
+        <description>If Dietary Preference Values exist, then this step is considered completed. Created 05/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(Account_MERC__r.Count_Dietary_Preferences_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dietary Preferences Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Emergency_Contact_Step_Complete_MERC__c</fullName>
+        <description>Determines if Emergency Contact information exists and indicates completion of that step on the portal. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF (!ISBLANK(Account_MERC__r.Emergency_Contact_Name_MERC__c) &amp;&amp; !ISBLANK(Account_MERC__r.Emergency_Contact_Phone_Number_MERC__c), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Emergency Contact Step Complete</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -38,6 +117,38 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Hotel_No_Longer_Required_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture if Meeting Participant originally required accommodations, but changed their mind and no longer need them.  Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Was Hotel offered and then declined</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Hotel_Step_Complete_MERC__c</fullName>
+        <description>Used by portal. Determines if Meeting Participant has completed the Accommodations step on the portal when RSVP&apos;ing to a Meeting. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF((!ISBLANK(Date_of_Check_In_MERC__c) &amp;&amp; !ISBLANK(Date_of_Check_Out_MERC__c)) ||   Hotel_No_Longer_Required_MERC__c , true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Hotel Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Institutional_Notification_Complete_MERC__c</fullName>
+        <description>Used by portal. Pulls from Account record to indicate if Institutional Notification Step is completed by HCP. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Institutional_Notif_Info_Exists_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Institutional Notification Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Invoice_Received_Date_MERC__c</fullName>
         <description>Date that CMS Regional has received the valid invoice (if required) - populated via process flow : MERC : Created on 13/08/2015 by Billy Ho, Mavens Consulting.</description>
         <externalId>false</externalId>
@@ -47,6 +158,194 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payee_Info_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has completed the Payee Information Consent during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Payee Information Consent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payee_and_Bank_Info_Complete_MERC__c</fullName>
+        <description>Used by portal. Pulled from Account to display whether Payee and Bank Information step is complete for HCP Info Package. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Payee_and_Bank_Info_Complete_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee and Bank Info Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Departure_Depot_MERC__c</fullName>
+        <description>Records Meeting Participant&apos;s preferred departure bus depot. Created by John Lorenti 2014-05-02</description>
+        <externalId>false</externalId>
+        <label>Preferred Departure Depot</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Processing_of_Data_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Meeting Participant agrees to Lilly gathering this their information related needed for RSVP to meeting. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Processing of Data Consent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Require_Congress_Registration_MERC__c</fullName>
+        <description>Captures whether a HCP has congress registration details for Independent Meetings : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Require Congress Registration</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Speaking_MERC__c</fullName>
+        <description>Used by Portal to identity service provider as a speaker for a meeting. John Lorenti 2014-03-12</description>
+        <externalId>false</externalId>
+        <formula>AND(RecordType.DeveloperName != &apos;Delegate_MERC&apos;, OR(
+ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Speaker&apos;),
+ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
+))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Speaking</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sponsorship_Agreement_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has consented to Sponsorship Agreement. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checked by CMS if a paper copy of the Sponsorship Package has been received.  The agreement should also be uploaded against the Meeting Participant.  This will complete this step for the HCP in the RSVP section of the web service.</inlineHelpText>
+        <label>Sponsorship Agreement Consent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sponsorship_Wet_Signature_Acknowled_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Captures the acknowledgment by the HCP that a wet signature will be required for Sponsorship Agreement, this is not the consent : MERC : Created on 22/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Web Service acknowledgment that the HCP knows that a wet signature is required.</inlineHelpText>
+        <label>Sponsorship Wet Signature Acknowledged</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sponsorship_Wet_Signature_Received_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by the Web Service to determine whether the RSVP process can proceed, also used by Local and CMS Cork to indicate the document has been received and attached : MERC : Created on 05/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Should be checked upon receiving and uploading a sponsorship agreement from those affiliates that require a wet signature.</inlineHelpText>
+        <label>Sponsorship Wet Signature Received</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Transparency_Step_Complete_MERC__c</fullName>
+        <description>Used by portal. Indicates when Meeting Participant has completed the step of Transparency Reporting Consent during meeting registration. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF( !ISBLANK(Account_MERC__r.Transparency_Reporting_Opt_Out_MERC__c), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Transparency Reporting Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Travel_No_Longer_Required_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture if Meeting Participant no longer requires travel, when Travel Required was originally set to Yes. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Was Travel offered and then declined</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Step_Complete_MERC__c</fullName>
+        <description>Used by portal. Determines if Meeting Participant has completed Travel step when RSVP&apos;ing on the portal. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Travel_by_Air_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Bus_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Car_MERC__c,&quot;Yes&quot;) ||  ISPICKVAL(Travel_by_Train_MERC__c,&quot;Yes&quot;) || ISPICKVAL( Air_Travel_No_Longer_Required_MERC__c ,&quot;Yes&quot;) || Travel_No_Longer_Required_MERC__c, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Travel Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Travel_by_Air_MERC__c</fullName>
+        <description>Records if the Meeting Participant traveling by Air : MERC : Created on 13/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Travel by Air</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Web_Service_Logic_Key_MERC__c</fullName>
+        <description>Maps back to the Web Service Logic.Key for Lookup Field for the RSVP Record Type. This then determines a HCPs view of the Meeting Registration Information. Oliver Dunford 13th May 2014.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Account_MERC__r.Country_of_Residence_GLBL__c) &amp; &quot;;&quot; &amp;
+RecordType.Name &amp; &quot;;&quot; &amp;
+Account_MERC__r.RecordType.Name &amp; &quot;;&quot; &amp;
+	CASE(Meeting_MERC__r.RecordType.Name,
+		&quot;Meeting - Forecasted&quot;,&quot;Meeting Standard Process&quot;,
+		&quot;Meeting - Registered&quot;, &quot;Meeting Standard Process&quot;,
+		&quot;Meeting - Active&quot;, &quot;Meeting Standard Process&quot;, 
+		&quot;Meeting - Completed&quot;,&quot;Meeting Standard Process&quot;, 
+		&quot;Meeting Program&quot;,&quot;Meeting Standard Process&quot;,
+	Meeting_MERC__r.RecordType.Name) &amp; &quot;;&quot; &amp;
+TEXT(Hotel_Required_MERC__c) &amp; &quot;;&quot; &amp;
+TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
+	CASE(Transparency_Reporting_Consent_MERC__c,
+		&quot;PERMISSION WITHDRAWN&quot;,&quot;Yes&quot;,
+		&quot;PERMISSION GIVEN&quot;,&quot;Yes&quot;,
+	&quot;No&quot;) &amp; &quot;;&quot;</formula>
+        <inlineHelpText>Maps to the web service logic object to determine a HCPs view of the Meeting Registration Information.</inlineHelpText>
+        <label>Web Service Logic Key</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <webLinks>
         <fullName>Generate_Documents_MERC</fullName>
