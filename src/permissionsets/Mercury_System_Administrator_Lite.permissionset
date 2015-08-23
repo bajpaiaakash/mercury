@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <custom>true</custom>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">    
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Utilised_CAP_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Additional_Information__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.App__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Data_External_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Data_Last_Modified_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Data_Last_Modified_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Data_SFDC_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Error_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Error_Message__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -52,37 +51,37 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Severity__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Source_Object__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Source_System__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Stack_Trace__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Target_Object__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>GLBL_Error_Log__c.Target_System__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.HCP_Info_Package_Sent_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -92,32 +91,24 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Institutional_Notification_Sent_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Notification_Method_MERC__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.SEA_WO_Sent_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>GLBL_Error_Log__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-</Profile>
+    <label>Mercury System Administrator Lite</label>
+</PermissionSet>

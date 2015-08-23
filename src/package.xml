@@ -15,7 +15,13 @@
     </types>
     <types>
         <members>Mercury Integration MVI - Platform</members>
+        <members>Mercury Integration ODS - Platform</members>
         <name>Profile</name>
+    </types>
+	<types>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <members>Mercury_System_Administrator_Lite</members>
+        <name>PermissionSet</name>
     </types>
     <types>
         <members>Account.RTI_Account_Update_ICRT</members>
@@ -27,7 +33,7 @@
         <members>Account.RTI - Account Updated</members>
         <members>Meeting_MERC__c.MERC_Complete</members>
         <members>Meeting_MERC__c.RTI - Meeting Updated</members>
-        <members>Meeting_Participant_MERC__c.RTI - Meeting Participant Updated</members>
+        <members>Meeting_Participant_MERC__c.RTI - Meeting Participant  Updated</members>
         <name>WorkflowRule</name>
     </types>
 	<types>
