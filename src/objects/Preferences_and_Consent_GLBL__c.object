@@ -340,4 +340,263 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <recordTypes>
+        <fullName>Preferences_EVNT_MVN</fullName>
+        <active>true</active>
+        <description>Preferences that are seen by all users.</description>
+        <label>Preferences</label>
+        <picklistValues>
+            <picklist>Communication_Channel_MERC__c</picklist>
+            <values>
+                <fullName>Paper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preference_Sub_Type_MERC__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract with Restrictions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dairy Free</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gluten Free</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Halal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>I would rather not say</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kosher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Alcohol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Beef</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Pork</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Red meat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Seafood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Shellfish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nut Allergy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vegan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vegetarian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>cs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>da</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>de</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>es</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>hu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>it</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>nl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sv</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>tr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>uk</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preference_Type_MERC__c</picklist>
+            <values>
+                <fullName>Airline %2F Frequent Flyer Number</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communication Channel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communication Preference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hotel Travel Preferences</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interaction%2FChannel Type</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Language Preference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meals Allergy Preferences</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Name as in Passport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rail %2F Frequent Program Number</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaker Interest</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
 </CustomObject>

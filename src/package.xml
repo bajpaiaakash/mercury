@@ -17,6 +17,7 @@
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
         <members>PersonAccount-GLBL_HCP Account</members>
+        <members>Preferences_and_Consent_GLBL__c-GLBL_Preferences</members>
         <name>Layout</name>
     </types>
     <types>
@@ -27,6 +28,17 @@
         <members>Mercury_Meeting_Planning_Company_Edit</members>
         <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
         <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c.Ad_Hoc_Consulting</members>
+        <members>Meeting_MERC__c.Completed</members>
+        <members>Meeting_MERC__c.Forecasted</members>
+        <members>Meeting_MERC__c.Independent_Sponsorship</members>
+        <members>Meeting_MERC__c.Meeting_Active</members>
+        <members>Meeting_MERC__c.Meeting_Program</members>
+        <members>Meeting_MERC__c.Registered</members>
+        <members>Preferences_and_Consent_GLBL__c.Preferences_EVNT_MVN</members>
+        <name>RecordType</name>
     </types>
     <types>
         <members>Meeting_Participant_MERC__c.MERC_Existing_Contract_Info_must_filled</members>
