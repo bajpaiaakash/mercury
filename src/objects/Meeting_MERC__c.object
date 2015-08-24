@@ -579,17 +579,6 @@
                 <default>false</default>
             </values>
         </picklistValues>
-        <picklistValues>
-            <picklist>Local_CMS_Review_Completed_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
 		<picklistValues>
             <picklist>Therapeutic_Area_MERC__c</picklist>
             <values>
