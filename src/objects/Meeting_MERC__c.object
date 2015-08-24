@@ -191,7 +191,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-        <picklistValues>
             <picklist>Local_CMS_Review_Completed_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
