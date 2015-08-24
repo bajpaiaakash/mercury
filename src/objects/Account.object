@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <fullName>Account_Auto_Number_GLBL__c</fullName>
+        <description>Unique Auto Number field used by Web Services to create a secure/obfuscated Account Id. Created by John Lorenti 2014-05-05.</description>
+        <displayFormat>A-{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>Account_Auto_Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>CV_Upload_File_Name_MERC__c</fullName>
+        <description>Set by the portal when the HCP uploads his/her CV</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Set automatically by the Web Service when a HCP uploads a CV.  This should be set manually by CMS Cork should a HCP follow a paper based process and require their CV verifying.</inlineHelpText>
+        <label>CV Upload File Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Communication_Channel_MERC__c</fullName>
         <description>The preferred channel for Mercury communication. E.g.Web service/Paper Collected via the Consent and Preferences object and stamped on the Account profile.</description>
         <externalId>false</externalId>
@@ -10,6 +31,49 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CV_Upload_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the CV Upload sub-step is complete on the HCP Information Package, also used for paper based process and set by CMS Cork. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Set automatically by the Web Service if a HCP uploads their CV.  Should be set manually by CMS Cork should a HCP be following a paper based process and their CV needs uploading for verification.</inlineHelpText>
+        <label>CV Upload Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Signatory_MERC__c</fullName>
+        <description>Used to indicate type of Contract Signatory. Created 05/08/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contract Signatory</label>
+        <picklist>
+            <picklistValues>
+                <fullName>My Name (self)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Signing_Parties_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Contract Signing Parties sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF (Contracting_Parties_Counter_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Signing Parties Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Designated_Indiv_Validation_Date_MERC__c</fullName>
@@ -23,6 +87,111 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Emergency_Contact_Name_MERC__c</fullName>
+        <description>Name of Emergency Contact for Account.  Created 04/29/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Emergency Contact Name</label>
+        <length>130</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Emergency_Contact_Phone_Number_MERC__c</fullName>
+        <description>Emergency Contact Information Phone Number for Account. Created 04/29/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Emergency Contact Phone Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employment_Specification_MERC__c</fullName>
+        <description>Used by portal. Captures what HCP specifies as employment for Institutional Notification. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Employment Specification</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Experience_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Experience sub-step is complete on the HCP Information Package. Created on 04/14/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Practicing_for_MERC__c,&quot;&quot;) || ISPICKVAL(Multiple_Specialties_MERC__c,&quot;&quot;), false, true)</formula>
+        <label>Experience Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Global_Consent_Authorization_GLBL__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Populated by Portal/Web Service when a Portal user goes to manage their global consent; to indicate they agree to the processing of their information. Created 05/20/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Global Consent Authorization</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Contracting_Party_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to associate Contracting Party to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>HCP for Contracting Party</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>HCP</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Contracting Parties</relationshipLabel>
+        <relationshipName>HCPs_Contracting_Party</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Package_Status_MERC__c</fullName>
+        <description>Used by portal to capture the status of the HCP&apos;s Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For paper, manually key in the HCP Information Package information.  Once completed, set this value to &apos;Submitted&apos;.  The HCP will then see a completed status for their HCP Information Package section when logged into the Web Service.</inlineHelpText>
+        <label>HCP Info Package Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Heroku_Connect_External_Id_MERC__c</fullName>
         <description>Used by Heroku Connect to allow for Web Service API enhancement.  Ensures parent and child records can be associated even if the parent hasn&apos;t been created in SFDC via Heroku yet : MERC : Created on 10/08/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>true</externalId>
@@ -34,11 +203,206 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Institutional_Notif_Info_Exists_MERC__c</fullName>
+        <description>If designated individuals have been captured or a HCP is Self Employed, the Institutional Notification Information has been gathered.  This field is shown to Meeting Owners and sent back to Veeva.  Oliver Dunford 28th April 2014.</description>
+        <externalId>false</externalId>
+        <formula>IF(( Designated_Individual_Counter_MERC__c  &gt; 0) || ( TEXT(Employment_Specification_MERC__c) = &quot;Self-Employed&quot;), TRUE, FALSE)</formula>
+        <inlineHelpText>If the HCP has provided designated individuals for notification or they&apos;re self-employed, this field will be checked.</inlineHelpText>
+        <label>Institutional Notification Info Exists</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Institutional_Notification_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Institutional Notification step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Institutional Notification Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Institutional_Notification_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture that HCP has consented to gathering data for Institutional Notifications. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Institutional Notification Consent</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Job_Title_MERC__c</fullName>
+        <description>The Job Title of the HCP, primarily used for Mercury Designated Individuals.  No mastered field exists for HCPs for this field.  Used a custom field and not the SFDC field &apos;Title&apos; to eliminate any confusion for its use : MERC : Created on 15/9/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Job Title of the HCP e.g. General Practitioner</inlineHelpText>
+        <label>Job Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Leadership_Committee_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Leadership/Committee Info sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Hospital_Leadership_Role_MERC__c,&quot;&quot;) || 
+ISPICKVAL(Regional_Leadership_Role_MERC__c,&quot;&quot;) || 
+ISPICKVAL(National_Inter_Leadership_Role_MERC__c,&quot;&quot;) 
+,false,true)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Leadership/Committee Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>NIF_Number_MERC__c</fullName>
         <description>Captures the NIF Number for Mercury Transparency Reporting Consent.  This will be auto-populated via the Web Services.  Can be manually populated by some Mercury users and a data change request will be raised to ensure this is manually entered into CODS : MERC : Created on 12/08/2015 by Oliver Dunford</description>
         <externalId>false</externalId>
         <label>NIF Number</label>
         <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Bank_Information_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture that HCP has consented to gathering data for Payee and Bank Information. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Payee and Bank Information Consent</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payee_Info_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Payee Information sub-step is complete on the HCP Information Package. Created on 04/18/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(Payee_Count_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee Information Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payee_and_Bank_Info_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Payee and Bank Information overall step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(
+ Payee_Info_Step_Complete_MERC__c  &amp;&amp;
+ Transfer_Info_Step_Complete_MERC__c &amp;&amp;
+ Contract_Signing_Parties_Complete_MERC__c  &amp;&amp; 
+ Tax_Invoices_Step_Complete_MERC__c, true, false)</formula>
+        <label>Payee and Bank Info Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Contact_Method_MERC__c</fullName>
+        <description>Used by Portal to capture preferred contact method for designated individuals. Created 05/14/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Preferred Contact Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Postal Address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Qualifications_Experience_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Qualifications and Experience  overall step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(
+  (TEXT(HCP_Info_Package_Status_MERC__c) = &quot;Submitted&quot;) ||
+  (Qualifications_Step_Complete_MERC__c &amp;&amp;
+   Experience_Step_Complete_MERC__c &amp;&amp;
+   Research_Publications_Step_Complete_MERC__c &amp;&amp; 
+   Teaching_Advising_Step_Complete_MERC__c &amp;&amp;
+   Leadership_Committee_Step_Complete_MERC__c &amp;&amp;
+     IF(ISPICKVAL(Multiple_Specialties_MERC__c,&quot;Yes&quot;),CV_Upload_Step_Complete_MERC__c,true))
+, true, false)</formula>
+        <label>Qualifications and Experience Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Qualifications_Experience_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture that HCP has consented to gathering data for Qualifications and Experience. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Qualifications and Experience Consent</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Qualifications_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Qualifications sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Academic_Qualifications_MERC__c) || ISNULL(Academic_Qualifications_MERC__c), false, true)</formula>
+        <label>Qualifications Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Research_Publications_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Qualifications sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Journal_Articles_MERC__c,&quot;&quot;) || ISPICKVAL(Reviewer_or_Editor_MERC__c,&quot;&quot;) || 
+ISPICKVAL( Participated_in_Clinical_Trials_MERC__c,&quot;&quot;) || ISPICKVAL(Clinical_Trial_PI_MERC__c,&quot;&quot;)
+,false,true)</formula>
+        <label>Research/Publications Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Invoices_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Tax/Invoices sub-step is complete on the HCP Information Package. Created on 05/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>true</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax/Invoices Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Teaching_Advising_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Teaching/Advising sub-step is complete on the HCP Information Package. Created on 04/18/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL( Associate_or_Full_Professor_MERC__c ,&quot;&quot;) || 
+ISPICKVAL( Instructor_Assistant_Clinical_Prof_MERC__c ,&quot;&quot;) ||  
+ISPICKVAL( Advisory_Board_Experience_MERC__c ,&quot;&quot;)
+,false,true)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Teaching/Advising Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Transfer_Info_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Bank Transfer Information sub-step is complete on the HCP Information Package. Created on 04/18/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF (Count_Bank_Transfer_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Transfer Information Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Web_Service_Logic_Key_MERC__c</fullName>
+        <description>Maps back to the Web Service Logic.Key for Lookup Field for the HCP Info Package Record Type.  This then determines a HCPs view of the Meeting Profile Information. Oliver Dunford 13th May 2014.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Country_of_Residence_GLBL__c) &amp; &quot;;&quot;</formula>
+        <inlineHelpText>Maps to the web service logic object to determine a HCPs view of the Meetings Profile.</inlineHelpText>
+        <label>Web Service Logic Key</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>

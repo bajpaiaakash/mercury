@@ -45,7 +45,82 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
+        <fullName>End_Date_Meeting_Time_Zone_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>End Date (Meeting Time Zone)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
+        <fullName>Interaction_Type_MERC__c</fullName>
+        <description>Capture the interaction type of the Meeting. Created 11/6/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Interaction Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Face to Face</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Virtual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+	<fields>
+        <fullName>Exclude_Bus_Transport_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Can be used to exclude Bus Transportation from the Web Service for a specific meeting.  By default every mode of transport for the Country dictated by the Web Service Logic will be displayed unless overridden by these exclusion fields : MERC : Created on 18/09/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Once checked, these will exclude travel options from the web service (within the RSVP process). These do not need to be set if the travel option has already been excluded at the country level (e.g. No Rail travel in the UK for all meetings).</inlineHelpText>
+        <label>Exclude Bus Transport</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Exclude_Personal_Transfer_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Can be used to exclude Personal Transfer from the Web Service for a specific meeting.  By default every mode of transport for the Country dictated by the Web Service Logic will be displayed unless overridden by these exclusion fields : MERC : Created on 18/09/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Once checked, these will exclude travel options from the web service (within the RSVP process). These do not need to be set if the travel option has already been excluded at the country level (e.g. No Rail travel in the UK for all meetings).</inlineHelpText>
+        <label>Exclude Personal Transfer</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>Exclude_Rail_Transport_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Can be used to exclude Rail Transportation from the Web Service for a specific meeting.  By default every mode of transport for the Country dictated by the Web Service Logic will be displayed unless overridden by these exclusion fields : MERC : Created on 18/09/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Once checked, these will exclude travel options from the web service (within the RSVP process). These do not need to be set if the travel option has already been excluded at the country level (e.g. No Rail travel in the UK for all meetings).</inlineHelpText>
+        <label>Exclude Rail Transport</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>End_Time_In_Meeting_Time_Zone_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>End Time (Meeting Time Zone)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
         <fullName>CFT_Meeting_Instructions_MERC__c</fullName>
         <description>Used to communicate Meeting Instructions with Customer Facing Users in Veeva/Mercury : MERC : Created on 18/08/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -77,11 +152,45 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>Start_Date_Meeting_Time_Zone_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date (Meeting Time Zone)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Time_In_Meeting_Time_Zone__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Time (Meeting Time Zone)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <recordTypes>
         <fullName>Ad_Hoc_Consulting</fullName>
         <active>true</active>
         <description>Independent consultant contracts only. Typically services are rendered over a period of time to deliver a specific work product. Meeting-related ToV cannot be captured. Do not use for Advisory Boards.</description>
         <label>Consulting Project</label>
+		<picklistValues>
+            <picklist>Interaction_Type_MERC__c</picklist>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Virtual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
         <picklistValues>
             <picklist>Local_CMS_Review_Completed_MERC__c</picklist>
             <values>
@@ -93,12 +202,58 @@
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Therapeutic_Area_MERC__c</picklist>
+            <values>
+                <fullName>Autoimmune</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bone%2C Muscle%2C Joint %28BMJ%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neuroscience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
     </recordTypes>
     <recordTypes>
         <fullName>Completed</fullName>
         <active>true</active>
         <description>Meeting has been completed</description>
         <label>Meeting - Completed</label>
+		<picklistValues>
+            <picklist>Interaction_Type_MERC__c</picklist>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Virtual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Local_CMS_Review_Completed_MERC__c</picklist>
             <values>
@@ -107,6 +262,41 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Therapeutic_Area_MERC__c</picklist>
+            <values>
+                <fullName>Autoimmune</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bone%2C Muscle%2C Joint %28BMJ%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neuroscience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -116,6 +306,17 @@
         <active>true</active>
         <description>Lilly-owned meeting that is forecasted, but not confirmed. May be used for business planning purposes and to hold annual cap for HCPs. F. Meetings may be progressed to registered once confirmed. Do not use this record type for independent meetings.</description>
         <label>Meeting - Forecasted</label>
+		<picklistValues>
+            <picklist>Interaction_Type_MERC__c</picklist>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Virtual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Local_CMS_Review_Completed_MERC__c</picklist>
             <values>
@@ -124,6 +325,41 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Therapeutic_Area_MERC__c</picklist>
+            <values>
+                <fullName>Autoimmune</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bone%2C Muscle%2C Joint %28BMJ%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neuroscience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -133,6 +369,17 @@
         <active>true</active>
         <description>A scientific program controlled by an independent third party organization. Includes independent meeting sponsorship.</description>
         <label>Independent Meeting</label>
+		<picklistValues>
+            <picklist>Interaction_Type_MERC__c</picklist>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Virtual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Local_CMS_Review_Completed_MERC__c</picklist>
             <values>
@@ -141,6 +388,41 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Therapeutic_Area_MERC__c</picklist>
+            <values>
+                <fullName>Autoimmune</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bone%2C Muscle%2C Joint %28BMJ%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neuroscience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -150,6 +432,17 @@
         <active>true</active>
         <description>Meeting in Active Stage</description>
         <label>Meeting - Active</label>
+		<picklistValues>
+            <picklist>Interaction_Type_MERC__c</picklist>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Virtual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Local_CMS_Review_Completed_MERC__c</picklist>
             <values>
@@ -158,6 +451,41 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Therapeutic_Area_MERC__c</picklist>
+            <values>
+                <fullName>Autoimmune</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bone%2C Muscle%2C Joint %28BMJ%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neuroscience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -167,6 +495,17 @@
         <active>true</active>
         <description>A parent meeting where content, objectives and strategy are developed for implementation as a series of meetings linked as child meetings. Not a real meeting; no participants may be added.</description>
         <label>Meeting Program</label>
+		<picklistValues>
+            <picklist>Interaction_Type_MERC__c</picklist>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Virtual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Local_CMS_Review_Completed_MERC__c</picklist>
             <values>
@@ -178,12 +517,58 @@
                 <default>false</default>
             </values>
         </picklistValues>
+		<picklistValues>
+            <picklist>Therapeutic_Area_MERC__c</picklist>
+            <values>
+                <fullName>Autoimmune</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bone%2C Muscle%2C Joint %28BMJ%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neuroscience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Registered</fullName>
         <active>true</active>
         <description>Lilly-owned meeting that is ready to enter the meeting planning process. Includes: Promotional, Health Education, Consultant (Advisory Board), Scientific Exchange, Speaker Training, Clinical Trial, Internal and Other.</description>
         <label>Meeting - Registered</label>
+		<picklistValues>
+            <picklist>Interaction_Type_MERC__c</picklist>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Virtual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Local_CMS_Review_Completed_MERC__c</picklist>
             <values>
@@ -192,6 +577,52 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Local_CMS_Review_Completed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+		<picklistValues>
+            <picklist>Therapeutic_Area_MERC__c</picklist>
+            <values>
+                <fullName>Autoimmune</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bone%2C Muscle%2C Joint %28BMJ%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neuroscience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
