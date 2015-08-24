@@ -311,6 +311,7 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 
 			//requery tasks in order to get necessary information to pass to createNewTask method
 			List<Meeting_Tasks_MERC__c> tasks = [SELECT Id,
+														Task_Status_MERC__c,
 			                                            Meeting_Process_MERC__c,
 			                                            Meeting_Process_MERC__r.Number_of_Follow_Up_Tasks_MERC__c,
 			                                            Meeting_Process_MERC__r.Meeting_Participant_MERC__c,
@@ -320,6 +321,10 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 			                                      WHERE Id IN :Trigger.new];
 
 			for (Meeting_Tasks_MERC__c task : tasks) {
+				if (task.Task_Status_MERC__c == ((Meeting_Tasks_MERC__c)Trigger.oldMap.get(task.id)).Task_Status_MERC__c) {
+					//no change in status, do not evaulate
+					continue;
+				}
 				participantIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
 				if (logicRecords.containsKey(task.Meeting_Process_Logic_Key_MERC__c)) {
 					System.debug('##### Matched logic Record ' + logicRecords.get(task.Meeting_Process_Logic_Key_MERC__c).id);
