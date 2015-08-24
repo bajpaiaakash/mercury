@@ -18,6 +18,7 @@
         <members>MERC_HcpCapYearlyCalculationJobTest</members>
         <members>MERC_MeetingParticipantRollups</members>
         <members>MERC_MeetingParticipantStressTest</members>
+        <members>MERC_MeetingProcessLogicHandler</members>
         <members>MERC_RegistrationResponsesController</members>
         <members>MERC_RegistrationResponsesControllerTest</members>
         <members>MERC_TOVCalculator</members>
