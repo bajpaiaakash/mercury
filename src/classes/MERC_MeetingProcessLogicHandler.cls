@@ -321,7 +321,7 @@ public with sharing class MERC_MeetingProcessLogicHandler implements GLBL_Trigge
 			                                      WHERE Id IN :Trigger.new];
 
 			for (Meeting_Tasks_MERC__c task : tasks) {
-				if (task.Task_Status_MERC__c == ((Meeting_Tasks_MERC__c)Trigger.oldMap.get(task.id)).Task_Status_MERC__c) {
+				if (Trigger.isUpdate && task.Task_Status_MERC__c == ((Meeting_Tasks_MERC__c)Trigger.oldMap.get(task.id)).Task_Status_MERC__c) {
 					//no change in status, do not evaulate
 					continue;
 				}
