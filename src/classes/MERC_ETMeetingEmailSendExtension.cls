@@ -8,6 +8,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     public String SendTime { get; set; }
     public boolean OptIn { get; set; }
     public boolean ShowParticipantGrid { get; set; }
+    public String additionalInformationHTML { get; set; }
     public String base64Thumbnail { get; private set; }
 
     public Set<Id> selectedParticipantIds { get; set; }
@@ -170,7 +171,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     public String headerRecordTypeSuffix { 
         get {
-            if (sortField == 'Record_Type_MERC__c') {
+            if (sortField == 'Record_Type_Name_MERC__c') {
                 if (sortDirection == 'ASC') {
                     return '^';
                 } else {
@@ -253,12 +254,81 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         SendTime = 'now';
 
+        selectOptionBuilder();
+
+        //set defaults
+        communicationPreferenceSelected = '-Any-';
+        countryOfResidenceSelected = '-Any-';
+        hasEmailSelected = '-Any-';
+        participantStatusSelected = '-Any-';
+        preferredLanguageSelected = '-Any-';
+        processTypeSelected = '-Any-';
+        proposalStatusSelected = '-Any-';
+        recordTypeSelected = '-Any-';
+        taskStatusSelected = '-Any-';
+        selectedParticipantIds = new Set<Id>();
+
+    }
+
+    private void selectOptionBuilder() {
+        processSelectOptionBuilder();
+        participantSelectOptionBuilder();
+    }
+    
+    private void processSelectOptionBuilder() {
+        //sets to check for dupes in the SelectOption lists.
+        Set<string> processTypeSet = new Set<string>(); 
+        Set<string> proposalStatusSet = new Set<string>(); 
+        Set<string> taskStatusSet = new Set<string>();
+
+        //prep the SelectOption lists
+        processType = selectOptionListInitialize();
+        proposalStatus = selectOptionListInitialize();
+        taskStatus = selectOptionListInitialize();
+
+        for (Travel_Itinerary_MERC__c t : [SELECT Status_MERC__c 
+                                             FROM Travel_Itinerary_MERC__c
+                                            WHERE Travel_Proposal_MERC__c = null
+                                              AND Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id]) {
+            if (t.Status_MERC__c != null && !proposalStatusSet.contains(t.Status_MERC__c)) {
+                proposalStatusSet.add(t.Status_MERC__c);
+                proposalStatus.add(new SelectOption(t.Status_MERC__c,t.Status_MERC__c));
+            } 
+        }
+
+        //build process type select options that are solely based on the participants for the meeting
+        for (Meeting_Process_MERC__c p : [SELECT Process_Type_MERC__c 
+                                            FROM Meeting_Process_MERC__c 
+                                           WHERE Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id
+                                        ORDER BY Process_Type_MERC__c]) {
+            if (p.Process_Type_MERC__c != null && !processTypeSet.contains(p.Process_Type_MERC__c)) {
+                processTypeSet.add(p.Process_Type_MERC__c);
+                processType.add(new SelectOption(p.Process_Type_MERC__c,p.Process_Type_MERC__c));
+            }
+        }
+
+        for (Meeting_Tasks_MERC__c t : [SELECT Task_Status_MERC__c 
+                                          FROM Meeting_Tasks_MERC__c 
+                                         WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id
+                                           AND Meeting_Process_MERC__r.Process_Type_MERC__c = :processTypeSelected
+                                      ORDER BY Task_Status_MERC__c]) {
+            if (t.Task_Status_MERC__c != null && !taskStatusSet.contains(t.Task_Status_MERC__c)) {
+                taskStatusSet.add(t.Task_Status_MERC__c);
+                taskStatus.add(new SelectOption(t.Task_Status_MERC__c,t.Task_Status_MERC__c));
+            }
+        }
+
+
+        processType = sortOptionList(processType);
+        taskStatus = sortOptionList(taskStatus);
+    }
+
+    private void participantSelectOptionBuilder() {
+
         //sets to check for dupes in the SelectOption lists.
         Set<string> communicationPreferenceSet = new Set<string>(); 
         Set<String> participantStatusSet = new Set<string>();
         Set<string> preferredLanguageSet = new Set<string>(); 
-        Set<string> processTypeSet = new Set<string>(); 
-        Set<string> proposalStatusSet = new Set<string>(); 
         Set<string> countryOfResidenceSet = new Set<String>(); 
         Set<string> statusSet = new Set<String>();
 
@@ -268,10 +338,12 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         hasEmail = selectOptionListInitialize();
         participantStatus = selectOptionListInitialize();
         preferredLanguage = selectOptionListInitialize();
-        processType = selectOptionListInitialize();
-        proposalStatus = selectOptionListInitialize();
         recordType = selectOptionListInitialize();
 
+        //find all record types and build SelectOption list
+        for(RecordType rt : [SELECT Name FROM RecordType  WHERE SObjectType = 'Meeting_Participant_MERC__c' AND IsActive = TRUE]) {
+            recordType.add(new SelectOption(rt.Id,rt.Name));
+        }
 
         //Retrieve all country of residence info to build labels and values for SelectOptions later.
         Schema.DescribeFieldResult countryOfResidenceFieldResult = Account.Country_of_Residence_GLBL__c.getDescribe();
@@ -309,29 +381,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         }
 
-        //build process type select options that are solely based on the participants for the meeting
-        for (Meeting_Process_MERC__c p : [SELECT Process_Type_MERC__c 
-                                            FROM Meeting_Process_MERC__c 
-                                           WHERE Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id
-                                        ORDER BY Process_Type_MERC__c]) {
-            if (p.Process_Type_MERC__c != null && !processTypeSet.contains(p.Process_Type_MERC__c)) {
-                processTypeSet.add(p.Process_Type_MERC__c);
-                processType.add(new SelectOption(p.Process_Type_MERC__c,p.Process_Type_MERC__c));
-            }
-        }
-
-
-
-        for (Travel_Itinerary_MERC__c t : [SELECT Status_MERC__c 
-                                             FROM Travel_Itinerary_MERC__c
-                                            WHERE Travel_Proposal_MERC__c = null
-                                              AND Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id]) {
-            if (t.Status_MERC__c != null && !proposalStatusSet.contains(t.Status_MERC__c)) {
-                proposalStatusSet.add(t.Status_MERC__c);
-                proposalStatus.add(new SelectOption(t.Status_MERC__c,t.Status_MERC__c));
-            } 
-        }
-
         //find all record types and build SelectOption list
         for(RecordType rt : [SELECT Name FROM RecordType  WHERE SObjectType = 'Meeting_Participant_MERC__c' AND IsActive = TRUE]) {
             recordType.add(new SelectOption(rt.Id,rt.Name));
@@ -341,24 +390,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         hasEmail.add(new SelectOption('Yes','Yes'));
         hasEmail.add(new SelectOption('No','No'));
 
-        //set defaults
-        communicationPreferenceSelected = '-Any-';
-        countryOfResidenceSelected = '-Any-';
-        hasEmailSelected = '-Any-';
-        participantStatusSelected = '-Any-';
-        preferredLanguageSelected = '-Any-';
-        processTypeSelected = '-Any-';
-        proposalStatusSelected = '-Any-';
-        recordTypeSelected = '-Any-';
-        taskStatusSelected = '-Any-';
-        selectedParticipantIds = new Set<Id>();
-
         //sort the SelectOptionLists
         communicationPreference = sortOptionList(communicationPreference);
         countryOfResidence = sortOptionList(countryOfResidence);
         participantStatus = sortOptionList(participantStatus);
         preferredLanguage = sortOptionList(preferredLanguage);
-        processType = sortOptionList(processType);
         recordType = sortOptionList(recordType);
 
     }
@@ -383,7 +419,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     public List<Meeting_Participant_MERC__c> getSelectedParticipants() { 
         return [SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c, 
-                       Record_Type_MERC__c, Has_Signed_Contract_MERC__c, 
+                       Record_Type_Name_MERC__c, Has_Signed_Contract_MERC__c, 
                        Account_MERC__r.Name, Account_MERC__r.FirstName, 
                        Account_MERC__r.PersonEmail, 
                        Account_MERC__r.LastName, 
@@ -425,7 +461,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             return null;
         }
 
-        MERC_ETSendEmailWrapper wrapper = new MERC_ETSendEmailWrapper(Email, parts, Config.Default_From_Email__c, DeDup, DisableIndividualTracking, SendTime, sendDateEvent.ActivityDateTime);
+        MERC_ETSendEmailWrapper wrapper = new MERC_ETSendEmailWrapper(Email, parts, Config.Default_From_Email__c, DeDup, DisableIndividualTracking, SendTime, sendDateEvent.ActivityDateTime, additionalInformationHTML);
         MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
         try {
             processor.createDataExtensionForSendEmail(wrapper);
@@ -456,7 +492,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
             if (meetingParticipants == null) {
                 String  soql =  'SELECT Status_MERC__c, Docusign_Contract_Status_MERC__c, ';
-                        soql += '       Record_Type_MERC__c, Has_Signed_Contract_MERC__c, ';
+                        soql += '       Record_Type_Name_MERC__c, Has_Signed_Contract_MERC__c, ';
                         soql += '       Account_MERC__r.Name, Account_MERC__r.FirstName, ';
                         soql += '       Account_MERC__r.PersonEmail, Account_MERC__r.LastName, ';
                         soql += '       Account_MERC__r.Communication_Preference_MERC__c, ';
