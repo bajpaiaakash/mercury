@@ -110,5 +110,9 @@
         <field>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<tabSettings>
+        <tab>GLBL_Error_Log__c</tab>
+        <visibility>Available</visibility>
+    </tabSettings>
     <label>Mercury System Administrator Lite</label>
 </PermissionSet>

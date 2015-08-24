@@ -110,8 +110,11 @@
         <field>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <label>Mercury Customer Meeting Services - Edit</label>
-    <objectPermissions>
+	<tabSettings>
+        <tab>GLBL_Error_Log__c</tab>
+        <visibility>Available</visibility>
+    </tabSettings>
+	<objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
@@ -120,4 +123,5 @@
         <object>GLBL_Error_Log__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <label>Mercury Customer Meeting Services - Edit</label>
 </PermissionSet>

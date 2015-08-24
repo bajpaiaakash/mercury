@@ -111,6 +111,10 @@
         <field>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<tabVisibilities>
+        <tab>GLBL_Error_Log__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
