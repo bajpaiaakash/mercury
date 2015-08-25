@@ -105,10 +105,10 @@
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.SEA_WO_Sent_Date_MERC__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
+    </fieldPermissions>    
+	<fieldPermissions>
         <editable>true</editable>
-        <field>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</field>
+        <field>Meeting_Participant_MERC__c.Submitted_for_Payment_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<tabVisibilities>
