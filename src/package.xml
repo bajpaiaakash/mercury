@@ -18,6 +18,7 @@
         <members>MERC_HcpCapYearlyCalculationJobTest</members>
         <members>MERC_MeetingParticipantRollups</members>
         <members>MERC_MeetingParticipantStressTest</members>
+        <members>MERC_MeetingProcessLogicHandler</members>
         <members>MERC_RegistrationResponsesController</members>
         <members>MERC_RegistrationResponsesControllerTest</members>
         <members>MERC_TOVCalculator</members>
@@ -46,7 +47,7 @@
         <name>BusinessProcess</name>
     </types>
     <types>
-	    <members>Account.Account_Auto_Number_GLBL__c</members>
+        <members>Account.Account_Auto_Number_GLBL__c</members>
         <members>Account.CV_Upload_File_Name_MERC__c</members>
         <members>Account.CV_Upload_Step_Complete_MERC__c</members>
         <members>Account.Contract_Signatory_MERC__c</members>
@@ -69,7 +70,7 @@
         <members>Account.Job_Title_MERC__c</members>
         <members>Account.Leadership_Committee_Step_Complete_MERC__c</members>
         <members>Account.NIF_Number_MERC__c</members>
-		<members>Account.Payee_Bank_Information_Consent_MERC__c</members>
+        <members>Account.Payee_Bank_Information_Consent_MERC__c</members>
         <members>Account.Payee_Info_Step_Complete_MERC__c</members>
         <members>Account.Payee_and_Bank_Info_Complete_MERC__c</members>
         <members>Account.Preferred_Contact_Method_MERC__c</members>
@@ -101,22 +102,22 @@
         <members>Meeting_MERC__c.Exclude_Rail_Transport_MERC__c</members>
         <members>Meeting_MERC__c.Interaction_Type_MERC__c</members>
         <members>Meeting_MERC__c.Local_CMS_Review_Completed_MERC__c</members>
-		<members>Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</members>
+        <members>Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</members>
         <members>Meeting_MERC__c.Start_Time_In_Meeting_Time_Zone__c</members>
         <members>Meeting_Participant_MERC__c.Active_on_Web_Service_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Air_Travel_No_Longer_Required_MERC__c</members>
         <members>Meeting_Participant_MERC__c.CFT_Logistics_Comments_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Congress_Additional_Information_MERC__c</members>
-        <members>Meeting_Participant_MERC__c.Congress_Membership_Id_MERC__c</members>		
+        <members>Meeting_Participant_MERC__c.Congress_Membership_Id_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contract_Already_Exists_MERC__c</members>
-        <members>Meeting_Participant_MERC__c.Existing_Contract_Info_MERC__c</members>
-		<members>Meeting_Participant_MERC__c.Dietary_Preferences_Step_Complete_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Dietary_Preferences_Step_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Emergency_Contact_Step_Complete_MERC__c</members>
-		<members>Meeting_Participant_MERC__c.Hotel_No_Longer_Required_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Existing_Contract_Info_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Hotel_No_Longer_Required_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Hotel_Step_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Institutional_Notification_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Invoice_Received_Date_MERC__c</members>
-		<members>Meeting_Participant_MERC__c.Payee_Info_Consent_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Payee_Info_Consent_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Payee_and_Bank_Info_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Preferred_Departure_Depot_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Processing_of_Data_Consent_MERC__c</members>
@@ -130,7 +131,7 @@
         <members>Meeting_Participant_MERC__c.Travel_Step_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Travel_by_Air_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Web_Service_Logic_Key_MERC__c</members>
-		<members>Payee_MERC__c.Payee_Auto_Number_MERC__c</members>
+        <members>Payee_MERC__c.Payee_Auto_Number_MERC__c</members>
         <members>Payee_MERC__c.Priority_Rank_Nbr_MERC__c</members>
         <members>Payee_MERC__c.Transfer_Information_Complete_MERC__c</members>
 		<members>Preferences_and_Consent_GLBL__c.Communication_Channel_MERC__c</members>
@@ -144,7 +145,7 @@
         <members>Preferences_and_Consent_GLBL__c.JanRain_Id_Cap_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.Label_Capture_Cap_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.Sub_Status_Cap_GLBL__c</members>
-        <members>Preferences_and_Consent_GLBL__c.User_Name_GLBL__c</members>	
+        <members>Preferences_and_Consent_GLBL__c.User_Name_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Account_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Action_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Country_GLBL__c</members>
@@ -172,7 +173,7 @@
         <members>Web_Service_Logic_MERC__c.RSVP_Summary_and_Comments_MERC__c</members>
         <members>Web_Service_Logic_MERC__c.RSVP_Transparency_Reporting_Consent_MERC__c</members>
         <members>Web_Service_Logic_MERC__c.RSVP_Travel_MERC__c</members>
-        <members>Web_Service_Logic_MERC__c.RSVP_Welcome_Privacy_Consent_MERC__c</members>		
+        <members>Web_Service_Logic_MERC__c.RSVP_Welcome_Privacy_Consent_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -197,6 +198,75 @@
         <members>Registration_Question_MERC__c</members>
         <members>Response_MERC__c</members>
         <name>CustomObject</name>
+    </types>
+	<types>
+        <members>Meeting_MERC__c.MERC_Meetings_South_Africa</members>
+        <members>Meeting_MERC__c.MERC_Meeting_Viet_Nam</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Algeria</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Andorra</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Argentina</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Aruba</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Australia</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Bahamas</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Bahrain</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Barbados</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Bermuda</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Botswana</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Brazil</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Canada</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Chile</members>
+        <members>Meeting_MERC__c.MERC_Meetings_China</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Colombia</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Costa_Rica</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Cura_ao</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Dominican_Republic</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Ecuador</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Egypt</members>
+        <members>Meeting_MERC__c.MERC_Meetings_El_Salvador</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Faroe_Islands</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Ghana</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Greenland</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Guatemala</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Honduras</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Hong_Kong</members>
+        <members>Meeting_MERC__c.MERC_Meetings_India</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Indonesia</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Israel</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Jamaica</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Japan</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Jordan</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Kazakhstan</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Kenya</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Korea_Republic_of</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Kuwait</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Lebanon</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Liechtenstein</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Luxembourg</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Malaysia</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Mexico</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Monaco</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Morocco</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Namibia</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Nepal</members>
+        <members>Meeting_MERC__c.MERC_Meetings_New_Zealand</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Nigeria</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Oman</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Pakistan</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Panama</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Peru</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Philippines</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Qatar</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Reunion</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Saudi_Arabia</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Singapore</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Taiwan</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Thailand</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Trinidad_and_Tobago</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Tunisia</members>
+        <members>Meeting_MERC__c.MERC_Meetings_United_Arab_Emirates</members>
+        <members>Meeting_MERC__c.MERC_Meetings_United_States</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Venezuela_Bolivarian_Republic_of</members>
+        <name>CustomObjectCriteriaBasedSharingRule</name>
     </types>
     <types>
         <members>Meeting_MERC__c-MERC_Active</members>
@@ -232,7 +302,7 @@
     <types>
         <members>GSO Basic User_Platform</members>
         <members>GSO Basic User_Salesforce</members>
-		<members>Mercury Integration CST - Platform</members>
+        <members>Mercury Integration CST - Platform</members>
         <members>Mercury Integration MVI - Platform</members>
         <members>Mercury Metadata API</members>
         <members>Mercury Portal API - Platform</members>

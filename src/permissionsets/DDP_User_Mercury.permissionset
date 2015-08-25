@@ -69,6 +69,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingProcessLogicHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_RegistrationResponsesController</apexClass>
         <enabled>false</enabled>
     </classAccesses>

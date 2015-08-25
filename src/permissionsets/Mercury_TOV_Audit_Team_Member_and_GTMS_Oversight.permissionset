@@ -69,6 +69,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingProcessLogicHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_RegistrationResponsesController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -129,6 +133,51 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Emergency_Contact_Name_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Emergency_Contact_Phone_Number_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Employment_Specification_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Experience_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Global_Consent_Authorization_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.HCP_Contracting_Party_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.HCP_Info_Package_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Heroku_Connect_External_Id_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Institutional_Notif_Info_Exists_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Communication_Channel_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -181,41 +230,6 @@
         <editable>false</editable>
         <field>Account.Leadership_Committee_Step_Complete_MERC__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Employment_Specification_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Experience_Step_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Global_Consent_Authorization_GLBL__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Account.HCP_Contracting_Party_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.HCP_Info_Package_Status_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Heroku_Connect_External_Id_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Institutional_Notif_Info_Exists_MERC__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

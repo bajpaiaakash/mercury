@@ -69,6 +69,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingProcessLogicHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_RegistrationResponsesController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -117,7 +121,7 @@
         <field>Account.Contract_Signatory_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.Contract_Signing_Parties_Complete_MERC__c</field>
         <readable>false</readable>
@@ -127,22 +131,32 @@
         <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Emergency_Contact_Name_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Emergency_Contact_Phone_Number_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Employment_Specification_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Experience_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Global_Consent_Authorization_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.HCP_Contracting_Party_MERC__c</field>
         <readable>true</readable>
@@ -162,7 +176,7 @@
         <field>Account.Institutional_Notif_Info_Exists_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.Institutional_Notification_Complete_MERC__c</field>
         <readable>false</readable>
@@ -187,7 +201,22 @@
         <field>Account.NIF_Number_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_Bank_Information_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_Info_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_and_Bank_Info_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Preferred_Contact_Method_MERC__c</field>
         <readable>true</readable>
@@ -286,22 +315,7 @@
         <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Preference_Type_MERC__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Payee_Bank_Information_Consent_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Payee_Info_Step_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Payee_and_Bank_Info_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>    
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>

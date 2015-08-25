@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
-	<fields>
+    <fields>
         <fullName>Account_Field_Update_MERC__c</fullName>
         <description>This field should be populated via workflow with a string in the following format
 
@@ -17,7 +17,7 @@ Where account_field_api_name is the name of the field we should write to and &lt
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Account_Name_GLBL__c</fullName>
         <description>Used by Portal API to hold the full name of the HCP modifying the their global consent and will be populated by the API when a record is created or updated. Created 05/22/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -46,7 +46,7 @@ Efctv_End_Dt_Cap_GLBL__c &gt;= Today())</formula>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>Disclaimer_Cap_GLBL__c</fullName>
         <description>Captured if updated Consent record via Web Service.  Never refreshed from ODS, sent to Veeva via the interface.  Oliver Dunford 15th May 2014.</description>
         <externalId>false</externalId>
@@ -70,7 +70,7 @@ Efctv_End_Dt_Cap_GLBL__c &gt;= Today())</formula>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>JanRain_Id_Cap_GLBL__c</fullName>
         <description>Pulled from the HCPs Id logged into the Portal, preferably an Id of the HCP. Oliver Dunford 16th May 2014.</description>
         <externalId>false</externalId>

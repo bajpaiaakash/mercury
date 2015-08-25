@@ -69,6 +69,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingProcessLogicHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_RegistrationResponsesController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -152,7 +156,7 @@
         <field>Account.Global_Consent_Authorization_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.HCP_Contracting_Party_MERC__c</field>
         <readable>false</readable>
@@ -161,7 +165,12 @@
         <editable>false</editable>
         <field>Account.HCP_Info_Package_Status_MERC__c</field>
         <readable>false</readable>
-    </fieldPermissions>  
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Heroku_Connect_External_Id_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Institutional_Notif_Info_Exists_MERC__c</field>
@@ -188,6 +197,66 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Leadership_Committee_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.NIF_Number_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_Bank_Information_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_Info_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_and_Bank_Info_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Preferred_Contact_Method_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Qualifications_Experience_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Qualifications_Experience_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Qualifications_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Research_Publications_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Tax_Invoices_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Teaching_Advising_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_MERC__c.Therapeutic_Area_MERC__c</field>
         <readable>true</readable>
@@ -206,17 +275,7 @@
         <editable>false</editable>
         <field>Preferences_and_Consent_GLBL__c.Preference_Sub_Type_MERC__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Qualifications_Step_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Tax_Invoices_Step_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>    
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Transfer_Info_Step_Complete_MERC__c</field>
@@ -236,62 +295,7 @@
         <editable>false</editable>
         <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Heroku_Connect_External_Id_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Leadership_Committee_Step_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.NIF_Number_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Payee_Bank_Information_Consent_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Payee_Info_Step_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Payee_and_Bank_Info_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Preferred_Contact_Method_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Qualifications_Experience_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Qualifications_Experience_Consent_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Research_Publications_Step_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Teaching_Advising_Step_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>	    
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Web_Service_Logic_Key_MERC__c</field>

@@ -69,6 +69,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingProcessLogicHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_RegistrationResponsesController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -101,6 +105,36 @@
         <editable>false</editable>
         <field>Account.Account_Auto_Number_GLBL__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.CV_Upload_File_Name_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.CV_Upload_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Contract_Signatory_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Contract_Signing_Parties_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Emergency_Contact_Name_MERC__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -146,37 +180,7 @@
         <editable>false</editable>
         <field>Preferences_and_Consent_GLBL__c.Preference_Type_MERC__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>false</editable>
-        <field>Account.CV_Upload_File_Name_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.CV_Upload_Step_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Contract_Signatory_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Contract_Signing_Parties_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-	<fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Emergency_Contact_Name_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>	
 	<fieldPermissions>
         <editable>false</editable>
         <field>Account.Global_Consent_Authorization_GLBL__c</field>
@@ -197,7 +201,7 @@
         <field>Account.Heroku_Connect_External_Id_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.Institutional_Notif_Info_Exists_MERC__c</field>
         <readable>true</readable>
@@ -212,7 +216,7 @@
         <field>Account.Institutional_Notification_Consent_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	<fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Job_Title_MERC__c</field>
         <readable>true</readable>
