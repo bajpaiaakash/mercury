@@ -210,6 +210,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>CFT_Meeting_Instructions_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>CME_Accredited_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
@@ -591,6 +596,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Sponsorship_Type_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Local_CMS_Review_Completed_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
         <columns>
@@ -1153,7 +1163,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>CFT_Logistics_Comments_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Classification_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Communication_Channel_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>
         <columns>
@@ -1179,6 +1199,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Congress_Membership_Id_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Contract_Already_Exists_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>
         <columns>
@@ -1383,6 +1408,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Existing_Contract_Info_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Higher_Fee_Approval__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>
@@ -1429,6 +1459,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Has_Signed_Contract_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Has_Travel_Process_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>
         <columns>
@@ -1499,6 +1534,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Institutional_Notif_Validation_Sent_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Invoice_Received_Date_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>
         <columns>
@@ -2249,6 +2289,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Due_Date_Status_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r.Meeting_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Evaluate_Rules_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r.Meeting_Tasks__r</table>
         </columns>
@@ -2305,6 +2350,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Mercury_External_Id_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r.Meeting_Tasks__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Next_Step_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r.Meeting_Processes__r.Meeting_Tasks__r</table>
         </columns>
         <columns>

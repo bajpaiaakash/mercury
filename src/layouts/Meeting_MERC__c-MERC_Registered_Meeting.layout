@@ -3,6 +3,7 @@
     <customButtons>Generate_Content_MERC</customButtons>
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Send_ExactTarget_Email_MERC</customButtons>
+    <customButtons>Mass_Generate_Content_MERC</customButtons>
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
@@ -380,7 +381,6 @@
         <customButtons>Add_Participants_MERC</customButtons>
         <customButtons>Mass_Approve_Participants_MERC</customButtons>
         <customButtons>Update_Meeting_Tasks_MERC</customButtons>
-        <customButtons>Generate_Documents_MERC</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Account.NAME</fields>

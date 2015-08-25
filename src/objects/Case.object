@@ -29,6 +29,99 @@
             <default>false</default>
         </values>
     </businessProcesses>
+    <fields>
+        <fullName>Topic_MERC__c</fullName>
+        <description>Case Topics
+Created by John Adams on 11/18/2013</description>
+        <externalId>false</externalId>
+        <label>Topic</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cases Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Change CODS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DocuSign Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event/Meeting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP Information Pack</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Institutional Notification</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IT/ Cork</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IT/Service Now</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Profile</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special requirements/requests</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ToV Data Corrections</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel/Logistics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TVA Data Corrections</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VMD Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web Service Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <recordTypes>
         <fullName>MERC_Mercury_Cases</fullName>
         <active>true</active>
@@ -273,6 +366,89 @@
             </values>
             <values>
                 <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Topic_MERC__c</picklist>
+            <values>
+                <fullName>Cases Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change CODS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DocuSign Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event%2FMeeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Information Pack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IT%2F Cork</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IT%2FService Now</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Institutional Notification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special requirements%2Frequests</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TVA Data Corrections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ToV Data Corrections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel%2FLogistics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VMD Issues</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Service Issues</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -77,7 +77,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>CFT_Logistics_Comments_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Classification_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Communication_Channel_MERC__c</field>
             <table>Meeting_Participant_MERC__c</table>
         </columns>
         <columns>
@@ -128,6 +138,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Contact_Details_Work_Phone_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Contract_Already_Exists_MERC__c</field>
             <table>Meeting_Participant_MERC__c</table>
         </columns>
         <columns>
@@ -317,6 +332,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Existing_Contract_Info_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Higher_Fee_Approval__c</field>
             <table>Meeting_Participant_MERC__c</table>
         </columns>
@@ -363,6 +383,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Has_Signed_Contract_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Has_Travel_Process_MERC__c</field>
             <table>Meeting_Participant_MERC__c</table>
         </columns>
         <columns>
@@ -443,6 +468,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Submitted_for_Payment_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Invoice_Received_Date_MERC__c</field>
             <table>Meeting_Participant_MERC__c</table>
         </columns>
         <columns>

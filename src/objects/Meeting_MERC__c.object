@@ -326,4 +326,16 @@
             </values>
         </picklistValues>
     </recordTypes>
+    <webLinks>
+        <fullName>Mass_Generate_Content_MERC</fullName>
+        <availability>online</availability>
+        <description>Used to initiate the Mass Loop process by allowing users to select participants to send documents to</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Mass Generate Content</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/MeetingEmailSend?id={!Meeting_MERC__c.Id}&amp;generatedocuments=1</url>
+    </webLinks>
 </CustomObject>

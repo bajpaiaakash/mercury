@@ -41,6 +41,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETMeetingEmailSendExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_HCPContractRollupManager</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -153,6 +157,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.First_Name_override_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Global_Consent_Authorization_GLBL__c</field>
         <readable>true</readable>
@@ -174,6 +183,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Institution_Name_override_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Institutional_Notif_Info_Exists_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -191,6 +205,11 @@
         <editable>true</editable>
         <field>Account.Job_Title_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Last_Name_override_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -244,12 +263,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Suffix_override_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Tax_Invoices_Step_Complete_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Teaching_Advising_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Title_override_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -286,6 +315,11 @@
         <editable>true</editable>
         <field>Answer_MERC__c.Order_Number_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Topic_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -500,6 +534,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Web_Service_Logic_Key_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Tasks_MERC__c.Due_Date_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Tasks_MERC__c.Next_Step_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -753,6 +797,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Require_NIF_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Web_Service_Logic_MERC__c.RSVP_Sponsorship_Agreement_MERC__c</field>
         <readable>true</readable>
@@ -808,12 +857,19 @@
         <layout>Meeting_Participant_MERC__c-MERC_Service Provider</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>PersonAccount-GLBL_HCP Account</layout>
         <recordType>PersonAccount.Contracting_Party_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-GLBL_HCP Account</layout>
         <recordType>PersonAccount.HCP_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-MERC_Designated Individual</layout>
+        <recordType>PersonAccount.Designated_Individual_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Registration_Question_MERC__c-MERC_Question_Layout</layout>
@@ -1006,6 +1062,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_RegistrationResponses</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MeetingEmailSend</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
