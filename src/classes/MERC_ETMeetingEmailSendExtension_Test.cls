@@ -133,7 +133,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Test.stopTest();
 
         System.assertEquals(null, ref);
-        System.assert(ApexPages.hasMessages(ApexPages.Severity.ERROR));   
+        System.assert(ApexPages.hasMessages(ApexPages.Severity.ERROR));
     }
 
     @isTest
@@ -175,7 +175,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         ext.DeDup = true;
         ext.OptIn = true;
         ext.DisableIndividualTracking = true;
-        
+
         MERC_ETFolderedEmail email = new MERC_ETFolderedEmail();
         email.Id = 'test';
         email.name = 'test email name';
@@ -191,7 +191,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             Test.startTest();
             PageReference ref = ext.Send();
             Test.stopTest();
-            
+
         } catch (Exception e) {
             System.debug('exception : ' + e);
         }
@@ -480,6 +480,53 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         }
 
         Test.stopTest();
+    }
+
+    @isTest
+    private static void testGenerateDocuments() {
+        Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
+        insert meeting;
+
+        List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 100);
+        insert accts;
+        accts = [SELECT Id, Name FROM Account WHERE Id IN :accts];
+        Set<String> accountNames = new Set<String>();
+        for (Account a : accts) {
+            accountNames.add(a.Name);
+        }
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, accts);
+        insert participants;
+
+        PageReference pageRef = Page.MeetingEmailSend;
+        pageRef.getParameters().put('id', meeting.id);
+        pageRef.getParameters().put('generatedocuments','1');
+
+        Test.setCurrentPage(pageRef);
+
+        ApexPages.StandardController stdController = new ApexPages.StandardController(meeting);
+        MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(stdController);
+
+        Test.startTest();
+            System.assert(ext.isGeneratingDocuments, 'Controller does not indicate that it is in document generation mode');
+
+            ext.participants[0].isSelected = true;
+            ext.participants[2].isSelected = true;
+            ext.participants[4].isSelected = true;
+
+            PageReference returnedRef = ext.generateDocuments();
+
+            String recordsUrlParam = returnedRef.getParameters().get('recordIds');
+            System.assert(recordsUrlParam.contains((String)ext.participants[0].participant.Id));
+            System.assert(recordsUrlParam.contains((String)ext.participants[2].participant.Id));
+            System.assert(recordsUrlParam.contains((String)ext.participants[4].participant.Id));
+
+
+            System.assert(returnedRef.getParameters().containsKey('retUrl'));
+            System.assert(returnedRef.getParameters().containsKey('sessionId'));
+        Test.stopTest();
+
+
     }
 
 }

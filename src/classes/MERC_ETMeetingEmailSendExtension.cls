@@ -13,11 +13,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     public Set<Id> selectedParticipantIds { get; set; }
 
-
     //filters for select participant page
-    public List<SelectOption> communicationPreference { 
+    public List<SelectOption> communicationPreference {
         get {
-            Set<String> communicationPreferenceSet = new Set<String>(); 
+            Set<String> communicationPreferenceSet = new Set<String>();
             communicationPreference = selectOptionListInitialize();
 
             String soql  = 'SELECT Account_MERC__r.Communication_Preference_MERC__c, ';
@@ -35,12 +34,12 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             }
             communicationPreference = sortOptionList(communicationPreference);
             return communicationPreference;
-        } 
-        set; 
+        }
+        set;
     }
     public String communicationPreferenceSelected { get; set; }
-    
-    public List<SelectOption> countryOfResidence { 
+
+    public List<SelectOption> countryOfResidence {
         get {
             Set<String> countryOfResidenceSet = new Set<String>();
             countryOfResidence = selectOptionListInitialize();
@@ -59,7 +58,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                                                          Account_MERC__r.Country_of_Residence_GLBL__c,
                                                          Account_MERC__r.Prfrd_Lang_Cd_GLBL__c,
                                                          Status_MERC__c
-                                                    FROM Meeting_Participant_MERC__c 
+                                                    FROM Meeting_Participant_MERC__c
                                                    WHERE Meeting_MERC__c = :meeting.Id]) {
                 if (p.Account_MERC__r.Country_of_Residence_GLBL__c != null && !countryOfResidenceSet.contains(p.Account_MERC__r.Country_of_Residence_GLBL__c)) {
                     countryOfResidenceSet.add(p.Account_MERC__r.Country_of_Residence_GLBL__c);
@@ -68,8 +67,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             }
             countryOfResidence = sortOptionList(countryOfResidence);
             return countryOfResidence;
-        } 
-        set; 
+        }
+        set;
     }
     public String countryOfResidenceSelected {get; set;}
 
@@ -101,7 +100,40 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         return '';
     }
 
-    public List<SelectOption> dueDate { 
+    public PageReference generateDocuments() {
+        collectParticipantIds();
+
+        if (selectedParticipantIds.isEmpty()) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'Please Select at least one participant.'));
+            return null;
+        }
+
+        if (selectedParticipantIds.size() > 100) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'Please Select no more than 100 participants.'));
+            return null;
+        }
+
+        PageReference generateDocs = new PageReference('/apex/loop__masslooplus');
+        generateDocs.getParameters().put('retUrl', ApexPages.currentPage().getParameters().get('Id'));
+        generateDocs.getParameters().put('sessionId', UserInfo.getSessionId());
+        List<Id> selectedIds = new List<Id>();
+        for (Id selectedParticipantId : selectedParticipantIds) {
+            //URLs in IE9 should be limited to 2083 characters. this means that if we use the 15 digit id we can
+            //safely allow for selection of more ids
+            selectedIds.add(((String)selectedParticipantId).subString(0,15));
+        }
+        generateDocs.getParameters().put('recordIds', String.join(selectedIds, ','));
+        generateDocs.setRedirect(true);
+        return generateDocs;
+    }
+
+    public Boolean isGeneratingDocuments {
+        get {
+            return ApexPages.currentPage().getParameters().get('generatedocuments') == '1';
+        }
+    }
+
+    public List<SelectOption> dueDate {
         get {
             System.debug('#### getDueDate.');
             Set<String> dueDateSet = new Set<String>();
@@ -118,12 +150,12 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             }
             dueDate = sortOptionList(dueDate);
             return dueDate;
-        } 
-        set; 
+        }
+        set;
     }
     public String dueDateSelected {get; set;}
 
-    public List<SelectOption> hasEmail { 
+    public List<SelectOption> hasEmail {
         get {
             //prep the SelectOption list
             hasEmail = selectOptionListInitialize();
@@ -132,16 +164,16 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             hasEmail.add(new SelectOption('No','No'));
             return hasEmail;
         }
-        set; 
+        set;
     }
     public String hasEmailSelected {get; set;}
 
-    public List<SelectOption> nextStep { 
+    public List<SelectOption> nextStep {
         get {
             Set<String> nextStepSet = new Set<String>();
             nextStep = selectOptionListInitialize();
-            for (Meeting_Tasks_MERC__c t : [SELECT Next_Step_MERC__c 
-                                              FROM Meeting_Tasks_MERC__c 
+            for (Meeting_Tasks_MERC__c t : [SELECT Next_Step_MERC__c
+                                              FROM Meeting_Tasks_MERC__c
                                              WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id
                                           ORDER BY Next_Step_MERC__c]) {
                 if (t.Next_Step_MERC__c != null && !nextStepSet.contains(t.Next_Step_MERC__c)) {
@@ -151,12 +183,12 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             }
             nextStep = sortOptionList(nextStep);
             return nextStep;
-        } 
-        set; 
+        }
+        set;
     }
     public String nextStepSelected {get; set;}
 
-    public List<SelectOption> participantStatus { 
+    public List<SelectOption> participantStatus {
         get {
             Set<String> participantStatusSet = new Set<String>();
             participantStatus = selectOptionListInitialize();
@@ -166,7 +198,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                                                          Account_MERC__r.Country_of_Residence_GLBL__c,
                                                          Account_MERC__r.Prfrd_Lang_Cd_GLBL__c,
                                                          Status_MERC__c
-                                                    FROM Meeting_Participant_MERC__c 
+                                                    FROM Meeting_Participant_MERC__c
                                                    WHERE Meeting_MERC__c = :meeting.Id]) {
                 if (p.Status_MERC__c != null && !participantStatusSet.contains(p.Status_MERC__c)) {
                     participantStatusSet.add(p.Status_MERC__c);
@@ -176,15 +208,15 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             }
             participantStatus = sortOptionList(participantStatus);
             return participantStatus;
-        } 
-        set; 
+        }
+        set;
     }
     public String participantStatusSelected {get; set;}
 
-    public List<SelectOption> preferredLanguage { 
+    public List<SelectOption> preferredLanguage {
         get {
-            Set<String> preferredLanguageSet = new Set<String>(); 
-     
+            Set<String> preferredLanguageSet = new Set<String>();
+
             Set<String> statusSet = new Set<String>();
 
             //prep the SelectOption lists
@@ -202,7 +234,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                                                          Account_MERC__r.Country_of_Residence_GLBL__c,
                                                          Account_MERC__r.Prfrd_Lang_Cd_GLBL__c,
                                                          Status_MERC__c
-                                                    FROM Meeting_Participant_MERC__c 
+                                                    FROM Meeting_Participant_MERC__c
                                                    WHERE Meeting_MERC__c = :meeting.Id]) {
                 if (p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c != null && !preferredLanguageSet.contains(p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c)) {
                     preferredLanguageSet.add(p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c);
@@ -214,17 +246,17 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             preferredLanguage = sortOptionList(preferredLanguage);
             return preferredLanguage;
         }
-        set; 
+        set;
     }
     public String preferredLanguageSelected {get; set;}
 
     public List<SelectOption> processType {
         get {
-            Set<String> processTypeSet = new Set<String>(); 
+            Set<String> processTypeSet = new Set<String>();
             processType = selectOptionListInitialize();
             //build process type select options that are solely based on the participants for the meeting
-            for (Meeting_Process_MERC__c p : [SELECT Process_Type_MERC__c 
-                                                FROM Meeting_Process_MERC__c 
+            for (Meeting_Process_MERC__c p : [SELECT Process_Type_MERC__c
+                                                FROM Meeting_Process_MERC__c
                                                WHERE Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id
                                             ORDER BY Process_Type_MERC__c]) {
                 if (p.Process_Type_MERC__c != null && !processTypeSet.contains(p.Process_Type_MERC__c)) {
@@ -234,26 +266,26 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             }
             processType = sortOptionList(processType);
             return processType;
-        } 
+        }
         set;}
     public String processTypeSelected {get; set;}
 
     public List<SelectOption> proposalStatus {
         get {
-            Set<String> proposalStatusSet = new Set<String>(); 
+            Set<String> proposalStatusSet = new Set<String>();
             proposalStatus = selectOptionListInitialize();
-            for (Travel_Itinerary_MERC__c t : [SELECT Status_MERC__c 
+            for (Travel_Itinerary_MERC__c t : [SELECT Status_MERC__c
                                                  FROM Travel_Itinerary_MERC__c
                                                 WHERE Travel_Proposal_MERC__c = null
                                                   AND Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id]) {
                 if (t.Status_MERC__c != null && !proposalStatusSet.contains(t.Status_MERC__c)) {
                     proposalStatusSet.add(t.Status_MERC__c);
                     proposalStatus.add(new SelectOption(t.Status_MERC__c,t.Status_MERC__c));
-                } 
+                }
             }
             proposalStatus = sortOptionList(proposalStatus);
             return proposalStatus;
-        } 
+        }
         set;
     }
     public String proposalStatusSelected {get; set;}
@@ -264,7 +296,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         private set;
     }
 
-    public List<SelectOption> recordType { 
+    public List<SelectOption> recordType {
         get {
             recordType = selectOptionListInitialize();
             //find all record types and build SelectOption list
@@ -274,16 +306,16 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             recordType = sortOptionList(recordType);
             return recordType;
         }
-        set; 
+        set;
     }
     public String recordTypeSelected {get; set;}
 
-    public List<SelectOption> taskStatus { 
+    public List<SelectOption> taskStatus {
         get {
             Set<String> taskStatusSet = new Set<String>();
             taskStatus = selectOptionListInitialize();
-            for (Meeting_Tasks_MERC__c t : [SELECT Task_Status_MERC__c 
-                                              FROM Meeting_Tasks_MERC__c 
+            for (Meeting_Tasks_MERC__c t : [SELECT Task_Status_MERC__c
+                                              FROM Meeting_Tasks_MERC__c
                                              WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = :meeting.Id
                                                AND Meeting_Process_MERC__r.Process_Type_MERC__c = :processTypeSelected
                                           ORDER BY Task_Status_MERC__c]) {
@@ -294,8 +326,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             }
             taskStatus = sortOptionList(taskStatus);
             return taskStatus;
-        } 
-        set; 
+        }
+        set;
     }
     public String taskStatusSelected {get; set;}
     public Boolean taskStatusRender {
@@ -306,7 +338,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     }
 
     // Sorting suffixes
-    public String headerTitleSuffix { 
+    public String headerTitleSuffix {
         get {
             if (sortField == 'Account_MERC__r.Title_Desc_GLBL__c') {
                 if (sortDirection == 'ASC') {
@@ -319,10 +351,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 return ' ';
             }
         }
-        set; 
+        set;
     }
 
-    public String headerFirstNameSuffix { 
+    public String headerFirstNameSuffix {
         get {
             if (sortField == 'Account_MERC__r.FirstName') {
                 if (sortDirection == 'ASC') {
@@ -335,10 +367,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 return ' ';
             }
         }
-        set; 
+        set;
     }
 
-    public String headerLastNameSuffix { 
+    public String headerLastNameSuffix {
         get {
             if (sortField == 'Account_MERC__r.LastName') {
                 if (sortDirection == 'ASC') {
@@ -351,10 +383,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 return ' ';
             }
         }
-        set; 
+        set;
     }
 
-    public String headerSuffixSuffix { 
+    public String headerSuffixSuffix {
         get {
             if (sortField == 'Account_MERC__r.Sfx_Nm_GLBL__c') {
                 if (sortDirection == 'ASC') {
@@ -367,10 +399,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 return ' ';
             }
         }
-        set; 
+        set;
     }
 
-    public String headerEmailSuffix { 
+    public String headerEmailSuffix {
         get {
             if (sortField == 'Account_MERC__r.PersonEmail') {
                 if (sortDirection == 'ASC') {
@@ -383,10 +415,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 return ' ';
             }
         }
-        set; 
+        set;
     }
 
-    public String headerStatusSuffix { 
+    public String headerStatusSuffix {
         get {
             if (sortField == 'Status_MERC__c') {
                 if (sortDirection == 'ASC') {
@@ -399,10 +431,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 return ' ';
             }
         }
-        set; 
+        set;
     }
 
-    public String headerRecordTypeSuffix { 
+    public String headerRecordTypeSuffix {
         get {
             if (sortField == 'Record_Type_Name_MERC__c') {
                 if (sortDirection == 'ASC') {
@@ -415,10 +447,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 return ' ';
             }
         }
-        set; 
+        set;
     }
 
-    public String headerCommPrefSuffix { 
+    public String headerCommPrefSuffix {
         get {
             if (sortField == 'Account_MERC__r.Communication_Preference_MERC__c') {
                 if (sortDirection == 'ASC') {
@@ -431,10 +463,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 return ' ';
             }
         }
-        set; 
+        set;
     }
 
-    public String headerPrefLangSuffix { 
+    public String headerPrefLangSuffix {
         get {
             if (sortField == 'Account_MERC__r.Prfrd_Lang_Cd_GLBL__c') {
                 if (sortDirection == 'ASC') {
@@ -447,10 +479,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 return ' ';
             }
         }
-        set; 
+        set;
     }
 
-    public String headerCountrySuffix { 
+    public String headerCountrySuffix {
         get {
             if (sortField == 'Account_MERC__r.Country_of_Residence_GLBL__c') {
                 if (sortDirection == 'ASC') {
@@ -463,7 +495,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 return ' ';
             }
         }
-        set; 
+        set;
     }
 
     // these are used to filter participants for filters and data
@@ -480,7 +512,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         if (meeting == null || meeting.Id == null) {
             AddFatalMessage('You must specify a meeting id.');
         }
-
         emails = new List<MERC_ETObject.EmailFolder>();
         callControl = new MERC_ETCallControl();
 
@@ -499,6 +530,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         resetFilters();
         selectedParticipantIds = new Set<Id>();
         filterParticipants();
+
+        if (isGeneratingDocuments) {
+            //Just show the grid, we are using this page to select records to generate documents for
+            ShowGrid();
+        }
 
     }
 
@@ -534,7 +570,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         String proposalStatusSoql = '';
         if (proposalStatusSelected != '-Any-') {
-                proposalStatusSoql += '   SELECT Meeting_Participant_MERC__c '; 
+                proposalStatusSoql += '   SELECT Meeting_Participant_MERC__c ';
                 proposalStatusSoql += '     FROM Travel_Itinerary_MERC__c ';
                 proposalStatusSoql += '    WHERE Travel_Proposal_MERC__c = null ';
                 proposalStatusSoql += '      AND Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + meeting.Id + '\' ';
@@ -672,17 +708,17 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         set;
     }
 
-    public List<Meeting_Participant_MERC__c> getSelectedParticipants() { 
-        return [SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c, 
-                       Record_Type_Name_MERC__c, Has_Signed_Contract_MERC__c, 
-                       Account_MERC__r.Name, Account_MERC__r.FirstName, 
-                       Account_MERC__r.PersonEmail, 
-                       Account_MERC__r.LastName, 
-                       Account_MERC__r.Communication_Preference_MERC__c,  
-                       Account_MERC__r.Title_Desc_GLBL__c, 
+    public List<Meeting_Participant_MERC__c> getSelectedParticipants() {
+        return [SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c,
+                       Record_Type_Name_MERC__c, Has_Signed_Contract_MERC__c,
+                       Account_MERC__r.Name, Account_MERC__r.FirstName,
+                       Account_MERC__r.PersonEmail,
+                       Account_MERC__r.LastName,
+                       Account_MERC__r.Communication_Preference_MERC__c,
+                       Account_MERC__r.Title_Desc_GLBL__c,
                        Account_MERC__r.Sfx_Nm_GLBL__c,
                        Account_MERC__r.Prfrd_Lang_Cd_GLBL__c
-                  FROM Meeting_Participant_MERC__c 
+                  FROM Meeting_Participant_MERC__c
                  WHERE Id in :selectedParticipantIds];
     }
 
@@ -733,7 +769,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         - query is built dynamically based on the Process and Process State Filters
     */
     public ApexPages.StandardSetController meetingParticipants {
-        get 
+        get
         {
 
             if (meetingParticipants == null) {
@@ -788,11 +824,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     // the current field to sort by. defaults to last name
     public String sortField {
         // To set a Field for sorting.
-        get  { 
+        get  {
                 if (sortField == null) {
                     sortField = 'Account_MERC__r.LastName';
                 }
-                return sortField;  
+                return sortField;
             }
         set {
             if (sortField == value) {
@@ -804,16 +840,16 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             }
             sortField = value;
         }
-    } 
+    }
 
-    public String sortDirection { 
+    public String sortDirection {
         get {
             if (sortDirection == null) {
                 sortDirection = 'ASC';
             }
             return sortDirection;
-        } 
-        set; 
+        }
+        set;
     }
 
     // returns a list of wrapper objects for the sObjects in the current page set
@@ -823,9 +859,9 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 participants = new List<SelectedWrapper>();
                 for (Meeting_Participant_MERC__c participant : (List<Meeting_Participant_MERC__c>)meetingParticipants.getRecords()) {
 
-                    if (selectedParticipantIds.contains(participant.Id)) { 
+                    if (selectedParticipantIds.contains(participant.Id)) {
                         participants.add(new SelectedWrapper(participant, true));
-                    } else { 
+                    } else {
                         participants.add(new SelectedWrapper(participant));
                     }
                 }
@@ -1194,10 +1230,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         String thumbnailURL = configInfo.et4ae5__Root_Rest_API_URL__c;
         thumbnailURL = thumbnailURL.replace('rest', configInfo.et4ae5__url_root__c);
-        thumbnailURL += String.format('/{0}/utilities/ImageThumbnailSecure.ashx/?h={1}&w={2}&emailid={3}&oauth_token={4}', 
+        thumbnailURL += String.format('/{0}/utilities/ImageThumbnailSecure.ashx/?h={1}&w={2}&emailid={3}&oauth_token={4}',
                                       new List<String> { configInfo.et4ae5__url_part__c, '700', '700', emailId, token });
         System.Debug('thumbnailURL: ' + thumbnailURL);
-        
+
         HttpRequest req = new HttpRequest();
         req.setMethod('GET');
         req.setEndpoint(thumbnailURL);
@@ -1207,7 +1243,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         Http h = new Http();
         HttpResponse res = h.send(req);
-        
+
         System.debug('res body: ' + res.getBody());
         ImageThumbnailSecureResponse thumbnailResponse = (ImageThumbnailSecureResponse)JSON.deserialize(res.getBody(), ImageThumbnailSecureResponse.class);
         return thumbnailResponse.data;
@@ -1226,33 +1262,33 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         return postBody;
     }
 
-    //  This is a simple quicksort algorithm to sort a SelectOption list by label alphabetically.    
+    //  This is a simple quicksort algorithm to sort a SelectOption list by label alphabetically.
     public List<SelectOption> sortOptionList(List<SelectOption> listToSort)  {
-        
+
         if(listToSort == null || listToSort.size() <= 1) {
             List<SelectOption> result = new List<SelectOption> ();
             result.addAll(listToSort);
-            return result;                 
+            return result;
         }
-        
-        List<SelectOption> Less = new List<SelectOption>();     
-        List<SelectOption> Greater = new List<SelectOption>();  
-            
-        integer pivot = 0;              
-        // save the pivot and remove it from the list       
-        SelectOption pivotValue = listToSort[pivot];        
-        listToSort.remove(pivot);               
-        for(SelectOption x : listToSort) {          
+
+        List<SelectOption> Less = new List<SelectOption>();
+        List<SelectOption> Greater = new List<SelectOption>();
+
+        integer pivot = 0;
+        // save the pivot and remove it from the list
+        SelectOption pivotValue = listToSort[pivot];
+        listToSort.remove(pivot);
+        for(SelectOption x : listToSort) {
             if(x.getLabel().compareTo(pivotValue.getLabel()) <= 0) {
                 Less.add(x);
             } else if(x.getLabel().compareTo(pivotValue.getLabel()) > 0) {
                 Greater.add(x);
-            }   
-        }       
-        List<SelectOption> result = new List<SelectOption> ();      
+            }
+        }
+        List<SelectOption> result = new List<SelectOption> ();
         result.addAll(SortOptionList(Less));
-        result.add(pivotValue); 
-        result.addAll(SortOptionList(Greater)); 
-        return result;    
+        result.add(pivotValue);
+        result.addAll(SortOptionList(Greater));
+        return result;
     }
 }
