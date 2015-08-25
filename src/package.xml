@@ -78,7 +78,7 @@
         <members>Meeting_MERC__c.MERC_Meetings_United_Arab_Emirates</members>
         <members>Meeting_MERC__c.MERC_Meetings_United_States</members>
         <members>Meeting_MERC__c.MERC_Meetings_Venezuela_Bolivarian_Republic_of</members>
-        <name>CustomObjectCriteriaBasedSharingRule</name>
+        <name>SharingCriteriaRule</name>
     </types>
     <types>
         <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
