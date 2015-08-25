@@ -200,7 +200,7 @@
         <name>CustomObject</name>
     </types>
 	<types>
-        <members>Meeting_MERC__c.MERC_Meetings_South_Africa</members>
+        <members>Meeting_MERC__c.MERC_MEETING_SOUTH_AFRICA</members>
         <members>Meeting_MERC__c.MERC_Meeting_Viet_Nam</members>
         <members>Meeting_MERC__c.MERC_Meetings_Algeria</members>
         <members>Meeting_MERC__c.MERC_Meetings_Andorra</members>
@@ -266,7 +266,7 @@
         <members>Meeting_MERC__c.MERC_Meetings_United_Arab_Emirates</members>
         <members>Meeting_MERC__c.MERC_Meetings_United_States</members>
         <members>Meeting_MERC__c.MERC_Meetings_Venezuela_Bolivarian_Republic_of</members>
-        <name>CustomObjectCriteriaBasedSharingRule</name>
+        <name>SharingCriteriaRule</name>
     </types>
     <types>
         <members>Meeting_MERC__c-MERC_Active</members>

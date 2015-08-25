@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_South_Africa</fullName>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>MERC_MEETING_SOUTH_AFRICA</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Used to share Mercury Meeting and related data across a Country.</description>
+        <label>MERC_MEETING_SOUTH_AFRICA</label>
         <sharedTo>
             <group>MERC_Meetings_ZA</group>
         </sharedTo>
@@ -10,12 +13,12 @@
             <operation>equals</operation>
             <value>SOUTH AFRICA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meeting_Viet_Nam</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_MEETING_SOUTH_AFRICA</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meeting_Viet_Nam</fullName>
+        <label>MERC_Meeting_Viet_Nam</label>
         <sharedTo>
             <group>MERC_Meetings_VN</group>
         </sharedTo>
@@ -24,12 +27,12 @@
             <operation>equals</operation>
             <value>VIET NAM</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Algeria</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meeting_Viet_Nam</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Algeria</fullName>
+        <label>MERC_Meetings_Algeria</label>
         <sharedTo>
             <group>MERC_Meetings_DZ</group>
         </sharedTo>
@@ -38,12 +41,12 @@
             <operation>equals</operation>
             <value>ALGERIA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Andorra</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Algeria</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Andorra</fullName>
+        <label>MERC_Meetings_Andorra</label>
         <sharedTo>
             <group>MERC_Meetings_AD</group>
         </sharedTo>
@@ -52,12 +55,12 @@
             <operation>equals</operation>
             <value>ANDORRA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Argentina</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Andorra</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Argentina</fullName>
+        <label>MERC_Meetings_Argentina</label>
         <sharedTo>
             <group>MERC_Meetings_AR</group>
         </sharedTo>
@@ -66,12 +69,12 @@
             <operation>equals</operation>
             <value>ARGENTINA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Aruba</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Argentina</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Aruba</fullName>
+        <label>MERC_Meetings_Aruba</label>
         <sharedTo>
             <group>MERC_Meetings_AW</group>
         </sharedTo>
@@ -80,12 +83,12 @@
             <operation>equals</operation>
             <value>ARUBA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Australia</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Aruba</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Australia</fullName>
+        <label>MERC_Meetings_Australia</label>
         <sharedTo>
             <group>MERC_Meetings_AU</group>
         </sharedTo>
@@ -94,12 +97,12 @@
             <operation>equals</operation>
             <value>AUSTRALIA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Bahamas</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Australia</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Bahamas</fullName>
+        <label>MERC_Meetings_Bahamas</label>
         <sharedTo>
             <group>MERC_Meetings_BS</group>
         </sharedTo>
@@ -108,12 +111,12 @@
             <operation>equals</operation>
             <value>BAHAMAS</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Bahrain</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Bahamas</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Bahrain</fullName>
+        <label>MERC_Meetings_Bahrain</label>
         <sharedTo>
             <group>MERC_Meetings_BH</group>
         </sharedTo>
@@ -122,12 +125,12 @@
             <operation>equals</operation>
             <value>BAHRAIN</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Barbados</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Bahrain</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Barbados</fullName>
+        <label>MERC_Meetings_Barbados</label>
         <sharedTo>
             <group>MERC_Meetings_BB</group>
         </sharedTo>
@@ -136,12 +139,12 @@
             <operation>equals</operation>
             <value>BARBADOS</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Bermuda</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Barbados</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Bermuda</fullName>
+        <label>MERC_Meetings_Bermuda</label>
         <sharedTo>
             <group>MERC_Meetings_BM</group>
         </sharedTo>
@@ -150,12 +153,12 @@
             <operation>equals</operation>
             <value>BERMUDA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Botswana</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Bermuda</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Botswana</fullName>
+        <label>MERC_Meetings_Botswana</label>
         <sharedTo>
             <group>MERC_Meetings_BW</group>
         </sharedTo>
@@ -164,12 +167,12 @@
             <operation>equals</operation>
             <value>BOTSWANA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Brazil</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Botswana</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Brazil</fullName>
+        <label>MERC_Meetings_Brazil</label>
         <sharedTo>
             <group>MERC_Meetings_BR</group>
         </sharedTo>
@@ -178,12 +181,12 @@
             <operation>equals</operation>
             <value>BRAZIL</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Canada</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Brazil</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Canada</fullName>
+        <label>MERC_Meetings_Canada</label>
         <sharedTo>
             <group>MERC_Meetings_CA</group>
         </sharedTo>
@@ -192,12 +195,12 @@
             <operation>equals</operation>
             <value>CANADA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Chile</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Canada</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Chile</fullName>
+        <label>MERC_Meetings_Chile</label>
         <sharedTo>
             <group>MERC_Meetings_CL</group>
         </sharedTo>
@@ -206,12 +209,12 @@
             <operation>equals</operation>
             <value>CHILE</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_China</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Chile</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_China</fullName>
+        <label>MERC_Meetings_China</label>
         <sharedTo>
             <group>MERC_Meetings_CN</group>
         </sharedTo>
@@ -220,12 +223,12 @@
             <operation>equals</operation>
             <value>CHINA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Colombia</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_China</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Colombia</fullName>
+        <label>MERC_Meetings_Colombia</label>
         <sharedTo>
             <group>MERC_Meetings_CO</group>
         </sharedTo>
@@ -234,12 +237,12 @@
             <operation>equals</operation>
             <value>COLOMBIA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Costa_Rica</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Colombia</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Costa_Rica</fullName>
+        <label>MERC_Meetings_Costa_Rica</label>
         <sharedTo>
             <group>MERC_Meetings_CR</group>
         </sharedTo>
@@ -248,12 +251,12 @@
             <operation>equals</operation>
             <value>COSTA RICA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Cura_ao</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Costa_Rica</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Cura_ao</fullName>
+        <label>MERC_Meetings_Curaçao</label>
         <sharedTo>
             <group>MERC_Meetings_CW</group>
         </sharedTo>
@@ -262,12 +265,12 @@
             <operation>equals</operation>
             <value>CURAÇAO</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Dominican_Republic</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Curaçao</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Dominican_Republic</fullName>
+        <label>MERC_Meetings_Dominican_Republic</label>
         <sharedTo>
             <group>MERC_Meetings_DO</group>
         </sharedTo>
@@ -276,12 +279,12 @@
             <operation>equals</operation>
             <value>DOMINICAN REPUBLIC</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Ecuador</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Dominican_Republic</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Ecuador</fullName>
+        <label>MERC_Meetings_Ecuador</label>
         <sharedTo>
             <group>MERC_Meetings_EC</group>
         </sharedTo>
@@ -290,12 +293,12 @@
             <operation>equals</operation>
             <value>ECUADOR</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Egypt</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Ecuador</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Egypt</fullName>
+        <label>MERC_Meetings_Egypt</label>
         <sharedTo>
             <group>MERC_Meetings_EG</group>
         </sharedTo>
@@ -304,12 +307,12 @@
             <operation>equals</operation>
             <value>EGYPT</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_El_Salvador</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Egypt</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_El_Salvador</fullName>
+        <label>MERC_Meetings_El_Salvador</label>
         <sharedTo>
             <group>MERC_Meetings_SV</group>
         </sharedTo>
@@ -318,12 +321,12 @@
             <operation>equals</operation>
             <value>EL SALVADOR</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Faroe_Islands</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_El_Salvador</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Faroe_Islands</fullName>
+        <label>MERC_Meetings_Faroe_Islands</label>
         <sharedTo>
             <group>MERC_Meetings_FO</group>
         </sharedTo>
@@ -332,12 +335,12 @@
             <operation>equals</operation>
             <value>FAROE ISLANDS</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Ghana</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Faroe_Islands</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Ghana</fullName>
+        <label>MERC_Meetings_Ghana</label>
         <sharedTo>
             <group>MERC_Meetings_GH</group>
         </sharedTo>
@@ -346,12 +349,12 @@
             <operation>equals</operation>
             <value>GHANA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Greenland</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Ghana</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Greenland</fullName>
+        <label>MERC_Meetings_Greenland</label>
         <sharedTo>
             <group>MERC_Meetings_GL</group>
         </sharedTo>
@@ -360,12 +363,12 @@
             <operation>equals</operation>
             <value>GREENLAND</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Guatemala</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Greenland</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Guatemala</fullName>
+        <label>MERC_Meetings_Guatemala</label>
         <sharedTo>
             <group>MERC_Meetings_GT</group>
         </sharedTo>
@@ -374,12 +377,12 @@
             <operation>equals</operation>
             <value>GUATEMALA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Honduras</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Guatemala</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Honduras</fullName>
+        <label>MERC_Meetings_Honduras</label>
         <sharedTo>
             <group>MERC_Meetings_HN</group>
         </sharedTo>
@@ -388,12 +391,12 @@
             <operation>equals</operation>
             <value>HONDURAS</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Hong_Kong</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Honduras</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Hong_Kong</fullName>
+        <label>MERC_Meetings_Hong_Kong</label>
         <sharedTo>
             <group>MERC_Meetings_HK</group>
         </sharedTo>
@@ -402,12 +405,12 @@
             <operation>equals</operation>
             <value>HONG KONG</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_India</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Hong_Kong</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_India</fullName>
+        <label>MERC_Meetings_India</label>
         <sharedTo>
             <group>MERC_Meetings_IN</group>
         </sharedTo>
@@ -416,12 +419,12 @@
             <operation>equals</operation>
             <value>INDIA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Indonesia</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_India</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Indonesia</fullName>
+        <label>MERC_Meetings_Indonesia</label>
         <sharedTo>
             <group>MERC_Meetings_ID</group>
         </sharedTo>
@@ -430,12 +433,12 @@
             <operation>equals</operation>
             <value>INDONESIA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Israel</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Indonesia</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Israel</fullName>
+        <label>MERC_Meetings_Israel</label>
         <sharedTo>
             <group>MERC_Meetings_IL</group>
         </sharedTo>
@@ -444,12 +447,12 @@
             <operation>equals</operation>
             <value>ISRAEL</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Jamaica</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Israel</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Jamaica</fullName>
+        <label>MERC_Meetings_Jamaica</label>
         <sharedTo>
             <group>MERC_Meetings_JM</group>
         </sharedTo>
@@ -458,12 +461,12 @@
             <operation>equals</operation>
             <value>JAMAICA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Japan</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Jamaica</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Japan</fullName>
+        <label>MERC_Meetings_Japan</label>
         <sharedTo>
             <group>MERC_Meetings_JP</group>
         </sharedTo>
@@ -472,12 +475,12 @@
             <operation>equals</operation>
             <value>JAPAN</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Jordan</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Japan</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Jordan</fullName>
+        <label>MERC_Meetings_Jordan</label>
         <sharedTo>
             <group>MERC_Meetings_JO</group>
         </sharedTo>
@@ -486,12 +489,12 @@
             <operation>equals</operation>
             <value>JORDAN</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Kazakhstan</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Jordan</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Kazakhstan</fullName>
+        <label>MERC_Meetings_Kazakhstan</label>
         <sharedTo>
             <group>MERC_Meetings_KZ</group>
         </sharedTo>
@@ -500,12 +503,12 @@
             <operation>equals</operation>
             <value>KAZAKHSTAN</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Kenya</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Kazakhstan</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Kenya</fullName>
+        <label>MERC_Meetings_Kenya</label>
         <sharedTo>
             <group>MERC_Meetings_KE</group>
         </sharedTo>
@@ -514,12 +517,12 @@
             <operation>equals</operation>
             <value>KENYA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Korea_Republic_of</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Kenya</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Korea_Republic_of</fullName>
+        <label>MERC_Meetings_Korea_Republic_of</label>
         <sharedTo>
             <group>MERC_Meetings_KR</group>
         </sharedTo>
@@ -528,12 +531,12 @@
             <operation>equals</operation>
             <value>&quot;KOREA, REPUBLIC OF&quot;</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Kuwait</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Korea_Republic_of</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Kuwait</fullName>
+        <label>MERC_Meetings_Kuwait</label>
         <sharedTo>
             <group>MERC_Meetings_KW</group>
         </sharedTo>
@@ -542,12 +545,12 @@
             <operation>equals</operation>
             <value>KUWAIT</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Lebanon</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Kuwait</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Lebanon</fullName>
+        <label>MERC_Meetings_Lebanon</label>
         <sharedTo>
             <group>MERC_Meetings_LB</group>
         </sharedTo>
@@ -556,12 +559,12 @@
             <operation>equals</operation>
             <value>LEBANON</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Liechtenstein</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Lebanon</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Liechtenstein</fullName>
+        <label>MERC_Meetings_Liechtenstein</label>
         <sharedTo>
             <group>MERC_Meetings_LI</group>
         </sharedTo>
@@ -570,12 +573,12 @@
             <operation>equals</operation>
             <value>LIECHTENSTEIN</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Luxembourg</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Liechtenstein</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Luxembourg</fullName>
+        <label>MERC_Meetings_Luxembourg</label>
         <sharedTo>
             <group>MERC_Meetings_LU</group>
         </sharedTo>
@@ -584,12 +587,12 @@
             <operation>equals</operation>
             <value>LUXEMBOURG</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Malaysia</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Luxembourg</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Malaysia</fullName>
+        <label>MERC_Meetings_Malaysia</label>
         <sharedTo>
             <group>MERC_Meetings_MY</group>
         </sharedTo>
@@ -598,12 +601,12 @@
             <operation>equals</operation>
             <value>MALAYSIA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Mexico</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Malaysia</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Mexico</fullName>
+        <label>MERC_Meetings_Mexico</label>
         <sharedTo>
             <group>MERC_Meetings_MX</group>
         </sharedTo>
@@ -612,12 +615,12 @@
             <operation>equals</operation>
             <value>MEXICO</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Monaco</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Mexico</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Monaco</fullName>
+        <label>MERC_Meetings_Monaco</label>
         <sharedTo>
             <group>MERC_Meetings_MC</group>
         </sharedTo>
@@ -626,12 +629,12 @@
             <operation>equals</operation>
             <value>MONACO</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Morocco</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Monaco</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Morocco</fullName>
+        <label>MERC_Meetings_Morocco</label>
         <sharedTo>
             <group>MERC_Meetings_MA</group>
         </sharedTo>
@@ -640,12 +643,12 @@
             <operation>equals</operation>
             <value>MOROCCO</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Namibia</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Morocco</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Namibia</fullName>
+        <label>MERC_Meetings_Namibia</label>
         <sharedTo>
             <group>MERC_Meetings_NA</group>
         </sharedTo>
@@ -654,12 +657,12 @@
             <operation>equals</operation>
             <value>NAMIBIA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Nepal</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Namibia</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Nepal</fullName>
+        <label>MERC_Meetings_Nepal</label>
         <sharedTo>
             <group>MERC_Meetings_NP</group>
         </sharedTo>
@@ -668,12 +671,12 @@
             <operation>equals</operation>
             <value>NEPAL</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_New_Zealand</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Nepal</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_New_Zealand</fullName>
+        <label>MERC_Meetings_New_Zealand</label>
         <sharedTo>
             <group>MERC_Meetings_NZ</group>
         </sharedTo>
@@ -682,12 +685,12 @@
             <operation>equals</operation>
             <value>NEW ZEALAND</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Nigeria</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_New_Zealand</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Nigeria</fullName>
+        <label>MERC_Meetings_Nigeria</label>
         <sharedTo>
             <group>MERC_Meetings_NG</group>
         </sharedTo>
@@ -696,12 +699,12 @@
             <operation>equals</operation>
             <value>NIGERIA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Oman</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Nigeria</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Oman</fullName>
+        <label>MERC_Meetings_Oman</label>
         <sharedTo>
             <group>MERC_Meetings_OM</group>
         </sharedTo>
@@ -710,12 +713,12 @@
             <operation>equals</operation>
             <value>OMAN</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Pakistan</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Oman</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Pakistan</fullName>
+        <label>MERC_Meetings_Pakistan</label>
         <sharedTo>
             <group>MERC_Meetings_PK</group>
         </sharedTo>
@@ -724,12 +727,12 @@
             <operation>equals</operation>
             <value>PAKISTAN</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Panama</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Pakistan</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Panama</fullName>
+        <label>MERC_Meetings_Panama</label>
         <sharedTo>
             <group>MERC_Meetings_PA</group>
         </sharedTo>
@@ -738,12 +741,12 @@
             <operation>equals</operation>
             <value>PANAMA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Peru</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Panama</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Peru</fullName>
+        <label>MERC_Meetings_Peru</label>
         <sharedTo>
             <group>MERC_Meetings_PE</group>
         </sharedTo>
@@ -752,12 +755,12 @@
             <operation>equals</operation>
             <value>PERU</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Philippines</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Peru</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Philippines</fullName>
+        <label>MERC_Meetings_Philippines</label>
         <sharedTo>
             <group>MERC_Meetings_PH</group>
         </sharedTo>
@@ -766,12 +769,12 @@
             <operation>equals</operation>
             <value>PHILIPPINES</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Qatar</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Philippines</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Qatar</fullName>
+        <label>MERC_Meetings_Qatar</label>
         <sharedTo>
             <group>MERC_Meetings_QA</group>
         </sharedTo>
@@ -780,12 +783,12 @@
             <operation>equals</operation>
             <value>QATAR</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Reunion</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Qatar</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Reunion</fullName>
+        <label>MERC_Meetings_Reunion</label>
         <sharedTo>
             <group>MERC_Meetings_RE</group>
         </sharedTo>
@@ -794,12 +797,12 @@
             <operation>equals</operation>
             <value>RÉUNION</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Saudi_Arabia</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Reunion</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Saudi_Arabia</fullName>
+        <label>MERC_Meetings_Saudi_Arabia</label>
         <sharedTo>
             <group>MERC_Meetings_SA</group>
         </sharedTo>
@@ -808,12 +811,12 @@
             <operation>equals</operation>
             <value>SAUDI ARABIA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Singapore</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Saudi_Arabia</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Singapore</fullName>
+        <label>MERC_Meetings_Singapore</label>
         <sharedTo>
             <group>MERC_Meetings_SG</group>
         </sharedTo>
@@ -822,12 +825,12 @@
             <operation>equals</operation>
             <value>SINGAPORE</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Taiwan</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Singapore</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Taiwan</fullName>
+        <label>MERC_Meetings_Taiwan</label>
         <sharedTo>
             <group>MERC_Meetings_TW</group>
         </sharedTo>
@@ -836,12 +839,12 @@
             <operation>equals</operation>
             <value>&quot;TAIWAN, PROVINCE OF CHINA&quot;</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Thailand</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Taiwan</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Thailand</fullName>
+        <label>MERC_Meetings_Thailand</label>
         <sharedTo>
             <group>MERC_Meetings_TH</group>
         </sharedTo>
@@ -850,12 +853,12 @@
             <operation>equals</operation>
             <value>THAILAND</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Trinidad_and_Tobago</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Thailand</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Trinidad_and_Tobago</fullName>
+        <label>MERC_Meetings_Trinidad_and_Tobago</label>
         <sharedTo>
             <group>MERC_Meetings_TT</group>
         </sharedTo>
@@ -864,12 +867,12 @@
             <operation>equals</operation>
             <value>TRINIDAD AND TOBAGO</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Tunisia</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Trinidad_and_Tobago</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Tunisia</fullName>
+        <label>MERC_Meetings_Tunisia</label>
         <sharedTo>
             <group>MERC_Meetings_TN</group>
         </sharedTo>
@@ -878,12 +881,12 @@
             <operation>equals</operation>
             <value>TUNISIA</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_United_Arab_Emirates</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Tunisia</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_United_Arab_Emirates</fullName>
+        <label>MERC_Meetings_United_Arab_Emirates</label>
         <sharedTo>
             <group>MERC_Meetings_AE</group>
         </sharedTo>
@@ -892,12 +895,12 @@
             <operation>equals</operation>
             <value>UNITED ARAB EMIRATES</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_United_States</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_United_Arab_Emirates</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_United_States</fullName>
+        <label>MERC_Meetings_United_States</label>
         <sharedTo>
             <group>MERC_Meetings_US</group>
         </sharedTo>
@@ -906,12 +909,12 @@
             <operation>equals</operation>
             <value>UNITED STATES</value>
         </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MERC_Meetings_Venezuela_Bolivarian_Republic_of</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_United_States</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>MERC_Meetings_Venezuela_Bolivarian_Republic_of</fullName>
+        <label>MERC_Meetings_Venezuela_Bolivarian_Republic_of</label>
         <sharedTo>
             <group>MERC_Meetings_VE</group>
         </sharedTo>
@@ -920,8 +923,5 @@
             <operation>equals</operation>
             <value>&quot;VENEZUELA, BOLIVARIAN REPUBLIC OF&quot;</value>
         </criteriaItems>
-        <accessLevel>Edit</accessLevel>
-        <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <name>MERC_Meetings_Venezuela_Bolivarian_Republic_of</name>
-    </criteriaBasedRules>
-</CustomObjectSharingRules>
+    </sharingCriteriaRules>
+</SharingRules>
