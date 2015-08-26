@@ -399,15 +399,15 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Invoice_Received_Date_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Submitted_for_Payment_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Submitted_for_Payment_Date_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Invoice_Received_Date_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>

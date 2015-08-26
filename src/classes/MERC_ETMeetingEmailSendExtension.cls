@@ -25,11 +25,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             Set<String> communicationPreferenceSet = new Set<String>();
             communicationPreference = selectOptionListInitialize();
 
-            String soql  = 'SELECT Account_MERC__r.Communication_Preference_MERC__c, ';
-                   soql += '                             Account_MERC__r.Country_of_Residence_GLBL__c, ';
-                   soql += '                             Account_MERC__r.Prfrd_Lang_Cd_GLBL__c, ';
-                   soql += '                              Status_MERC__c ';
-                   soql += '                         FROM Meeting_Participant_MERC__c  ';
+            String soql  = 'SELECT Account_MERC__r.Communication_Preference_MERC__c ';
+                   soql += '  FROM Meeting_Participant_MERC__c  ';
                    soql += queryBuilder('communicationPreference','');
             //build select options that are solely based on the participants for the meeting
             for (Meeting_Participant_MERC__c p : (List<Meeting_Participant_MERC__c>) Database.query(soql)) {
@@ -57,11 +54,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                     countryOfResidenceLabelMap.put(ple.getValue(),ple.getLabel());
                 }
             }
-            String soql  = 'SELECT Account_MERC__r.Communication_Preference_MERC__c, ';
-                   soql += '                             Account_MERC__r.Country_of_Residence_GLBL__c, ';
-                   soql += '                             Account_MERC__r.Prfrd_Lang_Cd_GLBL__c, ';
-                   soql += '                              Status_MERC__c ';
-                   soql += '                         FROM Meeting_Participant_MERC__c  ';
+            String soql  = 'SELECT Account_MERC__r.Country_of_Residence_GLBL__c ';
+                   soql += '  FROM Meeting_Participant_MERC__c  ';
                    soql += queryBuilder('countryOfResidence','');
             //build select options that are solely based on the participants for the meeting
             for (Meeting_Participant_MERC__c p :  (List<Meeting_Participant_MERC__c>) Database.query(soql)) {
@@ -79,13 +73,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     public List<SelectOption> dueDate {
         get {
-            System.debug('#### getDueDate.');
             Set<String> dueDateSet = new Set<String>();
             dueDate = selectOptionListInitialize();
             String soql  = ' SELECT Due_Date_Status_MERC__c ';
                    soql += '   FROM Meeting_Tasks_MERC__c ';
                    soql += queryBuilder('dueDate', 'Meeting_Process_MERC__r.Meeting_Participant_MERC__r.');
-            System.debug('#### SOQL = ' + soql);
             for (Meeting_Tasks_MERC__c t : (List<Meeting_Tasks_MERC__c>) Database.query(soql)) {
                 if (t.Due_Date_Status_MERC__c != null && !dueDateSet.contains(t.Due_Date_Status_MERC__c)) {
                     dueDateSet.add(t.Due_Date_Status_MERC__c);
@@ -191,11 +183,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             Set<String> preferredLanguageSet = new Set<String>();
             Set<String> statusSet = new Set<String>();
             preferredLanguage = selectOptionListInitialize();
-            String soql  = 'SELECT Account_MERC__r.Communication_Preference_MERC__c, ';
-                   soql += '       Account_MERC__r.Country_of_Residence_GLBL__c, ';
-                   soql += '       Account_MERC__r.Prfrd_Lang_Cd_GLBL__c, ';
-                   soql += '       Status_MERC__c ';
-                   soql += '  FROM Meeting_Participant_MERC__c  ';
+            String soql  = ' SELECT Account_MERC__r.Prfrd_Lang_Cd_GLBL__c ';
+                   soql += '   FROM Meeting_Participant_MERC__c  ';
                    soql += queryBuilder('preferredLanguage','');
             //build select options that are solely based on the participants for the meeting
             for (Meeting_Participant_MERC__c p :  (List<Meeting_Participant_MERC__c>) Database.query(soql)) {
@@ -225,6 +214,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             String soql  = ' SELECT Process_Type_MERC__c ';
                    soql += '   FROM Meeting_Process_MERC__c ';
                    soql += queryBuilder('processType', 'Meeting_Participant_MERC__r.');
+                   System.debug('#### SOQL = ' + soql);
             for (Meeting_Process_MERC__c p : (List<Meeting_Process_MERC__c>) Database.query(soql)) {
                 if (p.Process_Type_MERC__c != null && !processTypeSet.contains(p.Process_Type_MERC__c)) {
                     processTypeSet.add(p.Process_Type_MERC__c);
@@ -416,7 +406,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     public String headerRecordTypeSuffix {
         get {
-            if (sortField == 'Record_Type_Name_MERC__c') {
+            if (sortField == 'Record_Type_MERC__c') {
                 if (sortDirection == 'ASC') {
                     return '^';
                 } else {
@@ -518,7 +508,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         tempFilterFieldMap.put('countryOfResidence','Account_MERC__r.Country_of_Residence_GLBL__c');
         tempFilterFieldMap.put('participantStatus','Status_MERC__c');
         tempFilterFieldMap.put('preferredLanguage','Account_MERC__r.Prfrd_Lang_Cd_GLBL__c');
-        tempFilterFieldMap.put('recordTypeSelected','RecordType.Id');
+        tempFilterFieldMap.put('recordType','RecordType.Id');
         filterFieldMap = tempFilterFieldMap;
 
         //set defaults
@@ -773,7 +763,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     public List<Meeting_Participant_MERC__c> getSelectedParticipants() {
         return [SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c,
-                       Record_Type_Name_MERC__c, Has_Signed_Contract_MERC__c,
+                       Record_Type_MERC__c, Has_Signed_Contract_MERC__c,
                        Account_MERC__r.Name, Account_MERC__r.FirstName,
                        Account_MERC__r.PersonEmail,
                        Account_MERC__r.LastName,
@@ -837,7 +827,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
             if (meetingParticipants == null) {
                 String  soql =  'SELECT Status_MERC__c, Docusign_Contract_Status_MERC__c, ';
-                        soql += '       Record_Type_Name_MERC__c, Has_Signed_Contract_MERC__c, ';
+                        soql += '       Record_Type_MERC__c, Has_Signed_Contract_MERC__c, ';
                         soql += '       Account_MERC__r.Name, Account_MERC__r.FirstName, ';
                         soql += '       Account_MERC__r.PersonEmail, Account_MERC__r.LastName, ';
                         soql += '       Account_MERC__r.Communication_Preference_MERC__c, ';

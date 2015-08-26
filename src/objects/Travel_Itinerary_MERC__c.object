@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>Additional_Information_MERC__c</fullName>
+        <description>Added per defect 108. Created 06/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Logistical information for internal use</inlineHelpText>
+        <label>Additional Information</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Booking_Information_MERC__c</fullName>
+        <description>Holds booking information for Travel records : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Customer facing, information on services, ticket references, travel class etc</inlineHelpText>
+        <label>Booking Information</label>
+        <length>256</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Bus_Nmbr_MERC__c</fullName>
+        <description>Identifies a specific Bus from one station to another. Created by Katy Lorenti 05/13/2014</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Company and Carrier Number</inlineHelpText>
+        <label>Bus Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hotel_Check_in_Time_MERC__c</fullName>
+        <description>Pulls the check-in/out times from the Meeting Vendor record, these are used and shown to the HCP rather than the timetamp : MERC : Created on 11/05/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Hotel_Check_in_Time_MERC__c</formula>
+        <inlineHelpText>Accurate standard check-in/check-out times; saved into Travel Itinerary and communicated to the HCP 
+
+Must be in the format &quot;00:00&quot; for example &quot;08:00&quot;.</inlineHelpText>
+        <label>Hotel Check-in Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hotel_Check_out_Time_MERC__c</fullName>
+        <description>Pulls the check-in/out times from the Meeting Vendor record, these are used and shown to the HCP rather than the timetamp : MERC : Created on 11/05/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Hotel_Check_out_Time_MERC__c</formula>
+        <inlineHelpText>Accurate standard check-in/check-out times; saved into Travel Itinerary and communicated to the HCP 
+
+Must be in the format &quot;00:00&quot; for example &quot;08:00&quot;.</inlineHelpText>
+        <label>Hotel Check-out Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status_MERC__c</fullName>
+        <description>If the HCP cancels travel or does not use it, the record can be Cancelled.  This then removes any ToV from the associated meeting for that HCP.  Oliver Dunford 11th June 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the HCP cancels attendance, or the ToV attributed to this record should not be reported within Mercury due to a No Show, the record can be updated to Cancelled.  Confirmed records are reportable.</inlineHelpText>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready for Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Proposed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ticketed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Proposal_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Self lookup to ensure Individual Travel Segments can be associated to a specific Travel Proposal : MERC : Created on 16/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Travel Proposal</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Air, Bus, Rail</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Travel_Itinerary_MERC__c</referenceTo>
+        <relationshipLabel>Travel Itineraries</relationshipLabel>
+        <relationshipName>Travel_Itineraries</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+</CustomObject>

@@ -104,8 +104,10 @@
         <members>Meeting_MERC__c.Exclude_Bus_Transport_MERC__c</members>
         <members>Meeting_MERC__c.Exclude_Personal_Transfer_MERC__c</members>
         <members>Meeting_MERC__c.Exclude_Rail_Transport_MERC__c</members>
+        <members>Meeting_MERC__c.Final_Logistics_Information_MERC__c</members>
         <members>Meeting_MERC__c.Interaction_Type_MERC__c</members>
         <members>Meeting_MERC__c.Local_CMS_Review_Completed_MERC__c</members>
+        <members>Meeting_MERC__c.Participants_Attended_MERC__c</members>
         <members>Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</members>
         <members>Meeting_MERC__c.Start_Time_In_Meeting_Time_Zone__c</members>
         <members>Meeting_Participant_MERC__c.Active_on_Web_Service_MERC__c</members>
@@ -149,6 +151,13 @@
         <members>Preferences_and_Consent_GLBL__c.Label_Capture_Cap_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.Sub_Status_Cap_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.User_Name_GLBL__c</members>
+        <members>Travel_Itinerary_MERC__c.Additional_Information_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Booking_Information_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Bus_Nmbr_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Hotel_Check_in_Time_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Hotel_Check_out_Time_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Status_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Travel_Proposal_MERC__c</members>
         <members>Web_Service_Error_GLBL__c.Account_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Action_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Country_GLBL__c</members>
@@ -221,7 +230,9 @@
         <name>Layout</name>
     </types>
     <types>
+        <members>DDP_Admin_Mercury</members>
         <members>DDP_User_Mercury</members>
+        <members>ExactTarget_Meeting_Integration_MERC</members>
         <members>Mercury_Account_Manager_Edit</members>
         <members>Mercury_Case_Management_Access</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
