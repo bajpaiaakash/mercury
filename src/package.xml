@@ -10,10 +10,15 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>MERC_LoadingMask</members>
+        <name>ApexComponent</name>
+    </types>
+    <types>
+        <members>MERC_AddMeetingParticipants</members>
         <members>MERC_MeetingTaskEditor</members>
         <members>MERC_TravelProposals</members>
         <members>MeetingEmailSend</members>
         <name>ApexPage</name>
     </types>
-    <version>34.0</version>
+    <version>33.0</version>
 </Package>

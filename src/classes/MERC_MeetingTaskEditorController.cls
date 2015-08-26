@@ -30,108 +30,58 @@ public with sharing class MERC_MeetingTaskEditorController {
 
 	public String meetingProcessSuffix { 
 		get {
-			if (sortField == 'Meeting_Process_MERC__r.Name') {
-				if (sortDirection == 'ASC') {
-					return '^';
-				} else {
-					return 'v';
-				}
-			}
-			else {
-				return ' ';
-			}
+			return getSortSuffix('Meeting_Process_MERC__r.Name');
 		}
 		set; 
 	}
 	public String meetingTaskSuffix { 
 		get {
-			if (sortField == 'Name') {
-				if (sortDirection == 'ASC') {
-					return '^';
-				} else {
-					return 'v';
-				}
-			}
-			else {
-				return ' ';
-			}
+			return getSortSuffix('Name');
 		}
 		set; 
 	}
 	public String meetingParticipantSuffix { 
 		get {
-			if (sortField == 'Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Name') {
-				if (sortDirection == 'ASC') {
-					return '^';
-				} else {
-					return 'v';
-				}
-			}
-			else {
-				return ' ';
-			}
+			return getSortSuffix('Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Name');
 		}
 		set; 
 	}
 	public String recordTypeSuffix { 
 		get {
-			if (sortField == 'Meeting_Process_MERC__r.Meeting_Participant_MERC__r.RecordType.Name') {
-				if (sortDirection == 'ASC') {
-					return '^';
-				} else {
-					return 'v';
-				}
-			}
-			else {
-				return ' ';
-			}
+			return getSortSuffix('Meeting_Process_MERC__r.Meeting_Participant_MERC__r.RecordType.Name');
 		}
 		set; 
 	}
 	public String taskStatusSuffix { 
 		get {
-			if (sortField == 'Task_Status_MERC__c') {
-				if (sortDirection == 'ASC') {
-					return '^';
-				} else {
-					return 'v';
-				}
-			}
-			else {
-				return ' ';
-			}
+			return getSortSuffix('Task_Status_MERC__c');
 		}
 		set; 
 	}
 	public String dueDateSuffix { 
 		get {
-			if (sortField == 'Due_Date_MERC__c') {
-				if (sortDirection == 'ASC') {
-					return '^';
-				} else {
-					return 'v';
-				}
-			}
-			else {
-				return ' ';
-			}
+			return getSortSuffix('Due_Date_MERC__c');
 		}
 		set; 
 	}
 	public String accountNameSuffix { 
 		get {
-			if (sortField == 'Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Account_MERC__r.Name') {
-				if (sortDirection == 'ASC') {
-					return '^';
-				} else {
-					return 'v';
-				}
-			}
-			else {
-				return ' ';
-			}
+			return getSortSuffix('Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Account_MERC__r.Name');
 		}
 		set; 
+	}
+
+	public String getSortSuffix (String field) {
+		if (sortField == field) {
+			if (sortDirection == 'ASC') {
+				return '^';
+			} else {
+				return 'v';
+			}
+		}
+		else {
+			return ' ';
+		}
 	}
 
 	// the current field to sort by. defaults to last name

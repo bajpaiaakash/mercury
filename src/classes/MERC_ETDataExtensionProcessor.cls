@@ -6,14 +6,11 @@ public with sharing class MERC_ETDataExtensionProcessor {
             throw new DataExtensionException('There can be at most 1000 participants per email send.');
         }
 
-        List<Meeting_Participant_MERC__c> meetingParticipants = [SELECT Id, Name, Account_MERC__c, Meeting_MERC__c, Types_of_Service_MERC__c, Accountable_Business_Contact_MERC__r.Full_Nm_GLBL__c,
-                                                                        Account_MERC__r.Mdl_Nm_GLBL__c, Account_MERC__r.Scnd_Nm_GLBL__c, Account_MERC__r.Full_Nm_GLBL__c,
-                                                                        Account_MERC__r.Title_Desc_GLBL__c, Account_MERC__r.Sfx_Nm_GLBL__c
-                                                                 FROM Meeting_Participant_MERC__c
-                                                                 WHERE Id IN :wrapper.Participants];
-        Id meetingId = meetingParticipants[0].Meeting_MERC__c;
-
+        /**
+         * sets up a data extension with 5 columns: SubscriberKey, AccountId, MeetingId, MeetingParticipantId
+         */
         List<MERC_ETDataExtension.Field> fields = new List<MERC_ETDataExtension.Field>();
+
         MERC_ETDataExtension.Field fSubscriberKey = new MERC_ETDataExtension.Field();
         fSubscriberKey.fieldName = 'SubscriberKey';
         fSubscriberKey.fieldType = '0';
@@ -22,19 +19,26 @@ public with sharing class MERC_ETDataExtensionProcessor {
         fSubscriberKey.isPrimaryKey = true;
         fields.add(fSubscriberKey);
 
-        List<String> fieldNames = new List<String> {'Meeting Name', 'City of Meeting', 'Venue Name', 'Meeting Start Date', 'Meeting End Date',
-        	                                        'Event Id', 'Meeting Participant Num', 'First Name', 'Last Name', 'Salutation', 'Type of Service',
-        	                                        'Middle Name', 'Second Last Name', 'Account Name', 'Meeting Owner', 'Customer Facing User', 'Source',
-                                                    'Title', 'Suffix', 'Accountable Business Contact'};
-        for (String n : fieldNames) {
+        List<String> fieldNames = new List<String> {'AccountId', 'MeetingId', 'MeetingParticipantId'};
+
+        for (String fieldName : fieldNames) {
             MERC_ETDataExtension.Field f = new MERC_ETDataExtension.Field();
-            f.fieldName = n;
-            f.fieldType = '0';
+            f.fieldName = fieldName;
+            f.fieldType = '0'; //Text
             f.length = '255';
             f.nullable = true;
             f.isPrimaryKey = false;
             fields.add(f);
         }
+
+        MERC_ETDataExtension.Field addlInformationHTMLField = new MERC_ETDataExtension.Field();
+        addlInformationHTMLField.fieldName = 'AdditionalInformationHTML';
+        addlInformationHTMLField.fieldType = '0'; //Text
+        addlInformationHTMLField.length = '2000';
+        addlInformationHTMLField.nullable = true;
+        addlInformationHTMLField.isPrimaryKey = false;
+        fields.add(addlInformationHTMLField);
+
         MERC_ETDataExtension.Field fEmailAddress = new MERC_ETDataExtension.Field();
         fEmailAddress.fieldName = 'EmailAddress';
         fEmailAddress.fieldType = '4'; //EmailAddress
@@ -43,14 +47,35 @@ public with sharing class MERC_ETDataExtensionProcessor {
         fEmailAddress.isPrimaryKey = false;
         fields.add(fEmailAddress);
 
+        /**
+         * query for all participants included in this email
+         */
+        List<Meeting_Participant_MERC__c> meetingParticipants = [SELECT Id, Account_MERC__c, Meeting_MERC__c
+                                                                    FROM Meeting_Participant_MERC__c
+                                                                    WHERE Id IN :wrapper.Participants];
+
+        Set<Id> personAccountIds = new Set<Id>();
+        for (Meeting_Participant_MERC__c mp : meetingParticipants) {
+            personAccountIds.add(mp.Account_MERC__c);
+        }
+        Map<Id, Account> personAccounts = new Map<Id, Account>([SELECT Id, PersonContactId, PersonEmail
+                                                                FROM Account
+                                                                WHERE Id IN :personAccountIds AND IsPersonAccount = true]);
+
+        Id mtgId = meetingParticipants[0].Meeting_MERC__c;
+
+        /**
+         * create/authorize extension
+         */
         MERC_ETAuthorizer authorizer = new MERC_ETAuthorizer();
 
         Blob deAESKey = Crypto.generateAesKey(256);
         String hexDeAESKey = EncodingUtil.convertToHex(deAESKey);
+        
         //account for max length of DE name
         String deSubject = wrapper.Email.title.length() > 140 ? wrapper.Email.title.substring(0, 139) : wrapper.Email.title;
-        String deName = 'SalesforceMeeting-' + meetingId + '-' + deSubject.replaceAll('[^a-zA-Z0-9]+', '') + '-' + Datetime.now().format('yyyyMMdd\'T\'HHmmssSSS');
-        String deKey = String.valueOf(meetingId) + Datetime.now().format('yyyyMMdd\'T\'HHmmssSSS');
+        String deName = 'SalesforceMeeting-' + mtgId + '-' + deSubject.replaceAll('[^a-zA-Z0-9]+', '') + '-' + Datetime.now().format('yyyyMMdd\'T\'HHmmssSSS');
+        String deKey = String.valueOf(mtgId) + Datetime.now().format('yyyyMMdd\'T\'HHmmssSSS');
 
         //default expiration to 3 days for immediate sends, otherwise ensure DE will still be around when scheduled send actually goes out.
         Datetime deExpiration = Datetime.now().addDays(3);
@@ -63,19 +88,6 @@ public with sharing class MERC_ETDataExtensionProcessor {
         if (deResponse.id == null) {
             throw new DataExtensionException('There was an error creating the data extension.');
         }
-
-        Meeting_MERC__c theMeeting = [SELECT Id, Name, City_of_Meeting_MERC__c, Venue_ET_Email_Template_MERC__c, Date_of_Event_MERC__c, End_Date_of_Event_MERC__c, Event_Id_MERC__c,
-                                             Start_Time_of_Meeting_MERC__c, End_Time_of_Meeting_MERC__c, Meeting_Owner_MERC__r.FirstName, Meeting_Owner_MERC__r.LastName,
-                                             Sales_Rep_MERC__r.Name, Source_MERC__c
-                                      FROM Meeting_MERC__c
-                                      WHERE Id = :meetingId];
-        Set<Id> personAccountIds = new Set<Id>();
-        for (Meeting_Participant_MERC__c mp : meetingParticipants) {
-            personAccountIds.add(mp.Account_MERC__c);
-        }
-        Map<Id, Account> personAccounts = new Map<Id, Account>([SELECT Id, PersonContactId, FirstName, LastName, PersonEmail, Salutation
-                                                                FROM Account
-                                                                WHERE Id IN :personAccountIds AND IsPersonAccount = true]);
 
         List<List<Meeting_Participant_MERC__c>> participantSublists = new List<List<Meeting_Participant_MERC__c>>();
         Integer participantIndex = 0;
@@ -91,128 +103,40 @@ public with sharing class MERC_ETDataExtensionProcessor {
 
         for (List<Meeting_Participant_MERC__c> sublist : participantSublists) {
             List<MERC_ETDataExtension.DataExtensionEntry> entries = new List<MERC_ETDataExtension.DataExtensionEntry>();
-            for (Meeting_Participant_MERC__c mp : sublist) {
+            for (Meeting_Participant_MERC__c mp : meetingParticipants) {
+                // -> set data extension fields
                 MERC_ETDataExtension.DataExtensionEntry e = new MERC_ETDataExtension.DataExtensionEntry();
                 e.keys = new MERC_ETDataExtension.FieldEntry();
                 e.keys.fieldName = 'SubscriberKey';
                 e.keys.fieldValue = String.valueOf(personAccounts.get(mp.Account_MERC__c).PersonContactId);
 
                 e.values = new List<MERC_ETDataExtension.FieldEntry>();
-                
-                MERC_ETDataExtension.FieldEntry fe1 = new MERC_ETDataExtension.FieldEntry();
-                fe1.fieldName = 'Meeting Name';
-                fe1.fieldValue = theMeeting.Name;
-                e.values.add(fe1);
-                
-                MERC_ETDataExtension.FieldEntry fe2 = new MERC_ETDataExtension.FieldEntry();
-                fe2.fieldName = 'City of Meeting';
-                fe2.fieldValue = theMeeting.City_of_Meeting_MERC__c;
-                e.values.add(fe2);
-                
-                MERC_ETDataExtension.FieldEntry fe3 = new MERC_ETDataExtension.FieldEntry();
-                fe3.fieldName = 'Venue Name';
-                fe3.fieldValue = theMeeting.Venue_ET_Email_Template_MERC__c;
-                e.values.add(fe3);
-                
-                String dateFormatString = 'MM/dd/yyyy HH:mm:ss z';
-                MERC_ETDataExtension.FieldEntry fe4 = new MERC_ETDataExtension.FieldEntry();
-                fe4.fieldName = 'Meeting Start Date';
-                Datetime startDateTime = theMeeting.Start_Time_of_Meeting_MERC__c;
-                fe4.fieldValue = startDateTime.format(dateFormatString);
-                e.values.add(fe4);
-                
-                MERC_ETDataExtension.FieldEntry fe5 = new MERC_ETDataExtension.FieldEntry();
-                fe5.fieldName = 'Meeting End Date';
-                Datetime endDateTime = theMeeting.End_Time_of_Meeting_MERC__c;
-                fe5.fieldValue = endDateTime.format(dateFormatString);
-                e.values.add(fe5);
-                
-                MERC_ETDataExtension.FieldEntry fe6 = new MERC_ETDataExtension.FieldEntry();
-                fe6.fieldName = 'Event Id';
-                fe6.fieldValue = theMeeting.Event_Id_MERC__c;
-                e.values.add(fe6);
-                
-                MERC_ETDataExtension.FieldEntry fe7 = new MERC_ETDataExtension.FieldEntry();
-                fe7.fieldName = 'Meeting Participant Num';
-                fe7.fieldValue = mp.Name;
-                e.values.add(fe7);
-                
-                MERC_ETDataExtension.FieldEntry fe8 = new MERC_ETDataExtension.FieldEntry();
-                fe8.fieldName = 'First Name';
-                fe8.fieldValue = personAccounts.get(mp.Account_MERC__c).FirstName;
-                e.values.add(fe8);
-                
-                MERC_ETDataExtension.FieldEntry fe9 = new MERC_ETDataExtension.FieldEntry();
-                fe9.fieldName = 'Last Name';
-                fe9.fieldValue = personAccounts.get(mp.Account_MERC__c).LastName;
-                e.values.add(fe9);
-                
-                MERC_ETDataExtension.FieldEntry fe10 = new MERC_ETDataExtension.FieldEntry();
-                fe10.fieldName = 'Salutation';
-                fe10.fieldValue = personAccounts.get(mp.Account_MERC__c).Salutation;
-                e.values.add(fe10);
-                
-                MERC_ETDataExtension.FieldEntry fe11 = new MERC_ETDataExtension.FieldEntry();
-                fe11.fieldName = 'EmailAddress';
-                fe11.fieldValue = personAccounts.get(mp.Account_MERC__c).PersonEmail;
-                e.values.add(fe11);
 
-				MERC_ETDataExtension.FieldEntry fe12 = new MERC_ETDataExtension.FieldEntry();
-				fe12.fieldName = 'Type of Service';
-				fe12.fieldValue = mp.Types_of_Service_MERC__c;
-				e.values.add(fe12);
-				
-                MERC_ETDataExtension.FieldEntry fe13 = new MERC_ETDataExtension.FieldEntry();
-                fe13.fieldName = 'Middle Name';
-                fe13.fieldValue = mp.Account_MERC__r.Mdl_Nm_GLBL__c;
-                e.values.add(fe13);
-                
-                MERC_ETDataExtension.FieldEntry fe14 = new MERC_ETDataExtension.FieldEntry();
-                fe14.fieldName = 'Second Last Name';
-                fe14.fieldValue = mp.Account_MERC__r.Scnd_Nm_GLBL__c;
-                e.values.add(fe14);
-                
-                MERC_ETDataExtension.FieldEntry fe15 = new MERC_ETDataExtension.FieldEntry();
-                fe15.fieldName = 'Account Name';
-                fe15.fieldValue = mp.Account_MERC__r.Full_Nm_GLBL__c;
-                e.values.add(fe15);
+                MERC_ETDataExtension.FieldEntry accountId = new MERC_ETDataExtension.FieldEntry();
+                accountId.fieldName = 'AccountId';
+                accountId.fieldValue = mp.Account_MERC__c;
+                e.values.add(accountId);
 
-                MERC_ETDataExtension.FieldEntry fe16 = new MERC_ETDataExtension.FieldEntry();
-                fe16.fieldName = 'Meeting Owner';
-                if (theMeeting.Meeting_Owner_MERC__r.FirstName == null) {
-                    fe16.fieldValue = theMeeting.Meeting_Owner_MERC__r.LastName;
-                } else if (theMeeting.Meeting_Owner_MERC__r.LastName == null) {
-                    fe16.fieldValue = theMeeting.Meeting_Owner_MERC__r.FirstName;
-                } else {
-                    fe16.fieldValue = theMeeting.Meeting_Owner_MERC__r.FirstName + ' ' + theMeeting.Meeting_Owner_MERC__r.LastName;
-                }
-                e.values.add(fe16);
-                
-                MERC_ETDataExtension.FieldEntry fe17 = new MERC_ETDataExtension.FieldEntry();
-                fe17.fieldName = 'Customer Facing User';
-                fe17.fieldValue = theMeeting.Sales_Rep_MERC__r.Name;
-                e.values.add(fe17);
-                
-                MERC_ETDataExtension.FieldEntry fe18 = new MERC_ETDataExtension.FieldEntry();
-                fe18.fieldName = 'Source';
-                fe18.fieldValue = theMeeting.Source_MERC__c;
-                e.values.add(fe18);
+                MERC_ETDataExtension.FieldEntry meetingId = new MERC_ETDataExtension.FieldEntry();
+                meetingId.fieldName = 'MeetingId';
+                meetingId.fieldValue = mtgId;
+                e.values.add(meetingId);
 
-                MERC_ETDataExtension.FieldEntry fe19 = new MERC_ETDataExtension.FieldEntry();
-                fe19.fieldName = 'Title';
-                fe19.fieldValue = mp.Account_MERC__r.Title_Desc_GLBL__c;
-                e.values.add(fe19);
+                MERC_ETDataExtension.FieldEntry meetingParticipantId = new MERC_ETDataExtension.FieldEntry();
+                meetingParticipantId.fieldName = 'MeetingParticipantId';
+                meetingParticipantId.fieldValue = mp.Id;
+                e.values.add(meetingParticipantId);
 
-                MERC_ETDataExtension.FieldEntry fe20 = new MERC_ETDataExtension.FieldEntry();
-                fe20.fieldName = 'Suffix';
-                fe20.fieldValue = mp.Account_MERC__r.Sfx_Nm_GLBL__c;
-                e.values.add(fe20);
+                MERC_ETDataExtension.FieldEntry addlInfoFieldEntry = new MERC_ETDataExtension.FieldEntry();
+                addlInfoFieldEntry.fieldName = 'AdditionalInformationHTML';
+                addlInfoFieldEntry.fieldValue = wrapper.AdditionalInformationHTML;
+                e.values.add(addlInfoFieldEntry);
 
-                MERC_ETDataExtension.FieldEntry fe21 = new MERC_ETDataExtension.FieldEntry();
-                fe21.fieldName = 'Accountable Business Contact';
-                fe21.fieldValue = mp.Accountable_Business_Contact_MERC__r.Full_Nm_GLBL__c;
-                e.values.add(fe21);
-				
+                MERC_ETDataExtension.FieldEntry emailAddress = new MERC_ETDataExtension.FieldEntry();
+                emailAddress.fieldName = 'EmailAddress';
+                emailAddress.fieldValue = personAccounts.get(mp.Account_MERC__c).PersonEmail;
+                e.values.add(emailAddress);
+
                 entries.add(e);
             }
 
@@ -234,7 +158,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
         //MERC_ETDataExtensionProcessor.retrieveThumbnailForEmailSend(send.Id);
 
         Meeting_Email_Send_MERC__c meetingEmailSend = new Meeting_Email_Send_MERC__c();
-        meetingEmailSend.Meeting_MERC__c = meetingId;
+        meetingEmailSend.Meeting_MERC__c = mtgId;
         
         // Populate fields that will be placed on the email send
         meetingEmailSend.ET_Data_Extension_Id_MERC__c = deResponse.Id;
@@ -251,6 +175,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
         meetingEmailSend.ET_Email_Name_MERC__c = wrapper.Email.name;
         meetingEmailSend.ET_Subject_MERC__c = wrapper.Email.title;
         meetingEmailSend.ET_Subject_Line_MERC__c = wrapper.Email.title;
+        meetingEmailSend.Additional_Information_MERC__c = wrapper.AdditionalInformationHTML;
         
         if (wrapper.SendTime == 'now') {
             meetingEmailSend.Send_Status__c = 'Create Sender Profile';
@@ -273,16 +198,18 @@ public with sharing class MERC_ETDataExtensionProcessor {
         if (thumbnailData != null && thumbnailData.length() < 32768) {
             meetingEmailSend.ET_Thumbnail_MERC__c = thumbnailData; // do the same as attachment body on line 220
         } else {
-	        try {
-	            Attachment a = new Attachment();
-	            a.contentType = 'image/png';
-	            a.ParentId = meetingEmailSend.Id;
-	            a.Body = Blob.valueOf(thumbnailData);//EncodingUtil.base64Decode(thumbnailData);
-	            a.Name = 'Thumbnail Data';
-	            insert a;
-	        } catch (Exception e) {
-	            System.debug('Exception saving attachment of preview : ' + e.getMessage() + '\n' + e.getStackTraceString());
-	        }
+            system.debug('creating attachment out of thumbnail data');
+            system.debug(thumbnailData);
+            try {
+                Attachment a = new Attachment();
+                a.contentType = 'image/png';
+                a.ParentId = meetingEmailSend.Id;
+                a.Body = EncodingUtil.base64Decode(thumbnailData);
+                a.Name = 'Thumbnail Data';
+                insert a;
+            } catch (Exception e) {
+                System.debug('Exception saving attachment of preview : ' + e.getMessage() + '\n' + e.getStackTraceString());
+            }
         }
         
         update meetingEmailSend;
@@ -297,6 +224,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
         insert mpEmailSends;
 
         return;
+
     }
 
     public MERC_ETDataExtension.DataExtensionResponse createDataExtensionWithNameKeyFieldsAndSoapAuth(String deName, String deKey, List<MERC_ETDataExtension.Field> fields, 
