@@ -11,6 +11,10 @@
                 <fullName>Diabetes</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>ELANCO</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Oncology</fullName>
                 <default>false</default>
@@ -68,6 +72,10 @@
                 <fullName>Diabetes</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ELANCO</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Neuroscience</fullName>
                 <default>false</default>
@@ -107,6 +115,10 @@
             </values>
             <values>
                 <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>ELANCO</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -150,6 +162,10 @@
                 <fullName>Diabetes</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ELANCO</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Neuroscience</fullName>
                 <default>false</default>
@@ -189,6 +205,10 @@
             </values>
             <values>
                 <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>ELANCO</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -232,6 +252,10 @@
                 <fullName>Diabetes</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ELANCO</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Neuroscience</fullName>
                 <default>false</default>
@@ -273,6 +297,10 @@
                 <fullName>Diabetes</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ELANCO</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Neuroscience</fullName>
                 <default>false</default>
@@ -312,6 +340,10 @@
             </values>
             <values>
                 <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>ELANCO</fullName>
                 <default>false</default>
             </values>
             <values>
