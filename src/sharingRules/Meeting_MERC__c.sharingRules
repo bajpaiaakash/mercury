@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
-        <fullName>MERC_Meeting_South_Africa</fullName>
+        <fullName>MERC_Meetings_South_Africa</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <label>MERC_Meeting_South_Africa</label>
+        <label>MERC_Meetings_South_Africa</label>
         <sharedTo>
             <group>MERC_Meetings_ZA</group>
         </sharedTo>
@@ -15,10 +15,10 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
-        <fullName>MERC_Meeting_Viet_Nam</fullName>
+        <fullName>MERC_Meetings_Viet_Nam</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
-        <label>MERC_Meeting_Viet_Nam</label>
+        <label>MERC_Meetings_Viet_Nam</label>
         <sharedTo>
             <group>MERC_Meetings_VN</group>
         </sharedTo>
