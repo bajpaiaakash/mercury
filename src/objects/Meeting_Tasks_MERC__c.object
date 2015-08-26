@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Due_Date_Status_MERC__c</fullName>
+        <description>Groups Tasks so that they can be managed in groups : MERC : Created on 24/08/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF( Due_Date_MERC__c &lt;= Today() &amp;&amp;  TEXT(Task_Status_MERC__c) = &quot;Incomplete&quot; , &quot;Overdue/Due Today&quot;, IF( Due_Date_MERC__c &gt; Today() &amp;&amp; Due_Date_MERC__c &lt;= (Today() + 3) &amp;&amp;  TEXT(Task_Status_MERC__c) = &quot;Incomplete&quot;, &quot;Due Tomorrow/In following 2 Days&quot;, &quot;Not Due&quot;))</formula>
+        <inlineHelpText>Groups Meeting Tasks by Due Date ranges.  Either those tasks with a Due Date of Today/In the past, or, those Tasks with a Due Date of Tomorrow or Tomorrow + 2 Days.</inlineHelpText>
+        <label>Due Date Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Next_Step_MERC__c</fullName>
+        <description>Highlights the next step for categorisation and easy identification for Mass Email/DrawLoop template creation : MERC : Created on 24/08/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF( CONTAINS(Name, &quot;Reminder&quot;) &amp;&amp;  TEXT(Task_Status_MERC__c) = &quot;Incomplete&quot; , &quot;Follow Up Queue&quot;, IF( CONTAINS(Name, &quot;Escalate&quot;) &amp;&amp;  TEXT(Task_Status_MERC__c) = &quot;Incomplete&quot; , &quot;Escalate to Business&quot;, IF( NOT(CONTAINS(Name, &quot;Escalate&quot;)) &amp;&amp; NOT(CONTAINS(Name, &quot;Reminder&quot;)) &amp;&amp; TEXT(Task_Status_MERC__c) = &quot;Incomplete&quot; , &quot;Action Needed&quot;, &quot;Completed/No Further Action&quot;)))</formula>
+        <inlineHelpText>* Follow Up Queue (Follow Up needs to be sent or will be required if no response is received)
+* Escalate to Business (an Escalation is required)
+* Action Needed (Information to send e.g. Registration)
+* Completed/No Further Action (Completed Tasks)</inlineHelpText>
+        <label>Next Step</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

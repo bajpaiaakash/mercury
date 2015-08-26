@@ -11,6 +11,7 @@
         <members>MERC_DailyAttendanceController</members>
         <members>MERC_DailyAttendanceControllerStressTest</members>
         <members>MERC_DailyAttendanceControllerTest</members>
+        <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_HCPContractRollupManager</members>
         <members>MERC_HcpCapActualsCalculator</members>
         <members>MERC_HcpCapActualsCalculatorTest</members>
@@ -31,6 +32,7 @@
     <types>
         <members>MERC_DailyAttendance</members>
         <members>MERC_RegistrationResponses</members>
+        <members>MeetingEmailSend</members>
         <name>ApexPage</name>
     </types>
     <types>
@@ -57,6 +59,7 @@
         <members>Account.Emergency_Contact_Phone_Number_MERC__c</members>
         <members>Account.Employment_Specification_MERC__c</members>
         <members>Account.Experience_Step_Complete_MERC__c</members>
+        <members>Account.First_Name_override_MERC__c</members>
         <members>Account.Global_Consent_Authorization_GLBL__c</members>
         <members>Account.HCP_Contracting_Party_MERC__c</members>
         <members>Account.HCP_Info_Package_Status_MERC__c</members>
@@ -64,10 +67,12 @@
         <members>Meeting_MERC__c.Therapeutic_Area_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Communication_Channel_MERC__c</members>
         <members>Account.Heroku_Connect_External_Id_MERC__c</members>
+        <members>Account.Institution_Name_override_MERC__c</members>
         <members>Account.Institutional_Notif_Info_Exists_MERC__c</members>
         <members>Account.Institutional_Notification_Complete_MERC__c</members>
         <members>Account.Institutional_Notification_Consent_MERC__c</members>
         <members>Account.Job_Title_MERC__c</members>
+        <members>Account.Last_Name_override_MERC__c</members>
         <members>Account.Leadership_Committee_Step_Complete_MERC__c</members>
         <members>Account.NIF_Number_MERC__c</members>
         <members>Account.Payee_Bank_Information_Consent_MERC__c</members>
@@ -78,8 +83,10 @@
         <members>Account.Qualifications_Experience_Consent_MERC__c</members>
         <members>Account.Qualifications_Step_Complete_MERC__c</members>
         <members>Account.Research_Publications_Step_Complete_MERC__c</members>
+        <members>Account.Suffix_override_MERC__c</members>
         <members>Account.Tax_Invoices_Step_Complete_MERC__c</members>
         <members>Account.Teaching_Advising_Step_Complete_MERC__c</members>
+        <members>Account.Title_override_MERC__c</members>
         <members>Account.Transfer_Info_Step_Complete_MERC__c</members>
         <members>Account.Web_Service_Logic_Key_MERC__c</members>
         <members>Agenda_Item_MERC__c.Start_Time_in_Meeting_Time_Zone_MERC__c</members>
@@ -88,6 +95,7 @@
         <members>Answer_MERC__c.Meeting_MERC__c</members>
         <members>Answer_MERC__c.Mercury_External_Id_MERC__c</members>
         <members>Answer_MERC__c.Order_Number_MERC__c</members>
+        <members>Case.Topic_MERC__c</members>
         <members>Consent_Setting_GLBL__c.Consent_Configuration_GLBL__c</members>
         <members>Consent_Setting_GLBL__c.Consent_Disclaimer_GLBL__c</members>
         <members>Consent_Setting_GLBL__c.Consent_Duration_GLBL__c</members>
@@ -100,8 +108,10 @@
         <members>Meeting_MERC__c.Exclude_Bus_Transport_MERC__c</members>
         <members>Meeting_MERC__c.Exclude_Personal_Transfer_MERC__c</members>
         <members>Meeting_MERC__c.Exclude_Rail_Transport_MERC__c</members>
+        <members>Meeting_MERC__c.Final_Logistics_Information_MERC__c</members>
         <members>Meeting_MERC__c.Interaction_Type_MERC__c</members>
         <members>Meeting_MERC__c.Local_CMS_Review_Completed_MERC__c</members>
+        <members>Meeting_MERC__c.Participants_Attended_MERC__c</members>
         <members>Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</members>
         <members>Meeting_MERC__c.Start_Time_In_Meeting_Time_Zone__c</members>
         <members>Meeting_Participant_MERC__c.Active_on_Web_Service_MERC__c</members>
@@ -131,6 +141,8 @@
         <members>Meeting_Participant_MERC__c.Travel_Step_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Travel_by_Air_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Web_Service_Logic_Key_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Due_Date_Status_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Next_Step_MERC__c</members>
         <members>Payee_MERC__c.Payee_Auto_Number_MERC__c</members>
         <members>Payee_MERC__c.Priority_Rank_Nbr_MERC__c</members>
         <members>Payee_MERC__c.Transfer_Information_Complete_MERC__c</members>
@@ -146,6 +158,13 @@
         <members>Preferences_and_Consent_GLBL__c.Label_Capture_Cap_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.Sub_Status_Cap_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.User_Name_GLBL__c</members>
+        <members>Travel_Itinerary_MERC__c.Additional_Information_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Booking_Information_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Bus_Nmbr_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Hotel_Check_in_Time_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Hotel_Check_out_Time_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Status_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Travel_Proposal_MERC__c</members>
         <members>Web_Service_Error_GLBL__c.Account_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Action_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Country_GLBL__c</members>
@@ -169,6 +188,7 @@
         <members>Web_Service_Logic_MERC__c.RSVP_Include_Rail_MERC__c</members>
         <members>Web_Service_Logic_MERC__c.RSVP_Institutional_Notification_MERC__c</members>
         <members>Web_Service_Logic_MERC__c.RSVP_Institutional_Wet_Signature_MERC__c</members>
+        <members>Web_Service_Logic_MERC__c.RSVP_Require_NIF_MERC__c</members>
         <members>Web_Service_Logic_MERC__c.RSVP_Sponsorship_Agreement_MERC__c</members>
         <members>Web_Service_Logic_MERC__c.RSVP_Summary_and_Comments_MERC__c</members>
         <members>Web_Service_Logic_MERC__c.RSVP_Transparency_Reporting_Consent_MERC__c</members>
@@ -200,8 +220,8 @@
         <name>CustomObject</name>
     </types>
 	<types>
-        <members>Meeting_MERC__c.MERC_MEETING_SOUTH_AFRICA</members>
-        <members>Meeting_MERC__c.MERC_Meeting_Viet_Nam</members>
+        <members>Meeting_MERC__c.MERC_Meetings_South_Africa</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Viet_Nam</members>
         <members>Meeting_MERC__c.MERC_Meetings_Algeria</members>
         <members>Meeting_MERC__c.MERC_Meetings_Andorra</members>
         <members>Meeting_MERC__c.MERC_Meetings_Argentina</members>
@@ -279,13 +299,17 @@
         <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <members>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</members>
         <members>PersonAccount-GLBL_HCP Account</members>
+        <members>PersonAccount-MERC_Designated Individual</members>
         <members>Registration_Question_MERC__c-MERC_Question_Layout</members>
 		<members>Preferences_and_Consent_GLBL__c-GLBL_Preferences</members>
         <name>Layout</name>
     </types>
     <types>
+        <members>DDP_Admin_Mercury</members>
         <members>DDP_User_Mercury</members>
+        <members>ExactTarget_Meeting_Integration_MERC</members>
         <members>Mercury_Account_Manager_Edit</members>
         <members>Mercury_Case_Management_Access</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
@@ -303,6 +327,7 @@
         <members>GSO Basic User_Platform</members>
         <members>GSO Basic User_Salesforce</members>
         <members>Mercury Integration CST - Platform</members>
+        <members>Mercury Integration ExactTarget - Platform</members>
         <members>Mercury Integration MVI - Platform</members>
         <members>Mercury Metadata API</members>
         <members>Mercury Portal API - Platform</members>
@@ -344,6 +369,7 @@
         <name>ReportType</name>
     </types>
     <types>
+        <members>Meeting_MERC__c.Mass_Generate_Content_MERC</members>
         <members>Meeting_Participant_MERC__c.Generate_Documents_MERC</members>
         <name>WebLink</name>
     </types>
@@ -361,7 +387,7 @@
         <name>WorkflowFieldUpdate</name>
     </types>
     <types>
-	    <members>HCP_Contract_MERC__c.MERC_Set_Contract_Received_Date</members>
+        <members>HCP_Contract_MERC__c.MERC_Set_Contract_Received_Date</members>
         <members>Preferences_and_Consent_GLBL__c.MERC_Set Communication Channel</members>
         <members>Meeting_MERC__c.MERC Meeting Active Date</members>
         <members>Meeting_Tasks_MERC__c.MERC_Set External Id - Meeting Tasks</members>

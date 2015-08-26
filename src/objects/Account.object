@@ -137,6 +137,18 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>First_Name_override_MERC__c</fullName>
+        <description>First Name field that will allow users to override bad master data : MERC : Created on 24/08/2015 by Billy Ho, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to override the data within email and paper based templates should it be incorrect. These fields should then be used to raise a data change request to ensure the data is corrected at source.</inlineHelpText>
+        <label>First Name (override)</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Global_Consent_Authorization_GLBL__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Populated by Portal/Web Service when a Portal user goes to manage their global consent; to indicate they agree to the processing of their information. Created 05/20/2014 by KLorenti, Mavens Consulting</description>
@@ -203,6 +215,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Institution_Name_override_MERC__c</fullName>
+        <description>Institution name field that will allow users to override bad master data : MERC : Created on 24/08/2015 by Billy Ho, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to override the data within email and paper based templates should it be incorrect. These fields should then be used to raise a data change request to ensure the data is corrected at source.</inlineHelpText>
+        <label>Institution Name (override)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Institutional_Notif_Info_Exists_MERC__c</fullName>
         <description>If designated individuals have been captured or a HCP is Self Employed, the Institutional Notification Information has been gathered.  This field is shown to Meeting Owners and sent back to Veeva.  Oliver Dunford 28th April 2014.</description>
         <externalId>false</externalId>
@@ -237,6 +261,18 @@
         <inlineHelpText>The Job Title of the HCP e.g. General Practitioner</inlineHelpText>
         <label>Job Title</label>
         <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Name_override_MERC__c</fullName>
+        <description>Last Name field that will allow users to override bad master data : MERC : Created on 24/08/2015 by Billy Ho, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to override the data within email and paper based templates should it be incorrect. These fields should then be used to raise a data change request to ensure the data is corrected at source.</inlineHelpText>
+        <label>Last Name (override)</label>
+        <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -364,6 +400,18 @@ ISPICKVAL( Participated_in_Clinical_Trials_MERC__c,&quot;&quot;) || ISPICKVAL(Cl
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Suffix_override_MERC__c</fullName>
+        <description>Suffix field that will allow users to override bad master data : MERC : Created on 24/08/2015 by Billy Ho, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to override the data within email and paper based templates should it be incorrect. These fields should then be used to raise a data change request to ensure the data is corrected at source.</inlineHelpText>
+        <label>Suffix (override)</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Tax_Invoices_Step_Complete_MERC__c</fullName>
         <description>Used by portal to indicate that the Tax/Invoices sub-step is complete on the HCP Information Package. Created on 05/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -385,6 +433,18 @@ ISPICKVAL( Advisory_Board_Experience_MERC__c ,&quot;&quot;)
         <label>Teaching/Advising Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Title_override_MERC__c</fullName>
+        <description>Title field that will allow users to override bad master data : MERC : Created on 24/08/2015 by Billy Ho, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to override the data within email and paper based templates should it be incorrect. These fields should then be used to raise a data change request to ensure the data is corrected at source.</inlineHelpText>
+        <label>Title (override)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Transfer_Info_Step_Complete_MERC__c</fullName>

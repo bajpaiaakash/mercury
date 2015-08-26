@@ -23,6 +23,10 @@
                 <fullName>Diabetes</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>ELANCO</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Oncology</fullName>
                 <default>false</default>
@@ -113,6 +117,18 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Final_Logistics_Information_MERC__c</fullName>
+        <description>Holds final logistic information included within the meeting briefing : MERC : Created on 21/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For external use. the information included here will be sent to customers</inlineHelpText>
+        <label>Final Logistics Information</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
         <fullName>Interaction_Type_MERC__c</fullName>
         <description>Capture the interaction type of the Meeting. Created 11/6/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -151,6 +167,23 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Participants_Attended_MERC__c</fullName>
+        <description>Actual total number of attendees at meeting.
+Created by John Adams on 12/9/2013</description>
+        <externalId>false</externalId>
+        <label># Participants Attended</label>
+        <summaryFilterItems>
+            <field>Meeting_Participant_MERC__c.Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Attended</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Meeting_Participant_MERC__c.Meeting_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Start_Date_Meeting_Time_Zone_MERC__c</fullName>
@@ -219,6 +252,10 @@
                 <fullName>Diabetes</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ELANCO</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Neuroscience</fullName>
                 <default>false</default>
@@ -235,7 +272,7 @@
                 <fullName>Urology</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>		
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Completed</fullName>
@@ -280,6 +317,10 @@
             </values>
             <values>
                 <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>ELANCO</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -345,6 +386,10 @@
                 <fullName>Diabetes</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ELANCO</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Neuroscience</fullName>
                 <default>false</default>
@@ -406,6 +451,10 @@
             </values>
             <values>
                 <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>ELANCO</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -471,6 +520,10 @@
                 <fullName>Diabetes</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ELANCO</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Neuroscience</fullName>
                 <default>false</default>
@@ -532,6 +585,10 @@
             </values>
             <values>
                 <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>ELANCO</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -597,6 +654,10 @@
                 <fullName>Diabetes</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>ELANCO</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Neuroscience</fullName>
                 <default>false</default>
@@ -615,4 +676,16 @@
             </values>
         </picklistValues>
     </recordTypes>
+    <webLinks>
+        <fullName>Mass_Generate_Content_MERC</fullName>
+        <availability>online</availability>
+        <description>Used to initiate the Mass Loop process by allowing users to select participants to send documents to</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Mass Generate Content</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/MeetingEmailSend?id={!Meeting_MERC__c.Id}&amp;generatedocuments=1</url>
+    </webLinks>
 </CustomObject>

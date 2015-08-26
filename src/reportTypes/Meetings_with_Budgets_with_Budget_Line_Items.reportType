@@ -191,6 +191,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>CFT_Meeting_Instructions_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>CME_Accredited_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
@@ -537,6 +542,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Sponsorship_Type_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Local_CMS_Review_Completed_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
         <columns>

@@ -3,6 +3,7 @@
     <customButtons>Generate_Content_MERC</customButtons>
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Send_ExactTarget_Email_MERC</customButtons>
+    <customButtons>Mass_Generate_Content_MERC</customButtons>
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>

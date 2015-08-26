@@ -205,6 +205,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>CFT_Meeting_Instructions_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>City_of_Meeting_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
@@ -586,6 +591,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Sponsorship_Type_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Local_CMS_Review_Completed_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
         <columns>
@@ -1088,6 +1098,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Consulting_MERC__c</field>
+            <table>Meeting_MERC__c.Registration_Questions__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
             <table>Meeting_MERC__c.Registration_Questions__r</table>
         </columns>
@@ -1099,6 +1114,16 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>CurrencyIsoCode</field>
+            <table>Meeting_MERC__c.Registration_Questions__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Delegate_MERC__c</field>
+            <table>Meeting_MERC__c.Registration_Questions__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Individual_Sponsorship_MERC__c</field>
             <table>Meeting_MERC__c.Registration_Questions__r</table>
         </columns>
         <columns>
@@ -1134,6 +1159,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Id</field>
+            <table>Meeting_MERC__c.Registration_Questions__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Service_Provider_MERC__c</field>
             <table>Meeting_MERC__c.Registration_Questions__r</table>
         </columns>
         <columns>
