@@ -18,7 +18,7 @@
         </actions>
         <active>true</active>
         <description>When Contract Request Status = Completed, Contract Received Date is set to today&apos;s date : MERC : Created on 17/08/2015 by Jyoti Gaur, TCS.</description>
-        <formula>TEXT(Contract_Request_Status_MERC__c) = &quot;Completed&quot;</formula>
+        <formula>ISCHANGED(Contract_Request_Status_MERC__c) && TEXT(Contract_Request_Status_MERC__c) = &quot;Completed&quot;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
