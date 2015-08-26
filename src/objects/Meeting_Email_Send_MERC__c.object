@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Additional_Information_MERC__c</fullName>
+        <description>Used to insert information into emails upon send : MERC : Created on 24/08/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Text will be inserted into the designated section within the email template upon sending the email.</inlineHelpText>
+        <label>Additional Information</label>
+        <length>1500</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+</CustomObject>
