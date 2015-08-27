@@ -11,4 +11,15 @@
         <type>Html</type>
         <visibleLines>10</visibleLines>
     </fields>
+    <fields>
+        <fullName>Additional_Information_Plain_Text_MERC__c</fullName>
+        <description>Used for plain text emails for those users who do NOT accept HTML : MERC : Created on 25/08/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For those HCPs who do not accept HTML emails, a plain text version should also be provided should you wish to include tailored content in the Additional Information field.</inlineHelpText>
+        <label>Additional Information (Plain Text)</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
 </CustomObject>

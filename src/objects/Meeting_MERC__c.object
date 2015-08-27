@@ -686,6 +686,6 @@ Created by John Adams on 12/9/2013</description>
         <masterLabel>Mass Generate Content</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/apex/MeetingEmailSend?id={!Meeting_MERC__c.Id}&amp;generatedocuments=1</url>
+        <url>/apex/MeetingEmailSendSelectRecipients?id={!Meeting_MERC__c.Id}&amp;generatedocuments=1</url>
     </webLinks>
 </CustomObject>

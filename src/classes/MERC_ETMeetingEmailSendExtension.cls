@@ -1,3 +1,10 @@
+/*
+* MERC_ETMeetingEmailSendExtension
+* Description : Controller extension which provides functionality for MeetingSendEmail page.
+* Author: Sonoma Partners
+* Modified By: Rick Locke, Kyle Thornton & Joseph Ferraro
+* Modified Date: August 26, 2015
+*/
 public with sharing class MERC_ETMeetingEmailSendExtension {
 
     private final Meeting_MERC__c meeting;
@@ -9,6 +16,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     public boolean OptIn { get; set; }
     public boolean ShowParticipantGrid { get; set; }
     public String additionalInformationHTML { get; set; }
+    public String additionalInformationText { get; set; }
     public String base64Thumbnail { get; private set; }
 
     public Set<Id> selectedParticipantIds { get; set; }
@@ -19,7 +27,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         }
     }
 
-    //filters for select participant page
+    /*
+     * The following getters and setters are used by the MeetingSendEmail page
+     * filters. The SelectOptions are the picklists and the Strings are the 
+     * selections within the picklists.
+     */
     public List<SelectOption> communicationPreference {
         get {
             Set<String> communicationPreferenceSet = new Set<String>();
@@ -28,7 +40,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             String soql  = 'SELECT Account_MERC__r.Communication_Preference_MERC__c ';
                    soql += '  FROM Meeting_Participant_MERC__c  ';
                    soql += queryBuilder('communicationPreference','');
-            //build select options that are solely based on the participants for the meeting
             for (Meeting_Participant_MERC__c p : (List<Meeting_Participant_MERC__c>) Database.query(soql)) {
                 if (p.Account_MERC__r.Communication_Preference_MERC__c != null && !communicationPreferenceSet.contains(p.Account_MERC__r.Communication_Preference_MERC__c)) {
                     communicationPreferenceSet.add(p.Account_MERC__r.Communication_Preference_MERC__c);
@@ -57,7 +68,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             String soql  = 'SELECT Account_MERC__r.Country_of_Residence_GLBL__c ';
                    soql += '  FROM Meeting_Participant_MERC__c  ';
                    soql += queryBuilder('countryOfResidence','');
-            //build select options that are solely based on the participants for the meeting
             for (Meeting_Participant_MERC__c p :  (List<Meeting_Participant_MERC__c>) Database.query(soql)) {
                 if (p.Account_MERC__r.Country_of_Residence_GLBL__c != null && !countryOfResidenceSet.contains(p.Account_MERC__r.Country_of_Residence_GLBL__c)) {
                     countryOfResidenceSet.add(p.Account_MERC__r.Country_of_Residence_GLBL__c);
@@ -99,7 +109,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             String soql  = 'SELECT Account_MERC__r.PersonEmail ';
                    soql += '  FROM Meeting_Participant_MERC__c  ';
                    soql += queryBuilder('hasEmail','');
-            //build select options that are solely based on the participants for the meeting
             for (Meeting_Participant_MERC__c p :  (List<Meeting_Participant_MERC__c>) Database.query(soql)) {
                 if (!hasTrue && p.Account_MERC__r.PersonEmail != null) {
                     hasTrue = true;
@@ -163,7 +172,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                    soql += '       Status_MERC__c ';
                    soql += '  FROM Meeting_Participant_MERC__c  ';
                    soql += queryBuilder('participantStatus','');
-            //build select options that are solely based on the participants for the meeting
             for (Meeting_Participant_MERC__c p :  (List<Meeting_Participant_MERC__c>) Database.query(soql)) {
                 if (p.Status_MERC__c != null && !participantStatusSet.contains(p.Status_MERC__c)) {
                     participantStatusSet.add(p.Status_MERC__c);
@@ -186,7 +194,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             String soql  = ' SELECT Account_MERC__r.Prfrd_Lang_Cd_GLBL__c ';
                    soql += '   FROM Meeting_Participant_MERC__c  ';
                    soql += queryBuilder('preferredLanguage','');
-            //build select options that are solely based on the participants for the meeting
             for (Meeting_Participant_MERC__c p :  (List<Meeting_Participant_MERC__c>) Database.query(soql)) {
                 if (p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c != null && !preferredLanguageSet.contains(p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c)) {
                     preferredLanguageSet.add(p.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c);
@@ -307,7 +314,51 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         private set;
     }
 
-    // Sorting suffixes
+    /* 
+     * sortField
+     * The field the participants query is sorted by. This is type of
+     * sorting functionality is not typical design, however
+     * it is necessitated by pagination requiring requering 
+     * for each sort.
+     */
+    public String sortField {
+        // To set a Field for sorting.
+        get  {
+                if (sortField == null) {
+                    sortField = 'Account_MERC__r.LastName';
+                }
+                return sortField;
+            }
+        set {
+            if (sortField == value) {
+                if (sortDirection == 'ASC') {
+                    sortDirection = 'DESC';
+                } else {
+                    sortDirection = 'ASC';
+                }
+            }
+            sortField = value;
+        }
+    }
+
+    /* 
+     * sortDirection
+     * The direction the participants query is sorted by.
+     */
+    public String sortDirection {
+        get {
+            if (sortDirection == null) {
+                sortDirection = 'ASC';
+            }
+            return sortDirection;
+        }
+        set;
+    }
+
+    /*
+     * The following setters and getters create the ^ or v sorting
+     * suffix in the participant data on the page. 
+     */
     public String headerTitleSuffix {
         get {
             if (sortField == 'Account_MERC__r.Title_Desc_GLBL__c') {
@@ -468,17 +519,52 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         set;
     }
 
-    // these are used to filter participants for filters and data
+    /* The following getters and setters are used to collect
+     * the current set of participant IDs that each filter
+     * is allowing for query. This is done for 2 significant
+     * reasons:
+     * 1.) The inner select field in WHERE clauses cannot have 
+     *     more than one level of relationships. 
+     * 2.) Simplify the continuous rebuilding of the picklists. 
+     *     Perform the inner select query once then used ID sets 
+     *     in the WHERE clauses rather than using inner selects.
+     */    
     public Set<Id> filteredParticipantIds { get; set; }
     public Set<Id> dueDateFilterIds { get; set; }
     public Set<Id> nextStepFilterIds { get; set; }
     public Set<Id> processTypeFilterIds { get; set; }
     public Set<Id> proposalStatusFilterIds { get; set; }
     public Set<Id> taskStatusFilterIds { get; set; }
+
+    /* 
+     * This opportunity is just to hold the future send date of the email send, so 
+     * that we can get the standard sfdc date time picker.
+     */
+    public Event sendDateEvent {
+        get {
+            if (sendDateEvent == null) {
+                sendDateEvent = new Event();
+            }
+            return sendDateEvent;
+        }
+        set;
+    }
+    
+    /*
+     * filterFieldMap
+     * map of the selectOption name to the field name
+     * needed to build queries for the dynamic
+     * SelectOption lists.
+     */
     private final map<String,String> filterFieldMap;
 
-    //constructor
+    /*
+     * CONSTRUCTOR
+     */
     public MERC_ETMeetingEmailSendExtension(ApexPages.StandardController stdController) {
+        if (!Test.isRunningTest()) {
+            stdController.addFields(new List<String>{ 'Date_of_Event_MERC__c', 'Days_Until_Meeting_MERC__c', 'End_Date_of_Event_MERC__c', 'Name' });            
+        }
         this.meeting = (Meeting_MERC__c)stdController.getRecord();
         if (meeting == null || meeting.Id == null) {
             AddFatalMessage('You must specify a meeting id.');
@@ -523,6 +609,12 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     }
 
+    /*
+     * queryBuilder 
+     * This method takes the filter and path to the Meeting Participant object
+     * and builds the WHERE clause of the SOQL needed to dynamically build that 
+     * SelectOption list.
+     */
     public String queryBuilder (String filter, String objectPath) {
         System.debug('#### queryBuilder accessed with filter of ' + filter + ' and ObjectPath of ' + objectPath);
         String  soqlQuery  = ' WHERE ' + objectPath + 'Meeting_MERC__c = \'' + meeting.Id + '\' ';
@@ -545,6 +637,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         return soqlQuery;
     }
 
+    /*
+     * filteredSegmentBuilder
+     * This method builds the AND statements for fields that have filter ID sets.
+     */
     public String filteredSegmentBuilder (String processingFilter, String passedFilter, String selected, String objectPath) {
         Boolean objectPathPresent = (objectPath != '');
         String soqlSegment = '';
@@ -554,6 +650,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         return soqlSegment;
     }
 
+    /*
+     * unfilteredSegmentBuilder
+     * This method builds the AND statements for fields that must be queried because there is no filter ID sets.
+     */
     public String unfilteredSegmentBuilder (String processingFilter, String passedFilter, String selected, String objectPath) {
         Boolean objectPathPresent = (objectPath != '');
         System.debug('#### unfilteredSegmentBuilder accessed with filter of ' + passedFilter + ' and ObjectPath of ' + objectPath);
@@ -591,6 +691,17 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         return generateDocs;
     }
 
+    /* 
+     * filterParticipants
+     * Fill the filter Id sets with participant IDs later used in 
+     * queries multiple allowing for query. This is done for 2
+     * main reasons:
+     * 1.) The inner select field in WHERE clauses cannot have 
+     *     more than one level of relationships. 
+     * 2.) Simplify the continuous rebuilding of the picklists. 
+     *     Perform the inner select query once then used ID sets 
+     *     in the WHERE clauses rather than using inner selects.
+     */ 
     public void filterParticipants () {
 
         Set<Id> filteredIds = new Set<Id>();
@@ -743,24 +854,21 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         filteredParticipantIds = filteredIds;
     }
 
+    /* 
+     * selectOptionListInitialize
+     * Initializes SelectOption lists and makes -any- as the first SelectOption.
+     */
     private List<SelectOption> selectOptionListInitialize() {
         List<SelectOption> result = new List<SelectOption>();
         result.add(new SelectOption('-Any-','-Any-'));
         return result;
     }
 
-    // this opportunity is just to hold the future send date of the email send, so that we can get the standard sfdc
-    // date time picker.
-    public Event sendDateEvent {
-        get {
-            if (sendDateEvent == null) {
-                sendDateEvent = new Event();
-            }
-            return sendDateEvent;
-        }
-        set;
-    }
-
+    /* 
+     * getSelectedParticpants
+     * Used by the MeetingEmailSend page to retrieve the selected 
+     * participants whose IDs are in the selectedParticipants.
+     */
     public List<Meeting_Participant_MERC__c> getSelectedParticipants() {
         return [SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c,
                        Record_Type_MERC__c, Has_Signed_Contract_MERC__c,
@@ -805,7 +913,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             return null;
         }
 
-        MERC_ETSendEmailWrapper wrapper = new MERC_ETSendEmailWrapper(Email, parts, Config.Default_From_Email__c, DeDup, DisableIndividualTracking, SendTime, sendDateEvent.ActivityDateTime, additionalInformationHTML);
+        MERC_ETSendEmailWrapper wrapper = new MERC_ETSendEmailWrapper(
+                                                        Email, parts, Config.Default_From_Email__c, 
+                                                        DeDup, DisableIndividualTracking, SendTime, 
+                                                        sendDateEvent.ActivityDateTime, 
+                                                        additionalInformationHTML, additionalInformationText);
         MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
         try {
             processor.createDataExtensionForSendEmail(wrapper);
@@ -818,9 +930,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     }
 
     /*
-        - creates standardSetController allowing for pagination of records
-        - query is built dynamically based on the Process and Process State Filters
-    */
+     * meetingParticipants
+     * Creates standardSetController allowing for pagination of records.
+     * Query is built dynamically based on the filters.
+     */
     public ApexPages.StandardSetController meetingParticipants {
         get
         {
@@ -874,36 +987,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         private set;
     }
 
-    // the current field to sort by. defaults to last name
-    public String sortField {
-        // To set a Field for sorting.
-        get  {
-                if (sortField == null) {
-                    sortField = 'Account_MERC__r.LastName';
-                }
-                return sortField;
-            }
-        set {
-            if (sortField == value) {
-                if (sortDirection == 'ASC') {
-                    sortDirection = 'DESC';
-                } else {
-                    sortDirection = 'ASC';
-                }
-            }
-            sortField = value;
-        }
-    }
 
-    public String sortDirection {
-        get {
-            if (sortDirection == null) {
-                sortDirection = 'ASC';
-            }
-            return sortDirection;
-        }
-        set;
-    }
 
     // returns a list of wrapper objects for the sObjects in the current page set
     public List<SelectedWrapper> participants {
@@ -924,6 +1008,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         private set;
     }
 
+    /*
+     * resetFilters 
+     * Resets all the filter selections to -any-
+     */
     private void resetFilters() {
         communicationPreferenceSelected = '-Any-';
         countryOfResidenceSelected = '-Any-';
@@ -939,18 +1027,21 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     }
 
     /*
-        - null out meeting tasks so that the standard set controller can be requeried with new filters
-        - null out pageNumber so that the requeried meetingParticipants will start at page 1
-    */
+     * clearFilters
+     * Call resetFilters then call updateParticipants and return the result.
+     */
     public PageReference clearFilters() {
         resetFilters();
         return updateParticipants();
     }
 
     /*
-        - null out meeting tasks so that the standard set controller can be requeried with new filters
-        - null out pageNumber so that the requeried meetingParticipants will start at page 1
-    */
+     * updateParticipants
+     * Save the checked participants' Ids.
+     * Build the filter ID sets needed for queries.
+     * Null out meeting tasks so that the standard set controller can be requeried with new filters
+     * Null out pageNumber so that the requeried meetingParticipants will start at page 1
+     */
     public PageReference updateParticipants() {
         collectParticipantIds();
         filterParticipants();
@@ -960,7 +1051,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         return null;
     }
 
-
+    /* 
+     * collectParticipantIds
+     * Everytime you change page or filter records the selected records are lost.
+     * This will collect the selected records' IDs.
+     */
     public void collectParticipantIds() {
         for (SelectedWrapper wrapper : participants) {
             if(wrapper.IsSelected) {
@@ -1021,11 +1116,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         meetingParticipants.next();
      }
 
-     // returns the PageReference of the original page, if known, or the home page.
-     public void cancel() {
-        meetingParticipants.cancel();
-     }
-
     public void SelectAllClicked() {
         for (SelectedWrapper w : participants)
             w.IsSelected = IsAllChecked;
@@ -1050,6 +1140,27 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     public void ShowGrid() {
         ShowParticipantGrid = true;
+    }
+
+    public PageReference goToSelectParticipants() {
+        // ShowParticipantGrid = true;
+        // return Page.MeetingEmailSendSelectRecipients;
+        PageReference selectParticipantsPage = Page.MeetingEmailSendSelectRecipients;
+        selectParticipantsPage.getParameters().put('id', meeting.Id);
+        return selectParticipantsPage;
+    }
+
+    public PageReference selectParticipants() {
+        collectParticipantIds();
+        PageReference emailSendPage = Page.MeetingEmailSend;
+        emailSendPage.getParameters().put('id', meeting.Id);
+        return emailSendPage;
+    }
+
+    public PageReference backToSendPage() {
+        PageReference emailSendPage = Page.MeetingEmailSend;
+        emailSendPage.getParameters().put('id', meeting.Id);
+        return emailSendPage;
     }
 
     public void HideGrid() {
