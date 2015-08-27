@@ -303,8 +303,7 @@
         <editable>false</editable>
         <field>Alternate_Id_GLBL__c.Altrnt_Id_Typ_Desc_GLBL__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
+    </fieldPermissions>    
     <fieldPermissions>
         <editable>true</editable>
         <field>Answer_MERC__c.Answer_Text_MERC__c</field>

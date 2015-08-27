@@ -180,15 +180,15 @@
         <field>Preferences_and_Consent_GLBL__c.Communication_Channel_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Preference_Sub_Type_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Preference_Type_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>	
 	<fieldPermissions>
         <editable>false</editable>
