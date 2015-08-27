@@ -49,6 +49,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETSendEmailWrapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_HCPContractRollupManager</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -422,6 +426,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Start_Time_In_Meeting_Time_Zone__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Accountable_Business_Contact_Name_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -946,6 +955,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MeetingEmailSendSelectRecipients</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MeetingParticipantTracking</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>

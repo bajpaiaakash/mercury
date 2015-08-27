@@ -2,6 +2,18 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
 	<fields>
+        <fullName>Accountable_Business_Contact_Name_MERC__c</fullName>
+        <description>The name of the Accountable Business Contact for output into Templates for DrawLoop and Email : MERC : Created on 27/08/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Accountable_Business_Contact_MERC__r.FirstName &amp; &quot; &quot; &amp; Accountable_Business_Contact_MERC__r.LastName</formula>
+        <label>Accountable Business Contact Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+	<fields>
         <fullName>Active_on_Web_Service_MERC__c</fullName>
         <description>Indicates whether or not the Meeting Participant should be available on the Web Service.  Created 05/15/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
