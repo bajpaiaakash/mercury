@@ -29,7 +29,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     /*
      * The following getters and setters are used by the MeetingSendEmail page
-     * filters. The SelectOptions are the picklists and the Strings are the 
+     * filters. The SelectOptions are the picklists and the Strings are the
      * selections within the picklists.
      */
     public List<SelectOption> communicationPreference {
@@ -314,11 +314,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         private set;
     }
 
-    /* 
+    /*
      * sortField
      * The field the participants query is sorted by. This is type of
      * sorting functionality is not typical design, however
-     * it is necessitated by pagination requiring requering 
+     * it is necessitated by pagination requiring requering
      * for each sort.
      */
     public String sortField {
@@ -341,7 +341,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         }
     }
 
-    /* 
+    /*
      * sortDirection
      * The direction the participants query is sorted by.
      */
@@ -357,7 +357,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     /*
      * The following setters and getters create the ^ or v sorting
-     * suffix in the participant data on the page. 
+     * suffix in the participant data on the page.
      */
     public String headerTitleSuffix {
         get {
@@ -523,12 +523,12 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
      * the current set of participant IDs that each filter
      * is allowing for query. This is done for 2 significant
      * reasons:
-     * 1.) The inner select field in WHERE clauses cannot have 
-     *     more than one level of relationships. 
-     * 2.) Simplify the continuous rebuilding of the picklists. 
-     *     Perform the inner select query once then used ID sets 
+     * 1.) The inner select field in WHERE clauses cannot have
+     *     more than one level of relationships.
+     * 2.) Simplify the continuous rebuilding of the picklists.
+     *     Perform the inner select query once then used ID sets
      *     in the WHERE clauses rather than using inner selects.
-     */    
+     */
     public Set<Id> filteredParticipantIds { get; set; }
     public Set<Id> dueDateFilterIds { get; set; }
     public Set<Id> nextStepFilterIds { get; set; }
@@ -536,8 +536,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     public Set<Id> proposalStatusFilterIds { get; set; }
     public Set<Id> taskStatusFilterIds { get; set; }
 
-    /* 
-     * This opportunity is just to hold the future send date of the email send, so 
+    /*
+     * This opportunity is just to hold the future send date of the email send, so
      * that we can get the standard sfdc date time picker.
      */
     public Event sendDateEvent {
@@ -549,7 +549,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         }
         set;
     }
-    
+
     /*
      * filterFieldMap
      * map of the selectOption name to the field name
@@ -563,7 +563,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
      */
     public MERC_ETMeetingEmailSendExtension(ApexPages.StandardController stdController) {
         if (!Test.isRunningTest()) {
-            stdController.addFields(new List<String>{ 'Date_of_Event_MERC__c', 'Days_Until_Meeting_MERC__c', 'End_Date_of_Event_MERC__c', 'Name' });            
+            stdController.addFields(new List<String>{ 'Date_of_Event_MERC__c', 'Days_Until_Meeting_MERC__c', 'End_Date_of_Event_MERC__c', 'Name' });
         }
         this.meeting = (Meeting_MERC__c)stdController.getRecord();
         if (meeting == null || meeting.Id == null) {
@@ -610,9 +610,9 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     }
 
     /*
-     * queryBuilder 
+     * queryBuilder
      * This method takes the filter and path to the Meeting Participant object
-     * and builds the WHERE clause of the SOQL needed to dynamically build that 
+     * and builds the WHERE clause of the SOQL needed to dynamically build that
      * SelectOption list.
      */
     public String queryBuilder (String filter, String objectPath) {
@@ -691,17 +691,17 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         return generateDocs;
     }
 
-    /* 
+    /*
      * filterParticipants
-     * Fill the filter Id sets with participant IDs later used in 
+     * Fill the filter Id sets with participant IDs later used in
      * queries multiple allowing for query. This is done for 2
      * main reasons:
-     * 1.) The inner select field in WHERE clauses cannot have 
-     *     more than one level of relationships. 
-     * 2.) Simplify the continuous rebuilding of the picklists. 
-     *     Perform the inner select query once then used ID sets 
+     * 1.) The inner select field in WHERE clauses cannot have
+     *     more than one level of relationships.
+     * 2.) Simplify the continuous rebuilding of the picklists.
+     *     Perform the inner select query once then used ID sets
      *     in the WHERE clauses rather than using inner selects.
-     */ 
+     */
     public void filterParticipants () {
 
         Set<Id> filteredIds = new Set<Id>();
@@ -854,7 +854,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         filteredParticipantIds = filteredIds;
     }
 
-    /* 
+    /*
      * selectOptionListInitialize
      * Initializes SelectOption lists and makes -any- as the first SelectOption.
      */
@@ -864,9 +864,9 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         return result;
     }
 
-    /* 
+    /*
      * getSelectedParticpants
-     * Used by the MeetingEmailSend page to retrieve the selected 
+     * Used by the MeetingEmailSend page to retrieve the selected
      * participants whose IDs are in the selectedParticipants.
      */
     public List<Meeting_Participant_MERC__c> getSelectedParticipants() {
@@ -914,9 +914,9 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         }
 
         MERC_ETSendEmailWrapper wrapper = new MERC_ETSendEmailWrapper(
-                                                        Email, parts, Config.Default_From_Email__c, 
-                                                        DeDup, DisableIndividualTracking, SendTime, 
-                                                        sendDateEvent.ActivityDateTime, 
+                                                        Email, parts, Config.Default_From_Email__c,
+                                                        DeDup, DisableIndividualTracking, SendTime,
+                                                        sendDateEvent.ActivityDateTime,
                                                         additionalInformationHTML, additionalInformationText);
         MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
         try {
@@ -1009,7 +1009,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     }
 
     /*
-     * resetFilters 
+     * resetFilters
      * Resets all the filter selections to -any-
      */
     private void resetFilters() {
@@ -1051,7 +1051,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         return null;
     }
 
-    /* 
+    /*
      * collectParticipantIds
      * Everytime you change page or filter records the selected records are lost.
      * This will collect the selected records' IDs.
