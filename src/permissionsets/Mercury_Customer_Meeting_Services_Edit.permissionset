@@ -41,6 +41,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETFolderedEmail</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ETMeetingEmailSendExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -348,6 +352,16 @@
         <editable>true</editable>
         <field>Invoice_MERC__c.Invoice_Received_Date_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.Additional_Information_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.Additional_Information_Plain_Text_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -898,6 +912,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MeetingEmailSend</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MeetingEmailSendSelectRecipients</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
