@@ -11,6 +11,7 @@
         <members>MERC_DailyAttendanceController</members>
         <members>MERC_DailyAttendanceControllerStressTest</members>
         <members>MERC_DailyAttendanceControllerTest</members>
+        <members>MERC_ETDataExtensionProcessor</members>
         <members>MERC_ETFolderedEmail</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_ETSendEmailWrapper</members>
@@ -120,6 +121,7 @@
         <members>Meeting_MERC__c.Participants_Attended_MERC__c</members>
         <members>Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</members>
         <members>Meeting_MERC__c.Start_Time_In_Meeting_Time_Zone__c</members>
+        <members>Meeting_Participant_MERC__c.Accountable_Business_Contact_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Accountable_Business_Contact_Name_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Active_on_Web_Service_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Air_Travel_No_Longer_Required_MERC__c</members>

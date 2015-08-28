@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
-	<fields>
+    <fields>
+        <fullName>Accountable_Business_Contact_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The Lilly contact accountable to answer questions or own follow-ups related to this Meeting Participant : MERC : Created on 22/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Lilly contact accountable to answer questions or own follow-ups related to this Meeting Participant</inlineHelpText>
+        <label>Accountable Business Contact</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Employee_GLBL</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for. Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meeting Participants (Accountable Business Contact)</relationshipLabel>
+        <relationshipName>Accountable_Business_Contact</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Accountable_Business_Contact_Name_MERC__c</fullName>
         <description>The name of the Accountable Business Contact for output into Templates for DrawLoop and Email : MERC : Created on 27/08/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -13,7 +38,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Active_on_Web_Service_MERC__c</fullName>
         <description>Indicates whether or not the Meeting Participant should be available on the Web Service.  Created 05/15/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -47,7 +72,19 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields> 
+    </fields>
+    <fields>
+        <fullName>CFT_Logistics_Comments_MERC__c</fullName>
+        <description>Used to communicate Meeting Participant Logistics Comments with Customer Facing Users in Veeva/Mercury : MERC : Created on 18/08/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Logistics comments entered by Customer Facing User viewable and editable by Regional and Local teams. Country privacy and compliance requirements must apply</inlineHelpText>
+        <label>CFT Logistics Comments</label>
+        <length>256</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
     <fields>
         <fullName>Congress_Additional_Information_MERC__c</fullName>
         <description>Populated by the HCP if they need to provide additional information on the Web Service for Congress Registration : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
@@ -71,6 +108,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Contract_Already_Exists_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>A contract should already be in place and thus a new contract is not required.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that a valid contract is in place and a new contract is not required for this Meeting. The Service Provider has been added to the Meeting for logistics or ToV purposes.</inlineHelpText>
+        <label>Contract Already Exists</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Dietary_Preferences_Step_Complete_MERC__c</fullName>
         <description>If Dietary Preference Values exist, then this step is considered completed. Created 05/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -91,7 +139,20 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>    
+    </fields>
+    <fields>
+        <fullName>Existing_Contract_Info_MERC__c</fullName>
+        <description>This field must be mandatory if Contract Already Exists field has been checked.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide information and references of existing contract for audit purposes.</inlineHelpText>
+        <label>Existing Contract Info</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Hotel_No_Longer_Required_MERC__c</fullName>
         <defaultValue>false</defaultValue>
@@ -123,7 +184,18 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields> 
+    </fields>
+    <fields>
+        <fullName>Invoice_Received_Date_MERC__c</fullName>
+        <description>Date that CMS Regional has received the valid invoice (if required) - populated via process flow : MERC : Created on 13/08/2015 by Billy Ho, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date that CMS Regional has received the valid invoice (if required)</inlineHelpText>
+        <label>Invoice Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Payee_Info_Consent_MERC__c</fullName>
         <defaultValue>false</defaultValue>
@@ -312,7 +384,7 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Communication_Channel_MERC__c</fullName>
         <description>This field displays Communication Channel(originally coming from Preference &amp; Consent record).</description>
         <externalId>false</externalId>
@@ -324,54 +396,14 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>CFT_Logistics_Comments_MERC__c</fullName>
-        <description>Used to communicate Meeting Participant Logistics Comments with Customer Facing Users in Veeva/Mercury : MERC : Created on 18/08/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Logistics comments entered by Customer Facing User viewable and editable by Regional and Local teams. Country privacy and compliance requirements must apply</inlineHelpText>
-        <label>CFT Logistics Comments</label>
-        <length>256</length>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>5</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Contract_Already_Exists_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>A contract should already be in place and thus a new contract is not required.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Indicates that a valid contract is in place and a new contract is not required for this Meeting. The Service Provider has been added to the Meeting for logistics or ToV purposes.</inlineHelpText>
-        <label>Contract Already Exists</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Existing_Contract_Info_MERC__c</fullName>
-        <description>This field must be mandatory if Contract Already Exists field has been checked.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Provide information and references of existing contract for audit purposes.</inlineHelpText>
-        <label>Existing Contract Info</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Invoice_Received_Date_MERC__c</fullName>
-        <description>Date that CMS Regional has received the valid invoice (if required) - populated via process flow : MERC : Created on 13/08/2015 by Billy Ho, Mavens Consulting.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Date that CMS Regional has received the valid invoice (if required)</inlineHelpText>
-        <label>Invoice Received Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
+    </fields>   
+	<validationRules>
+        <fullName>MERC_Existing_Contract_Info_must_filled</fullName>
+        <active>true</active>
+        <description>If Contract Already Exists checkbox has been selected then Existing Contract Info must be filled.</description>
+        <errorConditionFormula>Contract_Already_Exists_MERC__c = true  &amp;&amp;  Existing_Contract_Info_MERC__c = &apos;&apos;</errorConditionFormula>
+        <errorMessage>Existing Contract Info: Information must be provided if Contract Already Exists has been marked.</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>Generate_Documents_MERC</fullName>
         <availability>online</availability>
@@ -394,11 +426,5 @@ else
     window.location.href = url;
 }</url>
     </webLinks>
-	<validationRules>
-        <fullName>MERC_Existing_Contract_Info_must_filled</fullName>
-        <active>true</active>
-        <description>If Contract Already Exists checkbox has been selected then Existing Contract Info must be filled.</description>
-        <errorConditionFormula>Contract_Already_Exists_MERC__c = true  &amp;&amp;  Existing_Contract_Info_MERC__c = &apos;&apos;</errorConditionFormula>
-        <errorMessage>Existing Contract Info: Information must be provided if Contract Already Exists has been marked.</errorMessage>
-    </validationRules>
+	
 </CustomObject>
