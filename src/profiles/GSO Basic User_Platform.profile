@@ -41,6 +41,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETDataExtensionProcessor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ETFolderedEmail</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -426,6 +430,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Start_Time_In_Meeting_Time_Zone__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Accountable_Business_Contact_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
