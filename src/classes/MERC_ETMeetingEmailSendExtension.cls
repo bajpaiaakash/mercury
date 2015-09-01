@@ -1403,7 +1403,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         req.setEndpoint(thumbnailURL);
         req.setHeader('Content-Type', 'application/json');
         req.setHeader('Accept', 'application/json');
-        req.setTimeout(5000);
+        req.setTimeout(30000);
 
         Http h = new Http();
         HttpResponse res = h.send(req);
