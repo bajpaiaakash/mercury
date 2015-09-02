@@ -1,0 +1,5 @@
+config/*
+*.sublime-workspace
+*.sublime*
+apex-scripts/log/*
+src/package.xml
