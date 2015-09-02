@@ -6,6 +6,7 @@
         <members>MERC_AccountPreferenceRollupManagerTest</members>
         <members>MERC_AccountRollups</members>
         <members>MERC_AccountToAccountRollups</members>
+        <members>MERC_AccountToAccountRollupsTest</members>
         <members>MERC_AnonymiseNonHCPDataHandlerTest</members>
         <members>MERC_ConsultingProjectCapCalculatorTest</members>
         <members>MERC_DailyAttendanceController</members>
@@ -14,7 +15,9 @@
         <members>MERC_ETDataExtensionProcessor</members>
         <members>MERC_ETFolderedEmail</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
+        <members>MERC_ETMeetingEmailSendExtension_Test</members>
         <members>MERC_ETSendEmailWrapper</members>
+        <members>MERC_ETTestUtils</members>
         <members>MERC_HCPContractRollupManager</members>
         <members>MERC_HcpCapActualsCalculator</members>
         <members>MERC_HcpCapActualsCalculatorTest</members>

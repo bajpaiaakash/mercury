@@ -166,10 +166,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         get {
             Set<String> participantStatusSet = new Set<String>();
             participantStatus = selectOptionListInitialize();
-            String soql  = 'SELECT Account_MERC__r.Communication_Preference_MERC__c, ';
-                   soql += '       Account_MERC__r.Country_of_Residence_GLBL__c, ';
-                   soql += '       Account_MERC__r.Prfrd_Lang_Cd_GLBL__c, ';
-                   soql += '       Status_MERC__c ';
+            String soql  = 'SELECT Status_MERC__c ';
                    soql += '  FROM Meeting_Participant_MERC__c  ';
                    soql += queryBuilder('participantStatus','');
             for (Meeting_Participant_MERC__c p :  (List<Meeting_Participant_MERC__c>) Database.query(soql)) {
@@ -336,6 +333,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 } else {
                     sortDirection = 'ASC';
                 }
+            } else {
+                sortDirection = 'ASC';
             }
             sortField = value;
         }
@@ -738,7 +737,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 proposalStatusSoql += '     FROM Travel_Itinerary_MERC__c ';
                 proposalStatusSoql += '    WHERE Travel_Proposal_MERC__c = null ';
                 proposalStatusSoql += '      AND Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + meeting.Id + '\' ';
-                proposalStatusSoql += '     AND Status_MERC__c  = \'' + String.escapeSingleQuotes(proposalStatusSelected) + '\'';
+                proposalStatusSoql += '      AND Status_MERC__c  = \'' + String.escapeSingleQuotes(proposalStatusSelected) + '\'';
         }
         if (proposalStatusSoql != '') {
             List<Travel_Itinerary_MERC__c> proposals = Database.query(proposalStatusSoql);
