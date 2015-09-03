@@ -6,6 +6,7 @@
         <members>MERC_AccountPreferenceRollupManagerTest</members>
         <members>MERC_AccountRollups</members>
         <members>MERC_AccountToAccountRollups</members>
+        <members>MERC_AccountToAccountRollupsTest</members>
         <members>MERC_AnonymiseNonHCPDataHandlerTest</members>
         <members>MERC_ConsultingProjectCapCalculatorTest</members>
         <members>MERC_DailyAttendanceController</members>
@@ -14,7 +15,9 @@
         <members>MERC_ETDataExtensionProcessor</members>
         <members>MERC_ETFolderedEmail</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
+        <members>MERC_ETMeetingEmailSendExtension_Test</members>
         <members>MERC_ETSendEmailWrapper</members>
+        <members>MERC_ETTestUtils</members>
         <members>MERC_HCPContractRollupManager</members>
         <members>MERC_HcpCapActualsCalculator</members>
         <members>MERC_HcpCapActualsCalculatorTest</members>
@@ -229,6 +232,7 @@
         <name>CustomObject</name>
     </types>
 	<types>
+		<members>Invoice_MERC__c.MERC_Invoice_Tov_Auditor_Sharing_Rule</members>
         <members>Meeting_MERC__c.MERC_Meetings_South_Africa</members>
         <members>Meeting_MERC__c.MERC_Meetings_Viet_Nam</members>
         <members>Meeting_MERC__c.MERC_Meetings_Algeria</members>
@@ -323,7 +327,7 @@
         <members>Mercury_Case_Management_Access</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
         <members>Mercury_Legal_Edit</members>
-        <members>Mercury_Med_Director_Edit</members>
+		<members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
         <members>Mercury_Reporting_and_Dashboards</members>

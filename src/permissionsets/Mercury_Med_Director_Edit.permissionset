@@ -21,6 +21,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_AccountToAccountRollupsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_AnonymiseNonHCPDataHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -53,7 +57,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETMeetingEmailSendExtension_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ETSendEmailWrapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ETTestUtils</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -122,6 +134,11 @@
         <field>Account.Account_Auto_Number_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Communication_Channel_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>    
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.CV_Upload_File_Name_MERC__c</field>
@@ -471,6 +488,11 @@
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Contract_Already_Exists_MERC__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Communication_Channel_MERC__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

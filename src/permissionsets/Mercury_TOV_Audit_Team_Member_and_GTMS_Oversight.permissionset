@@ -21,6 +21,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_AccountToAccountRollupsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_AnonymiseNonHCPDataHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -53,7 +57,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETMeetingEmailSendExtension_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ETSendEmailWrapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ETTestUtils</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -938,6 +950,33 @@
         <readable>false</readable>
     </fieldPermissions>
     <label>Mercury TOV Audit Team Member and GTMS Oversight</label>
+	<objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>HCP_Contract_MERC__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Invoice_MERC__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Payee_MERC__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <pageAccesses>
         <apexPage>MERC_DailyAttendance</apexPage>
         <enabled>false</enabled>

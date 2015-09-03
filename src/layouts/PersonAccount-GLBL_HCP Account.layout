@@ -2,7 +2,6 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Generate_Content_MERC</customButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>EnableSelfService</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
@@ -640,8 +639,8 @@
         <fields>Preference_Type_MERC__c</fields>
         <fields>Preference_Sub_Type_MERC__c</fields>
         <fields>Preference_Value_MERC__c</fields>
-        <fields>Cnsnt_Sts_Desc_GLBL__c</fields>
-        <fields>Efctv_End_Dt_GLBL__c</fields>
+        <fields>Efctv_End_Dt_CMS_MERC__c</fields>
+        <fields>Cnsnt_Sts_Desc_CMS_MERC__c</fields>
         <relatedList>Preferences_and_Consent_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
