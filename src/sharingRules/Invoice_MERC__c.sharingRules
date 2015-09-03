@@ -12,6 +12,5 @@
         </criteriaItems>
         <accessLevel>Read</accessLevel>
         <description>All invoices to be shared with TOV and GTMS oversight users.</description>
-        <name>MERC_Invoice Tov Auditor Sharing Rule</name>
     </sharingCriteriaRules>
 </SharingRules>
