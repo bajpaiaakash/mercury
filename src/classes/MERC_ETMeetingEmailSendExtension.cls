@@ -726,6 +726,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 for (Meeting_Process_MERC__c process : processes) {
                     processTypeIds.add(process.Meeting_Participant_MERC__c);
                     filteredIds.add(process.Meeting_Participant_MERC__c);
+                    filterIdTouched = true;
                 }
                 processTypeFilterIds = processTypeIds;
             }
@@ -733,11 +734,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         String proposalStatusSoql = '';
         if (proposalStatusSelected != '-Any-') {
-                proposalStatusSoql += '   SELECT Meeting_Participant_MERC__c ';
-                proposalStatusSoql += '     FROM Travel_Itinerary_MERC__c ';
-                proposalStatusSoql += '    WHERE Travel_Proposal_MERC__c = null ';
-                proposalStatusSoql += '      AND Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + meeting.Id + '\' ';
-                proposalStatusSoql += '      AND Status_MERC__c  = \'' + String.escapeSingleQuotes(proposalStatusSelected) + '\'';
+            proposalStatusSoql += '   SELECT Meeting_Participant_MERC__c ';
+            proposalStatusSoql += '     FROM Travel_Itinerary_MERC__c ';
+            proposalStatusSoql += '    WHERE Travel_Proposal_MERC__c = null ';
+            proposalStatusSoql += '      AND Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + meeting.Id + '\' ';
+            proposalStatusSoql += '      AND Status_MERC__c  = \'' + String.escapeSingleQuotes(proposalStatusSelected) + '\'';
         }
         if (proposalStatusSoql != '') {
             List<Travel_Itinerary_MERC__c> proposals = Database.query(proposalStatusSoql);
@@ -756,18 +757,17 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 }
                 filteredIds = new Set<Id>();
                 filteredIds = newFilteredIds;
+                filterIdTouched = true;
                 proposalStatusFilterIds = proposalStatusIds;
             }
         }
 
         String dueDateSoql = '';
         if (dueDateSelected != '-Any-') {
-                dueDateSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
-                dueDateSoql += '  FROM Meeting_Tasks_MERC__c ';
-                dueDateSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
-            if (dueDateSelected != '-Any-') {
-                dueDateSoql += '   AND Due_Date_Status_MERC__c = \'' + String.escapeSingleQuotes(dueDateSelected) + '\'';
-            }
+            dueDateSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
+            dueDateSoql += '  FROM Meeting_Tasks_MERC__c ';
+            dueDateSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
+            dueDateSoql += '   AND Due_Date_Status_MERC__c = \'' + String.escapeSingleQuotes(dueDateSelected) + '\'';
         }
         if (dueDateSoql != '') {
             List<Meeting_Tasks_MERC__c> tasks = Database.query(dueDateSoql);
@@ -786,18 +786,17 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 }
                 filteredIds = new Set<Id>();
                 filteredIds = newFilteredIds;
+                filterIdTouched = true;
                 dueDateFilterIds = taskIds;
             }
         }
 
         String nextStepSoql = '';
         if (nextStepSelected != '-Any-') {
-                nextStepSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
-                nextStepSoql += '  FROM Meeting_Tasks_MERC__c ';
-                nextStepSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
-            if (nextStepSelected != '-Any-') {
-                nextStepSoql += '   AND Next_Step_MERC__c = \'' + String.escapeSingleQuotes(nextStepSelected) + '\'';
-            }
+            nextStepSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
+            nextStepSoql += '  FROM Meeting_Tasks_MERC__c ';
+            nextStepSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
+            nextStepSoql += '   AND Next_Step_MERC__c = \'' + String.escapeSingleQuotes(nextStepSelected) + '\'';
         }
         if (nextStepSoql != '') {
             List<Meeting_Tasks_MERC__c> tasks = Database.query(nextStepSoql);
@@ -816,18 +815,17 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 }
                 filteredIds = new Set<Id>();
                 filteredIds = newFilteredIds;
+                filterIdTouched = true;
                 nextStepFilterIds = taskIds;
             }
         }
 
         String taskStatusSoql = '';
         if (taskStatusSelected != '-Any-') {
-                taskStatusSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
-                taskStatusSoql += '  FROM Meeting_Tasks_MERC__c ';
-                taskStatusSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
-            if (taskStatusSelected != '-Any-') {
-                taskStatusSoql += '   AND Task_Status_MERC__c = \'' + String.escapeSingleQuotes(taskStatusSelected) + '\'';
-            }
+            taskStatusSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
+            taskStatusSoql += '  FROM Meeting_Tasks_MERC__c ';
+            taskStatusSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
+            taskStatusSoql += '   AND Task_Status_MERC__c = \'' + String.escapeSingleQuotes(taskStatusSelected) + '\'';
         }
         if (taskStatusSoql != '') {
             List<Meeting_Tasks_MERC__c> tasks = Database.query(taskStatusSoql);

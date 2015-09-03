@@ -13,6 +13,7 @@
         <members>MERC_DailyAttendanceControllerStressTest</members>
         <members>MERC_DailyAttendanceControllerTest</members>
         <members>MERC_ETDataExtensionProcessor</members>
+        <members>MERC_ETDataExtensionProcessor_Test</members>
         <members>MERC_ETFolderedEmail</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_ETMeetingEmailSendExtension_Test</members>
@@ -24,6 +25,7 @@
         <members>MERC_HcpCapYearlyCalculationJob</members>
         <members>MERC_HcpCapYearlyCalculationJobTest</members>
         <members>MERC_MeetingParticipantRollups</members>
+        <members>MERC_MeetingParticipantRollupsTest</members>
         <members>MERC_MeetingParticipantStressTest</members>
         <members>MERC_MeetingProcessLogicHandler</members>
         <members>MERC_RegistrationResponsesController</members>

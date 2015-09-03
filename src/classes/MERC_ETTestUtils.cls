@@ -84,8 +84,13 @@ public class MERC_ETTestUtils {
     }
 
     public static List<Account> CreatePersonAccountsWithRecordType(String recordTypeName, Integer numAccounts) {
+        return createPersonAccountsWithRecordType(recordTypeName, numAccounts, true);
+    }    
+
+    public static List<Account> CreatePersonAccountsWithRecordType(String recordTypeName, Integer numAccounts, Boolean noEmailNull) {
         List<Account> accounts = new List<Account>();
         RecordType rt = MERC_ETTestUtils.GetRecordType(recordTypeName, 'Account');
+        Boolean addEmail = noEmailNull;
 
         for (Integer i = 0; i < numAccounts; i++) {
             Integer localCounter = accountCounter++;
@@ -96,13 +101,16 @@ public class MERC_ETTestUtils {
                 PersonMailingStreet = 'Test street',
                 PersonMailingPostalCode = '12345',
                 PersonMailingCity = 'SFO',
-                PersonEmail = 'test@testy.com',
                 PersonHomePhone = '1234567',
                 PersonMobilePhone = '2345678',
                 Communication_Preference_MERC__c = 'E-mail',
                 Country_of_Residence_GLBL__c = 'GB',
-                Prfrd_Lang_Cd_GLBL__c = 'English'
-            );
+                Prfrd_Lang_Cd_GLBL__c = 'English');
+            if (addEmail) {
+                a.PersonEmail = 'test@testy.com';
+            } else {
+                addEmail = true;
+            }
             accounts.add(a);
         }
         

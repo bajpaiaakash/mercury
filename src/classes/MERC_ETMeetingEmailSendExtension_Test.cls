@@ -44,7 +44,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         insert config;
 
 
-        List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 49); //can't do 50+ because of pagination
+        List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 49); //can't test 50+ because of pagination
         insert accts;
 
         List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, accts);
@@ -72,7 +72,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
         insert config;
 
-        List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 49); //can't do 50+ because of pagination
+        List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 49); //can't test 50+ because of pagination
         insert accts;
 
         List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, accts);
@@ -112,43 +112,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Test.stopTest();
     }
 
-    @isTest
-    public static void Test_Send_NoRecipients() {
-        Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
-        insert meeting;
-
-        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
-        MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
-        simulateFilteringAndSorting(ext);
-        ext.SendTime = 'none';
-
-        Test.startTest();
-        PageReference ref = ext.Send();
-        Test.stopTest();
-
-        System.assertEquals(null, ref);
-        System.assert(ApexPages.hasMessages(ApexPages.Severity.ERROR));
-    }
-
-    @isTest
-    public static void Test_Send_NoSubject() {
-        Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
-        insert meeting;
-
-        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
-        MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
-        simulateFilteringAndSorting(ext);
-        MERC_ETFolderedEmail email = new MERC_ETFolderedEmail();
-        email.Id = 'test';
-        ext.email = email;
-
-        Test.startTest();
-        PageReference ref = ext.Send();
-        Test.stopTest();
-
-        System.assertEquals(null, ref);
-        System.assert(ApexPages.hasMessages(ApexPages.Severity.ERROR));
-    }
+    /*
 
     @isTest
     public static void Test_Send() {
@@ -212,6 +176,44 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             System.debug('exception : ' + e);
         }
 
+    } */
+
+    @isTest
+    public static void Test_Send_NoRecipients() {
+        Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
+        insert meeting;
+
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
+        simulateFilteringAndSorting(ext);
+        ext.SendTime = 'none';
+
+        Test.startTest();
+        PageReference ref = ext.Send();
+        Test.stopTest();
+
+        System.assertEquals(null, ref);
+        System.assert(ApexPages.hasMessages(ApexPages.Severity.ERROR));
+    }
+
+    @isTest
+    public static void Test_Send_NoSubject() {
+        Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
+        insert meeting;
+
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
+        simulateFilteringAndSorting(ext);
+        MERC_ETFolderedEmail email = new MERC_ETFolderedEmail();
+        email.Id = 'test';
+        ext.email = email;
+
+        Test.startTest();
+        PageReference ref = ext.Send();
+        Test.stopTest();
+
+        System.assertEquals(null, ref);
+        System.assert(ApexPages.hasMessages(ApexPages.Severity.ERROR));
     }
 
     @isTest
@@ -506,6 +508,44 @@ private class MERC_ETMeetingEmailSendExtension_Test {
     }
 
     @isTest
+    private static void testPagination () {
+
+        Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
+        insert meeting;
+
+        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
+        insert config;
+
+
+        List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 150, false);
+        insert accts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, accts);
+        insert participants;
+        createChildren(participants);
+
+        Test.startTest();
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
+        simulateFilteringAndSorting(ext);
+        System.assert(!ext.hasPrevious);
+        System.assert(ext.hasNext);
+        ext.next();
+        System.assert(ext.hasPrevious);
+        System.assert(ext.hasNext);
+        ext.previous();
+        System.assert(!ext.hasPrevious);
+        System.assert(ext.hasNext);
+        ext.last();
+        System.assert(ext.hasPrevious);
+        System.assert(!ext.hasNext);
+        ext.first();
+        System.assert(!ext.hasPrevious);
+        System.assert(ext.hasNext);
+        Test.stopTest();
+    }
+
+    @isTest
     private static void testGenerateDocuments() {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
@@ -550,7 +590,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             System.assert(returnedRef.getParameters().containsKey('sessionId'));
         Test.stopTest();
 
-
     } 
 
     public static void simulateFilteringAndSorting(MERC_ETMeetingEmailSendExtension ext) {
@@ -572,11 +611,43 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         System.assert(!ext.proposalStatusRender);
         System.assert(!ext.taskStatusRender);
 
+        ext.processTypeSelected = 'Registration';
+        ext.updateParticipants();
+        PageReference ref = ext.clearFilters();
+
+        System.assert(!ext.proposalStatusRender);
+        System.assert(!ext.taskStatusRender);
+
+        ext.communicationPreferenceSelected = 'E-mail';
+        ext.countryOfResidenceSelected = 'GB';
+        ext.hasEmailSelected = 'Yes';
+        ext.participantStatusSelected = 'Accepted';
+        ext.preferredLanguageSelected = 'English';
+        ext.processTypeSelected = 'Travel Proposal';
+        ext.proposalStatusSelected = 'Accepted';
+        ext.taskStatusSelected = 'Completed - Process Complete';
+        ext.updateParticipants();
+
+        System.assert(ext.proposalStatusRender);
+        System.assert(ext.taskStatusRender);
+
+        ext.dueDateSelected = 'Overdue/Due Today';
+        ext.nextStepSelected = 'Follow Up Queue';
+        ext.hasEmailSelected = 'No';
+        ext.updateParticipants();
+
+        ref = ext.clearFilters();
+
+        System.assert(!ext.proposalStatusRender);
+        System.assert(!ext.taskStatusRender);
+
         System.assertEquals(' ',ext.headerTitleSuffix);
         ext.sortField = 'Account_MERC__r.Title_Desc_GLBL__c';
         System.assertEquals('^',ext.headerTitleSuffix);
         ext.sortField = 'Account_MERC__r.Title_Desc_GLBL__c';
         System.assertEquals('v',ext.headerTitleSuffix);
+        ext.sortField = 'Account_MERC__r.Title_Desc_GLBL__c';
+        System.assertEquals('^',ext.headerTitleSuffix);
 
         System.assertEquals(' ',ext.headerFirstNameSuffix);
         ext.sortField = 'Account_MERC__r.FirstName';
@@ -656,6 +727,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         for(Meeting_Process_MERC__c p : processes) {
             Meeting_Tasks_MERC__c task = new Meeting_Tasks_MERC__c();
             task.Meeting_Process_MERC__c = p.Id;
+            task.Task_Status_MERC__c = 'Completed - Process Complete';
             task.Due_Date_MERC__c = Date.today();
             tasks.add(task);
         }

@@ -47,11 +47,23 @@ public with sharing class MERC_DailyAttendanceController {
                 }
             }
             if (tovsToUpsert.size() > 0) {
-                upsert tovsToUpsert External_ID_MERC__c;
-                PageReference p = Page.MERC_DailyAttendance;
-                p.getParameters().put('id', meeting.Id);
-                p.setRedirect(true);
-                return p;
+                Integer attempts = 3;
+                while (attempts > 0) {
+                    try {
+                        attempts--;
+                        upsert tovsToUpsert External_ID_MERC__c;
+                        attempts = 0;
+                        PageReference p = Page.MERC_DailyAttendance;
+                        p.getParameters().put('id', meeting.Id);
+                        p.setRedirect(true);
+                        return p;
+                    } catch (Exception dmlEx) {
+                        if (!dmlEx.getMessage().contains('UNABLE_TO_LOCK_ROW') || attempts == 0) {
+                            attempts = 0;  // exit on any other exception
+                            throw dmlEx;  // throw exception after MAX_ATTEMPTS
+                        }
+                    }
+                }
             }
             return null;
         } catch (Exception e) {
