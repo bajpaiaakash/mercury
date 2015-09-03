@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission set to give the Medical Director access to read and edit fields</description>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Communication_Channel_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Communication_Channel_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <label>Mercury Medical Director - Edit</label>
+</PermissionSet>
