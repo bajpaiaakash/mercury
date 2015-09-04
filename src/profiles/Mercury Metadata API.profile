@@ -770,6 +770,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Record_Type_Name_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Travel_Itinerary_MERC__c.Status_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -777,6 +782,11 @@
         <editable>true</editable>
         <field>Travel_Itinerary_MERC__c.Travel_Proposal_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Travel_Proposal_Status_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

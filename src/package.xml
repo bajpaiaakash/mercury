@@ -170,8 +170,10 @@
         <members>Travel_Itinerary_MERC__c.Bus_Nmbr_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Hotel_Check_in_Time_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Hotel_Check_out_Time_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Record_Type_Name_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Status_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Travel_Proposal_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Travel_Proposal_Status_MERC__c</members>
         <members>Web_Service_Error_GLBL__c.Account_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Action_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Country_GLBL__c</members>
@@ -254,6 +256,7 @@
         <members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_Portal_API_Edit</members>
         <members>Mercury_Reporting_and_Dashboards</members>
         <members>Mercury_System_Administrator_Lite</members>
         <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>

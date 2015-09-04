@@ -63,6 +63,17 @@ Must be in the format &quot;00:00&quot; for example &quot;08:00&quot;.</inlineHe
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Record_Type_Name_MERC__c</fullName>
+        <description>The Record Type label to drive Email Template logic : MERC : Created on 04/09/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>RecordType.Name</formula>
+        <label>Record Type Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Status_MERC__c</fullName>
         <description>If the HCP cancels travel or does not use it, the record can be Cancelled.  This then removes any ToV from the associated meeting for that HCP.  Oliver Dunford 11th June 2014.</description>
         <externalId>false</externalId>
@@ -131,5 +142,16 @@ Must be in the format &quot;00:00&quot; for example &quot;08:00&quot;.</inlineHe
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Proposal_Status_MERC__c</fullName>
+        <description>The Status of the associated Travel Proposal, used by the Marketing Cloud to return the correct records : MERC : Created on 04/09/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>TEXT(  Travel_Proposal_MERC__r.Status_MERC__c )</formula>
+        <label>Travel Proposal Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
 </CustomObject>
