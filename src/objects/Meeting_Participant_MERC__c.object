@@ -305,6 +305,30 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Submitted_for_Payment_Date_MERC__c</fullName>
+        <description>Stores the Invoice Information populated via Process Builder for parties without Invoice access : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Includes Fees and/or Expenses</inlineHelpText>
+        <label>Submitted for Payment Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Submitted_for_Payment_MERC__c</fullName>
+        <description>Stores the Invoice Information populated via Process Builder for parties without Invoice access : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Includes Fees and/or Expenses</inlineHelpText>
+        <label>Submitted for Payment</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Transparency_Step_Complete_MERC__c</fullName>
         <description>Used by portal. Indicates when Meeting Participant has completed the step of Transparency Reporting Consent during meeting registration. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>

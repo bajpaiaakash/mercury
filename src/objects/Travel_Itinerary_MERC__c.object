@@ -154,4 +154,59 @@ Must be in the format &quot;00:00&quot; for example &quot;08:00&quot;.</inlineHe
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Vendor_Address_City_MERC__c</fullName>
+        <description>Hotel Vendor address for the Marketing Cloud : MERC : Created on 04/09/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Account_MERC__r.Primary_Addr_City_GLBL__c</formula>
+        <label>Vendor Address City</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vendor_Address_Country_MERC__c</fullName>
+        <description>Hotel Vendor address for the Marketing Cloud : MERC : Created on 04/09/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Account_MERC__r.Primary_Address_Country_GLBL__c</formula>
+        <label>Vendor Address Country</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vendor_Address_Line_1_MERC__c</fullName>
+        <description>Hotel Vendor address for the Marketing Cloud : MERC : Created on 04/09/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Account_MERC__r.Primary_Addr_Line1_GLBL__c</formula>
+        <label>Vendor Address Line 1</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vendor_Address_Line_2_MERC__c</fullName>
+        <description>Hotel Vendor address for the Marketing Cloud : MERC : Created on 04/09/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Account_MERC__r.Primary_Addr_Line2_GLBL__c</formula>
+        <label>Vendor Address Line 2</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vendor_Address_Postal_Code_MERC__c</fullName>
+        <description>Hotel Vendor address for the Marketing Cloud : MERC : Created on 04/09/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Account_MERC__r.Primary_Pstl_Cd_Extnsn_GLBL__c</formula>
+        <label>Vendor Address Postal Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
 </CustomObject>
