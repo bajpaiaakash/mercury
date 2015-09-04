@@ -135,7 +135,7 @@ public class MERC_MeetingParticipantRollups implements Queueable {
 				attempts--;
 				update participants;
 				attempts = 0;
-			} catch (System.DmlException dmlEx) {
+			} catch (System.Exception dmlEx) {
 	       	    if (!dmlEx.getMessage().contains('UNABLE_TO_LOCK_ROW') || attempts == 0) {
 	               	attempts = 0;  // exit on any other exception
 					throw dmlEx;  // throw exception after MAX_ATTEMPTS

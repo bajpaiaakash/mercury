@@ -13,6 +13,7 @@
         <members>MERC_DailyAttendanceControllerStressTest</members>
         <members>MERC_DailyAttendanceControllerTest</members>
         <members>MERC_ETDataExtensionProcessor</members>
+        <members>MERC_ETDataExtensionProcessor_Test</members>
         <members>MERC_ETFolderedEmail</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_ETMeetingEmailSendExtension_Test</members>
@@ -24,6 +25,7 @@
         <members>MERC_HcpCapYearlyCalculationJob</members>
         <members>MERC_HcpCapYearlyCalculationJobTest</members>
         <members>MERC_MeetingParticipantRollups</members>
+        <members>MERC_MeetingParticipantRollupsTest</members>
         <members>MERC_MeetingParticipantStressTest</members>
         <members>MERC_MeetingProcessLogicHandler</members>
         <members>MERC_RegistrationResponsesController</members>
@@ -327,7 +329,7 @@
         <members>Mercury_Case_Management_Access</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
         <members>Mercury_Legal_Edit</members>
-		<members>Mercury_Med_Director_Edit</members>
+        <members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
         <members>Mercury_Reporting_and_Dashboards</members>

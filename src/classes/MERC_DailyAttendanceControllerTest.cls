@@ -152,7 +152,8 @@ private class MERC_DailyAttendanceControllerTest {
 		}
 	}
 
-	@isTest static void some_attended_test() {
+	@isTest
+	static void some_attended_test() {
 		System.runAs(testUser) {
 			Meeting_MERC__c mtg = meetings.get(0);
 
@@ -245,10 +246,13 @@ private class MERC_DailyAttendanceControllerTest {
 
 	@isTest
 	static void acceptedMeetingParticpantsShouldNotShow() {
-		participants.get(0).Status_MERC__c = 'Approved';
-		participants.get(1).Status_MERC__c = 'Approved';
-		update participants;
 		System.runAs(testUser) {
+			participants.get(0).Status_MERC__c = 'Approved';
+			participants.get(1).Status_MERC__c = 'Approved';
+			MERC_TriggerHandlerStateManager.deactivateAll();
+			update participants;
+			MERC_TriggerHandlerStateManager.activateAll();
+
 			Meeting_MERC__c mtg = meetings.get(0);
 
 			PageReference p = Page.MERC_DailyAttendance;

@@ -49,6 +49,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETDataExtensionProcessor_Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ETFolderedEmail</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -90,6 +94,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingParticipantRollups</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingParticipantRollupsTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

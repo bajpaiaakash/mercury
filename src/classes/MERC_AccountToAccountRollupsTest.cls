@@ -1,3 +1,12 @@
+/*
+    MERC_AccountToAccountRollupsTest
+    @author : Kyle Thornton, Mavens Consulting
+    @created : 13 Jul 2015
+    @description : Unit tests for MERC_AccountToAccountRollups
+    @modified by :
+    @modified date :
+
+*/
 @isTest
 private class MERC_AccountToAccountRollupsTest
 {
