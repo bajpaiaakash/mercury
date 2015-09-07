@@ -150,6 +150,8 @@
         <members>Meeting_Participant_MERC__c.Sponsorship_Agreement_Consent_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Sponsorship_Wet_Signature_Acknowled_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Sponsorship_Wet_Signature_Received_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Submitted_for_Payment_Date_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Transparency_Step_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Travel_No_Longer_Required_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Travel_Step_Complete_MERC__c</members>
@@ -177,8 +179,15 @@
         <members>Travel_Itinerary_MERC__c.Bus_Nmbr_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Hotel_Check_in_Time_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Hotel_Check_out_Time_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Record_Type_Name_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Status_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Travel_Proposal_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Travel_Proposal_Status_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Vendor_Address_City_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Vendor_Address_Country_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Vendor_Address_Line_1_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Vendor_Address_Line_2_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Vendor_Address_Postal_Code_MERC__c</members>
         <members>Web_Service_Error_GLBL__c.Account_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Action_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Country_GLBL__c</members>
@@ -332,6 +341,7 @@
         <members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_Portal_API_Edit</members>
         <members>Mercury_Reporting_and_Dashboards</members>
         <members>Mercury_System_Administrator_Lite</members>
         <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
