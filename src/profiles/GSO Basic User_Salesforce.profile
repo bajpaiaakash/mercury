@@ -454,6 +454,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_Email_Send_MERC__c.ET_Email_Name_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Accountable_Business_Contact_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -993,6 +998,9 @@
     <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Registered_Meeting</layout>
         <recordType>Meeting_MERC__c.Registered</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Participant_Email_Send_MERC__c-Meeting Participant Email Send Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Meeting_Participant_MERC__c-MERC_Service Provider</layout>

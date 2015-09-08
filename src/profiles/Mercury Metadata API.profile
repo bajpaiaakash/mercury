@@ -455,6 +455,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_Email_Send_MERC__c.ET_Email_Name_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Accountable_Business_Contact_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -996,6 +1001,9 @@
         <recordType>Meeting_MERC__c.Registered</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Meeting_Participant_Email_Send_MERC__c-Meeting Participant Email Send Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Meeting_Participant_MERC__c-MERC_Service Provider</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -1180,6 +1188,24 @@
         <endAddress>204.236.255.255</endAddress>
         <startAddress>204.236.192.0</startAddress>
     </loginIpRanges>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Meeting_Email_Send_MERC__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Meeting_Participant_Email_Send_MERC__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>

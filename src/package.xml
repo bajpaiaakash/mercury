@@ -231,6 +231,7 @@
         <name>CustomLabel</name>
     </types>
     <types>
+        <members>Meeting_Participant_Email_Send_MERC__c</members>
         <members>Registration_Question_MERC__c</members>
         <members>Response_MERC__c</members>
         <name>CustomObject</name>
@@ -242,6 +243,7 @@
         <members>Meeting_MERC__c-MERC_Forecasted_Meeting</members>
         <members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>
         <members>Meeting_MERC__c-MERC_Registered_Meeting</members>
+        <members>Meeting_Participant_Email_Send_MERC__c-Meeting Participant Email Send Layout</members>
         <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
         <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>

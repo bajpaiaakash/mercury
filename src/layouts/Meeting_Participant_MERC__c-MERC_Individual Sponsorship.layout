@@ -568,6 +568,14 @@
         <relatedList>ContentVersion.Meeting_Participant_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Meeting_Email_Send__c</fields>
+        <fields>ET_Email_Name_MERC__c</fields>
+        <relatedList>Meeting_Participant_Email_Send_MERC__c.Meeting_Participant__c</relatedList>
+        <sortField>NAME</sortField>
+        <sortOrder>Desc</sortOrder>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

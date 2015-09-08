@@ -207,7 +207,7 @@
             <apex:selectOptions value="{!taskStatus}" />
           </apex:selectList>
           <apex:selectList label="Proposal Status" value="{!proposalStatusSelected}" multiselect="false" size="1" rendered="{!proposalStatusRender}" onchange="updateList();">
-            <apex:selectOptions value="{!taskStatus}" />
+            <apex:selectOptions value="{!proposalStatus}" />
           </apex:selectList>
         </apex:pageBlockSection>
         <!-- END PARTICIPANT -->
