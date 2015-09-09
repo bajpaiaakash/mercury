@@ -245,6 +245,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             String soql  = ' SELECT Status_MERC__c ';
                    soql += '   FROM Travel_Itinerary_MERC__c ';
                    soql += queryBuilder('proposalStatus', 'Meeting_Participant_MERC__r.');
+                   soql += '    AND Travel_Proposal_MERC__c = null ';
             for (Travel_Itinerary_MERC__c t : (List<Travel_Itinerary_MERC__c>) Database.query(soql)) {
                 if (t.Status_MERC__c != null && !proposalStatusSet.contains(t.Status_MERC__c)) {
                     proposalStatusSet.add(t.Status_MERC__c);
@@ -360,160 +361,70 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
      */
     public String headerTitleSuffix {
         get {
-            if (sortField == 'Account_MERC__r.Title_Desc_GLBL__c') {
-                if (sortDirection == 'ASC') {
-                    return '^';
-                } else {
-                    return 'v';
-                }
-            }
-            else {
-                return ' ';
-            }
+            return suffixBuilder('Account_MERC__r.Title_Desc_GLBL__c');
         }
         set;
     }
 
     public String headerFirstNameSuffix {
         get {
-            if (sortField == 'Account_MERC__r.FirstName') {
-                if (sortDirection == 'ASC') {
-                    return '^';
-                } else {
-                    return 'v';
-                }
-            }
-            else {
-                return ' ';
-            }
+            return suffixBuilder('Account_MERC__r.FirstName');
         }
         set;
     }
 
     public String headerLastNameSuffix {
         get {
-            if (sortField == 'Account_MERC__r.LastName') {
-                if (sortDirection == 'ASC') {
-                    return '^';
-                } else {
-                    return 'v';
-                }
-            }
-            else {
-                return ' ';
-            }
+            return suffixBuilder('Account_MERC__r.LastName');
         }
         set;
     }
 
     public String headerSuffixSuffix {
         get {
-            if (sortField == 'Account_MERC__r.Sfx_Nm_GLBL__c') {
-                if (sortDirection == 'ASC') {
-                    return '^';
-                } else {
-                    return 'v';
-                }
-            }
-            else {
-                return ' ';
-            }
+            return suffixBuilder('Account_MERC__r.Sfx_Nm_GLBL__c');
         }
         set;
     }
 
     public String headerEmailSuffix {
         get {
-            if (sortField == 'Account_MERC__r.PersonEmail') {
-                if (sortDirection == 'ASC') {
-                    return '^';
-                } else {
-                    return 'v';
-                }
-            }
-            else {
-                return ' ';
-            }
+            return suffixBuilder('Account_MERC__r.PersonEmail');
         }
         set;
     }
 
     public String headerStatusSuffix {
         get {
-            if (sortField == 'Status_MERC__c') {
-                if (sortDirection == 'ASC') {
-                    return '^';
-                } else {
-                    return 'v';
-                }
-            }
-            else {
-                return ' ';
-            }
+            return suffixBuilder('Status_MERC__c');
         }
         set;
     }
 
     public String headerRecordTypeSuffix {
         get {
-            if (sortField == 'Record_Type_MERC__c') {
-                if (sortDirection == 'ASC') {
-                    return '^';
-                } else {
-                    return 'v';
-                }
-            }
-            else {
-                return ' ';
-            }
+            return suffixBuilder('Record_Type_MERC__c');
         }
         set;
     }
 
     public String headerCommPrefSuffix {
         get {
-            if (sortField == 'Account_MERC__r.Communication_Preference_MERC__c') {
-                if (sortDirection == 'ASC') {
-                    return '^';
-                } else {
-                    return 'v';
-                }
-            }
-            else {
-                return ' ';
-            }
+            return suffixBuilder('Account_MERC__r.Communication_Preference_MERC__c');
         }
         set;
     }
 
     public String headerPrefLangSuffix {
         get {
-            if (sortField == 'Account_MERC__r.Prfrd_Lang_Cd_GLBL__c') {
-                if (sortDirection == 'ASC') {
-                    return '^';
-                } else {
-                    return 'v';
-                }
-            }
-            else {
-                return ' ';
-            }
+            return suffixBuilder('Account_MERC__r.Prfrd_Lang_Cd_GLBL__c');
         }
         set;
     }
 
     public String headerCountrySuffix {
-        get {
-            if (sortField == 'Account_MERC__r.Country_of_Residence_GLBL__c') {
-                if (sortDirection == 'ASC') {
-                    return '^';
-                } else {
-                    return 'v';
-                }
-            }
-            else {
-                return ' ';
-            }
+        get{
+            return suffixBuilder('Account_MERC__r.Country_of_Residence_GLBL__c');
         }
         set;
     }
@@ -582,6 +493,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         SendTime = 'now';
 
+
+
         //build map used in the query builder
         map<String,String> tempFilterFieldMap = new map<String,String>();
         tempFilterFieldMap.put('dueDate','Due_Date_Status_MERC__c');
@@ -606,6 +519,19 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             ShowGrid();
         }
 
+    }
+
+    public String suffixBuilder (String suffixField) {
+        if (sortField == suffixField) {
+            if (sortDirection == 'ASC') {
+                return '^';
+            } else {
+                return 'v';
+            }
+        }
+        else {
+            return ' ';
+        }
     }
 
     /*
@@ -655,7 +581,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
      */
     public String unfilteredSegmentBuilder (String processingFilter, String passedFilter, String selected, String objectPath) {
         Boolean objectPathPresent = (objectPath != '');
-        System.debug('#### unfilteredSegmentBuilder accessed with filter of ' + passedFilter + ' and ObjectPath of ' + objectPath);
         String soqlSegment = '';
         if (passedFilter != processingFilter && selected != '-Any-') {
             soqlSegment += ' AND ' + objectPath + filterFieldMap.get(processingFilter) + '= \'' + selected + '\'';
@@ -703,9 +628,9 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
      */
     public void filterParticipants () {
 
-        Set<Id> filteredIds = new Set<Id>();
-        Boolean filterIdTouched = false;
+        filteredParticipantIds = new Set<Id>();
 
+        // Find the eligible IDs for the Process_Type_MERC__c filter
         String processTypeSoql = '';
         if (processTypeSelected != '-Any-') {
             if (processTypeSelected != 'Travel Proposal') {
@@ -715,140 +640,95 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             processTypeSoql += '   FROM Meeting_Process_MERC__c ';
             processTypeSoql += '  WHERE Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + meeting.Id + '\' ';
             processTypeSoql += '    AND Process_Type_MERC__c = \'' + String.escapeSingleQuotes(processTypeSelected) + '\'';
-        } else if (processTypeSelected == '-Any-'){
+            processTypeFilterIds = new Set<Id>();
+            for(Meeting_Process_MERC__c process : Database.query(processTypeSoql)) {
+                processTypeFilterIds.add(process.Meeting_Participant_MERC__c);
+            }
+            filteredParticipantIds = processTypeFilterIds;
+
+            // Find the eligible IDs for the Travel_Itinerary_MERC__c.Status_MERC__c filter
+            String proposalStatusSoql = '';
+            if (proposalStatusSelected != '-Any-') {
+                proposalStatusSoql += '   SELECT Meeting_Participant_MERC__c ';
+                proposalStatusSoql += '     FROM Travel_Itinerary_MERC__c ';
+                proposalStatusSoql += '    WHERE Travel_Proposal_MERC__c = null ';
+                proposalStatusSoql += '      AND Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + meeting.Id + '\' ';
+                proposalStatusSoql += '      AND Status_MERC__c  = \'' + String.escapeSingleQuotes(proposalStatusSelected) + '\'';
+                proposalStatusFilterIds = new Set<Id>();
+                for (Travel_Itinerary_MERC__c proposal : Database.query(proposalStatusSoql)) {
+                    proposalStatusFilterIds.add(proposal.Meeting_Participant_MERC__c);
+                }
+                filteredParticipantIds = compareIdSets(proposalStatusFilterIds);
+            }
+
+            // Find the eligible IDs for the Meeting_Tasks_MERC__c.Due_Date_Status_MERC__c filter.
+            String dueDateSoql = '';
+            if (dueDateSelected != '-Any-') {
+                dueDateSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
+                dueDateSoql += '  FROM Meeting_Tasks_MERC__c ';
+                dueDateSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
+                dueDateSoql += '   AND Due_Date_Status_MERC__c = \'' + String.escapeSingleQuotes(dueDateSelected) + '\'';
+                dueDateFilterIds = new Set<Id>();
+                for (Meeting_Tasks_MERC__c task : Database.query(dueDateSoql)) {
+                    dueDateFilterIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
+                } 
+                filteredParticipantIds = compareIdSets(dueDateFilterIds);
+            }
+
+            // Find the eligible IDs for the Meeting_Tasks_MERC__c.Next_Step_MERC__c filter
+            String nextStepSoql = '';
+            if (nextStepSelected != '-Any-') {
+                nextStepSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
+                nextStepSoql += '  FROM Meeting_Tasks_MERC__c ';
+                nextStepSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
+                nextStepSoql += '   AND Next_Step_MERC__c = \'' + String.escapeSingleQuotes(nextStepSelected) + '\'';
+                nextStepFilterIds = new Set<Id>();
+                for(Meeting_Tasks_MERC__c task : Database.query(nextStepSoql)) {
+                    nextStepFilterIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
+                }
+                filteredParticipantIds = compareIdSets(nextStepFilterIds);
+            }
+
+            // Find the eligible IDs for the Meeting_Tasks_MERC__c.Task_Status_MERC__c filter
+            String taskStatusSoql = '';
+            if (taskStatusSelected != '-Any-') {
+                taskStatusSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
+                taskStatusSoql += '  FROM Meeting_Tasks_MERC__c ';
+                taskStatusSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
+                taskStatusSoql += '   AND Task_Status_MERC__c = \'' + String.escapeSingleQuotes(taskStatusSelected) + '\'';
+                taskStatusFilterIds = new Set<Id>();
+                for (Meeting_Tasks_MERC__c task : Database.query(taskStatusSoql)) {
+                    taskStatusFilterIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
+                }
+                filteredParticipantIds = compareIdSets(taskStatusFilterIds);
+            }
+
+        // if ProcessType is -Any- than all other process filters should be -Any-
+        } else if (processTypeSelected == '-Any-') {
             proposalStatusSelected = '-Any-';
+            dueDateSelected = '-Any-';
+            nextStepSelected = '-Any-';
             taskStatusSelected = '-Any-';
         }
-        if (processTypeSoql != '') {
-            List<Meeting_Process_MERC__c> processes = Database.query(processTypeSoql);
-            if (processes != null) {
-                Set<Id> processTypeIds = new Set<Id>();
-                for (Meeting_Process_MERC__c process : processes) {
-                    processTypeIds.add(process.Meeting_Participant_MERC__c);
-                    filteredIds.add(process.Meeting_Participant_MERC__c);
-                    filterIdTouched = true;
-                }
-                processTypeFilterIds = processTypeIds;
+    }
+
+    /*
+     * compareIdSets
+     * In the filterParticipants method we find the participants that are being filtered
+     * by each filter. The results are then used to build the filters on the page. 
+     * Rather than requerying again, we run through the sets looking for 
+     * matches for the final result of filtered Ids.
+     */
+    private Set<Id> compareIdSets (Set<Id> singleFilteredIds) {
+        Set<Id> result = new Set<Id>();
+
+        for (Id filteredId : filteredParticipantIds) {
+            if (singleFilteredIds.contains(filteredId)) {
+                result.add(filteredId);
             }
         }
 
-        String proposalStatusSoql = '';
-        if (proposalStatusSelected != '-Any-') {
-            proposalStatusSoql += '   SELECT Meeting_Participant_MERC__c ';
-            proposalStatusSoql += '     FROM Travel_Itinerary_MERC__c ';
-            proposalStatusSoql += '    WHERE Travel_Proposal_MERC__c = null ';
-            proposalStatusSoql += '      AND Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + meeting.Id + '\' ';
-            proposalStatusSoql += '      AND Status_MERC__c  = \'' + String.escapeSingleQuotes(proposalStatusSelected) + '\'';
-        }
-        if (proposalStatusSoql != '') {
-            List<Travel_Itinerary_MERC__c> proposals = Database.query(proposalStatusSoql);
-            if (proposals != null) {
-                Set<Id> proposalStatusIds = new Set<Id>();
-                Set<Id> newFilteredIds = new Set<Id>();
-                for (Travel_Itinerary_MERC__c proposal : proposals) {
-                    proposalStatusIds.add(proposal.Meeting_Participant_MERC__c);
-                    if (filterIdTouched) {
-                        if (filteredIds.contains(proposal.Meeting_Participant_MERC__c)) {
-                            newFilteredIds.add(proposal.Meeting_Participant_MERC__c);
-                        }
-                    } else {
-                        newFilteredIds.add(proposal.Meeting_Participant_MERC__c);
-                    }
-                }
-                filteredIds = new Set<Id>();
-                filteredIds = newFilteredIds;
-                filterIdTouched = true;
-                proposalStatusFilterIds = proposalStatusIds;
-            }
-        }
-
-        String dueDateSoql = '';
-        if (dueDateSelected != '-Any-') {
-            dueDateSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
-            dueDateSoql += '  FROM Meeting_Tasks_MERC__c ';
-            dueDateSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
-            dueDateSoql += '   AND Due_Date_Status_MERC__c = \'' + String.escapeSingleQuotes(dueDateSelected) + '\'';
-        }
-        if (dueDateSoql != '') {
-            List<Meeting_Tasks_MERC__c> tasks = Database.query(dueDateSoql);
-            if (tasks != null) {
-                Set<Id> taskIds = new Set<Id>();
-                Set<Id> newFilteredIds = new Set<Id>();
-                for (Meeting_Tasks_MERC__c task : tasks) {
-                    taskIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
-                    if (filterIdTouched) {
-                        if(filteredIds.contains(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c)) {
-                            filteredIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
-                        }
-                    } else {
-                        newFilteredIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
-                    }
-                }
-                filteredIds = new Set<Id>();
-                filteredIds = newFilteredIds;
-                filterIdTouched = true;
-                dueDateFilterIds = taskIds;
-            }
-        }
-
-        String nextStepSoql = '';
-        if (nextStepSelected != '-Any-') {
-            nextStepSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
-            nextStepSoql += '  FROM Meeting_Tasks_MERC__c ';
-            nextStepSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
-            nextStepSoql += '   AND Next_Step_MERC__c = \'' + String.escapeSingleQuotes(nextStepSelected) + '\'';
-        }
-        if (nextStepSoql != '') {
-            List<Meeting_Tasks_MERC__c> tasks = Database.query(nextStepSoql);
-            if (tasks != null) {
-                Set<Id> taskIds = new Set<Id>();
-                Set<Id> newFilteredIds = new Set<Id>();
-                for (Meeting_Tasks_MERC__c task : tasks) {
-                    taskIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
-                    if (filterIdTouched) {
-                        if(filteredIds.contains(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c)) {
-                            filteredIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
-                        }
-                    } else {
-                        newFilteredIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
-                    }
-                }
-                filteredIds = new Set<Id>();
-                filteredIds = newFilteredIds;
-                filterIdTouched = true;
-                nextStepFilterIds = taskIds;
-            }
-        }
-
-        String taskStatusSoql = '';
-        if (taskStatusSelected != '-Any-') {
-            taskStatusSoql =  'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c ';
-            taskStatusSoql += '  FROM Meeting_Tasks_MERC__c ';
-            taskStatusSoql += ' WHERE Meeting_Process_MERC__r.Meeting_Participant_MERC__r.Meeting_MERC__c = \'' + String.escapeSingleQuotes(meeting.Id) + '\'';
-            taskStatusSoql += '   AND Task_Status_MERC__c = \'' + String.escapeSingleQuotes(taskStatusSelected) + '\'';
-        }
-        if (taskStatusSoql != '') {
-            List<Meeting_Tasks_MERC__c> tasks = Database.query(taskStatusSoql);
-            if (tasks != null) {
-                Set<Id> taskIds = new Set<Id>();
-                Set<Id> newFilteredIds = new Set<Id>();
-                for (Meeting_Tasks_MERC__c task : tasks) {
-                    taskIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
-                    if (filterIdTouched) {
-                        if(filteredIds.contains(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c)) {
-                            filteredIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
-                        }
-                    } else {
-                        newFilteredIds.add(task.Meeting_Process_MERC__r.Meeting_Participant_MERC__c);
-                    }
-                }
-                filteredIds = new Set<Id>();
-                filteredIds = newFilteredIds;
-                taskStatusFilterIds = taskIds;
-            }
-        }
-
-        filteredParticipantIds = filteredIds;
+        return result;
     }
 
     /*
