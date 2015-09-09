@@ -3,7 +3,19 @@
     <types>
         <members>MERC_ETAccountEmailTriggerImpl</members>
         <members>MERC_ETAccountEmailTriggerImpl_Test</members>
+        <members>MERC_ETCallControl</members>
+        <members>MERC_ETDataExtensionProcessor</members>
+        <members>MERC_ETDataExtensionProcessor_Test</members>
+        <members>MERC_ETMeetingEmailSendExtension</members>
+        <members>MERC_ETMeetingEmailSendExtension_Test</members>
+        <members>MERC_ETObject</members>
+        <members>MERC_ETSendEmailWrapper</members>
+        <members>MERC_ETSendEmailWrapper_Test</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>MeetingEmailSend</members>
+        <name>ApexPage</name>
     </types>
     <version>31.0</version>
 </Package>
