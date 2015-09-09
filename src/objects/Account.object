@@ -352,8 +352,7 @@ ISPICKVAL(National_Inter_Leadership_Role_MERC__c,&quot;&quot;)
    Experience_Step_Complete_MERC__c &amp;&amp;
    Research_Publications_Step_Complete_MERC__c &amp;&amp; 
    Teaching_Advising_Step_Complete_MERC__c &amp;&amp;
-   Leadership_Committee_Step_Complete_MERC__c &amp;&amp;
-     IF(ISPICKVAL(Multiple_Specialties_MERC__c,&quot;Yes&quot;),CV_Upload_Step_Complete_MERC__c,true))
+   Leadership_Committee_Step_Complete_MERC__c)
 , true, false)</formula>
         <label>Qualifications and Experience Complete</label>
         <trackHistory>false</trackHistory>
