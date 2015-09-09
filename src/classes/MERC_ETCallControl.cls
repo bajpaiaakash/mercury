@@ -1,9 +1,9 @@
-public virtual with sharing class MERC_ETCallControl {
+public with sharing class MERC_ETCallControl {
     public static final Integer DefaultTimeOut = 120000;
     public static final String ApplicationJson = 'application/json';
 
     // handler for getting exacttarget email folders; getMainLevelEFDetails method does the work
-    public virtual list<MERC_ETObject.emailFolder> getExactTargetEmails(string memberId)
+    public list<MERC_ETObject.emailFolder> getExactTargetEmails(string memberId)
     {
         et4ae5__Configuration__c etConfiguration = getConfiguration();
         String token = getOAuthToken(etConfiguration, memberId);
@@ -47,7 +47,7 @@ public virtual with sharing class MERC_ETCallControl {
         }
     }
 
-    public virtual List<MERC_ETObject.SendClassification> getClassifications(String memberId){
+    public List<MERC_ETObject.SendClassification> getClassifications(String memberId){
         et4ae5__Configuration__c etConfiguration = getConfiguration();
         String token = getOAuthToken(etConfiguration, memberId);
         String baseUrl = etConfiguration.et4ae5__Root_Rest_API_URL__c;
@@ -67,7 +67,7 @@ public virtual with sharing class MERC_ETCallControl {
         }
     }
 
-    public virtual List<MERC_ETObject.SenderProfile> getSenders(String senderProfileId, String memberId){
+    public List<MERC_ETObject.SenderProfile> getSenders(String senderProfileId, String memberId){
         et4ae5__Configuration__c etConfiguration = getConfiguration();
         String token = getOAuthToken(etConfiguration, memberId);
         String baseUrl = etConfiguration.et4ae5__Root_Rest_API_URL__c;
@@ -121,7 +121,7 @@ public virtual with sharing class MERC_ETCallControl {
     }
 
     // obtain token using saved scope token
-    public virtual string oAuthScoped(string sExactTargetUsername,string sExactTargetPassword,string scope,string memberId,string authApiUrl)
+    public string oAuthScoped(string sExactTargetUsername,string sExactTargetPassword,string scope,string memberId,string authApiUrl)
     {
         sExactTargetUsername=sExactTargetUsername.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('"','&quot;').replace('\'','&apos;');
         sExactTargetPassword=sExactTargetPassword.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('"','&quot;').replace('\'','&apos;');
@@ -176,7 +176,7 @@ public virtual with sharing class MERC_ETCallControl {
     }
 
     // obtain token using saved scope token (with default MID)
-    public virtual string oAuthScopedNoMID(string sExactTargetUsername,string sExactTargetPassword,string scope,string authApiUrl)
+    public string oAuthScopedNoMID(string sExactTargetUsername,string sExactTargetPassword,string scope,string authApiUrl)
     {
         sExactTargetUsername=sExactTargetUsername.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('"','&quot;').replace('\'','&apos;');
         sExactTargetPassword=sExactTargetPassword.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('"','&quot;').replace('\'','&apos;');
