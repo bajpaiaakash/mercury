@@ -19,6 +19,12 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     public String additionalInformationText { get; set; }
     public String base64Thumbnail { get; private set; }
 
+    public Boolean fromSourceIsEmail { get; set; }
+    public List<SelectOption> fromEmailOptions { get; set; }
+    public String fromEmailSelected { get; set; }
+    public List<SelectOption> fromClassificationOptions { get; set;}
+    public String fromClassicationSelected { get; set; }
+
     public Set<Id> selectedParticipantIds { get; set; }
 
     public Boolean isGeneratingDocuments {
@@ -492,7 +498,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         email = new MERC_ETFolderedEmail();
 
         SendTime = 'now';
-
+        fromSourceIsEmail = true;
 
 
         //build map used in the query builder
