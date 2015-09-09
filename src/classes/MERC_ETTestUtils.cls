@@ -104,6 +104,7 @@ public class MERC_ETTestUtils {
                 PersonHomePhone = '1234567',
                 PersonMobilePhone = '2345678',
                 Communication_Preference_MERC__c = 'E-mail',
+                Communication_Channel_MERC__c = 'E-mail',
                 Country_of_Residence_GLBL__c = 'GB',
                 Prfrd_Lang_Cd_GLBL__c = 'English');
             if (addEmail) {
