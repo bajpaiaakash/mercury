@@ -273,6 +273,11 @@
         <field>Account.Preferred_Contact_Method_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Primary_Address_County_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Qualifications_Experience_Complete_MERC__c</field>
@@ -828,6 +833,11 @@
         <field>Travel_Itinerary_MERC__c.Vendor_Address_Postal_Code_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>User.CST_Admin_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Web_Service_Error_GLBL__c.Account_GLBL__c</field>
@@ -996,6 +1006,12 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Registration_Question_MERC__c-MERC_Question_Layout</layout>
+    </layoutAssignments>
+	<layoutAssignments>
+        <layout>User-User Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>UserAlt-User Profile Layout</layout>
     </layoutAssignments>
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>

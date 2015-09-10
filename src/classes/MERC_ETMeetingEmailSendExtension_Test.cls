@@ -594,7 +594,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     public static void simulateFilteringAndSorting(MERC_ETMeetingEmailSendExtension ext) {
         List<SelectOption> testSOlist;
-        testSOlist = ext.communicationPreference;
+        testSOlist = ext.communicationChannel;
         testSOlist = ext.countryOfResidence; 
         testSOlist = ext.dueDate;
         testSOlist = ext.hasEmail;
@@ -618,7 +618,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         System.assert(!ext.proposalStatusRender);
         System.assert(!ext.taskStatusRender);
 
-        ext.communicationPreferenceSelected = 'E-mail';
+        ext.communicationChannelSelected = 'E-mail';
         ext.countryOfResidenceSelected = 'GB';
         ext.hasEmailSelected = 'Yes';
         ext.participantStatusSelected = 'Accepted';

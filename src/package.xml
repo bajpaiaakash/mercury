@@ -89,6 +89,7 @@
         <members>Account.Payee_Info_Step_Complete_MERC__c</members>
         <members>Account.Payee_and_Bank_Info_Complete_MERC__c</members>
         <members>Account.Preferred_Contact_Method_MERC__c</members>
+		<members>Account.Primary_Address_County_GLBL__c</members>
         <members>Account.Qualifications_Experience_Complete_MERC__c</members>
         <members>Account.Qualifications_Experience_Consent_MERC__c</members>
         <members>Account.Qualifications_Step_Complete_MERC__c</members>
@@ -188,6 +189,7 @@
         <members>Travel_Itinerary_MERC__c.Vendor_Address_Line_1_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Vendor_Address_Line_2_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Vendor_Address_Postal_Code_MERC__c</members>
+		<members>User.CST_Admin_CUST__c</members>
         <members>Web_Service_Error_GLBL__c.Account_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Action_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Country_GLBL__c</members>
@@ -330,6 +332,8 @@
         <members>PersonAccount-MERC_Designated Individual</members>
         <members>Registration_Question_MERC__c-MERC_Question_Layout</members>
 		<members>Preferences_and_Consent_GLBL__c-GLBL_Preferences</members>
+		<members>User-User Layout</members>
+        <members>UserAlt-User Profile Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -353,11 +357,16 @@
     <types>
         <members>GSO Basic User_Platform</members>
         <members>GSO Basic User_Salesforce</members>
+		<members>GLBL_Chatter Only</members>
         <members>Mercury Integration CST - Platform</members>
+		<members>Mercury Integration Docusign - Platform</members>
         <members>Mercury Integration ExactTarget - Platform</members>
         <members>Mercury Integration MVI - Platform</members>
+		<members>Mercury Integration ODS - Platform</members>
+		<members>Mercury Integration SAP - Platform</members>
         <members>Mercury Metadata API</members>
         <members>Mercury Portal API - Platform</members>
+		<members>Mercury Project Team</members>
         <name>Profile</name>
     </types>
     <types>
@@ -407,6 +416,7 @@
         <name>Workflow</name>
     </types>
     <types>
+		<members>Address_GLBL__c.Prim_Add_County</members>
         <members>Meeting_MERC__c.MERC_Update_Local_CMS_Review</members>
         <members>Meeting_Tasks_MERC__c.MERC_Stamp_External_Id_Meeting_Task</members>
 		<members>HCP_Contract_MERC__c.MERC_Update_Contract_Received_Date</members>
@@ -414,6 +424,7 @@
         <name>WorkflowFieldUpdate</name>
     </types>
     <types>
+		<members>Address_GLBL__c.MERC_Primary Address</members>
         <members>HCP_Contract_MERC__c.MERC_Set_Contract_Received_Date</members>
         <members>Preferences_and_Consent_GLBL__c.MERC_Set Communication Channel</members>
         <members>Meeting_MERC__c.MERC Meeting Active Date</members>

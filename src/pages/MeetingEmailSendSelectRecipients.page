@@ -226,8 +226,8 @@
                   <apex:selectList label="Participant Record Type" value="{!recordTypeSelected}" multiselect="false" size="1" onchange="updateList();">
                       <apex:selectOptions value="{!recordType}" />
                   </apex:selectList>
-          <apex:selectList label="Communication Preference" value="{!communicationPreferenceSelected}" multiselect="false" size="1" onchange="updateList();">
-            <apex:selectOptions value="{!communicationPreference}" />
+          <apex:selectList label="Communication Channel" value="{!communicationChannelSelected}" multiselect="false" size="1" onchange="updateList();">
+            <apex:selectOptions value="{!communicationChannel}" />
           </apex:selectList>
                   <apex:selectList label="Has Email" value="{!hasEmailSelected}" multiselect="false" size="1" onchange="updateList();">
                       <apex:selectOptions value="{!hasEmail}" />

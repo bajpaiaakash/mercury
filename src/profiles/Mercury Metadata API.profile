@@ -273,6 +273,11 @@
         <field>Account.Preferred_Contact_Method_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Primary_Address_County_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Qualifications_Experience_Complete_MERC__c</field>
@@ -828,6 +833,11 @@
         <field>Travel_Itinerary_MERC__c.Vendor_Address_Postal_Code_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>User.CST_Admin_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Web_Service_Error_GLBL__c.Account_GLBL__c</field>
@@ -1024,6 +1034,12 @@
     <layoutAssignments>
         <layout>Registration_Question_MERC__c-MERC_Question_Layout</layout>
     </layoutAssignments>
+	<layoutAssignments>
+        <layout>User-User Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>UserAlt-User Profile Layout</layout>
+    </layoutAssignments>
     <loginHours>
         <fridayEnd>1440</fridayEnd>
         <fridayStart>0</fridayStart>
@@ -1198,11 +1214,11 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>Meeting_Participant_Email_Send_MERC__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>

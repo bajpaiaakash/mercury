@@ -32,26 +32,26 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
      * filters. The SelectOptions are the picklists and the Strings are the
      * selections within the picklists.
      */
-    public List<SelectOption> communicationPreference {
+    public List<SelectOption> communicationChannel {
         get {
-            Set<String> communicationPreferenceSet = new Set<String>();
-            communicationPreference = selectOptionListInitialize();
+            Set<String> communicationChannelSet = new Set<String>();
+            communicationChannel = selectOptionListInitialize();
 
-            String soql  = 'SELECT Account_MERC__r.Communication_Preference_MERC__c ';
+            String soql  = 'SELECT Account_MERC__r.Communication_Channel_MERC__c ';
                    soql += '  FROM Meeting_Participant_MERC__c  ';
-                   soql += queryBuilder('communicationPreference','');
+                   soql += queryBuilder('communicationChannel','');
             for (Meeting_Participant_MERC__c p : (List<Meeting_Participant_MERC__c>) Database.query(soql)) {
-                if (p.Account_MERC__r.Communication_Preference_MERC__c != null && !communicationPreferenceSet.contains(p.Account_MERC__r.Communication_Preference_MERC__c)) {
-                    communicationPreferenceSet.add(p.Account_MERC__r.Communication_Preference_MERC__c);
-                    communicationPreference.add(new SelectOption(p.Account_MERC__r.Communication_Preference_MERC__c,p.Account_MERC__r.Communication_Preference_MERC__c));
+                if (p.Account_MERC__r.Communication_Channel_MERC__c != null && !communicationChannelSet.contains(p.Account_MERC__r.Communication_Channel_MERC__c)) {
+                    communicationChannelSet.add(p.Account_MERC__r.Communication_Channel_MERC__c);
+                    communicationChannel.add(new SelectOption(p.Account_MERC__r.Communication_Channel_MERC__c,p.Account_MERC__r.Communication_Channel_MERC__c));
                 }
             }
-            communicationPreference = sortOptionList(communicationPreference);
-            return communicationPreference;
+            communicationChannel = sortOptionList(communicationChannel);
+            return communicationChannel;
         }
         set;
     }
-    public String communicationPreferenceSelected { get; set; }
+    public String communicationChannelSelected { get; set; }
 
     public List<SelectOption> countryOfResidence {
         get {
@@ -502,7 +502,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         tempFilterFieldMap.put('processType','Process_Type_MERC__c');
         tempFilterFieldMap.put('proposalStatus','Status_MERC__c');
         tempFilterFieldMap.put('taskStatus','Task_Status_MERC__c');
-        tempFilterFieldMap.put('communicationPreference','Account_MERC__r.Communication_Preference_MERC__c');
+        tempFilterFieldMap.put('communicationChannel','Account_MERC__r.Communication_Channel_MERC__c');
         tempFilterFieldMap.put('countryOfResidence','Account_MERC__r.Country_of_Residence_GLBL__c');
         tempFilterFieldMap.put('participantStatus','Status_MERC__c');
         tempFilterFieldMap.put('preferredLanguage','Account_MERC__r.Prfrd_Lang_Cd_GLBL__c');
@@ -548,7 +548,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         soqlQuery += filteredSegmentBuilder('processType',filter,processTypeSelected,objectPath);
         soqlQuery += filteredSegmentBuilder('proposalStatus',filter,proposalStatusSelected,objectPath);
         soqlQuery += filteredSegmentBuilder('taskStatus',filter,taskStatusSelected,objectPath);
-        soqlQuery += unfilteredSegmentBuilder('communicationPreference',filter,communicationPreferenceSelected,objectPath);
+        soqlQuery += unfilteredSegmentBuilder('communicationChannel',filter,communicationChannelSelected,objectPath);
         soqlQuery += unfilteredSegmentBuilder('countryOfResidence',filter,countryOfResidenceSelected,objectPath);
         soqlQuery += unfilteredSegmentBuilder('participantStatus',filter,participantStatusSelected,objectPath);
         soqlQuery += unfilteredSegmentBuilder('preferredLanguage',filter,preferredLanguageSelected,objectPath);
@@ -752,7 +752,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                        Account_MERC__r.Name, Account_MERC__r.FirstName,
                        Account_MERC__r.PersonEmail,
                        Account_MERC__r.LastName,
-                       Account_MERC__r.Communication_Preference_MERC__c,
+                       Account_MERC__r.Communication_Channel_MERC__c,
                        Account_MERC__r.Title_Desc_GLBL__c,
                        Account_MERC__r.Sfx_Nm_GLBL__c,
                        Account_MERC__r.Prfrd_Lang_Cd_GLBL__c
@@ -826,8 +826,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                         soql += '       Account_MERC__r.Country_of_Residence_GLBL__c';
                         soql += '  FROM Meeting_Participant_MERC__c ';
                         soql += ' WHERE Meeting_MERC__c = \'' + meeting.Id + '\'';
-                if (communicationPreferenceSelected != '-Any-') {
-                        soql += '   AND Account_MERC__r.Communication_Preference_MERC__c = \'' + String.escapeSingleQuotes(communicationPreferenceSelected) + '\'';
+                if (communicationChannelSelected != '-Any-') {
+                        soql += '   AND Account_MERC__r.Communication_Channel_MERC__c = \'' + String.escapeSingleQuotes(communicationChannelSelected) + '\'';
                 }
                 if (countryOfResidenceSelected != '-Any-') {
                         soql += '   AND Country_of_Residence_MERC__c = \'' + String.escapeSingleQuotes(countryOfResidenceSelected) + '\'';
@@ -890,7 +890,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
      * Resets all the filter selections to -any-
      */
     private void resetFilters() {
-        communicationPreferenceSelected = '-Any-';
+        communicationChannelSelected = '-Any-';
         countryOfResidenceSelected = '-Any-';
         dueDateSelected = '-Any-';
         hasEmailSelected = '-Any-';
