@@ -317,6 +317,10 @@
         <name>ReportType</name>
     </types>
     <types>
+        <members>Preferences_and_Consent_GLBL__c.MERC_Prevent_Update_of_Consent_Records</members>
+        <name>ValidationRule</name>
+    </types>
+    <types>
         <members>Meeting_MERC__c.Mass_Generate_Content_MERC</members>
         <members>Meeting_Participant_MERC__c.Generate_Documents_MERC</members>
         <name>WebLink</name>

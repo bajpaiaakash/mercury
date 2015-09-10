@@ -23,16 +23,14 @@
             <runTest>MERC_DailyAttendanceControllerStressTest</runTest>
             <runTest>MERC_DailyAttendanceControllerTest</runTest>
             <runTest>MERC_ETDataExtensionProcessor_Test</runTest>
-            <runTest>MERC_ETDataExtensionProcessor_Test</runTest>
             <runTest>MERC_ETMeetingEmailSendExtension_Test</runTest>
+            <runTest>MERC_HCPContractRollupManagerTest</runTest>
             <runTest>MERC_HcpCapActualsCalculatorTest</runTest>
             <runTest>MERC_HcpCapYearlyCalculationJobTest</runTest>
-            <runTest>MERC_HCPContractRollupManagerTest</runTest>
             <runTest>MERC_MeetingParticipantRollupsTest</runTest>
             <runTest>MERC_MeetingParticipantStressTest</runTest>
             <runTest>MERC_MeetingProcessLogicHandlerTest</runTest>
             <runTest>MERC_RegistrationResponsesControllerTest</runTest>
-            <runTest>MERC_TestFactory</runTest>
             <runTest>MERC_TOVCalculatorTest</runTest>
             <runTest>MERC_TOVNonAggregateCalculatorTest</runTest>
             <runTest>MERC_TOVRoundingTest</runTest>

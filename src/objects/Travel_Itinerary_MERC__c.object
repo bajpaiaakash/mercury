@@ -147,7 +147,7 @@ Must be in the format &quot;00:00&quot; for example &quot;08:00&quot;.</inlineHe
         <fullName>Travel_Proposal_Status_MERC__c</fullName>
         <description>The Status of the associated Travel Proposal, used by the Marketing Cloud to return the correct records : MERC : Created on 04/09/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>TEXT(  Travel_Proposal_MERC__r.Status_MERC__c )</formula>
+        <formula>IF((TEXT(  Travel_Proposal_MERC__r.Status_MERC__c ) = &apos;Ready for Proposal&apos; || TEXT(  Travel_Proposal_MERC__r.Status_MERC__c ) = &apos;Proposed&apos;), &apos;Ready for Proposal/Proposed&apos;, TEXT(Travel_Proposal_MERC__r.Status_MERC__c))</formula>
         <label>Travel Proposal Status</label>
         <required>false</required>
         <trackTrending>false</trackTrending>

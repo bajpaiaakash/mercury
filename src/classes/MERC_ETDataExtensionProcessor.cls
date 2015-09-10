@@ -177,8 +177,8 @@ public with sharing class MERC_ETDataExtensionProcessor {
         meetingEmailSend.ET_Data_Extension_Id_MERC__c = deResponse.Id;
         meetingEmailSend.ET_Sync_Id_MERC__c = 'ETLillymeetingEmailSend' + Datetime.now().format('yyyyMMdd');
         meetingEmailSend.ET_Business_Unit_MERC__c = bus[0].Id;
-        meetingEmailSend.ET_From_Name_MERC__c = config.Default_From_Name__c;
-        meetingEmailSend.ET_Reply_to_MERC__c = config.Default_From_Email__c + ' <' + wrapper.FromAddress + '>';
+        meetingEmailSend.ET_From_Name_MERC__c = wrapper.FromName;
+        meetingEmailSend.ET_Reply_to_MERC__c = wrapper.FromName + ' <' + wrapper.FromAddress + '>';
         meetingEmailSend.ET_From_Email_MERC__c = wrapper.FromAddress;
         meetingEmailSend.ET_From_Address_MERC__c = wrapper.FromAddress;
         meetingEmailSend.ET_Recipients_Opted_In_MERC__c = true;
