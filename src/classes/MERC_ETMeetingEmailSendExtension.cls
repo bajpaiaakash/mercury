@@ -7,6 +7,7 @@
 */
 public with sharing class MERC_ETMeetingEmailSendExtension {
 
+    private final Boolean isEnterprise;
     private final Meeting_MERC__c meeting;
     public Sonoma_ET_Config__c Config { get; private set; }
     public boolean IsAllChecked { get; set; }
@@ -478,6 +479,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
      * CONSTRUCTOR
      */
     public MERC_ETMeetingEmailSendExtension(ApexPages.StandardController stdController) {
+        isEnterprise = [SELECT et4ae5__integration_type__c FROM et4ae5__configuration__c WHERE isdeleted=false][0].et4ae5__integration_type__c=='Enterprise2.0';
         if (!Test.isRunningTest()) {
             stdController.addFields(new List<String>{ 'Date_of_Event_MERC__c', 'Days_Until_Meeting_MERC__c', 'End_Date_of_Event_MERC__c', 'Name' });
         }
@@ -498,7 +500,9 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         email = new MERC_ETFolderedEmail();
 
         SendTime = 'now';
+
         fromSourceIsEmail = true;
+        initializeClassifications();
 
 
         //build map used in the query builder
@@ -525,6 +529,59 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             ShowGrid();
         }
 
+    }
+
+    private void initializeClassifications(){
+        List<MERC_ETObject.SendClassification> sendClassifications = null;
+        fromClassificationOptions = new List<SelectOption>();
+        fromClassificationOptions.add(new SelectOption('', Label.et4ae5.slctChoose));
+        if(isEnterprise)
+        {
+            if (BusinessUnit == null){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'There is no BusinessUnit specified for this Exact Target enterprise configuration.'));
+                return;
+            }
+
+            sendClassifications = callControl.getClassifications(BusinessUnit.et4ae5__Business_Unit_ID__c);
+        }
+        else
+        {
+            sendClassifications = callControl.getClassifications(null);
+        }
+
+        if(sendClassifications == null){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'No Send Classifications Available.'));
+            return;
+        }
+
+        for(MERC_ETObject.SendClassification sendClassification : sendClassifications){
+            fromClassificationOptions.add(new SelectOption(
+                sendClassification.senderProfileId,
+                ((MERC_ETObject.ETEntry)sendClassification).name));
+        }
+    }
+
+    private MERC_ETObject.SenderProfile senderProfileById(String senderProfileId){
+        List<MERC_ETObject.SenderProfile> senderProfiles = null;
+        if(isEnterprise)
+        {
+            if (BusinessUnit == null){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'There is no BusinessUnit specified for this Exact Target enterprise configuration.'));
+                return null;
+            }
+
+            senderProfiles = callControl.getSenders(senderProfileId, BusinessUnit.et4ae5__Business_Unit_ID__c);
+        }
+        else
+        {
+            senderProfiles = callControl.getSenders(senderProfileId, null);
+        }
+
+        if(senderProfiles == null || senderProfiles.isEmpty()){
+            return null;
+        }
+
+        return senderProfiles.get(0);
     }
 
     public String suffixBuilder (String suffixField) {
@@ -790,6 +847,20 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         }
         if (SendTime != 'now' && (sendDateEvent.ActivityDateTime == null || sendDateEvent.ActivityDateTime <= Datetime.now())) {
             AddErrorMessage('The send date must be in the future.');
+        }
+
+        String fromEmail = Config.Default_From_Email__c;
+        if(!fromSourceIsEmail){
+            if(String.isBlank(fromClassicationSelected)){
+                AddErrorMessage('A Classification must be selected.');
+            } else {
+                MERC_ETObject.SenderProfile senderProfile = senderProfileById(fromClassicationSelected);
+                if(senderProfile == null){
+                    AddErrorMessage('A Sender Profile was not found for the selected Classification.');
+                } else {
+                    fromEmail = senderProfile.fromEmail;
+                }
+            }
         }
 
         if (ApexPages.hasMessages(ApexPages.Severity.ERROR)) {
@@ -1109,7 +1180,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     public void listExactTargetEmails()
     {
-        if ([SELECT et4ae5__integration_type__c FROM et4ae5__configuration__c WHERE isdeleted=false][0].et4ae5__integration_type__c=='Enterprise2.0')
+        if (isEnterprise)
         {
             if (BusinessUnit == null) return;
 
