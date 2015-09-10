@@ -2,6 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>Account.Communication_Channel_MERC__c</members>
+		<members>Account.Primary_Address_County_GLBL__c</members>
         <members>Meeting_MERC__c.Therapeutic_Area_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Communication_Channel_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Contract_Already_Exists_MERC__c</members>
@@ -9,6 +10,7 @@
         <members>Preferences_and_Consent_GLBL__c.Communication_Channel_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Preference_Sub_Type_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Preference_Type_MERC__c</members>
+		<members>User.CST_Admin_CUST__c</members>
         <name>CustomField</name>
     </types>
 	<types>
@@ -88,6 +90,8 @@
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
         <members>PersonAccount-GLBL_HCP Account</members>
         <members>Preferences_and_Consent_GLBL__c-GLBL_Preferences</members>
+		<members>User-User Layout</members>
+        <members>UserAlt-User Profile Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -97,8 +101,22 @@
 		<members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
+		 <members>Mercury_System_Administrator_Lite</members>
         <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
         <name>PermissionSet</name>
+    </types>
+	 <types>
+        <members>GLBL_Chatter Only</members>
+        <members>Mercury Integration CST - Platform</members>
+        <members>Mercury Integration Docusign - Platform</members>
+        <members>Mercury Integration ExactTarget - Platform</members>
+        <members>Mercury Integration MVI - Platform</members>
+        <members>Mercury Integration ODS - Platform</members>
+        <members>Mercury Integration SAP - Platform</members>
+        <members>Mercury Metadata API</members>
+        <members>Mercury Portal API - Platform</members>
+        <members>Mercury Project Team</members>
+        <name>Profile</name>
     </types>
     <types>
         <members>Meeting_MERC__c.Ad_Hoc_Consulting</members>
@@ -117,11 +135,13 @@
         <name>ValidationRule</name>
     </types>
     <types>
+		<members>Address_GLBL__c.Prim_Add_County</members>
         <members>HCP_Contract_MERC__c.MERC_Update_Contract_Received_Date</members>
         <members>Preferences_and_Consent_GLBL__c.Set_Communication_chnl_Account</members>
         <name>WorkflowFieldUpdate</name>
     </types>
     <types>
+		<members>Address_GLBL__c.MERC_Primary Address</members>
         <members>HCP_Contract_MERC__c.MERC_Set_Contract_Received_Date</members>
         <members>Preferences_and_Consent_GLBL__c.MERC_Set Communication Channel</members>
         <name>WorkflowRule</name>

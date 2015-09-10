@@ -11,4 +11,15 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Primary_Address_County_GLBL__c</fullName>
+        <description>Primary Address County stamped from County Name on Address. Created 08/09/2015 by Ajay Gupta, TCS</description>
+        <externalId>false</externalId>
+        <label>Primary Address County</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
 </CustomObject>
