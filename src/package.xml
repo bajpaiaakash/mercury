@@ -14,6 +14,7 @@
         <members>MERC_ETSendEmailWrapper</members>
         <members>MERC_ETSendEmailWrapper_Test</members>
         <members>MERC_ETTestUtils</members>
+        <members>MERC_TestFactory</members>
         <name>ApexClass</name>
     </types>
     <types>
