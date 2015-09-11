@@ -16,7 +16,7 @@
 	 
 			<!-- DO NOT REMOVE THE BELOW COMMENT. THIS IS A PLACEHOLDER THAT IS REPLACED BY THE TESTS THAT SHOULD BE RUN FOR THIS BUILD. -->
 			<!--runTests-->
-            <runTest>MERC_AccountPreferenceRollupManagerTest</runTest>
+            <!--<runTest>MERC_AccountPreferenceRollupManagerTest</runTest>
             <runTest>MERC_AccountToAccountRollupsTest</runTest>
             <runTest>MERC_AnonymiseNonHCPDataHandlerTest</runTest>
             <runTest>MERC_ConsultingProjectCapCalculatorTest</runTest>
@@ -33,7 +33,7 @@
             <runTest>MERC_RegistrationResponsesControllerTest</runTest>
             <runTest>MERC_TOVCalculatorTest</runTest>
             <runTest>MERC_TOVNonAggregateCalculatorTest</runTest>
-            <runTest>MERC_TOVRoundingTest</runTest>
+            <runTest>MERC_TOVRoundingTest</runTest>-->
 	   </sf:deploy>
 	</target>
 
