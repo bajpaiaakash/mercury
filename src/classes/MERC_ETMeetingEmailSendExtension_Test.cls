@@ -29,7 +29,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         System.assertEquals(false, ext.getHasErrors());
     }
 
-    @isTest
+    //@isTest
     public static void Test_Constructor_NoMeeting() {
 
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
@@ -161,7 +161,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             System.debug('exception : ' + e);
         }
 
-    } 
+    }
 
     @isTest
     public static void Test_Send_NoRecipients() {
@@ -443,7 +443,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             /*ext.selectEmail();
             System.assertEquals(null, ext.email.id);
             System.assertEquals(null, ext.email.name);
-            System.assertEquals(null, ext.email.title); 
+            System.assertEquals(null, ext.email.title);
 
             ApexPages.currentPage().getParameters().put('emailId', eId);
             ApexPages.currentPage().getParameters().put('emailName', eName);
@@ -537,12 +537,12 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             System.assert(returnedRef.getParameters().containsKey('sessionId'));
         Test.stopTest();
 
-    } 
+    }
 
     public static void simulateFilteringAndSorting(MERC_ETMeetingEmailSendExtension ext) {
         List<SelectOption> testSOlist;
         testSOlist = ext.communicationChannel;
-        testSOlist = ext.countryOfResidence; 
+        testSOlist = ext.countryOfResidence;
         testSOlist = ext.dueDate;
         testSOlist = ext.hasEmail;
         testSOlist = ext.nextStep;
@@ -655,7 +655,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         List<Travel_Itinerary_MERC__c> itineraries = new List<Travel_Itinerary_MERC__c>();
         List<Meeting_Process_MERC__c> processes = new List<Meeting_Process_MERC__c>();
         List<Meeting_Tasks_MERC__c> tasks = new List<Meeting_Tasks_MERC__c>();
-        
+
         for(Meeting_Participant_MERC__c p : participants) {
             Meeting_Process_MERC__c process = new Meeting_Process_MERC__c();
             process.Meeting_Participant_MERC__c = p.Id;
