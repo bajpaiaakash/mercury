@@ -9,9 +9,11 @@
         <members>MERC_ETFolderedEmail</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_ETMeetingEmailSendExtension_Test</members>
+        <members>MERC_ETMockHttpResponseGenerator</members>
         <members>MERC_ETObject</members>
         <members>MERC_ETSendEmailWrapper</members>
         <members>MERC_ETSendEmailWrapper_Test</members>
+        <members>MERC_ETTestUtils</members>
         <name>ApexClass</name>
     </types>
     <types>
