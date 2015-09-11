@@ -1,8 +1,6 @@
 <apex:page showHeader="true" sidebar="false" standardController="Meeting_MERC__c" extensions="MERC_ETMeetingEmailSendExtension" docType="html-5.0">
-	<apex:stylesheet value="{!URLFOR($Resource.tablesorter, 'tablesorter/themes/blue/style.css')}" />
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
 	<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" />
-	<apex:includeScript value="{!URLFOR($Resource.tablesorter, 'tablesorter/jquery.tablesorter.min.js')}" />
 
 	<script type="text/javascript">
 		$j = jQuery.noConflict();
@@ -22,288 +20,73 @@
 			}
 		}
 
-		function updateCheckBoxes(selectAllCheckBox){
-			$j("input[id$='selectParticipant']").prop('checked', selectAllCheckBox .checked);
-		}
+		function swapFromSource()
+        {
+        	console.log('swapping!');
+            j$ = jQuery.noConflict();
+            fsEmail = jQuery('[id$=fromSelectorEmail]');
+            fsSC = jQuery('[id$=fromSelectorSC]');
+            // Identify picklists.
+            var fromList = jQuery('[id$=from]');
+            var scList = jQuery('[id$=sendClassification]');
+            var fromOP = jQuery('[id$=fromPicklist]');
+            var scOP = jQuery('[id$=scPicklist]');
 
-		function updateSelectAllCheckBox(currentCheckBox){
-			var selectionCheckBoxesCount = $j("input[id$='selectParticipant']").length;
-			var selectionCheckBoxesCheckedCount = $j("input:checked[id$='selectParticipant']").length;
-			$j("input[id$='selectAllParticipants'")[0].checked = selectionCheckBoxesCheckedCount === selectionCheckBoxesCount;
-		}
+            // Disable both picklists.
+            if (fromList != null) fromList.attr("disabled", true);
+            if (scList != null) scList.attr("disabled", true);
+            fromOP.hide();
+            scOP.hide();
 
+            if (jQuery('[id$=fromSelectorEmail]').is(':checked') == true || (jQuery('[id$=theHiddenInput1]').val() == "true" && jQuery('[id$=fromSelectorSC]').is(':checked') == false))
+                fsEmail.attr("checked", "checked");
+            if (jQuery('[id$=fromSelectorSC]').is(':checked') == true || (jQuery('[id$=theHiddenInput2]').val() == "true" && jQuery('[id$=fromSelectorEmail]').is(':checked') == false))
+                fsSC.attr("checked", "checked");
+            if (fsEmail.is(":checked") == false && fsSC.is(":checked") == false)
+                fsEmail.attr("checked", "checked");
+
+            // Enable the correct picklist.
+            if (fsEmail.is(":checked") == true)
+            {
+                if (scList != null) scList.val("");
+                if (fromList != null) fromList.removeAttr("disabled");
+                fromOP.show();
+            }
+            if (fsSC.is(":checked") == true)
+            {
+                if (fromList != null) fromList.val("");
+                if (scList != null) scList.removeAttr("disabled");
+                scOP.show();
+            }
+        }
+
+        $j(function() {
+        	swapFromSource();
+        });
 	</script>
-
-	<style>
-		table.tablesorter thead tr span.header {
-			background: none !important;
-		}
-		input.navigation, span.navigation {
-			margin: 0px 5px;
-		}
-
-		.filterTableStyle {border-collapse: collapse; border-spacing: 0px 0px; }
-		.filterColStyle1 { width: 33%}
-		.filterColStyle2 { width: 33%}
-		.filterColStyle3 { width: 33%}
-		.filterRowStyle { border-bottom-style:solid; border-bottom-width:1px;border-bottom-color:#E8E8E8 }
-	</style>
-
-
 
 	<apex:pageMessages id="messages" />
 	<apex:sectionHeader title="{!Meeting_MERC__c.Name}" subtitle="Configure Email Send"/>
 
 	<apex:form rendered="{!NOT(HasErrors)}" styleClass="participants">
 
-		<!--SELECT RECIPIENTS-->
-		<apex:pageBlock id="participantBlock" title="Select Recipients" rendered="{!ShowParticipantGrid}" >
-            <apex:pageBlockButtons >
-                <apex:commandButton value="Update Recipients" action="{!HideGrid}" rendered="{!NOT(isGeneratingDocuments)}"/>
-                <apex:commandButton value="Generate Documents" action="{!generateDocuments}" rendered="{!isGeneratingDocuments}"/>
-                <apex:commandButton value="Clear Filters" action="{!clearFilters}" />
-            </apex:pageBlockButtons>
-
-			<!--MEETING INFO SECTION-->
-			<apex:pageBlockSection title="Meeting Data" collapsible="False">
-				<apex:outputField value="{!Meeting_MERC__c.Name}" />
-				<apex:outputField value="{!Meeting_MERC__c.Date_of_Event_MERC__c}" />
-				<apex:outputField value="{!Meeting_MERC__c.Days_Until_Meeting_MERC__c}" />
-				<apex:outputField value="{!Meeting_MERC__c.End_Date_of_Event_MERC__c}" />
-			</apex:pageBlockSection>
-			<!--END OF MEETING INFO-->
-
-			<!-- PROCESS FILTERS -->
-			<apex:actionFunction name="updateList" action="{!updateParticipants}" rerender="thePageBlock, navigation, tableStatus, processFilters, participantFilters" status="tableStatus" oncomplete="hideLoading()" />
-			<apex:pageBlockSection id="processFilters" title="Process Filters" collapsible="False" columns="2">
-				<apex:pageBlockSectionItem helpText="{!$ObjectType.Meeting_Process_MERC__c.fields.Process_Type_MERC__c.InlineHelpText}">
-					{!$ObjectType.Meeting_Process_MERC__c.fields.Process_Type_MERC__c.label}
-					<apex:selectList label="Process Type" value="{!processTypeSelected}" multiselect="false" size="1" onchange="updateList();">
-						<apex:selectOptions value="{!processType}" />
-					</apex:selectList>
-				</apex:pageBlockSectionItem>
-                <apex:selectList label="Next Step" value="{!nextStepSelected}" multiselect="false" size="1" rendered="{!taskStatusRender}" onchange="updateList();">
-                    <apex:selectOptions value="{!nextStep}" />
-                </apex:selectList>
-                <apex:selectList label="Due Date" value="{!dueDateSelected}" multiselect="false" size="1" rendered="{!taskStatusRender}" onchange="updateList();">
-                    <apex:selectOptions value="{!dueDate}" />
-                </apex:selectList>
-				<apex:selectList label="Task Status" value="{!taskStatusSelected}" multiselect="false" size="1" rendered="{!taskStatusRender}" onchange="updateList();">
-					<apex:selectOptions value="{!taskStatus}" />
-				</apex:selectList>
-				<apex:selectList label="Proposal Status" value="{!proposalStatusSelected}" multiselect="false" size="1" rendered="{!proposalStatusRender}" onchange="updateList();">
-					<apex:selectOptions value="{!taskStatus}" />
-				</apex:selectList>
-			</apex:pageBlockSection>
-			<!-- END PARTICIPANT -->
-
-			<!-- PROCESS FILTERS -->
-			<apex:pageBlockSection id="participantFilters" title="Participant Filters" collapsible="False" columns="2">
-				<apex:selectList label="Participant Status" value="{!participantStatusSelected}" multiselect="false" size="1" onchange="updateList();">
-					<apex:selectOptions value="{!participantStatus}" />
-				</apex:selectList>
-				<apex:selectList label="Preferred Language" value="{!preferredLanguageSelected}" multiselect="false" size="1" onchange="updateList();">
-					<apex:selectOptions value="{!preferredLanguage}" />
-				</apex:selectList>
-				<apex:selectList label="Country of Residence" value="{!countryOfResidenceSelected}" multiselect="false" size="1" onchange="updateList();">
-					<apex:selectOptions value="{!countryOfResidence}" />
-				</apex:selectList>
-                <apex:selectList label="Participant Record Type" value="{!recordTypeSelected}" multiselect="false" size="1" onchange="updateList();">
-                    <apex:selectOptions value="{!recordType}" />
-                </apex:selectList>
-				<apex:selectList label="Communication Preference" value="{!communicationPreferenceSelected}" multiselect="false" size="1" onchange="updateList();">
-					<apex:selectOptions value="{!communicationPreference}" />
-				</apex:selectList>
-                <apex:selectList label="Has Email" value="{!hasEmailSelected}" multiselect="false" size="1" onchange="updateList();">
-                    <apex:selectOptions value="{!hasEmail}" />
-                </apex:selectList>
-			</apex:pageBlockSection>
-			<!-- END PARTICIPANT FILTERS -->
-
-			<apex:pageBlockSection title="Recipients" collapsible="False" columns="1">
-				<!-- TASK NAVIGATION-->
-				<apex:outputPanel id="navigation" layout="block" style="text-align:center;">
-					<!-- FIRST & PREVIOUS BUTTONS -->
-					<apex:outputPanel layout="none" rendered="{!meetingParticipants.hasPrevious}">
-						<apex:commandButton value="<< First"
-											action="{!first}"
-											rerender="participantTable, messages, navigation"
-											styleClass="navigation"
-											status="tableStatus"
-											/>
-						<apex:commandButton value="< Previous"
-											action="{!previous}"
-											rerender="participantTable, messages, navigation"
-											styleClass="navigation"
-											status="tableStatus"
-											/>
-					</apex:outputPanel>
-					<apex:outputPanel layout="none" rendered="{!NOT(meetingParticipants.hasPrevious)}">
-						<apex:commandButton value="<< First" disabled="true" styleClass="navigation"/>
-						<apex:commandButton value="< Previous" disabled="true" styleClass="navigation"/>
-					</apex:outputPanel>
-					<!-- END FIRST & PREVIOUS BUTTONS -->
-
-					<!-- PAGE COUNTER -->
-					<span class="navigation">
-						<apex:outputText value="Page {!meetingParticipants.pageNumber} of {!CEILING(meetingParticipants.resultSize / meetingParticipants.pageSize)}"
-										 rendered="{!meetingParticipants.resultSize > 0}"/>
-					</span>
-					<!-- END PAGE COUNTER -->
-
-					<!-- NEXT & LAST BUTTONS -->
-					<apex:outputPanel layout="none" rendered="{!meetingParticipants.hasNext}">
-						<apex:commandButton value="Next >"
-											action="{!next}"
-											rendered="{!meetingParticipants.hasNext}"
-											rerender="participantTable, messages, navigation"
-											styleClass="navigation"
-											status="tableStatus"
-											/>
-						<apex:commandButton value="Last >>"
-											action="{!last}"
-											rendered="{!meetingParticipants.hasNext}"
-											rerender="participantTable, messages, navigation"
-											styleClass="navigation"
-											status="tableStatus"
-											/>
-					</apex:outputPanel>
-					<apex:outputPanel layout="none" rendered="{!NOT(meetingParticipants.hasNext)}">
-						<apex:commandButton value="Next >" disabled="true" styleClass="navigation"/>
-						<apex:commandButton value="Last >>" disabled="true" styleClass="navigation"/>
-					</apex:outputPanel>
-					<!-- NEXT & LAST BUTTONS -->
-				</apex:outputPanel>
-
-				<!-- END TASK NAVIGATION-->
-			</apex:pageBlockSection>
-
-			<apex:outputPanel id="participantTable">
-				<apex:actionStatus id="tableStatus">
-					<apex:facet name="stop">
-						<apex:actionStatus startText="(selecting all...)" id="selectAllStatus"/>
-						<apex:pageBlockTable value="{!participants}" var="participant" id="participantGrid" styleClass="tablesorter" >
-							<apex:column >
-								<apex:facet name="header">
-									<input type="checkbox" value="{!IsAllChecked}" id="selectAll" style="display:{!IF(meetingParticipants.resultSize == 0, 'none', '')}" onclick="updateCheckBoxes(this)"/>
-									<script>
-										document.getElementById('selectAll').addEventListener('change', function() {
-											toggleAll(this);
-										});
-									</script>
-								</apex:facet>
-								<apex:inputCheckbox value="{!participant.IsSelected}" styleClass="selectBox" onclick="updateSelectAllCheckBox(this)" />
-							</apex:column>
-                            <apex:column value="{!participant.Participant.Account_MERC__r.Title_Desc_GLBL__c}">
-                                <apex:facet name="header">
-                                    <apex:commandLink value="{!$ObjectType.Account.Fields.Title_Desc_GLBL__c.Label} {!headerTitleSuffix}" action="{!updateParticipants}" rerender="navigation, participantTable, messages">
-                                        <apex:param name="sortField" value="Account_MERC__r.Title_Desc_GLBL__c" assignTo="{!sortField}"/>
-                                    </apex:commandLink>
-                                </apex:facet>
-                            </apex:column>
-                            <apex:column >
-                                <apex:facet name="header">
-                                    <apex:commandLink value="{!$ObjectType.Account.Fields.FirstName.Label} {!headerFirstNameSuffix}" action="{!updateParticipants}" rerender="navigation, participantTable, messages">
-                                        <apex:param name="sortField" value="Account_MERC__r.FirstName" assignTo="{!sortField}"/>
-                                    </apex:commandLink>
-                                </apex:facet>
-                                <apex:outputLink value="/{!participant.Participant.id}">
-                                    <apex:outputText value="{!participant.Participant.Account_MERC__r.FirstName}"/>
-                                </apex:outputLink>
-                            </apex:column>
-                            <apex:column >
-                                <apex:facet name="header">
-                                    <apex:commandLink value="{!$ObjectType.Account.Fields.LastName.Label} {!headerLastNameSuffix}" action="{!updateParticipants}" rerender="navigation, participantTable, messages">
-                                        <apex:param name="sortField" value="Account_MERC__r.LastName" assignTo="{!sortField}"/>
-                                    </apex:commandLink>
-                                </apex:facet>
-                                <apex:outputLink value="/{!participant.Participant.id}">
-                                    <apex:outputText value="{!participant.Participant.Account_MERC__r.LastName}"/>
-                                </apex:outputLink>
-                            </apex:column>
-                            <apex:column value="{!participant.Participant.Account_MERC__r.Sfx_Nm_GLBL__c}">
-                                <apex:facet name="header">
-                                    <apex:commandLink value="{!$ObjectType.Account.Fields.Sfx_Nm_GLBL__c.Label} {!headerSuffixSuffix}" action="{!updateParticipants}" rerender="navigation, participantTable, messages">
-                                        <apex:param name="sortField" value="Account_MERC__r.Sfx_Nm_GLBL__c" assignTo="{!sortField}"/>
-                                    </apex:commandLink>
-                                </apex:facet>
-                            </apex:column>
-                            <apex:column value="{!participant.Participant.Account_MERC__r.PersonEmail}">
-                                <apex:facet name="header">
-                                    <apex:commandLink value="{!$ObjectType.Account.Fields.PersonEmail.Label} {!headerEmailSuffix}" action="{!updateParticipants}" rerender="navigation, participantTable, messages">
-                                        <apex:param name="sortField" value="Account_MERC__r.PersonEmail" assignTo="{!sortField}"/>
-                                    </apex:commandLink>
-                                </apex:facet>
-                            </apex:column>
-                            <apex:column value="{!participant.Participant.Status_MERC__c}">
-                                <apex:facet name="header">
-                                    <apex:commandLink value="{!$ObjectType.Meeting_Participant_MERC__c.Fields.Status_MERC__c.Label} {!headerStatusSuffix}" action="{!updateParticipants}" rerender="navigation, participantTable, messages">
-                                        <apex:param name="sortField" value="Status_MERC__c" assignTo="{!sortField}"/>
-                                    </apex:commandLink>
-                                </apex:facet>
-                            </apex:column>
-                            <apex:column value="{!participant.Participant.Record_Type_MERC__c}">
-                                <apex:facet name="header">
-                                    <apex:commandLink value="Record Type {!headerRecordTypeSuffix}" action="{!updateParticipants}" rerender="navigation, participantTable, messages">
-                                        <apex:param name="sortField" value="Record_Type_MERC__c" assignTo="{!sortField}"/>
-                                    </apex:commandLink>
-                                </apex:facet>
-                            </apex:column>
-                            <apex:column value="{!participant.Participant.Account_MERC__r.Communication_Preference_MERC__c}">
-                                <apex:facet name="header">
-                                    <apex:commandLink value="{!$ObjectType.Account.Fields.Communication_Preference_MERC__c.Label} {!headerCommPrefSuffix}" action="{!updateParticipants}" rerender="navigation, participantTable, messages">
-                                        <apex:param name="sortField" value="Account_MERC__r.Communication_Preference_MERC__c" assignTo="{!sortField}"/>
-                                    </apex:commandLink>
-                                </apex:facet>
-                            </apex:column>
-                            <apex:column value="{!participant.Participant.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c}">
-                                <apex:facet name="header">
-                                    <apex:commandLink value="{!$ObjectType.Account.Fields.Prfrd_Lang_Cd_GLBL__c.Label} {!headerPrefLangSuffix}" action="{!updateParticipants}" rerender="navigation, participantTable, messages">
-                                        <apex:param name="sortField" value="Account_MERC__r.Prfrd_Lang_Cd_GLBL__c" assignTo="{!sortField}"/>
-                                    </apex:commandLink>
-                                </apex:facet>
-                            </apex:column>
-                            <apex:column value="{!participant.Participant.Account_MERC__r.Country_of_Residence_GLBL__c}">
-                                <apex:facet name="header">
-                                    <apex:commandLink value="{!$ObjectType.Account.Fields.Country_of_Residence_GLBL__c.Label} {!headerCountrySuffix}" action="{!updateParticipants}" rerender="navigation, participantTable, messages">
-                                        <apex:param name="sortField" value="Account_MERC__r.Country_of_Residence_GLBL__c" assignTo="{!sortField}"/>
-                                    </apex:commandLink>
-                                </apex:facet>
-                            </apex:column>
-						</apex:pageBlockTable>
-					</apex:facet>
-					<apex:facet name="start">
-						Updating...
-					</apex:facet>
-				</apex:actionStatus>
-				<script>
-					// The scripts below will be reloaded every time the participantTable is rerendered
-					// add event listener when selectBox is checked to check of uncheck the toggle all checkbox appropriately
-					var checkboxes = document.querySelectorAll('input.selectBox');
-					for (var i=0; i<checkboxes.length; i++) {
-						checkboxes[i].addEventListener('change', function() {
-							toggleCheckboxes();
-						});
-					}
-				</script>
-			</apex:outputPanel>
-			<c:MERC_LoadingMask />
-		</apex:pageBlock>
-
 		<apex:pageBlock id="block" title="Email Options" rendered="{!NOT(ShowParticipantGrid)}">
 			<apex:actionFunction name="getFolderInfo" action="{!expandFolder}" rerender="exactTargetEmails,messages" status="listEmailsStatus">
 				<apex:param name="folderId" value="" />
 			</apex:actionFunction>
-			<apex:actionFunction name="selectEmailJS" action="{!selectEmail}" onComplete="setSyncRequest({!syncPayload});" rerender="block,messages" status="listEmailsStatus">
+			<apex:actionFunction name="selectEmailJS" action="{!selectEmail}" onComplete="setSyncRequest({!syncPayload});" rerender="emailInfo,buttons,messages" status="listEmailsStatus">
 				<apex:param name="emailId" value="" />
 				<apex:param name="emailName" value="" />
 				<apex:param name="emailSubject" value="" />
 			</apex:actionFunction>
 			<apex:pageBlockButtons >
-				<apex:commandButton value="Send" disabled="{! !OptIn || ParticipantCount == 0}" action="{!Send}" onclick="return preventDoubleSend()" id="sendEmail" />
-				<apex:commandButton value="Select Participants" action="{!ShowGrid}" />
+				<apex:outputPanel id="buttons">
+					<apex:commandButton value="Send" disabled="{! !OptIn || ParticipantCount == 0}" action="{!Send}" onclick="return preventDoubleSend()" id="sendEmail" />
+					<apex:commandButton value="Select Participants" action="{!goToSelectParticipants}" />
+	        <apex:commandButton value="Cancel" action="{!cancel}" />
+				</apex:outputPanel>
 			</apex:pageBlockButtons>
-			<apex:pageBlockSection columns="1">
+			<apex:pageBlockSection id="emailInfo" columns="1">
 				<apex:pageBlockSectionItem helpText="{!$Label.et4ae5__emailHelp}">
 					<apex:outputText >
 						<apex:outputLabel value="Email" />
@@ -460,6 +243,33 @@
 						<apex:param value="{!ParticipantCount}"/>
 					</apex:outputText>
 				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionitem id="selectedFrom" helptext="{!$Label.et4ae5__sndClasHlp}">
+                    <apex:outputLabel for="fromBlock" value="{!$Label.et4ae5__from}" />
+                    <apex:outputPanel id="fromBlock" layout="block">
+                        <apex:outputPanel layout="block">
+                            <input type="radio" id="fromSelectorEmail" name="fromSelector" value="{!fromSourceIsEmail}" onclick="swapFromSource();" status="sendButtonStatus" />
+                            <apex:outputLabel for="from" value="{!$Label.et4ae5__emailAddr}" />
+                            <br />
+                            <apex:outputPanel id="fromPicklist">
+                                <apex:selectList id="from" value="{!fromEmailSelected}" size="1">
+                                    <apex:selectOptions value="{!fromEmailOptions}" />
+                                </apex:selectList>
+                                <img style="vertical-align:middle;" height="18px" src="{!URLFOR( $Resource.ExactTargetImages, 'reqEmail.png' )}" />
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                        <apex:outputPanel id="sendClassificationWrapper" layout="block" rendered="true">
+                            <input type="radio" id="fromSelectorSC" name="fromSelector" value="{!!fromSourceIsEmail}" onclick="swapFromSource();" status="sendButtonStatus" />
+                            <apex:outputLabel for="sendClassification" value="{!$Label.et4ae5__sendClass}" />
+                            <br />
+                            <apex:outputPanel id="scPicklist">
+                                <apex:selectList id="sendClassification" value="{!fromClassicationSelected}" size="1">
+                                    <apex:selectOptions value="{!fromClassificationOptions}" />
+                                </apex:selectList>
+                                <img style="vertical-align:middle;" height="18px" src="{!URLFOR( $Resource.ExactTargetImages, 'reqEmail.png' )}" />
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionitem>
 				<apex:pageBlockSectionItem helptext="{!$Label.et4ae5__sndClasHlp}">
 					<apex:outputLabel value="From" />
 					<apex:outputField label="From" value="{!Config.Default_From_Email__c}" />
@@ -479,7 +289,7 @@
 							<apex:selectOption itemLabel="-- Choose One --" itemValue="none" />
 							<apex:selectOption itemLabel="Immediately" itemValue="now" />
 							<apex:selectOption itemLabel="Schedule for Future Send" itemValue="future" />
-							<apex:actionSupport event="onchange" reRender="block" />
+							<apex:actionSupport event="onchange" reRender="emailInfo,buttons" />
 						</apex:selectList>
 						<apex:outputPanel layout="block" rendered="{!SendTime = 'future'}">
 							<apex:inputField value="{!sendDateEvent.ActivityDateTime}" />
@@ -487,21 +297,29 @@
 					</apex:outputPanel>
 				</apex:pageBlockSectionItem>
 				<apex:pageBlockSectionItem helpText="{!$Label.et4ae5__msg0058}">
-					<apex:outputLabel value="I certify all of these people have opted in" />
-					<apex:inputCheckbox value="{!OptIn}" label="I certify all of these people have opted in">
-						<apex:actionSupport event="onclick" reRender="block" />
-					</apex:inputCheckbox>
+						<apex:outputLabel value="I certify all of these people have opted in" />
+						<apex:inputCheckbox value="{!OptIn}" label="I certify all of these people have opted in">
+							<apex:actionSupport event="onclick" reRender="buttons" />
+						</apex:inputCheckbox>
 				</apex:pageBlockSectionItem>
-				<apex:outputPanel rendered="{!not(isblank(base64Thumbnail))}">
-					<img src="data:image/png;base64,{!base64Thumbnail}"/>
-				</apex:outputPanel>
+				<apex:pageBlockSectionItem rendered="{!not(isblank(base64Thumbnail))}">
+          <apex:outputLabel value="Template Preview" />
+          <img src="data:image/png;base64,{!base64Thumbnail}" style="max-width:400px;" />
+        </apex:pageBlockSectionItem>
 			</apex:pageBlockSection>
-		</apex:pageBlock>
 
-        <apex:outputPanel rendered="{!NOT(isGeneratingDocuments)}">
-            <apex:outputLabel value="Additional Information" />
+      <apex:pageBlockSection id="emailCustomization" title="Email Customization" columns="1">
+          <apex:pageMessage summary="If you would like to include additional information that will be appended to the ExactTarget email template, include it below." severity="info" strength="2"/>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Additional Information (HTML)" />
             <apex:inputTextarea richText="true" label="Additional Information" value="{!additionalInformationHTML}" />
-        </apex:outputPanel>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Additional Information (Plain Text)" />
+            <apex:inputTextarea cols="150" rows="15" richText="false" label="Additional Information" value="{!additionalInformationText}" />
+          </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+		</apex:pageBlock>
 	</apex:form>
 
 	<apex:stylesheet value="https://{!urlRoot}.exacttarget.com/FuelUX/css/fuel-all.css" />
@@ -652,55 +470,4 @@
 			font-style: italic;
 		}
 	</style>
-
-	<script>
-		// update all checkboxes when the toggleAll checkbox is checked or unchecked. Set checkboxes to value of toggleAll checkbox
-		var toggleAll = function(triggerEl) {
-			var elements = document.querySelectorAll('.selectBox');
-			for(var i=0; i<elements.length; i++) {
-				elements[i].checked = triggerEl.checked;
-			}
-			document.getElementById('toggleValues').style.display = triggerEl.checked ? '' : 'none';
-		}
-
-		// when a checkbox is selected, if all other checkboxes on the page are selected then set the toggleAll checkbox to checked
-		// set it to unchecked otherwise
-		var toggleCheckboxes = function() {
-			var count = document.querySelectorAll('input.selectBox:checked').length;
-			count > 0 ? hideToggleValues(false) : hideToggleValues(true);
-			document.getElementById('selectAll').checked = (count == document.querySelectorAll('input.selectBox').length);
-		}
-
-		// show or hide the toggle values dropdown and button
-		var hideToggleValues = function(hide) {
-			document.getElementById('toggleValues').style.display = hide ? 'none' : '';
-		}
-
-		function selectListener() {
-			$j('.participants select').off('change');
-			$j('.participants select').on('change', function() {
-				showLoading();
-			});
-		}
-
-		//invoke on page load
-		selectListener();
-
-		function showLoading() {
-			try {
-				$j("div.merc-loading").show()
-			} catch(e) {
-				$("div.merc-loading").show()
-			}
-		}
-
-		function hideLoading() {
-			selectListener();
-			try {
-				$j("div.merc-loading").hide()
-			} catch(e) {
-				$("div.merc-loading").hide()
-			}
-		}
-	</script>
 </apex:page>
