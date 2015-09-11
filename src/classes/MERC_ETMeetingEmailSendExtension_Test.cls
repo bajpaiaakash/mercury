@@ -1,7 +1,6 @@
 @isTest
 private class MERC_ETMeetingEmailSendExtension_Test {
 
-
     static {
         Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
         insert config;
@@ -13,36 +12,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         etConfig.et4ae5__root_rest_api_url__c = 'www.testresturl.com';
         etConfig.et4ae5__url_root__c = 'urlroot';
         insert etConfig;
-    }
-
-    private static void withClassifications(MERC_ETMockHttpResponseGenerator mockResponseGenerator){
-        MERC_ETObject.SendClassificationResponse sendClassificationResponse = new MERC_ETObject.SendClassificationResponse();
-        MERC_ETObject.SendClassification sendClassification = new MERC_ETObject.SendClassification();
-        sendClassification.key = 'Mercury Transactional';
-        sendClassification.honorListLevelOptOut = false;
-        sendClassification.senderProfileId = 'sender 1';
-        sendClassification.deliveryProfileId = 'delivery 1';
-        sendClassification.classificationType = null;
-
-        List<MERC_ETObject.SendClassification> sendClassifications = new List<MERC_ETObject.SendClassification>();
-        sendClassifications.add(sendClassification);
-        sendClassificationResponse.entry = sendClassifications;
-        mockResponseGenerator.whereEndpointContains('messaging/sendclassification',
-            JSON.serialize(sendClassificationResponse));
-
-        MERC_ETObject.SenderProfileResponse senderProfileResponse = new MERC_ETObject.SenderProfileResponse();
-        MERC_ETObject.SenderProfile senderProfile = new MERC_ETObject.SenderProfile();
-        senderProfile.id = 'sender 1';
-        senderProfile.key = 'sender 1';
-        senderProfile.profileName = 'sender 1';
-        senderProfile.fromEmail = 'sender1@email.com';
-        senderProfile.fromName = 'sender 1';
-        
-        List<MERC_ETObject.SenderProfile> senderProfiles = new List<MERC_ETObject.SenderProfile>();
-        senderProfiles.add(senderProfile);
-        senderProfileResponse.entry = senderProfiles;
-        mockResponseGenerator.whereEndpointContains('messaging/senderprofile',
-            JSON.serialize(senderProfileResponse));
     }
 
     @isTest
@@ -163,7 +132,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
-        etBU.et4ae5__Business_Unit_ID__c = 'test business unit id';
         etBU.et4ae5__Enabled__c = true;
         insert etBU;
 
@@ -193,27 +161,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             System.debug('exception : ' + e);
         }
 
-    }
-
-    @isTest static void Folders_Compare_On_Name(){
-        MERC_ETFolderedEmail email = new MERC_ETFolderedEmail();
-        email.Id = 'test';
-        email.name = 'test email name';
-        email.Title = 'test subject';
-        
-
-        MERC_ETFolderedEmail sameEmail = new MERC_ETFolderedEmail();
-        email.Id = 'test1';
-        email.name = 'test email name';
-        email.Title = 'test subject1';
-        
-        MERC_ETFolderedEmail differentEmail = new MERC_ETFolderedEmail();
-        email.Id = 'test2';
-        email.name = 'test email name2';
-        email.Title = 'test subject2';
-
-        System.assertEquals(1, email.compareTo(sameEmail));
-        System.assertEquals(0, email.compareTo(differentEmail));
     }
 
     @isTest
@@ -310,7 +257,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
-        etBU.et4ae5__Business_Unit_ID__c = 'test business unit id';
         insert etBU;
 
         User u = MERC_ETTestUtils.CreateUser('Standard User');
@@ -380,7 +326,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
-        etBU.et4ae5__Business_Unit_ID__c = 'test business unit id';
         insert etBU;
 
         User u = MERC_ETTestUtils.CreateUser('System Administrator');
@@ -454,7 +399,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
-        etBU.et4ae5__Business_Unit_ID__c = 'test business unit id';
         insert etBU;
 
         User u = MERC_ETTestUtils.CreateUser('Standard User');
