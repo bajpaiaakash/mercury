@@ -6,6 +6,7 @@
         <members>MERC_ETCallControl</members>
         <members>MERC_ETDataExtensionProcessor</members>
         <members>MERC_ETDataExtensionProcessor_Test</members>
+        <members>MERC_ETFolderedEmail</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_ETMeetingEmailSendExtension_Test</members>
         <members>MERC_ETObject</members>
