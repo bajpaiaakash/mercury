@@ -233,6 +233,7 @@
         <name>CustomLabel</name>
     </types>
     <types>
+        <members>Meeting_Email_Send_MERC__c</members>
         <members>Meeting_Participant_Email_Send_MERC__c</members>
         <members>Registration_Question_MERC__c</members>
         <members>Response_MERC__c</members>
