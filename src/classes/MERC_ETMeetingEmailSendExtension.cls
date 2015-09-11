@@ -483,7 +483,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         if (!Test.isRunningTest()) {
             stdController.addFields(new List<String>{ 'Date_of_Event_MERC__c', 'Days_Until_Meeting_MERC__c', 'End_Date_of_Event_MERC__c', 'Name' });
         }
-        this.meeting = (Meeting_MERC__c)stdController.getRecord();
+        this.meeting = [SELECT OwnerId, 
+                               Id 
+                          FROM Meeting_MERC__c 
+                         WHERE Id = :stdController.getRecord().Id][0];
         if (meeting == null || meeting.Id == null) {
             AddFatalMessage('You must specify a meeting id.');
         }
@@ -503,7 +506,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         fromSourceIsEmail = true;
         initializeClassifications();
-
+        initializeEmails();
 
         //build map used in the query builder
         map<String,String> tempFilterFieldMap = new map<String,String>();
@@ -559,6 +562,41 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 sendClassification.senderProfileId,
                 ((MERC_ETObject.ETEntry)sendClassification).name));
         }
+    }
+
+    private void initializeEmails(){
+        fromEmailOptions = new List<SelectOption>();
+
+        String userName = UserInfo.getUserName();
+        User activeUser = [Select Email From User where Username = :userName limit 1];
+        String userEmail = activeUser.Email;
+        String userFullName = UserInfo.getFirstName() + ' ' + UserInfo.getLastName();
+        fromEmailOptions.add(new SelectOption(getEmailValue(userEmail, userFullName),
+            getEmailKey(userEmail, userFullName)));
+
+        List<OrgWideEmailAddress> orgWideEmails = [SELECT Address, DisplayName, Id FROM OrgWideEmailAddress];
+        if(orgWideEmails != null){
+            for(OrgWideEmailAddress orgWideEmail : orgWideEmails){
+                fromEmailOptions.add(new SelectOption(getEmailValue(orgWideEmail.Address, orgWideEmail.DisplayName),
+                    getEmailKey(orgWideEmail.Address, orgWideEmail.DisplayName)));
+            }
+        }
+
+        User ownerUser = [SELECT Email, FirstName, LastName FROM User WHERE Id = :this.meeting.OwnerId][0];
+        if(ownerUser != null){
+            String ownerFullName = ownerUser.FirstName + ' ' + ownerUser.LastName;
+            fromEmailOptions.add(new SelectOption(getEmailValue(ownerUser.Email, ownerFullName),
+                getEmailKey(ownerUser.Email, ownerFullName)));
+        }
+    
+    }
+
+    private String getEmailValue(String emailAddress, String fullName){
+        return emailAddress + ',' + fullName;
+    }
+
+    private String getEmailKey(String emailAddress, String fullName){
+        return fullName + ' <' + emailAddress + '>';
     }
 
     private MERC_ETObject.SenderProfile senderProfileById(String senderProfileId){
@@ -850,6 +888,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         }
 
         String fromEmail = Config.Default_From_Email__c;
+        String fromName = Config.Default_From_Name__c;
         if(!fromSourceIsEmail){
             if(String.isBlank(fromClassicationSelected)){
                 AddErrorMessage('A Classification must be selected.');
@@ -859,7 +898,16 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                     AddErrorMessage('A Sender Profile was not found for the selected Classification.');
                 } else {
                     fromEmail = senderProfile.fromEmail;
+                    fromName = senderProfile.fromName;
                 }
+            }
+        } else {
+            if(String.isBlank(fromEmailSelected)){
+                AddErrorMessage('A From Email must be selected.');
+            } else {
+                String[] emailDetails = fromEmailSelected.split(',');
+                fromEmail = emailDetails[0];
+                fromName = emailDetails[1];
             }
         }
 
@@ -868,7 +916,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         }
 
         MERC_ETSendEmailWrapper wrapper = new MERC_ETSendEmailWrapper(
-                                                        Email, parts, Config.Default_From_Email__c,
+                                                        Email, parts, fromEmail, fromName,
                                                         DeDup, DisableIndividualTracking, SendTime,
                                                         sendDateEvent.ActivityDateTime,
                                                         additionalInformationHTML, additionalInformationText);
