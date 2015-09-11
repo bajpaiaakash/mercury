@@ -2,7 +2,7 @@ public class MERC_ETSendEmailWrapper {
     public MERC_ETSendEmailWrapper(
         MERC_ETFolderedEmail email, 
         List<Meeting_Participant_MERC__c> participants, 
-        String fromAddress, boolean deDup, 
+        String fromAddress, String fromName, boolean deDup, 
         boolean disableIndividualTracking, 
         String sendTime, 
         Datetime futureSendTime, 
@@ -12,6 +12,7 @@ public class MERC_ETSendEmailWrapper {
         this.Email = email;
         this.Participants = participants;
         this.FromAddress = fromAddress;
+        this.FromName = fromName;
         this.DeDupSubscribers = deDup;
         this.DisableIndividualTracking = disableIndividualTracking;
         this.SendTime = sendTime;
@@ -23,6 +24,7 @@ public class MERC_ETSendEmailWrapper {
     public MERC_ETFolderedEmail Email { get; set; }
     public List<Meeting_Participant_MERC__c> Participants { get; set; }
     public String FromAddress { get; set; }
+    public String FromName { get; set; }
     public boolean DeDupSubscribers { get; set; }
     public boolean DisableIndividualTracking { get; set; }
     public String SendTime { get; set; }

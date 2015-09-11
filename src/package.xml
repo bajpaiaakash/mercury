@@ -404,6 +404,12 @@
         <members>Meetings_with_Registration_Questions_with_Responses</members>
         <name>ReportType</name>
     </types>
+	<types>
+		<members>Preferences_and_Consent_GLBL__c.MERC_Prevent_Update_of_Consent_Records</members>
+        <members>Meeting_Participant_MERC__c.MERC_Existing_Contract_Info_must_filled</members>
+        <members>Travel_Itinerary_MERC__c.Travel_Date_Range</members>
+        <name>ValidationRule</name>
+    </types>
     <types>
         <members>Meeting_MERC__c.Mass_Generate_Content_MERC</members>
         <members>Meeting_Participant_MERC__c.Generate_Documents_MERC</members>
@@ -431,10 +437,6 @@
         <members>Meeting_Tasks_MERC__c.MERC_Set External Id - Meeting Tasks</members>
         <name>WorkflowRule</name>
     </types>
-	<types>
-        <members>Meeting_Participant_MERC__c.MERC_Existing_Contract_Info_must_filled</members>
-        <members>Travel_Itinerary_MERC__c.Travel_Date_Range</members>
-        <name>ValidationRule</name>
-    </types>
+	
     <version>34.0</version>
 </Package>

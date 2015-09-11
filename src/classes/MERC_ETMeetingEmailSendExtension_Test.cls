@@ -1,13 +1,23 @@
 @isTest
 private class MERC_ETMeetingEmailSendExtension_Test {
 
+    static {
+        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
+        insert config;
+
+        et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
+        etConfig.et4ae5__username__c = 'testusername';
+        etConfig.et4ae5__password__c = 'testpassword';
+        etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com';
+        etConfig.et4ae5__root_rest_api_url__c = 'www.testresturl.com';
+        etConfig.et4ae5__url_root__c = 'urlroot';
+        insert etConfig;
+    }
+
     @isTest
     public static void Test_Constructor() {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
-
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
 
         ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
 
@@ -21,8 +31,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void Test_Constructor_NoMeeting() {
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
 
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
 
@@ -37,12 +45,9 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void Test_SelectAllClicked() {
+
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
-
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
-
 
         List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 49); //can't test 50+ because of pagination
         insert accts;
@@ -69,9 +74,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
-
         List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 49); //can't test 50+ because of pagination
         insert accts;
 
@@ -95,24 +97,16 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
-        et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
-        insert etConfig;
-
         ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
 
         Test.startTest();
         MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
         simulateFilteringAndSorting(ext);
-        System.assertEquals('mc', ext.urlroot); // for whatever reason, that is the default value
-        etConfig = [SELECT Id, et4ae5__url_root__c FROM et4ae5__configuration__c WHERE Id = :etConfig.Id];
-        etConfig.et4ae5__url_root__c = 'urlroot';
-        update etConfig;
+        System.assertEquals('urlroot', ext.urlroot); // for whatever reason, that is the default value
         ext = new MERC_ETMeetingEmailSendExtension(controller);
         System.assert(ext.urlroot.containsIgnoreCase('urlroot'));
         Test.stopTest();
     }
-
-    /*
 
     @isTest
     public static void Test_Send() {
@@ -135,15 +129,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         insert participants;
         createChildren(participants);
 
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
-
-        et4ae5__Configuration__c etConfig = MERC_ETTestUtils.CreateETConfig();
-        etConfig.et4ae5__UserName__c = 'testusername';
-        etConfig.et4ae5__Password__c = 'testuserpassword';
-        etConfig.et4ae5__Auth_API_URL__c = 'www.testauthurl.com/Auth.svc';
-        etConfig.et4ae5__Root_Rest_API_URL__c = 'www.testrootrest.com';
-        insert etConfig;
+        Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
         etBU.et4ae5__Enabled__c = true;
@@ -151,7 +137,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
         ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
         MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
-        simulateFilteringAndSorting(ext);
         ext.DeDup = true;
         ext.OptIn = true;
         ext.DisableIndividualTracking = true;
@@ -176,7 +161,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             System.debug('exception : ' + e);
         }
 
-    } */
+    } 
 
     @isTest
     public static void Test_Send_NoRecipients() {
@@ -221,10 +206,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
-
-
         List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 49); //can't do 50+ because of pagination
         insert accts;
         accts = [SELECT Id, Name FROM Account WHERE Id IN :accts];
@@ -258,9 +239,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
-        et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
-        insert etConfig;
-
         ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
 
         Test.startTest();
@@ -276,14 +254,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
-
-        et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
-        etConfig.et4ae5__username__c = 'testusername';
-        etConfig.et4ae5__password__c = 'testpassword';
-        etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com';
-        insert etConfig;
+        Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
         insert etBU;
@@ -335,9 +306,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
-        et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
-        insert etConfig;
-
         ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
 
         Test.startTest();
@@ -355,15 +323,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
-
-        et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
-        etConfig.et4ae5__username__c = 'testusername';
-        etConfig.et4ae5__password__c = 'testpassword';
-        etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com';
-        etConfig.et4ae5__root_rest_api_url__c = 'www.testresturl.com';
-        insert etConfig;
+        Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
         insert etBU;
@@ -436,16 +396,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
-
-        et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
-        etConfig.et4ae5__username__c = 'testusername';
-        etConfig.et4ae5__password__c = 'testpassword';
-        etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com';
-        etConfig.et4ae5__url_root__c = 'foo';
-        etConfig.et4ae5__Root_Rest_API_URL__c = 'bar';
-        insert etConfig;
+        Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
         insert etBU;
@@ -512,10 +463,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
-
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
-
 
         List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 150, false);
         insert accts;
@@ -732,5 +679,9 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             tasks.add(task);
         }
         insert tasks;
+    }
+
+    public static Sonoma_ET_Config__c getConfig () {
+        return [SELECT Default_From_Email__c, ET_BU_Name__c, Send_Configuration_Key__c FROM Sonoma_ET_Config__c LIMIT 1];
     }
 }

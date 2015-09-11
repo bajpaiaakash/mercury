@@ -716,4 +716,14 @@ Efctv_End_Dt_Cap_GLBL__c &gt;= Today())</formula>
             </values>
         </picklistValues>
     </recordTypes>
+	<validationRules>
+        <fullName>MERC_Prevent_Update_of_Consent_Records</fullName>
+        <active>true</active>
+        <description>Prevents users from editing Consent records except for those of type Transparency Consent : MERC : Created on 04/08/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>RecordType.Name = &quot;Consent&quot; &amp;&amp; 
+TEXT(Cmnctn_Chnl_Cd_CMS_MERC__c)  &lt;&gt; &quot;D022&quot; &amp;&amp;
+($Profile.Name &lt;&gt; &quot;System Administrator&quot;
+&amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot; &amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Portal API - Platform&quot; &amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Metadata API&quot; &amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Integration CST - Platform&quot;)</errorConditionFormula>
+        <errorMessage>You may not edit Consent records unless they are of type Transparency Consent</errorMessage>
+    </validationRules>
 </CustomObject>

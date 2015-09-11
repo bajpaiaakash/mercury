@@ -1,6 +1,5 @@
 /**
  * @author Joseph Ferraro
- *
  * Stress tests (for larger meetings) daily attendance/tov controller functionality found in MERC_DailyAttendanceController
  */
 
@@ -29,19 +28,17 @@ private class MERC_DailyAttendanceControllerStressTest {
 		MERC_TriggerHandlerStateManager.deactivate(MERC_MeetingCancellationHandler.class);
 		MERC_TriggerHandlerStateManager.deactivate(MERC_PrimaryMeetingOwnerHandler.class);
 		MERC_TriggerHandlerStateManager.deactivate(MERC_AnonymiseNonHCPDataHandler.class);
-		//MERC_TriggerHandlerStateManager.deactivateAll();
+		MERC_TriggerHandlerStateManager.deactivateAll();
 
-
-		// System.runAs(testUser) {
+		System.runAs(testUser) {
 			accounts = MERC_TestFactory.insertAccounts(100); //insert 100 accounts
-			//accounts = [SELECT ID, FirstName, LastName, RecordTypeId, PersonEmail FROM Account WHERE RecordTypeId = :MERC_TestFactory.hcpRecordTypeId limit 100];
 			meetings = MERC_TestFactory.insertMeetings(1); //insert 1 meetings
 			meeting = meetings.get(0);
 			meetingDays = MERC_TestFactory.insertMeetingDays(meeting.Id, 3); //insert 3 days
 			hotels = MERC_TestFactory.insertHotelsForMeeting(2, meeting.Id);
 			participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts,'Accepted');
 			hotelItineraries = MERC_TestFactory.insertHotelItineraries(participants, meetingDays.get(0).Date_MERC__c, meetingDays.get(2).Date_MERC__c);
-		//}
+		}
 	}
 
 	static void selectDay(Integer dayNumber) {
@@ -70,7 +67,7 @@ private class MERC_DailyAttendanceControllerStressTest {
 
 		controller = new MERC_DailyAttendanceController(setController); //not sure why we need to do this, if we don't we get 0 participants in our controller
 
-		//System.runAs(testUser) {
+		System.runAs(testUser) {
 			selectDay(1);
 
 			System.assertEquals(meeting.Id, controller.meeting.Id,'meeting id doesn\'t match the controller record id');
@@ -85,8 +82,8 @@ private class MERC_DailyAttendanceControllerStressTest {
 			controller.setSelectedToNoShow();
 			System.assertEquals(4, [SELECT count() FROM Daily_Attendance_TOV_MERC__c WHERE Status_MERC__c = 'No Show' AND Meeting_Participant_MERC__c in :participants]);
 
-		//}
-		// System.assertEquals(44, [SELECT Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id].Total_Hotel_Tov_MERC__c);
+		}
+
 		Test.stopTest();
 	}
 }
