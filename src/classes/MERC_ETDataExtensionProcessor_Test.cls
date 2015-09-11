@@ -54,7 +54,7 @@ private class MERC_ETDataExtensionProcessor_Test {
 
         Test.startTest();
             Test.setMock(HttpCalloutMock.class, new MERC_ETDataExtensionCallout_Mock());
-            
+
             MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
             MERC_ETDataExtension.DataExtensionResponse deRes = processor.createDataExtensionWithNameKeyFieldsAndSoapAuth(deName, deKey, fields, authToken, deExpiresIn);
         Test.stopTest();
@@ -92,7 +92,7 @@ private class MERC_ETDataExtensionProcessor_Test {
 
         Test.startTest();
             Test.setMock(HttpCalloutMock.class, new MERC_ETDataExtensionPopulateCallout_Mock());
-            
+
             MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
             HttpResponse res = processor.populateDataExtensionForKeyWithValuesAndFuelAuth(deKey, entries, authToken);
         Test.stopTest();
@@ -131,7 +131,7 @@ private class MERC_ETDataExtensionProcessor_Test {
         List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meetings[0], personAccounts);
         insert participants;
 
-        MERC_ETSendEmailWrapper sew = new MERC_ETSendEmailWrapper(fe, participants, 'fromAddress@test.com', true, true, 'now', null, 'test', 'test');
+        MERC_ETSendEmailWrapper sew = new MERC_ETSendEmailWrapper(fe, participants, 'fromAddress@test.com', 'From Name', true, true, 'now', null, 'test', 'test');
 
         et4ae5__Configuration__c etConfig = MERC_ETTestUtils.CreateETConfig();
         etConfig.et4ae5__UserName__c = 'testusername';
