@@ -12,6 +12,7 @@
         <members>MERC_DailyAttendanceController</members>
         <members>MERC_DailyAttendanceControllerStressTest</members>
         <members>MERC_DailyAttendanceControllerTest</members>
+        <members>MERC_ETCallControl</members>
         <members>MERC_ETDataExtensionProcessor</members>
         <members>MERC_ETDataExtensionProcessor_Test</members>
         <members>MERC_ETFolderedEmail</members>
