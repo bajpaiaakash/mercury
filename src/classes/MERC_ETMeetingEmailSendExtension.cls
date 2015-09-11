@@ -483,7 +483,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         if (!Test.isRunningTest()) {
             stdController.addFields(new List<String>{ 'Date_of_Event_MERC__c', 'Days_Until_Meeting_MERC__c', 'End_Date_of_Event_MERC__c', 'Name' });
         }
-        this.meeting = (Meeting_MERC__c)stdController.getRecord();
+        this.meeting = [SELECT OwnerId, 
+                               Id 
+                          FROM Meeting_MERC__c 
+                         WHERE Id = :stdController.getRecord().Id][0];
         if (meeting == null || meeting.Id == null) {
             AddFatalMessage('You must specify a meeting id.');
         }
@@ -568,8 +571,32 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         User activeUser = [Select Email From User where Username = :userName limit 1];
         String userEmail = activeUser.Email;
         String userFullName = UserInfo.getFirstName() + ' ' + UserInfo.getLastName();
-        fromEmailOptions.add(new SelectOption(userEmail + ',' + userFullName,
-            userEmail));
+        fromEmailOptions.add(new SelectOption(getEmailValue(userEmail, userFullName),
+            getEmailKey(userEmail, userFullName)));
+
+        List<OrgWideEmailAddress> orgWideEmails = [SELECT Address, DisplayName, Id FROM OrgWideEmailAddress];
+        if(orgWideEmails != null){
+            for(OrgWideEmailAddress orgWideEmail : orgWideEmails){
+                fromEmailOptions.add(new SelectOption(getEmailValue(orgWideEmail.Address, orgWideEmail.DisplayName),
+                    getEmailKey(orgWideEmail.Address, orgWideEmail.DisplayName)));
+            }
+        }
+
+        User ownerUser = [SELECT Email, FirstName, LastName FROM User WHERE Id = :this.meeting.OwnerId][0];
+        if(ownerUser != null){
+            String ownerFullName = ownerUser.FirstName + ' ' + ownerUser.LastName;
+            fromEmailOptions.add(new SelectOption(getEmailValue(ownerUser.Email, ownerFullName),
+                getEmailKey(ownerUser.Email, ownerFullName)));
+        }
+    
+    }
+
+    private String getEmailValue(String emailAddress, String fullName){
+        return emailAddress + ',' + fullName;
+    }
+
+    private String getEmailKey(String emailAddress, String fullName){
+        return fullName + ' <' + emailAddress + '>';
     }
 
     private MERC_ETObject.SenderProfile senderProfileById(String senderProfileId){
@@ -873,6 +900,14 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                     fromEmail = senderProfile.fromEmail;
                     fromName = senderProfile.fromName;
                 }
+            }
+        } else {
+            if(String.isBlank(fromEmailSelected)){
+                AddErrorMessage('A From Email must be selected.');
+            } else {
+                String[] emailDetails = fromEmailSelected.split(',');
+                fromEmail = emailDetails[0];
+                fromName = emailDetails[1];
             }
         }
 

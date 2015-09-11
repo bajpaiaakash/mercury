@@ -270,10 +270,6 @@
                         </apex:outputPanel>
                     </apex:outputPanel>
                 </apex:pageBlockSectionitem>
-				<apex:pageBlockSectionItem helptext="{!$Label.et4ae5__sndClasHlp}">
-					<apex:outputLabel value="From" />
-					<apex:outputField label="From" value="{!Config.Default_From_Email__c}" />
-				</apex:pageBlockSectionItem>
 				<apex:pageBlockSectionItem helpText="{!$Label.et4ae5__msg0006}">
 					<apex:outputLabel value="Dedupe Subscribers" />
 					<apex:inputCheckbox label="Dedupe Subscribers" value="{!DeDup}" />
