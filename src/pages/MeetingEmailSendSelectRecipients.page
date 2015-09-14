@@ -165,7 +165,7 @@
   </style>
 
   <apex:pageMessages id="messages" />
-  <apex:sectionHeader title="{!Meeting_MERC__c.Name}" subtitle="Select Email Recipients"/>
+  <apex:sectionHeader title="{!Meeting_MERC__c.Name}" subtitle="Select Recipients"/>
 
   <apex:form rendered="{!NOT(HasErrors)}" styleClass="participants">
 

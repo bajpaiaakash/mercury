@@ -102,6 +102,9 @@ public with sharing class MERC_ETCallControl {
                               WHERE id = :UserInfo.getUserId() 
                               LIMIT 1].et4ae5__exacttarget_oauth_token__c;
         String oAuthToken = '';
+        System.debug('oAuthScope: ' + oAuthScope);
+        System.debug('memberId: ' + memberid);
+        System.debug('etConfiguration:\n' + etConfiguration);
         if(String.isBlank(memberId)){
             oAuthToken = oAuthScopedNoMid(etConfiguration.et4ae5__username__c,
                                           etConfiguration.et4ae5__password__c,
@@ -163,6 +166,7 @@ public with sharing class MERC_ETCallControl {
         catch(System.CalloutException e)
         {
             resText=string.valueof(e);
+            System.debug('oAuth Exception:\n' + e);
         }
         try
         {
@@ -171,6 +175,8 @@ public with sharing class MERC_ETCallControl {
         }
         catch(exception e)
         {
+            System.debug('Could not split bodyRes:\n' + bodyRes);
+            System.debug('Request body was:\n' + xml);
             return '';
         }
     }

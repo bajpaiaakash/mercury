@@ -5,6 +5,7 @@
         <members>MERC_AccountPreferenceRollupManager</members>
         <members>MERC_AccountPreferenceRollupManagerTest</members>
         <members>MERC_AccountRollups</members>
+        <members>MERC_AccountRollupsTest</members>
         <members>MERC_AccountToAccountRollups</members>
         <members>MERC_AccountToAccountRollupsTest</members>
         <members>MERC_AnonymiseNonHCPDataHandlerTest</members>
@@ -59,6 +60,10 @@
     <types>
         <members>Case.Default_GLBL</members>
         <name>BusinessProcess</name>
+    </types>
+    <types>
+        <members>Mercury</members>
+        <name>CustomApplication</name>
     </types>
     <types>
         <members>Account.Account_Auto_Number_GLBL__c</members>
@@ -192,6 +197,7 @@
         <members>Web_Service_Error_GLBL__c.Name_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Object_GLBL__c</members>
         <members>Web_Service_Error_GLBL__c.Primary_Record_GLBL__c</members>
+        <members>Web_Service_Logic_MERC__c.InfoPack_Dietary_MERC__c</members>
         <members>Web_Service_Logic_MERC__c.InfoPack_Institutional_Notification_MERC__c</members>
         <members>Web_Service_Logic_MERC__c.InfoPack_Payee_Information_MERC__c</members>
         <members>Web_Service_Logic_MERC__c.InfoPack_Qualifications_Experience_MERC__c</members>
@@ -238,6 +244,11 @@
         <members>Registration_Question_MERC__c</members>
         <members>Response_MERC__c</members>
         <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Logo_s_Images</members>
+        <members>Logo_s_Images/Mercury_Logo.png</members>
+        <name>Document</name>
     </types>
     <types>
         <members>Meeting_MERC__c-MERC_Active</members>
