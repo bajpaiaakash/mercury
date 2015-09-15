@@ -267,6 +267,7 @@
         <members>PersonAccount-GLBL_HCP Account</members>
         <members>PersonAccount-MERC_Designated Individual</members>
         <members>Registration_Question_MERC__c-MERC_Question_Layout</members>
+        <members>Web_Service_Logic_MERC__c-MERC_HCP_Info_Pack</members>
         <name>Layout</name>
     </types>
     <types>

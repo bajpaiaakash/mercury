@@ -490,6 +490,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Send_Classification_Id_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Email_Send_MERC__c.ET_Send_Definition_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
