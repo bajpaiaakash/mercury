@@ -1159,6 +1159,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Service_Provider_MERC__c</field>
+            <table>Meeting_MERC__c.Registration_Questions__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Meeting_MERC__c</field>
             <table>Meeting_MERC__c.Registration_Questions__r</table>
         </columns>

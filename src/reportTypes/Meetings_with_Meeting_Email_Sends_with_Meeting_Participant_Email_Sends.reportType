@@ -1337,6 +1337,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>ET_Email_Name_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Email_Sends__r.Meeting_Participant_Email_Sends__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>LastModifiedDate</field>
             <table>Meeting_MERC__c.Meeting_Email_Sends__r.Meeting_Participant_Email_Sends__r</table>
         </columns>

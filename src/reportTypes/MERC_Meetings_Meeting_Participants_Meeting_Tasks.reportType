@@ -1113,6 +1113,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Accountable_Business_Contact_Name_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Accountable_Business_Contact_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>

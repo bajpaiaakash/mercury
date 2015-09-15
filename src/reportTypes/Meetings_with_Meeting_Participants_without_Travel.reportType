@@ -1144,6 +1144,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Accountable_Business_Contact_Name_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Accountable_Business_Contact_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>
@@ -2547,6 +2552,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Record_Type_Name_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Travel_Itineraries_MERC__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Reservation_Type_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r.Travel_Itineraries_MERC__r</table>
         </columns>
@@ -2682,6 +2692,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Travel_Proposal_Status_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Travel_Itineraries_MERC__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Traveler_Ref_Id_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r.Travel_Itineraries_MERC__r</table>
         </columns>
@@ -2733,6 +2748,31 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Vendor_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Travel_Itineraries_MERC__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vendor_Address_City_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Travel_Itineraries_MERC__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vendor_Address_Country_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Travel_Itineraries_MERC__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vendor_Address_Line_1_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Travel_Itineraries_MERC__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vendor_Address_Line_2_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r.Travel_Itineraries_MERC__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Vendor_Address_Postal_Code_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r.Travel_Itineraries_MERC__r</table>
         </columns>
         <columns>
