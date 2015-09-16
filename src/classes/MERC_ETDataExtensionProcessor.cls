@@ -182,6 +182,8 @@ public with sharing class MERC_ETDataExtensionProcessor {
         meetingEmailSend.ET_From_Email_MERC__c = wrapper.FromAddress;
         meetingEmailSend.ET_From_Address_MERC__c = wrapper.FromAddress;
         meetingEmailSend.ET_Recipients_Opted_In_MERC__c = true;
+        meetingEmailSend.ET_Sender_Profile_Id_MERC__c = wrapper.FromSenderProfileId;
+        meetingEmailSend.ET_Send_Classification_Id_MERC__c = wrapper.FromClassificationId;
         meetingEmailSend.ET_Dedupe_Subscribers_MERC__c = wrapper.DeDupSubscribers;
         meetingEmailSend.ET_Individual_Tracking_Disabled_MERC__c = wrapper.DisableIndividualTracking;
         meetingEmailSend.ET_Email_ID_MERC__c = wrapper.Email.id;
