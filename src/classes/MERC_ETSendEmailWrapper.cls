@@ -2,7 +2,8 @@ public class MERC_ETSendEmailWrapper {
     public MERC_ETSendEmailWrapper(
         MERC_ETFolderedEmail email, 
         List<Meeting_Participant_MERC__c> participants, 
-        String fromAddress, String fromName, boolean deDup, 
+        String fromAddress, String fromName,
+        boolean deDup, 
         boolean disableIndividualTracking, 
         String sendTime, 
         Datetime futureSendTime, 
@@ -25,6 +26,8 @@ public class MERC_ETSendEmailWrapper {
     public List<Meeting_Participant_MERC__c> Participants { get; set; }
     public String FromAddress { get; set; }
     public String FromName { get; set; }
+    public String FromClassificationId { get; set;}
+    public String FromSenderProfileId { get; set; }
     public boolean DeDupSubscribers { get; set; }
     public boolean DisableIndividualTracking { get; set; }
     public String SendTime { get; set; }

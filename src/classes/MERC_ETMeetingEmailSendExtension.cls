@@ -20,7 +20,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     public String additionalInformationText { get; set; }
     public String base64Thumbnail { get; private set; }
 
-    public Boolean fromSourceIsEmail { get; set; }
+    public String fromSendOption { get; set; }
     public List<SelectOption> fromEmailOptions { get; set; }
     public String fromEmailSelected { get; set; }
     public List<SelectOption> fromClassificationOptions { get; set;}
@@ -319,6 +319,17 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         private set;
     }
 
+    public List<SelectOption> getFromSendOptions() {
+        List<SelectOption> sendOptions = new List<SelectOption>();
+        sendOptions.add(new SelectOption(Label.et4ae5.emailAddr,Label.et4ae5.emailAddr));
+        sendOptions.add(new SelectOption(Label.et4ae5.sendClass,Label.et4ae5.sendClass));
+        return sendOptions;
+    }
+    
+    public Boolean fromSourceIsEmail { 
+        get { return fromSendOption == Label.et4ae5.emailAddr; }
+    }
+
     /*
      * sortField
      * The field the participants query is sorted by. This is type of
@@ -504,7 +515,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         SendTime = 'now';
 
-        fromSourceIsEmail = true;
+        fromSendOption = Label.et4ae5.emailAddr;
         initializeClassifications();
         initializeEmails();
 
@@ -559,7 +570,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         for(MERC_ETObject.SendClassification sendClassification : sendClassifications){
             fromClassificationOptions.add(new SelectOption(
-                sendClassification.senderProfileId,
+                sendClassification.id + ',' + sendClassification.senderProfileId,
                 ((MERC_ETObject.ETEntry)sendClassification).name));
         }
     }
@@ -589,6 +600,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                 getEmailKey(ownerUser.Email, ownerFullName)));
         }
     
+    }
+
+    public void fromSendOptionChanged(){
+        return;
     }
 
     private String getEmailValue(String emailAddress, String fullName){
@@ -889,11 +904,15 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         String fromEmail = Config.Default_From_Email__c;
         String fromName = Config.Default_From_Name__c;
+        String fromClassificationId = null;
         if(!fromSourceIsEmail){
             if(String.isBlank(fromClassicationSelected)){
                 AddErrorMessage('A Classification must be selected.');
             } else {
-                MERC_ETObject.SenderProfile senderProfile = senderProfileById(fromClassicationSelected);
+                String[] classificationIds  = fromClassicationSelected.split(',');
+                fromClassificationId = classificationIds[0];
+                String fromSenderProfileId = classificationIds[1];
+                MERC_ETObject.SenderProfile senderProfile = senderProfileById(fromSenderProfileId);
                 if(senderProfile == null){
                     AddErrorMessage('A Sender Profile was not found for the selected Classification.');
                 } else {
@@ -920,8 +939,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                                                         DeDup, DisableIndividualTracking, SendTime,
                                                         sendDateEvent.ActivityDateTime,
                                                         additionalInformationHTML, additionalInformationText);
+        wrapper.FromClassificationId = fromClassificationId;
         MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
         try {
+            System.debug('wrapper: ' + wrapper);
             processor.createDataExtensionForSendEmail(wrapper);
             return new PageReference('/' + meeting.Id);
         }

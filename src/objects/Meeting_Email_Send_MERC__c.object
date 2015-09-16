@@ -224,6 +224,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>ET_Send_Classification_Id_MERC__c</fullName>
+        <description>The send classification to send the email with.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The send classification to send the email with.</inlineHelpText>
+        <label>ET Send Classification Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ET_Send_Definition_MERC__c</fullName>
         <externalId>false</externalId>
         <label>ET Send Definition</label>

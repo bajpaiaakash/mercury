@@ -345,10 +345,11 @@
         <members>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</members>
         <members>PersonAccount-GLBL_HCP Account</members>
         <members>PersonAccount-MERC_Designated Individual</members>
-        <members>Registration_Question_MERC__c-MERC_Question_Layout</members>
 		<members>Preferences_and_Consent_GLBL__c-GLBL_Preferences</members>
+		<members>Registration_Question_MERC__c-MERC_Question_Layout</members>		
 		<members>User-User Layout</members>
         <members>UserAlt-User Profile Layout</members>
+		<members>Web_Service_Logic_MERC__c-MERC_HCP_Info_Pack</members>
         <name>Layout</name>
     </types>
     <types>
