@@ -78,6 +78,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETMeetingEmailSendFutureProcessor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ETMockHttpResponseGenerator</apexClass>
         <enabled>false</enabled>
     </classAccesses>

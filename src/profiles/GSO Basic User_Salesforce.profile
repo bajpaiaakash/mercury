@@ -78,6 +78,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETMeetingEmailSendFutureProcessor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ETMockHttpResponseGenerator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1223,6 +1227,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Registration_Question_MERC__c-MERC_Question_Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Web_Service_Logic_MERC__c-MERC_HCP_Info_Pack</layout>
     </layoutAssignments>
     <pageAccesses>
         <apexPage>MERC_DailyAttendance</apexPage>
