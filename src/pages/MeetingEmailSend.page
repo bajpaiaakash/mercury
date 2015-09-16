@@ -241,7 +241,7 @@
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionitem id="selectedFrom" helptext="{!$Label.et4ae5__sndClasHlp}">
                     <apex:outputLabel for="fromBlock" value="{!$Label.et4ae5__from}" />
-                    <apex:outputPanel id="fromBlock" layout="block">
+                    <!-- <apex:outputPanel id="fromBlock" layout="block">
                         <apex:selectRadio value="{!fromSendOption}">
                             <apex:selectOptions value="{!fromSendOptions}" />
                             <apex:actionSupport action="{!fromSendOptionChanged}" event="onchange" rerender="fromBlock" status="changingType" />
@@ -258,24 +258,8 @@
                             </apex:selectList>
                             <img style="vertical-align:middle;" height="18px" src="{!URLFOR( $Resource.ExactTargetImages, 'reqEmail.png' )}" />
                         </apex:outputPanel>
-                        <!-- <apex:outputPanel layout="block">                            
-                            <input type="radio" id="fromSelectorEmail" name="fromSelector" value="{!fromSourceIsEmail}" onclick="swapFromSource();" status="sendButtonStatus">
-                            </input>
-                            <apex:outputLabel for="from" value="{!$Label.et4ae5__emailAddr}" />
-                                                     
-                        </apex:outputPanel>
-                        <apex:outputPanel id="sendClassificationWrapper" layout="block" rendered="true">
-                            <input type="radio" id="fromSelectorSC" name="fromSelector" value="{!!fromSourceIsEmail}" onclick="swapFromSource();" status="sendButtonStatus" />
-                            <apex:outputLabel for="sendClassification" value="{!$Label.et4ae5__sendClass}" />
-                            <br />
-                            <apex:outputPanel id="scPicklist" rendered="{!!fromSourceIsEmail}">
-                                <apex:selectList id="sendClassification" value="{!fromClassicationSelected}" size="1">
-                                    <apex:selectOptions value="{!fromClassificationOptions}" />
-                                </apex:selectList>
-                                <img style="vertical-align:middle;" height="18px" src="{!URLFOR( $Resource.ExactTargetImages, 'reqEmail.png' )}" />
-                            </apex:outputPanel>
-                        </apex:outputPanel> -->
-                    </apex:outputPanel>
+                    </apex:outputPanel> -->
+                    <apex:outputField label="{!$Label.et4ae5__from}" value="{!Config.Default_From_Email__c}" />
                 </apex:pageBlockSectionitem>
                 <apex:pageBlockSectionItem helpText="{!$Label.et4ae5__msg0006}">
                     <apex:outputLabel value="Dedupe Subscribers" />
