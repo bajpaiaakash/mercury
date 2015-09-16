@@ -1224,6 +1224,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>ET_Send_Classification_Id_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Email_Sends__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>ET_Send_Definition_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Email_Sends__r</table>
         </columns>
