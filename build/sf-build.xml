@@ -13,10 +13,10 @@
 	<target name="deploy_metadata">
 		<echo message="START: SFDC Deployment" />
 		<sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src.dir}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" testLevel="${sf.testLevel}" logType="${sf.logType}">
-	 
 			<!-- DO NOT REMOVE THE BELOW COMMENT. THIS IS A PLACEHOLDER THAT IS REPLACED BY THE TESTS THAT SHOULD BE RUN FOR THIS BUILD. -->
 			<!--runTests-->
-            <!--<runTest>MERC_AccountPreferenceRollupManagerTest</runTest>
+            <runTest>MERC_AccountPreferenceRollupManagerTest</runTest>
+            <runTest>MERC_AccountRollupsTest</runTest>
             <runTest>MERC_AccountToAccountRollupsTest</runTest>
             <runTest>MERC_AnonymiseNonHCPDataHandlerTest</runTest>
             <runTest>MERC_ConsultingProjectCapCalculatorTest</runTest>
@@ -33,7 +33,7 @@
             <runTest>MERC_RegistrationResponsesControllerTest</runTest>
             <runTest>MERC_TOVCalculatorTest</runTest>
             <runTest>MERC_TOVNonAggregateCalculatorTest</runTest>
-            <runTest>MERC_TOVRoundingTest</runTest>-->
+            <runTest>MERC_TOVRoundingTest</runTest>
 	   </sf:deploy>
 	</target>
 
