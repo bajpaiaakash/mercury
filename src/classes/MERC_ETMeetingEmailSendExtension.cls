@@ -20,6 +20,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     public String additionalInformationText { get; set; }
     public String base64Thumbnail { get; private set; }
 
+    public Boolean fromSourceIsEmail { get; set; }
     public String fromSendOption { get; set; }
     public List<SelectOption> fromEmailOptions { get; set; }
     public String fromEmailSelected { get; set; }
@@ -326,10 +327,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         return sendOptions;
     }
     
-    public Boolean fromSourceIsEmail { 
-        get { return fromSendOption == Label.et4ae5.emailAddr; }
-    }
-
     /*
      * sortField
      * The field the participants query is sorted by. This is type of
@@ -516,6 +513,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         SendTime = 'now';
 
         fromSendOption = Label.et4ae5.emailAddr;
+        fromSourceIsEmail = true;
         initializeClassifications();
         initializeEmails();
 
@@ -603,6 +601,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     }
 
     public void fromSendOptionChanged(){
+        fromSourceIsEmail = fromSendOption == Label.et4ae5.emailAddr;
         return;
     }
 

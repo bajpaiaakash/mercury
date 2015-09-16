@@ -244,7 +244,7 @@
                     <apex:outputPanel id="fromBlock" layout="block">
                         <apex:selectRadio value="{!fromSendOption}">
                             <apex:selectOptions value="{!fromSendOptions}" />
-                            <apex:actionSupport action="{!fromSendOptionChanged}" event="onchange" rerender="fromPicklist,scPicklist" status="changingType" />
+                            <apex:actionSupport action="{!fromSendOptionChanged}" event="onchange" rerender="fromBlock" status="changingType" />
                         </apex:selectRadio>
                         <apex:outputPanel id="fromPicklist" rendered="{!fromSourceIsEmail}">
                             <apex:selectList id="from" value="{!fromEmailSelected}" size="1">
