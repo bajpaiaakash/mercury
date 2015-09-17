@@ -379,6 +379,20 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         System.assertEquals(participants.size(), participantCount);
     }
 
+    @isTest static void Test_Get_Send_Options() {
+        withNormalConfig();
+        Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
+        insert meeting;
+
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+
+        Test.startTest();
+        MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
+        List<SelectOption> sendOptions = ext.getFromSendOptions();        
+        Test.stopTest();
+        System.assertEquals(2, sendOptions.size());
+    }
+
     @isTest
     public static void Test_GetSyncPayload() {
         withNormalConfig();

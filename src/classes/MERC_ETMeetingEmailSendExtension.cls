@@ -906,7 +906,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         String fromClassificationId = null;
         if(!fromSourceIsEmail){
             if(String.isBlank(fromClassicationSelected)){
-                AddErrorMessage('A Classification must be selected.');
+                //AddErrorMessage('A Classification must be selected.');
             } else {
                 String[] classificationIds  = fromClassicationSelected.split(',');
                 fromClassificationId = classificationIds[0];
@@ -921,7 +921,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             }
         } else {
             if(String.isBlank(fromEmailSelected)){
-                AddErrorMessage('A From Email must be selected.');
+                //AddErrorMessage('A From Email must be selected.');
             } else {
                 String[] emailDetails = fromEmailSelected.split(',');
                 fromEmail = emailDetails[0];
@@ -938,7 +938,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                                                         DeDup, DisableIndividualTracking, SendTime,
                                                         sendDateEvent.ActivityDateTime,
                                                         additionalInformationHTML, additionalInformationText);
-        wrapper.FromClassificationId = fromClassificationId;
+        //wrapper.FromClassificationId = fromClassificationId;
         MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
         try {
             System.debug('wrapper: ' + wrapper);
