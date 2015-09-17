@@ -6,7 +6,7 @@
 	<property file="sf-build.properties"/>
 	<property name="src.dir" value="../src"/>
 	<property name="src_env.dir" value="../src_env"/>
-	
+
 	<!-- ========================================== -->
 	<!-- Deployment targets                         -->
 	<!-- ========================================== -->
@@ -24,6 +24,7 @@
             <runTest>MERC_DailyAttendanceControllerTest</runTest>
             <runTest>MERC_ETDataExtensionProcessor_Test</runTest>
             <runTest>MERC_ETMeetingEmailSendExtension_Test</runTest>
+            <runTest>MERC_ETMeetingEmailSendFutureProc_Test</runTest>
             <runTest>MERC_HCPContractRollupManagerTest</runTest>
             <runTest>MERC_HcpCapActualsCalculatorTest</runTest>
             <runTest>MERC_HcpCapYearlyCalculationJobTest</runTest>
@@ -48,8 +49,8 @@
 			<substitution expression="${replacement.data}"/>
 		</replaceregexp>
 	</target>
-	
-	
+
+
 	<target name="list_metadata">
 	  	<sf:listMetadata
 		    username="${sf.deploy.username}${org}"
@@ -65,8 +66,8 @@
 	<!-- = use sort to ensure both files display data in the same order                          -->
 	<!-- = Install notepad++ to do file comparisons                                              -->
 	<!-- ======================================================================================= -->
-	
-	
+
+
 	<target name="describe_metadata">
 	  	<sf:describeMetadata
 		    username="${sf.deploy.username}${org}"
@@ -74,7 +75,7 @@
 		    serverurl="${sf.deploy.serverurl}"
 		    resultFilePath="{file}"/>
 	</target>
-	
+
 	<!-- ========================================== -->
 	<!-- For handling static resources              -->
 	<!-- ========================================== -->
@@ -91,22 +92,22 @@
 		  <fileset dir="../Static Resources/src/staticresources" includes="*.resource"/>
 		</delete>
 	</target>
-  
+
 	<!-- Compile less code into css for collab. -->
 	<target name="compile-less" description="Compile the less code for collaborate">
 		<delete>
 			<fileset dir="../Static Resources/Collaborate_Assets/css" includes="*.css"/>
 		</delete>
-		
+
 		<antcall target="compile-less-file"><param name="less.filename" value="styles" /></antcall>
 		<antcall target="compile-less-file"><param name="less.filename" value="home" /></antcall>
 		<antcall target="compile-less-file"><param name="less.filename" value="LandingPage" /></antcall>
 		<antcall target="compile-less-file"><param name="less.filename" value="login" /></antcall>
 		<antcall target="compile-less-file"><param name="less.filename" value="reset" /></antcall>
 		<antcall target="compile-less-file"><param name="less.filename" value="SiteLogin" /></antcall>
-		
+
 	</target>
-  
+
 	<target name="compile-less-file">
 		<exec executable="cmd.exe" osfamily="windows" output="../Static Resources/Collaborate_Assets/css/${less.filename}.css">
 			<arg value="/c"/>
@@ -114,7 +115,7 @@
 			<arg value="../Static Resources/Collaborate_Assets/less/${less.filename}.less"/>
 			<arg value="-compile"/>
 		</exec>
-		
+
 		<chmod file="compileLess.sh" perm="u+x" osfamily="mac"/>
 		<exec executable="/bin/sh" osfamily="mac">
 			<arg value="compileLess.sh"/>
@@ -127,7 +128,7 @@
 		<zip destfile="../Static Resources/src/staticresources/Collaborate_Assets.resource">
 			<zipfileset dir="../Static Resources/Collaborate_Assets" prefix=""/>
 		</zip>
-		
+
 		<zip destfile="../Static Resources/src/staticresources/Collaborate_InternalAssets.resource">
 			<zipfileset dir="../Static Resources/Collaborate_InternalAssets" prefix=""/>
 		</zip>
@@ -149,5 +150,5 @@
 			<param name="org" value="${org}" />
 		</antcall>
 	</target>
-	
+
 </project>
