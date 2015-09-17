@@ -24,6 +24,7 @@
             <runTest>MERC_DailyAttendanceControllerTest</runTest>
             <runTest>MERC_ETDataExtensionProcessor_Test</runTest>
             <runTest>MERC_ETMeetingEmailSendExtension_Test</runTest>
+            <runTest>MERC_ETMeetingEmailSendFutureProc_Test</runTest>
             <runTest>MERC_HCPContractRollupManagerTest</runTest>
             <runTest>MERC_HcpCapActualsCalculatorTest</runTest>
             <runTest>MERC_HcpCapYearlyCalculationJobTest</runTest>
