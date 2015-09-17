@@ -73,7 +73,7 @@
         <members>LookupParent_GLBL__c</members>
         <members>LookupRollupSummaryLog_GLBL__c</members>
         <members>LookupRollupSummaryScheduleItems_GLBL__c</members>
-        <members>LookupRollupSummary_GLBL__c</members>
+        <!--<members>LookupRollupSummary_GLBL__c</members>-->
         <name>CustomObject</name>
     </types>
     <types>
@@ -82,7 +82,7 @@
     </types>
     <types>
         <members>LookupRollupSummaryLog_GLBL__c</members>
-        <members>LookupRollupSummary_GLBL__c</members>
+        <!--<members>LookupRollupSummary_GLBL__c</members>-->
         <name>CustomTab</name>
     </types>
     <types>
