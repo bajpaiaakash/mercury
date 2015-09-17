@@ -43,9 +43,12 @@
         <members>GLBL_TestLREngine</members>
         <members>GLBL_TestSObjectDomain</members>
         <members>GLBL_TestSObjectSelector</members>
+        <members>MERC_HcpCapYearlyCalculationJobTest</members>
         <members>MERC_LookupRollupTriggerHandler</members>
         <members>MERC_MeetingParticipantCurrencyCnvrtTest</members>
         <members>MERC_MeetingParticipantCurrencyConvert</members>
+        <members>MERC_TOVRoundingTest</members>
+        <members>MERC_TestFactory</members>
         <name>ApexClass</name>
     </types>
     <types>
