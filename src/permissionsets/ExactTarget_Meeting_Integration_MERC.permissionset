@@ -77,6 +77,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETMeetingEmailSendFutureProc_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ETMeetingEmailSendFutureProcessor</apexClass>
         <enabled>true</enabled>
     </classAccesses>
