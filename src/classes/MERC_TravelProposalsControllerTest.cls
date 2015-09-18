@@ -1,3 +1,12 @@
+/*
+ * MERC_TravelProposalsControllerTest
+ * Description: Test the MERC_TravelProposalsController.
+ * Author: Kyle Thornton (Mavens Consulting)
+ * Created Date: April 23, 2015
+ * Modified By: Kyle Thornton & Rick Locke (Mavens Consulting)
+ * Modified Date: June 20, 2015
+ */
+
 @isTest
 private class MERC_TravelProposalsControllerTest
 {

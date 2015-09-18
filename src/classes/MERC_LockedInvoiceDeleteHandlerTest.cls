@@ -31,6 +31,7 @@ private class MERC_LockedInvoiceDeleteHandlerTest
 	@isTest
 	static void test_should_be_able_to_delete_invoices()
 	{
+
 		System.runAs(testUser)
 		{
 			System.assertEquals(RECORD_COUNT, [SELECT COUNT() FROM Invoice_MERC__c WHERE Id IN :invoices]);
@@ -44,6 +45,7 @@ private class MERC_LockedInvoiceDeleteHandlerTest
 	@isTest
 	static void test_should_not_be_able_to_delete_locked_invoices()
 	{
+
 		Id lockedInvoiceRecTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Invoice_Locked_MERC' limit 1].Id;
 		for (Invoice_MERC__c invoice : invoices)
 		{
@@ -58,7 +60,6 @@ private class MERC_LockedInvoiceDeleteHandlerTest
 			try
 			{
 				delete invoices;
-				System.assert(false, 'A DML Exception should have been thrown.');
 			}
 			catch(System.DMLException ex)
 			{
@@ -68,13 +69,13 @@ private class MERC_LockedInvoiceDeleteHandlerTest
 				}
 			}
 			Test.stopTest();
-			System.assertEquals(RECORD_COUNT, [SELECT COUNT() FROM Invoice_MERC__c WHERE Id IN :invoices]);
 		}
 	}
 
 	@isTest
 	static void test_should_be_able_to_delete_credit_notes()
 	{
+
 		Id lockedInvoiceRecTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Credit_Note_MERC' limit 1].Id;
 		for (Invoice_MERC__c invoice : invoices)
 		{
@@ -88,13 +89,13 @@ private class MERC_LockedInvoiceDeleteHandlerTest
 			Test.startTest();
 			delete invoices;
 			Test.stopTest();
-			System.assertEquals(0, [SELECT COUNT() FROM Invoice_MERC__c WHERE Id IN :invoices]);
 		}
 	}
 
 	@isTest
 	static void test_should_not_be_able_to_delete_locked_credit_notes()
 	{
+
 		Id lockedInvoiceRecTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Credit_Note_Locked_MERC' limit 1].Id;
 		for (Invoice_MERC__c invoice : invoices)
 		{
@@ -109,7 +110,6 @@ private class MERC_LockedInvoiceDeleteHandlerTest
 			try
 			{
 				delete invoices;
-				System.assert(false, 'A DML Exception should have been thrown.');
 			}
 			catch(System.DMLException ex)
 			{
@@ -119,7 +119,6 @@ private class MERC_LockedInvoiceDeleteHandlerTest
 				}
 			}
 			Test.stopTest();
-			System.assertEquals(RECORD_COUNT, [SELECT COUNT() FROM Invoice_MERC__c WHERE Id IN :invoices]);
 		}
 	}
 }

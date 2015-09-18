@@ -45,6 +45,8 @@ private class MERC_MeetingParticipantNewEditCtrlTest {
     }
 
     @isTest static void testEditMeetingParticipant() {
+        MERC_TriggerHandlerStateManager.deactivateAll();
+
         system.assertEquals(0, [SELECT count() FROM Meeting_Participant_MERC__c]);
         Meeting_Participant_MERC__c existingMeetingParticipant = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts)[0];
 
