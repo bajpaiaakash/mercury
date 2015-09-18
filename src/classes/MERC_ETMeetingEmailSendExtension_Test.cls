@@ -1,10 +1,17 @@
 @isTest
 private class MERC_ETMeetingEmailSendExtension_Test {
+    private static MERC_ETMockHttpResponseGenerator mockResponseGenerator;
 
     static {
         Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
         insert config;
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
+        mockResponseGenerator = new MERC_ETMockHttpResponseGenerator();
+        withClassifications();
+        Test.setMock(HttpCalloutMock.class, mockResponseGenerator);
+    }
 
+    private static void withEnterpriseConfig(){
         et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
         etConfig.et4ae5__username__c = 'testusername';
         etConfig.et4ae5__password__c = 'testpassword';
@@ -14,8 +21,52 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         insert etConfig;
     }
 
+    private static void withNormalConfig(){
+        System.debug('just an empty method');
+        et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
+        etConfig.et4ae5__username__c = 'testusername';
+        etConfig.et4ae5__password__c = 'testpassword';
+        etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com';
+        etConfig.et4ae5__root_rest_api_url__c = 'www.testresturl.com';
+        etConfig.et4ae5__url_root__c = 'urlroot';
+        etConfig.et4ae5__integration_type__c = '';
+        insert etConfig;
+    }
+
+    private static void withClassifications(){
+        MERC_ETObject.SendClassificationResponse sendClassificationResponse = new MERC_ETObject.SendClassificationResponse();
+        MERC_ETObject.SendClassification sendClassification = new MERC_ETObject.SendClassification();
+        sendClassification.name = 'Mercury Transactional';
+        sendClassification.key = 'Mercury Transactional';
+        sendClassification.honorListLevelOptOut = false;
+        sendClassification.senderProfileId = 'sender 1';
+        sendClassification.deliveryProfileId = 'delivery 1';
+        sendClassification.classificationType = null;
+
+        List<MERC_ETObject.SendClassification> sendClassifications = new List<MERC_ETObject.SendClassification>();
+        sendClassifications.add(sendClassification);
+        sendClassificationResponse.entry = sendClassifications;
+        mockResponseGenerator.whereEndpointContains('messaging/sendclassification',
+            JSON.serialize(sendClassificationResponse));
+
+        MERC_ETObject.SenderProfileResponse senderProfileResponse = new MERC_ETObject.SenderProfileResponse();
+        MERC_ETObject.SenderProfile senderProfile = new MERC_ETObject.SenderProfile();
+        senderProfile.id = 'sender 1';
+        senderProfile.key = 'sender 1';
+        senderProfile.profileName = 'sender 1';
+        senderProfile.fromEmail = 'sender1@email.com';
+        senderProfile.fromName = 'sender 1';
+        
+        List<MERC_ETObject.SenderProfile> senderProfiles = new List<MERC_ETObject.SenderProfile>();
+        senderProfiles.add(senderProfile);
+        senderProfileResponse.entry = senderProfiles;
+        mockResponseGenerator.whereEndpointContains('messaging/senderprofile',
+            JSON.serialize(senderProfileResponse));
+    }
+
     @isTest
     public static void Test_Constructor() {
+        withNormalConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
@@ -29,7 +80,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         System.assertEquals(false, ext.getHasErrors());
     }
 
-    @isTest
+    //@isTest
     public static void Test_Constructor_NoMeeting() {
 
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
@@ -45,6 +96,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void Test_SelectAllClicked() {
+        withNormalConfig();
 
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
@@ -71,6 +123,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void Test_ShowHideGrid() {
+        withNormalConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
@@ -94,6 +147,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void Test_UrlRoot() {
+        withNormalConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
@@ -110,6 +164,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void Test_Send() {
+        withEnterpriseConfig();
         Test.setMock(HttpCalloutMock.class, new MERC_ETEndToEndDataExtCallouts_Mock());
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
 
@@ -132,6 +187,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
+        etBU.et4ae5__Business_Unit_ID__c = 'test business unit id';
         etBU.et4ae5__Enabled__c = true;
         insert etBU;
 
@@ -140,6 +196,8 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         ext.DeDup = true;
         ext.OptIn = true;
         ext.DisableIndividualTracking = true;
+        ext.additionalInformationHTML = 'test';
+        ext.additionalInformationText = 'test';
 
         MERC_ETFolderedEmail email = new MERC_ETFolderedEmail();
         email.Id = 'test';
@@ -161,10 +219,95 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             System.debug('exception : ' + e);
         }
 
-    } 
+    }
+
+    @isTest
+    public static void Test_Send_To_Classification() {
+        withEnterpriseConfig();
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
+
+        Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
+        meeting.RecordTypeId = MERC_ETTestUtils.GetRecordType('Ad_Hoc_Consulting', 'Meeting_MERC__c').Id;
+        meeting.City_of_Meeting_MERC__c = 'test city';
+        meeting.Preferred_Venue_MERC__c = 'test venue';
+        meeting.Start_Time_of_Meeting_MERC__c = Datetime.now();
+        meeting.End_Time_of_Meeting_MERC__c = Datetime.now().addDays(5);
+        meeting.Event_Id_MERC__c = 'test id';
+        insert meeting;
+
+        List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 5);
+        insert accts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, accts);
+        insert participants;
+        createChildren(participants);
+
+        Sonoma_ET_Config__c config = getConfig();
+
+        et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
+        etBU.et4ae5__Business_Unit_ID__c = 'test business unit id';
+        etBU.et4ae5__Enabled__c = true;
+        insert etBU;
+
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        Test.startTest();
+        MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
+        ext.DeDup = true;
+        ext.OptIn = true;
+        ext.DisableIndividualTracking = true;
+
+        MERC_ETFolderedEmail email = new MERC_ETFolderedEmail();
+        email.Id = 'test';
+        email.name = 'test email name';
+        email.Title = 'test subject';
+        ext.email = email;
+
+        ext.fromSourceIsEmail = false;
+        System.assertEquals(2,ext.fromClassificationOptions.size(), ext.fromClassificationOptions);
+        ext.fromClassicationSelected = ext.fromClassificationOptions.get(1).getValue();
+
+        System.assertEquals(participants.size(), ext.Participants.size());
+        for (MERC_ETMeetingEmailSendExtension.SelectedWrapper w : ext.Participants) {
+            w.IsSelected = true;
+        }
+
+        try {
+            
+            PageReference ref = ext.Send();
+            
+
+        } catch (Exception e) {
+            System.debug('exception : ' + e);
+        }
+        Test.stopTest();
+    }
+    
+    @isTest
+    static void Folders_Compare_On_Name(){
+        withEnterpriseConfig();
+        MERC_ETFolderedEmail email = new MERC_ETFolderedEmail();
+        email.Id = 'test';
+        email.name = 'test email name';
+        email.Title = 'test subject';
+        
+
+        MERC_ETFolderedEmail sameEmail = new MERC_ETFolderedEmail();
+        sameEmail.Id = 'test1';
+        sameEmail.name = 'test email name';
+        sameEmail.Title = 'test subject1';
+        
+        MERC_ETFolderedEmail differentEmail = new MERC_ETFolderedEmail();
+        differentEmail.Id = 'test2';
+        differentEmail.name = 'test email name2';
+        differentEmail.Title = 'test subject2';
+
+        System.assertEquals(0, email.compareTo(sameEmail));
+        System.assertEquals(-1, email.compareTo(differentEmail));
+    }
 
     @isTest
     public static void Test_Send_NoRecipients() {
+        withNormalConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
@@ -183,6 +326,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void Test_Send_NoSubject() {
+        withNormalConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
@@ -203,6 +347,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void Test_GetParticipantCount() {
+        withNormalConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
@@ -234,8 +379,23 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         System.assertEquals(participants.size(), participantCount);
     }
 
+    @isTest static void Test_Get_Send_Options() {
+        withNormalConfig();
+        Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
+        insert meeting;
+
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+
+        Test.startTest();
+        MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
+        List<SelectOption> sendOptions = ext.getFromSendOptions();        
+        Test.stopTest();
+        System.assertEquals(2, sendOptions.size());
+    }
+
     @isTest
     public static void Test_GetSyncPayload() {
+        withNormalConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
@@ -251,12 +411,14 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void Test_ListExactTargetEmails() {
+        withEnterpriseConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
         Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
+        etBU.et4ae5__Business_Unit_ID__c = 'test business unit id';
         insert etBU;
 
         User u = MERC_ETTestUtils.CreateUser('Standard User');
@@ -287,12 +449,15 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         ext.emails=new list<MERC_ETObject.emailfolder>();
         ext.emails.add(testFolderA);
 
+
         MERC_ETObject.CallEmailFolderResponse cefr= new MERC_ETObject.CallEmailFolderResponse();
         Test.startTest();
 
         System.runAs(u) {
             cefr.entry = testFolderA.subfolders;
-            Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator(JSON.serialize(cefr)));
+            
+            mockResponseGenerator.whereEndpointContains('beta/folder/', JSON.serialize(cefr));
+            
             ApexPages.currentPage().getParameters().put('folderId','testFolderA');
             ext.listExactTargetEmails();
             System.assertEquals(null, ext.emails);
@@ -303,6 +468,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void Test_SelectEmailCancel() {
+        withNormalConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
@@ -318,6 +484,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void testExpandFolder() {
+        withEnterpriseConfig();
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
 
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
@@ -326,6 +493,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
+        etBU.et4ae5__Business_Unit_ID__c = 'test business unit id';
         insert etBU;
 
         User u = MERC_ETTestUtils.CreateUser('System Administrator');
@@ -362,7 +530,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         System.runAs(u) {
             Test.startTest();
             cefr.entry = testFolderA.subfolders;
-            Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator(JSON.serialize(cefr)));
+            mockResponseGenerator.whereEndpointContains('beta/folder/', JSON.serialize(cefr));
 
             ApexPages.currentPage().getParameters().put('folderId','testFolderA');
             ext.expandFolder();
@@ -375,7 +543,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             System.assert(!containsMessage);
 
             cefr.entry = testFolderE.subfolders;
-            Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator(JSON.serialize(cefr)));
+            mockResponseGenerator.whereEndpointContains('beta/folder/', JSON.serialize(cefr));
             ApexPages.currentPage().getParameters().put('folderId','testFolderE');
             ext.expandFolder();
             containsMessage = false;
@@ -391,6 +559,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     public static void Test_SelectEmail() {
+        withEnterpriseConfig();
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
 
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
@@ -399,6 +568,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         Sonoma_ET_Config__c config = getConfig();
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
+        etBU.et4ae5__Business_Unit_ID__c = 'test business unit id';
         insert etBU;
 
         User u = MERC_ETTestUtils.CreateUser('Standard User');
@@ -438,12 +608,12 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
         System.runAs(u) {
             cefr.entry = testFolderA.subfolders;
-            Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator(JSON.serialize(cefr)));
+            mockResponseGenerator.whereEndpointContains('beta/folder/', JSON.serialize(cefr));
 
             /*ext.selectEmail();
             System.assertEquals(null, ext.email.id);
             System.assertEquals(null, ext.email.name);
-            System.assertEquals(null, ext.email.title); 
+            System.assertEquals(null, ext.email.title);
 
             ApexPages.currentPage().getParameters().put('emailId', eId);
             ApexPages.currentPage().getParameters().put('emailName', eName);
@@ -460,6 +630,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     private static void testPagination () {
+        withNormalConfig();
 
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
@@ -494,6 +665,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
     @isTest
     private static void testGenerateDocuments() {
+        withNormalConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
 
@@ -537,12 +709,12 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             System.assert(returnedRef.getParameters().containsKey('sessionId'));
         Test.stopTest();
 
-    } 
+    }
 
     public static void simulateFilteringAndSorting(MERC_ETMeetingEmailSendExtension ext) {
         List<SelectOption> testSOlist;
         testSOlist = ext.communicationChannel;
-        testSOlist = ext.countryOfResidence; 
+        testSOlist = ext.countryOfResidence;
         testSOlist = ext.dueDate;
         testSOlist = ext.hasEmail;
         testSOlist = ext.nextStep;
@@ -655,7 +827,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         List<Travel_Itinerary_MERC__c> itineraries = new List<Travel_Itinerary_MERC__c>();
         List<Meeting_Process_MERC__c> processes = new List<Meeting_Process_MERC__c>();
         List<Meeting_Tasks_MERC__c> tasks = new List<Meeting_Tasks_MERC__c>();
-        
+
         for(Meeting_Participant_MERC__c p : participants) {
             Meeting_Process_MERC__c process = new Meeting_Process_MERC__c();
             process.Meeting_Participant_MERC__c = p.Id;

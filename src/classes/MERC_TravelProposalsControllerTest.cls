@@ -113,7 +113,7 @@ private class MERC_TravelProposalsControllerTest
 		Test.stopTest();
 
 		expectOneErrorMessage();
-		//expectErrorStartsWith(Label.Travel_Proposals_Error_updating_proposals_segments);
+		expectErrorStartsWith(Label.Travel_Proposals_Error_updating_proposals_segments);
 	}
 
 	/********  Scenario : User encounters error on save & exit*******/
@@ -131,7 +131,7 @@ private class MERC_TravelProposalsControllerTest
 
 		expectUserToRemainOnThePage();
 		expectOneErrorMessage();
-		//expectErrorStartsWith(Label.Travel_Proposals_Error_updating_proposals_segments);
+		expectErrorStartsWith(Label.Travel_Proposals_Error_updating_proposals_segments);
 	}
 
 	/********  Scenario : User cancels segments and proposals *******/
@@ -325,8 +325,6 @@ private class MERC_TravelProposalsControllerTest
 	}
 
 	private static void expectErrorStartsWith(String errorBegin) {
-		System.debug('#### ApexPages.getMessages().get(0).getSummary() == ' + ApexPages.getMessages().get(0).getSummary());
-		System.debug('#### errorBegin == ' + errorBegin);
 		System.assert(ApexPages.getMessages().get(0).getSummary().startsWith(errorBegin));
 	}
 
