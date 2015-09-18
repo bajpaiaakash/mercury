@@ -6,7 +6,7 @@
     <label>MeetingEmailSend</label>
     <packageVersions>
         <majorNumber>5</majorNumber>
-        <minorNumber>490</minorNumber>
+        <minorNumber>18</minorNumber>
         <namespace>et4ae5</namespace>
     </packageVersions>
 </ApexPage>

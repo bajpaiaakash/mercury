@@ -24,6 +24,8 @@ private class MERC_NewContentControllerTest {
     {
         MERC_TestFactory.insertMercuryCustomSettings();
 
+        MERC_TriggerHandlerStateManager.deactivateAll();
+
         docTypesByRecType = new Map<String, List<String>>();
         for (Content_Library_Lookup_MERC__c cll : Content_Library_Lookup_MERC__c.getAll().values()) {
             if (docTypesByRecType.containsKey(cll.Content_Record_Type_MERC__c)) {
@@ -41,6 +43,7 @@ private class MERC_NewContentControllerTest {
             budget = MERC_TestFactory.insertBudget(meetings[0].Id, true);  // Modified by Aakash for US-37784 on 23-06-2015
             contract = MERC_TestFactory.insertHCPContract(accounts[0].Id);
         }
+        MERC_TriggerHandlerStateManager.activateAll();
     }
 
 
