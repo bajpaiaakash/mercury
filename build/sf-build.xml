@@ -25,9 +25,12 @@
             <runTest>MERC_ETDataExtensionProcessor_Test</runTest>
             <runTest>MERC_ETMeetingEmailSendExtension_Test</runTest>
             <runTest>MERC_ETMeetingEmailSendFutureProc_Test</runTest>
+            <runTest>MERC_ETMeetingEmailSendFutureProcessor</runTest>
             <runTest>MERC_HCPContractRollupManagerTest</runTest>
             <runTest>MERC_HcpCapActualsCalculatorTest</runTest>
             <runTest>MERC_HcpCapYearlyCalculationJobTest</runTest>
+            <runTest>MERC_LockedInvoiceDeleteHandlerTest</runTest>
+            <runTest>MERC_MeetingParticipantNewEditCtrlTest</runTest>
             <runTest>MERC_MeetingParticipantRollupsTest</runTest>
             <runTest>MERC_MeetingParticipantStressTest</runTest>
             <runTest>MERC_MeetingProcessLogicHandlerTest</runTest>
@@ -35,6 +38,7 @@
             <runTest>MERC_TOVCalculatorTest</runTest>
             <runTest>MERC_TOVNonAggregateCalculatorTest</runTest>
             <runTest>MERC_TOVRoundingTest</runTest>
+            <runTest>MERC_TravelProposalsControllerTest</runTest>
 	   </sf:deploy>
 	</target>
 
