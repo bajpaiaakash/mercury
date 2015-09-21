@@ -12,6 +12,8 @@
         <members>MERC_ConsultingProjectCapCalculatorTest</members>
         <members>MERC_DailyAttendanceController</members>
         <members>MERC_DailyAttendanceControllerStressTest</members>
+        <members>MERC_DailyAttendanceControllerStressTest</members>
+        <members>MERC_DailyAttendanceControllerTest</members>
         <members>MERC_DailyAttendanceControllerTest</members>
         <members>MERC_ETCallControl</members>
         <members>MERC_ETDataExtensionProcessor</members>
@@ -19,8 +21,8 @@
         <members>MERC_ETFolderedEmail</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_ETMeetingEmailSendExtension_Test</members>
-        <members>MERC_ETMeetingEmailSendFutureProcessor</members>
         <members>MERC_ETMeetingEmailSendFutureProc_Test</members>
+        <members>MERC_ETMeetingEmailSendFutureProcessor</members>
         <members>MERC_ETMockHttpResponseGenerator</members>
         <members>MERC_ETObject</members>
         <members>MERC_ETSendEmailWrapper</members>
@@ -30,6 +32,8 @@
         <members>MERC_HcpCapActualsCalculatorTest</members>
         <members>MERC_HcpCapYearlyCalculationJob</members>
         <members>MERC_HcpCapYearlyCalculationJobTest</members>
+        <members>MERC_LockedInvoiceDeleteHandlerTest</members>
+        <members>MERC_MeetingParticipantNewEditCtrlTest</members>
         <members>MERC_MeetingParticipantRollups</members>
         <members>MERC_MeetingParticipantRollupsTest</members>
         <members>MERC_MeetingParticipantStressTest</members>
@@ -41,6 +45,7 @@
         <members>MERC_TOVNonAggregateCalculatorTest</members>
         <members>MERC_TOVRoundingTest</members>
         <members>MERC_TestFactory</members>
+        <members>MERC_TravelProposalsControllerTest</members>
         <name>ApexClass</name>
     </types>
     <types>
