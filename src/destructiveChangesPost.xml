@@ -82,7 +82,7 @@
     </types>
     <types>
         <members>LookupRollupSummaryLog_GLBL__c</members>
-        <!--<members>LookupRollupSummary_GLBL__c</members>-->
+        <members>LookupRollupSummary_GLBL__c</members>
         <name>CustomTab</name>
     </types>
     <types>

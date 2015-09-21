@@ -20,6 +20,9 @@ private class MERC_LockedInvoiceDeleteHandlerTest
 	static final Integer RECORD_COUNT = 5;
 
 	static {
+
+		MERC_TriggerHandlerStateManager.deactivateAll();
+		
 		System.runAs(runningUser) {
 			meeting = MERC_TestFactory.insertMeetings(1).get(0);
 			accounts = MERC_TestFactory.insertAccounts(RECORD_COUNT);
