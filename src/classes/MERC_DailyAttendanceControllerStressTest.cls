@@ -18,16 +18,7 @@ private class MERC_DailyAttendanceControllerStressTest {
 	static User runningUser = MERC_TestFactory.getRunningUser();
 
 	static {
-		MERC_TriggerHandlerStateManager.deactivate(MERC_LockedRecordHandler.class);
-		MERC_TriggerHandlerStateManager.deactivate(MERC_HcpCapLimitCalculator.class);
-		MERC_TriggerHandlerStateManager.deactivate(MERC_ParticipantFMVCalculator.class);
-		MERC_TriggerHandlerStateManager.deactivate(MERC_AccountDesignatedIndividualsCounter.class);
-		MERC_TriggerHandlerStateManager.deactivate(MERC_TimestampHandler.class);
-		MERC_TriggerHandlerStateManager.deactivate(MERC_HcpCapActualsCalculator.class);
-		MERC_TriggerHandlerStateManager.deactivate(MERC_DeleteNotifyService.class);
-		MERC_TriggerHandlerStateManager.deactivate(MERC_MeetingCancellationHandler.class);
-		MERC_TriggerHandlerStateManager.deactivate(MERC_PrimaryMeetingOwnerHandler.class);
-		MERC_TriggerHandlerStateManager.deactivate(MERC_AnonymiseNonHCPDataHandler.class);
+
 		MERC_TriggerHandlerStateManager.deactivateAll();
 
 		System.runAs(testUser) {
