@@ -641,8 +641,8 @@
         <fields>Preference_Type_MERC__c</fields>
         <fields>Preference_Sub_Type_MERC__c</fields>
         <fields>Preference_Value_MERC__c</fields>
+		<fields>Cnsnt_Sts_Desc_GLBL__c</fields>
         <fields>Efctv_End_Dt_GLBL__c</fields>
-        <fields>Cnsnt_Sts_Desc_GLBL__c</fields>
         <relatedList>Preferences_and_Consent_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
