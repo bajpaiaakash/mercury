@@ -118,6 +118,8 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         for (MERC_ETMeetingEmailSendExtension.SelectedWrapper p : ext.Participants) {
             System.assert(p.IsSelected);
         }
+        PageReference testRef = ext.selectParticipants();
+        testRef = ext.backToSendPage();
         Test.stopTest();
     }
 
@@ -140,9 +142,12 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         simulateFilteringAndSorting(ext);
         ext.ShowGrid();
         System.assert(ext.ShowParticipantGrid);
+        PageReference testRef = ext.selectParticipants();
         ext.HideGrid();
+        testRef = ext.backToSendPage();
         System.assert(!ext.ShowParticipantGrid);
         Test.stopTest();
+
     }
 
     @isTest
@@ -712,6 +717,8 @@ private class MERC_ETMeetingEmailSendExtension_Test {
     }
 
     public static void simulateFilteringAndSorting(MERC_ETMeetingEmailSendExtension ext) {
+        PageReference testRef = ext.goToSelectParticipants();
+
         List<SelectOption> testSOlist;
         testSOlist = ext.communicationChannel;
         testSOlist = ext.countryOfResidence;

@@ -79,7 +79,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
 
         Blob deAESKey = Crypto.generateAesKey(256);
         String hexDeAESKey = EncodingUtil.convertToHex(deAESKey);
-        
+
         //account for max length of DE name
         String deSubject = wrapper.Email.title.length() > 140 ? wrapper.Email.title.substring(0, 139) : wrapper.Email.title;
         String deName = 'SalesforceMeeting-' + mtgId + '-' + deSubject.replaceAll('[^a-zA-Z0-9]+', '') + '-' + Datetime.now().format('yyyyMMdd\'T\'HHmmssSSS');
@@ -172,7 +172,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
 
         Meeting_Email_Send_MERC__c meetingEmailSend = new Meeting_Email_Send_MERC__c();
         meetingEmailSend.Meeting_MERC__c = mtgId;
-        
+
         // Populate fields that will be placed on the email send
         meetingEmailSend.ET_Data_Extension_Id_MERC__c = deResponse.Id;
         meetingEmailSend.ET_Sync_Id_MERC__c = 'ETLillymeetingEmailSend' + Datetime.now().format('yyyyMMdd');
@@ -192,25 +192,25 @@ public with sharing class MERC_ETDataExtensionProcessor {
         meetingEmailSend.ET_Subject_Line_MERC__c = wrapper.Email.title;
         meetingEmailSend.Additional_Information_MERC__c = wrapper.AdditionalInformationHTML;
         meetingEmailSend.Additional_Information_Plain_Text_MERC__c = wrapper.AdditionalInformationText;
-        
+
         if (wrapper.SendTime == 'now') {
             meetingEmailSend.Send_Status__c = 'Create Sender Profile';
             meetingEmailSend.Send_Email__c = true;
         } else {
             meetingEmailSend.Scheduled_Date__c = wrapper.FutureSendTime;
         }
-        
+
         String thumbnailData = '';
         try {
             thumbnailData = retrieveThumbnailForEmailSend(meetingEmailSend, authorizer.soapAuthToken);
         } catch (Exception e) {
             System.debug ('Exception retrieving the preview image : ' + e.getMessage() + '\n' + e.getStackTraceString());
         }
-        
+
         insert meetingEmailSend;
-        
+
         meetingEmailSend = [SELECT Id, ET_Thumbnail_MERC__c FROM Meeting_Email_Send_MERC__c WHERE Id = :meetingEmailSend.Id LIMIT 1];
-        
+
         if (thumbnailData != null && thumbnailData.length() < 32768) {
             meetingEmailSend.ET_Thumbnail_MERC__c = thumbnailData; // do the same as attachment body on line 220
         } else {
@@ -227,7 +227,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
                 System.debug('Exception saving attachment of preview : ' + e.getMessage() + '\n' + e.getStackTraceString());
             }
         }
-        
+
         update meetingEmailSend;
 
         List<Meeting_Participant_Email_Send_MERC__c> mpEmailSends = new List<Meeting_Participant_Email_Send_MERC__c>();
@@ -243,14 +243,14 @@ public with sharing class MERC_ETDataExtensionProcessor {
 
     }
 
-    public MERC_ETDataExtension.DataExtensionResponse createDataExtensionWithNameKeyFieldsAndSoapAuth(String deName, String deKey, List<MERC_ETDataExtension.Field> fields, 
+    public MERC_ETDataExtension.DataExtensionResponse createDataExtensionWithNameKeyFieldsAndSoapAuth(String deName, String deKey, List<MERC_ETDataExtension.Field> fields,
         String authToken, DateTime expiresIn) {
         //String deName = Datetime.now().format('yyyy-MM-dd\'T\'HH:mm:ss') + ' Data Extension';
         String deDescription = 'Used for sending meeting from Salesforce.com';
         MERC_ETDataExtension de = new MERC_ETDataExtension(deName, deDescription, deKey, expiresIn);
         de.sendableDataExtensionField = fields[0].fieldName;
         de.field.addAll(fields);
-    
+
         et4ae5__Configuration__c configInfo = [SELECT et4ae5__Root_Rest_API_URL__c FROM et4ae5__Configuration__c LIMIT 1];
         String endPoint = configInfo.et4ae5__Root_Rest_API_URL__c + '/rest/beta/object/?oauth_token=' + authToken;
 
@@ -320,10 +320,10 @@ public with sharing class MERC_ETDataExtensionProcessor {
 
         String thumbnailURL = configInfo.et4ae5__Root_Rest_API_URL__c;
         thumbnailURL = thumbnailURL.replace('rest', configInfo.et4ae5__url_root__c);
-        thumbnailURL += String.format('/{0}/utilities/ImageThumbnailSecure.ashx/?h={1}&w={2}&emailid={3}&oauth_token={4}', 
+        thumbnailURL += String.format('/{0}/utilities/ImageThumbnailSecure.ashx/?h={1}&w={2}&emailid={3}&oauth_token={4}',
                                       new List<String> { configInfo.et4ae5__url_part__c, '700', '700', meetingEmailSend.ET_Email_Id_MERC__c, soapAuthToken });
         System.Debug('thumbnailURL: ' + thumbnailURL);
-        
+
         HttpRequest req = new HttpRequest();
         req.setMethod('GET');
         req.setEndpoint(thumbnailURL);
@@ -333,7 +333,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
 
         Http h = new Http();
         HttpResponse res = h.send(req);
-        
+
         System.debug('res body: ' + res.getBody());
         ImageThumbnailSecureResponse thumbnailResponse = (ImageThumbnailSecureResponse)JSON.deserialize(res.getBody(), ImageThumbnailSecureResponse.class);
         return thumbnailResponse.data;

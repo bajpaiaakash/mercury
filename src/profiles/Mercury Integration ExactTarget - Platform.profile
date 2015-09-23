@@ -10,6 +10,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GLBL_DescribeLayoutTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_AccountDesignatedIndividualsCounter</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -147,6 +151,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingProcessLogicHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingProcessLogicHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
