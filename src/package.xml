@@ -382,8 +382,7 @@
     </types>
     <types>
         <members>GSO Basic User_Platform</members>
-        <members>GSO Basic User_Salesforce</members>
-		<members>GLBL_Chatter Only</members>
+        <members>GSO Basic User_Salesforce</members>		
         <members>Mercury Integration CST - Platform</members>
 		<members>Mercury Integration Docusign - Platform</members>
         <members>Mercury Integration ExactTarget - Platform</members>
