@@ -106,7 +106,6 @@
         <name>PermissionSet</name>
     </types>
 	 <types>
-        <members>GLBL_Chatter Only</members>
         <members>Mercury Integration CST - Platform</members>
         <members>Mercury Integration Docusign - Platform</members>
         <members>Mercury Integration ExactTarget - Platform</members>
