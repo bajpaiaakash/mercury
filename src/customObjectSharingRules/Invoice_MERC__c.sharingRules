@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>MERC_Invoices_Shared_To_Cork</fullName>
+        <sharedTo>
+            <group>MERC_Meetings_CMS_Cork</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Name</field>
+            <operation>notEqual</operation>
+            <value>abc</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>MERC Invoices Shared To Cork</name>
+    </criteriaBasedRules>
+</CustomObjectSharingRules>
