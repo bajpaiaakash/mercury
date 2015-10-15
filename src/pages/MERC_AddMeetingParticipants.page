@@ -486,10 +486,10 @@
                                         <apex:column headerValue="{!$ObjectType.Account.fields.FirstName.label}" value="{!r.firstname}"/>
                                         <apex:column headerValue="{!$ObjectType.Account.fields.Mdl_Nm_GLBL__c.label}" value="{!r.mdl_nm_glbl}"/>
                                         <apex:column headerValue="{!$ObjectType.Account.fields.LastName.label}" value="{!r.lastname}"/>
-                                        <apex:column headerValue="{!$ObjectType.Account.fields.Prim_Affil_HCO_GLBL__c.label}" value="{!r.prim_affil_hco_glbl}"/> <!-- Added by Jyoti Gaur for US-37487 on 13-Oct-->
+
                                         <apex:column headerValue="{!$ObjectType.Account.fields.Scnd_Nm_GLBL__c.label}" value="{!r.scnd_nm_glbl}"/>
                                         <apex:column headerValue="{!$ObjectType.Account.fields.Clsfctn_Cd_GLBL__c.label}" value="{!r.clsfctn_cd_glbl}"/>
-
+                                        <apex:column headerValue="Primary HCO" value="{!r.prim_affil_hco_glbl}"/> <!-- Added by Jyoti Gaur for US-37487 on 13-Oct-->
                                         <apex:column headerValue="{!$ObjectType.Account.fields.Primary_Addr_Line1_GLBL__c.label}" value="{!r.primary_addr_line1_glbl}"/>
 
                                         <apex:column headerValue="{!$ObjectType.Account.fields.Primary_Addr_Line2_GLBL__c.label}" value="{!r.primary_addr_line2_glbl}"/>

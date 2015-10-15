@@ -46,5 +46,5 @@
         <members>Affiliation_GLBL__c.MERC_Primary Affiliation Addresses</members>
         <name>WorkflowRule</name>
     </types>
-    <version>31.0</version>
+    <version>34.0</version>
 </Package>
