@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <criteriaBasedRules>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
         <fullName>MERC_Invoices_Shared_To_Cork</fullName>
+		<accessLevel>Edit</accessLevel>
+		<description>All invoices should be shared with CMS regional users.</description>
+		<label>MERC Invoices Shared To Cork</label>		
         <sharedTo>
             <group>MERC_Meetings_CMS_Cork</group>
         </sharedTo>
@@ -10,7 +13,5 @@
             <operation>notEqual</operation>
             <value>abc</value>
         </criteriaItems>
-        <accessLevel>Edit</accessLevel>
-        <name>MERC Invoices Shared To Cork</name>
-    </criteriaBasedRules>
-</CustomObjectSharingRules>
+    </sharingCriteriaRules>
+</SharingRules>

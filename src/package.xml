@@ -16,10 +16,6 @@
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>Invoice_MERC__c.MERC_Invoices_Shared_To_Cork</members>
-        <name>CustomObjectCriteriaBasedSharingRule</name>
-    </types>
-    <types>
         <members>Address_GLBL__c-GLBL_Addresses</members>
         <members>Address_GLBL__c-MERC_Contracting_Party_Address</members>
         <members>Address_GLBL__c-MERC_Designated_Individual_Address</members>
@@ -30,6 +26,10 @@
     <types>
         <members>Mercury_System_Administrator_Lite</members>
         <name>PermissionSet</name>
+    </types>
+	<types>
+        <members>Invoice_MERC__c.MERC_Invoices_Shared_To_Cork</members>
+        <name>SharingCriteriaRule</name>
     </types>
     <types>
         <members>Account.Prim_Affiliate_Add_Line_1</members>
