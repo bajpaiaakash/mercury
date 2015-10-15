@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
-    <body>Welcome to JTracker! Please click &lt;a href=&quot;/069i00000000IpD&quot;&gt;here&lt;/a&gt; for a mini user-guide to get you started.</body>
-    <pageComponentType>htmlArea</pageComponentType>
-    <width>narrow</width>
-</HomePageComponent>
