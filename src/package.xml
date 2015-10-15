@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>MERC_PrimaryAffiliation</members>
+        <members>MERC_PrimaryAffiliationTest</members>
+        <members>MERC_TestFactory</members>
+        <members>MERC_TriggerHandlerStateManager</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>MERC_AddMeetingParticipants</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>MERC_Affiliation</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>Address_GLBL__c-GLBL_Addresses</members>
+        <members>Address_GLBL__c-MERC_Contracting_Party_Address</members>
+        <members>Address_GLBL__c-MERC_Designated_Individual_Address</members>
+        <members>Address_GLBL__c-MERC_Payee Address</members>
+        <members>Address_GLBL__c-MERC_Personal Address</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Mercury_System_Administrator_Lite</members>
+        <name>PermissionSet</name>
+    </types>
+	<types>
+        <members>Invoice_MERC__c.MERC_Invoices_Shared_To_Cork</members>
+        <name>SharingCriteriaRule</name>
+    </types>
+    <types>
+        <members>Account.Prim_Affiliate_Add_Line_1</members>
+        <members>Account.Prim_Affiliate_Add_Line_2</members>
+        <members>Account.Prim_Affiliate_City</members>
+        <members>Account.Prim_Affiliate_Country</members>
+        <members>Account.Prim_Affiliate_HCO</members>
+        <members>Account.Prim_Affiliate_HCO_Name</members>
+        <members>Account.Prim_Affiliate_Postal</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Account.MERC_clear_Primary_Aff_Fields</members>
+        <members>Affiliation_GLBL__c.MERC_Primary Affiliation Addresses</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>34.0</version>
+</Package>
