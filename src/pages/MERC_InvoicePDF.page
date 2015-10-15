@@ -1,5 +1,0 @@
-<apex:page showHeader="true" sidebar="true">
-	<apex:form >
-		<apex:inputText html-placeholder="1234"></apex:inputText>
-	</apex:form>
-</apex:page>
