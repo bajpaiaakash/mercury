@@ -1,3 +1,0 @@
-Hi {!PANG_Request_Resource__c.EXPERT_Member__c},
-
-You now have the role of {!PANG_Request_Resource__c.Role__c} on request {!PANG_Request_Resource__c.Request__c} at {!PANG_Request_Resource__c.Link}
