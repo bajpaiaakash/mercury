@@ -62,12 +62,12 @@
 	</classAccesses>
 
 	<classAccesses>
-			<apexClass>CUST_RefreshLOVsController </apexClass>
+			<apexClass>CUST_RefreshLOVsController</apexClass>
 			<enabled>true</enabled>
 	</classAccesses>
 
 	<classAccesses>
-			<apexClass>CUST_RefreshLOVsControllerTest</apexClass>
+			<apexClass>CUST_RefreshLOVsControllerTest</apexClass>
 			<enabled>true</enabled>
 	</classAccesses>
 
@@ -631,6 +631,7 @@
 	<apexClass>TestDataFactoryMVN</apexClass>
 	<enabled>true</enabled>
 	</classAccesses>
+	<description>This permission set allow Mercury support team to handle support activities.</description>
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account.Academic_Qualifications_MERC__c</field>
