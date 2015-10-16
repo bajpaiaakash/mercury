@@ -67,7 +67,7 @@
 	</classAccesses>
 
 	<classAccesses>
-			<apexClass>CUST_RefreshLOVsControllerTest</apexClass>
+			<apexClass>CUST_RefreshLOVsControllerTest</apexClass>
 			<enabled>true</enabled>
 	</classAccesses>
 
