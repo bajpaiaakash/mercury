@@ -62,7 +62,7 @@
 	</classAccesses>
 
 	<classAccesses>
-			<apexClass>CUST_RefreshLOVsController </apexClass>
+			<apexClass>CUST_RefreshLOVsController</apexClass>
 			<enabled>true</enabled>
 	</classAccesses>
 
