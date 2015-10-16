@@ -631,6 +631,7 @@
 	<apexClass>TestDataFactoryMVN</apexClass>
 	<enabled>true</enabled>
 	</classAccesses>
+	<description>This permission set allow Mercury support team to handle support activities.</description>
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account.Academic_Qualifications_MERC__c</field>
@@ -6832,7 +6833,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Affiliation_GLBL__c</object>
+        <object>Affiliation_GLBL__c/object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
 	<objectPermissions>
