@@ -1880,7 +1880,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>GLBL_Error_Log__c.App__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1915,12 +1915,12 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>GLBL_Error_Log__c.GLBL_App_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>GLBL_Error_Log__c.Running_User__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6833,7 +6833,7 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Affiliation_GLBL__c/object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
 	<objectPermissions>
         <allowCreate>true</allowCreate>
