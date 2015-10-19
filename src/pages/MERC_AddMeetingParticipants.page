@@ -226,7 +226,7 @@
                                     <script>
                                         setTimeout(function(){
                                             retrieveSearch();
-                                        }, {!$Setup.Mercury_Settings_MERC__c.Initial_Search_Timeout__c});
+                                        }, {!JSENCODE(TEXT($Setup.Mercury_Settings_MERC__c.Initial_Search_Timeout__c))});
                                     </script>
                                 </apex:outputPanel>
                             </apex:outputPanel>
@@ -236,7 +236,7 @@
                                     <script>
                                         setTimeout(function(){
                                             retrieveSearch();
-                                        }, {!$Setup.Mercury_Settings_MERC__c.Subsequent_Search_Timeout__c});
+                                        }, {!JSENCODE(TEXT($Setup.Mercury_Settings_MERC__c.Subsequent_Search_Timeout__c))});
                                     </script>
                                 </apex:outputPanel>
                                 <apex:outputPanel rendered="{!NOT(searching)}">
