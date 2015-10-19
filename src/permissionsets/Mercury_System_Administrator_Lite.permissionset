@@ -6833,7 +6833,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Affiliation_GLBL__c/object>
+        <object>Affiliation_GLBL__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
 	<objectPermissions>

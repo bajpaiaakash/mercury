@@ -80,6 +80,8 @@ public with sharing class MERC_PrimaryAffiliation implements GLBL_TriggerHandler
         }
     }
     // update child accounts
+	if(Account_update != null && Account_update.size()>0){
     update Account_update; 
+	}
     }
 }
