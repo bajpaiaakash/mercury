@@ -2883,7 +2883,7 @@
     </fieldPermissions>
 	<fieldPermissions>
 		<editable>true</editable>
-		<field>CST_App_Menu_Pool_GLBL__c.Party_Sts_Cd_GLBL</field>
+		<field>CST_App_Menu_Pool_GLBL__c.Party_Sts_Cd_GLBL__c</field>
 		<readable>true</readable>
 	</fieldPermissions>
 	<fieldPermissions>
