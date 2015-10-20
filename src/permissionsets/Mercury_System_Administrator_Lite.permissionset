@@ -632,357 +632,1139 @@
 	<enabled>true</enabled>
 	</classAccesses>
 	<description>This permission set allow Mercury support team to handle support activities.</description>
+	
 	<fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Academic_Qualifications_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Advisory_Board_Experience_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Anonymise_Record_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Associate_or_Full_Professor_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.CAP_Usage_Note_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.CST_Email_Stamp_CUST__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Calculate_Open_Meeting_Fees_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Clinical_Trial_PI_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Communication_Channel_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Contract_Expiration_Date_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Contract_Limitations_on_Use_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Cust_Id_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Efctv_End_Dt_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Efctv_Start_Dt_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Emergency_Contact_Name_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Emergency_Contact_Phone_Number_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Employment_Specification_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Exec_Smmry_Note_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.FMV_Tier_Exists_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Fax_Phone_Cntry_Cd_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Flag_CST_Email_CUST__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Flag_CST_Expire_Email_CUST__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Flag_CST_User_Email_CUST__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.HCP_Country_of_Residence_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.HCP_Designated_Individuals_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.HCP_Info_Pack_Received_Date_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.HCP_Info_Package_Status_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Has_Contract_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Has_MSA_Contract_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Hospital_Leadership_Role_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Initiate_Tiering_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Institutional_Notif_Info_Exists_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Institutional_Notification_Complete_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Instructor_Assistant_Clinical_Prof_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Journal_Articles_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.MSA_Contract_Expiration_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Mercury_External_Id_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Multiple_Specialties_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.NIF_Number_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.National_Inter_Leadership_Role_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Participated_in_Clinical_Trials_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Practicing_for_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Prim_Affil_Addr_City_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Prim_Affil_Addr_Country_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Prim_Affil_Addr_Line1_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Prim_Affil_Addr_Line2_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Prim_Affil_HCO_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Prim_Affil_Pstl_Cd_Extnsn_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Primary_HCO_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.RTI_Transaction_ID_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Regional_Leadership_Role_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Reviewer_or_Editor_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Service_Provider_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Service_Provider_Tier_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Source_Block_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Src_Block_Flg_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Status_Cd_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Status_Desc_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Status_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Tier_1_Criteria_Met_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Tier_1_HCP_CV_Checked_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Tier_1_Score_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Tier_2_Criteria_Met_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Tier_2_Score_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Tier_3_Criteria_Met_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Transparency_Reporting_Opt_Out_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Transparency_Reporting_last_updated_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Utilised_CAP_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Veeva_Organization_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Work_Cntry_Cd_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
+	<editable>true</editable>
+	<field>Account.Academic_Qualifications_MERC__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Account_Add_Reason_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.AccountSource</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Advisory_Board_Experience_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Allocated_CAP_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Altrnt_Nm_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Annual_CAP_Limit_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.AnnualRevenue</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Anonymise_Record_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Approval_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Associate_or_Full_Professor_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.BillingAddress</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Bnft_Dsgn_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Bsns_Nm2_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Bsns_Nm3_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Calculate_Open_Meeting_Fees_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.CAP_Usage_Note_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Cellular_Phone_Cntry_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Clinical_Trial_PI_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Cntrct_Elgblty_Sts_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Cntrct_Nm_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Cntrct_Shrt_Nm_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Cntry_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.CODS_End_Date_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.CODS_Merge_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Communication_Channel_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Communication_Preference_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Consulting_Project_Paid_CAP_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Contract_Expiration_Date_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Contract_Limitations_on_Use_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Contract_Signatory_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Contracting_Party_Change_Reviewed_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Cost_Cntr_Nbr_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Cost_Cntr_Nm_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Country_of_Residence_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Crdntl_Cd2_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Crdntl_Cd3_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Crdntl_Lvl_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Crdntl_Lvl2_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Crdntl_Lvl3_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Crdntl_Typ_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Crdntl_Typ_Cd2_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Crdntl_Typ_Cd3_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Credential_Code_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.CST_Email_Stamp_CUST__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Cust_Grp_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Cust_Id_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Cust_Typ_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Cust_Typ_Desc_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.CV_Upload_File_Name_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.CV_Upload_Step_Complete_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Decd_Flg_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Dept_Flg_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Description</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Designated_Indiv_Validation_Date_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Dspnsng_Acct_Flg_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Efctv_End_Dt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Efctv_Start_Dt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Elctrnc_Adrs_Cntry_Prfx_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Elctrnc_Adrs_Elc_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Elctrnc_Adrs_Extnsn_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Elctrnc_Adrs_Fax_Cntry_Prfx_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Elctrnc_Adrs_Fax_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Elctrnc_Adrs_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Elctrnc_Adrs_Web_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Elctrnc_Adrs2_Cntry_Prfx_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Elctrnc_Adrs2_Extnsn_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Elctrnc_Adrs2_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Emergency_Contact_Name_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Emergency_Contact_Phone_Number_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Employed_by_Government_Institution_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Employment_Specification_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Exec_Smmry_Note_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Fax_Phone_Cntry_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.First_Name_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.First_Name_override_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Flag_CST_Email_CUST__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Flag_CST_Expire_Email_CUST__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Flag_CST_User_Email_CUST__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.FMV_Tier_Exists_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Frmr_Nm_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Full_Nm_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Gndr_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Gndr_Desc_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Governance_Level_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Govt_Flg_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Has_Contract_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Has_MSA_Contract_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.HCP_Contracting_Party_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.HCP_Country_of_Residence_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.HCP_Designated_Individuals_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.HCP_Info_Pack_Received_Date_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.HCP_Info_Package_Status_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Hospital_Leadership_Role_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Ims_Prscrbr_Flg_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Ims_Xponent_Flg_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Industry</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Initials_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Initiate_Tiering_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Institution_Administrator_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Institution_Name_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Institution_Name_override_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Institutional_Notif_Info_Exists_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Institutional_Notification_Complete_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Instructor_Assistant_Clinical_Prof_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Job_Title_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Journal_Articles_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Justification_for_Preferred_Venue_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Key_Opinion_Leader_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Language_Preference_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Last_Name_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Last_Name_override_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Last_Review_Date_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.LastModifiedBy</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Lilly_Company_Code_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Lilly_Company_VAT_ID_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Mdl_Nm_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Mercury_External_Id_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Merge_DT_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Mltry_Flg_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.MSA_Contract_Expiration_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Multiple_Specialties_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Name_of_Institution_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.National_Inter_Leadership_Role_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.NIF_Number_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.NumberOfEmployees</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.ODS_Ld_Tmstmp_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.ODS_Lst_Updt_Tmstmp_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Othr_Ttl_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Ownership</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Parent</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Participated_in_Clinical_Trials_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Party_Rcrd_Typ_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Payment_Required_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Personal_Address_City_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Personal_Address_Country_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Personal_Address_Line_1_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Personal_Address_Line_2_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Personal_Postal_Code_Extension_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Plan_Typ_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Pmt_Nm_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Position_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Position_Desc_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Practicing_for_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Preferred_Contact_Method_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Preferred_Venue_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Prfrd_Nm_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Prfsnl_Start_Dt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Prim_Affil_Addr_City_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Prim_Affil_Addr_Country_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Prim_Affil_Addr_Line1_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Prim_Affil_Addr_Line2_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Prim_Affil_HCO_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Prim_Affil_Pstl_Cd_Extnsn_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Primary_Addr_City_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Primary_Addr_Line1_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Primary_Addr_Line2_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Primary_Address_Country_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Primary_HCO_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Primary_Pstl_Cd_Extnsn_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Prof_Title_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Property_Remarks_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Prsnl_Nbr_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Quality_Level_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Rating</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Regional_Leadership_Role_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Relationship_Owner_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Reserved_CAP_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Reviewer_or_Editor_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.RTI_Transaction_ID_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Sales_Force_Code_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Sales_Force_Description_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Salutation_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Scnd_Nm_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Scnd_Ttl_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Service_Provider_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Service_Provider_Tier_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Sfx_Nm_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.ShippingAddress</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Sic</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.SicDesc</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Site</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Source_Block_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Speaking_Paid_CAP_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Src_Block_Flg_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Src_Sys_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Status_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Status_Desc_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Status_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Store_Loc_Nbr_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Sub_Clsfctn_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Sub_Clsfctn_Desc_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Suffix_override_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Supervisor_Prsnl_Nbr_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.System_Id_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Territory_Id_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.TickerSymbol</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Tier_1_Criteria_Met_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Tier_1_HCP_CV_Checked_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Tier_1_Score_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Tier_2_Criteria_Met_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Tier_2_Score_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Tier_3_Criteria_Met_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Title_Desc_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Title_override_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Transparency_Reporting_last_updated_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Transparency_Reporting_Opt_Out_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Trng_Acct_Flg_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Trtry_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Trtry_Desc_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Type</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Utilised_CAP_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Veeva_Organization_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Venue_Preference_Type_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Voicemail_Phone_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Voicemail_Phone_Nbr_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Website</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Whlslr_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Work_Cntry_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Work_Country_Desc_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.Work_Phone_Cntry_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.WS_Updt_Dt_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.WS_Updt_HCP_Actn_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.WS_Updt_HCP_Global_ID_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Account.WS_Updt_HCP_Name_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	
+	<fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.Account_Global_Id_GLBL__c</field>
         <readable>true</readable>
@@ -1012,6 +1794,11 @@
         <field>Address_GLBL__c.Anonymise_Record_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.Care_Of_Nm_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.City_GLBL__c</field>
@@ -1022,7 +1809,22 @@
         <field>Address_GLBL__c.Cnty_Nm_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.Dea_Nbr_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.Del_Date_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.Del_Flg_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+		<fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.Efctv_End_Dt_GLBL__c</field>
         <readable>true</readable>
@@ -1032,11 +1834,16 @@
         <field>Address_GLBL__c.Efctv_Start_Dt_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.Elctrnc_Adrs_Cntry_Prfx_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.Elctrnc_Adrs_Extnsn_Cd_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.Elctrnc_Adrs_Elc_Txt_GLBL__c</field>
@@ -1047,6 +1854,56 @@
         <field>Address_GLBL__c.Elctrnc_Adrs_Fax_Cntry_Prfx_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.Elctrnc_Adrs_Fax_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.Elctrnc_Adrs_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.Elctrnc_Adrs_Web_Txt_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.Elctrnc_Adrs2_Cntry_Prfx_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.Elctrnc_Adrs2_Extnsn_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.Elctrnc_Adrs2_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.GCO_Party_Physcl_Adrs_Id_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.HCP_License_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.Lat_Coord_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.Line_1_Adrs_Txt_GLBL__c</field>
@@ -1072,11 +1929,41 @@
         <field>Address_GLBL__c.Line_5_Adrs_Txt_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.Long_Coord_Txt_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.Mail_Stop_Txt_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.Mercury_External_Id_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.ODS_Ld_Tmstmp_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.ODS_Ld_Usr_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.ODS_Lst_Updt_Tmstmp_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.ODS_Lst_Updt_Usr_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.Party_Cntry_Cd_GLBL__c</field>
@@ -1092,27 +1979,77 @@
         <field>Address_GLBL__c.Physcl_Adrs_Typ_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.Physcl_Adrs_Typ_Desc_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.Po_Box_Nbr_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.Pstl_Cd_Extnsn_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.Pstl_Vldtn_Flg_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.SAP_Cust_Nbr_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.Src_Block_Flg_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.Src_Sys_Cd_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.St_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Address_GLBL__c.WS_Updt_Dt_MERC__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.WS_Updt_HCP_Actn_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.WS_Updt_HCP_Global_ID_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Address_GLBL__c.WS_Updt_HCP_Name_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.Zip_Postal_Code_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+		<fieldPermissions>
         <editable>true</editable>
         <field>Affiliation_GLBL__c.Account_Cust_Id_GLBL__c</field>
         <readable>true</readable>
@@ -1127,11 +2064,51 @@
         <field>Affiliation_GLBL__c.Account_Global_Id_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Affiliation_GLBL__c.Afltn_Clsfctn_Cd_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Afltn_Party_Rcrd_Typ_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Afltn_Role_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Afltn_Role_Desc_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Afltn_Src_Sys_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Affiliation_GLBL__c.CST_App_Menu_Flag_CUST__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Affiliation_GLBL__c.Del_Date_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Del_Flg_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Dept_Cust_Id_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Affiliation_GLBL__c.Efctv_End_Dt_GLBL__c</field>
@@ -1142,11 +2119,97 @@
         <field>Affiliation_GLBL__c.Efctv_Start_Dt_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Affiliation_GLBL__c.Elctrnc_Adrs_Cntry_Prfx_Cd_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Elctrnc_Adrs_Elc_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Elctrnc_Adrs_Extnsn_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Elctrnc_Adrs_Fax_Cntry_Prfx_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Elctrnc_Adrs_Fax_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Elctrnc_Adrs_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Elctrnc_Adrs_Web_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Gco_Party_Afltn_Id_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Hierarchy_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Hierarchy_Lvl_Txt_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Inflnc_Lvl_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.Inflnc_Thrptc_Area_Cd_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+
     <fieldPermissions>
         <editable>true</editable>
         <field>Affiliation_GLBL__c.Mercury_External_Id_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Affiliation_GLBL__c.ODS_Ld_Tmstmp_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.ODS_Ld_Usr_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.ODS_Lst_Updt_Tmstmp_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Affiliation_GLBL__c.ODS_Lst_Updt_Usr_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Affiliation_GLBL__c.Party_Cntry_Cd_GLBL__c</field>
@@ -1182,11 +2245,16 @@
         <field>Affiliation_GLBL__c.Rltnshp_Typ_Desc_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Affiliation_GLBL__c.Role_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Affiliation_GLBL__c.Role_ID_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Affiliation_GLBL__c.Src_Block_Flg_GLBL__c</field>
@@ -1197,6 +2265,7 @@
         <field>Affiliation_GLBL__c.Src_Sys_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	
     <fieldPermissions>
         <editable>true</editable>
         <field>Agenda_Item_MERC__c.Agenda_Item_Description_MERC__c</field>
@@ -1527,7 +2596,12 @@
         <field>Budget_MERC__c.Version_Number_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.Account</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Case.Account_Email_GLBL__c</field>
         <readable>true</readable>
@@ -1562,6 +2636,11 @@
         <field>Case.Anonymise_Record_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.Asset</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Cancel_Rsns_MERC__c</field>
@@ -1582,6 +2661,11 @@
         <field>Case.City_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.Contact</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Country_GLBL__c</field>
@@ -1592,6 +2676,21 @@
         <field>Case.Customer_Query_Received_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.Description</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.IsEscalated</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.IsVisibleInSelfService</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Language_MERC__c</field>
@@ -1607,16 +2706,36 @@
         <field>Case.Mercury_External_Id_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.Origin</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.Parent</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Case.Postal_Code_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.Priority</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Prior_Parent_Id_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.Reason</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Referred_By_GLBL__c</field>
@@ -1627,12 +2746,167 @@
         <field>Case.State_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.Subject</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.SuppliedCompany</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.SuppliedEmail</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.SuppliedName</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Topic_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Case.Type</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Account</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.AssistantName</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.AssistantPhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Birthdate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Jigsaw</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Department</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.DoNotCall</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Email</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.HasOptedOutOfEmail</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Fax</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.HasOptedOutOfFax</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.HomePhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.LeadSource</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.MailingAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.MobilePhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.OtherAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.OtherPhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Phone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.ReportsTo</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Title</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>CST_App_Menu_Pool_GLBL__c.Party_Sts_Cd_GLBL</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Log_CUST__c.Term_Language_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Log_CUST__c.Terms_Accepted_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Log_CUST__c.Time_Accessed_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Log_CUST__c.User_Account_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Daily_Attendance_TOV_MERC__c.Confirm_ToV_Reporting_Change_MERC__c</field>
         <readable>true</readable>
@@ -5389,7 +6663,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Account_External_Id_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5414,7 +6688,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Active_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5494,7 +6768,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Cnsnt_Prps_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5504,7 +6778,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Cnsnt_Prps_Desc_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5554,12 +6828,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Desc_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5583,11 +6857,41 @@
         <field>Preferences_and_Consent_GLBL__c.Communication_Preference_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Contract_Delivery_Cap_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.Contract_Delivery_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_Cap_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Country_Code_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Detailed_Preferences_Cap_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Detailed_Preferences_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Document_Id_CMS_MERC__c</field>
@@ -5629,7 +6933,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.HCP_Country_of_Residence_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5638,26 +6942,111 @@
         <field>Preferences_and_Consent_GLBL__c.HCP_Country_of_Residence_Stamped_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Hotel_Travel_Preferences_MERC__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Interaction_Channel_Type_Cap_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.Interaction_Channel_Type_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.Language_of_Choice_Cap_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.Language_of_Choice_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Language_Preference_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Meals_Allergy_Preferences_MERC__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Mercury_External_Id_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Name_as_in_Passport_MERC__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.ODS_Ld_Usr_Cap_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Tmstmp_Cap_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Usr_Cap_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Party_Cnsnt_External_ID_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Payment_Required_MERC__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.Permission_Status_Cap_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.Permission_Status_GLBL__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+		<editable>true</editable>
+		<field>Preferences_and_Consent_GLBL__c.Preference_Sub_Type_MERC__c</field>
+		<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Preference_Type_MERC__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Preference_Value_MERC__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Prevent_Duplicate_Preference_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Record_Type_Id_Cap_GLBL__c</field>
@@ -5668,18 +7057,33 @@
         <field>Preferences_and_Consent_GLBL__c.Record_Type_Id_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Speaker_Interest_Cap_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Speaker_Interest_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
+	<editable>true</editable>
+	<field>Preferences_and_Consent_GLBL__c.Src_Block_Flg_Cap_GLBL__c</field>
+	<readable>true</readable>
+	</fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Src_Block_Flg_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Transparency_Reporting_Opt_Out_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.User_Name_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7399,6 +8803,14 @@
 	<enabled>true</enabled>
 	</pageAccesses>
 
+	<recordTypeVisibilities>
+        <recordType>Account.Business_Account</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <recordType>Account.Health_Care_Organization_GLBL</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
 	<recordTypeVisibilities>
         <recordType>Address_GLBL__c.Contract_Party_Address</recordType>
         <visible>true</visible>
