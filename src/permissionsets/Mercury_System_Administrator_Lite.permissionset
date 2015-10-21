@@ -3963,12 +3963,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.AODS_Venue_Id_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.AODS_Venue_Name_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4013,22 +4013,22 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Associated_Countries_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Audit_End_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Audit_Start_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Budget_Final_Date_Time_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4063,32 +4063,32 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Compliance_Met_Initiate_Sourcing_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Compliance_Met_Invoices_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Compliance_Met_Meeting_Closure_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Compliance_Met_Meeting_Errors_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Compliance_Met_ToV_Finalized_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Compliance_Met_Venue_Sourcing_MER__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4118,12 +4118,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Confirmation_Comp_Invoice_Dt_Tm_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Confirmed_Attendees_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4143,17 +4143,17 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Customer_Facing_End_Time_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Customer_Facing_Meeting_Organiser_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Customer_Facing_Start_Time_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4168,22 +4168,22 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Days_Until_Meeting_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Days_Until_Venue_Contracted_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Days_from_End_Date_to_ToV_Reported_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Days_from_MPC_to_Initiate_Sourcing_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4208,7 +4208,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Employees_Attended_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4218,7 +4218,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.End_Date_Year_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4228,7 +4228,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.End_Date_of_Meeting_plus_60_Days_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4243,7 +4243,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Evaluate_Meeting_Process_Logic_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4288,7 +4288,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Exclude_from_Open_Meeting_Fee_Calc_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4323,7 +4323,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Formatted_Name_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4333,7 +4333,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Group_Sponsorship_Meeting_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4343,7 +4343,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.HCO_Sponsorship_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4353,7 +4353,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.HCPs_Attended_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4378,7 +4378,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Individual_Sponsorship_Meeting_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4388,7 +4388,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Initiate_Venue_Sourcing_Date_Time_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4438,7 +4438,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Local_CMS_Review_Completed_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4463,7 +4463,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.MPC_Date_Time_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4478,12 +4478,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Meeting_Active_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Meeting_Auto_Nmber_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4493,7 +4493,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Meeting_Errors_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4548,7 +4548,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Meeting_Type_Abbreviation_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4568,12 +4568,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.No_Shows_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Non_HCPs_Attended_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4588,7 +4588,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Number_of_Draft_Budgets_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4638,12 +4638,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Parent_Meeting_Event_Id_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Parent_Meeting_External_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4658,7 +4658,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Participant_ToV_Final_Date_Time_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4668,17 +4668,17 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Participant_ToV_Updated_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Participants_Attended_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Planned_Attendees_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4748,7 +4748,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Send_Meeting_Team_Cancelled_Email_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4768,7 +4768,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Sourced_Venue_Addr1_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4783,7 +4783,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Sourced_Venue_Addr_2_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4793,7 +4793,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Sourced_Venue_City_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4803,7 +4803,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Sourced_Venue_Country_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4813,7 +4813,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Sourced_Venue_Name_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4823,7 +4823,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Sourced_Venue_Postal_Code_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4878,7 +4878,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Subject_to_ToV_Audit_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4923,7 +4923,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.ToV_Audit_Status_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4943,7 +4943,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Venue_ET_Email_Template_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4953,7 +4953,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Venue_Sourced_Date_Time_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4968,21 +4968,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.of_Days_Until_Invoice_Reviewed_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.of_Sponsored_Individuals_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.of_Sponsorship_Group_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Account_External_MERC__c</field>
         <readable>true</readable>
@@ -6278,62 +6278,62 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Due_Date_Status_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Evaluate_Rules_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.HCP_Country_of_Residence_Stamped_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Is_Follow_Up__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Meeting_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Meeting_Participant_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Meeting_Process_Logic_Key_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Mercury_External_Id_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Next_Step_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Open_Task_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Ordering_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Process_Type_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
