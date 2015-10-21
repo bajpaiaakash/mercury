@@ -1205,11 +1205,6 @@
 	</fieldPermissions>
 	<fieldPermissions>
 		<editable>true</editable>
-		<field>Account.LastModifiedBy</field>
-		<readable>true</readable>
-	</fieldPermissions>
-	<fieldPermissions>
-		<editable>true</editable>
 		<field>Account.Lilly_Company_Code_GLBL__c</field>
 		<readable>true</readable>
 	</fieldPermissions>
@@ -8845,6 +8840,10 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Budget_MERC__c.MERC_Budget_Final</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <recordType>Case.MERC_Mercury_Cases</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
