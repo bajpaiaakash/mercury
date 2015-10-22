@@ -268,7 +268,9 @@ public with sharing class MERC_ETDataExtensionProcessor {
         System.debug('res : ' + res);
         System.debug('res body : ' + res.getBody());
 
+        System.debug('before derepsonse');
         MERC_ETDataExtension.DataExtensionResponse deResponse = (MERC_ETDataExtension.DataExtensionResponse)JSON.deserialize(res.getBody(), MERC_ETDataExtension.DataExtensionResponse.class);
+        System.debug('after derepsonse:\n\n\t' + deResponse);
         return deResponse;
     }
 
