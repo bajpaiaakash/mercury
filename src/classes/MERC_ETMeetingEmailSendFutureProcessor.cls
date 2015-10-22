@@ -68,7 +68,16 @@ public without sharing class MERC_ETMeetingEmailSendFutureProcessor {
         if (meetingEmailSend.Send_Status__c == 'Create Send Definition') {
             String key = String.valueof(datetime.now().getTime());
             String name = 'LillySendDef' + datetime.now() + meetingEmailSend.Meeting_MERC__c;
-            MERC_ETSendDefinition newSendDef = new MERC_ETSendDefinition(sendDefinition.et4ae5__DataExtensionId__c, sendDefinition.et4ae5__DedupeSubscribers__c, 'Eli Lilly Send Definition Description', Integer.valueOf(sendDefinition.et4ae5__EmailId__c), key, name, sendDefinition.et4ae5__Subject__c, sendDefinition.et4ae5__SendClassificationId__c);
+            MERC_ETSendDefinition newSendDef = new MERC_ETSendDefinition(
+                sendDefinition.et4ae5__DataExtensionId__c, 
+                sendDefinition.et4ae5__DedupeSubscribers__c, 
+                'Eli Lilly Send Definition Description', 
+                Integer.valueOf(sendDefinition.et4ae5__EmailId__c), 
+                key, 
+                name, 
+                sendDefinition.et4ae5__Subject__c, 
+                sendDefinition.et4ae5__SendClassificationId__c,
+                sendDefinition.et4ae5__SenderProfileId__c);
 
             try {
                 
@@ -162,7 +171,7 @@ public without sharing class MERC_ETMeetingEmailSendFutureProcessor {
         send.et4ae5__Subject__c = meetingEmailSend.ET_Subject_MERC__c;
         send.et4ae5__SubjectLine__c = meetingEmailSend.ET_Subject_Line_MERC__c;
         send.et4ae5__Thumbnail__c = meetingEmailSend.ET_Thumbnail_MERC__c;
-        send.et4ae5__SenderProfileId__c = meetingEmailSend.ET_Sender_Profile_Id_MERC__c;
+        send.et4ae5__SenderProfileId__c = 'ZHFBZDVrZ0RFZVdWRkt3V0xiR1lCQTo0Nzow'; //meetingEmailSend.ET_Sender_Profile_Id_MERC__c;
         send.et4ae5__SendClassificationId__c = meetingEmailSend.ET_Send_Classification_Id_MERC__c;
         send.et4ae5__ETSendDef__c = meetingEmailSend.ET_Send_Definition_MERC__c;
         

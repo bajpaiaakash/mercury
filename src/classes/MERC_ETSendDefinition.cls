@@ -1,7 +1,14 @@
 public with sharing class MERC_ETSendDefinition {
     public MERC_ETSendDefinition() {}
 
-    public MERC_ETSendDefinition(String dataExtensionId, Boolean deduplicateByEmail, String description, Integer emailId, String key, String name, String emailSubject, String sendClassificationId) {
+    public MERC_ETSendDefinition(String dataExtensionId,
+                                 Boolean deduplicateByEmail,
+                                 String description, Integer emailId,
+                                 String key,
+                                 String name,
+                                 String emailSubject,
+                                 String sendClassificationId,
+                                 String senderProfileId) {
         this.dataExtensionId = dataExtensionId;
         this.deduplicateByEmail = deduplicateByEmail;
         this.description = description;
@@ -13,6 +20,7 @@ public with sharing class MERC_ETSendDefinition {
         this.type = 'GENERICEXTENSIONSEND';
         this.emailSubject = emailSubject;
         this.sendClassificationId = sendClassificationId;
+        this.senderProfileId = senderProfileId;
     }
 
     public String dataExtensionId;
@@ -26,6 +34,7 @@ public with sharing class MERC_ETSendDefinition {
     public String type;
     public String emailSubject;
     public String sendClassificationId;
+    public String senderProfileId;
 
     public class CreateResponse {
         public String id;
