@@ -90,8 +90,8 @@ public without sharing class MERC_ETAuthorizer {
             clientSecret = 'ntxbHHuuzdtdEQExPnT7VPSk';
             restAuthURL = 'https://auth-qa2s1.exacttargetapis.com';
         } else { // must be production
-            clientId = 'x3tmhb2dgz33gsvfwr3hy868';
-            clientSecret = 'aAvqCVBQUW6KnHKwwXgY6FZa';
+            clientId = 'jsemj72hixy2qx1yp27lb59o';
+            clientSecret = 'DRfQ1K3NzeOxxdJEXDOUK4n2';
             restAuthURL = 'https://auth.exacttargetapis.com';
         }
         FuelRequestBody fuelReqBody = new FuelRequestBody(clientId, clientSecret, soapAuthToken);
@@ -112,6 +112,11 @@ public without sharing class MERC_ETAuthorizer {
         if (res.getStatusCode() >= 200 && res.getStatusCode() < 300) {
             FuelResponseBody fuelResBody = (FuelResponseBody)JSON.deserialize(res.getBody(), FuelResponseBody.class);
             authToken = fuelResBody.accessToken;
+        } else {
+            System.debug('soapAuthToken: ' + soapAuthToken);
+            System.debug(LoggingLevel.WARN, 'Failed to get FuelAuthToken ('
+                + res.getStatusCode() + '):\n\nRequest:\n' 
+            + JSON.serialize(fuelReqBody) + '\n\nResponse:\n' + res.getBody());
         }
 
         return authToken;
