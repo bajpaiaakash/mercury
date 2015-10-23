@@ -8807,11 +8807,11 @@
         <visible>false</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
-        <recordType>Account.Employee_GLBL</recordType>
+        <recordType>PersonAccount.Employee_GLBL</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
-        <recordType>Account.HCP_GLBL</recordType>
+        <recordType>PersonAccount.HCP_GLBL</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
@@ -8819,7 +8819,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
-        <recordType>Account.PersonAccount</recordType>
+        <recordType>PersonAccount.PersonAccount</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
