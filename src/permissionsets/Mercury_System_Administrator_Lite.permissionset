@@ -9,7 +9,7 @@
         <visible>true</visible>
     </applicationVisibilities>
 	 <applicationVisibilities>
-        <application>dsfs.DocuSign_For_Salesforce</application>
+        <application>dsfs.DocuSign For Salesforce</application>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
