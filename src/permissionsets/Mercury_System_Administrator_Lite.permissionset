@@ -8,6 +8,10 @@
         <application>Customer_Meeting_Services_MERC</application>
         <visible>true</visible>
     </applicationVisibilities>
+	 <applicationVisibilities>
+        <application>dsfs.DocuSign_For_Salesforce</application>
+        <visible>true</visible>
+    </applicationVisibilities>
     <applicationVisibilities>
         <application>Mercury</application>
         <visible>true</visible>
@@ -8800,11 +8804,23 @@
 
 	<recordTypeVisibilities>
         <recordType>Account.Business_Account</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <recordType>Account.Employee_GLBL</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <recordType>Account.HCP_GLBL</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
         <recordType>Account.Health_Care_Organization_GLBL</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+	<recordTypeVisibilities>
+        <recordType>Account.PersonAccount</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
         <recordType>Address_GLBL__c.Contract_Party_Address</recordType>
@@ -9036,6 +9052,38 @@
     </tabSettings>
     <tabSettings>
         <tab>Budget_MERC__c</tab>
+        <visibility>Available</visibility>
+    </tabSettings>
+	<tabSettings>
+        <tab>CST_Admin_Utilities</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_App_Menu_Pool_GLBL__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_App_Settings_CUST__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_Picklist_CUST__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_User_Log_CUST__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_User_Settings_CUST__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+	<tabSettings>
+        <tab>dsfs__DocuSignAccountConfiguration__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+	<tabSettings>
+        <tab>dsfs__DocuSignStatus__c</tab>
         <visibility>Available</visibility>
     </tabSettings>
     <tabSettings>
