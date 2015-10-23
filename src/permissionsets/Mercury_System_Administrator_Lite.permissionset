@@ -9,7 +9,7 @@
         <visible>true</visible>
     </applicationVisibilities>
 	 <applicationVisibilities>
-        <application>dsfs.DocuSign_For_Salesforce</application>
+        <application>DocuSign_For_Salesforce</application>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -9083,7 +9083,7 @@
         <visibility>Visible</visibility>
     </tabSettings>
 	<tabSettings>
-        <tab>dsfs__DocuSignStatus__c</tab>
+        <tab>dsfs__DocuSign_Status__c</tab>
         <visibility>Available</visibility>
     </tabSettings>
     <tabSettings>
