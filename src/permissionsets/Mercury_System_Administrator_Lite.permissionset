@@ -8,6 +8,10 @@
         <application>Customer_Meeting_Services_MERC</application>
         <visible>true</visible>
     </applicationVisibilities>
+	 <applicationVisibilities>
+        <application>dsfs.DocuSign_For_Salesforce</application>
+        <visible>true</visible>
+    </applicationVisibilities>
     <applicationVisibilities>
         <application>Mercury</application>
         <visible>true</visible>
@@ -9037,6 +9041,30 @@
     <tabSettings>
         <tab>Budget_MERC__c</tab>
         <visibility>Available</visibility>
+    </tabSettings>
+	<tabSettings>
+        <tab>CST_Admin_Utilities</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_App_Menu_Pool_GLBL__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_App_Settings_CUST__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_Picklist_CUST__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_User_Log_CUST__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_User_Settings_CUST__c</tab>
+        <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
         <tab>GLBL_Error_Log__c</tab>
