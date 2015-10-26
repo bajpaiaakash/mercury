@@ -32,17 +32,17 @@
         <name>SharingCriteriaRule</name>
     </types>
     <types>
-        <members>Account.Prim_Affiliate_Add_Line_1</members>
-        <members>Account.Prim_Affiliate_Add_Line_2</members>
-        <members>Account.Prim_Affiliate_City</members>
-        <members>Account.Prim_Affiliate_Country</members>
-        <members>Account.Prim_Affiliate_HCO</members>
-        <members>Account.Prim_Affiliate_HCO_Name</members>
-        <members>Account.Prim_Affiliate_Postal</members>
+        <members>Account.GLBL_Prim_Affiliate_Add_Line_1</members>
+        <members>Account.GLBL_Prim_Affiliate_Add_Line_2</members>
+        <members>Account.GLBL_Prim_Affiliate_City</members>
+        <members>Account.GLBL_Prim_Affiliate_Country</members>
+        <members>Account.GLBL_Prim_Affiliate_HCO</members>
+        <members>Account.GLBL_Prim_Affiliate_HCO_Name</members>
+        <members>Account.GLBL_Prim_Affiliate_Postal</members>
         <name>WorkflowFieldUpdate</name>
     </types>
     <types>
-        <members>Account.MERC_clear_Primary_Aff_Fields</members>
+        <members>Account.GLBL_clear_Primary_Aff_Fields</members>        
         <members>Affiliation_GLBL__c.MERC_Primary Affiliation Addresses</members>
         <name>WorkflowRule</name>
     </types>
