@@ -1,5 +1,0 @@
-<apex:page controller="LPAD_LandingPageController" action="{!init}" showheader="false" sidebar="false" standardStylesheets="true">
-
-    <chatter:feed entityId="{!feedId}" />
-    
-</apex:page>
