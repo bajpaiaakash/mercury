@@ -8999,11 +8999,7 @@
     <recordTypeVisibilities>
         <recordType>PersonAccount.Employee_GLBL</recordType>
         <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <recordType>PersonAccount.HCP_GLBL</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
+    </recordTypeVisibilities>   
     <recordTypeVisibilities>
         <recordType>PersonAccount.Non_HCP_MERC</recordType>
         <visible>true</visible>
