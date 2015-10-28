@@ -8821,26 +8821,6 @@
 	</pageAccesses>
 
 	<recordTypeVisibilities>
-        <recordType>Account.Business_Account</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-	<recordTypeVisibilities>
-        <recordType>PersonAccount.Employee_GLBL</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-	<recordTypeVisibilities>
-        <recordType>PersonAccount.HCP_GLBL</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-	<recordTypeVisibilities>
-        <recordType>Account.Health_Care_Organization_GLBL</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-	<recordTypeVisibilities>
-        <recordType>PersonAccount.PersonAccount</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-	<recordTypeVisibilities>
         <recordType>Address_GLBL__c.Contract_Party_Address</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -8990,14 +8970,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Meeting_Vendor_MERC__c.Other</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <recordType>PersonAccount.Designated_Individual_GLBL</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>   
-    <recordTypeVisibilities>
-        <recordType>PersonAccount.Non_HCP_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
