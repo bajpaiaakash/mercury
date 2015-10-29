@@ -87,6 +87,26 @@ public with sharing class MERC_ETCallControl {
         }
     }
 
+    public List<MERC_ETObject.SenderProfile> getSenders(String memberId){
+        et4ae5__Configuration__c etConfiguration = getConfiguration();
+        String token = getOAuthToken(etConfiguration, memberId);
+        String baseUrl = etConfiguration.et4ae5__Root_Rest_API_URL__c;
+        HttpResponse httpResponse = callSenders(baseUrl, token);
+
+        try{
+            MERC_ETObject.SenderProfileResponse parsedResponse = 
+                (MERC_ETObject.SenderProfileResponse)JSON.deserialize(
+                    httpResponse.getBody(), MERC_ETObject.SenderProfileResponse.class);
+            return parsedResponse.entry;
+        } catch(JSONException ex){
+            System.debug('JSONException:\n' + ex.getMessage());
+            return null;
+        } catch(Exception ex){
+            System.debug('Exception:\n' + ex.getMessage());
+            return null;
+        }
+    }
+
     public et4ae5__Configuration__c getConfiguration(){
         return [SELECT et4ae5__username__c, 
                        et4ae5__password__c, 
@@ -290,6 +310,11 @@ public with sharing class MERC_ETCallControl {
 
     public HttpResponse callSender(String senderProfileId, String url, String token){
         String endpointUrl = url + '/rest/beta/messaging/senderprofile/?oauth_token=' + token + '&where=id+eq+\'' + senderProfileId + '\'';
+        return getFromUrl(endpointUrl);
+    }
+
+    public HttpResponse callSenders(String url, String token){
+        String endpointUrl = url + '/rest/beta/messaging/senderprofile/?oauth_token=' + token;
         return getFromUrl(endpointUrl);
     }
 

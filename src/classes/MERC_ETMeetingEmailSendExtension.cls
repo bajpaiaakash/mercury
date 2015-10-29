@@ -576,28 +576,58 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     private void initializeEmails(){
         fromEmailOptions = new List<SelectOption>();
 
-        String userName = UserInfo.getUserName();
-        User activeUser = [Select Email From User where Username = :userName limit 1];
-        String userEmail = activeUser.Email;
-        String userFullName = UserInfo.getFirstName() + ' ' + UserInfo.getLastName();
-        fromEmailOptions.add(new SelectOption(getEmailValue(userEmail, userFullName),
-            getEmailKey(userEmail, userFullName)));
+        //String userName = UserInfo.getUserName();
+        //User activeUser = [Select Email From User where Username = :userName limit 1];
+        //String userEmail = activeUser.Email;
+        //String userFullName = UserInfo.getFirstName() + ' ' + UserInfo.getLastName();
+        //fromEmailOptions.add(new SelectOption(getEmailValue(userEmail, userFullName),
+        //    getEmailKey(userEmail, userFullName)));
 
-        List<OrgWideEmailAddress> orgWideEmails = [SELECT Address, DisplayName, Id FROM OrgWideEmailAddress];
-        if(orgWideEmails != null){
-            for(OrgWideEmailAddress orgWideEmail : orgWideEmails){
-                fromEmailOptions.add(new SelectOption(getEmailValue(orgWideEmail.Address, orgWideEmail.DisplayName),
-                    getEmailKey(orgWideEmail.Address, orgWideEmail.DisplayName)));
+        //List<OrgWideEmailAddress> orgWideEmails = [SELECT Address, DisplayName, Id FROM OrgWideEmailAddress];
+        //if(orgWideEmails != null){
+        //    for(OrgWideEmailAddress orgWideEmail : orgWideEmails){
+        //        fromEmailOptions.add(new SelectOption(getEmailValue(orgWideEmail.Address, orgWideEmail.DisplayName),
+        //            getEmailKey(orgWideEmail.Address, orgWideEmail.DisplayName)));
+        //    }
+        //}
+
+        //User ownerUser = [SELECT Email, FirstName, LastName FROM User WHERE Id = :this.meeting.OwnerId][0];
+        //if(ownerUser != null){
+        //    String ownerFullName = ownerUser.FirstName + ' ' + ownerUser.LastName;
+        //    fromEmailOptions.add(new SelectOption(getEmailValue(ownerUser.Email, ownerFullName),
+        //        getEmailKey(ownerUser.Email, ownerFullName)));
+        //}
+        List<MERC_ETObject.SenderProfile> senderProfiles = null;
+        if(isEnterprise)
+        {
+            if (BusinessUnit == null){
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'There is no BusinessUnit specified for this Exact Target enterprise configuration.'));
+                return;
+            }
+
+            senderProfiles = callControl.getSenders(BusinessUnit.et4ae5__Business_Unit_ID__c);
+        }
+        else
+        {
+            senderProfiles = callControl.getSenders(null);
+        }
+
+        if(senderProfiles == null || senderProfiles.isEmpty()){
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'Did not load Sender Profiles correctly.'));
+            return;
+        }
+
+        Integer profileCount = 0;
+
+        for(MERC_ETObject.SenderProfile senderProfile : senderProfiles){
+            fromEmailOptions.add(new SelectOption(senderProfile.id,
+                    getEmailKey(senderProfile.fromEmail, senderProfile.fromName)));
+            profileCount++;
+            if(profileCount > 10){
+                break;
             }
         }
 
-        User ownerUser = [SELECT Email, FirstName, LastName FROM User WHERE Id = :this.meeting.OwnerId][0];
-        if(ownerUser != null){
-            String ownerFullName = ownerUser.FirstName + ' ' + ownerUser.LastName;
-            fromEmailOptions.add(new SelectOption(getEmailValue(ownerUser.Email, ownerFullName),
-                getEmailKey(ownerUser.Email, ownerFullName)));
-        }
-    
     }
 
     public void fromSendOptionChanged(){
@@ -903,6 +933,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         String fromEmail = Config.Default_From_Email__c;
         String fromName = Config.Default_From_Name__c;
+        String fromSenderProfileId = null;
         String fromClassificationId = null;
         if(!fromSourceIsEmail){
             if(String.isBlank(fromClassicationSelected)){
@@ -910,7 +941,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             } else {
                 String[] classificationIds  = fromClassicationSelected.split(',');
                 fromClassificationId = classificationIds[0];
-                String fromSenderProfileId = classificationIds[1];
+                fromSenderProfileId = classificationIds[1];
                 MERC_ETObject.SenderProfile senderProfile = senderProfileById(fromSenderProfileId);
                 if(senderProfile == null){
                     AddErrorMessage('A Sender Profile was not found for the selected Classification.');
@@ -923,9 +954,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             if(String.isBlank(fromEmailSelected)){
                 //AddErrorMessage('A From Email must be selected.');
             } else {
-                String[] emailDetails = fromEmailSelected.split(',');
-                fromEmail = emailDetails[0];
-                fromName = emailDetails[1];
+                fromSenderProfileId = fromEmailSelected;
             }
         }
 
@@ -938,6 +967,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
                                                         DeDup, DisableIndividualTracking, SendTime,
                                                         sendDateEvent.ActivityDateTime,
                                                         additionalInformationHTML, additionalInformationText);
+        wrapper.FromClassificationId = fromClassificationId;
+        wrapper.FromSenderProfileId = fromSenderProfileId;
         //wrapper.FromClassificationId = fromClassificationId;
         MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
         try {
