@@ -19,46 +19,6 @@
                 return true;
             }
         }
-
-        function swapFromSource()
-        {
-            console.log('swapping!');
-            j$ = jQuery.noConflict();
-            fsEmail = jQuery('[id$=fromSelectorEmail]');
-            fsSC = jQuery('[id$=fromSelectorSC]');
-            // Identify picklists.
-            var fromList = jQuery('[id$=from]');
-            var scList = jQuery('[id$=sendClassification]');
-            var fromOP = jQuery('[id$=fromPicklist]');
-            var scOP = jQuery('[id$=scPicklist]');
-
-            // Disable both picklists.
-            if (fromList != null) fromList.attr("disabled", true);
-            if (scList != null) scList.attr("disabled", true);
-            fromOP.hide();
-            scOP.hide();
-
-            if (jQuery('[id$=fromSelectorEmail]').is(':checked') == true || (jQuery('[id$=theHiddenInput1]').val() == "true" && jQuery('[id$=fromSelectorSC]').is(':checked') == false))
-                fsEmail.attr("checked", "checked");
-            if (jQuery('[id$=fromSelectorSC]').is(':checked') == true || (jQuery('[id$=theHiddenInput2]').val() == "true" && jQuery('[id$=fromSelectorEmail]').is(':checked') == false))
-                fsSC.attr("checked", "checked");
-            if (fsEmail.is(":checked") == false && fsSC.is(":checked") == false)
-                fsEmail.attr("checked", "checked");
-
-            // Enable the correct picklist.
-            if (fsEmail.is(":checked") == true)
-            {
-                if (scList != null) scList.val("");
-                if (fromList != null) fromList.removeAttr("disabled");
-                fromOP.show();
-            }
-            if (fsSC.is(":checked") == true)
-            {
-                if (fromList != null) fromList.val("");
-                if (scList != null) scList.removeAttr("disabled");
-                scOP.show();
-            }
-        }
     </script>
 
     <apex:pageMessages id="messages" />
@@ -241,25 +201,12 @@
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionitem id="selectedFrom" helptext="{!$Label.et4ae5__sndClasHlp}">
                     <apex:outputLabel for="fromBlock" value="{!$Label.et4ae5__from}" />
-                    <apex:outputPanel id="fromBlock" layout="block">
-                        <apex:selectRadio value="{!fromSendOption}">
-                            <apex:selectOptions value="{!fromSendOptions}" />
-                            <apex:actionSupport action="{!fromSendOptionChanged}" event="onchange" rerender="fromBlock" status="changingType" />
-                        </apex:selectRadio>
-                        <apex:outputPanel id="fromPicklist" rendered="{!fromSourceIsEmail}">
-                            <apex:selectList id="from" value="{!fromEmailSelected}" size="1">
-                                <apex:selectOptions value="{!fromEmailOptions}" />
-                            </apex:selectList>
-                            <img style="vertical-align:middle;" height="18px" src="{!URLFOR( $Resource.ExactTargetImages, 'reqEmail.png' )}" />
-                        </apex:outputPanel>
-                        <apex:outputPanel id="scPicklist" rendered="{!!fromSourceIsEmail}">
-                            <apex:selectList id="sendClassification" value="{!fromClassicationSelected}" size="1">
-                                <apex:selectOptions value="{!fromClassificationOptions}" />
-                            </apex:selectList>
-                            <img style="vertical-align:middle;" height="18px" src="{!URLFOR( $Resource.ExactTargetImages, 'reqEmail.png' )}" />
-                        </apex:outputPanel>
+                    <apex:outputPanel>
+                        <apex:selectList id="from" value="{!fromEmailSelected}" size="1">
+                            <apex:selectOptions value="{!fromEmailOptions}" />
+                        </apex:selectList>
+                        <img style="vertical-align:middle;" height="18px" src="{!URLFOR( $Resource.ExactTargetImages, 'reqEmail.png' )}" />
                     </apex:outputPanel>
-                    <!-- <apex:outputField label="{!$Label.et4ae5__from}" value="{!Config.Default_From_Email__c}" /> -->
                 </apex:pageBlockSectionitem>
                 <apex:pageBlockSectionItem helpText="{!$Label.et4ae5__msg0006}">
                     <apex:outputLabel value="Dedupe Subscribers" />

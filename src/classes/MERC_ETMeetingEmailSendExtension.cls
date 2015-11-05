@@ -9,6 +9,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     private final Boolean isEnterprise;
     private final Meeting_MERC__c meeting;
+    private final Mercury_Marketing_Cloud_Settings_MERC__c marketingCloudSettings;
+
     public Sonoma_ET_Config__c Config { get; private set; }
     public boolean IsAllChecked { get; set; }
     public boolean DeDup { get; set; }
@@ -20,12 +22,9 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     public String additionalInformationText { get; set; }
     public String base64Thumbnail { get; private set; }
 
-    public Boolean fromSourceIsEmail { get; set; }
     public String fromSendOption { get; set; }
     public List<SelectOption> fromEmailOptions { get; set; }
     public String fromEmailSelected { get; set; }
-    public List<SelectOption> fromClassificationOptions { get; set;}
-    public String fromClassicationSelected { get; set; }
 
     public Set<Id> selectedParticipantIds { get; set; }
 
@@ -488,6 +487,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
      */
     public MERC_ETMeetingEmailSendExtension(ApexPages.StandardController stdController) {
         isEnterprise = [SELECT et4ae5__integration_type__c FROM et4ae5__configuration__c WHERE isdeleted=false][0].et4ae5__integration_type__c=='Enterprise2.0';
+        marketingCloudSettings = Mercury_Marketing_Cloud_Settings_MERC__c.getInstance();
         if (!Test.isRunningTest()) {
             stdController.addFields(new List<String>{ 'Date_of_Event_MERC__c', 'Days_Until_Meeting_MERC__c', 'End_Date_of_Event_MERC__c', 'Name' });
         }
@@ -513,8 +513,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         SendTime = 'now';
 
         fromSendOption = Label.et4ae5.emailAddr;
-        fromSourceIsEmail = true;
-        initializeClassifications();
         initializeEmails();
 
         //build map used in the query builder
@@ -543,60 +541,9 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     }
 
-    private void initializeClassifications(){
-        List<MERC_ETObject.SendClassification> sendClassifications = null;
-        fromClassificationOptions = new List<SelectOption>();
-        fromClassificationOptions.add(new SelectOption('', Label.et4ae5.slctChoose));
-        if(isEnterprise)
-        {
-            if (BusinessUnit == null){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'There is no BusinessUnit specified for this Exact Target enterprise configuration.'));
-                return;
-            }
-
-            sendClassifications = callControl.getClassifications(BusinessUnit.et4ae5__Business_Unit_ID__c);
-        }
-        else
-        {
-            sendClassifications = callControl.getClassifications(null);
-        }
-
-        if(sendClassifications == null){
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'No Send Classifications Available.'));
-            return;
-        }
-
-        for(MERC_ETObject.SendClassification sendClassification : sendClassifications){
-            fromClassificationOptions.add(new SelectOption(
-                sendClassification.id + ',' + sendClassification.senderProfileId,
-                ((MERC_ETObject.ETEntry)sendClassification).name));
-        }
-    }
-
     private void initializeEmails(){
         fromEmailOptions = new List<SelectOption>();
 
-        //String userName = UserInfo.getUserName();
-        //User activeUser = [Select Email From User where Username = :userName limit 1];
-        //String userEmail = activeUser.Email;
-        //String userFullName = UserInfo.getFirstName() + ' ' + UserInfo.getLastName();
-        //fromEmailOptions.add(new SelectOption(getEmailValue(userEmail, userFullName),
-        //    getEmailKey(userEmail, userFullName)));
-
-        //List<OrgWideEmailAddress> orgWideEmails = [SELECT Address, DisplayName, Id FROM OrgWideEmailAddress];
-        //if(orgWideEmails != null){
-        //    for(OrgWideEmailAddress orgWideEmail : orgWideEmails){
-        //        fromEmailOptions.add(new SelectOption(getEmailValue(orgWideEmail.Address, orgWideEmail.DisplayName),
-        //            getEmailKey(orgWideEmail.Address, orgWideEmail.DisplayName)));
-        //    }
-        //}
-
-        //User ownerUser = [SELECT Email, FirstName, LastName FROM User WHERE Id = :this.meeting.OwnerId][0];
-        //if(ownerUser != null){
-        //    String ownerFullName = ownerUser.FirstName + ' ' + ownerUser.LastName;
-        //    fromEmailOptions.add(new SelectOption(getEmailValue(ownerUser.Email, ownerFullName),
-        //        getEmailKey(ownerUser.Email, ownerFullName)));
-        //}
         List<MERC_ETObject.SenderProfile> senderProfiles = null;
         if(isEnterprise)
         {
@@ -620,50 +567,18 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         Integer profileCount = 0;
 
         for(MERC_ETObject.SenderProfile senderProfile : senderProfiles){
-            fromEmailOptions.add(new SelectOption(senderProfile.id,
-                    getEmailKey(senderProfile.fromEmail, senderProfile.fromName)));
-            profileCount++;
-            if(profileCount > 10){
-                break;
+            if(String.isBlank(marketingCloudSettings.Sender_Profile_Prefix_Filter_MERC__c) ||
+                senderProfile.profileName.startsWith(marketingCloudSettings.Sender_Profile_Prefix_Filter_MERC__c)){
+                fromEmailOptions.add(new SelectOption(senderProfile.id,
+                        getEmailKey(senderProfile.fromEmail, senderProfile.fromName)));
+                profileCount++;
             }
         }
 
-    }
-
-    public void fromSendOptionChanged(){
-        fromSourceIsEmail = fromSendOption == Label.et4ae5.emailAddr;
-        return;
-    }
-
-    private String getEmailValue(String emailAddress, String fullName){
-        return emailAddress + ',' + fullName;
     }
 
     private String getEmailKey(String emailAddress, String fullName){
         return fullName + ' <' + emailAddress + '>';
-    }
-
-    private MERC_ETObject.SenderProfile senderProfileById(String senderProfileId){
-        List<MERC_ETObject.SenderProfile> senderProfiles = null;
-        if(isEnterprise)
-        {
-            if (BusinessUnit == null){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'There is no BusinessUnit specified for this Exact Target enterprise configuration.'));
-                return null;
-            }
-
-            senderProfiles = callControl.getSenders(senderProfileId, BusinessUnit.et4ae5__Business_Unit_ID__c);
-        }
-        else
-        {
-            senderProfiles = callControl.getSenders(senderProfileId, null);
-        }
-
-        if(senderProfiles == null || senderProfiles.isEmpty()){
-            return null;
-        }
-
-        return senderProfiles.get(0);
     }
 
     public String suffixBuilder (String suffixField) {
@@ -935,27 +850,10 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         String fromName = Config.Default_From_Name__c;
         String fromSenderProfileId = null;
         String fromClassificationId = null;
-        if(!fromSourceIsEmail){
-            if(String.isBlank(fromClassicationSelected)){
-                //AddErrorMessage('A Classification must be selected.');
-            } else {
-                String[] classificationIds  = fromClassicationSelected.split(',');
-                fromClassificationId = classificationIds[0];
-                fromSenderProfileId = classificationIds[1];
-                MERC_ETObject.SenderProfile senderProfile = senderProfileById(fromSenderProfileId);
-                if(senderProfile == null){
-                    AddErrorMessage('A Sender Profile was not found for the selected Classification.');
-                } else {
-                    fromEmail = senderProfile.fromEmail;
-                    fromName = senderProfile.fromName;
-                }
-            }
+        if(String.isBlank(fromEmailSelected)){
+            //AddErrorMessage('A From Email must be selected.');
         } else {
-            if(String.isBlank(fromEmailSelected)){
-                //AddErrorMessage('A From Email must be selected.');
-            } else {
-                fromSenderProfileId = fromEmailSelected;
-            }
+            fromSenderProfileId = fromEmailSelected;
         }
 
         if (ApexPages.hasMessages(ApexPages.Severity.ERROR)) {

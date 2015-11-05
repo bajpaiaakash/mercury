@@ -225,67 +225,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         }
 
     }
-
-    @isTest
-    public static void Test_Send_To_Classification() {
-        withEnterpriseConfig();
-        MERC_TestFactory.adjustForSFDCSetMockBug = true;
-
-        Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
-        meeting.RecordTypeId = MERC_ETTestUtils.GetRecordType('Ad_Hoc_Consulting', 'Meeting_MERC__c').Id;
-        meeting.City_of_Meeting_MERC__c = 'test city';
-        meeting.Preferred_Venue_MERC__c = 'test venue';
-        meeting.Start_Time_of_Meeting_MERC__c = Datetime.now();
-        meeting.End_Time_of_Meeting_MERC__c = Datetime.now().addDays(5);
-        meeting.Event_Id_MERC__c = 'test id';
-        insert meeting;
-
-        List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 5);
-        insert accts;
-
-        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, accts);
-        insert participants;
-        createChildren(participants);
-
-        Sonoma_ET_Config__c config = getConfig();
-
-        et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
-        etBU.et4ae5__Business_Unit_ID__c = 'test business unit id';
-        etBU.et4ae5__Enabled__c = true;
-        insert etBU;
-
-        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
-        Test.startTest();
-        MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
-        ext.DeDup = true;
-        ext.OptIn = true;
-        ext.DisableIndividualTracking = true;
-
-        MERC_ETFolderedEmail email = new MERC_ETFolderedEmail();
-        email.Id = 'test';
-        email.name = 'test email name';
-        email.Title = 'test subject';
-        ext.email = email;
-
-        ext.fromSourceIsEmail = false;
-        System.assertEquals(2,ext.fromClassificationOptions.size(), ext.fromClassificationOptions);
-        ext.fromClassicationSelected = ext.fromClassificationOptions.get(1).getValue();
-
-        System.assertEquals(participants.size(), ext.Participants.size());
-        for (MERC_ETMeetingEmailSendExtension.SelectedWrapper w : ext.Participants) {
-            w.IsSelected = true;
-        }
-
-        try {
-            
-            PageReference ref = ext.Send();
-            
-
-        } catch (Exception e) {
-            System.debug('exception : ' + e);
-        }
-        Test.stopTest();
-    }
     
     @isTest
     static void Folders_Compare_On_Name(){
