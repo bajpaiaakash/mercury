@@ -2336,11 +2336,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_MERC__c.Has_Meeting_Days_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_MERC__c.Hospitality_Desk_Required_MERC__c</field>
         <readable>true</readable>
@@ -2669,11 +2664,6 @@
         <editable>true</editable>
         <field>Meeting_MERC__c.Planned_Budget_MERC__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_MERC__c.Potential_ToV_MERC__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
