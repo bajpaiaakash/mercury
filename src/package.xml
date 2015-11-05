@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+        <members>MERC_LockedRecordHandler</members>
+        <members>MERC_MVIMeetingTimeZoneHandler</members>
+        <name>ApexClass</name>
+    </types>
+	 <types>
+        <members>Merc Integration MVI</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>Meeting_Products_MERC__c.RTI_Meeting_Product_Update_ICRT</members>
+        <members>Meeting_Products_MERC__c.RTI_Meeting_SetupProd_Update_ICRT</members>
+        <members>Preferences_and_Consent_GLBL__c.RTI_Pref_and_Consent_Update_ICRT</members>
+        <members>Team_Member_MERC__c.RTI_Team_Member_Update_ICRT</members>
+        <name>WorkflowOutboundMessage</name>
+    </types>
+    <types>
+        <members>Meeting_Products_MERC__c.RTI - Meeting Product Updated</members>
+        <members>Preferences_and_Consent_GLBL__c.RTI - Pref and Consent Updated</members>
+        <members>Team_Member_MERC__c.RTI - Team Member Updated</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>35.0</version>
+</Package>
