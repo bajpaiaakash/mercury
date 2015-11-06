@@ -49,7 +49,8 @@ public without sharing class MERC_ETAuthorizer {
 
         Http h = new Http();
         HttpResponse res = h.send(req);
-        System.debug('Authorizer res.body : ' + res.getBody());
+        System.debug('#### Authorizer res.header :' + res.getHeader('Content-Type'));
+        System.debug('#### Authorizer res.body : ' + res.getBody());
 
         String authToken = '';
         if (res.getStatusCode() >= 200 && res.getStatusCode() < 300) {
@@ -107,6 +108,8 @@ public without sharing class MERC_ETAuthorizer {
 
         Http h = new Http();
         HttpResponse res = h.send(req);
+        System.debug('#### FuelResponse res.header : ' + res.getHeader('Content-Type'));
+        System.debug('#### FuelResponse res.body : ' + res.getBody());
 
         String authToken = '';
         if (res.getStatusCode() >= 200 && res.getStatusCode() < 300) {
