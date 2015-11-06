@@ -72,29 +72,12 @@ public without sharing class MERC_ETAuthorizer {
         private set;
     }
     private String requestFuelAuthToken() {
-        // get root rest api config info
-        et4ae5__Configuration__c configInfo = [SELECT et4ae5__Root_Rest_API_URL__c
-                                               FROM et4ae5__Configuration__c
-                                               ORDER BY LastModifiedDate DESC
-                                               LIMIT 1];
+        Mercury_Marketing_Cloud_Settings_MERC__c marketingCloudSettings = Mercury_Marketing_Cloud_Settings_MERC__c.getInstance();
+        String clientId = marketingCloudSettings.Fuel_API_Client_ID_MERC__c;
+        String clientSecret = marketingCloudSettings.Fuel_API_Client_Secret_MERC__c;
+        String restAuthURL = marketingCloudSettings.Fuel_API_Auth_Root_URL_MERC__c;
 
-        // determine client id and secret based on root rest api url
-        String clientId = '';
-        String clientSecret = '';
-        String restAuthURL = '';
-        if (configInfo.et4ae5__Root_Rest_API_URL__c.containsIgnoreCase('s1.qa1')) {
-            clientId = 'mrvftgqk7eae9e65s4namb7m';
-            clientSecret = 'EqvjgVvQWgsapeSUMbRjF7CE';
-            restAuthURL = 'https://auth-qa1s1.exacttargetapis.com';
-        } else if (configInfo.et4ae5__Root_Rest_API_URL__c.containsIgnoreCase('s1.qa2')) {
-            clientId = 'geavv2ncce5w3bzgwvc7vj6s';
-            clientSecret = 'ntxbHHuuzdtdEQExPnT7VPSk';
-            restAuthURL = 'https://auth-qa2s1.exacttargetapis.com';
-        } else { // must be production
-            clientId = 'jsemj72hixy2qx1yp27lb59o';
-            clientSecret = 'DRfQ1K3NzeOxxdJEXDOUK4n2';
-            restAuthURL = 'https://auth.exacttargetapis.com';
-        }
+        
         FuelRequestBody fuelReqBody = new FuelRequestBody(clientId, clientSecret, soapAuthToken);
         restAuthURL += '/v1/requestToken?legacy=1';
 
