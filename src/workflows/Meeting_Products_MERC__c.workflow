@@ -29,10 +29,6 @@
             <type>OutboundMessage</type>
         </actions>
         <actions>
-            <name>RTI_Meeting_Product_Updated_MERC</name>
-            <type>OutboundMessage</type>
-        </actions>
-        <actions>
             <name>RTI_Meeting_SetupProd_Update_ICRT</name>
             <type>OutboundMessage</type>
         </actions>
