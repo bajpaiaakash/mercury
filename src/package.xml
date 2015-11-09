@@ -6,6 +6,7 @@
         <members>MERC_ETCallControl</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_ETMeetingEmailSendFutureProcessor</members>
+		<members>MERC_ETSendDefinition</members>
         <members>MERC_InvoiceCreditNoteControllerTest</members>
         <members>MERC_ItineraryParticipantUpdateTest</members>
         <members>MERC_ItineraryParticipantUpdateTrigger</members>		
