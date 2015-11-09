@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>Potential_ToV_MERC__c</fullName>
+        <description>Used to determine whether a specific Meeting Participant has potential applicable ToV e.g. Travel, Hotel etc : MERC : Created on 03/11/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Potential ToV</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+</CustomObject>
