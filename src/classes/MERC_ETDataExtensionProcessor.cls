@@ -81,7 +81,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
         String hexDeAESKey = EncodingUtil.convertToHex(deAESKey);
 
         //account for max length of DE name
-        String deSubject = wrapper.Email.title.length() > 140 ? wrapper.Email.title.substring(0, 139) : wrapper.Email.title;
+        String deSubject = wrapper.Email.subject.length() > 140 ? wrapper.Email.subject.substring(0, 139) : wrapper.Email.subject;
         String deName = 'SalesforceMeeting-' + mtgId + '-' + deSubject.replaceAll('[^a-zA-Z0-9]+', '') + '-' + Datetime.now().format('yyyyMMdd\'T\'HHmmssSSS');
         String deKey = String.valueOf(mtgId) + Datetime.now().format('yyyyMMdd\'T\'HHmmssSSS');
 
@@ -188,8 +188,8 @@ public with sharing class MERC_ETDataExtensionProcessor {
         meetingEmailSend.ET_Individual_Tracking_Disabled_MERC__c = wrapper.DisableIndividualTracking;
         meetingEmailSend.ET_Email_ID_MERC__c = wrapper.Email.id;
         meetingEmailSend.ET_Email_Name_MERC__c = wrapper.Email.name;
-        meetingEmailSend.ET_Subject_MERC__c = wrapper.Email.title;
-        meetingEmailSend.ET_Subject_Line_MERC__c = wrapper.Email.title;
+        meetingEmailSend.ET_Subject_MERC__c = wrapper.Email.subject;
+        meetingEmailSend.ET_Subject_Line_MERC__c = wrapper.Email.subject;
         meetingEmailSend.Additional_Information_MERC__c = wrapper.AdditionalInformationHTML;
         meetingEmailSend.Additional_Information_Plain_Text_MERC__c = wrapper.AdditionalInformationText;
 

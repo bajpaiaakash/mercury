@@ -55,7 +55,7 @@
                         <apex:outputLabel value="Email" />
                     </apex:outputText>
                     <apex:outputPanel >
-                        <apex:outputText value="{!Email.Name}" />
+                        <apex:outputText value="{!Email.name}" />
                         <apex:outputPanel >
                             <apex:actionStatus id="listEmailsStatus">
                                 <apex:facet name="start">
@@ -144,7 +144,7 @@
                                                                                         <div class="emailFolder closed" id="emailFolder_{!emailFolder5.Id}">
                                                                                             <apex:repeat value="{!emailFolder5.emails}" var="email5">
                                                                                                 &nbsp;-&nbsp;
-                                                                                                <a href="#" onclick="javascript:selectEmailJS( '{!email5.id}', '{!email5.encName}', '{!email5.encTitle}' );subscriberPreview.setEmailId('{!email5.id}');" status="sendButtonStatus">
+                                                                                                <a href="#" onclick="javascript:selectEmailJS( '{!email5.id}', '{!email5.encodedName}', '{!email5.encodedSubject}' );subscriberPreview.setEmailId('{!email5.id}');" status="sendButtonStatus">
                                                                                                     {!email5.name}
                                                                                                 </a>
                                                                                                 <br />
@@ -153,7 +153,7 @@
                                                                                     </apex:repeat>
                                                                                     <apex:repeat value="{!emailFolder4.emails}" var="email4">
                                                                                         &nbsp;-&nbsp;
-                                                                                        <a href="#" onclick="javascript:selectEmailJS( '{!email4.id}', '{!email4.encName}', '{!email4.encTitle}' );subscriberPreview.setEmailId('{!email4.id}');" status="sendButtonStatus">
+                                                                                        <a href="#" onclick="javascript:selectEmailJS( '{!email4.id}', '{!email4.encodedName}', '{!email4.encodedSubject}' );subscriberPreview.setEmailId('{!email4.id}');" status="sendButtonStatus">
                                                                                             {!email4.name}
                                                                                         </a>
                                                                                         <br />
@@ -162,7 +162,7 @@
                                                                             </apex:repeat>
                                                                             <apex:repeat value="{!emailFolder3.emails}" var="email3">
                                                                                 &nbsp;-&nbsp;
-                                                                                <a href="#" onclick="javascript:selectEmailJS( '{!email3.id}', '{!email3.encName}', '{!email3.encTitle}' );subscriberPreview.setEmailId('{!email3.id}');" status="sendButtonStatus">
+                                                                                <a href="#" onclick="javascript:selectEmailJS( '{!email3.id}', '{!email3.encodedName}', '{!email3.encodedSubject}' );subscriberPreview.setEmailId('{!email3.id}');" status="sendButtonStatus">
                                                                                     {!email3.name}
                                                                                 </a>
                                                                                 <br />
@@ -171,7 +171,7 @@
                                                                     </apex:repeat>
                                                                     <apex:repeat value="{!emailFolder2.emails}" var="email2">
                                                                         &nbsp;-&nbsp;
-                                                                        <a href="#" onclick="javascript:selectEmailJS( '{!email2.id}', '{!email2.encName}', '{!email2.encTitle}' );subscriberPreview.setEmailId('{!email2.id}');" status="sendButtonStatus">
+                                                                        <a href="#" onclick="javascript:selectEmailJS( '{!email2.id}', '{!email2.encodedName}', '{!email2.encodedSubject}' );subscriberPreview.setEmailId('{!email2.id}');" status="sendButtonStatus">
                                                                             {!email2.name}
                                                                         </a>
                                                                         <br />
@@ -180,7 +180,7 @@
                                                             </apex:repeat>
                                                             <apex:repeat value="{!emailFolder1.emails}" var="email1">
                                                                 &nbsp;-&nbsp;
-                                                                <a href="#" onclick="javascript:selectEmailJS( '{!email1.id}', '{!email1.encName}', '{!email1.encTitle}' );subscriberPreview.setEmailId('{!email1.id}');" status="sendButtonStatus">
+                                                                <a href="#" onclick="javascript:selectEmailJS( '{!email1.id}', '{!email1.encodedName}', '{!email1.encodedSubject}' );subscriberPreview.setEmailId('{!email1.id}');" status="sendButtonStatus">
                                                                     {!email1.name}
                                                                 </a>
                                                                 <br />
@@ -198,7 +198,7 @@
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem helpText="{!$Label.et4ae5__msg0051}">
                     <apex:outputLabel value="Subject" />
-                    <apex:inputText value="{!Email.title}" label="Subject" style="width:350px;"/>
+                    <apex:inputText value="{!Email.subject}" label="Subject" style="width:350px;"/>
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem helpText="{!$Label.et4ae5__msg0046}">
                     <apex:outputLabel value="Recipients" />

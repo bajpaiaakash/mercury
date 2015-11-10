@@ -1,6 +1,6 @@
 public class MERC_ETSendEmailWrapper {
     public MERC_ETSendEmailWrapper(
-        MERC_ETFolderedEmail email, 
+        MERC_MarketingCloudClient.FolderedEmail email, 
         List<Meeting_Participant_MERC__c> participants, 
         String fromAddress, String fromName,
         boolean deDup, 
@@ -22,7 +22,7 @@ public class MERC_ETSendEmailWrapper {
         this.AdditionalInformationText = addlInfoText;
     }
 
-    public MERC_ETFolderedEmail Email { get; set; }
+    public MERC_MarketingCloudClient.FolderedEmail Email { get; set; }
     public List<Meeting_Participant_MERC__c> Participants { get; set; }
     public String FromAddress { get; set; }
     public String FromName { get; set; }
