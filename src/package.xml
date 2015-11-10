@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Meeting_Participant_MERC__c.Account_MERC__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>MERC_Meetings_Meeting_Participants_Meeting_Tasks</members>
+        <name>ReportType</name>
+    </types>
+    <types>
+        <members>Account.RTI - Account Updated</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>35.0</version>
+</Package>
