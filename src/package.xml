@@ -30,6 +30,7 @@
     </types>
 	<types>
         <members>Meeting_MERC__c.Potential_ToV_MERC__c</members>
+		<members>Meeting_Participant_MERC__c.Account_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Potential_ToV_MERC__c</members>
         <name>CustomField</name>
     </types>
@@ -63,6 +64,10 @@
         <name>Profile</name>
     </types>
 	<types>
+        <members>MERC_Meetings_Meeting_Participants_Meeting_Tasks</members>
+        <name>ReportType</name>
+    </types>
+	<types>
         <members>Meeting_Day_MERC__c.MERC_Meeting_Day_Potential_ToV</members>
         <members>Meeting_Participant_MERC__c.MERC_Meeting_Potential_ToV_Update</members>
         <members>Meeting_Participant_MERC__c.MERC_Participant_Potential_ToV</members>
@@ -76,6 +81,7 @@
         <name>WorkflowOutboundMessage</name>
     </types>
     <types>        
+		<members>Account.RTI - Account Updated</members>
 		<members>Meeting_Day_MERC__c.MERC_Meeting_Day_Potential_ToV</members>
         <members>Meeting_Participant_MERC__c.MERC_Meeting_Potential_ToV_Update</members>
         <members>Meeting_Participant_MERC__c.MERC_Participant_Potential_ToV</members>  
