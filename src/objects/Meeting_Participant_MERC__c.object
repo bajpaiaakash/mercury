@@ -2,9 +2,20 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <fields>
+        <fullName>Override_MP_Status_Validation_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to ensure that managing daily attendance via the manage daily attendance page does not prevent the update of MP Status via cost : MERC : Created on 04/11/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Override MP Status Validation</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Potential_ToV_MERC__c</fullName>
         <description>Used to determine whether a specific Meeting Participant has potential applicable ToV e.g. Travel, Hotel etc : MERC : Created on 03/11/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>This will be automatically triggered if one of these attributes apply: MP Air or Hotel=yes; MP is Ind. Sponsorship; MP with Travel Itinerary; Meeting Days. The field will not be updated if conditions change.</inlineHelpText>
         <label>Potential ToV</label>
         <picklist>
             <picklistValues>
@@ -21,4 +32,16 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <validationRules>
+        <fullName>MERC_Prevent_MP_Status_Change</fullName>
+        <active>true</active>
+        <description>Prevents users from changing the MP Status should Meeting Days exist, this logic does NOT account for when a Meeting Day is added and then deleted leaving NO meeting days.  This was agreed : MERC : Created on 04/11/2015 by Oliver Dunford, Mavens</description>
+        <errorConditionFormula>ISCHANGED( Status_MERC__c ) &amp;&amp; ((TEXT(Status_MERC__c) = &quot;No Show&quot;) || (TEXT(Status_MERC__c) = &quot;Attended&quot;)) &amp;&amp;  RecordType.DeveloperName &lt;&gt; &quot;Individual_Sponsorship&quot; &amp;&amp; RecordType.DeveloperName &lt;&gt; &quot;Consulting&quot; &amp;&amp;  Meeting_MERC__r.Has_Meeting_Days_MERC__c = TRUE &amp;&amp;  Override_MP_Status_Validation_MERC__c &lt;&gt; TRUE
+&amp;&amp;
+( 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp; 
+$Profile.Name &lt;&gt; &quot;Mercury Integration MVI - Platform&quot; 
+)</errorConditionFormula>
+        <errorMessage>If a Meeting has Meeting Days, attendance should be managed using the &apos;Manage Daily Attendance&apos; button on the Meeting Page.  This ensures accuracy of ToV and daily attendance for each HCP.  Please cancel your changes to this record.</errorMessage>
+    </validationRules>
 </CustomObject>

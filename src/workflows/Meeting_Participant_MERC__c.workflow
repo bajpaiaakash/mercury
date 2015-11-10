@@ -22,6 +22,17 @@
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>MERC_Uncheck_Override_Status_Validation</fullName>
+        <description>Updates the Override MP Validation field post update of MP Status via custom code : MERC : Created on 10/11/2015 by Oliver Dunford, Mavens Consulting</description>
+        <field>Override_MP_Status_Validation_MERC__c</field>
+        <literalValue>0</literalValue>
+        <name>MERC_Uncheck_Override_Status_Validation</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
     <rules>
         <fullName>MERC_Meeting_Potential_ToV_Update</fullName>
         <actions>
@@ -44,6 +55,17 @@
         <formula>(ISNEW() &amp;&amp; ((TEXT(Hotel_Required_MERC__c) = &quot;YES&quot;) ||  (TEXT(Air_Travel_Required_MERC__c) = &quot;YES&quot;) ||  (RecordType.DeveloperName = &quot;Individual_Sponsorship&quot;))) || (
 (ISCHANGED(Hotel_Required_MERC__c) &amp;&amp; (TEXT(Hotel_Required_MERC__c) = &quot;YES&quot;) ||  (ISCHANGED(Air_Travel_Required_MERC__c) &amp;&amp; TEXT(Air_Travel_Required_MERC__c) = &quot;YES&quot;) || (ISCHANGED(RecordTypeId) &amp;&amp; RecordType.DeveloperName = &quot;Individual_Sponsorship&quot;))
 ) &amp;&amp;  TEXT(Potential_ToV_MERC__c) &lt;&gt; &quot;Yes&quot;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>MERC_Uncheck_Override_Status_Validation</fullName>
+        <actions>
+            <name>MERC_Uncheck_Override_Status_Validation</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Unchecks the Override MP Status update validation field once the code has processed to update it automatically from a Daily Attendance &amp; ToV change  : MERC : Created on 03/11/2015 by Oliver Dunford</description>
+        <formula>ISCHANGED(Override_MP_Status_Validation_MERC__c) &amp;&amp;  Override_MP_Status_Validation_MERC__c = TRUE</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
