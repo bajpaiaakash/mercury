@@ -107,12 +107,10 @@ private class MERC_ETDataExtensionProcessor_Test {
     public static void test_ETDataExtensionProcessor_CreateDataExtensionForSendEmail_Success() {
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
 
-        MERC_ETFolderedEmail fe = new MERC_ETFolderedEmail();
+        MERC_MarketingCloudClient.FolderedEmail fe = new MERC_MarketingCloudClient.FolderedEmail();
         fe.id = 'folderedid';
         fe.name = 'folder email name';
-        fe.title = 'folder email title';
-        fe.encName = 'test';
-        fe.encTitle = 'test';
+        fe.subject = 'folder email title';
 
         List<Meeting_MERC__c> meetings = MERC_ETTestUtils.CreateMeetings(1);
         for (Meeting_MERC__c m : meetings) {

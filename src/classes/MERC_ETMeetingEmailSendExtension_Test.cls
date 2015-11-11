@@ -204,10 +204,10 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         ext.additionalInformationHTML = 'test';
         ext.additionalInformationText = 'test';
 
-        MERC_ETFolderedEmail email = new MERC_ETFolderedEmail();
+        MERC_MarketingCloudClient.FolderedEmail email = new MERC_MarketingCloudClient.FolderedEmail();
         email.Id = 'test';
         email.name = 'test email name';
-        email.Title = 'test subject';
+        email.Subject = 'test subject';
         ext.email = email;
 
         System.assertEquals(participants.size(), ext.Participants.size());
@@ -229,21 +229,21 @@ private class MERC_ETMeetingEmailSendExtension_Test {
     @isTest
     static void Folders_Compare_On_Name(){
         withEnterpriseConfig();
-        MERC_ETFolderedEmail email = new MERC_ETFolderedEmail();
+        MERC_MarketingCloudClient.FolderedEmail email = new MERC_MarketingCloudClient.FolderedEmail();
         email.Id = 'test';
         email.name = 'test email name';
-        email.Title = 'test subject';
+        email.Subject = 'test subject';
         
 
-        MERC_ETFolderedEmail sameEmail = new MERC_ETFolderedEmail();
+        MERC_MarketingCloudClient.FolderedEmail sameEmail = new MERC_MarketingCloudClient.FolderedEmail();
         sameEmail.Id = 'test1';
         sameEmail.name = 'test email name';
-        sameEmail.Title = 'test subject1';
+        sameEmail.Subject = 'test subject1';
         
-        MERC_ETFolderedEmail differentEmail = new MERC_ETFolderedEmail();
+        MERC_MarketingCloudClient.FolderedEmail differentEmail = new MERC_MarketingCloudClient.FolderedEmail();
         differentEmail.Id = 'test2';
         differentEmail.name = 'test email name2';
-        differentEmail.Title = 'test subject2';
+        differentEmail.Subject = 'test subject2';
 
         System.assertEquals(0, email.compareTo(sameEmail));
         System.assertEquals(-1, email.compareTo(differentEmail));
@@ -277,7 +277,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
         MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
         simulateFilteringAndSorting(ext);
-        MERC_ETFolderedEmail email = new MERC_ETFolderedEmail();
+        MERC_MarketingCloudClient.FolderedEmail email = new MERC_MarketingCloudClient.FolderedEmail();
         email.Id = 'test';
         ext.email = email;
 
@@ -372,29 +372,29 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         ApexPages.StandardController stdController = new ApexPages.StandardController(meeting);
         MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(stdController);
 
-        MERC_ETObject.emailfolder testFolderA=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderB=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderC=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderD=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderE=new MERC_ETObject.emailfolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderA=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderB=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderC=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderD=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderE=new MERC_MarketingCloudClient.EmailFolder();
         testFolderA.id = 'testFolderA';
         testFolderB.id = 'testFolderB';
         testFolderC.id = 'testFolderC';
         testFolderD.id = 'testFolderD';
         testFolderE.id = 'testFolderE';
-        testFolderA.subfolders=new list<MERC_ETObject.emailfolder>();
-        testFolderB.subfolders=new list<MERC_ETObject.emailfolder>();
-        testFolderC.subfolders=new list<MERC_ETObject.emailfolder>();
-        testFolderD.subfolders=new list<MERC_ETObject.emailfolder>();
+        testFolderA.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
+        testFolderB.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
+        testFolderC.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
+        testFolderD.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
         testFolderD.subfolders.add(testFolderE);
         testFolderC.subfolders.add(testFolderD);
         testFolderB.subfolders.add(testFolderC);
         testFolderA.subfolders.add(testFolderB);
-        ext.emails=new list<MERC_ETObject.emailfolder>();
+        ext.emails=new list<MERC_MarketingCloudClient.EmailFolder>();
         ext.emails.add(testFolderA);
 
 
-        MERC_ETObject.CallEmailFolderResponse cefr= new MERC_ETObject.CallEmailFolderResponse();
+        MERC_MarketingCloudClient.EmailFolderResponse cefr= new MERC_MarketingCloudClient.EmailFolderResponse();
         Test.startTest();
 
         System.runAs(u) {
@@ -448,28 +448,28 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         ApexPages.StandardController stdController = new ApexPages.StandardController(meeting);
         MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(stdController);
 
-        MERC_ETObject.emailfolder testFolderA=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderB=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderC=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderD=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderE=new MERC_ETObject.emailfolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderA=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderB=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderC=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderD=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderE=new MERC_MarketingCloudClient.EmailFolder();
         testFolderA.id = 'testFolderA';
         testFolderB.id = 'testFolderB';
         testFolderC.id = 'testFolderC';
         testFolderD.id = 'testFolderD';
         testFolderE.id = 'testFolderE';
-        testFolderA.subfolders=new list<MERC_ETObject.emailfolder>();
-        testFolderB.subfolders=new list<MERC_ETObject.emailfolder>();
-        testFolderC.subfolders=new list<MERC_ETObject.emailfolder>();
-        testFolderD.subfolders=new list<MERC_ETObject.emailfolder>();
+        testFolderA.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
+        testFolderB.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
+        testFolderC.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
+        testFolderD.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
         testFolderD.subfolders.add(testFolderE);
         testFolderC.subfolders.add(testFolderD);
         testFolderB.subfolders.add(testFolderC);
         testFolderA.subfolders.add(testFolderB);
-        ext.emails=new list<MERC_ETObject.emailfolder>();
+        ext.emails=new list<MERC_MarketingCloudClient.EmailFolder>();
         ext.emails.add(testFolderA);
 
-        MERC_ETObject.CallEmailFolderResponse cefr= new MERC_ETObject.CallEmailFolderResponse();
+        MERC_MarketingCloudClient.EmailFolderResponse cefr= new MERC_MarketingCloudClient.EmailFolderResponse();
 
         System.runAs(u) {
             Test.startTest();
@@ -522,28 +522,28 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         ApexPages.StandardController stdController = new ApexPages.StandardController(meeting);
         MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(stdController);
 
-        MERC_ETObject.emailfolder testFolderA=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderB=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderC=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderD=new MERC_ETObject.emailfolder();
-        MERC_ETObject.emailfolder testFolderE=new MERC_ETObject.emailfolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderA=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderB=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderC=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderD=new MERC_MarketingCloudClient.EmailFolder();
+        MERC_MarketingCloudClient.EmailFolder testFolderE=new MERC_MarketingCloudClient.EmailFolder();
         testFolderA.id = 'testFolderA';
         testFolderB.id = 'testFolderB';
         testFolderC.id = 'testFolderC';
         testFolderD.id = 'testFolderD';
         testFolderE.id = 'testFolderE';
-        testFolderA.subfolders=new list<MERC_ETObject.emailfolder>();
-        testFolderB.subfolders=new list<MERC_ETObject.emailfolder>();
-        testFolderC.subfolders=new list<MERC_ETObject.emailfolder>();
-        testFolderD.subfolders=new list<MERC_ETObject.emailfolder>();
+        testFolderA.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
+        testFolderB.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
+        testFolderC.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
+        testFolderD.subfolders=new list<MERC_MarketingCloudClient.EmailFolder>();
         testFolderD.subfolders.add(testFolderE);
         testFolderC.subfolders.add(testFolderD);
         testFolderB.subfolders.add(testFolderC);
         testFolderA.subfolders.add(testFolderB);
-        ext.emails=new list<MERC_ETObject.emailfolder>();
+        ext.emails=new list<MERC_MarketingCloudClient.EmailFolder>();
         ext.emails.add(testFolderA);
 
-        MERC_ETObject.CallEmailFolderResponse cefr= new MERC_ETObject.CallEmailFolderResponse();
+        MERC_MarketingCloudClient.EmailFolderResponse cefr= new MERC_MarketingCloudClient.EmailFolderResponse();
         Test.startTest();
 
         String eId = 'testEmailId';
@@ -557,7 +557,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             /*ext.selectEmail();
             System.assertEquals(null, ext.email.id);
             System.assertEquals(null, ext.email.name);
-            System.assertEquals(null, ext.email.title);
+            System.assertEquals(null, ext.email.Subject);
 
             ApexPages.currentPage().getParameters().put('emailId', eId);
             ApexPages.currentPage().getParameters().put('emailName', eName);
@@ -566,7 +566,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
             ext.selectEmail();
             System.assertEquals(eId, ext.email.id);
             System.assertEquals(eName, ext.email.name);
-            System.assertEquals(eSubject, ext.email.title);*/
+            System.assertEquals(eSubject, ext.email.Subject);*/
         }
 
         Test.stopTest();
