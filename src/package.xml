@@ -4,6 +4,7 @@
         <members>GLBL_CustomerSearchToolServiceTest</members>
         <members>MERC_ETAuthorizer</members>
         <members>MERC_ETCallControl</members>
+        <members>MERC_ETFolderedEmail</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_ETMeetingEmailSendFutureProcessor</members>
         <members>MERC_ETSendDefinition</members>
@@ -12,6 +13,7 @@
         <members>MERC_ItineraryParticipantUpdateTrigger</members>
         <members>MERC_LockedInvoiceDeleteHandlerTest</members>
         <members>MERC_LockedRecordHandlerTest</members>
+        <members>MERC_MarketingCloudClient</members>
         <members>MERC_MeetingDayManagerControllerTest</members>
         <members>MERC_MeetingProductNewEditTest</members>
         <members>MERC_ParticipantStatusCalculator</members>
@@ -60,6 +62,15 @@
         <name>PermissionSet</name>
     </types>
     <types>
+        <members>Meeting_MERC__c.Ad_Hoc_Consulting</members>
+        <members>Meeting_MERC__c.Completed</members>
+        <members>Meeting_MERC__c.Forecasted</members>
+        <members>Meeting_MERC__c.Independent_Sponsorship</members>
+        <members>Meeting_MERC__c.Meeting_Active</members>
+        <members>Meeting_MERC__c.Registered</members>
+        <name>RecordType</name>
+    </types>
+    <types>
         <members>HCP_Contracts_MERC</members>
         <members>MERC_Meeting_Participants_with_or_without_Contract</members>
         <members>MERC_Meeting_Participants_with_or_without_Invoices</members>
@@ -98,5 +109,5 @@
         <members>Meeting_Participant_MERC__c.MERC_Uncheck_Override_Status_Validation</members>
         <name>WorkflowRule</name>
     </types>
-    <version>33.0</version>
+    <version>35.0</version>
 </Package>
