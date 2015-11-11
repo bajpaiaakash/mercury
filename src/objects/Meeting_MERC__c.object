@@ -32,4 +32,106 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <recordTypes>
+        <fullName>Ad_Hoc_Consulting</fullName>
+        <active>true</active>
+        <description>Independent consultant contracts only. Typically services are rendered over a period of time to deliver a specific work product. Meeting-related ToV cannot be captured. Do not use for Advisory Boards.</description>
+        <label>Consulting Project</label>
+        <picklistValues>
+            <picklist>Potential_ToV_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Completed</fullName>
+        <active>true</active>
+        <description>Meeting has been completed</description>
+        <label>Meeting - Completed</label>
+        <picklistValues>
+            <picklist>Potential_ToV_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Forecasted</fullName>
+        <active>true</active>
+        <description>Lilly-owned meeting that is forecasted, but not confirmed. May be used for business planning purposes and to hold annual cap for HCPs. F. Meetings may be progressed to registered once confirmed. Do not use this record type for independent meetings.</description>
+        <label>Meeting - Forecasted</label>
+        <picklistValues>
+            <picklist>Potential_ToV_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Independent_Sponsorship</fullName>
+        <active>true</active>
+        <description>A scientific program controlled by an independent third party organization. Includes independent meeting sponsorship.</description>
+        <label>Independent Meeting</label>
+        <picklistValues>
+            <picklist>Potential_ToV_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_Active</fullName>
+        <active>true</active>
+        <description>Meeting in Active Stage</description>
+        <label>Meeting - Active</label>
+        <picklistValues>
+            <picklist>Potential_ToV_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Registered</fullName>
+        <active>true</active>
+        <description>Lilly-owned meeting that is ready to enter the meeting planning process. Includes: Promotional, Health Education, Consultant (Advisory Board), Scientific Exchange, Speaker Training, Clinical Trial, Internal and Other.</description>
+        <label>Meeting - Registered</label>
+        <picklistValues>
+            <picklist>Potential_ToV_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
 </CustomObject>

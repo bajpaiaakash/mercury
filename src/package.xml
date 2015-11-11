@@ -4,6 +4,7 @@
         <members>GLBL_CustomerSearchToolServiceTest</members>
         <members>MERC_ETAuthorizer</members>
         <members>MERC_ETCallControl</members>
+        <members>MERC_ETFolderedEmail</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_ETMeetingEmailSendFutureProcessor</members>
         <members>MERC_ETSendDefinition</members>
@@ -13,6 +14,7 @@
         <members>MERC_LockedInvoiceDeleteHandlerTest</members>
 		<members>MERC_LockedRecordHandler</members>
         <members>MERC_LockedRecordHandlerTest</members>
+        <members>MERC_MarketingCloudClient</members>
         <members>MERC_MeetingDayManagerControllerTest</members>
         <members>MERC_MeetingProductNewEditTest</members>
 		<members>MERC_MVIMeetingTimeZoneHandler</members>
@@ -38,6 +40,7 @@
         <name>CustomField</name>
     </types>
     <types>
+		<members>Case</members>
         <members>Mercury_Marketing_Cloud_Settings_MERC__c</members>
         <name>CustomObject</name>
     </types>
@@ -66,9 +69,17 @@
         <members>Merc Integration MVI</members>
         <name>Profile</name>
     </types>
-
 	<types>
-		<members>HCP_Contracts_MERC</members>
+        <members>Meeting_MERC__c.Ad_Hoc_Consulting</members>
+        <members>Meeting_MERC__c.Completed</members>
+        <members>Meeting_MERC__c.Forecasted</members>
+        <members>Meeting_MERC__c.Independent_Sponsorship</members>
+        <members>Meeting_MERC__c.Meeting_Active</members>
+        <members>Meeting_MERC__c.Registered</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>HCP_Contracts_MERC</members>
         <members>MERC_Meeting_Participants_with_or_without_Contract</members>
         <members>MERC_Meeting_Participants_with_or_without_Invoices</members>
         <members>MERC_Meetings_Meeting_Participants_Meeting_Tasks</members>
