@@ -11,8 +11,10 @@ private class MERC_InvoiceCreditNoteControllerTest {
 	static ContentVersion c;
 	static List<ContentVersion> cvList;
 	static {
-		workspaceId = [SELECT Id FROM ContentWorkspace WHERE Name = 'Mercury' Limit 1].Id; //we dont seem to be able to create this in a test
-		system.assertNotEquals(workspaceId, null, 'The workspace \'Mercury\' does not exist or is not availble to the running user.');
+
+		List<ContentWorkspace> workspaces = [SELECT Id FROM ContentWorkspace WHERE Name = 'Mercury' Limit 1];
+		system.assertNotEquals(workspaces.size() > 0, null, 'The workspace \'Mercury\' does not exist or is not availble to the running user.');
+		workspaceId = workspaces[0].Id;
 
 		accs = MERC_TestFactory.insertAccounts(1);
  		mtgs = MERC_TestFactory.insertMeetings(1);

@@ -1,27 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>MERC_ContentVersionHandlerTest</members>
-        <members>MERC_DailyAttendanceControllerStressTest</members>
-        <members>MERC_DailyAttendanceControllerTest</members>
+        <members>GLBL_CustomerSearchToolServiceTest</members>
+        <members>MERC_ETAuthorizer</members>
+        <members>MERC_ETCallControl</members>
+        <members>MERC_ETDataExtensionProcessor</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
-        <members>MERC_ETMeetingEmailSendExtension_Test</members>
-        <members>MERC_ETTestUtils</members>
+        <members>MERC_ETMeetingEmailSendFutureProcessor</members>
+        <members>MERC_ETSendDefinition</members>
+        <members>MERC_ETSendEmailWrapper</members>
         <members>MERC_InvoiceCreditNoteControllerTest</members>
-        <members>MERC_InvoiceXmlControllerTest</members>
+        <members>MERC_ItineraryParticipantUpdateTest</members>
+        <members>MERC_ItineraryParticipantUpdateTrigger</members>
         <members>MERC_LockedInvoiceDeleteHandlerTest</members>
-        <members>MERC_MeetingContentStampHandlerTest</members>
-        <members>MERC_MeetingParticipantNewEditCtrlTest</members>
-        <members>MERC_NewContentControllerTest</members>
-        <members>MERC_RequestHCPSignatureControllerTest</members>
-        <members>MERC_TravelProposalsControllerTest</members>
-        <members>MERC_XmlWriterRestResourceTest</members>
+        <members>MERC_LockedRecordHandlerTest</members>
+        <members>MERC_MarketingCloudClient</members>
+        <members>MERC_MarketingCloudService</members>
+        <members>MERC_MeetingDayManagerControllerTest</members>
+        <members>MERC_MeetingProductNewEditTest</members>
+        <members>MERC_ParticipantStatusCalculator</members>
+        <members>MERC_TriggerHandlerStateManager</members>
+        <members>MERC_UtilTest</members>
         <name>ApexClass</name>
     </types>
     <types>
         <members>MeetingEmailSend</members>
-        <members>MeetingEmailSendSelectRecipients</members>
         <name>ApexPage</name>
     </types>
-    <version>33.0</version>
+    <types>
+        <members>MERC_TravelItinerary</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c.Has_Meeting_Days_MERC__c</members>
+        <members>Meeting_MERC__c.Potential_ToV_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Override_MP_Status_Validation_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Potential_ToV_MERC__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Mercury_Marketing_Cloud_Settings_MERC__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c-MERC_Active</members>
+        <members>Meeting_MERC__c-MERC_Completed</members>
+        <members>Meeting_MERC__c-MERC_Consulting_Project</members>
+        <members>Meeting_MERC__c-MERC_Forecasted_Meeting</members>
+        <members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>
+        <members>Meeting_MERC__c-MERC_Registered_Meeting</members>
+        <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
+        <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
+        <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
+        <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_System_Administrator_Lite</members>
+        <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c.Ad_Hoc_Consulting</members>
+        <members>Meeting_MERC__c.Completed</members>
+        <members>Meeting_MERC__c.Forecasted</members>
+        <members>Meeting_MERC__c.Independent_Sponsorship</members>
+        <members>Meeting_MERC__c.Meeting_Active</members>
+        <members>Meeting_MERC__c.Registered</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>HCP_Contracts_MERC</members>
+        <members>MERC_Meeting_Participants_with_or_without_Contract</members>
+        <members>MERC_Meeting_Participants_with_or_without_Invoices</members>
+        <members>MERC_Meetings_Meeting_Participants_Meeting_Tasks</members>
+        <members>Meetings_with_Budgets_with_Budget_Line_Items</members>
+        <members>Meetings_with_Meeting_Days_with_Daily_Attendance_TOV</members>
+        <members>Meetings_with_Meeting_Days_with_Hotel_Allocation</members>
+        <members>Meetings_with_Meeting_Email_Sends_with_Meeting_Participant_Email_Sends</members>
+        <members>Meetings_with_Meeting_Participants_with_Daily_Attendance_TOV</members>
+        <members>Meetings_with_Meeting_Participants_with_Participant_Agendas</members>
+        <members>Meetings_with_Meeting_Participants_without_Travel</members>
+        <members>Meetings_with_Participants_Without_Invoices_MERC</members>
+        <members>Meetings_with_Participants_and_Invoices</members>
+        <members>Meetings_with_Registration_Questions_with_Answers</members>
+        <members>Meetings_with_Registration_Questions_with_Answers_with_Responses</members>
+        <members>Meetings_with_Registration_Questions_with_Responses</members>
+        <name>ReportType</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c.MERC_Prevent_MP_Status_Change</members>
+        <name>ValidationRule</name>
+    </types>
+    <types>
+        <members>Meeting_Day_MERC__c.MERC_Meeting_Day_Potential_ToV</members>
+        <members>Meeting_Day_MERC__c.MERC_Update_Has_Meeting_Days</members>
+        <members>Meeting_Participant_MERC__c.MERC_Meeting_Potential_ToV_Update</members>
+        <members>Meeting_Participant_MERC__c.MERC_Participant_Potential_ToV</members>
+        <members>Meeting_Participant_MERC__c.MERC_Uncheck_Override_Status_Validation</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Meeting_Day_MERC__c.MERC_Meeting_Day_Potential_ToV</members>
+        <members>Meeting_Day_MERC__c.MERC_Update_Has_Meeting_Days</members>
+        <members>Meeting_Participant_MERC__c.MERC_Meeting_Potential_ToV_Update</members>
+        <members>Meeting_Participant_MERC__c.MERC_Participant_Potential_ToV</members>
+        <members>Meeting_Participant_MERC__c.MERC_Uncheck_Override_Status_Validation</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>35.0</version>
 </Package>
