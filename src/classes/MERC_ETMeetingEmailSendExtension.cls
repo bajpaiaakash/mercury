@@ -498,7 +498,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         if (meeting == null || meeting.Id == null) {
             AddFatalMessage('You must specify a meeting id.');
         }
-        emails = new List<MERC_ETObject.EmailFolder>();
+        emails = new List<MERC_MarketingCloudClient.EmailFolder>();
         callControl = new MERC_ETCallControl();
 
         Config = Sonoma_ET_Config__c.getInstance();
@@ -508,7 +508,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
         ShowParticipantGrid = false;
         parser = new MERC_ETParseString();
-        email = new MERC_ETFolderedEmail();
+        email = new MERC_MarketingCloudClient.FolderedEmail();
 
         SendTime = 'now';
 
@@ -839,7 +839,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         if (email.Id == null) {
             AddErrorMessage('You must select an email template.');
         }
-        else if (email.title == null) {
+        else if (email.subject == null) {
             AddErrorMessage('The subject must be filled in.');
         }
         if (SendTime != 'now' && (sendDateEvent.ActivityDateTime == null || sendDateEvent.ActivityDateTime <= Datetime.now())) {
@@ -861,7 +861,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         }
 
         MERC_ETSendEmailWrapper wrapper = new MERC_ETSendEmailWrapper(
-                                                        Email, parts, fromEmail, fromName,
+                                                        email, parts, fromEmail, fromName,
                                                         DeDup, DisableIndividualTracking, SendTime,
                                                         sendDateEvent.ActivityDateTime,
                                                         additionalInformationHTML, additionalInformationText);
@@ -1170,25 +1170,27 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     }
 
     public boolean showEmailChooser { get; set; }
-    public List<MERC_ETObject.EmailFolder> emails { get; set; }
-    public MERC_ETFolderedEmail email { get; set; }
+    public List<MERC_MarketingCloudClient.EmailFolder> emails { get; set; }
+    public MERC_MarketingCloudClient.FolderedEmail email { get; set; }
     public MERC_ETCallControl callControl { get; set; }
     public MERC_ETParseString parser { get; set; }
 
     public void listExactTargetEmails()
     {
-        if (isEnterprise)
-        {
-            if (BusinessUnit == null) return;
+        //if (isEnterprise)
+        //{
+        //    if (BusinessUnit == null) return;
 
-            emails=callControl.getExactTargetEmails(BusinessUnit.et4ae5__Business_Unit_ID__c);
-            showEmailChooser=true;
-        }
-        else
-        {
-            emails=callControl.getExactTargetEmails(null);
-            showEmailChooser=true;
-        }
+        //    emails=callControl.getExactTargetEmails(BusinessUnit.et4ae5__Business_Unit_ID__c);
+        //    showEmailChooser=true;
+        //}
+        //else
+        //{
+        //    emails=callControl.getExactTargetEmails(null);
+        //    showEmailChooser=true;
+        //}
+        emails = MERC_MarketingCloudService.getEmailFolders();
+        showEmailChooser = true;
     }
 
     public void selectEmailCancel()
@@ -1198,119 +1200,120 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     public void expandFolder()
     {
-        String searchId=apexPages.currentPage().getParameters().get('folderId');
-        et4ae5__configuration__c c=[SELECT et4ae5__integration_type__c,et4ae5__username__c,et4ae5__password__c,et4ae5__auth_api_url__c,et4ae5__retry__c,et4ae5__root_rest_api_url__c FROM et4ae5__configuration__c LIMIT 1];
-        String ceScope=[SELECT et4ae5__exacttarget_Oauth_token__c FROM user WHERE id=:userInfo.getUserId() LIMIT 1].et4ae5__exacttarget_Oauth_token__c;
-        String token='';
-        if(c.et4ae5__integration_type__c=='Enterprise2.0')
-        {
-            if (BusinessUnit == null) return;
+        String folderId = ApexPages.currentPage().getParameters().get('folderId');
+        MERC_MarketingCloudService.updateForFolder(emails, folderId);
+        //et4ae5__configuration__c c=[SELECT et4ae5__integration_type__c,et4ae5__username__c,et4ae5__password__c,et4ae5__auth_api_url__c,et4ae5__retry__c,et4ae5__root_rest_api_url__c FROM et4ae5__configuration__c LIMIT 1];
+        //String ceScope=[SELECT et4ae5__exacttarget_Oauth_token__c FROM user WHERE id=:userInfo.getUserId() LIMIT 1].et4ae5__exacttarget_Oauth_token__c;
+        //String token='';
+        //if(c.et4ae5__integration_type__c=='Enterprise2.0')
+        //{
+        //    if (BusinessUnit == null) return;
 
-            String mid=BusinessUnit.et4ae5__Business_Unit_ID__c;
-            system.debug('mid: '+mid);
-            token=callControl.oauthScoped(c.et4ae5__username__c,c.et4ae5__password__c,ceScope,mid,c.et4ae5__auth_api_url__c);
-        }
-        else
-        {
-            token=callControl.oauthScopedNoMid(c.et4ae5__username__c,c.et4ae5__password__c,ceScope,c.et4ae5__auth_api_url__c);
-        }
-        if (emails!=null)
-        {
-            for (MERC_ETObject.emailFolder efA : emails)
-            {
-                if (efA.id==searchId)
-                {
-                    efA.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efA.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-                    efA.emails=parser.getEmails(callControl.callEmails(efA.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-                    if(efA.emails.size()==0 && efA.subfolders.size()==0)
-                    {
-                        ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efA.name+'" folder.') );
-                        return;
-                    }
-                }
-                if (efA.subfolders!=null)
-                {
-                    for (MERC_ETObject.emailFolder efB : efA.subfolders)
-                    {
-                        if (efB.id==searchId)
-                        {
-                            efB.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efB.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-                            efB.emails=parser.getEmails(callControl.callEmails(efB.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-                            if(efB.emails.size()==0 && efB.subfolders.size()==0)
-                            {
-                                ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efB.name+'" folder.') );
-                                return;
-                            }
-                        }
-                        if (efB.subfolders!=null)
-                        {
-                            for (MERC_ETObject.emailFolder efC : efB.subfolders)
-                            {
-                                if (efC.id==searchId)
-                                {
-                                    efC.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efC.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-                                    efC.emails=parser.getEmails(callControl.callEmails(efC.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-                                    if(efC.emails.size()==0 && efC.subfolders.size()==0)
-                                    {
-                                        ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efC.name+'" folder.') );
-                                        return;
-                                    }
-                                }
-                                if (efC.subfolders!=null)
-                                {
-                                    for (MERC_ETObject.emailFolder efD : efC.subfolders)
-                                    {
-                                        if (efD.id==searchId)
-                                        {
-                                            efD.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efD.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-                                            efD.emails=parser.getEmails(callControl.callEmails(efD.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-                                            if(efD.emails.size()==0 && efD.subfolders.size()==0)
-                                            {
-                                                ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efD.name+'" folder.') );
-                                                return;
-                                            }
-                                        }
-                                        if (efD.subfolders!=null)
-                                        {
-                                            for (MERC_ETObject.emailFolder efE : efD.subfolders)
-                                            {
-                                                if (efE.id==searchId)
-                                                {
-                                                    efE.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efE.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-                                                    efE.emails=parser.getEmails(callControl.callEmails(efE.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-                                                    if(efE.emails.size()==0 && efE.subfolders.size()==0)
-                                                    {
-                                                        ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efE.name+'" folder.') );
-                                                        return;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //    String mid=BusinessUnit.et4ae5__Business_Unit_ID__c;
+        //    system.debug('mid: '+mid);
+        //    token=callControl.oauthScoped(c.et4ae5__username__c,c.et4ae5__password__c,ceScope,mid,c.et4ae5__auth_api_url__c);
+        //}
+        //else
+        //{
+        //    token=callControl.oauthScopedNoMid(c.et4ae5__username__c,c.et4ae5__password__c,ceScope,c.et4ae5__auth_api_url__c);
+        //}
+        //if (emails!=null)
+        //{
+        //    for (MERC_ETObject.emailFolder efA : emails)
+        //    {
+        //        if (efA.id==searchId)
+        //        {
+        //            efA.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efA.id,c.et4ae5__root_rest_api_url__c,token).getBody());
+        //            efA.emails=parser.getEmails(callControl.callEmails(efA.id,c.et4ae5__root_rest_api_url__c,token).getBody());
+        //            if(efA.emails.size()==0 && efA.subfolders.size()==0)
+        //            {
+        //                ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efA.name+'" folder.') );
+        //                return;
+        //            }
+        //        }
+        //        if (efA.subfolders!=null)
+        //        {
+        //            for (MERC_ETObject.emailFolder efB : efA.subfolders)
+        //            {
+        //                if (efB.id==searchId)
+        //                {
+        //                    efB.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efB.id,c.et4ae5__root_rest_api_url__c,token).getBody());
+        //                    efB.emails=parser.getEmails(callControl.callEmails(efB.id,c.et4ae5__root_rest_api_url__c,token).getBody());
+        //                    if(efB.emails.size()==0 && efB.subfolders.size()==0)
+        //                    {
+        //                        ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efB.name+'" folder.') );
+        //                        return;
+        //                    }
+        //                }
+        //                if (efB.subfolders!=null)
+        //                {
+        //                    for (MERC_ETObject.emailFolder efC : efB.subfolders)
+        //                    {
+        //                        if (efC.id==searchId)
+        //                        {
+        //                            efC.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efC.id,c.et4ae5__root_rest_api_url__c,token).getBody());
+        //                            efC.emails=parser.getEmails(callControl.callEmails(efC.id,c.et4ae5__root_rest_api_url__c,token).getBody());
+        //                            if(efC.emails.size()==0 && efC.subfolders.size()==0)
+        //                            {
+        //                                ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efC.name+'" folder.') );
+        //                                return;
+        //                            }
+        //                        }
+        //                        if (efC.subfolders!=null)
+        //                        {
+        //                            for (MERC_ETObject.emailFolder efD : efC.subfolders)
+        //                            {
+        //                                if (efD.id==searchId)
+        //                                {
+        //                                    efD.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efD.id,c.et4ae5__root_rest_api_url__c,token).getBody());
+        //                                    efD.emails=parser.getEmails(callControl.callEmails(efD.id,c.et4ae5__root_rest_api_url__c,token).getBody());
+        //                                    if(efD.emails.size()==0 && efD.subfolders.size()==0)
+        //                                    {
+        //                                        ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efD.name+'" folder.') );
+        //                                        return;
+        //                                    }
+        //                                }
+        //                                if (efD.subfolders!=null)
+        //                                {
+        //                                    for (MERC_ETObject.emailFolder efE : efD.subfolders)
+        //                                    {
+        //                                        if (efE.id==searchId)
+        //                                        {
+        //                                            efE.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efE.id,c.et4ae5__root_rest_api_url__c,token).getBody());
+        //                                            efE.emails=parser.getEmails(callControl.callEmails(efE.id,c.et4ae5__root_rest_api_url__c,token).getBody());
+        //                                            if(efE.emails.size()==0 && efE.subfolders.size()==0)
+        //                                            {
+        //                                                ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efE.name+'" folder.') );
+        //                                                return;
+        //                                            }
+        //                                        }
+        //                                    }
+        //                                }
+        //                            }
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 
     public void selectEmail()
     {
         // Get selected id from param
-        email=new MERC_ETFolderedEmail();
+        email = new MERC_MarketingCloudClient.FolderedEmail();
         email.id=apexPages.currentPage().getParameters().get('emailId');
         email.name=null;
         if (apexPages.currentPage().getParameters().get('emailName')!=null)
         {
             email.name=EncodingUtil.urlDecode(apexPages.currentPage().getParameters().get('emailName'),'UTF-8');
         }
-        email.title=null;
+        email.subject = null;
         if (apexPages.currentPage().getParameters().get('emailSubject')!=null)
         {
             system.debug('subj: '+apexPages.currentPage().getParameters().get('emailSubject'));
-            email.title=EncodingUtil.urlDecode(apexPages.currentPage().getParameters().get('emailSubject'),'UTF-8').replace('\\"','"');
+            email.subject = EncodingUtil.urlDecode(apexPages.currentPage().getParameters().get('emailSubject'),'UTF-8').replace('\\"','"');
         }
         showEmailChooser=false;
         this.base64Thumbnail = retrieveThumbnailForEmailSend(email.id);

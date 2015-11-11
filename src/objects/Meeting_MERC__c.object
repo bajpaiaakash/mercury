@@ -2,9 +2,20 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <fields>
+        <fullName>Has_Meeting_Days_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flags those meeting which have Meeting Days for MP Status validation purposes : MERC : Created on 04/11/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Has Meeting Days</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Potential_ToV_MERC__c</fullName>
         <description>Highlights those meetings with a Potential ToV impacted by MPs, Travel or Meeting Day Records : MERC : Created on 03/11/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>This will help recognize records that most likely have ToV. Automatically set to yes if one of these attributes apply:MP Air or Hotel=yes; MP is Ind. Sponsorship; MP with Travel Itinerary; Meeting Days. Changes will need to be manually edited by CMS Users</inlineHelpText>
         <label>Potential ToV</label>
         <picklist>
             <picklistValues>

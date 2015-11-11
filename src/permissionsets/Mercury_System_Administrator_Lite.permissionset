@@ -53,6 +53,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ParticipantStatusCalculator</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_TriggerHandlerStateManager</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -63,8 +67,18 @@
     <description>This permission set allow Mercury support team to handle support activities.</description>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_MERC__c.Has_Meeting_Days_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_MERC__c.Potential_ToV_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Override_MP_Status_Validation_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
