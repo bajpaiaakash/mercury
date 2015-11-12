@@ -11,6 +11,19 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+	<fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Populated via Workflow, used for Integration with External systems. OD: 9th Dec</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
     <fields>
         <fullName>Potential_ToV_MERC__c</fullName>
         <description>Highlights those meetings with a Potential ToV impacted by MPs, Travel or Meeting Day Records : MERC : Created on 03/11/2015 by Oliver Dunford, Mavens Consulting</description>
