@@ -13,7 +13,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_ETFolderedEmail</apexClass>
+        <apexClass>MERC_ETDataExtensionProcessor</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -26,6 +26,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ETSendDefinition</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ETSendEmailWrapper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -50,6 +54,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MarketingCloudClient</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MarketingCloudService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

@@ -4,10 +4,11 @@
         <members>GLBL_CustomerSearchToolServiceTest</members>
         <members>MERC_ETAuthorizer</members>
         <members>MERC_ETCallControl</members>
-        <members>MERC_ETFolderedEmail</members>
+        <members>MERC_ETDataExtensionProcessor</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
         <members>MERC_ETMeetingEmailSendFutureProcessor</members>
         <members>MERC_ETSendDefinition</members>
+        <members>MERC_ETSendEmailWrapper</members>
         <members>MERC_InvoiceCreditNoteControllerTest</members>
         <members>MERC_ItineraryParticipantUpdateTest</members>
         <members>MERC_ItineraryParticipantUpdateTrigger</members>
@@ -15,6 +16,7 @@
 		<members>MERC_LockedRecordHandler</members>
         <members>MERC_LockedRecordHandlerTest</members>
         <members>MERC_MarketingCloudClient</members>
+        <members>MERC_MarketingCloudService</members>
         <members>MERC_MeetingDayManagerControllerTest</members>
         <members>MERC_MeetingProductNewEditTest</members>
 		<members>MERC_MVIMeetingTimeZoneHandler</members>

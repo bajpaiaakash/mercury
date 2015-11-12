@@ -490,6 +490,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Has_Meeting_Days_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>HCO_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
@@ -826,6 +831,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Compliant_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Potential_ToV_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
         <columns>
@@ -1738,6 +1748,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Potential_ToV_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Preferred_Departure_Airport_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>
@@ -1789,6 +1804,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Purpose_of_Payment_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Override_MP_Status_Validation_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>
         <columns>
