@@ -591,6 +591,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Potential_ToV_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Person_Contact_Id_MERC__c</field>
             <table>Meeting_Participant_MERC__c</table>
         </columns>
@@ -642,6 +647,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Purpose_of_Payment_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Override_MP_Status_Validation_MERC__c</field>
             <table>Meeting_Participant_MERC__c</table>
         </columns>
         <columns>
@@ -1037,6 +1047,56 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>HCP_Info_Pack_Received_Date_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_MERC__c.Audit_End_Date_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_MERC__c.Audit_Start_Date_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_MERC__c.CFT_Meeting_Instructions_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_MERC__c.Evaluate_Meeting_Process_Logic_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_MERC__c.Has_Meeting_Days_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_MERC__c.Initiate_Delegate_Management_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_MERC__c.Local_CMS_Review_Completed_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_MERC__c.Potential_ToV_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_MERC__c.Subject_to_ToV_Audit_MERC__c</field>
+            <table>Meeting_Participant_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_MERC__c.ToV_Audit_Status_MERC__c</field>
             <table>Meeting_Participant_MERC__c</table>
         </columns>
         <masterLabel>Meeting Participants</masterLabel>

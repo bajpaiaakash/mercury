@@ -341,6 +341,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Has_Meeting_Days_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Formatted_Name_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
@@ -882,6 +887,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>PO_Number_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Potential_ToV_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
         <columns>
