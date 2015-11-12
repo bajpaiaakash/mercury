@@ -15,6 +15,7 @@
 		<sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src.dir}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" testLevel="${sf.testLevel}" logType="${sf.logType}">
 			<!-- DO NOT REMOVE THE BELOW COMMENT. THIS IS A PLACEHOLDER THAT IS REPLACED BY THE TESTS THAT SHOULD BE RUN FOR THIS BUILD. -->
 			<!--runTests-->
+			<runTest>Merc_AccountRollupsTest</runTest>
 	   </sf:deploy>
 	</target>
 
