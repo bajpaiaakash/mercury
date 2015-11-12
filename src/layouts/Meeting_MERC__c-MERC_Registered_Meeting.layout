@@ -22,6 +22,10 @@
                 <field>Formatted_Name_MERC__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mercury_External_Id_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Event_Id_MERC__c</field>
             </layoutItems>

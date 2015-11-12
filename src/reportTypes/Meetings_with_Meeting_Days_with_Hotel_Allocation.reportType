@@ -266,6 +266,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Has_Meeting_Days_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>HCO_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
@@ -527,6 +532,11 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Participant_ToV_Updated_Date_MERC__c</field>
+            <table>Meeting_MERC__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Potential_ToV_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
         <columns>
