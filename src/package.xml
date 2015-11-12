@@ -15,6 +15,14 @@
         <members>Team_Member_MERC__c.Mercury_External_Id_MERC__c</members>
         <name>CustomField</name>
     </types>
+	<types>
+        <members>Case</members>
+        <name>CustomObject</name>
+    </types>
+	<types>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <name>PermissionSet</name>
+    </types>
     <types>
         <members>MERC_Meetings_Meeting_Participants_Meeting_Tasks</members>
         <name>ReportType</name>
