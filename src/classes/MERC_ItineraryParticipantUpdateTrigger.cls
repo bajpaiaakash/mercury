@@ -24,7 +24,7 @@ public with sharing class MERC_ItineraryParticipantUpdateTrigger implements GLBL
     		participantIds.add(itinerary.Meeting_Participant_MERC__c);
     	}
 
-    	List<Meeting_Participant_MERC__c> participants = [SELECT Potential_ToV_MERC__c FROM Meeting_Participant_MERC__c];
+    	List<Meeting_Participant_MERC__c> participants = [SELECT Potential_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id in :participantIds];
     	List<Meeting_Participant_MERC__c> participantsToUpdate = new List<Meeting_Participant_MERC__c>();
 
     	for (Meeting_Participant_MERC__c participant : participants) {
