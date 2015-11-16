@@ -54,7 +54,7 @@ public with sharing class MERC_ConsultingProjectCapCalculator implements GLBL_Tr
                                                         Meeting_Participant_MERC__r.Account_MERC__c IN :accountIds AND
                                                         Invoice_Date_MERC__c = THIS_YEAR AND
                                                         Submit_for_Payment_MERC__c = 'Yes' AND 
-                                                        RecordType.DeveloperName != 'Invoice_Invalid_MERC'  /* Added by Namrata Aggarwal on 11/04/2015 for R14 Defect */
+                                                        RecordType.DeveloperName  = 'Invoice_Locked_MERC'   /* Added by Namrata Aggarwal on 11/04/2015 for R14 Defect */
                                                             GROUP BY Meeting_Participant_MERC__r.Account_MERC__c];
 
         System.debug('>>>> '+results);
