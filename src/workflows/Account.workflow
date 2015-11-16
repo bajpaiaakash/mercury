@@ -23,7 +23,11 @@ ISCHANGED(Institutional_Notif_Info_Exists_MERC__c) ||
 ISCHANGED(MSA_Contract_Expiration_MERC__c) ||
 ISCHANGED(RTI_Transaction_ID_MERC__c) ||
 ISCHANGED(Service_Provider_MERC__c) ||
-ISCHANGED(Utilised_CAP_MERC__c)||
+ISCHANGED(Reserved_CAP_MERC__c)||
+ISCHANGED(Allocated_CAP_MERC__c )||
+ISCHANGED(Speaking_Paid_CAP_MERC__c )||
+ISCHANGED(Consulting_Project_Paid_CAP_MERC__c )||
+ISCHANGED(Annual_CAP_Limit_MERC__c)||
 ISCHANGED(Transparency_Reporting_Opt_Out_MERC__c)))
 )</formula>
         <triggerType>onAllChanges</triggerType>
