@@ -435,6 +435,7 @@ public with sharing class MERC_MarketingCloudClient {
             Http httpClient = new Http();
             HttpRequest httpRequest = new HttpRequest();
             String requestUrl = requestRoot + requestPath;
+            System.debug(LoggingLevel.FINE, 'RestClient GET from URL:\n' + requestUrl);
 
             httpRequest.setTimeout(timeOut);
             httpRequest.setMethod(GetMethod);
@@ -446,6 +447,9 @@ public with sharing class MERC_MarketingCloudClient {
             try
             {
                 response = httpClient.send(httpRequest);
+                if(response.getStatusCode() == 200){
+                    System.debug(LoggingLevel.FINE, 'RestClient GET from Response:\n\n' + response.getBody());
+                }
             }
             catch(Exception ex){
                 System.debug(ex);
