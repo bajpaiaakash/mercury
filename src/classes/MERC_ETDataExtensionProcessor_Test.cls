@@ -23,7 +23,7 @@ private class MERC_ETDataExtensionProcessor_Test {
         insert config;
 
         Test.startTest();
-            Test.setMock(HttpCalloutMock.class, new MERC_ETDataExtensionCallout_Mock());
+            Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator()); // MERC_ETDataExtensionCallout_Mock());
 
             MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
             MERC_ETDataExtension.DataExtensionResponse deRes = processor.createDataExtensionWithNameKeyFieldsAndSoapAuth(deName, deKey, fields, authToken, deExpiresIn);
@@ -53,7 +53,7 @@ private class MERC_ETDataExtensionProcessor_Test {
         insert config;
 
         Test.startTest();
-            Test.setMock(HttpCalloutMock.class, new MERC_ETDataExtensionCallout_Mock());
+            Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator(400)); // MERC_ETDataExtensionCallout_Mock());
 
             MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
             MERC_ETDataExtension.DataExtensionResponse deRes = processor.createDataExtensionWithNameKeyFieldsAndSoapAuth(deName, deKey, fields, authToken, deExpiresIn);
@@ -91,15 +91,17 @@ private class MERC_ETDataExtensionProcessor_Test {
         insert config;
 
         Test.startTest();
-            Test.setMock(HttpCalloutMock.class, new MERC_ETDataExtensionPopulateCallout_Mock());
+            Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator(200)); //MERC_ETDataExtensionPopulateCallout_Mock());
 
             MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
+            System.debug('### dekey = ' + deKey);
+            System.debug('### entries = ' + entries);
+            System.debug('### authToken = ' + authToken);
             HttpResponse res = processor.populateDataExtensionForKeyWithValuesAndFuelAuth(deKey, entries, authToken);
         Test.stopTest();
 
         System.assertNotEquals(null, res);
         System.assertEquals(200, res.getStatusCode());
-        System.assertEquals('OK', res.getStatus());
         System.assertNotEquals(null, res.getBody());
     }
 
