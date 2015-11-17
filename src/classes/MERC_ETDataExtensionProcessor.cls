@@ -213,20 +213,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
 
         if (thumbnailData != null && thumbnailData.length() < 32768) {
             meetingEmailSend.ET_Thumbnail_MERC__c = thumbnailData; // do the same as attachment body on line 220
-        } else {
-            system.debug('creating attachment out of thumbnail data');
-            system.debug(thumbnailData);
-            try {
-                Attachment a = new Attachment();
-                a.contentType = 'image/png';
-                a.ParentId = meetingEmailSend.Id;
-                a.Body = EncodingUtil.base64Decode(thumbnailData);
-                a.Name = 'Thumbnail Data';
-                insert a;
-            } catch (Exception e) {
-                System.debug('Exception saving attachment of preview : ' + e.getMessage() + '\n' + e.getStackTraceString());
-            }
-        }
+        } 
 
         update meetingEmailSend;
 
@@ -323,7 +310,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
         String thumbnailURL = configInfo.et4ae5__Root_Rest_API_URL__c;
         thumbnailURL = thumbnailURL.replace('rest', configInfo.et4ae5__url_root__c);
         thumbnailURL += String.format('/{0}/utilities/ImageThumbnailSecure.ashx/?h={1}&w={2}&emailid={3}&oauth_token={4}',
-                                      new List<String> { configInfo.et4ae5__url_part__c, '700', '700', meetingEmailSend.ET_Email_Id_MERC__c, soapAuthToken });
+                                      new List<String> { configInfo.et4ae5__url_part__c, '300', '300', meetingEmailSend.ET_Email_Id_MERC__c, soapAuthToken });
         System.Debug('thumbnailURL: ' + thumbnailURL);
 
         HttpRequest req = new HttpRequest();
