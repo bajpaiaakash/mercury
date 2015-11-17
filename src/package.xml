@@ -112,5 +112,5 @@
         <members>Meeting_Participant_MERC__c.MERC_Uncheck_Override_Status_Validation</members>
         <name>WorkflowRule</name>
     </types>
-    <version>35.0</version>
+    <version>33.0</version>
 </Package>

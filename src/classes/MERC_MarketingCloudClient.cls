@@ -435,6 +435,7 @@ public with sharing class MERC_MarketingCloudClient {
             Http httpClient = new Http();
             HttpRequest httpRequest = new HttpRequest();
             String requestUrl = requestRoot + requestPath;
+            System.debug(LoggingLevel.FINE, 'RestClient GET from URL:\n' + requestUrl);
 
             httpRequest.setTimeout(timeOut);
             httpRequest.setMethod(GetMethod);
@@ -446,6 +447,9 @@ public with sharing class MERC_MarketingCloudClient {
             try
             {
                 response = httpClient.send(httpRequest);
+                if(response.getStatusCode() == 200){
+                    System.debug(LoggingLevel.FINE, 'RestClient GET from Response:\n\n' + response.getBody());
+                }
             }
             catch(Exception ex){
                 System.debug(ex);
@@ -809,11 +813,26 @@ public with sharing class MERC_MarketingCloudClient {
         public String id { get; set; }
         public String name { get; set { name = value; encodedName = (name == null ? null : EncodingUtil.urlEncode(name,'UTF-8')); } }
         public String encodedName { get; set; }
-        public String subject { get; set { subject = value; encodedSubject = (subject == null ? null : EncodingUtil.urlEncode(subject,'UTF-8')); } }
-        public String encodedSubject { get; set; }
+        public String subject { 
+            get { 
+                if(subject == null && email != null){
+                    subject = email.subject;
+                }
+                return subject;
+            } 
+            set; 
+        }
+        public String encodedSubject { 
+            get { 
+                if(encodedSubject == null && email != null && email.subject != null){
+                    encodedSubject = EncodingUtil.urlEncode(email.subject,'UTF-8');
+                }
+                return encodedSubject;
+            } 
+            private set;
+        }
         public String categoryId { get; set; }
         public Email email { get; set; }
-
      
         //constructor required for comparable interface implementation - no code inside required
         public FolderedEmail(){ 
