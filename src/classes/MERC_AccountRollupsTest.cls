@@ -32,9 +32,9 @@ private class MERC_AccountRollupsTest
 
 
         for (Meeting_Participant_MERC__c participant : participants) {
-            participant.Final_Fee_Rollup_MERC__c = 0;   //Modification done by Jyoti Gaur on 10 Nov for US-38733
+            participant.Final_Fee_Rollup_MERC__c = 100;  
             participant.Status_MERC__c = 'Attended';
-            participant.Services_Rendered_MERC__c = 'Yes';
+            participant.Services_Rendered_MERC__c = 'No';  //Modification done by Jyoti Gaur on 17 Nov for US-38733
         }
         update participants;
         MERC_TriggerHandlerStateManager.activateAll();
@@ -49,7 +49,7 @@ private class MERC_AccountRollupsTest
 
         System.assertEquals(accounts.size(), DATA_SIZE);
         for (Account account : accounts) {
-            System.assertEquals(0, account.Allocated_CAP_MERC__c);    //Modification done by Jyoti Gaur on 10 Nov for US-38733
+            System.assertEquals(100, account.Allocated_CAP_MERC__c);   
         }
     }
 

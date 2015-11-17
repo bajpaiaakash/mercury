@@ -12,6 +12,8 @@
         <members>MERC_ETMeetingEmailSendFutureProcessor</members>
         <members>MERC_ETSendDefinition</members>
         <members>MERC_ETSendEmailWrapper</members>
+		<members>MERC_HcpCapActualsCalculatorTest</members>
+        <members>MERC_HcpCapYearlyCalculationJobTest</members>        
         <members>MERC_InvoiceCreditNoteControllerTest</members>
         <members>MERC_ItineraryParticipantUpdateTest</members>
         <members>MERC_ItineraryParticipantUpdateTrigger</members>
