@@ -25,7 +25,6 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>MERC_DailyAttendance</members>
         <members>MeetingEmailSend</members>
         <name>ApexPage</name>
     </types>
@@ -38,7 +37,6 @@
         <members>Meeting_MERC__c.Potential_ToV_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Override_MP_Status_Validation_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Potential_ToV_MERC__c</members>
-        <members>Mercury_Settings_MERC__c.ManageDailyAttendanceError__c</members>
         <name>CustomField</name>
     </types>
     <types>

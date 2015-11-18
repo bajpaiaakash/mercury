@@ -107,10 +107,6 @@
     </fieldPermissions>
     <label>Mercury CMS IT Support</label>
     <pageAccesses>
-        <apexPage>MERC_DailyAttendance</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>MeetingEmailSend</apexPage>
         <enabled>false</enabled>
     </pageAccesses>

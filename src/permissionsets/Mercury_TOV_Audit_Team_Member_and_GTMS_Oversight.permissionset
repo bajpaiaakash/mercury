@@ -107,10 +107,6 @@
     </fieldPermissions>
     <label>Mercury TOV Audit Team Member and GTMS Oversight</label>
     <pageAccesses>
-        <apexPage>MERC_DailyAttendance</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>MeetingEmailSend</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
