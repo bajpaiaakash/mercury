@@ -37,6 +37,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_InvoiceDocFilterController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ItineraryParticipantUpdateTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -102,6 +106,10 @@
         <readable>true</readable>
     </fieldPermissions>
     <label>Mercury TOV Audit Team Member and GTMS Oversight</label>
+    <pageAccesses>
+        <apexPage>MERC_DailyAttendance</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>MeetingEmailSend</apexPage>
         <enabled>false</enabled>

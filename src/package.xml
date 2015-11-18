@@ -10,6 +10,7 @@
         <members>MERC_ETSendDefinition</members>
         <members>MERC_ETSendEmailWrapper</members>
         <members>MERC_InvoiceCreditNoteControllerTest</members>
+        <members>MERC_InvoiceDocFilterController</members>
         <members>MERC_ItineraryParticipantUpdateTest</members>
         <members>MERC_ItineraryParticipantUpdateTrigger</members>
         <members>MERC_LockedInvoiceDeleteHandlerTest</members>
@@ -24,6 +25,7 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>MERC_DailyAttendance</members>
         <members>MeetingEmailSend</members>
         <name>ApexPage</name>
     </types>
@@ -36,6 +38,7 @@
         <members>Meeting_MERC__c.Potential_ToV_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Override_MP_Status_Validation_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Potential_ToV_MERC__c</members>
+        <members>Mercury_Settings_MERC__c.ManageDailyAttendanceError__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -112,5 +115,5 @@
         <members>Meeting_Participant_MERC__c.MERC_Uncheck_Override_Status_Validation</members>
         <name>WorkflowRule</name>
     </types>
-    <version>33.0</version>
+    <version>35.0</version>
 </Package>
