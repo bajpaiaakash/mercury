@@ -16,6 +16,8 @@
 			<!-- DO NOT REMOVE THE BELOW COMMENT. THIS IS A PLACEHOLDER THAT IS REPLACED BY THE TESTS THAT SHOULD BE RUN FOR THIS BUILD. -->
 			<!--runTests-->
 			<runTest>Merc_AccountRollupsTest</runTest>
+			<runTest>MERC_HcpCapActualsCalculatorTest</runTest>
+			<runTest>MERC_HcpCapYearlyCalculationJobTest</runTest>
 	   </sf:deploy>
 	</target>
 
