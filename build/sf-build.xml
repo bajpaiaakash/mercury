@@ -25,6 +25,7 @@
 			<runTest>MERC_LockedRecordHandlerTest</runTest>
 			<runTest>MERC_MeetingDayManagerControllerTest</runTest>
 			<runTest>MERC_MeetingProductNewEditTest</runTest>
+			<runTest>MERC_UtilTest</runTest>
 	   </sf:deploy>
 	</target>
 
