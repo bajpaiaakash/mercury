@@ -57,6 +57,16 @@ public class MERC_ETTestUtils {
         );
     }
 
+    public static Mercury_Marketing_Cloud_Settings_MERC__c CreateSettings(){
+        return new Mercury_Marketing_Cloud_Settings_MERC__c(
+            Business_Unit_Name_MERC__c = 'Test',
+            Enterprise_Integration_Type_MERC__c = 'Enterprise2.0',
+            Fuel_API_Client_ID_MERC__c = 'testclientid',
+            Fuel_API_Client_Secret_MERC__c = 'testclientsecret',
+            Fuel_API_Auth_Root_URL_MERC__c = 'testauthroot'
+        );
+    }
+
     public static et4ae5__configuration__c CreateETConfig() {
         return new et4ae5__configuration__c(
             et4ae5__integration_type__c = 'Enterprise2.0'

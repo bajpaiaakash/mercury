@@ -142,6 +142,8 @@ private class MERC_ETDataExtensionProcessor_Test {
 
         Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
         insert config;
+        Mercury_Marketing_Cloud_Settings_MERC__c settings = MERC_ETTestUtils.CreateSettings();
+        insert settings;
 
         et4ae5__Business_Unit__c etBU = MERC_ETTestUtils.CreateETBU(config);
         etBU.et4ae5__Enabled__c = true;

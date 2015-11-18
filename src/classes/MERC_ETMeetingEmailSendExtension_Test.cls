@@ -5,17 +5,20 @@ private class MERC_ETMeetingEmailSendExtension_Test {
     static {
         Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
         insert config;
+        Mercury_Marketing_Cloud_Settings_MERC__c settings = MERC_ETTestUtils.CreateSettings();
+        insert settings;
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
         mockResponseGenerator = new MERC_ETMockHttpResponseGenerator();
         withClassifications();
         Test.setMock(HttpCalloutMock.class, mockResponseGenerator);
+        mockResponseGenerator.whereEndpointContains('Auth.svc', '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><s:Body> <OAuthLoginResponse         xmlns="urn:authentication.exacttarget.com/2010/06/11">  <OAuthLoginResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"> <OAuthToken xmlns:a="urn:authentication.exacttarget.com/2011/03/11"> <a:AccessToken>testSoapToken</a:AccessToken> </OAuthToken> </OAuthLoginResult> </OAuthLoginResponse></s:Body></s:Envelope>');
     }
 
     private static void withEnterpriseConfig(){
         et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
         etConfig.et4ae5__username__c = 'testusername';
         etConfig.et4ae5__password__c = 'testpassword';
-        etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com';
+        etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com/Auth.svc';
         etConfig.et4ae5__root_rest_api_url__c = 'www.testresturl.com';
         etConfig.et4ae5__url_root__c = 'urlroot';
         insert etConfig;
@@ -26,7 +29,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
         etConfig.et4ae5__username__c = 'testusername';
         etConfig.et4ae5__password__c = 'testpassword';
-        etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com';
+        etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com/Auth.svc';
         etConfig.et4ae5__root_rest_api_url__c = 'www.testresturl.com';
         etConfig.et4ae5__url_root__c = 'urlroot';
         etConfig.et4ae5__integration_type__c = '';
@@ -80,9 +83,9 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         System.assertEquals(false, ext.getHasErrors());
     }
 
-    //@isTest
+    @isTest
     public static void Test_Constructor_NoMeeting() {
-
+        withNormalConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
 
         ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
@@ -323,7 +326,8 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         System.assertEquals(participants.size(), participantCount);
     }
 
-    @isTest static void Test_Get_Send_Options() {
+    @isTest 
+    static void Test_Get_Send_Options() {
         withNormalConfig();
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
@@ -369,6 +373,8 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         u.et4ae5__exacttarget_Oauth_token__c = '';
         insert u;
 
+        Test.startTest();
+
         ApexPages.StandardController stdController = new ApexPages.StandardController(meeting);
         MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(stdController);
 
@@ -395,12 +401,13 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
 
         MERC_MarketingCloudClient.EmailFolderResponse cefr= new MERC_MarketingCloudClient.EmailFolderResponse();
-        Test.startTest();
+        MERC_MarketingCloudClient.EmailResponse emailResponse = new MERC_MarketingCloudClient.EmailResponse();
 
         System.runAs(u) {
             cefr.entry = testFolderA.subfolders;
             
-            mockResponseGenerator.whereEndpointContains('beta/folder/', JSON.serialize(cefr));
+            mockResponseGenerator.whereEndpointContains('/children/', JSON.serialize(cefr));
+            mockResponseGenerator.whereEndpointContains('/contents/', JSON.serialize(emailResponse));
             
             ApexPages.currentPage().getParameters().put('folderId','testFolderA');
             ext.listExactTargetEmails();

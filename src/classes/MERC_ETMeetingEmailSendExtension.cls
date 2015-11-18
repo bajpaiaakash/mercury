@@ -491,10 +491,14 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         if (!Test.isRunningTest()) {
             stdController.addFields(new List<String>{ 'Date_of_Event_MERC__c', 'Days_Until_Meeting_MERC__c', 'End_Date_of_Event_MERC__c', 'Name' });
         }
-        this.meeting = [SELECT OwnerId, 
-                               Id 
-                          FROM Meeting_MERC__c 
-                         WHERE Id = :stdController.getRecord().Id][0];
+        List<Meeting_MERC__c> meetings = [SELECT OwnerId, 
+                                                 Id 
+                                            FROM Meeting_MERC__c 
+                                           WHERE Id = :stdController.getRecord().Id];
+        if(meetings != null && !meetings.isEmpty()) {
+            this.meeting = meetings[0];    
+        }        
+
         if (meeting == null || meeting.Id == null) {
             AddFatalMessage('You must specify a meeting id.');
         }

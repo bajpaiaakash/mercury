@@ -17,6 +17,10 @@ public with sharing class MERC_MarketingCloudService {
                     folderFound = true;
                     emailFolder.subfolders = MERC_MarketingCloudClient.getEmailFolders(folderId);
                     emailFolder.emails = MERC_MarketingCloudClient.getEmails(folderId);
+                    if((emailFolder.subfolders == null || emailFolder.subfolders.isEmpty()) &&
+                        emailFolder.emails == null || emailFolder.emails.isEmpty()) {
+                        ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+emailFolder.name+'" folder.') );
+                    }
                     break;
                 } else if(emailFolder.subfolders != null){
                     nextFoldersToCheck.addAll(emailFolder.subfolders);
