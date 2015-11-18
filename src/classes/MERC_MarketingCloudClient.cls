@@ -33,10 +33,13 @@ public with sharing class MERC_MarketingCloudClient {
                            FROM et4ae5__Configuration__c
                        ORDER BY LastModifiedDate DESC
                           LIMIT 1];
-        BusinessUnit = [SELECT et4ae5__Business_Unit_ID__c 
-                          FROM et4ae5__Business_Unit__c 
-                         WHERE Name = :MarketingCloudSettings.Business_Unit_Name_MERC__c 
-                         LIMIT 1];
+        List<et4ae5__Business_Unit__c> businessUnits = [SELECT et4ae5__Business_Unit_ID__c 
+                                                          FROM et4ae5__Business_Unit__c 
+                                                         WHERE Name = :MarketingCloudSettings.Business_Unit_Name_MERC__c 
+                                                         LIMIT 1];
+        if(businessUnits != null && !businessUnits.isEmpty()){
+            BusinessUnit = businessUnits[0];
+        }
 
         soapClient = new SoapClient();
         fuelClient = new FuelClient(soapClient.authToken);
@@ -546,11 +549,17 @@ public with sharing class MERC_MarketingCloudClient {
             if(response.getStatusCode() >= StatusCodeSuccess && response.getStatusCode() < StatusCodeRedirect){
 
                 System.debug(LoggingLevel.Fine, 'SoapClient.requestAuthToken (responseBody)\n\n\t' + response.getBody());
-                List<String> splits = response.getBody().split('<a:AccessToken>');
-                splits = splits[1].split('</a:AccessToken>');
-                parsedToken = splits[0];
-
-                // response.getBodyDocument().getChildElement('AccessToken', null).getText()???
+                //List<String> splits = response.getBody().split('<a:AccessToken>');
+                //splits = splits[1].split('</a:AccessToken>');
+                //parsedToken = splits[0];
+                try {
+                    DOM.XMLNode accessTokenNode = response.getBodyDocument().getRootElement().getChildElement('AccessToken', null);
+                    if(accessTokenNode != null){
+                        parsedToken = accessTokenNode.getText();
+                    }
+                } catch(XmlException ex){
+                    throw new MarketingCloudClientException('Failed to parse AccessToken response:\n\n' + response.getBody() + '\n\n' + ex);
+                }
             }
 
             System.debug(LoggingLevel.Fine, 'SoapClient.requestAuthToken (parsedToken)\n\n\t' + parsedToken);

@@ -15,6 +15,7 @@
 		<members>MERC_HcpCapActualsCalculatorTest</members>
         <members>MERC_HcpCapYearlyCalculationJobTest</members>        
         <members>MERC_InvoiceCreditNoteControllerTest</members>
+        <members>MERC_InvoiceDocFilterController</members>
         <members>MERC_ItineraryParticipantUpdateTest</members>
         <members>MERC_ItineraryParticipantUpdateTrigger</members>
         <members>MERC_LockedInvoiceDeleteHandlerTest</members>
@@ -48,7 +49,8 @@
 		<members>Meeting_Participant_MERC__c.Override_MP_Status_Validation_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Potential_ToV_MERC__c</members>
         <members>Meeting_Products_MERC__c.Mercury_External_Id_MERC__c</members>
-        <members>Team_Member_MERC__c.Mercury_External_Id_MERC__c</members>
+		<members>Mercury_Settings_MERC__c.ManageDailyAttendanceError__c</members>        
+		<members>Team_Member_MERC__c.Mercury_External_Id_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>

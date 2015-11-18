@@ -91,6 +91,11 @@ Created by J Adams 12/10/2013</description>
 ( 
 $Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp; 
 $Profile.Name &lt;&gt; &quot;Mercury Integration MVI - Platform&quot; 
+)
+&amp;&amp;
+(
+ Account_MERC__r.RecordType.Name &lt;&gt;&quot;Non-HCP&quot; &amp;&amp;
+Account_MERC__r.RecordType.Name &lt;&gt;&quot;Employee&quot;
 )</errorConditionFormula>
         <errorMessage>If a Meeting has Meeting Days, attendance should be managed using the &apos;Manage Daily Attendance&apos; button on the Meeting Page.  This ensures accuracy of ToV and daily attendance for each HCP.  Please cancel your changes to this record.</errorMessage>
     </validationRules>
