@@ -8,7 +8,7 @@
         <label>Account</label>
         <lookupFilter>
             <active>true</active>
-            <booleanFilter>1 OR 2</booleanFilter>
+            <booleanFilter>1 OR 2 OR 3</booleanFilter>
             <filterItems>
                 <field>Account.RecordType.DeveloperName</field>
                 <operation>equals</operation>
@@ -18,6 +18,11 @@
                 <field>Account.RecordType.DeveloperName</field>
                 <operation>equals</operation>
                 <value>HCP_GLBL</value>
+            </filterItems>
+			<filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Non_HCP_MERC</value>
             </filterItems>
             <infoMessage>Only HCP or Employee accounts can be added over here.</infoMessage>
             <isOptional>false</isOptional>
