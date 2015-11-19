@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>GLBL_CustomerSearchToolServiceTest</members>
+        <members>GLBL_CustomerSearchToolServiceTest</members>		
         <members>MERC_AccountRollups</members>
         <members>MERC_AccountRollupsTest</members>
-        <members>MERC_ConsultingProjectCapCalculator</members>        
+        <members>MERC_ConsultingProjectCapCalculator</members>
+		<members>MERC_ETAccountEmailTriggerImpl_Test</members>		
 		<members>MERC_ETAuthorizer</members>
+		<members>MERC_ETAuthorizer_Test</members>
         <members>MERC_ETCallControl</members>
         <members>MERC_ETDataExtensionProcessor</members>
+        <members>MERC_ETDataExtensionProcessor_Test</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
+        <members>MERC_ETMeetingEmailSendExtension_Test</members>
         <members>MERC_ETMeetingEmailSendFutureProcessor</members>
+        <members>MERC_ETMockHttpResponseGenerator</members>
         <members>MERC_ETSendDefinition</members>
+        <members>MERC_ETSendDefinitionProcessor_Test</members>
         <members>MERC_ETSendEmailWrapper</members>
+		<members>MERC_ETTestUtils</members>
 		<members>MERC_HcpCapActualsCalculatorTest</members>
         <members>MERC_HcpCapYearlyCalculationJobTest</members>        
         <members>MERC_InvoiceCreditNoteControllerTest</members>
