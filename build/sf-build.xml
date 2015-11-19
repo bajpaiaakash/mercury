@@ -16,6 +16,11 @@
 			<!-- DO NOT REMOVE THE BELOW COMMENT. THIS IS A PLACEHOLDER THAT IS REPLACED BY THE TESTS THAT SHOULD BE RUN FOR THIS BUILD. -->
 			<!--runTests-->
 			<runTest>Merc_AccountRollupsTest</runTest>
+			<runTest>MERC_ETAccountEmailTriggerImpl_Test</runTest>
+			<runTest>MERC_ETAuthorizer_Test</runTest>
+			<runTest>MERC_ETDataExtensionProcessor_Test</runTest>
+			<runTest>MERC_ETMeetingEmailSendExtension_Test</runTest>
+			<runTest>MERC_ETSendDefinitionProcessor_Test</runTest>
 			<runTest>MERC_HcpCapActualsCalculatorTest</runTest>
 			<runTest>MERC_HcpCapYearlyCalculationJobTest</runTest>
 			<runTest>GLBL_CustomerSearchToolServiceTest</runTest>
