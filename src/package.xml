@@ -27,7 +27,9 @@
         <members>MERC_MeetingDayManagerControllerTest</members>
         <members>MERC_MeetingProductNewEditTest</members>
         <members>MERC_ParticipantStatusCalculator</members>
+        <members>MERC_ParticipantStatusCalculatorTest</members>
         <members>MERC_TriggerHandlerStateManager</members>
+        <members>MERC_TriggerHandlerStateManagerTest</members>
         <members>MERC_UtilTest</members>
         <name>ApexClass</name>
     </types>
