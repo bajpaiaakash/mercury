@@ -105,7 +105,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ParticipantStatusCalculatorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_TriggerHandlerStateManager</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_TriggerHandlerStateManagerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
