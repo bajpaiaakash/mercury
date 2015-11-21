@@ -150,12 +150,12 @@ private class MERC_ETDataExtensionProcessor_Test {
         insert etBU;
 
         Test.startTest();
-        Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator()); //MERC_ETEndToEndDataExtCallouts_Mock());
+        Test.setMock(HttpCalloutMock.class, new MERC_ETEndToEndDataExtCallouts_Mock()); //TODO: Fix to work with MERC_ETMockHttpResponseGenerator
         System.debug('test.startTest');
         try {
             MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
             processor.createDataExtensionForSendEmail(sew);
-            System.assert(true);
+            //System.assert(true);
         } catch (Exception e) {
         }
         System.debug('test.stopTest');

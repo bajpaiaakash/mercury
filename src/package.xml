@@ -9,6 +9,7 @@
 		<members>MERC_ETAuthorizer</members>
 		<members>MERC_ETAuthorizer_Test</members>
         <members>MERC_ETCallControl</members>
+        <members>MERC_ETCallControlTest</members>
         <members>MERC_ETDataExtensionProcessor</members>
         <members>MERC_ETDataExtensionProcessor_Test</members>
         <members>MERC_ETMeetingEmailSendExtension</members>
@@ -29,6 +30,7 @@
 		<members>MERC_LockedRecordHandler</members>
         <members>MERC_LockedRecordHandlerTest</members>
         <members>MERC_MarketingCloudClient</members>
+        <members>MERC_MarketingCloudClientTest</members>
         <members>MERC_MarketingCloudService</members>
         <members>MERC_MeetingDayManagerControllerTest</members>
         <members>MERC_MeetingProductNewEditTest</members>
