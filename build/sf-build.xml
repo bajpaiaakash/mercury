@@ -18,16 +18,21 @@
 			<runTest>GLBL_CustomerSearchToolServiceTest</runTest>
 			<runTest>MERC_ETAccountEmailTriggerImpl_Test</runTest>
 			<runTest>MERC_ETAuthorizer_Test</runTest>
+			<runTest>MERC_ETCallControlTest</runTest>
 			<runTest>MERC_ETDataExtensionProcessor_Test</runTest>
 			<runTest>MERC_ETMeetingEmailSendExtension_Test</runTest>
 			<runTest>MERC_ETMeetingEmailSendFutureProc_Test</runTest>
 			<runTest>MERC_ETMeetingEmailSendTriggerImpl_Test</runTest>
 			<runTest>MERC_ETMeetingParticTrackingContExt_Test</runTest>
 			<runTest>MERC_ETSendDefinitionProcessor_Test</runTest>
+			<runTest>MERC_ETSubscriberFutureProcessor_Test</runTest>
+			<runTest>MERC_ETSubscriberProcessor_Test</runTest>
 			<runTest>MERC_InvoiceCreditNoteControllerTest</runTest>
+			<runTest>MERC_InvoiceDocFilterControllerTest</runTest>
 			<runTest>MERC_ItineraryParticipantUpdateTest</runTest>
 			<runTest>MERC_LockedInvoiceDeleteHandlerTest</runTest>
 			<runTest>MERC_LockedRecordHandlerTest</runTest>
+			<runTest>MERC_MarketingCloudClientTest</runTest>
 			<runTest>MERC_MeetingDayManagerControllerTest</runTest>
 			<runTest>MERC_MeetingProductNewEditTest</runTest>
 			<runTest>MERC_ParticipantStatusCalculatorTest</runTest>

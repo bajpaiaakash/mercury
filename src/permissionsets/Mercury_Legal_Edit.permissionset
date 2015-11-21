@@ -21,6 +21,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ETCallControlTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ETDataExtensionProcessor</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -86,6 +90,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MarketingCloudClient</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MarketingCloudClientTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

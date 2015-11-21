@@ -119,7 +119,7 @@ public with sharing class MERC_MarketingCloudClient {
             Integer statusCode = httpResponse.getStatusCode();
 
             if(!(statusCode >= 200 && statusCode < 300)){
-                throw new MarketingCloudClientException('There was an error populating the data extension with key : ' + dataExtension.key + '\n' + requestBody);
+                throw new MarketingCloudClientException('There was an error populating the data extension with key : ' + dataExtension.key + '\n' + requestBody + ' Status Code : ' + statusCode);
             }
         }
 
