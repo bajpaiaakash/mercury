@@ -25,6 +25,7 @@
         <members>MERC_HcpCapYearlyCalculationJobTest</members>        
         <members>MERC_InvoiceCreditNoteControllerTest</members>
         <members>MERC_InvoiceDocFilterController</members>
+        <members>MERC_InvoiceDocFilterControllerTest</members>
         <members>MERC_ItineraryParticipantUpdateTest</members>
         <members>MERC_ItineraryParticipantUpdateTrigger</members>
         <members>MERC_LockedInvoiceDeleteHandlerTest</members>

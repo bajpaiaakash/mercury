@@ -73,6 +73,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_InvoiceDocFilterControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ItineraryParticipantUpdateTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
