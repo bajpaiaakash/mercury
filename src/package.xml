@@ -5,6 +5,7 @@
         <members>MERC_AccountRollups</members>
         <members>MERC_AccountRollupsTest</members>
         <members>MERC_ConsultingProjectCapCalculator</members>
+		<members>MERC_ConsultingProjectCapCalculatorTest</members>
 		<members>MERC_ETAccountEmailTriggerImpl_Test</members>		
 		<members>MERC_ETAuthorizer</members>
 		<members>MERC_ETAuthorizer_Test</members>

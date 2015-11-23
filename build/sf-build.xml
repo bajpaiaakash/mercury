@@ -16,6 +16,7 @@
 			<!-- DO NOT REMOVE THE BELOW COMMENT. THIS IS A PLACEHOLDER THAT IS REPLACED BY THE TESTS THAT SHOULD BE RUN FOR THIS BUILD. -->
 			<!--runTests-->
 			<runTest>GLBL_CustomerSearchToolServiceTest</runTest>
+			<runTest>MERC_ConsultingProjectCapCalculatorTest</runTest>
 			<runTest>MERC_ETAccountEmailTriggerImpl_Test</runTest>
 			<runTest>MERC_ETAuthorizer_Test</runTest>
 			<runTest>MERC_ETCallControlTest</runTest>
