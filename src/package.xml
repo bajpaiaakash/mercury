@@ -4,6 +4,7 @@
         <members>MERC_AccountRollups</members>
         <members>MERC_AccountRollupsTest</members>
         <members>MERC_ConsultingProjectCapCalculator</members>
+		<members>MERC_ConsultingProjectCapCalculatorTest</members>
 		<members>MERC_HcpCapActualsCalculatorTest</members>
         <members>MERC_HcpCapYearlyCalculationJobTest</members>
         <members>MERC_ParticipantTriggerHandler</members>
