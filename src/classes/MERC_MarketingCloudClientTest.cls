@@ -109,6 +109,72 @@ private class MERC_MarketingCloudClientTest {
 		Test.stopTest();
 	}
 
+	@isTest static void test_AuthClient() {
+		insertConfig();
+
+        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
+        insert config;
+
+		MERC_MarketingCloudClient.SendDefinition sd = new MERC_MarketingCloudClient.SendDefinition('test', false, 'test', 42, 'test', 'test', 'test', 'test', 'test');
+        System.assertEquals('test', sd.dataExtensionId);
+
+        MERC_MarketingCloudClient.RestClient rest = new MERC_MarketingCloudClient.RestClient('testToken');
+
+		Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator(200));
+		Test.startTest();
+
+		try {
+			MERC_MarketingCloudClient.SendClassification sc = rest.requestClassification('test');
+		} catch (exception e) {
+			System.debug('#### FAILURE! ' + e);
+		}
+
+		try {
+			MERC_MarketingCloudClient.CreateSendDefinitionResponse csdr = rest.postSendDefition(sd);
+		} catch (exception e) {
+			System.debug('#### FAILURE! ' + e);
+		}
+
+		try {
+			MERC_MarketingCloudClient.StartSendDefinitionResponse ssdr = rest.getStartSendDefinition('test');
+		} catch (exception e) {
+			System.debug('#### FAILURE! ' + e);
+		}
+
+		try {
+			MERC_MarketingCloudClient.CheckSendDefinitionStatusResponse csdsr = rest.getSendDefinitionStatus('test');
+		} catch (exception e) {
+			System.debug('#### FAILURE! ' + e);
+		}
+
+		Test.stopTest();
+	}
+
+	@isTest static void test_SoapClient() {
+		insertConfig();
+
+        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
+        insert config;
+
+        String s = 'test';
+        List<String> strings = new List<String>();
+        strings.add(s);
+
+        MERC_MarketingCloudClient.SoapClient soap = new MERC_MarketingCloudClient.SoapClient();
+
+		Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator(200));
+		Test.startTest();
+
+		try {
+			List<MERC_MarketingCloudClient.Subscriber> subscriberList = soap.requestSubscribers(strings);
+		} catch (exception e) {
+			System.debug('#### FAILURE! ' + e);
+		}
+
+		Test.stopTest();
+
+    }
+
 	@iSTest static void test_innerClasses() {
 
 		MERC_MarketingCloudClient.FuelResponseBody frb = new MERC_MarketingCloudClient.FuelResponseBody();
