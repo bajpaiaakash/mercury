@@ -6,7 +6,7 @@ public class MERC_ETAccountEmailTriggerImpl_Test {
 		Account testAcct = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('PersonAccount', 1)[0];
 		insert testAcct;
 		
-        Test.setMock(HttpCalloutMock.class, new MERC_ETSubscriberProcessorCallout_Mock());
+        Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator());
 		Test.startTest();
 			testAcct = [SELECT Id, PersonEmail FROM Account WHERE FirstName = 'unittest' LIMIT 1];
 			update testAcct;
@@ -22,7 +22,7 @@ public class MERC_ETAccountEmailTriggerImpl_Test {
         Account testAcct = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('PersonAccount', 1)[0];
         insert testAcct;
         
-        Test.setMock(HttpCalloutMock.class, new MERC_ETSubscriberProcessorCallout_Mock());
+        Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator()); 
         Test.startTest();
 	        testAcct = [SELECT Id, PersonEmail FROM Account WHERE FirstName = 'unittest' LIMIT 1];
 	        testAcct.PersonEmail = 'updated@testy.com';
@@ -33,5 +33,4 @@ public class MERC_ETAccountEmailTriggerImpl_Test {
         
         System.assert(testAcct.PersonEmail == 'updated@testy.com', 'PersonEmail should equal "updated@testy.com", not ' + testAcct.PersonEmail);
     }
-
 }

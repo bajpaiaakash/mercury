@@ -91,7 +91,14 @@ public with sharing class MERC_ETDataExtensionProcessor {
             deExpiration = wrapper.FutureSendTime.addDays(3);
         }
 
+        System.debug('#### Did I make it here?');
+        System.debug('#### deName = ' + deName); 
+        System.debug('#### deKey = ' + deKey);
+        System.debug('#### fields = ' + fields);
+        System.debug('#### authorizer.soapAuthToken = ' + authorizer.soapAuthToken);
+        System.debug('#### deExpiration = ' + deExpiration);
         MERC_ETDataExtension.DataExtensionResponse deResponse = this.createDataExtensionWithNameKeyFieldsAndSoapAuth(deName, deKey, fields, authorizer.soapAuthToken, deExpiration);
+
 
         if (deResponse.id == null) {
             throw new DataExtensionException('There was an error creating the data extension.');

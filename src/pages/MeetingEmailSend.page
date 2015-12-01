@@ -208,7 +208,7 @@
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionitem id="selectedFrom" helptext="{!$Label.et4ae5__sndClasHlp}">
                     <apex:outputLabel for="fromBlock" value="{!$Label.et4ae5__from}" />
-                    <apex:outputPanel>
+                    <apex:outputPanel >
                         <apex:selectList id="from" value="{!fromEmailSelected}" size="1">
                             <apex:selectOptions value="{!fromEmailOptions}" />
                         </apex:selectList>

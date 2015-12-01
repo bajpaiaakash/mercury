@@ -9,7 +9,7 @@ private class MERC_ETAuthorizer_Test {
         insert etConfig;
 
         Test.startTest();
-            Test.setMock(HttpCalloutMock.class, new MERC_ETAuthorizerCallout_Mock());
+            Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator('<a:AccessToken>testSoapToken</a:AccessToken>'));
 
             MERC_ETAuthorizer eta = new MERC_ETAuthorizer();
 
@@ -26,7 +26,7 @@ private class MERC_ETAuthorizer_Test {
         insert etConfig;
 
         Test.startTest();
-            Test.setMock(HttpCalloutMock.class, new MERC_ETAuthorizerCallout_Mock());
+            Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator());
 
             MERC_ETAuthorizer eta = new MERC_ETAuthorizer();
 
@@ -43,7 +43,7 @@ private class MERC_ETAuthorizer_Test {
         insert etConfig;
 
         Test.startTest();
-            Test.setMock(HttpCalloutMock.class, new MERC_ETAuthorizerCallout_Mock());
+            Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator());
 
             MERC_ETAuthorizer eta = new MERC_ETAuthorizer();
 
@@ -60,7 +60,7 @@ private class MERC_ETAuthorizer_Test {
         insert etConfig;
 
         Test.startTest();
-            Test.setMock(HttpCalloutMock.class, new MERC_ETAuthorizerCallout_Mock());
+            Test.setMock(HttpCalloutMock.class, new MERC_ETMockHttpResponseGenerator());
 
             MERC_ETAuthorizer eta = new MERC_ETAuthorizer();
 

@@ -51,7 +51,7 @@ global class MERC_ETMockHttpResponseGenerator implements HttpCalloutMock {
         predefinedBody = true;
         statusCode = 200;
         initializeVariables();
-        System.debug('responseBody constructor : ' + responseBody);
+        System.debug('#### responseBody constructor : ' + responseBody);
     }
 
     global MERC_ETMockHttpResponseGenerator(String bodyString, Integer code) {
@@ -59,7 +59,7 @@ global class MERC_ETMockHttpResponseGenerator implements HttpCalloutMock {
         predefinedBody = true;
         statusCode = code;
         initializeVariables();
-        System.debug('responseBody constructor : ' + responseBody);
+        System.debug('#### responseBody constructor : ' + responseBody);
     }
 
     //repeatable code initializing variables
@@ -79,10 +79,6 @@ global class MERC_ETMockHttpResponseGenerator implements HttpCalloutMock {
         HttpResponse res = new HttpResponse();
         bodyBuilder(req);
 
-        //DAVID: Do we need this code?
-        //Don't see it used anywhere.
-        
-
         if (hasHeader) {
             res.setHeader('Content-Type', headerContentType);
         }
@@ -97,18 +93,11 @@ global class MERC_ETMockHttpResponseGenerator implements HttpCalloutMock {
 
     private void bodyBuilder (HttpRequest req) {
 
-        System.debug('#### req body = ' + req.getBody());
-        System.debug('#### req header = ' + req.getHeader('Content-Type'));
-        System.debug('#### responseBody : ' + responseBody);
-        System.debug('#### predefinedBody : ' + predefinedBody);
-        System.debug('#### GOING INTO NEW BODY LOGIC');
-        System.debug('#### Checking if predefinedBody is true. Answer : ' + predefinedBody);
         if (statusCode == 400) {
             // 400 is an error. Return nothing.
             responseBody = '{"objectId":"1","key":"test","id":null,"name":"hello","integrated":true,"userScoped":true,"jobId":1}';
         } else if (!predefinedBody) {
             // No response body was passed in. 
-            System.debug('#### No response body was passed in. Calling genericBodyBuilder. Getting swoll on bread and water.');
             genericBodyBuilder(req);
         } 
     }
@@ -118,8 +107,6 @@ global class MERC_ETMockHttpResponseGenerator implements HttpCalloutMock {
      * Will build a response body based on a variety of factors.
      */
     private void genericBodyBuilder (HttpRequest req) {
-        System.debug('#### ENTERING genericBodyBuilder');
-        System.debug('#### endpoint is : ' + req.getEndpoint());
 
         if(!endpointBasedBodies.isEmpty()){
             String endpointURL = req.getEndpoint();
@@ -134,12 +121,10 @@ global class MERC_ETMockHttpResponseGenerator implements HttpCalloutMock {
             //This is ET Subscriber Callout.
             subscriberProcessResponse(req);
         } else if (req.getEndpoint().containsIgnoreCase('Auth.svc')) {
-            System.debug('#### Endpoint contains Auth.svc. Calling soapAuthResponseBody.');
             authorizerMock = true;
             responseBody = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><s:Body> <OAuthLoginResponse         xmlns="urn:authentication.exacttarget.com/2010/06/11">  <OAuthLoginResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance"> <OAuthToken xmlns:a="urn:authentication.exacttarget.com/2011/03/11"> <a:AccessToken>testSoapToken</a:AccessToken> </OAuthToken> </OAuthLoginResult> </OAuthLoginResponse></s:Body></s:Envelope>';
         } else if (req.getEndpoint().containsIgnoreCase('exacttargetapis.com')) {
             // Create a fuel response for MERC_ETAuthorizer.
-            System.debug('#### Endpoint is exacttargetapis.com. Calling fuelResponseBody');
             authorizerMock = true;
             fuelResponseBody(req);
         } else if (authorizerMock) {
@@ -165,7 +150,6 @@ global class MERC_ETMockHttpResponseGenerator implements HttpCalloutMock {
         fuelResponseObject.accessToken = 'testFuelAccessToken';
         fuelResponseObject.expiresIn = 10000;
         fuelResponseObject.legacyToken = 'testFuelLegacyToken';
-        System.debug('#### responseBody set to : ' + JSON.serialize(fuelResponseObject));
         responseBody = JSON.serialize(fuelResponseObject);
         setStatusString = true;
 

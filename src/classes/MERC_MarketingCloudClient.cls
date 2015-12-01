@@ -119,7 +119,7 @@ public with sharing class MERC_MarketingCloudClient {
             Integer statusCode = httpResponse.getStatusCode();
 
             if(!(statusCode >= 200 && statusCode < 300)){
-                throw new MarketingCloudClientException('There was an error populating the data extension with key : ' + dataExtension.key + '\n' + requestBody);
+                throw new MarketingCloudClientException('There was an error populating the data extension with key : ' + dataExtension.key + '\n' + requestBody + ' Status Code : ' + statusCode);
             }
         }
 
@@ -205,6 +205,7 @@ public with sharing class MERC_MarketingCloudClient {
 
     }
 
+    @TestVisible //TODO: rewrite test class so this isn't necessary.
     private class RestClient {
         public String AuthToken;
 
@@ -488,6 +489,7 @@ public with sharing class MERC_MarketingCloudClient {
         }
     }
 
+    @TestVisible //TODO: rewrite test class so this isn't necessary.
     private class SoapClient {
         private final String SOAPApplicationId = '6C7F3A46-9BFD-40E9-87EE-456577D4FFE7'; // why is this hardcoded?
         private final String soapAPIUrl = 'https://webservice.s6.exacttarget.com/Service.asmx';
