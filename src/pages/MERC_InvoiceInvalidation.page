@@ -1,1 +1,0 @@
-<apex:page showHeader="true" sidebar="true" standardController="Invoice_MERC__c" extensions="MERC_InvoiceInvalidationController" action="{!redirect}"><apex:pageMessages id="messages"/></apex:page>
