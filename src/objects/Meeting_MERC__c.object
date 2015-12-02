@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <validationRules>
+        <fullName>Restrict_to_change_country_Merc</fullName>
+        <active>true</active>
+        <description>Country should not be changed for the status other than forecasted.</description>
+        <errorConditionFormula>ISCHANGED( Event_Country_MERC__c ) 
+&amp;&amp;  NOT(ISPICKVAL( Meeting_Status_MERC__c , &quot;Forecasted&quot;))
+&amp;&amp; (NOT(CONTAINS($User.Username , &quot;mvibatch.integration&quot;))
+&amp;&amp; NOT(CONTAINS($User.Username , &quot;icrtmercuryintegration&quot;)) 
+&amp;&amp; NOT( $Permission.CMS_IT_Support_Merc )&amp;&amp; NOT( $Profile.Name == &quot;System Administrator&quot;))</errorConditionFormula>
+        <errorMessage>Meeting country can only be changed in forecasted status. Cancel meeting and re-enter, if country has changed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Restrict_to_revertback_Mtng_Status_Merc</fullName>
+        <active>true</active>
+        <description>Users can not change Meeting status back to Forecasted.</description>
+        <errorConditionFormula>(NOT(CONTAINS($User.Username , &quot;mvibatch.integration&quot;))
+&amp;&amp; NOT(CONTAINS($User.Username , &quot;icrtmercuryintegration&quot;)) 
+&amp;&amp; NOT( $Permission.CMS_IT_Support_Merc )&amp;&amp; NOT( $Profile.Name == &quot;System Administrator&quot;))
+/*From Registered to Forecasted*/
+&amp;&amp;(
+(
+ISCHANGED( Meeting_Status_MERC__c ) &amp;&amp; 
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Forecasted&apos;) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Registered&apos;)
+)||
+/*From Active to Forecasted*/
+(
+ISCHANGED( Meeting_Status_MERC__c ) &amp;&amp; 
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Forecasted&apos;) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Active&apos;)
+)||
+/*From Complete to Forecasted*/
+(
+ISCHANGED( Meeting_Status_MERC__c ) &amp;&amp; 
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Forecasted&apos;) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Complete&apos;)
+)||
+/*From Complete-Closed to Forecasted*/
+(
+ISCHANGED( Meeting_Status_MERC__c ) &amp;&amp; 
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Forecasted&apos;) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Complete-Closed&apos;)
+)||
+/*From Complete-Cancelled to Forecasted*/
+(
+ISCHANGED( Meeting_Status_MERC__c ) &amp;&amp; 
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Forecasted&apos;) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Complete-Cancelled&apos;)
+)
+)</errorConditionFormula>
+        <errorMessage>The meeting cannot be change back to forecasted after it has been sent to AODS. Cancel meeting and re-enter if required.</errorMessage>
+    </validationRules>
+</CustomObject>
