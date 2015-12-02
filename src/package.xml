@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>MERC_CMS_IT_Support</members>
+        <name>CustomPermission</name>
+    </types>
+    <types>
+        <members>Mercury_System_Administrator_Lite</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c.Restrict_to_change_country_Merc</members>
+        <members>Meeting_MERC__c.Restrict_to_revertback_Mtng_Status_Merc</members>
+        <name>ValidationRule</name>
+    </types>
+    <version>35.0</version>
+</Package>
