@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>CMS_IT_Support_Merc</members>
+        <members>MERC_CMS_IT_Support</members>
         <name>CustomPermission</name>
+    </types>
+    <types>
+        <members>Mercury_System_Administrator_Lite</members>
+        <name>PermissionSet</name>
     </types>
     <types>
         <members>Meeting_MERC__c.Restrict_to_change_country_Merc</members>
