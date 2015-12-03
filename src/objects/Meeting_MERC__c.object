@@ -8,7 +8,7 @@
         <errorConditionFormula>ISCHANGED( Event_Country_MERC__c ) 
 &amp;&amp;  NOT(ISPICKVAL( Meeting_Status_MERC__c , &quot;Forecasted&quot;))
 &amp;&amp; (NOT(CONTAINS($User.Username , &quot;mvibatch.integration&quot;))
-&amp;&amp; NOT(CONTAINS($User.Username , &quot;icrtmercuryintegration&quot;)) 
+&amp;&amp; NOT(CONTAINS($User.Username , &quot;mercuryintegration&quot;)) 
 &amp;&amp; NOT( $Profile.Name == &quot;System Administrator&quot;))</errorConditionFormula>
         <errorMessage>Meeting country can only be changed in forecasted status. Cancel meeting and re-enter, if country has changed.</errorMessage>
     </validationRules>
@@ -17,7 +17,7 @@
         <active>true</active>
         <description>Users can not change Meeting status back to Forecasted.</description>
         <errorConditionFormula>(NOT(CONTAINS($User.Username , &quot;mvibatch.integration&quot;))
-&amp;&amp; NOT(CONTAINS($User.Username , &quot;icrtmercuryintegration&quot;)) 
+&amp;&amp; NOT(CONTAINS($User.Username , &quot;mercuryintegration&quot;)) 
 &amp;&amp; NOT( $Profile.Name == &quot;System Administrator&quot;))
 /*From Registered to Forecasted*/
 &amp;&amp;(
