@@ -9,8 +9,8 @@
         <name>PermissionSet</name>
     </types>
     <types>
-        <members>Meeting_MERC__c.Restrict_to_change_country_Merc</members>
-        <members>Meeting_MERC__c.Restrict_to_revertback_Mtng_Status_Merc</members>
+        <members>Meeting_MERC__c.MERC_restrict_to_change_country</members>
+        <members>Meeting_MERC__c.MERC_restrict_to_revertback_Mtng_Status</members>
         <name>ValidationRule</name>
     </types>
     <version>35.0</version>
