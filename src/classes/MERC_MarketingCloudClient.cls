@@ -58,6 +58,10 @@ public with sharing class MERC_MarketingCloudClient {
         return restClient.requestClassifications();
     }
 
+    public static SendClassification getClassification(String classificationKey){
+        return restClient.requestClassification(classificationKey);
+    }
+
     public static List<FolderedEmail> getEmails(String parentFolderId){
         return restClient.requestEmails(parentFolderId);
     }
@@ -80,6 +84,18 @@ public with sharing class MERC_MarketingCloudClient {
 
     public static String getThumbnail(Meeting_Email_Send_MERC__c meetingEmailSend){
         return restClient.requestThumbnail(meetingEmailSend);
+    }
+
+    public static CreateSendDefinitionResponse createSendDefinition(SendDefinition sendDefinition){
+        return restClient.postSendDefition(sendDefinition);
+    }
+
+    public static StartSendDefinitionResponse getStartSendDefinition(String sendDefinitionId){
+        return restClient.requestStartSendDefinition(sendDefinitionId);
+    }
+
+    public static CheckSendDefinitionStatusResponse getSendDefinitionStatus(String sendDefinitionId){
+        return restClient.requestSendDefinitionStatus(sendDefinitionId);
     }
 
     public static List<Subscriber> getSubscribers(List<String> subscriberKeys){
@@ -210,7 +226,6 @@ public with sharing class MERC_MarketingCloudClient {
         public String AuthToken;
 
         public RestClient(String soapAuthToken){
-            System.debug(LoggingLevel.FINE, 'RestClient (AuthToken):\n\n\t' + AuthToken);
             AuthToken = soapAuthToken;
             System.debug(LoggingLevel.FINE, 'RestClient (AuthToken):\n\n\t' + AuthToken);
         }
@@ -401,7 +416,7 @@ public with sharing class MERC_MarketingCloudClient {
             }
         }
 
-        public StartSendDefinitionResponse getStartSendDefinition(String sendDefinitionId){
+        public StartSendDefinitionResponse requestStartSendDefinition(String sendDefinitionId){
             String requestPath = '/rest/beta/messaging/senddefinition/instance/' + EncodingUtil.urlEncode(sendDefinitionId,'UTF-8') + '/?action=start&oauth_token=' + AuthToken;
             HttpResponse httpResponse = getFromUrl(requestPath);
 
@@ -418,7 +433,7 @@ public with sharing class MERC_MarketingCloudClient {
             }
         }
 
-        public CheckSendDefinitionStatusResponse getSendDefinitionStatus(String sendDefinitionId){
+        public CheckSendDefinitionStatusResponse requestSendDefinitionStatus(String sendDefinitionId){
             String requestPath = '/rest/beta/messaging/senddefinition/instance/' + EncodingUtil.urlEncode(sendDefinitionId,'UTF-8') + '/job/?oauth_token=' + AuthToken;
             HttpResponse httpResponse = getFromUrl(requestPath);
 
