@@ -42,13 +42,13 @@ ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Complete&apos;)
 (
 ISCHANGED( Meeting_Status_MERC__c ) &amp;&amp; 
 ISPICKVAL(Meeting_Status_MERC__c,&apos;Forecasted&apos;) &amp;&amp;
-ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Complete-Closed&apos;)
+ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Complete - Closed&apos;)
 )||
 /*From Complete-Cancelled to Forecasted*/
 (
 ISCHANGED( Meeting_Status_MERC__c ) &amp;&amp; 
 ISPICKVAL(Meeting_Status_MERC__c,&apos;Forecasted&apos;) &amp;&amp;
-ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Complete-Cancelled&apos;)
+ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Complete - Cancelled&apos;)
 )
 )</errorConditionFormula>
         <errorMessage>The meeting cannot be change back to forecasted after it has been sent to AODS. Cancel meeting and re-enter if required.</errorMessage>
