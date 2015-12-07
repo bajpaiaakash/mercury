@@ -546,43 +546,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     }
 
     private void initializeEmails(){
-        fromEmailOptions = new List<SelectOption>();
+        fromEmailOptions = MERC_MarketingCloudService.getSenderProfileSelectOptions();
 
-        List<MERC_ETObject.SenderProfile> senderProfiles = null;
-        if(isEnterprise)
-        {
-            if (BusinessUnit == null){
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'There is no BusinessUnit specified for this Exact Target enterprise configuration.'));
-                return;
-            }
-
-            senderProfiles = callControl.getSenders(BusinessUnit.et4ae5__Business_Unit_ID__c);
-        }
-        else
-        {
-            senderProfiles = callControl.getSenders(null);
-        }
-
-        if(senderProfiles == null || senderProfiles.isEmpty()){
+        if(fromEmailOptions == null || fromEmailOptions.isEmpty()){
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'Did not load Sender Profiles correctly.'));
-            return;
         }
-
-        Integer profileCount = 0;
-
-        for(MERC_ETObject.SenderProfile senderProfile : senderProfiles){
-            if(String.isBlank(marketingCloudSettings.Sender_Profile_Prefix_Filter_MERC__c) ||
-                senderProfile.profileName.startsWith(marketingCloudSettings.Sender_Profile_Prefix_Filter_MERC__c)){
-                fromEmailOptions.add(new SelectOption(senderProfile.id,
-                        getEmailKey(senderProfile.fromEmail, senderProfile.fromName)));
-                profileCount++;
-            }
-        }
-
-    }
-
-    private String getEmailKey(String emailAddress, String fullName){
-        return fullName + ' <' + emailAddress + '>';
     }
 
     public String suffixBuilder (String suffixField) {
@@ -864,18 +832,20 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             return null;
         }
 
-        MERC_ETSendEmailWrapper wrapper = new MERC_ETSendEmailWrapper(
-                                                        email, parts, fromEmail, fromName,
-                                                        DeDup, DisableIndividualTracking, SendTime,
-                                                        sendDateEvent.ActivityDateTime,
-                                                        additionalInformationHTML, additionalInformationText);
-        wrapper.FromClassificationId = fromClassificationId;
-        wrapper.FromSenderProfileId = fromSenderProfileId;
-        //wrapper.FromClassificationId = fromClassificationId;
-        MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
         try {
-            System.debug('wrapper: ' + wrapper);
-            processor.createDataExtensionForSendEmail(wrapper);
+            MERC_MarketingCloudService.prepareMeetingEmailSendForAttempts(meeting.Id,
+                                                                          email,
+                                                                          parts,
+                                                                          fromEmail,
+                                                                          fromName,
+                                                                          DeDup,
+                                                                          DisableIndividualTracking,
+                                                                          SendTime,
+                                                                          sendDateEvent.ActivityDateTime,
+                                                                          additionalInformationHTML,
+                                                                          additionalInformationText,
+                                                                          fromSenderProfileId,
+                                                                          fromClassificationId);
             return new PageReference('/' + meeting.Id);
         }
         catch (Exception e) {
@@ -1181,18 +1151,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
 
     public void listExactTargetEmails()
     {
-        //if (isEnterprise)
-        //{
-        //    if (BusinessUnit == null) return;
-
-        //    emails=callControl.getExactTargetEmails(BusinessUnit.et4ae5__Business_Unit_ID__c);
-        //    showEmailChooser=true;
-        //}
-        //else
-        //{
-        //    emails=callControl.getExactTargetEmails(null);
-        //    showEmailChooser=true;
-        //}
         emails = MERC_MarketingCloudService.getEmailFolders();
         showEmailChooser = true;
     }
@@ -1206,101 +1164,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     {
         String folderId = ApexPages.currentPage().getParameters().get('folderId');
         MERC_MarketingCloudService.updateForFolder(emails, folderId);
-        //et4ae5__configuration__c c=[SELECT et4ae5__integration_type__c,et4ae5__username__c,et4ae5__password__c,et4ae5__auth_api_url__c,et4ae5__retry__c,et4ae5__root_rest_api_url__c FROM et4ae5__configuration__c LIMIT 1];
-        //String ceScope=[SELECT et4ae5__exacttarget_Oauth_token__c FROM user WHERE id=:userInfo.getUserId() LIMIT 1].et4ae5__exacttarget_Oauth_token__c;
-        //String token='';
-        //if(c.et4ae5__integration_type__c=='Enterprise2.0')
-        //{
-        //    if (BusinessUnit == null) return;
-
-        //    String mid=BusinessUnit.et4ae5__Business_Unit_ID__c;
-        //    system.debug('mid: '+mid);
-        //    token=callControl.oauthScoped(c.et4ae5__username__c,c.et4ae5__password__c,ceScope,mid,c.et4ae5__auth_api_url__c);
-        //}
-        //else
-        //{
-        //    token=callControl.oauthScopedNoMid(c.et4ae5__username__c,c.et4ae5__password__c,ceScope,c.et4ae5__auth_api_url__c);
-        //}
-        //if (emails!=null)
-        //{
-        //    for (MERC_ETObject.emailFolder efA : emails)
-        //    {
-        //        if (efA.id==searchId)
-        //        {
-        //            efA.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efA.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-        //            efA.emails=parser.getEmails(callControl.callEmails(efA.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-        //            if(efA.emails.size()==0 && efA.subfolders.size()==0)
-        //            {
-        //                ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efA.name+'" folder.') );
-        //                return;
-        //            }
-        //        }
-        //        if (efA.subfolders!=null)
-        //        {
-        //            for (MERC_ETObject.emailFolder efB : efA.subfolders)
-        //            {
-        //                if (efB.id==searchId)
-        //                {
-        //                    efB.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efB.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-        //                    efB.emails=parser.getEmails(callControl.callEmails(efB.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-        //                    if(efB.emails.size()==0 && efB.subfolders.size()==0)
-        //                    {
-        //                        ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efB.name+'" folder.') );
-        //                        return;
-        //                    }
-        //                }
-        //                if (efB.subfolders!=null)
-        //                {
-        //                    for (MERC_ETObject.emailFolder efC : efB.subfolders)
-        //                    {
-        //                        if (efC.id==searchId)
-        //                        {
-        //                            efC.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efC.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-        //                            efC.emails=parser.getEmails(callControl.callEmails(efC.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-        //                            if(efC.emails.size()==0 && efC.subfolders.size()==0)
-        //                            {
-        //                                ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efC.name+'" folder.') );
-        //                                return;
-        //                            }
-        //                        }
-        //                        if (efC.subfolders!=null)
-        //                        {
-        //                            for (MERC_ETObject.emailFolder efD : efC.subfolders)
-        //                            {
-        //                                if (efD.id==searchId)
-        //                                {
-        //                                    efD.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efD.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-        //                                    efD.emails=parser.getEmails(callControl.callEmails(efD.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-        //                                    if(efD.emails.size()==0 && efD.subfolders.size()==0)
-        //                                    {
-        //                                        ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efD.name+'" folder.') );
-        //                                        return;
-        //                                    }
-        //                                }
-        //                                if (efD.subfolders!=null)
-        //                                {
-        //                                    for (MERC_ETObject.emailFolder efE : efD.subfolders)
-        //                                    {
-        //                                        if (efE.id==searchId)
-        //                                        {
-        //                                            efE.subfolders=parser.getEmailFolderDetails(callControl.callEmailFolders(efE.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-        //                                            efE.emails=parser.getEmails(callControl.callEmails(efE.id,c.et4ae5__root_rest_api_url__c,token).getBody());
-        //                                            if(efE.emails.size()==0 && efE.subfolders.size()==0)
-        //                                            {
-        //                                                ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.WARNING,'There are no emails in the "'+efE.name+'" folder.') );
-        //                                                return;
-        //                                            }
-        //                                        }
-        //                                    }
-        //                                }
-        //                            }
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
     }
 
     public void selectEmail()
@@ -1320,55 +1183,8 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             email.subject = EncodingUtil.urlDecode(apexPages.currentPage().getParameters().get('emailSubject'),'UTF-8').replace('\\"','"');
         }
         showEmailChooser=false;
-        this.base64Thumbnail = retrieveThumbnailForEmailSend(email.id);
+        this.base64Thumbnail = MERC_MarketingCloudService.getThumbnail(email.Id);
         System.debug('Email = ' + email);
-    }
-
-    public String retrieveThumbnailForEmailSend(String emailId) {
-        System.debug('retrieveThumbnailForEmailSend: '+emailId);
-        // String soapAuthToken = [SELECT et4ae5__exacttarget_Oauth_token__c FROM user WHERE id=:userInfo.getUserId() LIMIT 1].et4ae5__exacttarget_Oauth_token__c;
-
-        et4ae5__configuration__c c=[SELECT et4ae5__integration_type__c,et4ae5__username__c,et4ae5__password__c,et4ae5__auth_api_url__c,et4ae5__retry__c,et4ae5__root_rest_api_url__c FROM et4ae5__configuration__c LIMIT 1];
-        String ceScope=[SELECT et4ae5__exacttarget_Oauth_token__c FROM user WHERE id=:userInfo.getUserId() LIMIT 1].et4ae5__exacttarget_Oauth_token__c;
-        String token='';
-        if(c.et4ae5__integration_type__c=='Enterprise2.0')
-        {
-            if (BusinessUnit == null) return '';
-
-            String mid=BusinessUnit.et4ae5__Business_Unit_ID__c;
-            system.debug('mid: '+mid);
-            token=callControl.oauthScoped(c.et4ae5__username__c,c.et4ae5__password__c,ceScope,mid,c.et4ae5__auth_api_url__c);
-        }
-        else
-        {
-            token=callControl.oauthScopedNoMid(c.et4ae5__username__c,c.et4ae5__password__c,ceScope,c.et4ae5__auth_api_url__c);
-        }
-
-        System.debug('oauth token is: '+token);
-        et4ae5__Configuration__c configInfo = [SELECT et4ae5__Root_Rest_API_URL__c, et4ae5__url_root__c, et4ae5__url_part__c
-                                       FROM et4ae5__Configuration__c
-                                       ORDER BY LastModifiedDate DESC
-                                       LIMIT 1];
-
-        String thumbnailURL = configInfo.et4ae5__Root_Rest_API_URL__c;
-        thumbnailURL = thumbnailURL.replace('rest', configInfo.et4ae5__url_root__c);
-        thumbnailURL += String.format('/{0}/utilities/ImageThumbnailSecure.ashx/?h={1}&w={2}&emailid={3}&oauth_token={4}',
-                                      new List<String> { configInfo.et4ae5__url_part__c, '700', '700', emailId, token });
-        System.Debug('thumbnailURL: ' + thumbnailURL);
-
-        HttpRequest req = new HttpRequest();
-        req.setMethod('GET');
-        req.setEndpoint(thumbnailURL);
-        req.setHeader('Content-Type', 'application/json');
-        req.setHeader('Accept', 'application/json');
-        req.setTimeout(30000);
-
-        Http h = new Http();
-        HttpResponse res = h.send(req);
-
-        System.debug('res body: ' + res.getBody());
-        ImageThumbnailSecureResponse thumbnailResponse = (ImageThumbnailSecureResponse)JSON.deserialize(res.getBody(), ImageThumbnailSecureResponse.class);
-        return thumbnailResponse.data;
     }
 
     public class ImageThumbnailSecureResponse {
