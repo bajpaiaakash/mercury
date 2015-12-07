@@ -1,9 +1,0 @@
-<apex:page sidebar="false" standardController="Travel_Itinerary_MERC__c">
-	<apex:pageBlock mode="maindetail">
-		<apex:pageBlockSection collapsible="false" columns="2">
-			<apex:repeat value="{!$ObjectType.Travel_Itinerary_MERC__c.FieldSets.Date_Time_Information_View_MERC}" var="f"> 
-				<apex:outputField value="{!Travel_Itinerary_MERC__c[f]}"/>
-		    </apex:repeat>
-		</apex:pageBlockSection>
-	</apex:pageBlock>
-</apex:page>

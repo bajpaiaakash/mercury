@@ -1,3 +1,0 @@
-<apex:page controller="GLBL_AttachmentSuccessStory_Controller" action="{!saveContent}">  
-  
-</apex:page>
