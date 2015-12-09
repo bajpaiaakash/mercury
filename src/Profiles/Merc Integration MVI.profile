@@ -5,5 +5,5 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>PasswordNeverExpires</name>
-    </userPermissions>    
+    </userPermissions>
 </Profile>
