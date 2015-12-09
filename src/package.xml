@@ -5,5 +5,13 @@
         <members>Meeting_MERC__c.MERC_Restrict_To_Revertback_Mtng_Status</members>
         <name>ValidationRule</name>
     </types>
+	<types>
+        <members>Preferences_and_Consent_GLBL__c.MERC_Set_Consent_External_Key</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Team_Member_MERC__c.MERC_Clears Primary Meeting Owner</members>
+        <name>WorkflowRule</name>
+    </types>
     <version>35.0</version>
 </Package>
