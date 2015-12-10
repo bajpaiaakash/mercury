@@ -4,5 +4,9 @@
         <members>Merc Integration MVI</members>
         <name>Profile</name>
     </types>
+	<types>
+        <members>Account.RTI - Account Updated</members>
+        <name>WorkflowRule</name>
+    </types>
     <version>35.0</version>
 </Package>
