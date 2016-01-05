@@ -11,7 +11,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     private final Meeting_MERC__c meeting;
     private final Mercury_Marketing_Cloud_Settings_MERC__c marketingCloudSettings;
 
-    public Sonoma_ET_Config__c Config { get; private set; }
     public boolean IsAllChecked { get; set; }
     public boolean DeDup { get; set; }
     public boolean DisableIndividualTracking { get; set; }
@@ -27,6 +26,11 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     public String fromEmailSelected { get; set; }
 
     public Set<Id> selectedParticipantIds { get; set; }
+
+    public boolean showEmailChooser { get; set; }
+    public List<MERC_MarketingCloudClient.EmailFolder> emails { get; set; }
+    public MERC_MarketingCloudClient.FolderedEmail email { get; set; }
+    public MERC_ETParseString parser { get; set; }
 
     public Boolean isGeneratingDocuments {
         get {
@@ -325,6 +329,24 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         sendOptions.add(new SelectOption(Label.et4ae5.sendClass,Label.et4ae5.sendClass));
         return sendOptions;
     }
+
+    public String urlroot
+    {
+        get
+        {
+            if (urlroot == null) {
+                List<et4ae5__configuration__c> configs =[SELECT et4ae5__url_root__c FROM et4ae5__configuration__c LIMIT 1];
+                if (configs != null) {
+                    urlroot = configs[0].et4ae5__url_root__c;
+                }
+                else {
+                    urlroot = '';
+                }
+            }
+            return urlroot;
+        }
+        private set;
+    }
     
     /*
      * sortField
@@ -503,12 +525,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             AddFatalMessage('You must specify a meeting id.');
         }
         emails = new List<MERC_MarketingCloudClient.EmailFolder>();
-        callControl = new MERC_ETCallControl();
-
-        Config = Sonoma_ET_Config__c.getInstance();
-        if (Config == null) {
-            AddFatalMessage('No configuration object was found. Please contact your administrator.');
-        }
 
         ShowParticipantGrid = false;
         parser = new MERC_ETParseString();
@@ -818,8 +834,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             AddErrorMessage('The send date must be in the future.');
         }
 
-        String fromEmail = Config.Default_From_Email__c;
-        String fromName = Config.Default_From_Name__c;
         String fromSenderProfileId = null;
         String fromClassificationId = null;
         if(String.isBlank(fromEmailSelected)){
@@ -836,8 +850,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
             MERC_MarketingCloudService.prepareMeetingEmailSendForAttempts(meeting.Id,
                                                                           email,
                                                                           parts,
-                                                                          fromEmail,
-                                                                          fromName,
                                                                           DeDup,
                                                                           DisableIndividualTracking,
                                                                           SendTime,
@@ -1105,49 +1117,6 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     private void AddErrorMessage(String message) {
         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, message));
     }
-
-    /* FROM ET */
-    private et4ae5__Business_Unit__c BusinessUnit
-    {
-        get
-        {
-            if (BusinessUnit == null) {
-                List<et4ae5__Business_Unit__c> bus = [SELECT et4ae5__Business_Unit_ID__c FROM et4ae5__Business_Unit__c WHERE Name = :Config.ET_BU_Name__c LIMIT 1];
-                if (bus.size() == 0) {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, String.format('No ET Business Units with name {0} were defined.', new List<String> { Config.ET_BU_Name__c })));
-                }
-                else {
-                    BusinessUnit = bus[0];
-                }
-            }
-            return BusinessUnit;
-        }
-        private set;
-    }
-
-    public String urlroot
-    {
-        get
-        {
-            if (urlroot == null) {
-                List<et4ae5__configuration__c> configs =[SELECT et4ae5__url_root__c FROM et4ae5__configuration__c LIMIT 1];
-                if (configs != null) {
-                    urlroot = configs[0].et4ae5__url_root__c;
-                }
-                else {
-                    urlroot = '';
-                }
-            }
-            return urlroot;
-        }
-        private set;
-    }
-
-    public boolean showEmailChooser { get; set; }
-    public List<MERC_MarketingCloudClient.EmailFolder> emails { get; set; }
-    public MERC_MarketingCloudClient.FolderedEmail email { get; set; }
-    public MERC_ETCallControl callControl { get; set; }
-    public MERC_ETParseString parser { get; set; }
 
     public void listExactTargetEmails()
     {

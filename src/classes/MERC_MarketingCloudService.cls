@@ -1,3 +1,10 @@
+/*
+* MERC_MarketingCloudService
+* Description : Handles business logic related to Marketing Cloud processes
+* Author: David Helmer (refactored from Sonoma)
+* Modified By: 
+* Modified Date: Dec. 11th 2015
+*/
 public with sharing class MERC_MarketingCloudService {
     private static final Mercury_Marketing_Cloud_Settings_MERC__c MarketingCloudSettings;
     private static final et4ae5__Configuration__c Configuration;
@@ -104,7 +111,6 @@ public with sharing class MERC_MarketingCloudService {
     public static void prepareMeetingEmailSendForAttempts(Id meetingId,
                                                           MERC_MarketingCloudClient.FolderedEmail email, 
                                                           List<Meeting_Participant_MERC__c> participants, 
-                                                          String fromAddress, String fromName,
                                                           Boolean deDupe, 
                                                           Boolean disableIndividualTracking, 
                                                           String sendTime, 
@@ -116,10 +122,10 @@ public with sharing class MERC_MarketingCloudService {
         List<MERC_MarketingCloudClient.Field> fields = getFields();
         List<Meeting_Participant_MERC__c> meetingParticipants = queryParticipants(participants);
         Map<Id, Account> personAccounts = queryPersonAccounts(meetingParticipants);
-
+        System.debug('creating data extension');
         MERC_MarketingCloudClient.DataExtension dataExtension = populateDataExtension(email.subject, meetingId, futureSendTime, sendTime, fields);
-        Id dataExtensionId = createDataExtension(dataExtension);
-
+        String dataExtensionId = createDataExtension(dataExtension);
+        System.debug('created data extension');
         createDataExtensionEntries(meetingId, additionalInformationHTML, additionalInformationText, meetingParticipants, personAccounts, dataExtension);
 
         Meeting_Email_Send_MERC__c meetingEmailSend = new Meeting_Email_Send_MERC__c();
@@ -129,10 +135,6 @@ public with sharing class MERC_MarketingCloudService {
         meetingEmailSend.ET_Data_Extension_Id_MERC__c = dataExtensionId;
         meetingEmailSend.ET_Sync_Id_MERC__c = 'ETLillymeetingEmailSend' + Datetime.now().format('yyyyMMdd');
         meetingEmailSend.ET_Business_Unit_MERC__c = BusinessUnit.Id;
-        meetingEmailSend.ET_From_Name_MERC__c = fromName;
-        meetingEmailSend.ET_Reply_to_MERC__c = fromName + ' <' + fromAddress + '>';
-        meetingEmailSend.ET_From_Email_MERC__c = fromAddress;
-        meetingEmailSend.ET_From_Address_MERC__c = fromAddress;
         meetingEmailSend.ET_Recipients_Opted_In_MERC__c = true;
         meetingEmailSend.ET_Sender_Profile_Id_MERC__c = fromSenderProfileId;
         meetingEmailSend.ET_Send_Classification_Id_MERC__c = fromClassificationId;
@@ -289,7 +291,7 @@ public with sharing class MERC_MarketingCloudService {
         return dataExtension;
     }
 
-    private static Id createDataExtension(MERC_MarketingCloudClient.DataExtension dataExtension){
+    private static String createDataExtension(MERC_MarketingCloudClient.DataExtension dataExtension){
         MERC_MarketingCloudClient.DataExtensionResponse dataExtensionResponse =
             MERC_MarketingCloudClient.createDataExtension(dataExtension);
 
@@ -619,6 +621,65 @@ public with sharing class MERC_MarketingCloudService {
         }
         
         insert emailSendAttachments;
+    }
+
+    /* updating subscribers */
+    public static void updateSubscribersWithContacts(List<Id> personContactIds){
+        Map<Id, Account> accountMap = new Map<Id, Account>();
+        for (Account account : [SELECT Id, 
+                                    PersonEmail,
+                                    Update_Subscriber_Error_ET_MERC__c,
+                                    RecordTypeId,
+                                    Cust_Id_GLBL__c,
+                                    Prsnl_Nbr_GLBL__c,
+                                    PersonContactId
+                               FROM Account 
+                              WHERE PersonContactId IN :personContactIds]) {
+            accountMap.put(account.PersonContactId, account);
+        }
+        
+        Map<Id, RecordType> recordTypeMap = new Map<Id, RecordType>([SELECT Id,
+                                                                            Name 
+                                                                       FROM RecordType]);
+
+        List<MERC_MarketingCloudClient.Subscriber> subscribers = MERC_MarketingCloudClient.getSubscribers(personContactIds);
+
+        if(subscribers == null || subscribers.size() == 0){
+            return;
+        }
+
+        List<Account> accountsToUpdate = new List<Account>();
+        for (MERC_MarketingCloudClient.Subscriber subscriber : subscribers) {
+            String subscriberKey = subscriber.SubscriberKey;
+            Account tempAccount = accountMap.get(subscriberKey);
+            
+            // update retrieved data
+            subscriber.EmailAddress = tempAccount.PersonEmail;
+            
+            if (recordTypeMap.get(tempAccount.RecordTypeId).Name == 'HCP') {
+                subscriber.LLYSubscriberKey = tempAccount.Cust_Id_GLBL__c;
+                subscriber.SubscriberType = 'HCP';
+            } else if (recordTypeMap.get(tempAccount.RecordTypeId).Name == 'Employee') {
+                subscriber.LLYSubscriberKey = tempAccount.Prsnl_Nbr_GLBL__c;
+                subscriber.SubscriberType = 'Employee';
+            } else if (recordTypeMap.get(tempAccount.RecordTypeId).Name == 'Designated Individual') {
+                subscriber.LLYSubscriberKey = '-1';
+                subscriber.SubscriberType = 'Business Contact';
+            } else {
+                subscriber.LLYSubscriberKey = '-1';
+                subscriber.SubscriberType = 'Business Contact';
+            }
+            
+            if (subscriber.LLYSubscriberKey == null || subscriber.LLYSubscriberKey == '') {
+                subscriber.LLYSubscriberKey = '-1';
+            }
+            
+            // update sub
+            tempAccount.Update_Subscriber_Error_ET_MERC__c = MERC_MarketingCloudClient.updateSubscriber(subscriber);
+            accountsToUpdate.add(tempAccount);
+        }
+
+        update accountsToUpdate;
     }
 
     public class MarketingCloudServiceException extends Exception {}
