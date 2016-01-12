@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>CUST_UserSettingsUnderReviewBatchTest</members>
+        <members>CUST_UserSettingsUnderReviewBatchable</members>
+        <members>CUST_UserSettingsUnderReviewSch_test</members>
+        <members>CUST_UserSettingsUnderReviewScheduler</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>CST_User_Settings_CUST__c.CUST_User Settings Under Review</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>34.0</version>
+</Package>
