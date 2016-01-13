@@ -1,15 +1,34 @@
+/**
+* MERC_TriggerHandlerStateManager
+* Created By: Mavens Consulting 
+* Description: Used to activate and deactivate triggers.
+*/
 public with sharing class MERC_TriggerHandlerStateManager {
 
+  // Maps of all handlers and their status.
   public static Map<Type,Boolean> typeToIsActive = new Map<Type,Boolean>();
 
+  /**
+  * Passing handler into this will activate it in the typeToIsActive handler mapping.
+  * @param Type myType - The handler that is being marked as active.
+  */
   public static void activate(Type myType) {
     typeToIsActive.put(myType, true);
   }
 
+  /**
+  * Passing handler into this will deactivate it in the typeToIsActive handler mapping.
+  * @param Type myType - The handler that is being marked as inactive.
+  */
   public static void deactivate(Type myType) {
     typeToIsActive.put(myType, false);
   }
 
+  /**
+  * Check if handler is active.
+  * @param Type myType - The handler that is being marked as inactive.
+  * @return Booelan - Whether the handler is active.
+  */
   public static Boolean isActive(Type myType) {
     try {
       if (typeToIsActive.get(myType) == null) {
@@ -22,6 +41,9 @@ public with sharing class MERC_TriggerHandlerStateManager {
     }
   }
 
+  /**
+  * Loops through all handlers listed in the static handlers variable and sets all to active.
+  */
   public static void activateAll() {
     for (String s : handlers) {
       Type myType = Type.forName(s);
@@ -29,6 +51,9 @@ public with sharing class MERC_TriggerHandlerStateManager {
     }
   }
 
+  /**
+  * Loops through all handlers listed in the static handlers variable and sets all to inactive.
+  */
   public static void deactivateAll() {
     for (String s : handlers) {
       Type myType = Type.forName(s);
@@ -36,7 +61,7 @@ public with sharing class MERC_TriggerHandlerStateManager {
     }
   }
 
-  //we cant seem to create a list of types, so the string representations will have to do
+  // List of all handlers. Cannot create a list of types, so it is represented as strings.
   static List<String> handlers = new List<String> {
     'CUST_RecordTypeIdLookup',
     'CUST_UserSettingStatusUpdate',

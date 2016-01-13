@@ -1,3 +1,8 @@
+/**
+* MERC_UtilTest
+* Created By: Mavens Consulting 
+* Description: Tests all the utility methods in the MERC_Util class.
+*/
 @isTest
 private class MERC_UtilTest {
 	static User runningUser = MERC_TestFactory.getRunningUser();
