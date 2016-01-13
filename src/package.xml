@@ -7,6 +7,10 @@
         <members>CUST_UserSettingsUnderReviewScheduler</members>
         <name>ApexClass</name>
     </types>
+	<types>
+        <members>Account.Expiring_Auth_to_CST_Manager_CUST</members>
+        <name>WorkflowAlert</name>
+    </types>
     <types>
         <members>CST_User_Settings_CUST__c.CUST_User Settings Under Review</members>
         <name>WorkflowRule</name>
