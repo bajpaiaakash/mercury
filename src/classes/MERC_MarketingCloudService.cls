@@ -414,8 +414,14 @@ public with sharing class MERC_MarketingCloudService {
         }
 
         if (meetingEmailSend.Send_Status__c == CreateSendDefinition) {
-            String key = String.valueof(datetime.now().getTime());
-            String name = 'LillySendDef' + datetime.now() + meetingEmailSend.Meeting_MERC__c;
+            Datetime now = DateTime.now();
+
+            if(Test.isRunningTest()){
+                now = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+            }
+
+            String key = String.valueof(now.getTime());
+            String name = 'LillySendDef' + now + meetingEmailSend.Meeting_MERC__c;
             MERC_MarketingCloudClient.SendDefinition sendDefinitionRequest = new MERC_MarketingCloudClient.SendDefinition(
                 sendDefinition.et4ae5__DataExtensionId__c, 
                 sendDefinition.et4ae5__DedupeSubscribers__c, 
@@ -444,7 +450,7 @@ public with sharing class MERC_MarketingCloudService {
 
         if (meetingEmailSend.Send_Status__c == StartSendDefinition){
             try {
-                sendResponse = MERC_MarketingCloudClient.getStartSendDefinition(sendDefinition.et4ae5__ETSendDef__c);
+                sendResponse = MERC_MarketingCloudClient.startSendDefinition(sendDefinition.et4ae5__ETSendDef__c);
                 
                 // success starting the send definition
                 meetingEmailSend.Retry_Count__c = 0;
@@ -459,7 +465,7 @@ public with sharing class MERC_MarketingCloudService {
         if (meetingEmailSend.Send_Status__c == CheckSendStatus){
             MERC_ETSendDefinition.CheckStatusResponse csr;
             try {
-                checkStatusResponse = MERC_MarketingCloudClient.getSendDefinitionStatus(sendDefinition.et4ae5__ETSendDef__c);
+                checkStatusResponse = MERC_MarketingCloudClient.sendDefinitionStatus(sendDefinition.et4ae5__ETSendDef__c);
             } catch (Exception e) {
                 System.debug ('There was an error retrieving the status of the send definition : ' + e.getMessage() + '\n' + e.getStackTraceString());
                 updateMeetingEmailSendForRetry(meetingEmailSend, HighMaxRetryCount);

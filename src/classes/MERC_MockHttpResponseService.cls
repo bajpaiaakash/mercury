@@ -41,6 +41,7 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
         }
 
         System.assertEquals(false, moreThanOneHandler, mockResponseHandlerNames);
+        System.assertNotEquals(null, mockResponseHandlerToRun, 'Failed to find a handler for request:\n' + httpRequest);
         return mockResponseHandlerToRun.respond();
     }
 
@@ -114,6 +115,8 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
         private String acceptType;
         private String expectedBody;
         private String responseBody;
+        private String authorization;
+        private String action;
 
         public BasicMockPostResponse(String expectedEndpoint,
                                      String contentType,
@@ -127,19 +130,51 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
             this.responseBody = responseBody;
         }
 
+        public void withAuthorization(String authorization){
+            this.authorization = authorization;
+        }
+
+        public void withAction(String action){
+            this.action = action;
+        }
+
         public Boolean shouldRespond(HttpRequest request) {
-            return  request.getMethod() == POST_METHOD &&
-                    request.getEndpoint() == expectedEndpoint &&
-                    (contentType == null || request.getHeader(CONTENT_TYPE_KEY) == contentType) &&
-                    (acceptType == null || request.getHeader(ACCEPT_TYPE_KEY) == acceptType) &&
-                    request.getBody().deleteWhitespace() == expectedBody;
+
+            Boolean methodMatch = request.getMethod() == POST_METHOD;
+            Boolean endpointMatch = expectedEndpoint.equals(request.getEndpoint());
+            Boolean contentTypeMatch = (contentType == null || contentType.equals(request.getHeader(CONTENT_TYPE_KEY)));
+            Boolean acceptTypeMatch = (acceptType == null || acceptType.equals(request.getHeader(ACCEPT_TYPE_KEY)));
+            Boolean authorizationMatch = (authorization == null || authorization.equals(request.getHeader(AUTHORIZATION_KEY)));
+            Boolean actionMatch = (action == null || action.equals(request.getHeader(SOAP_ACTION)));
+            Boolean bodyMatch = expectedBody.equals(request.getBody().deleteWhitespace());
+
+            System.debug(LoggingLevel.FINE, 'request.getMethod() == POST_METHOD:\t\t\t' + methodMatch);
+            System.debug(LoggingLevel.FINE, 'request.getEndpoint() == expectedEndpoint:\t\t\t' + endpointMatch);
+            System.debug(LoggingLevel.FINE, '(contentType == null || request.getHeader(CONTENT_TYPE_KEY) == contentType):\t\t\t' + contentTypeMatch);
+            System.debug(LoggingLevel.FINE, '(acceptType == null || request.getHeader(ACCEPT_TYPE_KEY) == acceptType):\t\t\t' + acceptTypeMatch);
+            System.debug(LoggingLevel.FINE, '(authorization == null || request.getHeader(AUTHORIZATION_KEY) == authorization):\t\t\t' + authorizationMatch);
+            System.debug(LoggingLevel.FINE, '(action == null || request.getHeader(SOAP_ACTION) == action):\t\t\t' + actionMatch);
+            System.debug(LoggingLevel.FINE, 'request.getBody().deleteWhitespace() == expectedBody:\t\t\t' + bodyMatch);
+
+            Boolean isMatch = methodMatch && endpointMatch && contentTypeMatch && 
+                              acceptTypeMatch && authorizationMatch && actionMatch && bodyMatch;
+
+            if(!isMatch){
+                System.debug(LoggingLevel.FINE, 'Handler Name:\t' + handlerName() + '\nNot a match:\t' + request);
+
+                System.debug(LoggingLevel.FINE, 'Endpoint:\t' + request.getEndpoint() + '\nvs\nOurs:\t\t' + expectedEndpoint);
+            }
+
+            return  isMatch;
         }
         
         public HttpResponse respond(){
             HttpResponse mockResponse = new HttpResponse();
             mockResponse.setStatusCode(200);
             mockResponse.setBody(responseBody);
-            mockResponse.setHeader(CONTENT_TYPE_KEY, acceptType);
+            if(acceptType != null){
+                mockResponse.setHeader(CONTENT_TYPE_KEY, acceptType);
+            }
             return mockResponse;
         }
 

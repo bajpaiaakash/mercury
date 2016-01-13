@@ -11,15 +11,17 @@ public with sharing class MERC_ETSubscriberFutureProcessor {
 
         List<Id> personContactIdBatch = new List<Id>();
         Integer batchSize = 25;
-        
+        Integer batchNumber = 1;
         // batch up update callouts to avoid future method governor/callout limits
         for (Integer i = 1; i <= personContactIds.size(); i += 1) {
             personContactIdBatch.add(personContactIds.get(i - 1));
             
             if (math.mod(i, batchSize) == 0 || i == personContactIds.size()) {
-                System.Debug('Deploying batch...');
+                System.Debug('Deploying batch #' + batchNumber + ' of size (' + personContactIds.size() + ')...');
+                System.Debug(LoggingLevel.FINE, 'personContactIdBatch:\n' + personContactIdBatch + '\n');
                 handleSubscriberUpdate(personContactIdBatch);
                 personContactIdBatch = new List<Id>();
+                batchNumber++;
             }
         }
     }

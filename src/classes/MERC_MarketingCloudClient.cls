@@ -26,11 +26,16 @@ public with sharing class MERC_MarketingCloudClient {
     private static final String JSON_TYPE = 'application/json';
     private static final String JSON_CHARSET_TYPE =  'application/json; charset=UTF-8';
     private static final String AUTHORIZATION_KEY = 'authorization';
+    private static final String TIMESTAMP_FORMAT = 'YYYY-MM-dd\'T\'HH:mm:ss\'Z\'';
+
+    private static final String RETRIEVE_ACTION = 'Retrieve';
+    private static final String UPDATE_ACTION = 'Update';
 
     private static final Integer StatusCodeSuccess = 200;
     private static final Integer StatusCodeRedirect = 300;
 
     static {
+        System.debug('initialized');
         MarketingCloudSettings = Mercury_Marketing_Cloud_Settings_MERC__c.getInstance();
         Configuration = [SELECT et4ae5__UserName__c,
                                 et4ae5__Password__c, 
@@ -56,12 +61,20 @@ public with sharing class MERC_MarketingCloudClient {
         restClient = new RestClient(soapClient.requestScopedAuthToken());
     }
 
+    public static Boolean isAuthorized(){
+        return String.isNotBlank(soapClient.authToken) && String.isNotBlank(fuelClient.authToken);
+    }
+
+    public static List<SenderProfile> getSenders(){
+        return restClient.requestSenderProfiles();
+    }
+
     public static List<SenderProfile> getSenderProfiles(){
         return restClient.requestSenderProfiles();
     }
 
-    public static List<SenderProfile> getSenderProfilesById(String senderProfileId){
-        return restClient.requestSenderProfilesById(senderProfileId);
+    public static List<SenderProfile> getSendersById(String id){
+        return getSenders();
     }
 
     public static List<SendClassification> getClassifications(){
@@ -92,6 +105,10 @@ public with sharing class MERC_MarketingCloudClient {
         return restClient.postDataExtension(dataExtension);
     }
 
+    public static String getThumbnail(Meeting_Email_Send_MERC__c meetingEmailSend){
+        return restClient.requestThumbnail(meetingEmailSend.Id, 300, 300);
+    }
+
     public static String getThumbnail(String emailId, Integer height, Integer width){
         return restClient.requestThumbnail(emailId, height, width);
     }
@@ -100,12 +117,12 @@ public with sharing class MERC_MarketingCloudClient {
         return restClient.postSendDefition(sendDefinition);
     }
 
-    public static StartSendDefinitionResponse getStartSendDefinition(String sendDefinitionId){
-        return restClient.requestStartSendDefinition(sendDefinitionId);
+    public static StartSendDefinitionResponse startSendDefinition(String sendDefinitionId){
+        return restClient.getStartSendDefinition(sendDefinitionId);
     }
 
-    public static CheckSendDefinitionStatusResponse getSendDefinitionStatus(String sendDefinitionId){
-        return restClient.requestSendDefinitionStatus(sendDefinitionId);
+    public static CheckSendDefinitionStatusResponse sendDefinitionStatus(String sendDefinitionId){
+        return restClient.getSendDefinitionStatus(sendDefinitionId);
     }
 
     public static List<Subscriber> getSubscribers(List<String> subscriberKeys){
@@ -115,7 +132,7 @@ public with sharing class MERC_MarketingCloudClient {
     public static String updateSubscriber(Subscriber subscriber){
         return soapClient.postSubscriberUpdate(subscriber);
     }
-	
+    
     private class FuelClient {
         private final String ClientId = MarketingCloudSettings.Fuel_API_Client_ID_MERC__c;
         private final String ClientSecret = MarketingCloudSettings.Fuel_API_Client_Secret_MERC__c;
@@ -125,13 +142,15 @@ public with sharing class MERC_MarketingCloudClient {
         private final String SoapAuthToken;
 
         public FuelClient(String soapAuthToken){
-            SoapAuthToken = soapAuthToken;
+            this.SoapAuthToken = soapAuthToken;
+            System.debug(LoggingLevel.FINE, 'FuelClient.SoapAuthToken initialized to:\n' + SoapAuthToken);
         }
 
         public String authToken {
             get {
                 if(authToken == null || authToken  == '') {
                     authToken = requestAuthToken();
+                    System.debug(LoggingLevel.FINE, 'FuelClient.authToken lazily initialized to:\n' + authToken);
                 }
                 return authToken;
             }
@@ -145,7 +164,7 @@ public with sharing class MERC_MarketingCloudClient {
             Integer statusCode = httpResponse.getStatusCode();
 
             if(!(statusCode >= 200 && statusCode < 300)){
-                throw new MarketingCloudClientException('There was an error populating the data extension with key : ' + dataExtension.key + '\n' + requestBody + ' Status Code : ' + statusCode);
+                throw new MarketingCloudClientException('There was an error populating the data extension with key : ' + dataExtension.key + '\n' + requestBody + ' Status Code : ' + statusCode + '\n\nResponse Body: ' + httpResponse.getBody());
             }
         }
 
@@ -177,8 +196,11 @@ public with sharing class MERC_MarketingCloudClient {
         }
 
         private String requestAuthToken(){
-            FuelRequestBody requestBody = new FuelRequestBody(ClientId, ClientSecret, SoapAuthToken);
+            System.debug(LoggingLevel.FINE, 'FuelClient.SoapAuthToken:\n' + SoapAuthToken);
+            FuelRequestBody fuelRequestBody = new FuelRequestBody(ClientId, ClientSecret, SoapAuthToken);
+            String requestBody = JSON.serialize(fuelRequestBody);
             String requestUrl = AuthURL + '/v1/requestToken?legacy=1';
+            System.debug(LoggingLevel.FINE, 'FuelClient posting to ' + requestUrl + ' with body:\n\t' + requestBody);
 
             HttpRequest request = new HttpRequest();
             request.setEndpoint(requestUrl);
@@ -186,26 +208,28 @@ public with sharing class MERC_MarketingCloudClient {
             request.setMethod(POST_METHOD);
             request.setHeader(CONTENT_TYPE_KEY, JSON_TYPE);
             request.setHeader(ACCEPT_TYPE_KEY, JSON_TYPE);
-            request.setBody(JSON.serialize(requestBody));
+            request.setBody(requestBody);
 
             Http http = new Http();
             HttpResponse response = http.send(request);
 
             String authToken = '';
             if (response.getStatusCode() >= StatusCodeSuccess && response.getStatusCode() < StatusCodeRedirect) {
+                System.debug(LoggingLevel.FINE, 'FuelClient POST from Response:\n\n' + response.getBody());
                 FuelResponseBody fuelResBody = (FuelResponseBody)JSON.deserialize(response.getBody(), FuelResponseBody.class);
                 authToken = fuelResBody.accessToken;
             } else {
-                System.debug('soapAuthToken: ' + soapAuthToken);
+                System.debug('soapAuthToken: ' + SoapAuthToken);
                 System.debug(LoggingLevel.WARN, 'Failed to get FuelAuthToken ('
                     + response.getStatusCode() + '):\n\nRequest:\n' 
-                + JSON.serialize(requestBody) + '\n\nResponse:\n' + response.getBody());
+                + requestBody + '\n\nResponse:\n' + response.getBody());
             }
 
             return authToken;
         }
 
         private HttpResponse PostToUrl(String requestPath, String body){
+            System.debug(LoggingLevel.FINE, 'FuelClient posting to ' + requestPath + ' with body:\n\t' + body);
             Http httpClient = new Http();
             HttpRequest httpRequest = new HttpRequest();
             String requestUrl = RootURL + requestPath;
@@ -222,13 +246,10 @@ public with sharing class MERC_MarketingCloudClient {
             try
             {
                 response = httpClient.send(httpRequest);
-                if (response.getStatusCode() >= StatusCodeSuccess && response.getStatusCode() < StatusCodeRedirect) {
-                    System.debug(LoggingLevel.FINE, 'Successfully posted to ' + requestPath);
-                }else {
-                    System.debug('authToken: ' + authToken);
-                    System.debug(LoggingLevel.WARN, 'Failed to PostToUrl ('
-                        + response.getStatusCode() + '):\n\nRequest:\n' 
-                    + JSON.serialize(body) + '\n\nResponse:\n' + response.getBody());
+                if(response.getStatusCode() >= StatusCodeSuccess && response.getStatusCode() < StatusCodeRedirect){
+                    System.debug(LoggingLevel.FINE, 'FuelClient POST from Response:\n\n' + response.getBody());
+                } else {
+                    System.debug(LoggingLevel.ERROR, 'FuelClient POST Error (' + response.getStatusCode() + ') Response:\n\n' + response.getBody());
                 }
             }
             catch(Exception ex){
@@ -244,30 +265,12 @@ public with sharing class MERC_MarketingCloudClient {
         public String AuthToken;
 
         public RestClient(String soapAuthToken){
-            AuthToken = soapAuthToken;
+            this.AuthToken = soapAuthToken;
             System.debug(LoggingLevel.FINE, 'RestClient (AuthToken):\n\n\t' + AuthToken);
         }
 
         public List<SenderProfile> requestSenderProfiles(){
             String requestPath = '/rest/beta/messaging/senderprofile/?oauth_token=' + AuthToken;
-            HttpResponse httpResponse = getFromUrl(requestPath);
-
-            try {
-                SenderProfileResponse parsedResponse = (SenderProfileResponse)JSON.deserialize(
-                    httpResponse.getBody(),
-                    SenderProfileResponse.class);
-                return parsedResponse.entry;
-            } catch(JSONException ex){
-                System.debug('JSONException:\n' + ex.getMessage());
-                return null;
-            } catch(Exception ex){
-                System.debug('Exception:\n' + ex.getMessage());
-                return null;
-            }
-        }
-
-        public List<SenderProfile> requestSenderProfilesById(String senderProfileId){
-            String requestPath = '/rest/beta/messaging/senderprofile/?oauth_token=' + AuthToken + '&where=id+eq+\'' + senderProfileId + '\'';
             HttpResponse httpResponse = getFromUrl(requestPath);
 
             try {
@@ -439,7 +442,7 @@ public with sharing class MERC_MarketingCloudClient {
             }
         }
 
-        public StartSendDefinitionResponse requestStartSendDefinition(String sendDefinitionId){
+        public StartSendDefinitionResponse getStartSendDefinition(String sendDefinitionId){
             String requestPath = '/rest/beta/messaging/senddefinition/instance/' + EncodingUtil.urlEncode(sendDefinitionId,'UTF-8') + '/?action=start&oauth_token=' + AuthToken;
             HttpResponse httpResponse = getFromUrl(requestPath);
 
@@ -456,7 +459,7 @@ public with sharing class MERC_MarketingCloudClient {
             }
         }
 
-        public CheckSendDefinitionStatusResponse requestSendDefinitionStatus(String sendDefinitionId){
+        public CheckSendDefinitionStatusResponse getSendDefinitionStatus(String sendDefinitionId){
             String requestPath = '/rest/beta/messaging/senddefinition/instance/' + EncodingUtil.urlEncode(sendDefinitionId,'UTF-8') + '/job/?oauth_token=' + AuthToken;
             HttpResponse httpResponse = getFromUrl(requestPath);
 
@@ -525,7 +528,7 @@ public with sharing class MERC_MarketingCloudClient {
                 if(response.getStatusCode() >= StatusCodeSuccess && response.getStatusCode() < StatusCodeRedirect){
                     System.debug(LoggingLevel.FINE, 'RestClient Post response:\n\n' + response.getBody());
                 } else {
-                    SYstem.debug(LoggingLevel.ERROR, 'RestClient Post Error (' + response.getStatusCode() + ') Response:\n\t' + response.getBody());
+                    System.debug(LoggingLevel.ERROR, 'RestClient Post Error (' + response.getStatusCode() + ') Response:\n\t' + response.getBody());
                 }
             }
             catch(Exception ex){
@@ -537,13 +540,11 @@ public with sharing class MERC_MarketingCloudClient {
 
     @TestVisible //TODO: rewrite test class so this isn't necessary.
     private class SoapClient {
-        private final String RetrieveAction = 'Retrieve';
-        private final String UpdateAction = 'Update';
-
         public String authToken {
             get {
                 if(authToken == null || authToken  == '') {
                     authToken = requestAuthToken(null);
+                    System.debug('SoapClient.authToken lazily initialized to:\n' + authToken);
                 }
                 return authToken;
             }
@@ -598,6 +599,9 @@ public with sharing class MERC_MarketingCloudClient {
 
             String parsedToken = '';
             if(response.getStatusCode() >= StatusCodeSuccess && response.getStatusCode() < StatusCodeRedirect){
+                //List<String> splits = response.getBody().split('<a:AccessToken>');
+                //splits = splits[1].split('</a:AccessToken>');
+                //parsedToken = splits[0];
                 System.debug(LoggingLevel.Fine, 'SoapClient.requestAuthToken (responseBody)\n\n\t' + response.getBody());
                 try {
                     parsedToken = getTextFromElement(response.getBodyDocument().getRootElement(), accessTokenPath);
@@ -639,7 +643,7 @@ public with sharing class MERC_MarketingCloudClient {
         public List<Subscriber> requestSubscribers(List<String> subscriberKeys){
             String requestBody = getSubscribersRequestXML(subscriberKeys);
 
-            HttpResponse httpResponse = PostSoapAction(requestBody, RetrieveAction);
+            HttpResponse httpResponse = PostSoapAction(requestBody, RETRIEVE_ACTION);
 
             return parseSubscribers(httpResponse.getBody());
         }
@@ -659,7 +663,10 @@ public with sharing class MERC_MarketingCloudClient {
                 subscriberKeyRange += '<Value>' + key + '</Value>';
             }
 
-            DateTime currentDateTime = System.now();
+            DateTime currentDateTime = Datetime.now();
+            if(Test.isRunningTest()){
+                currentDateTime = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+            }
 
             String bodyXML = '';
             bodyXML = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">'
@@ -669,8 +676,8 @@ public with sharing class MERC_MarketingCloudClient {
                         + '</oAuth>'
                         + '<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">'
                             + '<u:Timestamp u:Id="0">'
-                                + '<u:Created>' + currentDateTime.format('YYYY-MM-dd\'T\'HH:mm:ss\'Z\'') + '</u:Created>'
-                                + '<u:Expires>' + currentDateTime.addMinutes(5).format('YYYY-MM-dd\'T\'HH:mm:ss\'Z\'') + '</u:Expires>'
+                                + '<u:Created>' + currentDateTime.format(TIMESTAMP_FORMAT) + '</u:Created>'
+                                + '<u:Expires>' + currentDateTime.addMinutes(5).format(TIMESTAMP_FORMAT) + '</u:Expires>'
                             + '</u:Timestamp>'
                             + '<o:UsernameToken>'
                                 + '<o:Username>*</o:Username>'
@@ -723,13 +730,17 @@ public with sharing class MERC_MarketingCloudClient {
         public String postSubscriberUpdate(Subscriber subscriber){
             String requestBody = getSubscriberUpdateXML(subscriber);
 
-            HttpResponse httpResponse = PostSoapAction(requestBody, UpdateAction);
+            HttpResponse httpResponse = PostSoapAction(requestBody, UPDATE_ACTION);
 
             return parseSubscriberUpdateResponse(httpResponse.getBody());
         }
 
         private String getSubscriberUpdateXML(Subscriber subscriber){
-            DateTime currentDateTime = System.now();
+            DateTime currentDateTime = Datetime.now();
+            
+            if(Test.isRunningTest()){
+                currentDateTime = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+            }
             String bodyXML;
             bodyXML = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">'
                     + '<s:Header>'
@@ -738,8 +749,8 @@ public with sharing class MERC_MarketingCloudClient {
                         + '</oAuth>'
                         + '<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">'
                         + '<u:Timestamp u:Id="0">'
-                            + '<u:Created>' + currentDateTime.format('YYYY-MM-dd\'T\'HH:mm:ss\'Z\'') + '</u:Created>'
-                            + '<u:Expires>' + currentDateTime.addMinutes(5).format('YYYY-MM-dd\'T\'HH:mm:ss\'Z\'') + '</u:Expires>'
+                            + '<u:Created>' + currentDateTime.format(TIMESTAMP_FORMAT) + '</u:Created>'
+                            + '<u:Expires>' + currentDateTime.addMinutes(5).format(TIMESTAMP_FORMAT) + '</u:Expires>'
                         + '</u:Timestamp>'
                         + '<o:UsernameToken>'
                             + '<o:Username>*</o:Username>'
@@ -793,6 +804,11 @@ public with sharing class MERC_MarketingCloudClient {
             try
             {
                 response = httpClient.send(httpRequest);
+                if(response.getStatusCode() >= StatusCodeSuccess && response.getStatusCode() < StatusCodeRedirect){
+                    System.debug(LoggingLevel.FINE, 'SoapClient Post response:\n\n' + response.getBody());
+                } else {
+                    SYstem.debug(LoggingLevel.ERROR, 'SoapClient Post Error (' + response.getStatusCode() + ') Response:\n\t' + response.getBody());
+                }
             }
             catch(Exception ex){
                 System.debug(ex);
