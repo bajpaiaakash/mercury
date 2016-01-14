@@ -389,7 +389,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
 
     public static MERC_MockHttpResponseService.MockResponseInterface getMockGetEmailsRequest(String folderId){
         String responseBody = getGetEmailFoldersResponseJSON();
-        String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/folder/' + folderId + '/contents?oauth_token='+SOAP_OAUTH_TOKEN+'&where=type+eq+\'email\'';
+        String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/folder/' + folderId + '/contents/?oauth_token='+SOAP_OAUTH_TOKEN+'&where=type+eq+\'email\'';
 
         MERC_MockHttpResponseService.BasicMockGetResponse mockResponse = new MERC_MockHttpResponseService.BasicMockGetResponse(
             requestURL,
@@ -599,9 +599,9 @@ public with sharing class MERC_MarketingCloudTestUtility {
                 '   }';
     }
 
-    public static MERC_MockHttpResponseService.MockResponseInterface getSendDefinitionStatusRequest(String emailId, String height, String width){
-        String responseBody = getSendDefinitionStatusResponseJSON();
-        String requestURL = CONFIG_ROOT_THUMBNAIL_API_URL + '/' + CONFIG_URL_PART + 'utilities/ImageThumbnailSecure.ashx/?h=' + height + '&w=' + width + '&emailid=' + emailid+ '&oauth_token=' + SOAP_OAUTH_TOKEN;
+    public static MERC_MockHttpResponseService.MockResponseInterface getThumbnailRequest(String emailId, String height, String width){
+        String responseBody = getGetThumbnailResponseJSON();
+        String requestURL = CONFIG_ROOT_THUMBNAIL_API_URL + '/' + CONFIG_URL_PART + '/utilities/ImageThumbnailSecure.ashx/?h=' + height + '&w=' + width + '&emailid=' + emailid+ '&oauth_token=' + SOAP_OAUTH_TOKEN;
 
         MERC_MockHttpResponseService.BasicMockGetResponse mockResponse = new MERC_MockHttpResponseService.BasicMockGetResponse(
             requestURL,
