@@ -5,6 +5,8 @@
         <members>CUST_UserSettingsUnderReviewBatchable</members>
         <members>CUST_UserSettingsUnderReviewSch_test</members>
         <members>CUST_UserSettingsUnderReviewScheduler</members>
+		<members>CUST_UserSettingsWillExpireBatchable</members>
+        <members>CUST_UserSettingsWillExpireBatchableTest</members>
         <name>ApexClass</name>
     </types>
 	<types>
