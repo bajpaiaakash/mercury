@@ -70,7 +70,7 @@ private class MERC_HCPContractCancellationTest{
         String envelopeResponseJSONString = JSON.serializePretty('');
         system.debug(envelopeResponseJSONString);
 
-        MERC_DocusignServiceMock fakeResponse = new MERC_DocusignServiceMock(200, 'Complete', envelopeResponseJSONString, null);
+        MERC_DocusignServiceMock fakeResponse = new MERC_DocusignServiceMock(300, 'Complete', envelopeResponseJSONString, null);
         Test.setMock(HttpCalloutMock.class, fakeResponse);
         MERC_DocusignService.voidEnvelope(mockResponse.envelopeId, mockResponse.status);
         System.assertEquals('7f7de730-811d-458a-97a3-deeef96b38d0', mockResponse.envelopeId);
@@ -87,7 +87,7 @@ private class MERC_HCPContractCancellationTest{
         String envelopeResponseJSONString = JSON.serializePretty('');
         system.debug(envelopeResponseJSONString);
 
-        MERC_DocusignServiceMock fakeResponse = new MERC_DocusignServiceMock(200, 'Complete', envelopeResponseJSONString, null);
+        MERC_DocusignServiceMock fakeResponse = new MERC_DocusignServiceMock(300, 'Complete', envelopeResponseJSONString, null);
         Test.setMock(HttpCalloutMock.class, fakeResponse);
         hcpContract.Docusign_Envelope_Id_MERC__c = mockResponse.envelopeId;
         update hcpContract;        
@@ -113,7 +113,7 @@ private class MERC_HCPContractCancellationTest{
         String envelopeResponseJSONString = JSON.serializePretty('');
         system.debug(envelopeResponseJSONString);
 
-        MERC_DocusignServiceMock fakeResponse = new MERC_DocusignServiceMock(200, 'Complete', envelopeResponseJSONString, null);
+        MERC_DocusignServiceMock fakeResponse = new MERC_DocusignServiceMock(300, 'Complete', envelopeResponseJSONString, null);
         Test.setMock(HttpCalloutMock.class, fakeResponse);
         
         hcpContract.Docusign_Envelope_Id_MERC__c = mockResponse.envelopeId;

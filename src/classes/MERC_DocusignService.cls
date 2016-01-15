@@ -304,39 +304,53 @@ public with sharing class MERC_DocusignService {
             
         String endpoint = baseUrl + 'accounts/' + accountId + '/envelopes' + '/' + envelopeId;
         
-        String voidedReason;
-        
-        if ( contractRequestStatus == 'Contract Cancelled' ) {
-            voidedReason = 'Your contracting process has been cancelled and DocuSign envelope has been voided to stop further notifications.';
-        } else if ( contractRequestStatus == 'Completed' ) {
-            voidedReason = 'Your signed contract has been manually uploaded by Lilly Customer Meeting Services in order to complete the contracting process,'+
-                           ' and DocuSign envelope has been voided to stop further notifications.';
-        }
-        
-        
-        String postBody = '{'+
-        '\"status\": \"voided\",'+
-        '\"voidedReason\": \"'+voidedReason+'\"'+
-        '}';
-        
         request.setEndPoint(endpoint);
-        request.setMethod('PUT');
+        request.setMethod('GET');
         
         request.setHeader('Content-Type', 'application/json');
         request.setHeader('Accept', 'application/json');
         request.setHeader('X-DocuSign-Authentication', authheader);
-      
-        request.setBody(postBody);
         
+        //Before actually voiding the envelope, we are retrieving the status of that envelope from DocuSign
         HttpResponse response = httpProtocol.send(request); 
         String responseBody = response.getBody();
         
         JSONParser parser = JSON.createParser(responseBody);
         
-        //In case there are some issue while voiding envelope
-        if ( response.getStatusCode() >= 300 ) {
-            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode, error.message);
+        if( response.getStatusCode() < 300 ) {
+            EnvelopeDetailResponse tasResponse = (EnvelopeDetailResponse)parser.readValueAs(EnvelopeDetailResponse.class);
+            String envelopeStatus = tasResponse.status;
+        
+            system.debug('envelopeStatus=>'+envelopeStatus);
+            if ( envelopeStatus.tolowercase() != 'voided' && envelopeStatus.tolowercase() != 'completed' ) {
+                
+                String voidedReason;
+                if ( contractRequestStatus == 'Contract Cancelled' ) {
+                    voidedReason = 'Your contracting process has been cancelled and DocuSign envelope has been voided to stop further notifications.';
+                } else if ( contractRequestStatus == 'Completed' ) {
+                    voidedReason = 'Your signed contract has been manually uploaded by Lilly Customer Meeting Services in order to complete the contracting process,'+
+                                   ' and DocuSign envelope has been voided to stop further notifications.';
+                }
+                
+                String postBody = '{'+
+                '\"status\": \"voided\",'+
+                '\"voidedReason\": \"'+voidedReason+'\"'+
+                '}';
+                
+                request.setMethod('PUT');
+                request.setBody(postBody);
+                
+                response = httpProtocol.send(request); 
+                responseBody = response.getBody();
+                
+                parser = JSON.createParser(responseBody);
+                
+                //In case there are some issue while voiding envelope
+                if ( response.getStatusCode() >= 300 ) {
+                    DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+                    throw new DocusignServiceException(error.errorCode, error.message);
+                }
+            }    
         }
     }
     
