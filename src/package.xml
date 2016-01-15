@@ -21,5 +21,9 @@
         <members>MERC_HCPContract</members>
         <name>ApexTrigger</name>
     </types>
+	<types>
+        <members>HCP_Contract_MERC__c</members>
+        <name>CustomObject</name>
+    </types>
     <version>35.0</version>
 </Package>
