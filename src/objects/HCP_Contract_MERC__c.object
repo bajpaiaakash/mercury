@@ -4,7 +4,8 @@
         <actionName>Edit</actionName>
         <content>MERC_HCPContractNewEdit</content>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Visualforce</type>
+        <type>visualforce</type>
     </actionOverrides>
 	<label>HCP Contract</label>
+	<pluralLabel>HCP Contracts</pluralLabel>
 </CustomObject>
