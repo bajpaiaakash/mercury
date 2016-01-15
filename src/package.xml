@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>MERC_CancelDelegateMgmtProcessTest</members>
+        <members>MERC_CancelDelegateMgmtProcesses</members>
+        <members>MERC_DocusignService</members>
+        <members>MERC_DocusignServiceTest</members>
+        <members>MERC_HCPContractCancellation</members>
+        <members>MERC_HCPContractCancellationTest</members>
+        <members>MERC_HCPContractNewEditController</members>
+        <members>MERC_RequestHCPSignatureController</members>
+        <members>MERC_RequestHCPSignatureControllerTest</members>
+        <members>MERC_TestFactory</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>MERC_HCPContractNewEdit</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>MERC_HCPContract</members>
+        <name>ApexTrigger</name>
+    </types>
+    <version>35.0</version>
+</Package>
