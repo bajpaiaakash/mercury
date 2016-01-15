@@ -6,4 +6,6 @@
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Visualforce</type>
     </actionOverrides>   
+	<label>HCP Contract</label>
+    <pluralLabel>HCP Contracts</pluralLabel>
 </CustomObject>
