@@ -7,5 +7,11 @@
         <type>Visualforce</type>
     </actionOverrides>   
 	<label>HCP Contract</label>
+	<nameField>
+        <displayFormat>CNTR-{000000}</displayFormat>
+        <label>HCP Contract #</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
     <pluralLabel>HCP Contracts</pluralLabel>
 </CustomObject>
