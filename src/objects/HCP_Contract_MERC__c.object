@@ -18,7 +18,23 @@
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
-    <enableStreamingApi>true</enableStreamingApi>
+    <enableStreamingApi>true</enableStreamingApi>	
+    <fields>
+        <fullName>Account_MERC__c</fullName>
+        <description>Lookup relationship between HCP Contracts and Accounts
+Created by John A Adams 10/9/2013</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>HCP Contracts</relationshipLabel>
+        <relationshipName>HCP_Contracts</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
 	<label>HCP Contract</label>
 	<nameField>
         <displayFormat>CNTR-{000000}</displayFormat>
