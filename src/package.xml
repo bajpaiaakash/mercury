@@ -8,6 +8,8 @@
         <members>MERC_HCPContractCancellation</members>
         <members>MERC_HCPContractCancellationTest</members>
         <members>MERC_HCPContractNewEditController</members>
+		<members>MERC_InvoiceCreditNoteController</members>
+        <members>MERC_InvoiceDocFilterController</members>
         <members>MERC_RequestHCPSignatureController</members>
         <members>MERC_RequestHCPSignatureControllerTest</members>
         <members>MERC_TestFactory</members>
