@@ -27,5 +27,9 @@
         <members>HCP_Contract_MERC__c</members>
         <name>CustomObject</name>
     </types>
+	<types>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <name>PermissionSet</name>
+    </types>
     <version>35.0</version>
 </Package>
