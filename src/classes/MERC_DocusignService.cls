@@ -316,11 +316,17 @@ public with sharing class MERC_DocusignService {
         String responseBody = response.getBody();
         
         JSONParser parser = JSON.createParser(responseBody);
+        String envelopeStatus = '';
         
         if( response.getStatusCode() < 300 ) {
-            EnvelopeDetailResponse tasResponse = (EnvelopeDetailResponse)parser.readValueAs(EnvelopeDetailResponse.class);
-            String envelopeStatus = tasResponse.status;
-        
+            while ( parser.nextToken() != null ) {
+                if ( (parser.getCurrentToken() == JSONToken.FIELD_NAME && parser.getText().tolowercase() == 'status')) {
+                    parser.nextToken();
+                    system.debug('===>value'+parser.getText());
+                    envelopeStatus = parser.getText();            
+                }
+            }
+            
             system.debug('envelopeStatus=>'+envelopeStatus);
             if ( envelopeStatus.tolowercase() != 'voided' && envelopeStatus.tolowercase() != 'completed' ) {
                 
@@ -351,6 +357,9 @@ public with sharing class MERC_DocusignService {
                     throw new DocusignServiceException(error.errorCode, error.message);
                 }
             }    
+        } else {
+            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+            throw new DocusignServiceException(error.errorCode, error.message);
         }
     }
     
@@ -557,7 +566,6 @@ public with sharing class MERC_DocusignService {
         public List<SignHereTabResponse> signHereTabs;
     }
 
-    //public class E
 
     public class SignHereTabResponse {
         public String documentId;
@@ -595,61 +603,6 @@ public with sharing class MERC_DocusignService {
             anchorUnits = 'pixels';
         }
     }
-
-    //public class SignHereExplicitTab {
-    //    public String name;
-    //    public String tabLabel;
-    //    public String scaleValue;
-    //    public String optional;
-    //    public String recipientId;
-    //    public String pageNumber;
-    //    public String xPosition;
-    //    public String yPosition;
-    //    public String tabId;
-
-    //    //use this constructor to create a "sign here tab" based on an anchor string
-    //    public SignHereExplicitTab(String anchor, String x, String y, String id) {
-    //        documentid = id;
-    //        anchorString = anchor;
-    //        anchorXOffset = x;
-    //        anchorYOffset = y;
-    //        anchorIgnoreIfNotPresent = 'false';
-    //        anchorUnits = 'pixels';
-    //    }
-    //}
-
-
-  //  "signHereTabs": [
-  //  {
-  //    "name": "Sign Here",
-  //    "tabLabel": "Signature 2",
-  //    "scaleValue": 1.0,
-  //    "optional": "false",
-  //    "documentId": "1",
-  //    "recipientId": "2",
-  //    "pageNumber": "1",
-  //    "xPosition": "202",
-  //    "yPosition": "48",
-  //    "tabId": "3a56629a-3781-4751-afad-9aff68bc3098"
-  //  }
-  //]
-
-    //public class TabResponse {
-    //    public List<SignHereTabResponse> signHereTabs;
-    //}
-
-    //public class SignHereTabResponse {
-    //    public String name;
-    //    public String tabLabel;
-    //    public String scaleValue;
-    //    public String optional;
-    //    public String documentid;
-    //    public String recipientId;
-    //    public String pageNumber;
-    //    public String xPosition;
-    //    public String yPosition;
-    //    public String tabId;
-    //}
 
     public class TagAndSendResponse {
         public String url;

@@ -28,10 +28,6 @@
         <members>HCP_Contract_MERC__c</members>
         <name>CustomObject</name>
     </types>
-	<types>
-        <members>Merc_CMS_IT_Support</members>
-        <name>PermissionSet</name>
-    </types>
 	 <types>
         <members>Meeting_Participant_MERC__c.Consulting_MERC</members>
         <members>Meeting_Participant_MERC__c.Individual_Sponsorship_MERC</members>
