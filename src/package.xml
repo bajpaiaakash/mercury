@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-		<members>MERC_AddMeetingParticipantsCntlrTest</members>
         <members>MERC_CancelDelegateMgmtProcessTest</members>
         <members>MERC_CancelDelegateMgmtProcesses</members>
         <members>MERC_DocusignService</members>
@@ -27,17 +26,6 @@
 	<types>
         <members>HCP_Contract_MERC__c</members>
         <name>CustomObject</name>
-    </types>
-	 <types>
-        <members>Meeting_Participant_MERC__c.Consulting_MERC</members>
-        <members>Meeting_Participant_MERC__c.Individual_Sponsorship_MERC</members>
-        <members>Travel_Itinerary_MERC__c.Air_MERC</members>
-        <members>Travel_Itinerary_MERC__c.Bus_MERC</members>
-        <members>Travel_Itinerary_MERC__c.Car_MERC</members>
-        <members>Travel_Itinerary_MERC__c.Hotel_MERC</members>
-        <members>Travel_Itinerary_MERC__c.Rail_MERC</members>
-        <members>Travel_Itinerary_MERC__c.Travel_Proposal_MERC</members>
-        <name>RecordType</name>
     </types>
     <version>35.0</version>
 </Package>

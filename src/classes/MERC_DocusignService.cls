@@ -322,7 +322,6 @@ public with sharing class MERC_DocusignService {
             while ( parser.nextToken() != null ) {
                 if ( (parser.getCurrentToken() == JSONToken.FIELD_NAME && parser.getText().tolowercase() == 'status')) {
                     parser.nextToken();
-                    system.debug('===>value'+parser.getText());
                     envelopeStatus = parser.getText();            
                 }
             }

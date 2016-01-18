@@ -14,7 +14,7 @@ public with sharing class MERC_RequestHCPSignatureController {
 
     public MERC_RequestHCPSignatureController(ApexPages.StandardController stdController) {
         this.stdController = stdController;
-        if (!Test.isRunningTest()) { this.stdController.addFields(new List<String>{ 'Id', 'Name', 'Account_MERC__c', 'Meeting_Participant_MERC__c' }); } //One more field 'Meeting_Participant_MERC__c' added by Vijay Garg on 14-JAN-2016 for US-39525
+        if (!Test.isRunningTest()) { this.stdController.addFields(new List<String>{ 'Id', 'Name', 'Account_MERC__c', 'Meeting_Participant_MERC__c' }); } //One more fields 'Meeting_Participant_MERC__c' added by Vijay Garg on 14-JAN-2016 for US-39525
 
         this.contract = (HCP_Contract_MERC__c)stdController.getRecord();
 
@@ -49,10 +49,12 @@ public with sharing class MERC_RequestHCPSignatureController {
         }
 
         //Error Message if Meeting Participant status is cancelled; Modification done by Vijay Garg on 14-JAN-2016 for US-39525
-        Meeting_Participant_MERC__c meetingParticipant = [Select Id, Status_MERC__c From Meeting_Participant_MERC__c Where Id = :this.contract.Meeting_Participant_MERC__c];
-        if ( meetingParticipant.id != null && (meetingParticipant.Status_MERC__c == 'Cancelled' || meetingParticipant.Status_MERC__c == 'Declined') ) {
-            this.error = 'We can not request for hcp signature as Meeting Participant status is either \'Declined\' or \'Cancelled\'.';
-            return false;
+        if ( this.contract.Meeting_Participant_MERC__c!= null ) {
+            Meeting_Participant_MERC__c meetingParticipant = [Select Id, Status_MERC__c From Meeting_Participant_MERC__c Where Id = :this.contract.Meeting_Participant_MERC__c];
+            if ( meetingParticipant.id != null && (meetingParticipant.Status_MERC__c == 'Cancelled' || meetingParticipant.Status_MERC__c == 'Declined') ) {
+                this.error = 'We can not request for hcp signature as Meeting Participant status is either \'Declined\' or \'Cancelled\'.';
+                return false;
+            }
         }
 
 
