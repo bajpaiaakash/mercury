@@ -7,7 +7,7 @@
 public with sharing class MERC_TestFactory {
 
     public static Id employeeRecordTypeId =     [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Employee_GLBL' LIMIT 1].Id;
-    Public static Id ParticipantRecordTypeId =     [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Consulting' LIMIT 1].Id; //Added by Jyoti Gaur for US-39907 Ac1 on 09 Dec
+    Public static Id ParticipantRecordTypeId =     [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Consulting_MERC' LIMIT 1].Id; //modified by Jyoti Gaur for US-39907 Ac1 on 09 Dec and US-39477 on 15 Jan
     public static Id hcpRecordTypeId =          [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'HCP_GLBL' LIMIT 1].Id;
     public static Id vendorRecordTypeId =       [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Vendor_GLBL' LIMIT 1].Id;
 
