@@ -17,5 +17,5 @@
         <members>CST_User_Settings_CUST__c.CUST_User Settings Under Review</members>
         <name>WorkflowRule</name>
     </types>
-    <version>34.0</version>
+    <version>35.0</version>
 </Package>
