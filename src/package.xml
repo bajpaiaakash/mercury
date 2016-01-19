@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+		<members>MERC_AddMeetingParticipantsCntlrTest</members>
         <members>MERC_CancelDelegateMgmtProcessTest</members>
         <members>MERC_CancelDelegateMgmtProcesses</members>
         <members>MERC_DocusignService</members>
@@ -28,7 +29,8 @@
         <name>CustomObject</name>
     </types>
 	<types>
-        <members>Mercury_Customer_Meeting_Services_Edit</members>
+         <members>Merc_CMS_IT_Support</members>
+		<members>Mercury_Customer_Meeting_Services_Edit</members>
         <name>PermissionSet</name>
     </types>
     <version>35.0</version>
