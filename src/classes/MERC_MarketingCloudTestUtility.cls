@@ -54,11 +54,58 @@ public with sharing class MERC_MarketingCloudTestUtility {
     public static final String FUEL_ROOT_URL = 'https://www.exacttargetapis.test.com';
     public static final String FUEL_ACCESS_TOKEN = 'validfuelaccesstoken';
 
+    public static final String EMAIL_SEND_FROM_NAME = 'testfromname';
+    public static final String EMAIL_SEND_FROM_EMAIL = 'testfromemail@test.test';
+    public static final Boolean EMAIL_SEND_DEDUPE = false;
+    public static final String EMAIL_SEND_EMAIL_ID_AS_STRING = '123';
+    public static final Integer EMAIL_SEND_EMAIL_ID = 123;
+    public static final String EMAIL_SEND_SUBJECT = 'testemailsubject';
+    public static final Boolean EMAIL_SEND_SYNC_COMPLETE = true;
+    public static final Boolean EMAIL_SEND_TRACKING_ONLY = true;
+
+    public static final String SEND_DEFINITION_ID = 'testsenddefinitionid';
+    public static final String SEND_DEFINITION_DESCRIPTION = 'testsenddefinition description';
+    public static final String SEND_DEFINITION_KEY = '444380896000';
+    public static final String SEND_DEFINITION_NAME = 'LillySendDef1984-01-31 07:08:16a1y11000000euYLAAY';
+    public static final String SEND_DEFINITION_SENDER_PROFILE_ID = 'testsenderprofileid';
+    public static final String SEND_DEFINITION_CLASSIFICATION_ID = 'testclassificationid';
+
+    public static final String DATA_EXTENSION_NAME = 'testdataextension name';
+    public static final String DATA_EXTENSION_DESCRIPTION = 'testdataextension subject';
+    public static final String DATA_EXTENSION_KEY = 'testdataextensionkey';
+    public static final DateTime DATA_EXTENSION_EXPIRATION = DateTime.newInstance(1984, 01, 31, 07, 08, 16);
+    public static final String DATA_EXTENSION_EXPIRATION_STRING = '1984-01-31 07:08:16';
+
+    public static final String EMAIL_ADDITIONAL_INFORMATION_HTML = '<div>test additional html</div>';
+    public static final String EMAIL_ADDITIONAL_INFORMATION_TEXT = 'test additional text';
+
+    public static final String SUBSCRIBER_KEY_PREFIX = 'subscribertest_key_';
+    public static final String SUBSCRIBER_LILLYKEY_PREFIX = 'subscribertest_name_';
+    public static final String SUBSCRIBER_EMAIL_PREFIX = 'subscribertestemail@test.test';
+    public static final String SUBSCRIBER_TYPE = 'testubscribertype';
+
+    public static final String MEETING_NAME_PREFIX = 'Test Meeting ';
+    public static final String MEETING_CITY = 'test city';
+    public static final String MEETING_VENUE = 'test venue';
+    public static final Datetime MEETING_START = DateTime.newInstance(1984, 01, 31, 07, 08, 16);
+    public static final Datetime MEETING_END = MEETING_START.addDays(5);
+    public static final String MEETING_EVENT_ID_PREFIX = 'Test Event ';
+    public static final String MEETING_RECORD_TYPE = 'Ad_Hoc_Consulting';
+    public static final String MEETING_OBJECT_TYPE = 'Meeting_MERC__c';
+
+    public static final String PERSON_RECORD_TYPE = 'HCP_GLBL';
+
     public static final String PROFILE_DEFAULT_NAME = 'Standard User';
 
     private static Integer UserCount = 0;
     private static Map<String, Profile> ProfileMap = new Map<String, Profile>();
 
+    private static Integer SubscriberCount = 0;
+    private static Integer MeetingCount = 0;
+
+    /*
+     * Test Data Generation
+     */
     public static et4ae5__Business_Unit__c insertBusinessUnit(){
         et4ae5__Business_Unit__c businessUnit = new et4ae5__Business_Unit__c(
             et4ae5__Business_Unit_ID__c = BUSINESS_UNIT_ID,
@@ -105,6 +152,16 @@ public with sharing class MERC_MarketingCloudTestUtility {
     }
 
     public static User insertUser(String profileName){
+        User marketingCloudUser = getUser(profileName);
+        insert marketingCloudUser;
+        return marketingCloudUser;
+    }
+
+    public static User getUser(){
+        return getUser(PROFILE_DEFAULT_NAME);
+    }
+
+    public static User getUser(String profileName){
         User marketingCloudUser = new User(
             et4ae5__exacttarget_oauth_token__c = USER_OAUTH_TOKEN,
             et4ae5__exactTargetUsername__c = USER_MARKETING_CLOUD_USER_NAME,
@@ -118,8 +175,6 @@ public with sharing class MERC_MarketingCloudTestUtility {
             TimeZoneSidKey = USER_TIME_ZONE_SID_KEY, 
             UserName = USER_USER_NAME);
 
-        insert marketingCloudUser;
-
         return marketingCloudUser;
     }
 
@@ -131,6 +186,187 @@ public with sharing class MERC_MarketingCloudTestUtility {
         return ProfileMap.get(profileName);
     }
 
+    public static MERC_MarketingCloudClient.SendDefinition getSendDefinition(){
+        return new MERC_MarketingCloudClient.SendDefinition(  
+            SEND_DEFINITION_ID, EMAIL_SEND_DEDUPE, SEND_DEFINITION_DESCRIPTION,
+            EMAIL_SEND_EMAIL_ID, SEND_DEFINITION_KEY, SEND_DEFINITION_NAME,
+            EMAIL_SEND_SUBJECT, SEND_DEFINITION_CLASSIFICATION_ID,
+            SEND_DEFINITION_SENDER_PROFILE_ID
+        );
+    }
+
+    public static MERC_MarketingCloudClient.DataExtension getDataExtension(){
+        MERC_MarketingCloudClient.DataExtension dataExtension = new MERC_MarketingCloudClient.DataExtension(
+            DATA_EXTENSION_NAME,
+            DATA_EXTENSION_DESCRIPTION,
+            DATA_EXTENSION_KEY,
+            DATA_EXTENSION_EXPIRATION);
+        dataExtension.sendableDataExtensionField = 'SubscriberKey';
+        dataExtension.field = getDataExtensionFields();
+
+        return dataExtension;
+    }
+
+    private static List<MERC_MarketingCloudClient.Field> getDataExtensionFields(){
+        List<MERC_MarketingCloudClient.Field> fields = new List<MERC_MarketingCloudClient.Field>();
+
+        MERC_MarketingCloudClient.Field fSubscriberKey = new MERC_MarketingCloudClient.Field();
+        fSubscriberKey.fieldName = 'SubscriberKey';
+        fSubscriberKey.fieldType = '0';
+        fSubscriberKey.length = '100';
+        fSubscriberKey.nullable = false;
+        fSubscriberKey.isPrimaryKey = true;
+        fields.add(fSubscriberKey);
+
+        List<String> fieldNames = new List<String> {'AccountId', 'MeetingId', 'MeetingParticipantId'};
+
+        for (String fieldName : fieldNames) {
+            MERC_MarketingCloudClient.Field field = new MERC_MarketingCloudClient.Field();
+            field.fieldName = fieldName;
+            field.fieldType = '0'; //Text
+            field.length = '255';
+            field.nullable = true;
+            field.isPrimaryKey = false;
+            fields.add(field);
+        }
+
+        MERC_MarketingCloudClient.Field additionalInformationHTMLField = new MERC_MarketingCloudClient.Field();
+        additionalInformationHTMLField.fieldName = 'AdditionalInformationHTML';
+        additionalInformationHTMLField.fieldType = '0'; //Text
+        additionalInformationHTMLField.length = '2000';
+        additionalInformationHTMLField.nullable = true;
+        additionalInformationHTMLField.isPrimaryKey = false;
+        fields.add(additionalInformationHTMLField);
+
+        MERC_MarketingCloudClient.Field additionalInformationTextField = new MERC_MarketingCloudClient.Field();
+        additionalInformationTextField.fieldName = 'AdditionalInformationText';
+        additionalInformationTextField.fieldType = '0'; //Text
+        additionalInformationTextField.length = '2000';
+        additionalInformationTextField.nullable = true;
+        additionalInformationTextField.isPrimaryKey = false;
+        fields.add(additionalInformationTextField);
+
+        MERC_MarketingCloudClient.Field emailAddressField = new MERC_MarketingCloudClient.Field();
+        emailAddressField.fieldName = 'EmailAddress';
+        emailAddressField.fieldType = '4'; //EmailAddress
+        emailAddressField.length = '200';
+        emailAddressField.nullable = false;
+        emailAddressField.isPrimaryKey = false;
+        fields.add(emailAddressField);
+
+        return fields;
+    }
+
+    public static List<MERC_MarketingCloudClient.DataExtensionEntry> getDataExtensionEntries(
+        Id meetingId,
+        String additionalInformationHTML,
+        String additionalInformationText,
+        List<Meeting_Participant_MERC__c> meetingParticipants,
+        Map<Id, Account> personAccounts,
+        MERC_MarketingCloudClient.DataExtension dataExtension){
+        List<MERC_MarketingCloudClient.DataExtensionEntry> dataExtensionEntries = new List<MERC_MarketingCloudClient.DataExtensionEntry>();
+
+        for (Meeting_Participant_MERC__c meetingParticipant : meetingParticipants) {
+            // -> set data extension fields
+            MERC_MarketingCloudClient.DataExtensionEntry entry = new MERC_MarketingCloudClient.DataExtensionEntry();
+            entry.keys = new MERC_MarketingCloudClient.FieldEntry();
+            entry.keys.fieldName = 'SubscriberKey';
+            System.assertNotEquals(null, String.valueOf(personAccounts.get(meetingParticipant.Account_MERC__c).PersonContactId));
+            entry.keys.fieldValue = String.valueOf(personAccounts.get(meetingParticipant.Account_MERC__c).PersonContactId);
+
+            entry.values = new List<MERC_MarketingCloudClient.FieldEntry>();
+
+            MERC_MarketingCloudClient.FieldEntry accountId = new MERC_MarketingCloudClient.FieldEntry();
+            accountId.fieldName = 'AccountId';
+            accountId.fieldValue = meetingParticipant.Account_MERC__c;
+            entry.values.add(accountId);
+
+            MERC_MarketingCloudClient.FieldEntry meetingIdField = new MERC_MarketingCloudClient.FieldEntry();
+            meetingIdField.fieldName = 'MeetingId';
+            meetingIdField.fieldValue = meetingId;
+            entry.values.add(meetingIdField);
+
+            MERC_MarketingCloudClient.FieldEntry meetingParticipantId = new MERC_MarketingCloudClient.FieldEntry();
+            meetingParticipantId.fieldName = 'MeetingParticipantId';
+            meetingParticipantId.fieldValue = meetingParticipant.Id;
+            entry.values.add(meetingParticipantId);
+
+            MERC_MarketingCloudClient.FieldEntry additionalInfoFieldEntry = new MERC_MarketingCloudClient.FieldEntry();
+            additionalInfoFieldEntry.fieldName = 'AdditionalInformationHTML';
+            additionalInfoFieldEntry.fieldValue = additionalInformationHTML;
+            entry.values.add(additionalInfoFieldEntry);
+
+            MERC_MarketingCloudClient.FieldEntry additionalInfoTextFieldEntry = new MERC_MarketingCloudClient.FieldEntry();
+            additionalInfoTextFieldEntry.fieldName = 'AdditionalInformationText';
+            additionalInfoTextFieldEntry.fieldValue = additionalInformationText;
+            entry.values.add(additionalInfoTextFieldEntry);
+
+            MERC_MarketingCloudClient.FieldEntry emailAddress = new MERC_MarketingCloudClient.FieldEntry();
+            emailAddress.fieldName = 'EmailAddress';
+            emailAddress.fieldValue = personAccounts.get(meetingParticipant.Account_MERC__c).PersonEmail;
+            entry.values.add(emailAddress);
+
+            dataExtensionEntries.add(entry);
+        }
+
+        return dataExtensionEntries;
+    }
+
+    public static MERC_MarketingCloudClient.Subscriber getSubscriber(){
+        SubscriberCount++;
+        return new MERC_MarketingCloudClient.Subscriber(
+            SUBSCRIBER_KEY_PREFIX + SubscriberCount, 
+            SUBSCRIBER_LILLYKEY_PREFIX + SubscriberCount,
+            SUBSCRIBER_EMAIL_PREFIX + SubscriberCount,
+            SUBSCRIBER_TYPE);
+    }
+
+    public static List<MERC_MarketingCloudClient.Subscriber> getSubscribers(Integer count){
+        List<MERC_MarketingCloudClient.Subscriber> subscribers = new List<MERC_MarketingCloudClient.Subscriber>();
+        for(Integer subscriberIndex = 0; subscriberIndex < count; subscriberIndex++){
+            subscribers.add(getSubscriber());
+        }
+        return subscribers;
+    }
+
+    public static List<String> getSubscriberKeys(List<MERC_MarketingCloudClient.Subscriber> subscribers){
+        List<String> subscriberKeys = new List<String>();
+
+        for(MERC_MarketingCloudClient.Subscriber subscriber : subscribers){
+            subscriberKeys.add(subscriber.SubscriberKey);
+        }
+
+        return subscriberKeys;
+    }
+
+    public static Id getDefaultMeetingRecordTypeId(){
+        return MERC_ETTestUtils.GetRecordType(MEETING_RECORD_TYPE, MEETING_OBJECT_TYPE).Id;
+    }
+
+    public static Meeting_MERC__c getMeeting(){
+        MeetingCount++;
+        return new Meeting_MERC__c(
+            Name = MEETING_NAME_PREFIX + MeetingCount,
+            RecordTypeId = getDefaultMeetingRecordTypeId(),
+            City_of_Meeting_MERC__c = MEETING_CITY,
+            Preferred_Venue_MERC__c = MEETING_VENUE,
+            Start_Time_of_Meeting_MERC__c = MEETING_START,
+            End_Time_of_Meeting_MERC__c = MEETING_END,
+            Event_Id_MERC__c = MEETING_EVENT_ID_PREFIX + MeetingCount
+        );
+    }
+
+    public static List<Meeting_MERC__c> getMeetings(Integer count){
+        List<Meeting_MERC__c> meetings = new List<Meeting_MERC__c>();
+        for(Integer meetingIndex = 0; meetingIndex < count; meetingIndex++){
+            meetings.add(getMeeting());
+        }
+        return meetings;
+    }
+
+    /*
+     * Mock Request Responses
+     */
     public static MERC_MockHttpResponseService withDefaultMockService(User testUser){
         MERC_MockHttpResponseService mockService = new MERC_MockHttpResponseService();
 
@@ -551,12 +787,10 @@ public with sharing class MERC_MarketingCloudTestUtility {
 
         MERC_MockHttpResponseService.BasicMockPostResponse mockResponse = new MERC_MockHttpResponseService.BasicMockPostResponse(
             requestURL,
-            JSON_TYPE,
+            JSON_CHARSET_TYPE,
             JSON_TYPE,
             requestBody,
             responseBody);
-
-        mockResponse.withAuthorization('Bearer ' + SOAP_OAUTH_TOKEN);
 
         return (MERC_MockHttpResponseService.MockResponseInterface)mockResponse;
     }
@@ -716,12 +950,10 @@ public with sharing class MERC_MarketingCloudTestUtility {
 
         MERC_MockHttpResponseService.BasicMockPostResponse mockResponse = new MERC_MockHttpResponseService.BasicMockPostResponse(
             requestURL,
-            JSON_TYPE,
+            JSON_CHARSET_TYPE,
             JSON_TYPE,
             requestBody,
             responseBody);
-
-        mockResponse.withAuthorization('Bearer ' + SOAP_OAUTH_TOKEN);
 
         return (MERC_MockHttpResponseService.MockResponseInterface)mockResponse;
     }
@@ -734,20 +966,20 @@ public with sharing class MERC_MarketingCloudTestUtility {
         Account personAccount){
         return  '   {    '  + 
                 '       "keys": {  '  + 
-                '           "subscriberKey":"' + personAccount.PersonContactId + '"  '  + 
+                '           "SubscriberKey":"' + personAccount.PersonContactId + '"  '  + 
                 '       },  '  + 
                 '       "values":{  '  + 
-                '           "accountId":"' + meetingParticipant.Account_MERC__c + '",  '  + 
-                '           "meetingId":"' + meetingId + '",  '  + 
-                '           "meetingParticipantId":"' + meetingParticipant.Id + '",  '  + 
-                '           "additionalInformationHTML":"' + additionalInformationHTML + '",  '  + 
-                '           "additionalInformationText":"' + additionalInformationText + '",  '  + 
-                '           "emailAddress":"' + personAccount.PersonEmail + '"  '  + 
+                '           "AccountId":"' + meetingParticipant.Account_MERC__c + '",  '  + 
+                '           "MeetingId":"' + meetingId + '",  '  + 
+                '           "MeetingParticipantId":"' + meetingParticipant.Id + '",  '  + 
+                '           "AdditionalInformationHTML":"' + additionalInformationHTML + '",  '  + 
+                '           "AdditionalInformationText":"' + additionalInformationText + '",  '  + 
+                '           "EmailAddress":"' + personAccount.PersonEmail + '"  '  + 
                 '       }  '  + 
                 '  }  ' ; 
     }
 
-    public static String getDataExtensionEntriesResponseJSON(
+    public static String getDataExtensionEntriesRequestJSON(
         Id meetingId,
         String additionalInformationHTML,
         String additionalInformationText,
@@ -778,7 +1010,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
         String additionalInformationText,
         List<Meeting_Participant_MERC__c> meetingParticipants,
         Map<Id, Account> personAccountMap){
-        String requestBody = getDataExtensionEntriesResponseJSON(
+        String requestBody = getDataExtensionEntriesRequestJSON(
             meetingId,
             additionalInformationHTML,
             additionalInformationText,
@@ -938,13 +1170,9 @@ public with sharing class MERC_MarketingCloudTestUtility {
               '</s:Envelope>';
     }
 
-    public static MERC_MockHttpResponseService.MockResponseInterface getMockSubscribersRequest(List<MERC_MarketingCloudClient.Subscriber> subscribers){
-        List<String> subscriberKeys = new List<String>();
-
-        for(MERC_MarketingCloudClient.Subscriber subscriber : subscribers){
-            subscriberKeys.add(subscriber.SubscriberKey);
-        }
-
+    public static MERC_MockHttpResponseService.MockResponseInterface getMockSubscribersRequest(
+        List<MERC_MarketingCloudClient.Subscriber> subscribers,
+        List<String> subscriberKeys){
         String requestBody = getSubscribersRequestXML(subscriberKeys);
         String responseBody = getSubscribersResponseXML(subscribers);
         String requestURL = CONFIG_ROOT_SOAP_API_URL;
