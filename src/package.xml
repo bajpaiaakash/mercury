@@ -15,6 +15,11 @@
         <members>CUST_Scheduler</members>
         <members>CUST_SchedulerTest</members>
         <members>CUST_TestFactory</members>
+        <members>CUST_UserSettingStatusUpdate</members>
+        <members>CUST_UserSettingStatusUpdateTest</members>
+        <members>CUST_UserSettingsExpireBatchable</members>
+        <members>CUST_UserSettingsStatusChangeBatchable</members>
+        <members>CUST_UserSettingsWillExpireBatchable</members>
         <members>GLBL_AccountMergeStampTriggerTest</members>
         <members>GLBL_BaseEditControllerTest</members>
         <members>GLBL_DescribeLayoutTest</members>
@@ -39,6 +44,7 @@
         <members>MERC_TimeZoneUtility</members>
         <members>MERC_TravelItineraryNewEditController</members>
         <members>MERC_TriggerHandlerStateManager</members>
+        <members>MERC_TriggerHandlerStateManagerTest</members>
         <members>MERC_Util</members>
         <members>MERC_UtilTest</members>
         <members>MERC_XmlWriterRestResource</members>
