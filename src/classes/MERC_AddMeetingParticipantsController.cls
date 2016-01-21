@@ -383,20 +383,6 @@ public with sharing class MERC_AddMeetingParticipantsController {
         return null;
     }
 
-    //public List<MeetingParticipantWrapper> participants {
-    //  get {
-    //    for (Meeting_Participant_MERC__c p : );
-    //  }
-    //}
-
-    //public class MeetingParticipantWrapper {
-    //  public Boolean selected { get; set; }
-    //  public Meeting_Participant_MERC__c participant { get; set; }
-    //  public MeetingParticipantWrapper(Meeting_Participant_MERC__c p) {
-    //    this.participant = p;
-    //  }
-    //}
-
     public List<GLBL_CustomerSearchToolService.SearchResult> results {
         get {
             return null;

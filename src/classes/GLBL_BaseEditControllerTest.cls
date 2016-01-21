@@ -99,13 +99,12 @@ static {
         }
     }
 
-    // TODO - update this method to use test Users
     @isTest
     static void test_should_return_select_options_complex_config() {
 
         MERC_TriggerHandlerStateManager.deactivateAll();
 
-        //System.runAs(runningUser) {
+        System.runAs(runningUser) {
             //Create data for the Budget Line Item Vendors. the most complex config
             Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
             List<Meeting_Vendor_MERC__c> hotels = MERC_TestFactory.insertHotelsForMeeting(2, meeting.Id);
@@ -126,14 +125,12 @@ static {
             );
 
             insert budgetVendorConfig;
-        //}
 
-        //System.runAs(testUser) {
             String response = GLBL_BaseEditController.getOptions('Budget_Line_Item_MERC__c', budgetVendorConfig.Id, budget.Id);
             System.assert(String.isNotBlank(response),'No select options returned');
             System.assert(response.startsWith('<option value="">-- Select --</option>'),'Unexpected response prefix: '+response.escapeXml());
             System.assert(response.contains('">' + acctMap.get(hotels.get(0).Account_MERC__c).Name + '</option>'),'Options missing expected value: '+response.escapeXml());
-        //}
+        }
     }
 
 

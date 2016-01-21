@@ -509,10 +509,9 @@ public with sharing class MERC_TestFactory {
         return lineItems;
     }
 
-    public static HCP_Contract_MERC__c insertHCPContract(String accountId, String meetingParticipantId) {
+    public static HCP_Contract_MERC__c insertHCPContract(String accountId) {
         HCP_Contract_MERC__c c = new HCP_Contract_MERC__c();
         c.Account_MERC__c = accountId;
-        c.Meeting_Participant_MERC__c = meetingParticipantId;
         c.Contract_Request_Status_MERC__c = 'Contract cancelled';
         c.Country_MERC__c = 'GB';
         insert c;

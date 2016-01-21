@@ -4,8 +4,6 @@
  *
  * Trigger handler that facilitates TOV rollups
  *
- * 1 - fix static boolean hack
- * 2 - move to async processing
  */
 
 public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.HandlerInterface {

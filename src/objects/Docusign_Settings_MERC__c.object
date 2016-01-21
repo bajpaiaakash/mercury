@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Default_Email_Text_MERC__c</fullName>
+        <description>Default email text used in MERC_DocusignService class.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default email text used in Docusign Service.</inlineHelpText>
+        <label>Default Email Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_Template_Name_MERC__c</fullName>
+        <description>Email template name used by the MERC_DocusignService class.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Email template name used by the Docusign Service.</inlineHelpText>
+        <label>Email Template Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Signature_Anchor_String_MERC__c</fullName>
+        <description>Lilly signature anchor string used by the MERC_Docusign_Service class.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lilly signature anchor string used by the Docusign Service.</inlineHelpText>
+        <label>Lilly Signature Anchor String</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

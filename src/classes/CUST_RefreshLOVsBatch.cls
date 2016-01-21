@@ -140,16 +140,14 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 
 		if (a.Status=='Failed') status += '/n/n/n'+a.ExtendedStatus+'/n/n/n'+errors;
 
-		//if (!Test.isRunningTest()) {
-			Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-			List<String> toAddresses = new List<String>{a.CreatedBy.Email};
-			if (email!=null) toAddresses.add(email);
-			mail.setToAddresses(toAddresses);
-			mail.setSubject('CST Data Collection ' + a.Status);
-			mail.setHtmlBody(status + '<br/><br/>'+valueCollectionWarning+ '<br/><br/>Errors:<br />'+errors);
-			mail.setPlainTextBody(status);
-			Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
-		//}
+		Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+		List<String> toAddresses = new List<String>{a.CreatedBy.Email};
+		if (email!=null) toAddresses.add(email);
+		mail.setToAddresses(toAddresses);
+		mail.setSubject('CST Data Collection ' + a.Status);
+		mail.setHtmlBody(status + '<br/><br/>'+valueCollectionWarning+ '<br/><br/>Errors:<br />'+errors);
+		mail.setPlainTextBody(status);
+		Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
 
 		pool.Last_Job_Status_GLBL__c = status;
 		upsert pool;

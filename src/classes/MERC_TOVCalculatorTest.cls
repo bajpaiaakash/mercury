@@ -135,28 +135,9 @@ private class MERC_TOVCalculatorTest {
 			if (tov.Est_Indv_Transfer_MERC__c != null) {
 				sumTransfers = sumTransfers + tov.Est_Indv_Transfer_MERC__c;
 			}
-			//System.debug('#### The Tov we have is: ' + tov);
-			//meetingDayIdToTOV.put(tov.Meeting_Day_MERC__c, tov);
 		}
 
 		System.assertEquals(300, sumTransfers);
-
-		/*
-		System.debug('#### Lets debug the values we have for dayIds: ' + dayIds);
-		System.debug('#### Giving us the map: ' + meetingDayIdToTOV);
-		System.debug('#### with meeting days : ' + meetingDays);
-
-
-		System.debug('#### Day One Value is ' + meetingDayIdToTOV.get(dayOne.Id).Est_Indv_Transfer_MERC__c + ' and should be 150 \n');
-		System.debug('#### Day Two Value is ' + meetingDayIdToTOV.get(dayTwo.Id).Est_Indv_Transfer_MERC__c + ' and should be 150 \n');
-		System.debug('#### Day Three Value is ' + meetingDayIdToTOV.get(dayThree.Id).Est_Indv_Transfer_MERC__c + ' and should be null \n');
-		System.debug('#### Day Four Value is ' + meetingDayIdToTOV.get(dayFour.Id).Est_Indv_Transfer_MERC__c + ' and should be null \n');
-
-		System.assertEquals(150, meetingDayIdToTOV.get(dayOne.Id).Est_Indv_Transfer_MERC__c, 'Meeting day one should have ToV of 150');
-		System.assertEquals(150, meetingDayIdToTOV.get(dayTwo.Id).Est_Indv_Transfer_MERC__c, 'Meeting day two should have ToV of 150');
-		System.assertEquals(null, meetingDayIdToTOV.get(dayThree.Id).Est_Indv_Transfer_MERC__c, 'Meeting day three should have ToV of 0');
-		System.assertEquals(null, meetingDayIdToTOV.get(dayFour.Id).Est_Indv_Transfer_MERC__c, 'Meeting day four should have ToV of 0');
-		*/
 	}
 
 
@@ -289,11 +270,6 @@ p('starting'+[SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporat
 
 		tovForParticipant1Day1 = [SELECT Id, Est_Grnd_Transp_MERC__c, Est_Reg_Amt_ToV_MERC__c, Est_Food_Bev_ToV_MERC__c, Status_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
 
-		//assert that meeting day 1's food bev estimate rolled up up to the participant total
-//p('participant1'+participant1);
-//p('tovForParticipant1Day1'+tovForParticipant1Day1);
-//		System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_MERC__c, 'Est_Food_Bev_ToV_MERC__c did not rollup as expected.');
-
 		//now remove attendance on day 1
 		Test.startTest();
 		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
@@ -337,9 +313,6 @@ p('starting'+[SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporat
 		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
 		tovForParticipant1Day1 = [SELECT Id, Est_Grnd_Transp_MERC__c, Est_Reg_Amt_ToV_MERC__c, Est_Food_Bev_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
-
-		//assert that meeting day 1's food bev estimate rolled up up to the participant total
-		//System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_MERC__c, 'Est_Food_Bev_ToV_MERC__c did not rollup as expected.');
 
 		//reset the static variable
 
@@ -641,13 +614,12 @@ p('starting'+[SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporat
 		 	// create new travel itineraries of type Car_MERC
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
 	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate.addDays(2),3);
-	 		//List<Travel_Itinerary_MERC__c> pvtTransfers = insertDailyPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate.addDays(2));
 
 			// set participant as "attended"
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = true; // why are we resetting this?
-p('starting...');
+			p('starting...');
 			List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
-p('finished');
+			p('finished');
 
 
 	 	profiler.stopProfiling();
@@ -955,8 +927,6 @@ p('finished');
 		Decimal previousValue = tovForParticipant1Day1.Est_Hotel_ToV_MERC__c;
 		System.assert(previousValue > 0,'Unexpected value for Est_Hotel_ToV during test setup. '+previousValue);
 
-		//assert that meeting day 1's hotel estimate rolled up up to the participant total
-		//System.assertEquals(previousValue, participant1.Total_Hotel_ToV_MERC__c, 'Unexpected hotel ToV values do not match');
 		//simulate meeting day 1's hotel estimate rolling up to the participant hotel (async rollup won't roll up until test.stoptest)
 		participant1.Total_Hotel_ToV_MERC__c = previousValue;
 		update participant1;

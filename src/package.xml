@@ -10,15 +10,11 @@
         <members>CUST_RefreshLOVsController</members>
         <members>CUST_RefreshLOVsControllerTest</members>
         <members>CUST_RefreshLOVsReviewController</members>
+        <members>CUST_RefreshLOVsReviewControllerTest</members>
         <members>CUST_RefreshLOVsUtil</members>
         <members>CUST_Scheduler</members>
         <members>CUST_SchedulerTest</members>
         <members>CUST_TestFactory</members>
-        <members>CUST_UserSettingStatusUpdate</members>
-        <members>CUST_UserSettingStatusUpdateTest</members>
-        <members>CUST_UserSettingsExpireBatchable</members>
-        <members>CUST_UserSettingsStatusChangeBatchable</members>
-        <members>CUST_UserSettingsWillExpireBatchable</members>
         <members>GLBL_AccountMergeStampTriggerTest</members>
         <members>GLBL_BaseEditControllerTest</members>
         <members>GLBL_DescribeLayoutTest</members>
@@ -29,6 +25,7 @@
         <members>MERC_ContentVersionHandlerTest</members>
         <members>MERC_DailyAttendanceController</members>
         <members>MERC_DocusignService</members>
+        <members>MERC_DocusignServiceTest</members>
         <members>MERC_InvoiceXmlWriter</members>
         <members>MERC_MeetingTaskEditorController</members>
         <members>MERC_ParticipantTovStampHandlerTest</members>
@@ -42,7 +39,6 @@
         <members>MERC_TimeZoneUtility</members>
         <members>MERC_TravelItineraryNewEditController</members>
         <members>MERC_TriggerHandlerStateManager</members>
-        <members>MERC_TriggerHandlerStateManagerTest</members>
         <members>MERC_Util</members>
         <members>MERC_UtilTest</members>
         <members>MERC_XmlWriterRestResource</members>
@@ -51,8 +47,84 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>MERC_LoadingMask</members>
+        <name>ApexComponent</name>
+    </types>
+    <types>
+        <members>MERC_ActivateBudget</members>
         <members>MERC_AddMeetingParticipants</members>
+        <members>MERC_AgendaBuilder</members>
+        <members>MERC_AgendaItemDateTimes</members>
+        <members>MERC_AgendaItemNewEdit</members>
+        <members>MERC_BudgetHistory</members>
+        <members>MERC_BudgetLineItemNewEdit</members>
+        <members>MERC_DailyAttendance</members>
+        <members>MERC_DocusignTagAndSend</members>
+        <members>MERC_FinalizeBudgetConfirm</members>
+        <members>MERC_InvoiceAFIXML</members>
+        <members>MERC_InvoiceCreditNote</members>
+        <members>MERC_InvoiceDocFilter</members>
+        <members>MERC_InvoiceInvalidation</members>
+        <members>MERC_InvoiceNewEdit</members>
+        <members>MERC_InvoicePDF</members>
+        <members>MERC_MassApproveParticipants</members>
+        <members>MERC_MeetingDateTimes</members>
+        <members>MERC_MeetingDateTimesEdit</members>
+        <members>MERC_MeetingDayManager</members>
+        <members>MERC_MeetingDayNewEdit</members>
+        <members>MERC_MeetingNewEdit</members>
+        <members>MERC_MeetingParticipantNewEdit</members>
+        <members>MERC_MeetingProductNewEdit</members>
+        <members>MERC_MeetingTaskEditor</members>
+        <members>MERC_MeetingTeamManager</members>
+        <members>MERC_MergedAccounts</members>
+        <members>MERC_NewAccountContent</members>
+        <members>MERC_NewBudgetContent</members>
+        <members>MERC_NewBudgetVersion</members>
+        <members>MERC_NewHCPContractContent</members>
+        <members>MERC_NewInvoiceContent</members>
+        <members>MERC_NewMeetingContent</members>
+        <members>MERC_NewMeetingParticipantContent</members>
+        <members>MERC_ParticipantAgendaNewEdit</members>
+        <members>MERC_RegistrationResponses</members>
+        <members>MERC_RequestHCPSignature</members>
+        <members>MERC_TravelItineraryDateTimesDetail</members>
+        <members>MERC_TravelItineraryNewEdit</members>
+        <members>MERC_TravelProposals</members>
         <name>ApexPage</name>
     </types>
-    <version>33.0</version>
+    <types>
+        <members>MERC_Account</members>
+        <members>MERC_Address</members>
+        <members>MERC_AgendaItem</members>
+        <members>MERC_Answer</members>
+        <members>MERC_Attachment</members>
+        <members>MERC_ContentVersion</members>
+        <members>MERC_DailyAttendanceTOV</members>
+        <members>MERC_DocusignRecipientStatus</members>
+        <members>MERC_HCPContract</members>
+        <members>MERC_Invoice</members>
+        <members>MERC_InvoiceLineItem</members>
+        <members>MERC_Meeting</members>
+        <members>MERC_MeetingDay</members>
+        <members>MERC_MeetingParticipant</members>
+        <members>MERC_MeetingProcess</members>
+        <members>MERC_MeetingProducts</members>
+        <members>MERC_MeetingTask</members>
+        <members>MERC_MeetingVendor</members>
+        <members>MERC_MergeHistoryTrigger</members>
+        <members>MERC_PreferencesAndConsent</members>
+        <members>MERC_RegistrationQuestion</members>
+        <members>MERC_Response</members>
+        <members>MERC_TeamMember</members>
+        <members>MERC_TravelItinerary</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>Docusign_Settings_MERC__c.Default_Email_Text_MERC__c</members>
+        <members>Docusign_Settings_MERC__c.Email_Template_Name_MERC__c</members>
+        <members>Docusign_Settings_MERC__c.Lilly_Signature_Anchor_String_MERC__c</members>
+        <name>CustomField</name>
+    </types>
+    <version>34.0</version>
 </Package>

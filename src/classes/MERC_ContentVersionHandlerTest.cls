@@ -7,8 +7,6 @@
 @isTest
 private class MERC_ContentVersionHandlerTest {
     
-    //TODO: THIS IS BREAKING OUR BUILD RIGHT NOW
-    //when run normally, these pass, however, when run as part of the build, they fail
     static List<Account> accs;
     static List<Meeting_MERC__c> mtgs;
     static List<Meeting_Participant_MERC__c> ps;

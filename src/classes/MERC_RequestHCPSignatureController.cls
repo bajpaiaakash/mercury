@@ -14,7 +14,7 @@ public with sharing class MERC_RequestHCPSignatureController {
 
     public MERC_RequestHCPSignatureController(ApexPages.StandardController stdController) {
         this.stdController = stdController;
-        if (!Test.isRunningTest()) { this.stdController.addFields(new List<String>{ 'Id', 'Name', 'Account_MERC__c' }); }
+        if (!Test.isRunningTest()) { this.stdController.addFields(new List<String>{ 'Id', 'Name', 'Account_MERC__c', 'Meeting_Participant_MERC__c' }); } //One more field 'Meeting_Participant_MERC__c' added by Vijay Garg on 14-JAN-2016 for US-39525
 
         this.contract = (HCP_Contract_MERC__c)stdController.getRecord();
 
@@ -33,20 +33,29 @@ public with sharing class MERC_RequestHCPSignatureController {
 
         Account hcpRecipient = [Select Id, PersonEmail From Account Where Id = :this.contract.Account_MERC__c];
         if (contract.Lilly_Internal_Signee_MERC__c == null) {
-            this.error = 'Contract does not have a Lilly Internal Signee assigned.';  //TODO label
+            this.error = System.Label.HCP_Signature_Error_No_Signee; //Contract does not have a Lilly Internal Signee assigned.
             return false;
         }
         Account lillyRecipient = [Select Id, PersonEmail From Account Where Id = :this.contract.Lilly_Internal_Signee_MERC__c];
         if (hcpRecipient.PersonEmail == null) {
-            this.error = 'HCP does not have a valid e-mail address'; //TODO label
+            this.error = System.Label.HCP_Signature_Error_No_Email; //HCP does not have a valid e-mail address
             return false;
         } else if (lillyRecipient.PersonEmail == null) {
-            this.error = 'Lilly recipient does not have a valid e-mail address'; //TODO label
+            this.error = System.Label.HCP_Signature_Error_No_Lilly_Email; //Lilly recipient does not have a valid e-mail address
             return false;
         } else if ( contractContentVersion == null ) {
-            this.error = 'Could not find HCP Contract PDF file. Please use the "Upload Content" button on the HCP Contract record.'; //TODO label
+            this.error = System.Label.HCP_Signature_Error_No_PDF; //Could not find HCP Contract PDF file. Please use the "Upload Content" button on the HCP Contract record.
             return false;
         }
+
+        //Error Message if Meeting Participant status is cancelled; Modification done by Vijay Garg on 14-JAN-2016 for US-39525
+        Meeting_Participant_MERC__c meetingParticipant = [Select Id, Status_MERC__c From Meeting_Participant_MERC__c Where Id = :this.contract.Meeting_Participant_MERC__c];
+        if ( meetingParticipant.id != null && (meetingParticipant.Status_MERC__c == 'Cancelled' || meetingParticipant.Status_MERC__c == 'Declined') ) {
+            this.error = System.Label.HCP_Signature_Error_Wrong_Status; //We can not request for hcp signature as Meeting Participant status is either 'Declined' or 'Cancelled.'
+            return false;
+        }
+
+
         this.error = null;
         return true;
     }
@@ -73,7 +82,6 @@ public with sharing class MERC_RequestHCPSignatureController {
     }
 
     //stamp envelopeid on contract and participant
-    //@future
     static void stampEnvelope(Id hcpContractId, String envelopeId) {
         system.debug('------->');
         system.debug(envelopeId);

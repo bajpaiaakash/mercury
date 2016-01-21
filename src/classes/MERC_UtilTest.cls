@@ -13,17 +13,99 @@ private class MERC_UtilTest {
 		MERC_TestFactory.loadTimeZoneFieldMapSettings();
 	}
 
-	@isTest static void exercise_utility_methods()
+	@isTest static void exercise_select_all_inner_class_with_empty_constructor()
 	{
-
+		Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1)[0];
 		System.runAs(testUser)
 		{
-			MERC_Util.disableBudgetEditValidation();
-			System.assertEquals(false, Mercury_Settings_MERC__c.getOrgDefaults().Budget_Edit_Validation_MERC__c);
+			MERC_Util.SelectAll selectAll1 = new MERC_Util.SelectAll(); //exercise empty constructor
+			System.assertEquals(null, selectAll1.allFields);
+			System.assertEquals(null, selectAll1.SOQL);
+			System.assertEquals(null, selectAll1.d);
+		}
+	}
 
+	@isTest static void exercise_select_all_inner_class_with_meeting_id()
+	{
+		Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1)[0];
+		System.runAs(testUser)
+		{
+			MERC_Util.SelectAll selectAll = new MERC_Util.SelectAll(Meeting_MERC__c.SobjectType, meeting.id);
+			System.assert(selectAll.allFields.contains('status_merc__c'));
+			System.assert(selectAll.SOQL.startsWith('SELECT'));
+			System.assertEquals(Meeting_MERC__c.SobjectType.getDescribe(), selectAll.d);
+		}
+	}
+
+	@isTest static void exercise_select_all_inner_class_with_meeting()
+	{
+		Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1)[0];
+		System.runAs(testUser)
+		{
+			MERC_Util.SelectAll selectAll = new MERC_Util.SelectAll(Meeting_MERC__c.SobjectType);
+			System.assert(selectAll.allFields.contains('status_merc__c'));
+			System.assertEquals(null, selectAll.SOQL);
+			System.assertEquals(Meeting_MERC__c.SobjectType.getDescribe(), selectAll.d);
+		}
+	}
+
+	@isTest static void exercise_select_all_inner_class_by_meeting_id()
+	{
+		Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1)[0];
+		System.runAs(testUser)
+		{
+			MERC_Util.SelectAll selectAll = new MERC_Util.SelectAll(Meeting_MERC__c.SobjectType);
+			selectAll.byId(meeting.id);
+			System.assert(selectAll.allFields.contains('status_merc__c'));
+			System.assert(selectAll.SOQL.startsWith('SELECT'));
+			System.assert(selectAll.SOQL.endsWith('\'' + meeting.id + '\''));
+			System.assertEquals(Meeting_MERC__c.SobjectType.getDescribe(), selectAll.d);
+		}
+	}
+
+	@isTest static void exercise_select_all_inner_class_by_theListName()
+	{
+		Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1)[0];
+		System.runAs(testUser)
+		{
+			MERC_Util.SelectAll selectAll = new MERC_Util.SelectAll(Meeting_MERC__c.SobjectType);
+			selectAll.byList('theListName');
+			System.assert(selectAll.allFields.contains('status_merc__c'));
+			System.assert(selectAll.SOQL.endsWith(':theListName'));
+			System.assertEquals(Meeting_MERC__c.SobjectType.getDescribe(), selectAll.d);
+		}
+	}
+
+	@isTest static void exercise_remoteResponse_inner_class()
+	{
+		System.runAs(testUser)
+		{
+			MERC_Util.RemoteResponse r= new MERC_Util.RemoteResponse(true, 'a String', 'a cid');
+			System.assertEquals(true,r.success);
+			System.assertEquals('a String',r.message);
+			System.assertEquals('a cid',r.contextId);
+		}
+	}
+
+	@isTest static void test_enable_budged_edit_validation()
+	{
+		System.runAs(testUser) {
 			MERC_Util.enableBudgetEditValidation();
 			System.assertEquals(true, Mercury_Settings_MERC__c.getOrgDefaults().Budget_Edit_Validation_MERC__c);
+		}
+	}
 
+	@isTest static void test_disable_budged_edit_validation()
+	{
+		System.runAs(testUser) {
+			MERC_Util.disableBudgetEditValidation();
+			System.assertEquals(false, Mercury_Settings_MERC__c.getOrgDefaults().Budget_Edit_Validation_MERC__c);
+		}
+	}
+
+	@isTest static void test_picklist_methods()
+	{
+		System.runAs(testUser) {
 			String picklistValue = MERC_Util.getTimeZonePicklistValueForCurrentUser(Meeting_MERC__c.Meeting_Time_Zone_MERC__c.getDescribe());
 			System.assertEquals('Greenwich Mean Time (GMT)', picklistValue);
 
@@ -35,7 +117,13 @@ private class MERC_UtilTest {
 			System.assert(options.size() > 0);
 			List<SelectOption> optionsWithDefault = MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Role_Types_CUST__c', true);
 			System.assert(optionsWithDefault.size() == options.size()+1);
+		}
+	}
 
+	@isTest static void exercise_other_utility_methods()
+	{
+
+		System.runAs(testUser) {
 			Account a = MERC_TestFactory.insertAccounts(1).get(0);
 			System.assertEquals('Account', MERC_Util.getSobjectAPIName(a));
 
@@ -60,50 +148,6 @@ private class MERC_UtilTest {
 			System.assert(MERC_Util.getCountryPicklistValuesForCurrentUser(false).isEmpty());
 
 			System.assertEquals(0, MERC_Util.getTerrDescendents(new Map<Id, Territory>(), new Map<Id, Territory>()).size());
-		}
-	}
-
-	@isTest static void exercise_select_all_inner_class()
-	{
-		Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1)[0];
-		System.runAs(testUser)
-		{
-			MERC_Util.SelectAll selectAll1 = new MERC_Util.SelectAll(); //exercise empty construtor
-			System.assertEquals(null, selectAll1.allFields);
-			System.assertEquals(null, selectAll1.SOQL);
-			System.assertEquals(null, selectAll1.d);
-
-			MERC_Util.SelectAll selectAll2 = new MERC_Util.SelectAll(Meeting_MERC__c.SobjectType, meeting.id);
-			System.assert(selectAll2.allFields.contains('status_merc__c'));
-			System.assert(selectAll2.SOQL.startsWith('SELECT'));
-			System.assertEquals(Meeting_MERC__c.SobjectType.getDescribe(), selectAll2.d);
-
-			MERC_Util.SelectAll selectAll3 = new MERC_Util.SelectAll(Meeting_MERC__c.SobjectType);
-			System.assert(selectAll3.allFields.contains('status_merc__c'));
-			System.assertEquals(null, selectAll3.SOQL);
-			System.assertEquals(Meeting_MERC__c.SobjectType.getDescribe(), selectAll3.d);
-
-			selectAll3.byId(meeting.id);
-			System.assert(selectAll3.allFields.contains('status_merc__c'));
-			System.assert(selectAll3.SOQL.startsWith('SELECT'));
-			System.assert(selectAll3.SOQL.endsWith('\'' + meeting.id + '\''));
-			System.assertEquals(Meeting_MERC__c.SobjectType.getDescribe(), selectAll3.d);
-
-			selectAll3.byList('theListName');
-			System.assert(selectAll3.allFields.contains('status_merc__c'));
-			System.assert(selectAll3.SOQL.endsWith(':theListName'));
-			System.assertEquals(Meeting_MERC__c.SobjectType.getDescribe(), selectAll3.d);
-		}
-	}
-
-	@isTest static void exercise_remoteResponse_inner_class()
-	{
-		System.runAs(testUser)
-		{
-			MERC_Util.RemoteResponse r= new MERC_Util.RemoteResponse(true, 'a String', 'a cid');
-			System.assertEquals(true,r.success);
-			System.assertEquals('a String',r.message);
-			System.assertEquals('a cid',r.contextId);
 		}
 	}
 }

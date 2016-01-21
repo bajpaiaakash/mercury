@@ -5,10 +5,6 @@
 *			   Allows users to set status of meetings en masse
 * Author: Kyle Thornton (Mavens Consulting)
 * Created Date: June 9, 2015
-*
-* Modified By:
-* Modified Date:
-* Modification Description:
 */
 
 public with sharing class MERC_MeetingTaskEditorController {
@@ -21,9 +17,9 @@ public with sharing class MERC_MeetingTaskEditorController {
 	public Meeting_Process_MERC__c filterProcess { get; set; } //used to drive filter dropdowns
 	public Meeting_Tasks_MERC__c   filterTask { get; set; } //used to drive filter dropdowns
 	public Meeting_Tasks_MERC__c   updateTask { get; set; } //used to drive values of selected records
-	public Meeting_MERC__c		 meeting	{ get; private set; }
-	public Boolean				 noErrors   { get; private set; }
-	public List<Task>			  tasks = new List<Task>();
+	public Meeting_MERC__c		   meeting	{ get; private set; }
+	public Boolean				   noErrors   { get; private set; }
+	public List<Task>			   tasks = new List<Task>();
 
 	private String meetingId;
 	private Integer pageNumber;
@@ -117,7 +113,6 @@ public with sharing class MERC_MeetingTaskEditorController {
 
 	public MERC_MeetingTaskEditorController() {
 		noErrors = false;
-
 
 		meetingId = ApexPages.currentPage().getParameters().get('meetingid');
 

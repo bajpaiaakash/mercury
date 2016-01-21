@@ -1,0 +1,70 @@
+<apex:page showHeader="true" sidebar="true" standardController="Invoice_MERC__c" extensions="MERC_InvoiceNewEditController">
+	<apex:includeScript value="{!urlFor($Resource.PersonSearchMVN, 'JQuery/jquery-latest.js')}" />
+	<apex:includeScript value="{!urlFor($Resource.mercury, 'js/mercury.js')}" />
+
+	<c:GLBL_NewEditJavascript objectName="{!sObjectAPIName}" extControllerName="{!className}"/>
+
+	<apex:sectionHeader title="{!title}" subtitle="{!subtitle}"/>
+	<apex:form id="theForm">
+		<apex:pageBlock mode="edit" title="{!title}">
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!save}"/>
+				<apex:commandButton value="Cancel" action="{!cancel}"/>
+			</apex:pageBlockButtons>
+			<apex:pagemessages id="pageMessage"/>
+
+			<apex:repeat value="{!sections}" var="section">
+				<apex:actionRegion >
+					<apex:pageBlockSection title="{!section.title}" columns="{!section.columns}">
+						<apex:repeat value="{!section.fields}" var="field">
+								
+							<apex:inputField required="{!field.required}"
+							                 value="{!mySobject[field.value]}"
+							                 rendered="{!field.readOnly == false && not(field.blankSpace) && not(field.isChildField)}"
+							                 onchange="{!field.onChange}"
+							                 styleClass="{!field.styleClass}"
+							                 html-data-related-id="{!IF(field.isParentField, mySobject[field.value], '')}"/>
+
+							<!-- below is functionality to handle rendering of lookups as dependant picklists. If configured in the Lookup Picklist custom setting   -->
+							<apex:pageBlockSectionItem rendered="{!field.readOnly == false && not(field.blankSpace) && field.isChildField}">
+								<apex:outputLabel value="{!field.label}"/>
+								<apex:outputpanel id="selectblock"
+								                  layout="block"
+								                  styleClass="requiredInput"
+								                  rendered="{!field.readOnly == false && not(field.blankSpace) && field.isChildField}">
+									<apex:outputPanel layout="block"
+									                  styleClass="requiredBlock"
+									                  rendered="{!field.required}"/>
+									<!-- hidden text to bind the lookup id to from the select list -->
+									<apex:inputText id="hiddenValue"
+									                required="{!field.required}"
+								                    value="{!mySobject[field.value]}"
+								                    rendered="{!field.readOnly == false && not(field.blankSpace) && field.isChildField}"
+								                    label="{!field.label}"
+								                    style="display:none;"/>
+									<select size="1"
+									        class="{!field.target}"
+									        onchange="document.getElementById('{!$Component.hiddenValue}').value = this.value;" data-hidden-id="{!$Component.hiddenValue}">
+									        <!-- onchange this selectlist will push its value to the hidden field (inputText above) associated with this selectlist -->
+										<option value="">-- Select --</option>
+									</select>
+
+									<script>
+										// the onChange function will make a call to the controller to get the picklist values in order to refresh the list
+										// after a failed save we need to repopulate the picklist with the correct values based on the current value of the parent field.
+										// Here we execute the onchange event tied to the selectlist whenever the page loads.
+										(function(){
+											{!field.onChange};
+										})();
+									</script>
+								</apex:outputpanel>
+							</apex:pageBlockSectionItem>
+							<apex:outputField value="{!mySobject[field.value]}" rendered="{!field.readOnly}"/>
+							<apex:pageBlockSection rendered="{!field.blankSpace}">&nbsp;</apex:pageBlockSection>
+						</apex:repeat>
+					</apex:pageBlockSection>
+				</apex:actionRegion>
+			</apex:repeat>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

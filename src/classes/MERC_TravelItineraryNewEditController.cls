@@ -79,7 +79,7 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
             }
         } catch(Exception e) {
             setTimeZones();
-            ApexPages.addMessages(e); //TODO: doesn't show ugly error text
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getMessage()));  
             return null;
         }
         PageReference p = (saveAndNew)

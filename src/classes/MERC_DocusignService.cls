@@ -15,29 +15,29 @@ public with sharing class MERC_DocusignService {
     String boundaryMarker = '--'+boundaryName;
     String boundaryMarkerEnd = '--'+boundaryName+'--';
     String hcpSignatureAnchorString = '[DOCUSIGN-HCP-SIGN]';
-    String lillySignatureAnchorString = '[DOCUSIGN-LILLY-SIGN]'; //todo: custom setting
+    String lillySignatureAnchorString;
 
     EmailTemplate template;
-    String emailTemplateName = 'Docusign_Service_Signature_Request_MERC';  //todo: custom setting
-    String defaultEmailText = 'Lilly is requesting that you review and sign the'+
-                        'agreement accessible via the Review Document button. '+
-                        'Please contact Lilly Customer Meeting Service if you have any questions';
+    String emailTemplateName;
+    String defaultEmailText;
     Boolean useTemplate { get {return template != null;} }
     String emailSubject { get{ if (useTemplate) {return template.Subject;} else {return 'Your Signature is Requested by Lilly';}} }
     String emailEnc { get{ if (useTemplate) {return template.Encoding;} else {return 'ISO-8859-1';}} }
     String emailHTMLBody { get{ if (useTemplate) {return template.HtmlValue;} else {return defaultEmailText;}} }
     String emailTextOnlyBody { get{ if (useTemplate) {return template.Body;} else {return defaultEmailText;}} }
 
-    //String signatureAnchorString = 'THIS-WILL-NOT-BE-FOUND'; //for testing only
     public LoginInformation loginInfo { get; private set; }
 
     public MERC_DocusignService() {
         Docusign_Settings_MERC__c settings = Docusign_Settings_MERC__c.getValues('default');
-        this.username       = settings.Username_MERC__c;
-        this.password       = settings.Password_MERC__c;
-        this.integratorKey  = settings.Integrator_Key_MERC__c;
-        this.accountId      = settings.Account_ID_MERC__c;
-        this.baseUrl        = settings.Server_Endpoint_MERC__c;
+        this.username                   = settings.Username_MERC__c;
+        this.password                   = settings.Password_MERC__c;
+        this.integratorKey              = settings.Integrator_Key_MERC__c;
+        this.accountId                  = settings.Account_ID_MERC__c;
+        this.baseUrl                    = settings.Server_Endpoint_MERC__c;
+        this.lillySignatureAnchorString = settings.Lilly_Signature_Anchor_String_MERC__c;
+        this.emailTemplateName          = settings.Email_Template_Name_MERC__c;
+        this.defaultEmailText           = settings.Default_Email_Text_MERC__c;
 
         this.template = [
             SELECT Id, Body, Encoding, HtmlValue, Subject 
@@ -276,9 +276,9 @@ public with sharing class MERC_DocusignService {
         }
     }
     
-    //Voiding DocuSign Envelope; Modification done by Vijay Garg on 13-NOV-2016 for US-39525
+    //Voiding DocuSign Envelope; Modification done by Vijay Garg on 14-JAN-2016 for US-39525
     @Future (callout = true)    //Method should have future notation if it has Callout and getting invoked from trigger
-    public static void voidEnvelope(String envelopeId){
+    public static void voidEnvelope(String envelopeId, String contractRequestStatus){
     
         Http httpProtocol = new Http();
         HttpRequest request = new HttpRequest();
@@ -304,9 +304,19 @@ public with sharing class MERC_DocusignService {
             
         String endpoint = baseUrl + 'accounts/' + accountId + '/envelopes' + '/' + envelopeId;
         
+        String voidedReason;
+        
+        if ( contractRequestStatus == 'Contract Cancelled' ) {
+            voidedReason = 'Your contracting process has been cancelled and DocuSign envelope has been voided to stop further notifications.';
+        } else if ( contractRequestStatus == 'Completed' ) {
+            voidedReason = 'Your signed contract has been manually uploaded by Lilly Customer Meeting Services in order to complete the contracting process,'+
+                           ' and DocuSign envelope has been voided to stop further notifications.';
+        }
+        
+        
         String postBody = '{'+
         '\"status\": \"voided\",'+
-        '\"voidedReason\": \"Void Testing...\"'+
+        '\"voidedReason\": \"'+voidedReason+'\"'+
         '}';
         
         request.setEndPoint(endpoint);
@@ -571,61 +581,6 @@ public with sharing class MERC_DocusignService {
             anchorUnits = 'pixels';
         }
     }
-
-    //public class SignHereExplicitTab {
-    //    public String name;
-    //    public String tabLabel;
-    //    public String scaleValue;
-    //    public String optional;
-    //    public String recipientId;
-    //    public String pageNumber;
-    //    public String xPosition;
-    //    public String yPosition;
-    //    public String tabId;
-
-    //    //use this constructor to create a "sign here tab" based on an anchor string
-    //    public SignHereExplicitTab(String anchor, String x, String y, String id) {
-    //        documentid = id;
-    //        anchorString = anchor;
-    //        anchorXOffset = x;
-    //        anchorYOffset = y;
-    //        anchorIgnoreIfNotPresent = 'false';
-    //        anchorUnits = 'pixels';
-    //    }
-    //}
-
-
-  //  "signHereTabs": [
-  //  {
-  //    "name": "Sign Here",
-  //    "tabLabel": "Signature 2",
-  //    "scaleValue": 1.0,
-  //    "optional": "false",
-  //    "documentId": "1",
-  //    "recipientId": "2",
-  //    "pageNumber": "1",
-  //    "xPosition": "202",
-  //    "yPosition": "48",
-  //    "tabId": "3a56629a-3781-4751-afad-9aff68bc3098"
-  //  }
-  //]
-
-    //public class TabResponse {
-    //    public List<SignHereTabResponse> signHereTabs;
-    //}
-
-    //public class SignHereTabResponse {
-    //    public String name;
-    //    public String tabLabel;
-    //    public String scaleValue;
-    //    public String optional;
-    //    public String documentid;
-    //    public String recipientId;
-    //    public String pageNumber;
-    //    public String xPosition;
-    //    public String yPosition;
-    //    public String tabId;
-    //}
 
     public class TagAndSendResponse {
         public String url;

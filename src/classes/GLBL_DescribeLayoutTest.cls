@@ -48,18 +48,6 @@ private with sharing class GLBL_DescribeLayoutTest {
 				layoutComponent.type_x = 'STRING';
 				layoutComponent.value = 'Different_Custom_Field__c';
 
-				/* sobjectPartnerSoapSforceCom.DescribeLayoutComponent layoutComponent3 = new sobjectPartnerSoapSforceCom.DescribeLayoutComponent();
-				layoutComponent3.displayLines = 1;
-				layoutComponent3.tabOrder = 1;
-				layoutComponent3.type_x = 'STRING';
-				layoutComponent3.value = 'Custom_Field__c';
-
-				sobjectPartnerSoapSforceCom.DescribeLayoutComponent layoutComponent4 = new sobjectPartnerSoapSforceCom.DescribeLayoutComponent();
-				layoutComponent4.displayLines = 1;
-				layoutComponent4.tabOrder = 2;
-				layoutComponent4.type_x = 'STRING';
-				layoutComponent4.value = 'Different_Custom_Field__c'; */
-
 				sobjectPartnerSoapSforceCom.DescribeLayoutComponent layoutComponent3 = new sobjectPartnerSoapSforceCom.DescribeLayoutComponent();
 				layoutComponent3.displayLines = 1;
 				layoutComponent3.tabOrder = 3;
