@@ -135,18 +135,11 @@ private class MERC_RequestHCPSignatureControllerTest {
         PageReference ref = Page.MERC_RequestHCPSignature;
         Test.setCurrentPage(ref);
         
-        //Added by Vijay Garg on 14-JAN-2016 for US-39525
-        Meeting_MERC__c meeting = Merc_TestFactory.insertMeetings(1)[0];
-        Account acc = Merc_TestFactory.insertAccounts(1)[0];
-        Meeting_Participant_MERC__c participant = Merc_TestFactory.insertParticipants(meeting.Id, new List<Account>{acc})[0];
-        //Code Ended by Vijay Garg on 14-JAN-2016 for US-39525
-        
         Test.startTest();
         MERC_RequestHCPSignatureController controller =
             new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
 
         contract.Lilly_Internal_Signee_MERC__c = internalSignee.Id;
-        contract.Meeting_Participant_MERC__c = participant.id; //Added by Vijay Garg on 14-JAN-2016 for US-39525
 
         setupContractContent();
 

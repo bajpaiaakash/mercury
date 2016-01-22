@@ -28,9 +28,9 @@ public with sharing class MERC_HCPContractNewEditController extends GLBL_BaseEdi
             //Logic to display the success error message after contract status is changed to Cancelled or Completed                   
             if ( (contractRequestStatus == 'Contract cancelled' || contractRequestStatus == 'Completed') && docuSignEnvelopeId != null ){
                 if ( contractRequestStatus == 'Contract cancelled' ) {
-                    this.message = 'HCP Contract has been cancelled and Envelope has been voided successfully in DocuSign.';
+                    this.message = 'This contract has been successfully cancelled in Mercury and DocuSign.';
                 } else if ( contractRequestStatus == 'Completed' ) {
-                    this.message = 'HCP Contract has been manually completed and Envelope has been voided successfully in DocuSign.';
+                    this.message = 'This contract has been manually completed in Mercury and the contract in DocuSign successfully cancelled';
                 }
                 
                 this.hidePage = true;

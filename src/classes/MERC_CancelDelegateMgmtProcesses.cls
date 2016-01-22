@@ -49,26 +49,6 @@ public with sharing class MERC_CancelDelegateMgmtProcesses implements GLBL_Trigg
             if (!cancelParticipantIds.isEmpty()) {
                 MERC_CancelDelegateMgmtProcesses.execute(cancelParticipantIds);
             }
-            
-            //Cancel HCP Contract if Meeting Participant is Cancelled; Modification done by Vijay Garg on 13-JAN-2016 for US-39525
-            
-            //List of HCP Contracts to be cancelled as they are related to Cancelled Meeting Participants
-            List<HCP_Contract_MERC__c> cancelledHCPContractsIds
-                = [SELECT Id FROM HCP_Contract_MERC__c WHERE Meeting_Participant_MERC__c IN :cancelParticipantIds];
-            
-            
-            if ( !cancelledHCPContractsIds.isEmpty() ) {
-                HCP_Contract_MERC__c updateHcpContract = new HCP_Contract_MERC__c();
-                ID MeetingParticipantId;
-                
-                for ( HCP_Contract_MERC__c hcpContract: cancelledHCPContractsIds) {
-                    updateHcpContract.id = hcpContract.id;
-                    updateHcpContract.Contract_Request_Status_MERC__c = 'Contract cancelled';
-                
-                    update updateHcpContract;
-                }
-            }    
-            //Code Changes Ended for Cancel HCP Contract if Meeting Participant is Cancelled; Modification done by Vijay Garg on 13-JAN-2016 for US-39525
         }
     }
 
