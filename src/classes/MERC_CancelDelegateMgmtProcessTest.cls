@@ -5,11 +5,6 @@ private class MERC_CancelDelegateMgmtProcessTest {
         Meeting_MERC__c meeting = Merc_TestFactory.insertMeetings(1)[0];
         Account acc = Merc_TestFactory.insertAccounts(1)[0];
         Meeting_Participant_MERC__c participant = Merc_TestFactory.insertParticipants(meeting.Id, new List<Account>{acc})[0];
-        //Added by Vijay Garg on 14-JAN-2016 for US-39525
-        HCP_Contract_MERC__c hcpContract = Merc_TestFactory.insertHCPContract(acc.id);
-        hcpContract.Meeting_Participant_MERC__c = participant.id;
-        update hcpContract;
-        //Code Ended by Vijay Garg on 14-JAN-2016 for US-39525
         
         Meeting_Process_MERC__c process = new Meeting_Process_MERC__c(
             Meeting_Participant_MERC__c = participant.Id,

@@ -331,10 +331,10 @@ public with sharing class MERC_DocusignService {
                 
                 String voidedReason;
                 if ( contractRequestStatus == 'Contract Cancelled' ) {
-                    voidedReason = 'Your contracting process has been cancelled and DocuSign envelope has been voided to stop further notifications.';
+                    voidedReason = 'This contract has now been cancelled and no further action is required';
                 } else if ( contractRequestStatus == 'Completed' ) {
-                    voidedReason = 'Your signed contract has been manually uploaded by Lilly Customer Meeting Services in order to complete the contracting process,'+
-                                   ' and DocuSign envelope has been voided to stop further notifications.';
+                    voidedReason = 'Your signed contract has been successfully received by Lilly. '+'<br>'+
+                                   'This notification is to confirm that DocuSign has cancelled the online process and no further action is required.';
                 }
                 
                 String postBody = '{'+

@@ -14,6 +14,8 @@
 		<members>MERC_InvoiceCreditNoteController</members>
         <members>MERC_InvoiceDocFilterController</members>
 		<members>MERC_MeetingParticipantNewEditCtrlTest</members>
+		<members>MERC_MeetingTOVFinalValidation</members>
+		<members>MERC_MeetingTOVFinalValidationTest</members>
 		<members>MERC_ParticipantTovStampHandlerTest</members>
         <members>MERC_RegistrationResponsesController</members>
         <members>MERC_RequestHCPSignatureController</members>
@@ -26,6 +28,7 @@
         <members>MERC_TravelItineraryNewEditTest</members>
         <members>MERC_TravelProposalsController</members>
         <members>MERC_TravelProposalsControllerTest</members>
+		<members>MERC_TriggerHandlerStateManager</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -34,6 +37,7 @@
     </types>
     <types>
         <members>MERC_HCPContract</members>
+		<members>MERC_Meeting</members>
         <name>ApexTrigger</name>
     </types>
 	<types>

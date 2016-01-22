@@ -14,7 +14,7 @@ public with sharing class MERC_RequestHCPSignatureController {
 
     public MERC_RequestHCPSignatureController(ApexPages.StandardController stdController) {
         this.stdController = stdController;
-        if (!Test.isRunningTest()) { this.stdController.addFields(new List<String>{ 'Id', 'Name', 'Account_MERC__c', 'Meeting_Participant_MERC__c' }); } //One more fields 'Meeting_Participant_MERC__c' added by Vijay Garg on 14-JAN-2016 for US-39525
+        if (!Test.isRunningTest()) { this.stdController.addFields(new List<String>{ 'Id', 'Name', 'Account_MERC__c' }); }
 
         this.contract = (HCP_Contract_MERC__c)stdController.getRecord();
 
@@ -47,16 +47,6 @@ public with sharing class MERC_RequestHCPSignatureController {
             this.error = 'Could not find HCP Contract PDF file. Please use the "Upload Content" button on the HCP Contract record.'; //TODO label
             return false;
         }
-
-        //Error Message if Meeting Participant status is cancelled; Modification done by Vijay Garg on 14-JAN-2016 for US-39525
-        if ( this.contract.Meeting_Participant_MERC__c!= null ) {
-            Meeting_Participant_MERC__c meetingParticipant = [Select Id, Status_MERC__c From Meeting_Participant_MERC__c Where Id = :this.contract.Meeting_Participant_MERC__c];
-            if ( meetingParticipant.id != null && (meetingParticipant.Status_MERC__c == 'Cancelled' || meetingParticipant.Status_MERC__c == 'Declined') ) {
-                this.error = 'We can not request for hcp signature as Meeting Participant status is either \'Declined\' or \'Cancelled\'.';
-                return false;
-            }
-        }
-
 
         this.error = null;
         return true;
