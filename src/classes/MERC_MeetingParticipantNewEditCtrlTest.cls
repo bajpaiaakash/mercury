@@ -16,12 +16,12 @@ private class MERC_MeetingParticipantNewEditCtrlTest {
         system.assertEquals(0, [SELECT count() FROM Meeting_Participant_MERC__c]);
 
         PageReference ref = Page.MERC_MeetingParticipantNewEdit;
-        ref.getParameters().put('RecordType', [SELECT ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Merc_Service_Provider'].Id);
+        ref.getParameters().put('RecordType', [SELECT ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'MERC_Service_Provider'].Id);
         Test.setCurrentPage(ref);
 
         Meeting_Participant_MERC__c newMeetingParticipant = new Meeting_Participant_MERC__c();
         newMeetingParticipant.Meeting_MERC__c = meetings.get(0).Id;
-        //newMeetingParticipant.RecordTypeId = [SELECT ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Merc_Service_Provider'].ID;
+        //newMeetingParticipant.RecordTypeId = [SELECT ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'MERC_Service_Provider'].ID;
 
         ApexPages.StandardController standardController = new ApexPages.StandardController(newMeetingParticipant);
         MERC_MeetingParticipantNewEditController controller = new MERC_MeetingParticipantNewEditController(standardController);

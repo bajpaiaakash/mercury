@@ -428,7 +428,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
                             '   ID, Sgmnt_Bgin_TS_MERC__c, Sgmnt_End_TS_MERC__c, Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c, '+
                             '   Status_MERC__c, Room_Rate_excl_VAT_MERC__c, Include_ToV_MERC__c '+
                             'FROM Travel_Itineraries_MERC__r '+
-                            'WHERE RecordType.DeveloperName = \'Merc_Hotel\') '+
+                            'WHERE RecordType.DeveloperName = \'MERC_Hotel\') '+
                        'FROM Meeting_Participant_MERC__c WHERE ';
 
     private static Map<Daily_Attendance_TOV_MERC__c,Travel_Itinerary_MERC__c> associateToVwithHotelItinerary(Set<Id> meetingIds) {

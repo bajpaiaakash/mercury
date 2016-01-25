@@ -5,7 +5,7 @@
         <fullName>Speaking_MERC__c</fullName>
         <description>Used by Portal to identity service provider as a speaker for a meeting. John Lorenti 2014-03-12</description>
         <externalId>false</externalId>
-        <formula>AND(RecordType.DeveloperName != &apos;Merc_Delegate&apos;, OR(
+        <formula>AND(RecordType.DeveloperName != &apos;MERC_Delegate&apos;, OR(
 ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Speaker&apos;),
 ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
 ))</formula>
@@ -19,7 +19,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <fullName>MERC_Prevent_MP_Status_Change</fullName>
         <active>true</active>
         <description>Prevents users from changing the MP Status should Meeting Days exist, this logic does NOT account for when a Meeting Day is added and then deleted leaving NO meeting days.  This was agreed : MERC : Created on 04/11/2015 by Oliver Dunford, Mavens</description>
-        <errorConditionFormula>ISCHANGED( Status_MERC__c ) &amp;&amp; ((TEXT(Status_MERC__c) = &quot;No Show&quot;) || (TEXT(Status_MERC__c) = &quot;Attended&quot;)) &amp;&amp;  RecordType.DeveloperName &lt;&gt; &quot;Merc_Individual_Sponsorship&quot; &amp;&amp; RecordType.DeveloperName &lt;&gt; &quot;Merc_Consulting&quot; &amp;&amp;  Meeting_MERC__r.Has_Meeting_Days_MERC__c = TRUE &amp;&amp;  Override_MP_Status_Validation_MERC__c &lt;&gt; TRUE
+        <errorConditionFormula>ISCHANGED( Status_MERC__c ) &amp;&amp; ((TEXT(Status_MERC__c) = &quot;No Show&quot;) || (TEXT(Status_MERC__c) = &quot;Attended&quot;)) &amp;&amp;  RecordType.DeveloperName &lt;&gt; &quot;MERC_Individual_Sponsorship&quot; &amp;&amp; RecordType.DeveloperName &lt;&gt; &quot;MERC_Consulting&quot; &amp;&amp;  Meeting_MERC__r.Has_Meeting_Days_MERC__c = TRUE &amp;&amp;  Override_MP_Status_Validation_MERC__c &lt;&gt; TRUE
 &amp;&amp;
 ( 
 $Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp; 
@@ -36,7 +36,7 @@ Account_MERC__r.RecordType.Name &lt;&gt;&quot;Employee&quot;
         <fullName>MERC_Type_of_Service</fullName>
         <active>true</active>
         <description>Ensures that the Type of Service field is updated correctly should the record type of a Meeting Participant change from Delegate to Service Provider.  This ensures &quot;Expenses&quot; is not an acceptable choice : MERC : Created on 03/02/2015 by Oliver Dunford</description>
-        <errorConditionFormula>RecordType.DeveloperName = &apos;Merc_Service_Provider&apos; &amp;&amp; TEXT( Types_of_Service_MERC__c ) = &apos;Expenses&apos;</errorConditionFormula>
+        <errorConditionFormula>RecordType.DeveloperName = &apos;MERC_Service_Provider&apos; &amp;&amp; TEXT( Types_of_Service_MERC__c ) = &apos;Expenses&apos;</errorConditionFormula>
         <errorDisplayField>Types_of_Service_MERC__c</errorDisplayField>
         <errorMessage>Expenses is not a valid type of Service for Service Providers.  Please update the field to reflect the service provided.</errorMessage>
     </validationRules>

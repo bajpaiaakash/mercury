@@ -28,7 +28,7 @@ private class MERC_HotelAllocationCalculatorTest {
 
     @isTest static void testShouldProperlyCalculateHotelAllocations() {
         Test.startTest();
-        Id hotelItineraryRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'Merc_Hotel' AND SObjectType = 'Travel_Itinerary_MERC__c'].Id;
+        Id hotelItineraryRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'MERC_Hotel' AND SObjectType = 'Travel_Itinerary_MERC__c'].Id;
 
         Meeting_Vendor_MERC__c hotel1 = hotels.get(0);
         Meeting_Vendor_MERC__c hotel2 = hotels.get(1);

@@ -51,7 +51,7 @@
         <name>CustomObject</name>
     </types>
 	<types>
-         <members>Merc_CMS_IT_Support</members>
+         <members>MERC_CMS_IT_Support</members>
 		<members>Mercury_Customer_Meeting_Services_Edit</members>
         <name>PermissionSet</name>
     </types>

@@ -41,7 +41,7 @@ public with sharing class MERC_MeetingTOVFinalValidation implements GLBL_Trigger
                                                                                      From Meeting_Participants_del__r 
                                                                                      Where Status_MERC__c in ('Approved', 'Invited', 'Interested in Meeting', 'Pending Approval', 'Accepted', 'Attended', 'No Show')
                                                                                          AND Account_MERC__r.RecordType.DeveloperName = 'HCP_GLBL' 
-                                                                                         AND RecordType.DeveloperName not in ('Merc_Individual_Sponsorship', 'Merc_Consulting')) Meeting_Participants_del__r 
+                                                                                         AND RecordType.DeveloperName not in ('MERC_Individual_Sponsorship', 'MERC_Consulting')) Meeting_Participants_del__r 
                                                                                  From Meeting_MERC__c
                                                                                  Where id in :meetingIds
                                                                                      AND Recordtype.DeveloperName not in ('Ad_Hoc_Consulting', 'Meeting_Program')]);
@@ -55,7 +55,7 @@ public with sharing class MERC_MeetingTOVFinalValidation implements GLBL_Trigger
                                           Where Meeting_MERC__c in :meetingsDetail.keySet()
                                           AND Status_MERC__c in ('Accepted', 'Attended', 'No Show')
                                           AND Account_MERC__r.RecordType.DeveloperName = 'HCP_GLBL' 
-                                          AND RecordType.DeveloperName in ('Merc_Service_Provider', 'Merc_Delegate')]);
+                                          AND RecordType.DeveloperName in ('MERC_Service_Provider', 'MERC_Delegate')]);
                                                                                  
         Integer numberOfMeetingDays;
         

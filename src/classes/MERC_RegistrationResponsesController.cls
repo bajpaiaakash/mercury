@@ -179,13 +179,13 @@ public with sharing class MERC_RegistrationResponsesController {
         String recordTypeFilter;
         String soql = '';
 
-        if (developerName == 'Merc_Consulting') {
+        if (developerName == 'MERC_Consulting') {
             recordTypeFilter = 'Consulting_MERC__c = ';
-        } else if (developerName == 'Merc_Delegate') {
+        } else if (developerName == 'MERC_Delegate') {
             recordTypeFilter = 'Delegate_MERC__c = ';
-        } else if (developerName == 'Merc_Individual_Sponsorship') {
+        } else if (developerName == 'MERC_Individual_Sponsorship') {
             recordTypeFilter = 'Individual_Sponsorship_MERC__c = ';
-        } else if (developerName == 'Merc_Service_Provider') {
+        } else if (developerName == 'MERC_Service_Provider') {
             recordTypeFilter = 'Service_Provider_MERC__c = ';
         } else {
             recordTypeFilter = '';

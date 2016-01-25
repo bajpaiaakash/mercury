@@ -5,7 +5,7 @@
         <fullName>Combined_ID_MERC__c</fullName>
         <description>Checks for duplicate Hotel Travel Itinerary Values. Gets stamped in Force Unique Travel Itinerary field by workflow.  Created 06/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF (RecordType.DeveloperName = &quot;Merc_Hotel&quot;,  RecordTypeId &amp; &quot;-&quot; &amp; Meeting_Participant_MERC__c &amp; &quot;-&quot; &amp;  
+        <formula>IF (RecordType.DeveloperName = &quot;MERC_Hotel&quot;,  RecordTypeId &amp; &quot;-&quot; &amp; Meeting_Participant_MERC__c &amp; &quot;-&quot; &amp;  
   Meeting_Vendor_MERC__c , Id)</formula>
         <label>Combined ID</label>
         <required>false</required>
@@ -18,7 +18,7 @@
         <description>Used to order Travel Itinerary related list : MERC : Created on 9th July 2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>IF
-	(RecordType.DeveloperName = &apos;Merc_Travel_Proposal&apos;, 
+	(RecordType.DeveloperName = &apos;MERC_Travel_Proposal&apos;, 
 		Name &amp; TEXT(CASE(Proposal_Counter_MERC__c,	1,99, 
                              						2,98,
                              						3,97,
@@ -39,7 +39,7 @@
 ,
 
 IF
-	(((RecordType.DeveloperName = &apos;Merc_Air&apos;) || (RecordType.DeveloperName = &apos;Merc_Bus&apos;) || (RecordType.DeveloperName = &apos;Merc_Rail&apos;))
+	(((RecordType.DeveloperName = &apos;MERC_Air&apos;) || (RecordType.DeveloperName = &apos;MERC_Bus&apos;) || (RecordType.DeveloperName = &apos;MERC_Rail&apos;))
 
 	, 
 		Travel_Proposal_MERC__r.Name &amp; &quot; - &quot; &amp; TEXT(CASE(Segment_Number__c,	1,99, 
@@ -63,7 +63,7 @@ IF
 ,
 
 IF
-	(((RecordType.DeveloperName = &apos;Merc_Car&apos;) || (RecordType.DeveloperName = &apos;Merc_Hotel&apos;))
+	(((RecordType.DeveloperName = &apos;MERC_Car&apos;) || (RecordType.DeveloperName = &apos;MERC_Hotel&apos;))
 	,
 		Name,Name
 	)
@@ -81,7 +81,7 @@ IF
         <description>If ToV has already been reported for the meeting participant, HCP Care needs to confirm the change to the hotel and Individual Travel Fields that can effect ToV.</description>
         <errorConditionFormula>(
 ! Confirm_ToV_Reporting_Change_MERC__c &amp;&amp;
-ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp; (RecordType.DeveloperName = &quot;Merc_Hotel&quot;) &amp;&amp;
+ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp; (RecordType.DeveloperName = &quot;MERC_Hotel&quot;) &amp;&amp;
 (
 (ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) || ISCHANGED( Sgmnt_End_TS_MERC__c ) || ISCHANGED(  Meeting_Vendor_MERC__c  )) ||
 (ISCHANGED( Status_MERC__c ) &amp;&amp; ISPICKVAL( Status_MERC__c , &quot;Cancelled&quot;))
@@ -92,7 +92,7 @@ ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MER
 
 (
 ! Confirm_ToV_Reporting_Change_MERC__c &amp;&amp;
-ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp; (RecordType.DeveloperName = &quot;Merc_Car&quot;) &amp;&amp; ( Individual_Travel_ToV_Applicable_MERC__c  = TRUE) &amp;&amp;
+ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp; (RecordType.DeveloperName = &quot;MERC_Car&quot;) &amp;&amp; ( Individual_Travel_ToV_Applicable_MERC__c  = TRUE) &amp;&amp;
 (
 (ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) || ISCHANGED( Sgmnt_End_TS_MERC__c ) || ISCHANGED(  Total_Fare_Amount_MERC__c  )) ||
 (ISCHANGED( Status_MERC__c ) &amp;&amp; ISPICKVAL( Status_MERC__c , &quot;Cancelled&quot;)) ||
@@ -106,7 +106,7 @@ ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MER
         <fullName>MERC_Prevent_Private_Transfer_ToV</fullName>
         <active>true</active>
         <description>Prevents the ToV for Individual Transfer checkbox being set if the Meeting Participant is being sponsored for an Independent Meeting.  ToV should be typed into the meeting participant : MERC : Created on 24/07/2014 by Oliver Dunford, Mavens Consulting</description>
-        <errorConditionFormula>Meeting_Participant_MERC__r.RecordType.DeveloperName = &quot;Merc_Individual_Sponsorship&quot; &amp;&amp; Individual_Travel_ToV_Applicable_MERC__c = TRUE</errorConditionFormula>
+        <errorConditionFormula>Meeting_Participant_MERC__r.RecordType.DeveloperName = &quot;MERC_Individual_Sponsorship&quot; &amp;&amp; Individual_Travel_ToV_Applicable_MERC__c = TRUE</errorConditionFormula>
         <errorDisplayField>Individual_Travel_ToV_Applicable_MERC__c</errorDisplayField>
         <errorMessage>For Individual Sponsorship all ToV should be totalled and entered onto the meeting participant record.</errorMessage>
     </validationRules>
@@ -114,9 +114,9 @@ ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MER
         <fullName>No_Segment_Status_Chnge_B4_Proposal_MERC</fullName>
         <active>true</active>
         <description>14JULY2015 BHo - This validation rule will prevent a user from changing the status of a Segment to Confirmed before changing the status of the Proposal.</description>
-        <errorConditionFormula>((RecordType.DeveloperName = &quot;Merc_Air&quot;) ||
-(RecordType.DeveloperName = &quot;Merc_Bus&quot;) ||
-(RecordType.DeveloperName = &quot;Merc_Rail&quot;))
+        <errorConditionFormula>((RecordType.DeveloperName = &quot;MERC_Air&quot;) ||
+(RecordType.DeveloperName = &quot;MERC_Bus&quot;) ||
+(RecordType.DeveloperName = &quot;MERC_Rail&quot;))
 &amp;&amp;
 TEXT(Status_MERC__c) = &quot;Confirmed&quot;
 &amp;&amp;
