@@ -168,7 +168,7 @@
 		<field>Account.Update_Subscriber_Error_ET_MERC__c</field>
 		<readable>true</readable>
 	</fieldPermissions>
-	<label>Merc CMS IT Support</label>
+	<label>MERC CMS IT Support</label>
 	<pageAccesses>
 	    <apexPage>MERC_HCPContractNewEdit</apexPage>
 	    <enabled>true</enabled>
