@@ -28,7 +28,7 @@ public with sharing class MERC_HotelAllocationCalculator implements GLBL_Trigger
 
     void rollupHotelAllocations(List<SObject> sobjects) {
 
-        Id hotelItineraryRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'Merc_Hotel' AND SObjectType = 'Travel_Itinerary_MERC__c'].Id;
+        Id hotelItineraryRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'MERC_Hotel' AND SObjectType = 'Travel_Itinerary_MERC__c'].Id;
 
         if ( this.triggeredSobjectType == Travel_Itinerary_MERC__c.SobjectType ) {
 

@@ -5,14 +5,14 @@
         <fullName>MERC_Cnsltng_Proj_Consulting_Type_MP</fullName>
         <active>true</active>
         <description>For Consulting Project type MP, either use Consulting project type invoice line item or other items.</description>
-        <errorConditionFormula>AND(RecordType.DeveloperName = &quot;Contracted_Services_MERC&quot;, Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.DeveloperName = &quot;Merc_Consulting&quot; )</errorConditionFormula>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &quot;Contracted_Services_MERC&quot;, Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.DeveloperName = &quot;MERC_Consulting&quot; )</errorConditionFormula>
         <errorMessage>You cannot use line item type Contracted Services for Consulting Project. Line item Consulting Project should be used instead.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>MERC_Contr_srvcs_SP_Type_MP</fullName>
         <active>true</active>
         <description>For service provider type MP, either use Contracted services invoice line item or other items.</description>
-        <errorConditionFormula>AND(RecordType.DeveloperName = &quot;Consulting_Project_MERC&quot;, Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.DeveloperName = &quot;Merc_Service_Provider&quot;)</errorConditionFormula>
+        <errorConditionFormula>AND(RecordType.DeveloperName = &quot;Consulting_Project_MERC&quot;, Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.DeveloperName = &quot;MERC_Service_Provider&quot;)</errorConditionFormula>
         <errorMessage>You cannot use the line item type Consulting Project for Service Provider. Line item Contracted Services should be used instead.</errorMessage>
     </validationRules>
     <validationRules>
@@ -20,8 +20,8 @@
         <active>true</active>
         <description>For Delegate type MP,use other items type Invoice Line items.</description>
         <errorConditionFormula>OR(
-AND(RecordType.DeveloperName = &quot;Consulting_Project_MERC&quot;,Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.DeveloperName = &quot;Merc_Delegate&quot;),
-AND(RecordType.DeveloperName = &quot;Contracted_Services_MERC&quot;,Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.DeveloperName = &quot;Merc_Delegate&quot;)
+AND(RecordType.DeveloperName = &quot;Consulting_Project_MERC&quot;,Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.DeveloperName = &quot;MERC_Delegate&quot;),
+AND(RecordType.DeveloperName = &quot;Contracted_Services_MERC&quot;,Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.DeveloperName = &quot;MERC_Delegate&quot;)
 )</errorConditionFormula>
         <errorMessage>You cannot use line item type Contracted Services or Consulting Project for Delegates.Line item Other Items should be used instead.</errorMessage>
     </validationRules>

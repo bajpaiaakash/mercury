@@ -34,7 +34,7 @@ private class MERC_TravelItineraryNewEditTest {
 
             Travel_Itinerary_MERC__c newItinerary = new Travel_Itinerary_MERC__c();
             newItinerary.Meeting_Participant_MERC__c = participants.get(0).Id;
-            newItinerary.RecordTypeId = [SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'Merc_Air'].ID;
+            newItinerary.RecordTypeId = [SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'MERC_Air'].ID;
 
             ApexPages.StandardController standardController = new ApexPages.StandardController(newItinerary);
             MERC_TravelItineraryNewEditController controller = new MERC_TravelItineraryNewEditController(standardController);

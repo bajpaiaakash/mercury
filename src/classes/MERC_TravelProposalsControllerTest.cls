@@ -250,7 +250,7 @@ private class MERC_TravelProposalsControllerTest
     }
 
     private static void givenTheUserTogglesTheProposalXSegmentYTypeToAir(Integer proposalIndex, Integer segmentIndex) {
-        controller.proposals[proposalIndex].segments[segmentIndex].segmentType = 'Merc_Air';
+        controller.proposals[proposalIndex].segments[segmentIndex].segmentType = 'MERC_Air';
         controller.doNothing(); //simulate the post back to the server from the page onchange actionsupport
     }
 

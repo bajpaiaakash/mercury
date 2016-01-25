@@ -26,7 +26,7 @@ private class MERC_MeetingTOVFinalValidationTest
         initializedata();
 
 
-        ID participantRecordTypeId = [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Merc_Service_Provider' LIMIT 1].Id;
+        ID participantRecordTypeId = [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'MERC_Service_Provider' LIMIT 1].Id;
         participants[0].RecordTypeId = participantRecordTypeId;
         
         
@@ -52,7 +52,7 @@ private class MERC_MeetingTOVFinalValidationTest
     {
         initializedata();
 
-        ID participantRecordTypeId = [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Merc_Service_Provider' LIMIT 1].Id;
+        ID participantRecordTypeId = [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'MERC_Service_Provider' LIMIT 1].Id;
         participants[0].RecordTypeId = participantRecordTypeId;
         
        participants[0].status_MERC__c = 'No Show' ;
@@ -80,7 +80,7 @@ private class MERC_MeetingTOVFinalValidationTest
         initializedata();
         test.startTest();
      
-        ID participantRecordTypeId = [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Merc_Service_Provider' LIMIT 1].Id;
+        ID participantRecordTypeId = [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'MERC_Service_Provider' LIMIT 1].Id;
         participants[0].RecordTypeId = participantRecordTypeId;
         
         participants[0].status_MERC__c = 'No Show' ;

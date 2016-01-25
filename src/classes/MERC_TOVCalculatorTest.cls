@@ -21,8 +21,8 @@ private class MERC_TOVCalculatorTest {
 
     public static Id hcpRecordTypeId =              [SELECT ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'HCP_GLBL' LIMIT 1].Id;
     public static Id vendorRecordTypeId =           [SELECT ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Vendor_GLBL' LIMIT 1].Id;
-    public static Id hotelItineraryRecordTypeId =   [SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'Merc_Hotel' LIMIT 1].Id;
-    public static Id rentalCarRecordTypeId =        [SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'Merc_Car' LIMIT 1].Id;
+    public static Id hotelItineraryRecordTypeId =   [SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'MERC_Hotel' LIMIT 1].Id;
+    public static Id rentalCarRecordTypeId =        [SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'MERC_Car' LIMIT 1].Id;
 
     private static void setup(){
         MERC_TriggerHandlerStateManager.deactivateAll();

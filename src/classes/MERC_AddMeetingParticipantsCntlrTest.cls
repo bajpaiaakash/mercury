@@ -32,13 +32,13 @@ private class MERC_AddMeetingParticipantsCntlrTest {
             participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accts);
             //Start modified by Jyoti Gaur on 15 Jan for US-39477
             Add_Meeting_Participant_Record_Type_MERC__c setting = new Add_Meeting_Participant_Record_Type_MERC__c();
-            setting.Ad_Hoc_Consulting_MERC__c = 'Merc_Consulting,Merc_Delegate,Merc_Individual_Sponsorship,Merc_Service_Provider';
-            setting.Completed_MERC__c = 'Merc_Consulting,Merc_Delegate,Merc_Individual_Sponsorship,Merc_Service_Provider';
-            setting.Forecasted_MERC__c = 'Merc_Consulting,Merc_Delegate,Merc_Individual_Sponsorship,Merc_Service_Provider';
-            setting.Independent_Sponsorship_MERC__c = 'Merc_Consulting,Merc_Delegate,Merc_Individual_Sponsorship,Merc_Service_Provider';
-            setting.Meeting_Active_MERC__c = 'Merc_Consulting,Merc_Delegate,Merc_Individual_Sponsorship,Merc_Service_Provider';
-            setting.Meeting_Program_MERC__c = 'Merc_Consulting,Merc_Delegate,Merc_Individual_Sponsorship,Merc_Service_Provider';
-            setting.Registered_MERC__c = 'Merc_Consulting,Merc_Delegate,Merc_Individual_Sponsorship,Merc_Service_Provider';
+            setting.Ad_Hoc_Consulting_MERC__c = 'MERC_Consulting,MERC_Delegate,MERC_Individual_Sponsorship,MERC_Service_Provider';
+            setting.Completed_MERC__c = 'MERC_Consulting,MERC_Delegate,MERC_Individual_Sponsorship,MERC_Service_Provider';
+            setting.Forecasted_MERC__c = 'MERC_Consulting,MERC_Delegate,MERC_Individual_Sponsorship,MERC_Service_Provider';
+            setting.Independent_Sponsorship_MERC__c = 'MERC_Consulting,MERC_Delegate,MERC_Individual_Sponsorship,MERC_Service_Provider';
+            setting.Meeting_Active_MERC__c = 'MERC_Consulting,MERC_Delegate,MERC_Individual_Sponsorship,MERC_Service_Provider';
+            setting.Meeting_Program_MERC__c = 'MERC_Consulting,MERC_Delegate,MERC_Individual_Sponsorship,MERC_Service_Provider';
+            setting.Registered_MERC__c = 'MERC_Consulting,MERC_Delegate,MERC_Individual_Sponsorship,MERC_Service_Provider';
             //end modified by Jyoti Gaur on 15 Jan for US-39477
             insert setting;
             

@@ -217,7 +217,7 @@ public with sharing class MERC_TravelProposalsController {
             if (String.isBlank(proposalRecordTypeId)) {
                 proposalRecordTypeId = [SELECT Id
                                           FROM RecordType
-                                         WHERE DeveloperName='Merc_Travel_Proposal'
+                                         WHERE DeveloperName='MERC_Travel_Proposal'
                                            AND SObjectType='Travel_Itinerary_MERC__c' limit 1].Id;
             }
             return proposalRecordTypeId;
