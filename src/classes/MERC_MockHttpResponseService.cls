@@ -6,15 +6,15 @@
 * Modified Date: Dec. 14th 2015
 */
 public with sharing class MERC_MockHttpResponseService implements HttpCalloutMock {
-    private static final String POST_METHOD = 'POST';
-    private static final String GET_METHOD = 'GET';
-    private static final String SOAP_ACTION = 'SOAPAction';
-    private static final String CONTENT_TYPE_KEY = 'Content-Type';
-    private static final String ACCEPT_TYPE_KEY = 'Accept';
-    private static final String XML_CHARSET_TYPE = 'text/xml; charset=UTF-8';
-    private static final String JSON_TYPE = 'application/json';
-    private static final String JSON_CHARSET_TYPE =  'application/json; charset=UTF-8';
-    private static final String AUTHORIZATION_KEY = 'authorization';
+    public static final String POST_METHOD = 'POST';
+    public static final String GET_METHOD = 'GET';
+    public static final String SOAP_ACTION = 'SOAPAction';
+    public static final String CONTENT_TYPE_KEY = 'Content-Type';
+    public static final String ACCEPT_TYPE_KEY = 'Accept';
+    public static final String XML_CHARSET_TYPE = 'text/xml; charset=UTF-8';
+    public static final String JSON_TYPE = 'application/json';
+    public static final String JSON_CHARSET_TYPE =  'application/json; charset=UTF-8';
+    public static final String AUTHORIZATION_KEY = 'authorization';
 
     private List<MockResponseInterface> mockResponseHandlers;
 
@@ -75,6 +75,7 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
 
     public class BasicMockGetResponse implements MockResponseInterface {
         private String expectedEndpoint;
+        private Pattern endpointPattern;
         private String contentType;
         private String acceptType;
         private String responseBody;
@@ -89,11 +90,48 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
             this.responseBody = responseBody;
         }
 
-        public Boolean shouldRespond(HttpRequest request) {
-            return  request.getMethod() == GET_METHOD &&
-                    request.getEndpoint() == expectedEndpoint &&
-                    (contentType == null || request.getHeader(CONTENT_TYPE_KEY) == contentType) &&
-                    (acceptType == null || request.getHeader(ACCEPT_TYPE_KEY) == acceptType);
+        public BasicMockGetResponse(Pattern endpointPattern,
+                                    String contentType,
+                                    String acceptType,
+                                    String responseBody) {
+            this.endpointPattern = endpointPattern;
+            this.contentType = contentType;
+            this.acceptType = acceptType;
+            this.responseBody = responseBody;
+        }
+
+        public Boolean shouldRespond(HttpRequest request) {            
+            Boolean methodMatch = request.getMethod() == GET_METHOD;
+            Boolean endpointMatch = false;
+            String endpoint = request.getEndpoint();
+
+            if(endpointPattern == null){
+                endpointMatch = expectedEndpoint.equals(endpoint);
+            } else {
+                expectedEndpoint = endpointPattern.pattern();
+                endpointMatch = endpointPattern.matcher(endpoint).matches();
+            }
+
+            if(methodMatch && endpointMatch){
+                System.debug(LoggingLevel.FINE, GET_METHOD + ' to ' + expectedEndpoint + ' MATCHES: Checking header');
+                Boolean contentTypeMatch = (contentType == null || contentType.equals(request.getHeader(CONTENT_TYPE_KEY)));
+                Boolean acceptTypeMatch = (acceptType == null || acceptType.equals(request.getHeader(ACCEPT_TYPE_KEY)));
+                if(contentTypeMatch && acceptTypeMatch){
+                    System.debug(LoggingLevel.FINE, 'Match found for ' + GET_METHOD + ' to ' + expectedEndpoint);
+                    return true;
+                } else {
+                    if(!contentTypeMatch){
+                        System.debug(LoggingLevel.FINE, 'Content-Type mis-matched: ' + contentType + ' vs ' + request.getHeader(CONTENT_TYPE_KEY));
+                    }
+                    if(!acceptTypeMatch){
+                        System.debug(LoggingLevel.FINE, 'Accept-Type mis-matched: ' + acceptType + ' vs ' + request.getHeader(ACCEPT_TYPE_KEY));
+                    }
+                }
+            } else {
+                System.debug(LoggingLevel.FINE, request.getMethod() + ' to ' + request.getEndpoint() + 
+                    '\ndid not match\n' + GET_METHOD + ' to ' + expectedEndpoint);
+            }
+            return false;
         }
         
         public HttpResponse respond(){
@@ -139,33 +177,44 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
         }
 
         public Boolean shouldRespond(HttpRequest request) {
-
             Boolean methodMatch = request.getMethod() == POST_METHOD;
             Boolean endpointMatch = expectedEndpoint.equals(request.getEndpoint());
-            Boolean contentTypeMatch = (contentType == null || contentType.equals(request.getHeader(CONTENT_TYPE_KEY)));
-            Boolean acceptTypeMatch = (acceptType == null || acceptType.equals(request.getHeader(ACCEPT_TYPE_KEY)));
-            Boolean authorizationMatch = (authorization == null || authorization.equals(request.getHeader(AUTHORIZATION_KEY)));
-            Boolean actionMatch = (action == null || action.equals(request.getHeader(SOAP_ACTION)));
-            Boolean bodyMatch = expectedBody.equals(request.getBody().deleteWhitespace());
-
-            System.debug(LoggingLevel.FINE, 'request.getMethod() == POST_METHOD:\t\t\t' + methodMatch);
-            System.debug(LoggingLevel.FINE, 'request.getEndpoint() == expectedEndpoint:\t\t\t' + endpointMatch);
-            System.debug(LoggingLevel.FINE, '(contentType == null || request.getHeader(CONTENT_TYPE_KEY) == contentType):\t\t\t' + contentTypeMatch);
-            System.debug(LoggingLevel.FINE, '(acceptType == null || request.getHeader(ACCEPT_TYPE_KEY) == acceptType):\t\t\t' + acceptTypeMatch);
-            System.debug(LoggingLevel.FINE, '(authorization == null || request.getHeader(AUTHORIZATION_KEY) == authorization):\t\t\t' + authorizationMatch);
-            System.debug(LoggingLevel.FINE, '(action == null || request.getHeader(SOAP_ACTION) == action):\t\t\t' + actionMatch);
-            System.debug(LoggingLevel.FINE, 'request.getBody().deleteWhitespace() == expectedBody:\t\t\t' + bodyMatch);
-
-            Boolean isMatch = methodMatch && endpointMatch && contentTypeMatch && 
-                              acceptTypeMatch && authorizationMatch && actionMatch && bodyMatch;
-
-            if(!isMatch){
-                System.debug(LoggingLevel.FINE, 'Handler Name:\t' + handlerName() + '\nNot a match:\t' + request);
-
-                System.debug(LoggingLevel.FINE, 'Endpoint:\t' + request.getEndpoint() + '\nvs\nOurs:\t\t' + expectedEndpoint);
+            if(methodMatch && endpointMatch){
+                System.debug(LoggingLevel.FINE, POST_METHOD + ' to ' + expectedEndpoint + ' MATCHES: Checking header');
+                Boolean contentTypeMatch = (contentType == null || contentType.equals(request.getHeader(CONTENT_TYPE_KEY)));
+                Boolean acceptTypeMatch = (acceptType == null || acceptType.equals(request.getHeader(ACCEPT_TYPE_KEY)));
+                Boolean authorizationMatch = (authorization == null || authorization.equals(request.getHeader(AUTHORIZATION_KEY)));
+                Boolean actionMatch = (action == null || action.equals(request.getHeader(SOAP_ACTION)));    
+                if(contentTypeMatch && acceptTypeMatch && authorizationMatch && actionMatch){
+                    System.debug(LoggingLevel.FINE, 'Header MATCHES: Checking body');
+                    Boolean bodyMatch = expectedBody.equals(request.getBody().deleteWhitespace());
+                    if(bodyMatch){
+                        System.debug(LoggingLevel.FINE, 'Match found for ' + POST_METHOD + ' to ' + expectedEndpoint);
+                        return true;
+                    } else {
+                        System.debug(LoggingLevel.FINE, 'Body did not Match:\n\tRequest body:\n\t\t' + request.getBody() +
+                            '\n\nExpected body:\n\t\t' + expectedBody);
+                    }
+                } else {
+                    if(!contentTypeMatch){
+                        System.debug(LoggingLevel.FINE, 'Content-Type mis-matched: ' + contentType + ' vs ' + request.getHeader(CONTENT_TYPE_KEY));
+                    }
+                    if(!acceptTypeMatch){
+                        System.debug(LoggingLevel.FINE, 'Accept-Type mis-matched: ' + acceptType + ' vs ' + request.getHeader(ACCEPT_TYPE_KEY));
+                    }
+                    if(!authorizationMatch){
+                        System.debug(LoggingLevel.FINE, 'Authorization mis-matched: ' + authorization + ' vs ' + request.getHeader(AUTHORIZATION_KEY));
+                    }
+                    if(!actionMatch){
+                        System.debug(LoggingLevel.FINE, 'Action mis-matched: ' + action + ' vs ' + request.getHeader(SOAP_ACTION));
+                    }
+                }
+            } else {
+                System.debug(LoggingLevel.FINE, request.getMethod() + ' to ' + request.getEndpoint() + 
+                    '\ndid not match\n' + POST_METHOD + ' to ' + expectedEndpoint);
             }
 
-            return  isMatch;
+            return false;
         }
         
         public HttpResponse respond(){
@@ -179,7 +228,7 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
         }
 
         public String handlerName(){
-            return 'BasicPost_' + expectedEndpoint + '_' + expectedBody + '_' + contentType + '_' + acceptType;
+            return 'BasicPost_' + expectedEndpoint + '_' + contentType + '_' + acceptType;
         }
     }
 }

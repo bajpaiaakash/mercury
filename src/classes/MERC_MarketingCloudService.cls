@@ -81,7 +81,9 @@ public with sharing class MERC_MarketingCloudService {
         return MERC_MarketingCloudClient.getEmailFolders();
     }
 
-    public static List<MERC_MarketingCloudClient.EmailFolder> updateForFolder(List<MERC_MarketingCloudClient.EmailFolder> emailFolders, String folderId){
+    public static List<MERC_MarketingCloudClient.EmailFolder> updateForFolder(
+        List<MERC_MarketingCloudClient.EmailFolder> emailFolders, 
+        String folderId){
         List<MERC_MarketingCloudClient.EmailFolder> foldersToCheck = emailFolders;
         Integer folderDepth = 0;
         Boolean folderFound = false;
@@ -119,13 +121,19 @@ public with sharing class MERC_MarketingCloudService {
                                                           String additionalInformationText,
                                                           String fromSenderProfileId,
                                                           String fromClassificationId){
+        DateTime now = DateTime.now();
+        if(Test.isRunningTest()){
+            now = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+        }
+
         List<MERC_MarketingCloudClient.Field> fields = getFields();
+
         List<Meeting_Participant_MERC__c> meetingParticipants = queryParticipants(participants);
         Map<Id, Account> personAccounts = queryPersonAccounts(meetingParticipants);
-        System.debug('creating data extension');
+
         MERC_MarketingCloudClient.DataExtension dataExtension = populateDataExtension(email.subject, meetingId, futureSendTime, sendTime, fields);
         String dataExtensionId = createDataExtension(dataExtension);
-        System.debug('created data extension');
+
         createDataExtensionEntries(meetingId, additionalInformationHTML, additionalInformationText, meetingParticipants, personAccounts, dataExtension);
 
         Meeting_Email_Send_MERC__c meetingEmailSend = new Meeting_Email_Send_MERC__c();
@@ -133,7 +141,7 @@ public with sharing class MERC_MarketingCloudService {
 
         // Populate fields that will be placed on the email send
         meetingEmailSend.ET_Data_Extension_Id_MERC__c = dataExtensionId;
-        meetingEmailSend.ET_Sync_Id_MERC__c = 'ETLillymeetingEmailSend' + Datetime.now().format('yyyyMMdd');
+        meetingEmailSend.ET_Sync_Id_MERC__c = 'ETLillymeetingEmailSend' + now.format('yyyyMMdd');
         meetingEmailSend.ET_Business_Unit_MERC__c = BusinessUnit.Id;
         meetingEmailSend.ET_Recipients_Opted_In_MERC__c = true;
         meetingEmailSend.ET_Sender_Profile_Id_MERC__c = fromSenderProfileId;
@@ -265,17 +273,18 @@ public with sharing class MERC_MarketingCloudService {
                                                                                  Datetime futureSendTime,
                                                                                  String sendTime,
                                                                                  List<MERC_MarketingCloudClient.Field> fields){
-        Blob dataExtensionAESKey = Crypto.generateAesKey(256);
-        String hexDataExtensionAESKey = EncodingUtil.convertToHex(dataExtensionAESKey);
+        DateTime now = DateTime.now();
+        if(Test.isRunningTest()){
+            now = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+        }
 
-        //account for max length of DE name
         String dataExtensionSubject = emailSubject.length() > 140 ? emailSubject.substring(0, 139) : emailSubject;
-        String dataExtensionName = 'SalesforceMeeting-' + meetingId + '-' + dataExtensionSubject.replaceAll('[^a-zA-Z0-9]+', '') + '-' + Datetime.now().format('yyyyMMdd\'T\'HHmmssSSS');
+        String dataExtensionName = 'SalesforceMeeting-' + meetingId + '-' + dataExtensionSubject.replaceAll('[^a-zA-Z0-9]+', '') + '-' + now.format('yyyyMMdd\'T\'HHmmssSSS');
         String dataExtensionDescription = 'Used for sending meeting from Salesforce.com';
-        String dataExtensionKey = String.valueOf(meetingId) + Datetime.now().format('yyyyMMdd\'T\'HHmmssSSS');
+        String dataExtensionKey = String.valueOf(meetingId) + now.format('yyyyMMdd\'T\'HHmmssSSS');
 
         //default expiration to 3 days for immediate sends, otherwise ensure DE will still be around when scheduled send actually goes out.
-        Datetime dataExtensionExpiration = Datetime.now().addDays(3);
+        Datetime dataExtensionExpiration = now.addDays(3);
         if (sendTime != 'now') {
             dataExtensionExpiration = futureSendTime.addDays(3);
         }
@@ -632,20 +641,21 @@ public with sharing class MERC_MarketingCloudService {
     /* updating subscribers */
     public static void updateSubscribersWithContacts(List<Id> personContactIds){
         Map<Id, Account> accountMap = new Map<Id, Account>();
-        for (Account account : [SELECT Id, 
-                                    PersonEmail,
-                                    Update_Subscriber_Error_ET_MERC__c,
-                                    RecordTypeId,
-                                    Cust_Id_GLBL__c,
-                                    Prsnl_Nbr_GLBL__c,
-                                    PersonContactId
-                               FROM Account 
-                              WHERE PersonContactId IN :personContactIds]) {
+        List<Account> accounts = [SELECT Id, 
+                                          PersonEmail,
+                                          Update_Subscriber_Error_ET_MERC__c,
+                                          RecordTypeId,
+                                          Cust_Id_GLBL__c,
+                                          Prsnl_Nbr_GLBL__c,
+                                          PersonContactId
+                                     FROM Account 
+                                    WHERE PersonContactId IN :personContactIds];
+        for (Account account : accounts) {
             accountMap.put(account.PersonContactId, account);
         }
         
         Map<Id, RecordType> recordTypeMap = new Map<Id, RecordType>([SELECT Id,
-                                                                            Name 
+                                                                            DeveloperName 
                                                                        FROM RecordType]);
 
         List<MERC_MarketingCloudClient.Subscriber> subscribers = MERC_MarketingCloudClient.getSubscribers(personContactIds);
@@ -657,18 +667,19 @@ public with sharing class MERC_MarketingCloudService {
         List<Account> accountsToUpdate = new List<Account>();
         for (MERC_MarketingCloudClient.Subscriber subscriber : subscribers) {
             String subscriberKey = subscriber.SubscriberKey;
+
             Account tempAccount = accountMap.get(subscriberKey);
             
             // update retrieved data
             subscriber.EmailAddress = tempAccount.PersonEmail;
             
-            if (recordTypeMap.get(tempAccount.RecordTypeId).Name == 'HCP') {
+            if (recordTypeMap.get(tempAccount.RecordTypeId).DeveloperName == 'HCP_GLBL') {
                 subscriber.LLYSubscriberKey = tempAccount.Cust_Id_GLBL__c;
                 subscriber.SubscriberType = 'HCP';
-            } else if (recordTypeMap.get(tempAccount.RecordTypeId).Name == 'Employee') {
+            } else if (recordTypeMap.get(tempAccount.RecordTypeId).DeveloperName == 'Employee_GLBL') {
                 subscriber.LLYSubscriberKey = tempAccount.Prsnl_Nbr_GLBL__c;
                 subscriber.SubscriberType = 'Employee';
-            } else if (recordTypeMap.get(tempAccount.RecordTypeId).Name == 'Designated Individual') {
+            } else if (recordTypeMap.get(tempAccount.RecordTypeId).DeveloperName == 'Designated_Individual_GLBL') {
                 subscriber.LLYSubscriberKey = '-1';
                 subscriber.SubscriberType = 'Business Contact';
             } else {

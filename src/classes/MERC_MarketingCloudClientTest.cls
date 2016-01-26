@@ -193,15 +193,11 @@ private class MERC_MarketingCloudClientTest {
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.getMeeting();
         insert meeting;
 
-        List<Account> personAccounts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(MERC_MarketingCloudTestUtility.PERSON_RECORD_TYPE, 5);
+        List<Account> personAccounts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+            MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 5);
         insert personAccounts;
 
-        Map<Id, Account> personAccountMap = new Map<Id,Account>(
-            [SELECT Id,
-                    PersonContactId,
-                    PersonEmail
-               FROM Account
-              WHERE Id IN :personAccounts]);
+        Map<Id, Account> personAccountMap = MERC_MarketingCloudTestUtility.getPersonAccountMap(personAccounts);
         List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
         insert participants;
 
@@ -248,6 +244,7 @@ private class MERC_MarketingCloudClientTest {
         }
         Test.stopTest();
     }
+
     @isTest static void test_updateSubscriber(){     
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
         MERC_MarketingCloudClient.Subscriber subscriber = MERC_MarketingCloudTestUtility.getSubscriber();
