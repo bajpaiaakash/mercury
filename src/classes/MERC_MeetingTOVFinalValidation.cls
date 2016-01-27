@@ -41,7 +41,7 @@ public with sharing class MERC_MeetingTOVFinalValidation implements GLBL_Trigger
                                                                                      From Meeting_Participants_del__r 
                                                                                      Where Status_MERC__c in ('Approved', 'Invited', 'Interested in Meeting', 'Pending Approval', 'Accepted', 'Attended', 'No Show')
                                                                                          AND Account_MERC__r.RecordType.DeveloperName = 'HCP_GLBL' 
-                                                                                         AND RecordType.DeveloperName not in ('MERC_Individual_Sponsorship', 'MERC_Consulting')) Meeting_Participants_del__r 
+                                                                                         AND RecordType.DeveloperName not in ('Merc_Individual_Sponsorship', 'Merc_Consulting')) Meeting_Participants_del__r 
                                                                                  From Meeting_MERC__c
                                                                                  Where id in :meetingIds
                                                                                      AND Recordtype.DeveloperName not in ('Ad_Hoc_Consulting', 'Meeting_Program')]);
@@ -55,7 +55,7 @@ public with sharing class MERC_MeetingTOVFinalValidation implements GLBL_Trigger
                                           Where Meeting_MERC__c in :meetingsDetail.keySet()
                                           AND Status_MERC__c in ('Accepted', 'Attended', 'No Show')
                                           AND Account_MERC__r.RecordType.DeveloperName = 'HCP_GLBL' 
-                                          AND RecordType.DeveloperName in ('MERC_Service_Provider', 'MERC_Delegate')]);
+                                          AND RecordType.DeveloperName in ('Merc_Service_Provider', 'Merc_Delegate')]);
                                                                                  
         Integer numberOfMeetingDays;
         
@@ -73,21 +73,14 @@ public with sharing class MERC_MeetingTOVFinalValidation implements GLBL_Trigger
                     if ( meetingParticipantDetail.status_MERC__c == 'Approved' || meetingParticipantDetail.status_MERC__c == 'Invited' || meetingParticipantDetail.status_MERC__c == 'Interested in Meeting' || meetingParticipantDetail.status_MERC__c == 'Pending Approval') {
                         newMeeting.addError('Participant ToV Final can only be set to \"yes\" after daily attendance for MPs has been managed');
                         break;
-                    } else if ( meetingParticipantDetail.status_MERC__c == 'Accepted' || meetingParticipantDetail.status_MERC__c == 'Attended' || meetingParticipantDetail.status_MERC__c == 'No Show') {
-                        if ( numberOfMeetingDays == 0 ) {
-                            //Meeting days are not set up on Meeting and Meeting Participant exists on Meeting for which daily attendance should be managed    
+                    } else if ( numberOfMeetingDays > 0 && (meetingParticipantDetail.status_MERC__c == 'Accepted' || meetingParticipantDetail.status_MERC__c == 'Attended' || meetingParticipantDetail.status_MERC__c == 'No Show') ) {
+                        //Daily attendance should be managed for applicable Meeting Participants for all meeting days
+                        Integer DailyAttendanceCount; //To check the number of manage daily attendance for each meeting participant
+                        DailyAttendanceCount = meetingParticipantDailyAttendanceCount.get(meetingParticipantDetail.id).Daily_Attendance_TOV_MERC__r.size();
+                        
+                        if ( DailyAttendanceCount < numberOfMeetingDays ) {
                             newMeeting.addError('Participant ToV Final can only be set to \"yes\" after daily attendance for MPs has been managed');
                             break;
-                        } else if ( numberOfMeetingDays > 0 ) {
-                        //Daily attendance should be managed for applicable Meeting Participants for all meeting days
-                        
-                            Integer DailyAttendanceCount; //To check the number of manage daily attendance for each meeting participant
-                            DailyAttendanceCount = meetingParticipantDailyAttendanceCount.get(meetingParticipantDetail.id).Daily_Attendance_TOV_MERC__r.size();
-                            
-                            if ( DailyAttendanceCount < numberOfMeetingDays ) {
-                                newMeeting.addError('Participant ToV Final can only be set to \"yes\" after daily attendance for MPs has been managed');
-                                break;
-                            }
                         }
                     }
                 }
