@@ -13,7 +13,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         MERC_MarketingCloudTestUtility.insertSettings();
     }
 
-    @isTest static void test_getEmailFolders(){     
+    @isTest static void test_getEmailFolders(){      
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
 
         MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
@@ -28,7 +28,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         Test.stopTest();
     }
 
-    @isTest static void test_updateForFolder(){     
+    @isTest static void test_updateForFolder(){      
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
         List<MERC_MarketingCloudClient.EmailFolder> emailFolders = MERC_MarketingCloudTestUtility.getEmailFolders();
 
@@ -46,7 +46,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         Test.stopTest();
     }
 
-    @isTest static void test_getSenderProfileSelectOptions(){     
+    @isTest static void test_getSenderProfileSelectOptions(){      
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
 
         MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
@@ -64,7 +64,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         Test.stopTest();
     }
 
-    @isTest static void test_getThumbnail(){     
+    @isTest static void test_getThumbnail(){      
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
         String emailId = 'testEmailId';
 
@@ -81,7 +81,8 @@ public with sharing class MERC_MarketingCloudServiceTest {
         Test.stopTest();
     }
 
-    @isTest static void test_prepareMeetingEmailSendForAttempts(){     
+    @isTest static void test_prepareMeetingEmailSendForAttempts(){     //
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
         Meeting_MERC__c meeting = null;
         List<Account> personAccounts = null;
@@ -90,6 +91,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         MERC_MarketingCloudClient.DataExtension dataExtension = null;
 
         System.runAs(testUser){
+            MERC_MarketingCloudTestUtility.adjustTime();
             meeting = MERC_MarketingCloudTestUtility.getMeeting();
             insert meeting;
 
@@ -103,32 +105,52 @@ public with sharing class MERC_MarketingCloudServiceTest {
             insert participants;
 
             dataExtension = MERC_MarketingCloudTestUtility.getDataExtension(meeting.Id);
-        }
-        MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
-        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getThumbnailRequest(
-            MERC_MarketingCloudTestUtility.THUMBNAIL_HEIGHT, MERC_MarketingCloudTestUtility.THUMBNAIL_WIDTH));
-        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateDataExtensionEntriesRequest(
-            dataExtension,
-            meeting.Id,
-            MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_HTML,
-            MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_TEXT,
-            participants,
-            personAccountMap));
+            System.debug('dataExtension.retentionPolicy.get(0).RetainUntil:\n' + dataExtension.retentionPolicy.get(0).RetainUntil);
+        
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getThumbnailRequest(
+                MERC_MarketingCloudTestUtility.THUMBNAIL_HEIGHT, MERC_MarketingCloudTestUtility.THUMBNAIL_WIDTH));
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateDataExtensionRequest(dataExtension));
+            System.debug(participants);
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateDataExtensionEntriesRequest(
+                dataExtension,
+                meeting.Id,
+                MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_HTML,
+                MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_TEXT,
+                participants,
+                personAccountMap));
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateSendDefinitionRequest(
+                MERC_MarketingCloudTestUtility.SEND_DEFINITION_ID));
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getStartSendDefinitionRequest(
+                MERC_MarketingCloudTestUtility.SEND_DEFINITION_ID));
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getSendDefinitionStatusRequest(
+                MERC_MarketingCloudTestUtility.SEND_DEFINITION_ID,
+                MERC_MarketingCloudService.StatusCompleted));
 
-
-        Test.startTest();
-        System.runAs(testUser){
+            Test.startTest();
             Test.setMock(HttpCalloutMock.class, mockResponseService);
-
-            
+            System.debug(participants);
+            MERC_MarketingCloudService.prepareMeetingEmailSendForAttempts(
+                meeting.Id,
+                MERC_MarketingCloudTestUtility.getFolderedEmail(), 
+                participants, 
+                MERC_MarketingCloudTestUtility.EMAIL_SEND_DEDUPE, 
+                false, 
+                MERC_MarketingCloudTestUtility.EMAIL_SEND_TIME, 
+                MERC_MarketingCloudTestUtility.BASIC_DATE_TIME, 
+                MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_HTML,
+                MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_TEXT,
+                MERC_MarketingCloudTestUtility.SEND_DEFINITION_SENDER_PROFILE_ID,
+                MERC_MarketingCloudTestUtility.SEND_DEFINITION_CLASSIFICATION_ID);
+            Test.stopTest();
         }
-        Test.stopTest();
     }
 
-    @isTest static void test_updateSubscribersWithContacts(){     
+    @isTest static void test_updateSubscribersWithContacts(){      
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
         System.runAs(testUser){
-            
+            MERC_MarketingCloudTestUtility.adjustTime();
+           
             
             List<Account> subscriberAccounts = MERC_MarketingCloudTestUtility.getDefaultSubscriberAccounts();
             insert subscriberAccounts;

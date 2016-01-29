@@ -121,11 +121,12 @@ private class MERC_MarketingCloudClientTest {
     }
 
     @isTest static void test_createSendDefinition(){
+        String sendDefinitionId = 'testsenddefinitionid';
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
         MERC_MarketingCloudClient.SendDefinition sendDefinition = MERC_MarketingCloudTestUtility.getSendDefinition();
 
         MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
-        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateSendDefinitionRequest(sendDefinition));
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateSendDefinitionRequest(sendDefinitionId, sendDefinition));
 
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, mockResponseService);
@@ -157,7 +158,7 @@ private class MERC_MarketingCloudClientTest {
         String sendDefinitionId = 'testsenddefinitionid';
 
         MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
-        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getSendDefinitionStatusRequest(sendDefinitionId));
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getSendDefinitionStatusRequest(sendDefinitionId, MERC_MarketingCloudService.StatusCompleted));
 
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, mockResponseService);

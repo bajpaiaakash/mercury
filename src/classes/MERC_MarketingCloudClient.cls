@@ -665,7 +665,7 @@ public with sharing class MERC_MarketingCloudClient {
 
             DateTime currentDateTime = Datetime.now();
             if(Test.isRunningTest()){
-                currentDateTime = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+                currentDateTime = DateTime.newInstanceGmt(1984, 1, 31, 7, 8, 16);
             }
 
             String bodyXML = '';
@@ -676,8 +676,8 @@ public with sharing class MERC_MarketingCloudClient {
                         + '</oAuth>'
                         + '<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">'
                             + '<u:Timestamp u:Id="0">'
-                                + '<u:Created>' + currentDateTime.format(TIMESTAMP_FORMAT) + '</u:Created>'
-                                + '<u:Expires>' + currentDateTime.addMinutes(5).format(TIMESTAMP_FORMAT) + '</u:Expires>'
+                                + '<u:Created>' + currentDateTime.formatGmt(TIMESTAMP_FORMAT) + '</u:Created>'
+                                + '<u:Expires>' + currentDateTime.addMinutes(5).formatGmt(TIMESTAMP_FORMAT) + '</u:Expires>'
                             + '</u:Timestamp>'
                             + '<o:UsernameToken>'
                                 + '<o:Username>*</o:Username>'
@@ -736,10 +736,10 @@ public with sharing class MERC_MarketingCloudClient {
         }
 
         private String getSubscriberUpdateXML(Subscriber subscriber){
-            DateTime currentDateTime = Datetime.now();
+            DateTime currentDateTime = DateTime.now();
             
             if(Test.isRunningTest()){
-                currentDateTime = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+                currentDateTime = DateTime.newInstanceGmt(1984, 1, 31, 7, 8, 16);
             }
             String bodyXML;
             bodyXML = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">'
@@ -749,8 +749,8 @@ public with sharing class MERC_MarketingCloudClient {
                         + '</oAuth>'
                         + '<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">'
                         + '<u:Timestamp u:Id="0">'
-                            + '<u:Created>' + currentDateTime.format(TIMESTAMP_FORMAT) + '</u:Created>'
-                            + '<u:Expires>' + currentDateTime.addMinutes(5).format(TIMESTAMP_FORMAT) + '</u:Expires>'
+                            + '<u:Created>' + currentDateTime.formatGmt(TIMESTAMP_FORMAT) + '</u:Created>'
+                            + '<u:Expires>' + currentDateTime.addMinutes(5).formatGmt(TIMESTAMP_FORMAT) + '</u:Expires>'
                         + '</u:Timestamp>'
                         + '<o:UsernameToken>'
                             + '<o:Username>*</o:Username>'
@@ -888,6 +888,11 @@ public with sharing class MERC_MarketingCloudClient {
     public class KeyValue {
         public String key { get; set;}
         public String value { get; set;}
+
+        public KeyValue(String key, String value){
+            this.key = key;
+            this.value = value;
+        }
     }
 
     public class EmailFolderResponse extends ListResponse {
@@ -1010,7 +1015,10 @@ public with sharing class MERC_MarketingCloudClient {
 
             this.field = new List<Field>();
             this.retentionPolicy = new List<RetentionPolicy>();
-            this.retentionPolicy.add(new RetentionPolicy(false, false, String.valueOf(expireIn), false));
+            System.debug('this.retentionPolicy.add(new RetentionPolicy(false, false, String.valueOfGmt(expireIn), false)):\n' + expireIn);
+            System.debug(expireIn);
+            System.debug('stringof:\n' + String.valueOfGmt(expireIn));
+            this.retentionPolicy.add(new RetentionPolicy(false, false, String.valueOfGmt(expireIn), false));
         }
 
         public String dataExtensionName { get; set; }
@@ -1045,6 +1053,7 @@ public with sharing class MERC_MarketingCloudClient {
             this.DeleteAtEndOfRetentionPeriod = deleteAtEnd;
             this.ResetRetentionPeriodOnImport = resetOnImport;
             this.RetainUntil = until;
+            System.debug(until);
             this.RowBasedRetention = rowBased;
         }
         public Boolean DeleteAtEndOfRetentionPeriod { get; set; }

@@ -7,7 +7,7 @@
 */
 @isTest
 public with sharing class MERC_MarketingCloudTestUtility {
-    public static final DateTime BASIC_DATE_TIME = DateTime.newInstance(1984, 01, 31, 07, 08, 16);
+    public static DateTime BASIC_DATE_TIME = DateTime.newInstanceGmt(1984, 1, 31, 7, 8, 16);
 
     public static final String CONFIG_USERNAME = 'username@test.test';
     public static final String CONFIG_PASSWORD = 'atestpassword';
@@ -70,6 +70,18 @@ public with sharing class MERC_MarketingCloudTestUtility {
     public static final Boolean EMAIL_SEND_SYNC_COMPLETE = true;
     public static final Boolean EMAIL_SEND_TRACKING_ONLY = true;
 
+    public static final String EMAIL_ID = '55555';
+    public static final String EMAIL_CATEGORY = 'testcategory';
+    public static final String EMAIL_TYPE = 'testemailtype';
+    public static final String EMAIL_STATUS_KEY = 'Status';
+    public static final String EMAIL_STATUS_VALUE = 'New';
+    public static final String EMAIL_CUSTOMER_KEY = 'testemailcustomerkey';
+    public static final Boolean EMAIL_SAMPLE_AUDIENCE_ONLY = false;
+    public static final String EMAIL_PRE_HEADER = '';
+    public static final Integer EMAIL_EMAIL_EMAIL_TYPE = 0;
+    public static final Integer EMAIL_MESSAGE_ID = 0;
+    public static final String EMAIL_SEND_TIME = 'now';
+
     public static final String SEND_DEFINITION_ID = 'testsenddefinitionid';
     public static final String SEND_DEFINITION_DESCRIPTION = 'testsenddefinition description';
     public static final String SEND_DEFINITION_KEY = '444380896000';
@@ -80,7 +92,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
     public static final String DATA_EXTENSION_NAME = 'testdataextension name';
     public static final String DATA_EXTENSION_DESCRIPTION = 'testdataextension subject';
     public static final String DATA_EXTENSION_KEY = 'testdataextensionkey';
-    public static final DateTime DATA_EXTENSION_EXPIRATION = BASIC_DATE_TIME.addDays(3);
+    public static DateTime DATA_EXTENSION_EXPIRATION = BASIC_DATE_TIME.addDays(3);
     public static final String DATA_EXTENSION_EXPIRATION_STRING = '1984-02-03 07:08:16';
     public static final String BASIC_DATE_TIME_FORMATTED = '19840131T070816000';
     public static final String DATA_EXTENSION_DEFAULT_DESCRIPTION = 'Used for sending meeting from Salesforce.com';
@@ -100,8 +112,8 @@ public with sharing class MERC_MarketingCloudTestUtility {
     public static final String MEETING_NAME_PREFIX = 'Test Meeting ';
     public static final String MEETING_CITY = 'test city';
     public static final String MEETING_VENUE = 'test venue';
-    public static final Datetime MEETING_START = BASIC_DATE_TIME;
-    public static final Datetime MEETING_END = MEETING_START.addDays(5);
+    public static Datetime MEETING_START = BASIC_DATE_TIME;
+    public static Datetime MEETING_END = MEETING_START.addDays(5);
     public static final String MEETING_EVENT_ID_PREFIX = 'Test Event ';
     public static final String MEETING_RECORD_TYPE = 'Ad_Hoc_Consulting';
     public static final String MEETING_OBJECT_TYPE = 'Meeting_MERC__c';
@@ -154,6 +166,13 @@ public with sharing class MERC_MarketingCloudTestUtility {
     /*
      * Test Data Generation
      */
+    public static void adjustTime(){
+        BASIC_DATE_TIME = DateTime.newInstanceGmt(1984, 1, 31, 7, 8, 16);
+        DATA_EXTENSION_EXPIRATION = BASIC_DATE_TIME.addDays(3);
+        MEETING_START = BASIC_DATE_TIME;
+        MEETING_END = MEETING_START.addDays(5);
+    }
+
     public static et4ae5__Business_Unit__c insertBusinessUnit(){
         et4ae5__Business_Unit__c businessUnit = new et4ae5__Business_Unit__c(
             et4ae5__Business_Unit_ID__c = BUSINESS_UNIT_ID,
@@ -250,7 +269,6 @@ public with sharing class MERC_MarketingCloudTestUtility {
         String dataExtensionName = 'SalesforceMeeting-' + meetingId + '-' + EMAIL_SEND_SUBJECT + '-' + BASIC_DATE_TIME_FORMATTED;
         String dataExtensionDescription = DATA_EXTENSION_DEFAULT_DESCRIPTION;
         String dataExtensionKey = String.valueOf(meetingId) + BASIC_DATE_TIME_FORMATTED;
-
         MERC_MarketingCloudClient.DataExtension dataExtension = new MERC_MarketingCloudClient.DataExtension(
             dataExtensionName,
             dataExtensionDescription,
@@ -616,6 +634,29 @@ public with sharing class MERC_MarketingCloudTestUtility {
         }
 
         return emailFoldersRoot;
+    }
+
+    public static MERC_MarketingCloudClient.FolderedEmail getFolderedEmail(){
+        MERC_MarketingCloudClient.Email email = new MERC_MarketingCloudClient.Email();
+        email.Id = EMAIL_ID;
+        email.type = EMAIL_TYPE;
+        email.status = new MERC_MarketingCloudClient.KeyValue(EMAIL_STATUS_KEY,EMAIL_STATUS_VALUE);
+        email.name = EMAIL_SEND_SUBJECT;
+        email.subject = EMAIL_SEND_SUBJECT;
+        email.categoryId = EMAIL_CATEGORY;
+        email.customerKey = EMAIL_CUSTOMER_KEY;
+        email.sampleAudienceOnly = EMAIL_SAMPLE_AUDIENCE_ONLY;
+        email.preheader = EMAIL_PRE_HEADER;
+        email.emailType = EMAIL_EMAIL_EMAIL_TYPE;
+        email.messageId = EMAIL_MESSAGE_ID;
+
+        MERC_MarketingCloudClient.FolderedEmail folderedEmail = new MERC_MarketingCloudClient.FolderedEmail();
+        folderedEmail.id = EMAIL_ID;
+        folderedEmail.name = EMAIL_SEND_SUBJECT;
+        folderedEmail.categoryId = EMAIL_CATEGORY;
+        folderedEmail.email = email;
+
+        return folderedEmail;
     }
 
     /*
@@ -1044,13 +1085,13 @@ public with sharing class MERC_MarketingCloudTestUtility {
                 '  }  ' ;
     }
 
-    public static String getCreateSendDefinitionResponseJSON(){
-        return '{"id":"OVdFVXRyVm9FZVdXYll6YzFMZmFMUTo1MDow"}';
+    public static String getCreateSendDefinitionResponseJSON(String sendDefinitionId){
+        return '{"id":"' + sendDefinitionId + '"}';
     }
 
-    public static MERC_MockHttpResponseService.MockResponseInterface getCreateSendDefinitionRequest(MERC_MarketingCloudClient.SendDefinition sendDefinition){
+    public static MERC_MockHttpResponseService.MockResponseInterface getCreateSendDefinitionRequest(String sendDefinitionId, MERC_MarketingCloudClient.SendDefinition sendDefinition){
         String requestBody = getCreateSendDefinitionRequestJSON(sendDefinition);
-        String responseBody = getCreateSendDefinitionResponseJSON();
+        String responseBody = getCreateSendDefinitionResponseJSON(sendDefinitionId);
         String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/messaging/senddefinition/instance/?oauth_token=' + SOAP_OAUTH_TOKEN;
 
         MERC_MockHttpResponseService.BasicMockPostResponse mockResponse = new MERC_MockHttpResponseService.BasicMockPostResponse(
@@ -1058,6 +1099,19 @@ public with sharing class MERC_MarketingCloudTestUtility {
             JSON_CHARSET_TYPE,
             JSON_TYPE,
             requestBody,
+            responseBody);
+
+        return (MERC_MockHttpResponseService.MockResponseInterface)mockResponse;
+    }
+
+    public static MERC_MockHttpResponseService.MockResponseInterface getCreateSendDefinitionRequest(String sendDefinitionId){
+        String responseBody = getCreateSendDefinitionResponseJSON(sendDefinitionId);
+        String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/messaging/senddefinition/instance/?oauth_token=' + SOAP_OAUTH_TOKEN;
+
+        CreateSendDefinitionMockResponse mockResponse = new CreateSendDefinitionMockResponse(
+            requestURL,
+            JSON_CHARSET_TYPE,
+            JSON_TYPE,
             responseBody);
 
         return (MERC_MockHttpResponseService.MockResponseInterface)mockResponse;
@@ -1079,12 +1133,12 @@ public with sharing class MERC_MarketingCloudTestUtility {
         return mockResponse;
     }
 
-    public static String getSendDefinitionStatusResponseJSON(){
-        return '{"id":"MTIxOTU1NTo1MDow","sendStatus":"Processing","jobId":1219555,"clientId":6272686}';
+    public static String getSendDefinitionStatusResponseJSON(String status){
+        return '{"id":"MTIxOTU1NTo1MDow","sendStatus":"' + status + '","jobId":1219555,"clientId":6272686}';
     }
 
-    public static MERC_MockHttpResponseService.MockResponseInterface getSendDefinitionStatusRequest(String sendDefinitionId){
-        String responseBody = getSendDefinitionStatusResponseJSON();
+    public static MERC_MockHttpResponseService.MockResponseInterface getSendDefinitionStatusRequest(String sendDefinitionId, String status){
+        String responseBody = getSendDefinitionStatusResponseJSON(status);
         String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/messaging/senddefinition/instance/' + EncodingUtil.urlEncode(sendDefinitionId,'UTF-8') + '/job/?oauth_token=' + SOAP_OAUTH_TOKEN;
 
         MERC_MockHttpResponseService.BasicMockGetResponse mockResponse = new MERC_MockHttpResponseService.BasicMockGetResponse(
@@ -1115,7 +1169,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
 
     public static MERC_MockHttpResponseService.MockResponseInterface getThumbnailRequest(String emailId, String height, String width){
         String responseBody = getGetThumbnailResponseJSON();
-        String requestURL = CONFIG_ROOT_THUMBNAIL_API_URL + '/' + CONFIG_URL_PART + '/utilities/ImageThumbnailSecure.ashx/\\?h=' + height + '&w=' + width + '&emailid=' + emailid+ '&oauth_token=' + SOAP_OAUTH_TOKEN;
+        String requestURL = CONFIG_ROOT_THUMBNAIL_API_URL + '/' + CONFIG_URL_PART + '/utilities/ImageThumbnailSecure.ashx/?h=' + height + '&w=' + width + '&emailid=' + emailid+ '&oauth_token=' + SOAP_OAUTH_TOKEN;
         MERC_MockHttpResponseService.BasicMockGetResponse mockResponse = new MERC_MockHttpResponseService.BasicMockGetResponse(
             requestURL,
             JSON_TYPE, JSON_TYPE,
@@ -1265,7 +1319,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
         List<Meeting_Participant_MERC__c> meetingParticipants,
         Map<Id, Account> personAccountMap){
         List<String> dataExtensionEntryResponses = new List<String>();
-
+        meetingParticipants.sort();
         for(Meeting_Participant_MERC__c meetingParticipant : meetingParticipants){
             if(!personAccountMap.containsKey(meetingParticipant.Account_MERC__c)){
                 throw new MERC_MarketingCloudTestUtilityException('meetingParticipant.Account_MERC__c of ' + meetingParticipant.Account_MERC__c + ' not in personAccountMap:\n' + personAccountMap);
@@ -1475,7 +1529,6 @@ public with sharing class MERC_MarketingCloudTestUtility {
         private String expectedEndpoint;
         private String contentType;
         private String acceptType;
-        private String expectedBody;
         private String responseBody;
         private String authorization;
         private String action;
@@ -1483,12 +1536,10 @@ public with sharing class MERC_MarketingCloudTestUtility {
         public CreateSendDefinitionMockResponse(String expectedEndpoint,
                                                 String contentType,
                                                 String acceptType,
-                                                String expectedBody,
                                                 String responseBody) {
             this.expectedEndpoint = expectedEndpoint;
             this.contentType = contentType;
             this.acceptType = acceptType;
-            this.expectedBody = expectedBody.deleteWhitespace();
             this.responseBody = responseBody;
         }
 
@@ -1511,13 +1562,19 @@ public with sharing class MERC_MarketingCloudTestUtility {
                 Boolean actionMatch = (action == null || action.equals(request.getHeader(MERC_MockHttpResponseService.SOAP_ACTION)));    
                 if(contentTypeMatch && acceptTypeMatch && authorizationMatch && actionMatch){
                     System.debug(LoggingLevel.FINE, 'Header MATCHES: Checking body');
-                    Boolean bodyMatch = expectedBody.equals(request.getBody().deleteWhitespace());
-                    if(bodyMatch){
-                        System.debug(LoggingLevel.FINE, 'Match found for ' + POST_METHOD + ' to ' + expectedEndpoint);
-                        return true;
-                    } else {
-                        System.debug(LoggingLevel.FINE, 'Body did not Match:\n\tRequest body:\n\t\t' + request.getBody() +
-                            '\n\nExpected body:\n\t\t' + expectedBody);
+                    String requestBody = request.getBody();
+                    System.debug(LoggingLevel.FINE, 'Header MATCHES: Checking body');
+                    try{
+                        MERC_MarketingCloudClient.SendDefinition sendDefinition = 
+                            (MERC_MarketingCloudClient.SendDefinition)JSON.deserialize(
+                                    requestBody, MERC_MarketingCloudClient.SendDefinition.class);
+                        if(String.isNotBlank(sendDefinition.emailSubject)){
+                            return true;
+                        } else {
+                            System.debug(LoggingLevel.FINE,'Email Subject blank in parsed sendDefinition:\n' + requestBody);
+                        }
+                    } catch(JSONException jsonException){
+                        System.debug(LoggingLevel.FINE, 'Body did not deserialize to a SendDefinition:\n' + requestBody);
                     }
                 } else {
                     if(!contentTypeMatch){

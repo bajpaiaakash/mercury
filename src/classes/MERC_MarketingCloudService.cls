@@ -14,8 +14,8 @@ public with sharing class MERC_MarketingCloudService {
     private static final String CreateSendDefinition = 'Create Send Definition';
     private static final String StartSendDefinition = 'Start Send Definition';
     private static final String CheckSendStatus = 'Check Send Status';
-    private static final String StatusProcessing = 'Processing';
-    private static final String StatusCompleted = 'Completed';
+    public static final String StatusProcessing = 'Processing';
+    public static final String StatusCompleted = 'Completed';
 
     public static final Integer MaxFolderDepth = 6;
     public static final Integer HighMaxRetryCount = 299;
@@ -123,7 +123,7 @@ public with sharing class MERC_MarketingCloudService {
                                                           String fromClassificationId){
         DateTime now = DateTime.now();
         if(Test.isRunningTest()){
-            now = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+            now = DateTime.newInstanceGmt(1984, 1, 31, 7, 8, 16);
         }
 
         List<MERC_MarketingCloudClient.Field> fields = getFields();
@@ -275,20 +275,19 @@ public with sharing class MERC_MarketingCloudService {
                                                                                  List<MERC_MarketingCloudClient.Field> fields){
         DateTime now = DateTime.now();
         if(Test.isRunningTest()){
-            now = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+            now = DateTime.newInstanceGmt(1984, 1, 31, 7, 8, 16);
         }
 
         String dataExtensionSubject = emailSubject.length() > 140 ? emailSubject.substring(0, 139) : emailSubject;
-        String dataExtensionName = 'SalesforceMeeting-' + meetingId + '-' + dataExtensionSubject.replaceAll('[^a-zA-Z0-9]+', '') + '-' + now.format('yyyyMMdd\'T\'HHmmssSSS');
+        String dataExtensionName = 'SalesforceMeeting-' + meetingId + '-' + dataExtensionSubject.replaceAll('[^a-zA-Z0-9]+', '') + '-' + now.formatGmt('yyyyMMdd\'T\'HHmmssSSS');
         String dataExtensionDescription = 'Used for sending meeting from Salesforce.com';
-        String dataExtensionKey = String.valueOf(meetingId) + now.format('yyyyMMdd\'T\'HHmmssSSS');
+        String dataExtensionKey = String.valueOf(meetingId) + now.formatGmt('yyyyMMdd\'T\'HHmmssSSS');
 
         //default expiration to 3 days for immediate sends, otherwise ensure DE will still be around when scheduled send actually goes out.
         Datetime dataExtensionExpiration = now.addDays(3);
         if (sendTime != 'now') {
             dataExtensionExpiration = futureSendTime.addDays(3);
         }
-
         MERC_MarketingCloudClient.DataExtension dataExtension = new MERC_MarketingCloudClient.DataExtension(
             dataExtensionName,
             dataExtensionDescription,
@@ -317,65 +316,63 @@ public with sharing class MERC_MarketingCloudService {
                                                    List<Meeting_Participant_MERC__c> meetingParticipants,
                                                    Map<Id, Account> personAccounts,
                                                    MERC_MarketingCloudClient.DataExtension dataExtension) {
-        List<List<Meeting_Participant_MERC__c>> participantSublists = new List<List<Meeting_Participant_MERC__c>>();
         Integer participantIndex = 0;
-        Integer participantsSize = meetingParticipants.size();
-        while (participantIndex < participantsSize) {
-            List<Meeting_Participant_MERC__c> sublist = new List<Meeting_Participant_MERC__c>();
-            for (Integer count = 0; count < 200 && participantIndex < participantsSize; count++) {
-                sublist.add(meetingParticipants[participantIndex]);
-                participantIndex++;
+        List<MERC_MarketingCloudClient.DataExtensionEntry> entries = new List<MERC_MarketingCloudClient.DataExtensionEntry>();
+        meetingParticipants.sort();
+        for (Meeting_Participant_MERC__c meetingParticipant : meetingParticipants) {
+            // -> set data extension fields
+            MERC_MarketingCloudClient.DataExtensionEntry entry = new MERC_MarketingCloudClient.DataExtensionEntry();
+            entry.keys = new MERC_MarketingCloudClient.FieldEntry();
+            entry.keys.fieldName = 'SubscriberKey';
+            entry.keys.fieldValue = String.valueOf(personAccounts.get(meetingParticipant.Account_MERC__c).PersonContactId);
+
+            entry.values = new List<MERC_MarketingCloudClient.FieldEntry>();
+
+            MERC_MarketingCloudClient.FieldEntry accountId = new MERC_MarketingCloudClient.FieldEntry();
+            accountId.fieldName = 'AccountId';
+            accountId.fieldValue = meetingParticipant.Account_MERC__c;
+            entry.values.add(accountId);
+
+            MERC_MarketingCloudClient.FieldEntry meetingIdField = new MERC_MarketingCloudClient.FieldEntry();
+            meetingIdField.fieldName = 'MeetingId';
+            meetingIdField.fieldValue = meetingId;
+            entry.values.add(meetingIdField);
+
+            MERC_MarketingCloudClient.FieldEntry meetingParticipantId = new MERC_MarketingCloudClient.FieldEntry();
+            meetingParticipantId.fieldName = 'MeetingParticipantId';
+            meetingParticipantId.fieldValue = meetingParticipant.Id;
+            entry.values.add(meetingParticipantId);
+
+            MERC_MarketingCloudClient.FieldEntry additionalInfoFieldEntry = new MERC_MarketingCloudClient.FieldEntry();
+            additionalInfoFieldEntry.fieldName = 'AdditionalInformationHTML';
+            additionalInfoFieldEntry.fieldValue = additionalInformationHTML;
+            entry.values.add(additionalInfoFieldEntry);
+
+            MERC_MarketingCloudClient.FieldEntry additionalInfoTextFieldEntry = new MERC_MarketingCloudClient.FieldEntry();
+            additionalInfoTextFieldEntry.fieldName = 'AdditionalInformationText';
+            additionalInfoTextFieldEntry.fieldValue = additionalInformationText;
+            entry.values.add(additionalInfoTextFieldEntry);
+
+            MERC_MarketingCloudClient.FieldEntry emailAddress = new MERC_MarketingCloudClient.FieldEntry();
+            emailAddress.fieldName = 'EmailAddress';
+            emailAddress.fieldValue = personAccounts.get(meetingParticipant.Account_MERC__c).PersonEmail;
+            entry.values.add(emailAddress);
+
+            entries.add(entry);
+
+            if(participantIndex >= 200){
+                System.debug(LoggingLevel.DEBUG, 'createDataExtensionEntries breaking up meetingParticipants of size ' + meetingParticipants.size());
+                MERC_MarketingCloudClient.createDataExtensionEntries(dataExtension, entries);
+                entries.clear();
+                participantIndex = 0;
+            } else{
+                participantIndex ++;
             }
-            participantSublists.add(sublist);
         }
 
-        for (List<Meeting_Participant_MERC__c> sublist : participantSublists) {
-            List<MERC_MarketingCloudClient.DataExtensionEntry> entries = new List<MERC_MarketingCloudClient.DataExtensionEntry>();
-            for (Meeting_Participant_MERC__c meetingParticipant : sublist) {
-                // -> set data extension fields
-                MERC_MarketingCloudClient.DataExtensionEntry entry = new MERC_MarketingCloudClient.DataExtensionEntry();
-                entry.keys = new MERC_MarketingCloudClient.FieldEntry();
-                entry.keys.fieldName = 'SubscriberKey';
-                entry.keys.fieldValue = String.valueOf(personAccounts.get(meetingParticipant.Account_MERC__c).PersonContactId);
-
-                entry.values = new List<MERC_MarketingCloudClient.FieldEntry>();
-
-                MERC_MarketingCloudClient.FieldEntry accountId = new MERC_MarketingCloudClient.FieldEntry();
-                accountId.fieldName = 'AccountId';
-                accountId.fieldValue = meetingParticipant.Account_MERC__c;
-                entry.values.add(accountId);
-
-                MERC_MarketingCloudClient.FieldEntry meetingIdField = new MERC_MarketingCloudClient.FieldEntry();
-                meetingIdField.fieldName = 'MeetingId';
-                meetingIdField.fieldValue = meetingId;
-                entry.values.add(meetingIdField);
-
-                MERC_MarketingCloudClient.FieldEntry meetingParticipantId = new MERC_MarketingCloudClient.FieldEntry();
-                meetingParticipantId.fieldName = 'MeetingParticipantId';
-                meetingParticipantId.fieldValue = meetingParticipant.Id;
-                entry.values.add(meetingParticipantId);
-
-                MERC_MarketingCloudClient.FieldEntry additionalInfoFieldEntry = new MERC_MarketingCloudClient.FieldEntry();
-                additionalInfoFieldEntry.fieldName = 'AdditionalInformationHTML';
-                additionalInfoFieldEntry.fieldValue = additionalInformationHTML;
-                entry.values.add(additionalInfoFieldEntry);
-
-                MERC_MarketingCloudClient.FieldEntry additionalInfoTextFieldEntry = new MERC_MarketingCloudClient.FieldEntry();
-                additionalInfoTextFieldEntry.fieldName = 'AdditionalInformationText';
-                additionalInfoTextFieldEntry.fieldValue = additionalInformationText;
-                entry.values.add(additionalInfoTextFieldEntry);
-
-                MERC_MarketingCloudClient.FieldEntry emailAddress = new MERC_MarketingCloudClient.FieldEntry();
-                emailAddress.fieldName = 'EmailAddress';
-                emailAddress.fieldValue = personAccounts.get(meetingParticipant.Account_MERC__c).PersonEmail;
-                entry.values.add(emailAddress);
-
-                entries.add(entry);
-            }
-
+        if(participantIndex < 200){
             MERC_MarketingCloudClient.createDataExtensionEntries(dataExtension, entries);
         }
-
     }
 
     /* 
@@ -426,7 +423,7 @@ public with sharing class MERC_MarketingCloudService {
             Datetime now = DateTime.now();
 
             if(Test.isRunningTest()){
-                now = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+                now = DateTime.newInstanceGmt(1984, 1, 31, 7, 8, 16);
             }
 
             String key = String.valueof(now.getTime());
