@@ -4,7 +4,9 @@
 		<members>MERC_AddMeetingParticipantsCntlrTest</members>
         <members>MERC_CancelDelegateMgmtProcessTest</members>
         <members>MERC_CancelDelegateMgmtProcesses</members>
-        <members>MERC_DocusignService</members>
+		<members>MERC_ConsultingProjectCapCalculator</members>
+        <members>MERC_ConsultingProjectCapCalculatorTest</members>                
+		<members>MERC_DocusignService</members>
         <members>MERC_DocusignServiceTest</members>
 		<members>MERC_ETMeetingEmailSendExtension_Test</members>
         <members>MERC_HCPContractCancellation</members>
@@ -14,6 +16,10 @@
         <members>MERC_HotelAllocationCalculatorTest</members>
 		<members>MERC_InvoiceCreditNoteController</members>
         <members>MERC_InvoiceDocFilterController</members>
+		<members>MERC_HcpCapActualsCalculatorTest</members>
+		<members>MERC_InvoiceXmlWriterTest</members>
+		<members>MERC_ItineraryParticipantUpdateTest</members> 		
+		<members>MERC_MeetingParticipantRollupsTest</members>
 		<members>MERC_MeetingParticipantNewEditCtrlTest</members>
 		<members>MERC_MeetingTOVFinalValidation</members>
 		<members>MERC_MeetingTOVFinalValidationTest</members>
@@ -55,6 +61,11 @@
 		<members>MERC_CMS_IT_Support</members>
 		<members>Mercury_Customer_Meeting_Services_Edit</members>
         <name>PermissionSet</name>
+    </types>
+	<types>
+        <members>Invoice_Line_Item_MERC__c.Consulting_Project_MERC</members>
+        <members>Invoice_Line_Item_MERC__c.Contracted_Services_MERC</members>
+        <name>RecordType</name>
     </types>
 	<types>
         <members>Invoice_Line_Item_MERC__c.MERC_Cnsltng_Proj_Consulting_Type_MP</members>
