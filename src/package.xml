@@ -6,6 +6,7 @@
         <members>MERC_CancelDelegateMgmtProcesses</members>
         <members>MERC_DocusignService</members>
         <members>MERC_DocusignServiceTest</members>
+		<members>MERC_HcpCapActualsCalculatorTest</members>
         <members>MERC_HCPContractCancellation</members>
         <members>MERC_HCPContractCancellationTest</members>
         <members>MERC_HCPContractNewEditController</members>
@@ -13,7 +14,10 @@
         <members>MERC_HotelAllocationCalculatorTest</members>
 		<members>MERC_InvoiceCreditNoteController</members>
         <members>MERC_InvoiceDocFilterController</members>
+		<members>MERC_InvoiceXmlWriterTest</members>
+		<members>MERC_ItineraryParticipantUpdateTest</members>
 		<members>MERC_MeetingParticipantNewEditCtrlTest</members>
+		<members>MERC_MeetingParticipantRollupsTest</members>
 		<members>MERC_MeetingTOVFinalValidation</members>
 		<members>MERC_MeetingTOVFinalValidationTest</members>
 		<members>MERC_ParticipantTovStampHandlerTest</members>
