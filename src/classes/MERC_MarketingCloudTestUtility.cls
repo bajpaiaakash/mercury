@@ -68,7 +68,8 @@ public with sharing class MERC_MarketingCloudTestUtility {
     public static final Integer EMAIL_SEND_EMAIL_ID = 123;
     public static final String EMAIL_SEND_SUBJECT = 'testemailsubject';
     public static final Boolean EMAIL_SEND_SYNC_COMPLETE = true;
-    public static final Boolean EMAIL_SEND_TRACKING_ONLY = true;
+    public static final Boolean EMAIL_SEND_TRACKING_DISABLED = false;
+    public static final String EMAIL_SEND_SYNC_ID_PREFIX = 'emailsendsync_';
 
     public static final String EMAIL_ID = '55555';
     public static final String EMAIL_CATEGORY = 'testcategory';
@@ -657,6 +658,29 @@ public with sharing class MERC_MarketingCloudTestUtility {
         folderedEmail.email = email;
 
         return folderedEmail;
+    }
+
+    public static Meeting_Email_Send_MERC__c getEmailSend(Id meetingId){
+        Meeting_Email_Send_MERC__c meetingEmailSend = new Meeting_Email_Send_MERC__c();
+        meetingEmailSend.Meeting_MERC__c = meetingId;
+
+        // Populate fields that will be placed on the email send
+        meetingEmailSend.ET_Data_Extension_Id_MERC__c = DATA_EXTENSION_KEY;
+        meetingEmailSend.ET_Sync_Id_MERC__c = EMAIL_SEND_SYNC_ID_PREFIX + DateTime.now();
+        meetingEmailSend.ET_Business_Unit_MERC__c = BUSINESS_UNIT_ID;
+        meetingEmailSend.ET_Recipients_Opted_In_MERC__c = true;
+        meetingEmailSend.ET_Sender_Profile_Id_MERC__c = SEND_DEFINITION_SENDER_PROFILE_ID;
+        meetingEmailSend.ET_Send_Classification_Id_MERC__c = SEND_DEFINITION_CLASSIFICATION_ID;
+        meetingEmailSend.ET_Dedupe_Subscribers_MERC__c = EMAIL_SEND_DEDUPE;
+        meetingEmailSend.ET_Individual_Tracking_Disabled_MERC__c = EMAIL_SEND_TRACKING_DISABLED;
+        meetingEmailSend.ET_Email_ID_MERC__c = EMAIL_ID;
+        meetingEmailSend.ET_Email_Name_MERC__c = EMAIL_SEND_SUBJECT;
+        meetingEmailSend.ET_Subject_MERC__c = EMAIL_SEND_SUBJECT;
+        meetingEmailSend.ET_Subject_Line_MERC__c = EMAIL_SEND_SUBJECT;
+        meetingEmailSend.Additional_Information_MERC__c = EMAIL_ADDITIONAL_INFORMATION_HTML;
+        meetingEmailSend.Additional_Information_Plain_Text_MERC__c = EMAIL_ADDITIONAL_INFORMATION_TEXT;
+
+        return meetingEmailSend;
     }
 
     /*

@@ -13,7 +13,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         MERC_MarketingCloudTestUtility.insertSettings();
     }
 
-    @isTest static void test_getEmailFolders(){      
+    @isTest static void test_getEmailFolders(){
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
 
         MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
@@ -28,7 +28,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         Test.stopTest();
     }
 
-    @isTest static void test_updateForFolder(){      
+    @isTest static void test_updateForFolder(){
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
         List<MERC_MarketingCloudClient.EmailFolder> emailFolders = MERC_MarketingCloudTestUtility.getEmailFolders();
 
@@ -46,7 +46,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         Test.stopTest();
     }
 
-    @isTest static void test_getSenderProfileSelectOptions(){      
+    @isTest static void test_getSenderProfileSelectOptions(){
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
 
         MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
@@ -64,7 +64,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         Test.stopTest();
     }
 
-    @isTest static void test_getThumbnail(){      
+    @isTest static void test_getThumbnail(){
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
         String emailId = 'testEmailId';
 
@@ -81,9 +81,9 @@ public with sharing class MERC_MarketingCloudServiceTest {
         Test.stopTest();
     }
 
-    @isTest static void test_prepareMeetingEmailSendForAttempts(){     //
-        MERC_TestFactory.adjustForSFDCSetMockBug = true;
-        User testUser = MERC_MarketingCloudTestUtility.insertUser();
+    @isTest static void test_prepareMeetingEmailSendForAttempts(){
+        User testUser = MERC_MarketingCloudTestUtility.getUser();
+        insert testUser;
         Meeting_MERC__c meeting = null;
         List<Account> personAccounts = null;
         Map<Id, Account> personAccountMap = null;
@@ -91,6 +91,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         MERC_MarketingCloudClient.DataExtension dataExtension = null;
 
         System.runAs(testUser){
+            MERC_TestFactory.adjustForSFDCSetMockBug = true;
             MERC_MarketingCloudTestUtility.adjustTime();
             meeting = MERC_MarketingCloudTestUtility.getMeeting();
             insert meeting;
@@ -126,10 +127,9 @@ public with sharing class MERC_MarketingCloudServiceTest {
             mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getSendDefinitionStatusRequest(
                 MERC_MarketingCloudTestUtility.SEND_DEFINITION_ID,
                 MERC_MarketingCloudService.StatusCompleted));
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
 
             Test.startTest();
-            Test.setMock(HttpCalloutMock.class, mockResponseService);
-            System.debug(participants);
             MERC_MarketingCloudService.prepareMeetingEmailSendForAttempts(
                 meeting.Id,
                 MERC_MarketingCloudTestUtility.getFolderedEmail(), 
@@ -143,10 +143,46 @@ public with sharing class MERC_MarketingCloudServiceTest {
                 MERC_MarketingCloudTestUtility.SEND_DEFINITION_SENDER_PROFILE_ID,
                 MERC_MarketingCloudTestUtility.SEND_DEFINITION_CLASSIFICATION_ID);
             Test.stopTest();
+
+            Meeting_Email_Send_MERC__c meetingEmailSend = [SELECT Id,
+                                                                  Send_Status__c 
+                                                             FROM Meeting_Email_Send_MERC__c
+                                                            WHERE Meeting_MERC__c = :meeting.Id
+                                                            LIMIT 1][0];
+            System.assertEquals(MERC_MarketingCloudService.EmailSendCreated, meetingEmailSend.Send_Status__c);
         }
     }
 
-    @isTest static void test_updateSubscribersWithContacts(){      
+    @isTest static void test_prepareMeetingEmailSendForRetry(){
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
+        User testUser = MERC_MarketingCloudTestUtility.insertUser();
+        Meeting_MERC__c meeting = null;
+
+        System.runAs(testUser){
+            MERC_MarketingCloudTestUtility.adjustTime();
+            meeting = MERC_MarketingCloudTestUtility.getMeeting();
+            insert meeting;
+
+            Meeting_Email_Send_MERC__c meetingEmailSend = MERC_MarketingCloudTestUtility.getEmailSend(meeting.Id);
+            meetingEmailSend.Retry_Count__c = 0;
+            Decimal retryCountBefore = meetingEmailSend.Retry_Count__c;
+            DateTime retryDateLowerBound = DateTime.now();
+            DateTime retryDateUpperBound = DateTime.now().addMinutes(2);
+
+            Test.startTest();
+
+            MERC_MarketingCloudService.prepareMeetingEmailSendForRetry(meetingEmailSend, 3);
+
+            System.assertEquals(retryCountBefore + 1, meetingEmailSend.Retry_Count__c);
+            System.assertNotEquals(null, meetingEmailSend.Retry_Date__c);
+            System.assert(retryDateLowerBound < meetingEmailSend.Retry_Date__c);
+            System.assert(meetingEmailSend.Retry_Date__c < retryDateUpperBound);
+
+            Test.stopTest();
+        }
+    }
+
+    @isTest static void test_updateSubscribersWithContacts(){
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
         System.runAs(testUser){
             MERC_MarketingCloudTestUtility.adjustTime();
