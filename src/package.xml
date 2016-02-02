@@ -6,6 +6,7 @@
         <members>MERC_CancelDelegateMgmtProcesses</members>
         <members>MERC_DocusignService</members>
         <members>MERC_DocusignServiceTest</members>
+		<members>MERC_ETMeetingEmailSendExtension_Test</members>
         <members>MERC_HCPContractCancellation</members>
         <members>MERC_HCPContractCancellationTest</members>
         <members>MERC_HCPContractNewEditController</members>
@@ -28,7 +29,7 @@
         <members>MERC_TravelItineraryNewEditTest</members>
         <members>MERC_TravelProposalsController</members>
         <members>MERC_TravelProposalsControllerTest</members>
-		<members>MERC_TriggerHandlerStateManager</members>
+		<members>MERC_TriggerHandlerStateManager</members>		
         <name>ApexClass</name>
     </types>
     <types>
