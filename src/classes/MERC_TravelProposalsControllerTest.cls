@@ -374,7 +374,7 @@ private class MERC_TravelProposalsControllerTest
         for (sObject so : segmentTypeDefinitions) {
             types.add((String)so.get('Record_Type_Name_MERC__c'));
         }
-        //System.assert(controller.segmentOptions.size() > 1, 'No segment types defined');
+        System.assert(controller.segmentOptions.size() > 1, 'No segment types defined');
         System.assertEquals(types.size(), controller.segmentOptions.size());
         for (SelectOption option : controller.segmentOptions) {
             System.assert(types.contains(option.getValue()));
