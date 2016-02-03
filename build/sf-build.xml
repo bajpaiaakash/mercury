@@ -23,6 +23,7 @@
         <runTest>MERC_HotelAllocationCalculatorTest</runTest>
 		<runTest>MERC_InvoiceCreditNoteControllerTest</runTest>
 		<runTest>MERC_HcpCapActualsCalculatorTest</runTest>
+		<runTest>MERC_InvoiceDocFilterControllerTest</runTest>
 		<runTest>MERC_InvoiceXmlControllerTest</runTest>
 		<runTest>MERC_InvoiceXmlWriterTest</runTest>
 		<runTest>MERC_ItineraryParticipantUpdateTest</runTest> 		
@@ -30,6 +31,7 @@
 		<runTest>MERC_MeetingParticipantNewEditCtrlTest</runTest>
 		<runTest>MERC_MeetingTOVFinalValidationTest</runTest>
 		<runTest>MERC_ParticipantTovStampHandlerTest</runTest>
+		<runTest>MERC_RegistrationResponsesControllerTest</runTest>
         <runTest>MERC_RequestHCPSignatureControllerTest</runTest>
 		<runTest>MERC_TestFactory</runTest>
         <runTest>MERC_TOVCalculatorTest</runTest>

@@ -17,6 +17,7 @@
 		<members>MERC_InvoiceCreditNoteController</members>
 		<members>MERC_InvoiceCreditNoteControllerTest</members>
         <members>MERC_InvoiceDocFilterController</members>
+		<members>MERC_InvoiceDocFilterControllerTest</members>
 		<members>MERC_HcpCapActualsCalculatorTest</members>
 		<members>MERC_InvoiceXmlControllerTest</members>
 		<members>MERC_InvoiceXmlWriterTest</members>
@@ -27,6 +28,7 @@
 		<members>MERC_MeetingTOVFinalValidationTest</members>
 		<members>MERC_ParticipantTovStampHandlerTest</members>
         <members>MERC_RegistrationResponsesController</members>
+		<members>MERC_RegistrationResponsesControllerTest</members>
         <members>MERC_RequestHCPSignatureController</members>
         <members>MERC_RequestHCPSignatureControllerTest</members>
 		<members>MERC_TestFactory</members>
