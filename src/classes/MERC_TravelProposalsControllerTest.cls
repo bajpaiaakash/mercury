@@ -77,9 +77,10 @@ private class MERC_TravelProposalsControllerTest
     /********  Scenario : User Creates a Proposal, saves *******/
     @isTest
     static void itShouldBeAbleToAddSegmentsAndSaveItineraries() {
+            Test.startTest();
         givenThePageIsLoaded();
         givenTheUserClicksNewProposal();
-        Test.startTest();
+
         expectTheSegmentTypesToBeDefined();
 
         expectProposalXSegmentYFieldsToBeUndefined(0,0);
@@ -98,12 +99,13 @@ private class MERC_TravelProposalsControllerTest
 
     /********  Scenario : User creates segment saves & exits *******/
     @isTest static void itShouldBeAbleToAddSegmentsAndSaveAndExit() {
+            Test.startTest();
         givenThePageIsLoaded();
         givenTheUserClicksNewProposal();
         givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
         givenTheUserCompletesProposalXSegmentYInformation(0,0);
 
-        Test.startTest();
+
         givenTheUserClicksSaveAndExit(); //exercising Save And Exit
         
         expectUserToBeReturnedToMeetingParticipant();
@@ -114,13 +116,14 @@ private class MERC_TravelProposalsControllerTest
     /********  Scenario : User encounters error on save *******/
     @isTest
     static void itShouldBeAbleToHandleSaveErrors() {
+            Test.startTest();
         givenThePageIsLoaded();
         givenTheUserClicksNewProposal();
         givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
         givenTheUserCompletesProposalXSegmentYInformation(0,0);
         givenTheUserWillEncounterAnError();
 
-        Test.startTest();
+
         givenTheUserClicksSave();
         Test.stopTest();
 
@@ -131,13 +134,14 @@ private class MERC_TravelProposalsControllerTest
     /********  Scenario : User encounters error on save & exit*******/
     @isTest
     static void itShouldBeAbleToHandleSaveAndExitErrors() {
+            Test.startTest();
         givenThePageIsLoaded();
         givenTheUserClicksNewProposal();
         givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
         givenTheUserCompletesProposalXSegmentYInformation(0,0);
         givenTheUserWillEncounterAnError();
 
-        Test.startTest();
+
         givenTheUserClicksSaveAndExit();
         Test.stopTest();
 
@@ -149,10 +153,11 @@ private class MERC_TravelProposalsControllerTest
     /********  Scenario : User cancels segments and proposals *******/
     @isTest
     static void itShouldNotLoadCancelledSegments() {
+            Test.startTest();
         givenThePageIsLoaded();
         givenTheUserClicksNewProposal();
 
-        Test.startTest();
+
         givenTheUserChangesProposalXSegmentYToCancelled(0,0);
 
         givenTheUserClicksSave();
@@ -163,10 +168,11 @@ private class MERC_TravelProposalsControllerTest
     /********  Scenario : User cancels segments and proposals *******/
     @isTest
     static void itShouldNotLoadCancelledProposals() {
+            Test.startTest();
         givenThePageIsLoaded();
         givenTheUserClicksNewProposal();
 
-        Test.startTest();
+
         givenTheUserChangesPropsalXToCancelled(0);
         expectProposalXSegmentsToBeHidden(0);
 
@@ -176,15 +182,36 @@ private class MERC_TravelProposalsControllerTest
         expectProposalCountToBe(0);
     }
 
+    @isTest
+   static void getNewRenderTest() {
+      Test.startTest();
+        givenThePageIsLoaded();
+        givenTheUserClicksNewProposal();
+
+
+        givenTheUserChangesProposalXSegmentYToCancelled(0,0);
+
+        givenTheUserClicksSave();
+        expectProposalXToHaveYSegments(0,0);
+
+        controller.getNewRender();
+        controller.getCloneRender();
+        Test.stopTest();
+
+    }
+  
+  
+    
     /************ Scenario : Segment Type somehow set to non-defined value ******/
     // this tests a protection that might be over protective, but is in place regardless
     @isTest
     static void itShouldReturnNullIfBadSegmentTypeIsSet() {
+            Test.startTest();
         givenThePageIsLoaded();
         givenTheUserClicksNewProposal();
         givenTheProposalXSegmentYSegmentTypeHasBadValue(0,0);
 
-        Test.startTest();
+
         expectProposalXSegmentYGetSegmentDetailToReturnNull(0,0);
         Test.stopTest();
     }
@@ -369,4 +396,8 @@ private class MERC_TravelProposalsControllerTest
     private static void expectProposalXSegmentYGetSegmentDetailToReturnNull(Integer proposalIndex, Integer segmentIndex) {
         System.assertEquals(null, controller.proposals[proposalIndex].segments[segmentIndex].getSegmentDetail());
     }
+    
+
+    
+    
 }
