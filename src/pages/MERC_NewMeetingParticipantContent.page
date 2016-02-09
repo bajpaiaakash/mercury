@@ -1,3 +1,0 @@
-<apex:page showHeader="true" sidebar="true" standardController="Meeting_Participant_MERC__c">
-	<c:MERC_NewContentGeneric />
-</apex:page>
