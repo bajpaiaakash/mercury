@@ -1,3 +1,8 @@
+<!--
+	Created By: Kyle Thornton (Mavens Consulting)
+	Created Date: April 23, 2015
+	Description : This page allows users to Create Travel Proposals and their underlying segments (both types are Travel Itinerary records) and allows for addition of new proposals and new segments within those proposals.
+-->	
 <apex:page showHeader="true" sidebar="true" controller="MERC_TravelProposalsController">
 	<style>
 		div.proposal-fields { margin: 20px 0;}

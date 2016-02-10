@@ -1,3 +1,7 @@
+<!--
+	Created by: Mavens Consulting
+	Description: Meeting Day management VF page.
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Meeting_Day_MERC__c" recordsetvar="e" extensions="MERC_MeetingDayManagerController" action="{!ensureHotelAllocationsForMeetingDays}">
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
 	<apex:styleSheet value="{!URLFOR($Resource.mercury, '/css/bootstrap.typeahead.css')}"/>

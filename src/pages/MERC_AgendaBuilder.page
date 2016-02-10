@@ -1,3 +1,7 @@
+<!--
+    Created By: Joseph Ferraro, Mavens Consulting
+    Description: VF Page that enables users to build/modify Agenda via a unified UI.
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Agenda_Item_MERC__c" recordsetvar="e" extensions="MERC_AgendaBuilderController" action="{!setTimeZones}">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>

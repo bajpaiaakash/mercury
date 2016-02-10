@@ -132,5 +132,16 @@
         <members>Docusign_Settings_MERC__c.Lilly_Signature_Anchor_String_MERC__c</members>
         <name>CustomField</name>
     </types>
+    <types>
+        <members>AccountMergeSettings_MERC</members>
+        <members>CAP_MERC</members>
+        <members>ContentLibraryLookup_MERC</members>
+        <members>FMV_MERC</members>
+        <members>PersonSearchMVN</members>
+        <members>TimeZoneMappingTestData_MERC</members>
+        <members>TravelProposalSegementTypes_MERC</members>
+        <members>mercury</members>
+        <name>StaticResource</name>
+    </types>
     <version>34.0</version>
 </Package>

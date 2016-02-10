@@ -1,3 +1,7 @@
+<!--
+	Created by: Kyle Thornton
+	Description: VF Page for budget line items. 
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Budget_Line_Item_MERC__c" extensions="MERC_BudgetLineItemNewEditController">
 	<apex:includeScript value="{!urlFor($Resource.PersonSearchMVN, 'JQuery/jquery-latest.js')}" />
 	<apex:includeScript value="{!urlFor($Resource.mercury, 'js/mercury.js')}" />

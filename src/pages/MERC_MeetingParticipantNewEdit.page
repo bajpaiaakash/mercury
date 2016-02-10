@@ -1,7 +1,11 @@
+<!--
+	Created by: Joseph Ferraro
+	Description: VF page override of Meeting Participant New/Edit pages.
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Meeting_Participant_MERC__c" extensions="MERC_MeetingParticipantNewEditController">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
-	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:stylesheet value="{ !urlfor($Resource.mercury, 'css/style.css')}"/>
 	<style>
 		td.data2Col textarea {
 			width:55%;

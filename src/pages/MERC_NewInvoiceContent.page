@@ -1,3 +1,7 @@
+<!--
+	Created by: Joseph Ferraro, Mavens Consulting
+	Description: VF page enables users to upload documents to Salesforce Content and associate with Mercury objects.
+-->
 <apex:page showHeader="true" sidebar="true" controller="MERC_InvoiceDocFilterController" action="{!deleteOldInvoiceContent}">
 	<c:MERC_NewContentGeneric />
 </apex:page>

@@ -1,1 +1,5 @@
+<!--
+	Created by: Sean Harrison, Mavens Consulting
+	Description: VF Page has page action that calls redirect that preps the Invoice record for invalidation and cloning.
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Invoice_MERC__c" extensions="MERC_InvoiceInvalidationController" action="{!redirect}"><apex:pageMessages id="messages"/></apex:page>

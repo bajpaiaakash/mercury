@@ -1,3 +1,7 @@
+<!--    
+    Created By: Joseph Ferraro & Kyle Thornton (Mavens Consulting)
+    Description : VF Page enables users to manage Meeting Team via unified UI.
+-->
 <apex:page showHeader="true" sidebar="false" standardController="Team_Member_MERC__c" recordsetvar="e" extensions="MERC_MeetingTeamManagerController">
     <apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
     <apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>

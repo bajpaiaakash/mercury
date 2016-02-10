@@ -1,3 +1,7 @@
+<!--
+	Created by: Kyle Thornton, Mavens Consulting
+	Description: VF page override of Meeting Product Create/Edit pages.
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Meeting_Products_MERC__c" extensions="MERC_MeetingProductNewEditController">
 	<apex:includeScript value="{!urlFor($Resource.PersonSearchMVN, 'JQuery/jquery-latest.js')}" />
 	<apex:includeScript value="{!urlFor($Resource.mercury, 'js/mercury.js')}" />

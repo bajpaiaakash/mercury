@@ -1,3 +1,7 @@
+<!--
+	Created By: Joseph Ferraro, Mavens Consulting
+	Description: DocuSign page with iFrame for the docusign URL passed in via parameter. 
+-->
 <apex:page showHeader="true" sidebar="true" standardController="HCP_Contract_MERC__c">
 	<apex:sectionHeader title="{!$ObjectType.HCP_Contract_MERC__c.label}" subtitle="Tag and Send Contract" />
 	<apex:iframe src="{!$CurrentPage.parameters.docusignURL}"/>

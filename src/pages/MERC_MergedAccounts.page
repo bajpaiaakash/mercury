@@ -1,3 +1,7 @@
+<!--
+	Created by: Kyle Thornton
+	Description: This page displays the related lists for a Merge_History_GLBL__c record (represented by the winning account info as the losing account info will have already been wiped by the integration) when it is selected. This will allow a user to select the items from the losing records related lists that should be reparented and move them over to the winning record. The user can then mark then entire record as complete when they are done.
+-->
 <apex:page showHeader="true" sidebar="false" tabStyle="Account" controller="MERC_MergedAccountsController">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>

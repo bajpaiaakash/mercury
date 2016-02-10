@@ -1,3 +1,7 @@
+<!--
+	Created by: Joseph Ferraro, Mavens Consulting
+	Description: This page allows user to create/edit meeting date/times. Overriding meeting pages so we can control UX as it relates to Date/Times.
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Meeting_MERC__c" extensions="MERC_MeetingDateTimesController" action="{!setTimeZones}">
 	<script>
 		function setFocusOnLoad() {}  //prevent date popup from showing onload

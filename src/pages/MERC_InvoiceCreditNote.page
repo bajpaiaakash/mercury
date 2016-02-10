@@ -1,3 +1,11 @@
+<!-- 
+	Created By: Kyle Thornton
+	Description: Page that allows users to clone a locked invoice or credit note.
+		When an invoice needs to be fixed users will issue a credit note with the exact
+		same information (line items & content) as its assoiated invoice and then issue
+		a new invoice. The Line items for the new invoice are cloned as a starting point
+		for corrections to be made and then content can be regenerated.
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Invoice_MERC__c" extensions="MERC_InvoiceCreditNoteController">
 	<apex:pageBlock title="{!invoice.Name} - Create {!newInvoiceRecType.Name}">
 		<apex:pageMessages id="messages"/>

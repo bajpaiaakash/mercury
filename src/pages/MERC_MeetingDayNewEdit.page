@@ -1,3 +1,7 @@
+<!--
+	Created by: Mavens Consulting
+	Description: Create/edit Meeting Day VF page.
+-->
 <apex:page sidebar="true" showHeader="true" title="New/Edit {!$ObjectType.Meeting_Day_MERC__c.label}" standardController="Meeting_Day_MERC__c" extensions="MERC_MeetingDayNewEditController" action="{!setTimeZones}">
 	<apex:sectionHeader title="{!$ObjectType.Meeting_Day_MERC__c.label}" 
 		subtitle="{!if(Meeting_Day_MERC__c.Id == '', 'New', Meeting_Day_MERC__c.Name)}" />

@@ -1,3 +1,7 @@
+<!--
+	Created by: Joseph Ferraro, Mavens Consulting
+	Description: VF page to allow user to create/edit meetings. Overriding meeting pages so we can control UX as it relates to Date/Times.
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Meeting_MERC__c" extensions="MERC_MeetingNewEditController" action="{!setTimeZones}">
 	<style>
 		td.data2Col textarea {

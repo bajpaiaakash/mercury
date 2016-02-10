@@ -7,7 +7,7 @@
 public with sharing class MERC_TestFactory {
 
     public static Id employeeRecordTypeId =     [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Employee_GLBL' LIMIT 1].Id;
-    Public static Id ParticipantRecordTypeId =     [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Consulting' LIMIT 1].Id; //Added by Jyoti Gaur for US-39907 Ac1 on 09 Dec
+    public static Id participantRecordTypeId =     [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Consulting' LIMIT 1].Id; //Added by Jyoti Gaur for US-39907 Ac1 on 09 Dec
     public static Id hcpRecordTypeId =          [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'HCP_GLBL' LIMIT 1].Id;
     public static Id vendorRecordTypeId =       [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Vendor_GLBL' LIMIT 1].Id;
 
@@ -24,21 +24,21 @@ public with sharing class MERC_TestFactory {
         settings.Budget_Edit_Validation_MERC__c = true;
         insert settings;
 
-        List<Content_Library_Lookup_MERC__c> contentLookupSettings = Test.loadData(Content_Library_Lookup_MERC__c.sObjectType, 'ContentLibraryLookup_MERC');
-        List<Account_Merge_Related_Lists_MERC__c> mergeSettings = Test.loadData(Account_Merge_Related_Lists_MERC__c.sObjectType, 'AccountMergeSettings_MERC');
+        List<Content_Library_Lookup_MERC__c> contentLookupSettings = Test.loadData(Content_Library_Lookup_MERC__c.sObjectType, 'MERC_ContentLibraryLookup');
+        List<Account_Merge_Related_Lists_MERC__c> mergeSettings = Test.loadData(Account_Merge_Related_Lists_MERC__c.sObjectType, 'MERC_AccountMergeSettings');
         List<CST_App_Settings_CUST__c> cstSettings = Test.loadData(CST_App_Settings_CUST__c.sObjectType, 'CST_Test_Settings');
     }
 
     public static void loadTimeZoneFieldMapSettings() {
-        List<sObject> timeZoneFieldMappings = Test.loadData(Time_Zone_Field_Mappings_MERC__c.sObjectType, 'TimeZoneMappingTestData_MERC');
+        List<sObject> timeZoneFieldMappings = Test.loadData(Time_Zone_Field_Mappings_MERC__c.sObjectType, 'MERC_TimeZoneMappingTestData');
     }
 
     public static List<sObject> loadTravelProposalSegmentTypeSettings() {
-        return Test.loadData(Travel_Proposal_Segment_Type_MERC__c.sObjectType, 'TravelProposalSegementTypes_MERC');
+        return Test.loadData(Travel_Proposal_Segment_Type_MERC__c.sObjectType, 'MERC_TravelProposalSegementTypes');
     }
 
     public static void loadCAPSettings() {
-        List<sObject> capSettings = Test.loadData(CAP_Settings_MERC__c.sObjectType, 'CAP_MERC');
+        List<sObject> capSettings = Test.loadData(CAP_Settings_MERC__c.sObjectType, 'MERC_CAP');
     }
 
     public static void loadFMVSettings() {
@@ -413,7 +413,7 @@ public with sharing class MERC_TestFactory {
             p.Account_MERC__c = accounts.get(i).Id;
             p.Meeting_MERC__c = meetingId;
             p.Status_MERC__c = pStatus;
-            p.RecordTypeId = ParticipantRecordTypeId;
+            p.RecordTypeId = participantRecordTypeId;
             p.Services_Rendered_MERC__c = 'Yes';
             p.Alliance_MERC__c = 'Not Applicable';  // new process around FMV
             participants.add(p);

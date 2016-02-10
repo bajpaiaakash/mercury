@@ -1,3 +1,8 @@
+<!--
+    Created By: Kyle Thornton, Mavens Consulting
+    Created Date: April 15, 2015
+    Description: This page facilitates the Registration Question/Response process. It uses the MERC_RegistrationResponsesController controller that consists of a constructor that calls private helper methods. It also has two inner classes, Question and Answer which facilitate reconciling Registration_Question_MERC__c, Answer_MERC__c and Response_MERC__c records and displaying them properly on the page. When saving responses, all prior responses for the active meeting participant will be removed and new responses created.
+-->
 <apex:page showHeader="true" sidebar="true" controller="MERC_RegistrationResponsesController">
     <style media="screen">
         /* bump all questions in a little */

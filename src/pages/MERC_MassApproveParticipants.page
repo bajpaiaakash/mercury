@@ -1,3 +1,7 @@
+<!--
+	Created by: Kyle Thornton, Mavens Consulting
+	Description: This is the MERC_MassApproveParticipants page. There are four groups 1. Pending Approval 2. Approved 3. Rejected and 4. Invited. each group is lazy loaded and can be forced into a refresh by calling refreshTables() which will null each object out and force them to reload. There are two public variables with getters for use on the visualforce page: 1. meeting 2. statusoptions
+-->
 <apex:page showHeader="true" sidebar="true" tabStyle="Meeting_Participant_MERC__c" standardController="Meeting_Participant_MERC__c" recordSetVar="a" extensions="MERC_MassApproveParticipantsController">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>

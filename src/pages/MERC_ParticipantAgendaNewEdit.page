@@ -1,3 +1,7 @@
+<!--
+	Created by: Kyle Thornton
+	Description: VF page overrides Participation Agenda create/edit pages.
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Participant_Agenda_MERC__c" extensions="MERC_ParticipantAgendaNewEditController">
 	<apex:includeScript value="{!urlFor($Resource.PersonSearchMVN, 'JQuery/jquery-latest.js')}" />
 	<apex:includeScript value="{!urlFor($Resource.mercury, 'js/mercury.js')}" />

@@ -1,3 +1,7 @@
+<!--
+	Created by: Joseph Ferraro, Mavens Consulting
+ 	Description: This VF page enables Mercury user to send HCP Contract for signature via Docusign.
+--> 
 <apex:page showHeader="true" sidebar="true" standardController="HCP_Contract_MERC__c" extensions="MERC_RequestHCPSignatureController">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<script>

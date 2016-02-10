@@ -1,3 +1,7 @@
+<!--
+	Created by: Mavens Consulting
+	Description: Overrides the Travel Itinerary create/edit pages so we can control UX as it relates to Date/Times
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Travel_Itinerary_MERC__c" extensions="MERC_TravelItineraryNewEditController" action="{!setTimeZones}">
 	<apex:includeScript value="{!urlFor($Resource.PersonSearchMVN, 'JQuery/jquery-latest.js')}" />
 	<apex:includeScript value="{!urlFor($Resource.mercury, 'js/mercury.js')}" />

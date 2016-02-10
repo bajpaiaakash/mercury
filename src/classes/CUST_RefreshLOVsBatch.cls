@@ -1,6 +1,6 @@
 /**
  * CUST_RefreshLOVsBatch
- * Created By: Joe Ferraro, Mavens Consulting
+ * Created By: Joseph Ferraro, Mavens Consulting
  * Description: Dynamically updates batches of LoV related records based on inputs.
  */
 global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Database.Stateful {

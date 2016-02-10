@@ -1,3 +1,7 @@
+<!--
+	Created by: Mavens Consulting
+	Description: VF page with the new content generic component.
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Budget_MERC__c">
 	<c:MERC_NewContentGeneric />
 </apex:page>

@@ -1,3 +1,8 @@
+<!--
+	Created By: Kyle Thornton (Mavens Consulting)
+	Created Date: June 9, 2015
+	Description : This VF page allows users to filter meeting tasks for a meeting by Process and Process State -and- allows users to set status of meetings en masse.
+-->
 <apex:page showHeader="true" sidebar="true" tabStyle="Meeting_Participant_MERC__c" controller="MERC_MeetingTaskEditorController">
 	<style>
 		input.navigation, span.navigation {
@@ -24,8 +29,6 @@
 					<apex:inputField value="{!filterTask.Task_Status_MERC__c}" onchange="updateList();"/>
 				</apex:pageBlockSection>
 				<!-- END FILTERS -->
-
-
 
 				<apex:pageBlockSection title="Tasks" collapsible="False" columns="1">
 					<!-- TASK NAVIGATION-->

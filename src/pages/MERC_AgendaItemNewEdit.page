@@ -1,3 +1,7 @@
+<!--
+    Created By: Joseph Ferraro, Mavens Consulting
+	Description: VF Page that enables users to create/edit an agenda item.
+-->
 <apex:page sidebar="true" showHeader="true" title="New/Edit {!$ObjectType.Agenda_Item_MERC__c.label}" standardController="Agenda_Item_MERC__c" extensions="MERC_AgendaItemNewEditController" action="{!setTimeZones}">
 	<apex:sectionHeader title="{!$ObjectType.Agenda_Item_MERC__c.label}" 
 		subtitle="{!if(Agenda_Item_MERC__c.Id == '', 'New', Agenda_Item_MERC__c.Name)}" />

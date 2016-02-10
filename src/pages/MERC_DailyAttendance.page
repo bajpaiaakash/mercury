@@ -1,3 +1,7 @@
+<!--
+	Created By: Joseph Ferraro, Mavens Consulting
+	Description: Meeting Daily Attendance UI.
+-->
 <apex:page showHeader="true" sidebar="true" tabStyle="Meeting_MERC__c" standardController="Meeting_Day_MERC__c" recordSetVar="a" extensions="MERC_DailyAttendanceController" action="{!upsertMissingTovRecords}">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>

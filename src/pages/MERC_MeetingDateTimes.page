@@ -1,5 +1,6 @@
 <!--
-	Embedded in Meeting detail pages to show user-friendly Date/Times
+	Created by: Mavens Consulting
+	Description: Embedded in Meeting detail pages to show user-friendly Date/Times
 -->
 <apex:page sidebar="false" standardController="Meeting_MERC__c">
 	<apex:pageBlock mode="maindetail">

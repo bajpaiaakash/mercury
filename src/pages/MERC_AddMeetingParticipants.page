@@ -1,3 +1,7 @@
+<!--
+    Created By: Joseph Ferraro and Sean Harrison, Mavens Consulting
+    Description: Searches CST and enables user to add Accounts to Meeting as Participants
+-->
 <apex:page showHeader="true" sidebar="true" standardController="Meeting_Participant_MERC__c" recordSetVar="a" extensions="MERC_AddMeetingParticipantsController" action="{!ensureCstToken}">
     <apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
     <apex:includeScript value="{!urlfor($Resource.mercury, 'js/chosen.jquery.min.js')}"/>
@@ -467,13 +471,9 @@
                                                                             </apex:commandLink>
                                                                         </apex:outputPanel>
                                                                     </apex:facet>
-                                                                    <apex:facet name="start">
-                                                                        Loading...
-                                                                    </apex:facet>
+                                                                    <apex:facet name="start">{!$Label.Adding_Participants_Loading_Message}</apex:facet>
                                                                 </apex:actionStatus>
-                                                                <apex:outputLink value="javascript:void(0)" styleClass="btn" onclick="hideAddPopovers()">
-                                                                    Cancel
-                                                                </apex:outputLink>
+                                                                <apex:outputLink value="javascript:void(0)" styleClass="btn" onclick="hideAddPopovers()">{!$Label.Adding_Participants_Cancel_Button_Text}</apex:outputLink>
                                                             </div>
                                                         </apex:outputPanel>
                                                     </apex:actionRegion>
@@ -501,12 +501,8 @@
                                         
                                     </apex:pageBlockTable>
 
-                                    <apex:outputPanel rendered="{!searchResults != null && searchResults.size == 0}">
-                                        No Results Found
-                                    </apex:outputPanel>
-                                    <apex:outputPanel rendered="{!searchResults == null}">
-                                        Please perform your search on the "Search Form" tab
-                                    </apex:outputPanel>
+                                    <apex:outputPanel rendered="{!searchResults != null && searchResults.size == 0}">{!$Label.Adding_Participants_No_Results_Found_Message}</apex:outputPanel>
+                                    <apex:outputPanel rendered="{!searchResults == null}">{!$Label.Adding_Participants_No_Search_Results_Message}</apex:outputPanel>
                                 </apex:outputPanel>
                             </apex:pageBlock>
                         </apex:outputPanel>
@@ -528,7 +524,7 @@
                                         </apex:commandLink>
                                     </apex:column>
                                     <apex:column width="100">
-                                        <apex:outputLink value="/{!p.Id}/e" target="_blank">Edit Participant</apex:outputLink>
+                                        <apex:outputLink value="/{!p.Id}/e" target="_blank">{!$Label.Adding_Participants_Edit_Participants_Text}</apex:outputLink>
                                     </apex:column>
                                     <apex:column value="{!p.Id}"/>
                                     <apex:column value="{!p.Account_MERC__c}"/>
