@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CaseOwnerSharingRule xmlns="http://soap.sforce.com/2006/04/metadata">
+<SharingRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingOwnerRules>
         <fullName>MERC_MPC_CASE_Luxembourg</fullName>
         <sharedTo>
@@ -36,4 +36,4 @@
         <description>Shares all cases owned by an MPC in one Country with other MPCs in that Country group</description>
         <name>MERC_MPC_CASE_Turkey</name>
     </sharingOwnerRules>
-</CaseOwnerSharingRule>
+</SharingRule>
