@@ -5,8 +5,8 @@
         <name>SharingCriteriaRule</name>
     </types>
 	<types>
-        <members>Case.MERC_MPC_CASE_Luxembourg</members>
-        <name>SharingOwnerRule</name>
+        <members>MERC_MPC_CASE_Luxembourg</members>
+        <name>CaseOwnerSharingRule</name>
     </types>
     <types>
         <members>MERC_Delegate_Mgmt_BA</members>
