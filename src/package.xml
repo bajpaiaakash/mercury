@@ -6,8 +6,6 @@
     </types>
 	<types>
         <members>Case.MERC_MPC_CASE_Luxembourg</members>
-        <members>Case.MERC_MPC_CASE_Bosnia_And_Herzegovina</members>
-        <members>Case.MERC_MPC_CASE_Turkey</members>
         <name>SharingOwnerRule</name>
     </types>
     <types>

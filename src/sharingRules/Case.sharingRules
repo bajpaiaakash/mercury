@@ -11,29 +11,5 @@
         <sharedFrom>
             <group>MERC_Meetings_MPC_LU</group>
         </sharedFrom>
-    </sharingOwnerRules>
-    <sharingOwnerRules>
-        <fullName>MERC_MPC_CASE_Bosnia_And_Herzegovina</fullName>
-		<caseAccessLevel>Edit</caseAccessLevel>
-		<description>Shares all cases owned by an MPC in one Country with other MPCs in that Country group</description>
-        <label>MERC_MPC_CASE_Bosnia_And_Herzegovina</label>
-		<sharedTo>
-            <group>MERC_Meetings_MPC_BA</group>
-        </sharedTo>
-        <sharedFrom>
-            <group>MERC_Meetings_MPC_BA</group>
-        </sharedFrom>
-      </sharingOwnerRules>
-    <sharingOwnerRules>
-        <fullName>MERC_MPC_CASE_Turkey</fullName>
-		<caseAccessLevel>Edit</caseAccessLevel>
-        <description>Shares all cases owned by an MPC in one Country with other MPCs in that Country group</description>
-        <label>MERC_MPC_CASE_Turkey</label>
-        <sharedTo>
-            <group>MERC_Meetings_MPC_TR</group>
-        </sharedTo>
-        <sharedFrom>
-            <group>MERC_Meetings_MPC_TR</group>
-        </sharedFrom>
-        </sharingOwnerRules>
+    </sharingOwnerRules>    
 </SharingRule>
