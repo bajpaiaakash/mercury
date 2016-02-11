@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <criteriaBasedRules>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
         <fullName>MERC_Meetings_Bosnia_and_Herzegovina</fullName>
         <sharedTo>
             <group>MERC_Meetings_BA</group>
@@ -13,5 +13,5 @@
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
         <name>MERC_Meetings_Bosnia_and_Herzegovina</name>
-    </criteriaBasedRules>
-</CustomObjectSharingRules>
+    </sharingCriteriaRules>
+</SharingRules>
