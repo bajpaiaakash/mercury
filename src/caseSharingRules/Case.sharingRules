@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CaseSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <ownerRules>
+        <fullName>MERC_MPC_CASE_Luxembourg</fullName>
+        <sharedTo>
+            <group>MERC_Meetings_MPC_LU</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>MERC_Meetings_MPC_LU</group>
+        </sharedFrom>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>Shares all cases owned by an MPC in one Country with other MPCs in that Country group</description>
+        <name>MERC_MPC_CASE_Luxembourg</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>MERC_MPC_CASE_Bosnia_And_Herzegovina</fullName>
+        <sharedTo>
+            <group>MERC_Meetings_MPC_BA</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>MERC_Meetings_MPC_BA</group>
+        </sharedFrom>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>Shares all cases owned by an MPC in one Country with other MPCs in that Country group</description>
+        <name>MERC_MPC_CASE_Bosnia_And_Herzegovina</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>MERC_MPC_CASE_Turkey</fullName>
+        <sharedTo>
+            <group>MERC_Meetings_MPC_TR</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>MERC_Meetings_MPC_TR</group>
+        </sharedFrom>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>Shares all cases owned by an MPC in one Country with other MPCs in that Country group</description>
+        <name>MERC_MPC_CASE_Turkey</name>
+    </ownerRules>
+</CaseSharingRules>
