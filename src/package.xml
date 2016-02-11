@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>MERC_MPC_CASE_Luxembourg</members>
-        <members>MERC_MPC_CASE_Bosnia_And_Herzegovina</members>
-        <members>MERC_MPC_CASE_Turkey</members>
-        <name>CaseOwnerSharingRule</name>
-    </types>
-    <types>
         <members>Meeting_MERC__c.MERC_Meetings_Bosnia_and_Herzegovina</members>
         <name>SharingCriteriaRule</name>
+    </types>
+	<types>
+        <members>Case.MERC_MPC_CASE_Luxembourg</members>
+        <members>Case.MERC_MPC_CASE_Bosnia_And_Herzegovina</members>
+        <members>Case.MERC_MPC_CASE_Turkey</members>
+        <name>SharingOwnerRule</name>
     </types>
     <types>
         <members>MERC_Delegate_Mgmt_BA</members>
