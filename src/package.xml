@@ -4,8 +4,10 @@
         <members>Meeting_MERC__c.MERC_Meetings_Bosnia_and_Herzegovina</members>
         <name>SharingCriteriaRule</name>
     </types>
-	  <types>
+	<types>
         <members>Case.MERC_MPC_CASE_Luxembourg</members>
+		<members>Case.MERC_MPC_CASE_Bosnia_And_Herzegovina</members>
+		<members>Case.MERC_MPC_CASE_Turkey</members>
         <name>SharingOwnerRule</name>
     </types>
     <types>

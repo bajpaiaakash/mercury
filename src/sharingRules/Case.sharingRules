@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingOwnerRules>
+        <fullName>MERC_MPC_CASE_Bosnia_And_Herzegovina</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares all cases owned by an MPC in one Country with other MPCs in that Country group</description>
+        <label>MERC_MPC_CASE_Bosnia_And_Herzegovina</label>
+        <sharedTo>
+            <group>MERC_Meetings_MPC_BA</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>MERC_Meetings_MPC_BA</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
         <fullName>MERC_MPC_CASE_Luxembourg</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Shares all cases owned by an MPC in one Country with other MPCs in that Country group</description>
@@ -10,6 +22,18 @@
         </sharedTo>
         <sharedFrom>
             <group>MERC_Meetings_MPC_LU</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>MERC_MPC_CASE_Turkey</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares all cases owned by an MPC in one Country with other MPCs in that Country group</description>
+        <label>MERC_MPC_CASE_Turkey</label>
+        <sharedTo>
+            <group>MERC_Meetings_MPC_TR</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>MERC_Meetings_MPC_TR</group>
         </sharedFrom>
     </sharingOwnerRules>
 </SharingRules>
