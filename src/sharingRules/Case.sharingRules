@@ -24,6 +24,18 @@
             <group>MERC_Meetings_MPC_LU</group>
         </sharedFrom>
     </sharingOwnerRules>
+	<sharingOwnerRules>
+        <fullName>MERC_MPC_CASE_Serbia</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares all cases owned by an MPC in one Country with other MPCs in that Country group</description>
+        <label>MERC_MPC_CASE_Serbia</label>
+        <sharedTo>
+            <group>MERC_Meetings_MPC_RS</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>MERC_Meetings_MPC_RS</group>
+        </sharedFrom>
+    </sharingOwnerRules>
     <sharingOwnerRules>
         <fullName>MERC_MPC_CASE_Turkey</fullName>
         <accessLevel>Edit</accessLevel>

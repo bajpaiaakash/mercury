@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Meeting_MERC__c.MERC_Meetings_Bosnia_and_Herzegovina</members>
+		<members>Meeting_MERC__c.MERC_Meetings_Bosnia_and_Herzegovina</members>
+		<members>Meeting_Process_MERC__c.MERC_Meeting_Process_BA</members>
+		<members>Meeting_Process_MERC__c.MERC_Meeting_Process_IT_HUB</members>
+        <members>Preferences_and_Consent_GLBL__c.BA_Public</members>
+		<members>Preferences_and_Consent_GLBL__c.BA_Public_Consent</members>
+		<members>Preferences_and_Consent_GLBL__c.Italy_Hub_Private</members>
+		<members>Preferences_and_Consent_GLBL__c.Italy_Hub_Public_Consent</members>
         <name>SharingCriteriaRule</name>
     </types>
 	<types>
         <members>Case.MERC_MPC_CASE_Luxembourg</members>
 		<members>Case.MERC_MPC_CASE_Bosnia_And_Herzegovina</members>
+		<members>Case.MERC_MPC_CASE_Serbia</members>
 		<members>Case.MERC_MPC_CASE_Turkey</members>
         <name>SharingOwnerRule</name>
     </types>
@@ -22,7 +29,8 @@
         <name>Group</name>
     </types>
 	<types>
-        <members>Mercury_Meeting_Owner_Edit</members>
+        <members>MERC_CMS_IT_Support</members>
+		<members>Mercury_Meeting_Owner_Edit</members>
         <name>PermissionSet</name>
     </types>
     <types>
