@@ -1,3 +1,11 @@
+/*
+* MERC_MarketingCloudClient
+* Description : Handles exclusively authenticating and calling Marketing Cloud APIs. SOAP, "Fuel",
+*               and REST clients are used.
+* Author: David Helmer (refactored from Sonoma)
+* Modified By: 
+* Modified Date: Dec. 11th 2015
+*/
 public with sharing class MERC_MarketingCloudClient {
     private static final et4ae5__Configuration__c Configuration;
     private static final et4ae5__Business_Unit__c BusinessUnit;
@@ -9,26 +17,30 @@ public with sharing class MERC_MarketingCloudClient {
     
     private static final Integer DefaultTimeout = 120000;
     private static final Integer ShorterTimeout = 5;
-    private static final String PostMethod = 'POST';
-    private static final String GetMethod = 'GET';
-    private static final String SoapAction = 'SOAPAction';
-    private static final String ContentType = 'Content-Type';
-    private static final String AcceptType = 'Accept';
-    private static final String XMLType = 'text/xml; charset=UTF-8';
-    private static final String JsonType = 'application/json';
-    private static final String JsonCharsetType =  'application/json; charset=UTF-8';
-    private static final String Authorization = 'authorization';
-    private static final String TimestampFormat = 'YYYY-MM-dd\'T\'HH:mm:ss\'Z\'';
+    private static final String POST_METHOD = 'POST';
+    private static final String GET_METHOD = 'GET';
+    private static final String SOAP_ACTION_KEY = 'SOAPAction';
+    private static final String CONTENT_TYPE_KEY = 'Content-Type';
+    private static final String ACCEPT_TYPE_KEY = 'Accept';
+    private static final String XML_CHARSET_TYPE = 'text/xml; charset=UTF-8';
+    private static final String JSON_TYPE = 'application/json';
+    private static final String JSON_CHARSET_TYPE =  'application/json; charset=UTF-8';
+    private static final String AUTHORIZATION_KEY = 'authorization';
+    private static final String TIMESTAMP_FORMAT = 'YYYY-MM-dd\'T\'HH:mm:ss\'Z\'';
+
+    private static final String RETRIEVE_ACTION = 'Retrieve';
+    private static final String UPDATE_ACTION = 'Update';
 
     private static final Integer StatusCodeSuccess = 200;
     private static final Integer StatusCodeRedirect = 300;
 
     static {
+        System.debug('initialized');
         MarketingCloudSettings = Mercury_Marketing_Cloud_Settings_MERC__c.getInstance();
         Configuration = [SELECT et4ae5__UserName__c,
                                 et4ae5__Password__c, 
                                 et4ae5__Auth_API_URL__c,
-                                et4ae5__Root_Rest_API_URL__c,                                
+                                et4ae5__Root_Rest_API_URL__c,
                                 et4ae5__Root_SOAP_API_URL__c,
                                 et4ae5__integration_type__c,
                                 et4ae5__url_root__c,
@@ -47,6 +59,10 @@ public with sharing class MERC_MarketingCloudClient {
         soapClient = new SoapClient();
         fuelClient = new FuelClient(soapClient.authToken);
         restClient = new RestClient(soapClient.requestScopedAuthToken());
+    }
+
+    public static Boolean isAuthorized(){
+        return String.isNotBlank(soapClient.authToken) && String.isNotBlank(fuelClient.authToken);
     }
 
     public static List<SenderProfile> getSenders(){
@@ -118,10 +134,10 @@ public with sharing class MERC_MarketingCloudClient {
     }
     
     private class FuelClient {
-        private final String ClientId = 'jsemj72hixy2qx1yp27lb59o';
-        private final String ClientSecret = 'DRfQ1K3NzeOxxdJEXDOUK4n2';
-        private final String AuthURL = 'https://auth.exacttargetapis.com';
-        private final String RootURL = 'https://www.exacttargetapis.com';
+        private final String ClientId = MarketingCloudSettings.Fuel_API_Client_ID_MERC__c;
+        private final String ClientSecret = MarketingCloudSettings.Fuel_API_Client_Secret_MERC__c;
+        private final String AuthURL = MarketingCloudSettings.Fuel_API_Auth_Root_URL_MERC__c;
+        private final String RootURL = MarketingCloudSettings.Fuel_API_Root_URL_MERC__c;
 
         private final String SoapAuthToken;
 
@@ -181,29 +197,32 @@ public with sharing class MERC_MarketingCloudClient {
 
         private String requestAuthToken(){
             System.debug(LoggingLevel.FINE, 'FuelClient.SoapAuthToken:\n' + SoapAuthToken);
-            FuelRequestBody requestBody = new FuelRequestBody(ClientId, ClientSecret, SoapAuthToken);
+            FuelRequestBody fuelRequestBody = new FuelRequestBody(ClientId, ClientSecret, SoapAuthToken);
+            String requestBody = JSON.serialize(fuelRequestBody);
             String requestUrl = AuthURL + '/v1/requestToken?legacy=1';
+            System.debug(LoggingLevel.FINE, 'FuelClient posting to ' + requestUrl + ' with body:\n\t' + requestBody);
 
             HttpRequest request = new HttpRequest();
             request.setEndpoint(requestUrl);
             request.setTimeout(DefaultTimeout);
-            request.setMethod(PostMethod);
-            request.setHeader(ContentType, JsonType);
-            request.setHeader(AcceptType, JsonType);
-            request.setBody(JSON.serialize(requestBody));
+            request.setMethod(POST_METHOD);
+            request.setHeader(CONTENT_TYPE_KEY, JSON_TYPE);
+            request.setHeader(ACCEPT_TYPE_KEY, JSON_TYPE);
+            request.setBody(requestBody);
 
             Http http = new Http();
             HttpResponse response = http.send(request);
 
             String authToken = '';
             if (response.getStatusCode() >= StatusCodeSuccess && response.getStatusCode() < StatusCodeRedirect) {
+                System.debug(LoggingLevel.FINE, 'FuelClient POST from Response:\n\n' + response.getBody());
                 FuelResponseBody fuelResBody = (FuelResponseBody)JSON.deserialize(response.getBody(), FuelResponseBody.class);
                 authToken = fuelResBody.accessToken;
             } else {
                 System.debug('soapAuthToken: ' + SoapAuthToken);
                 System.debug(LoggingLevel.WARN, 'Failed to get FuelAuthToken ('
                     + response.getStatusCode() + '):\n\nRequest:\n' 
-                + JSON.serialize(requestBody) + '\n\nResponse:\n' + response.getBody());
+                + requestBody + '\n\nResponse:\n' + response.getBody());
             }
 
             return authToken;
@@ -217,10 +236,10 @@ public with sharing class MERC_MarketingCloudClient {
 
             httpRequest.setTimeout(DefaultTimeout);
             httpRequest.setEndpoint(requestUrl);
-            httpRequest.setMethod(PostMethod);
-            httpRequest.setHeader(ContentType, JsonType);
-            httpRequest.setHeader(AcceptType, JsonType);
-            httpRequest.setHeader(Authorization, 'Bearer ' + authToken);
+            httpRequest.setMethod(POST_METHOD);
+            httpRequest.setHeader(CONTENT_TYPE_KEY, JSON_TYPE);
+            httpRequest.setHeader(ACCEPT_TYPE_KEY, JSON_TYPE);
+            httpRequest.setHeader(AUTHORIZATION_KEY, 'Bearer ' + authToken);
             httpRequest.setBody(body);
 
             HttpResponse response = new HttpResponse();
@@ -464,10 +483,10 @@ public with sharing class MERC_MarketingCloudClient {
             System.debug(LoggingLevel.FINE, 'RestClient GET from URL:\n' + requestUrl);
 
             httpRequest.setTimeout(timeOut);
-            httpRequest.setMethod(GetMethod);
+            httpRequest.setMethod(GET_METHOD);
             httpRequest.setEndpoint(requestUrl);
-            httpRequest.setHeader(ContentType, JsonType);
-            httpRequest.setHeader(AcceptType, JsonType);
+            httpRequest.setHeader(CONTENT_TYPE_KEY, JSON_TYPE);
+            httpRequest.setHeader(ACCEPT_TYPE_KEY, JSON_TYPE);
 
             HttpResponse response = new HttpResponse();
             try
@@ -497,9 +516,9 @@ public with sharing class MERC_MarketingCloudClient {
 
             httpRequest.setTimeout(DefaultTimeout);
             httpRequest.setEndpoint(requestUrl);
-            httpRequest.setMethod(PostMethod);
-            httpRequest.setHeader(ContentType, JsonCharsetType);
-            httpRequest.setHeader(AcceptType, JsonType);
+            httpRequest.setMethod(POST_METHOD);
+            httpRequest.setHeader(CONTENT_TYPE_KEY, JSON_CHARSET_TYPE);
+            httpRequest.setHeader(ACCEPT_TYPE_KEY, JSON_TYPE);
             httpRequest.setBody(body);
 
             HttpResponse response = new HttpResponse();
@@ -521,11 +540,6 @@ public with sharing class MERC_MarketingCloudClient {
 
     @TestVisible //TODO: rewrite test class so this isn't necessary.
     private class SoapClient {
-        private final String SOAPApplicationId = '6C7F3A46-9BFD-40E9-87EE-456577D4FFE7'; // why is this hardcoded?
-        private final String soapAPIUrl = 'https://webservice.s6.exacttarget.com/Service.asmx';
-        private final String RetrieveAction = 'Retrieve';
-        private final String UpdateAction = 'Update';
-
         public String authToken {
             get {
                 if(authToken == null || authToken  == '') {
@@ -567,15 +581,15 @@ public with sharing class MERC_MarketingCloudClient {
 
             String requestXML = getAuthTokenRequestXML(Configuration.et4ae5__UserName__c,
                                                        Configuration.et4ae5__Password__c,
-                                                       SOAPApplicationId,
+                                                       MarketingCloudSettings.Application_ID_MERC__c,
                                                        scope);
 
             HttpRequest request = new HttpRequest();
             request.setEndpoint(Configuration.et4ae5__Auth_API_URL__c);
             request.setTimeout(DefaultTimeout);
-            request.setMethod(PostMethod);
-            request.setHeader(SoapAction, 'urn:authentication.exacttarget.com/2010/06/11/Auth/OAuthLogin');
-            request.setHeader(ContentType, XMLType);
+            request.setMethod(POST_METHOD);
+            request.setHeader(SOAP_ACTION_KEY, 'urn:authentication.exacttarget.com/2010/06/11/Auth/OAuthLogin');
+            request.setHeader(CONTENT_TYPE_KEY, XML_CHARSET_TYPE);
             request.setBody(requestXML);
 
             System.debug(LoggingLevel.Fine, 'SoapClient.requestAuthToken (requestXML)\n\n\t' + requestXML);
@@ -597,7 +611,7 @@ public with sharing class MERC_MarketingCloudClient {
             } else {
                 System.debug(LoggingLevel.ERROR, 'Failed to authenticate with:\n\tUsername: ' + 
                     Configuration.et4ae5__UserName__c + '\n\tPassword: ' + 
-                    Configuration.et4ae5__Password__c + '\n\tApplication ID: ' + SOAPApplicationId);
+                    Configuration.et4ae5__Password__c + '\n\tApplication ID: ' + MarketingCloudSettings.Application_ID_MERC__c);
             }
 
             System.debug(LoggingLevel.Fine, 'SoapClient.requestAuthToken (parsedToken)\n\n\t' + parsedToken);
@@ -629,7 +643,7 @@ public with sharing class MERC_MarketingCloudClient {
         public List<Subscriber> requestSubscribers(List<String> subscriberKeys){
             String requestBody = getSubscribersRequestXML(subscriberKeys);
 
-            HttpResponse httpResponse = PostSoapAction(requestBody, RetrieveAction);
+            HttpResponse httpResponse = PostSoapAction(requestBody, RETRIEVE_ACTION);
 
             return parseSubscribers(httpResponse.getBody());
         }
@@ -651,7 +665,7 @@ public with sharing class MERC_MarketingCloudClient {
 
             DateTime currentDateTime = Datetime.now();
             if(Test.isRunningTest()){
-                currentDateTime = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+                currentDateTime = DateTime.newInstanceGmt(1984, 1, 31, 7, 8, 16);
             }
 
             String bodyXML = '';
@@ -662,8 +676,8 @@ public with sharing class MERC_MarketingCloudClient {
                         + '</oAuth>'
                         + '<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">'
                             + '<u:Timestamp u:Id="0">'
-                                + '<u:Created>' + currentDateTime.format(TimestampFormat) + '</u:Created>'
-                                + '<u:Expires>' + currentDateTime.addMinutes(5).format(TimestampFormat) + '</u:Expires>'
+                                + '<u:Created>' + currentDateTime.formatGmt(TIMESTAMP_FORMAT) + '</u:Created>'
+                                + '<u:Expires>' + currentDateTime.addMinutes(5).formatGmt(TIMESTAMP_FORMAT) + '</u:Expires>'
                             + '</u:Timestamp>'
                             + '<o:UsernameToken>'
                                 + '<o:Username>*</o:Username>'
@@ -716,16 +730,16 @@ public with sharing class MERC_MarketingCloudClient {
         public String postSubscriberUpdate(Subscriber subscriber){
             String requestBody = getSubscriberUpdateXML(subscriber);
 
-            HttpResponse httpResponse = PostSoapAction(requestBody, UpdateAction);
+            HttpResponse httpResponse = PostSoapAction(requestBody, UPDATE_ACTION);
 
             return parseSubscriberUpdateResponse(httpResponse.getBody());
         }
 
         private String getSubscriberUpdateXML(Subscriber subscriber){
-            DateTime currentDateTime = Datetime.now();
+            DateTime currentDateTime = DateTime.now();
             
             if(Test.isRunningTest()){
-                currentDateTime = DateTime.newInstance(1984, 1, 31, 7, 8, 16);
+                currentDateTime = DateTime.newInstanceGmt(1984, 1, 31, 7, 8, 16);
             }
             String bodyXML;
             bodyXML = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">'
@@ -735,8 +749,8 @@ public with sharing class MERC_MarketingCloudClient {
                         + '</oAuth>'
                         + '<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">'
                         + '<u:Timestamp u:Id="0">'
-                            + '<u:Created>' + currentDateTime.format(TimestampFormat) + '</u:Created>'
-                            + '<u:Expires>' + currentDateTime.addMinutes(5).format(TimestampFormat) + '</u:Expires>'
+                            + '<u:Created>' + currentDateTime.formatGmt(TIMESTAMP_FORMAT) + '</u:Created>'
+                            + '<u:Expires>' + currentDateTime.addMinutes(5).formatGmt(TIMESTAMP_FORMAT) + '</u:Expires>'
                         + '</u:Timestamp>'
                         + '<o:UsernameToken>'
                             + '<o:Username>*</o:Username>'
@@ -780,10 +794,10 @@ public with sharing class MERC_MarketingCloudClient {
             HttpRequest httpRequest = new HttpRequest();
 
             httpRequest.setTimeout(DefaultTimeout);
-            httpRequest.setEndpoint(soapAPIUrl);
-            httpRequest.setMethod(PostMethod);
-            httpRequest.setHeader(ContentType, XMLType);
-            httpRequest.setHeader(SoapAction, action);
+            httpRequest.setEndpoint(Configuration.et4ae5__Root_SOAP_API_URL__c);
+            httpRequest.setMethod(POST_METHOD);
+            httpRequest.setHeader(CONTENT_TYPE_KEY, XML_CHARSET_TYPE);
+            httpRequest.setHeader(SOAP_ACTION_KEY, action);
             httpRequest.setBody(body);
 
             HttpResponse response = new HttpResponse();
@@ -840,13 +854,7 @@ public with sharing class MERC_MarketingCloudClient {
     private class FuelRequestBody {
         public String clientId { get; private set; }
         public String clientSecret { get; private set; }
-        public String scope {
-            get {
-                return 'cas:' + scope;
-                //return scope;
-            }
-            private set;
-        }
+        public String scope { get; private set; }
 
         public FuelRequestBody(String cId, String cSecret, String s) {
             this.clientId = cId;
@@ -880,6 +888,15 @@ public with sharing class MERC_MarketingCloudClient {
     public class KeyValue {
         public String key { get; set;}
         public String value { get; set;}
+
+        public KeyValue(){
+            
+        }
+
+        public KeyValue(String key, String value){
+            this.key = key;
+            this.value = value;
+        }
     }
 
     public class EmailFolderResponse extends ListResponse {
@@ -1002,7 +1019,10 @@ public with sharing class MERC_MarketingCloudClient {
 
             this.field = new List<Field>();
             this.retentionPolicy = new List<RetentionPolicy>();
-            this.retentionPolicy.add(new RetentionPolicy(false, false, String.valueOf(expireIn), false));
+            System.debug('this.retentionPolicy.add(new RetentionPolicy(false, false, String.valueOfGmt(expireIn), false)):\n' + expireIn);
+            System.debug(expireIn);
+            System.debug('stringof:\n' + String.valueOfGmt(expireIn));
+            this.retentionPolicy.add(new RetentionPolicy(false, false, String.valueOfGmt(expireIn), false));
         }
 
         public String dataExtensionName { get; set; }
@@ -1037,6 +1057,7 @@ public with sharing class MERC_MarketingCloudClient {
             this.DeleteAtEndOfRetentionPeriod = deleteAtEnd;
             this.ResetRetentionPeriodOnImport = resetOnImport;
             this.RetainUntil = until;
+            System.debug(until);
             this.RowBasedRetention = rowBased;
         }
         public Boolean DeleteAtEndOfRetentionPeriod { get; set; }

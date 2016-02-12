@@ -63,7 +63,7 @@ public class MERC_MeetingEmailSendAttemptHandler implements GLBL_TriggerHandler.
     private void attemptSends(List<MeetingEmailSendWrapper> meetingEmailSends, Integer startIndex, Integer maxIndex) {
         for (Integer index = startIndex; index < maxIndex; index++) {
             Meeting_Email_Send_MERC__c meetingEmailSend = meetingEmailSends[index].meetingEmailSend;
-            MERC_MarketingCloudService.attemptMeetingEmailSend(meetingEmailSend.Id);
+            MERC_MarketingCloudService.attemptMeetingEmailSendAsync(meetingEmailSend.Id);
         }
     }
 

@@ -639,13 +639,9 @@ public with sharing class MERC_MarketingCloudTestUtility {
 
     public static MERC_MarketingCloudClient.FolderedEmail getFolderedEmail(){
         MERC_MarketingCloudClient.Email email = new MERC_MarketingCloudClient.Email();
-        MERC_MarketingCloudClient.KeyValue emailStatus = new MERC_MarketingCloudClient.KeyValue();
-        emailStatus.key = EMAIL_STATUS_KEY;
-        emailStatus.value = EMAIL_STATUS_VALUE;
-
         email.Id = EMAIL_ID;
         email.type = EMAIL_TYPE;
-        email.status = emailStatus;
+        email.status = new MERC_MarketingCloudClient.KeyValue(EMAIL_STATUS_KEY,EMAIL_STATUS_VALUE);
         email.name = EMAIL_SEND_SUBJECT;
         email.subject = EMAIL_SEND_SUBJECT;
         email.categoryId = EMAIL_CATEGORY;

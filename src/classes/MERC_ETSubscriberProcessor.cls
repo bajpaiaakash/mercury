@@ -11,6 +11,7 @@ public with sharing class MERC_ETSubscriberProcessor {
 
     public List<MERC_ETSubscriber> RetrieveSubscribers(List<String> subscriberKeys)
     {
+        System.debug(LoggingLevel.INFO, 'RetrieveSubscribers(subscriberKeys)\nsubscriberKeys: ' + subscriberKeys + '\n');
         if (Test.isRunningTest()) {
             authToken = 'testToken';
         } else {
@@ -160,6 +161,7 @@ public with sharing class MERC_ETSubscriberProcessor {
 	            + '</s:Envelope>';
                 
         req.setBody(body);
+        System.Debug('Update body to send: ' + body);
 
         Http h = new Http();
         HttpResponse res = h.send(req);

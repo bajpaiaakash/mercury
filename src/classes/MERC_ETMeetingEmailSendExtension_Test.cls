@@ -169,7 +169,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         System.assert(ext.urlroot.containsIgnoreCase('urlroot'));
         Test.stopTest();
     }
-/* 
+
     @isTest
     public static void Test_Send() {
         withEnterpriseConfig();
@@ -199,7 +199,6 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         etBU.et4ae5__Enabled__c = true;
         insert etBU;
 
-        Test.startTest();
         ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
         MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(controller);
         ext.DeDup = true;
@@ -213,25 +212,23 @@ private class MERC_ETMeetingEmailSendExtension_Test {
         email.name = 'test email name';
         email.Subject = 'test subject';
         ext.email = email;
-        
-        //Test.stopTest();
-        
+
         System.assertEquals(participants.size(), ext.Participants.size());
         for (MERC_ETMeetingEmailSendExtension.SelectedWrapper w : ext.Participants) {
             w.IsSelected = true;
         }
 
         try {
-            //Test.startTest();
+            Test.startTest();
             PageReference ref = ext.Send();
-            //Test.stopTest();
+            Test.stopTest();
 
         } catch (Exception e) {
             System.debug('exception : ' + e);
         }
-        Test.stopTest();
+
     }
- */   
+    
     @isTest
     static void Folders_Compare_On_Name(){
         withEnterpriseConfig();
@@ -641,11 +638,10 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
         Test.setCurrentPage(pageRef);
 
-        Test.startTest(); // updated mayank joshi
         ApexPages.StandardController stdController = new ApexPages.StandardController(meeting);
         MERC_ETMeetingEmailSendExtension ext = new MERC_ETMeetingEmailSendExtension(stdController);
 
-        //Test.startTest();
+        Test.startTest();
             System.assert(ext.isGeneratingDocuments, 'Controller does not indicate that it is in document generation mode');
 
             ext.participants[0].isSelected = true;
@@ -662,7 +658,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
 
             System.assert(returnedRef.getParameters().containsKey('retUrl'));
             System.assert(returnedRef.getParameters().containsKey('sessionId'));
-        Test.stopTest(); // updated by mayank joshi
+        Test.stopTest();
 
     }
 

@@ -10,10 +10,11 @@ public with sharing class MERC_MarketingCloudService {
     private static final et4ae5__Configuration__c Configuration;
     private static final et4ae5__Business_Unit__c BusinessUnit;
 
-    private static final String CreateSenderProfile = 'Create Sender Profile';
-    private static final String CreateSendDefinition = 'Create Send Definition';
-    private static final String StartSendDefinition = 'Start Send Definition';
-    private static final String CheckSendStatus = 'Check Send Status';
+    public static final String CreateSenderProfile = 'Create Sender Profile';
+    public static final String CreateSendDefinition = 'Create Send Definition';
+    public static final String StartSendDefinition = 'Start Send Definition';
+    public static final String CheckSendStatus = 'Check Send Status';
+    public static final String EmailSendCreated = 'Email Send Created';
     public static final String StatusProcessing = 'Processing';
     public static final String StatusCompleted = 'Completed';
 
@@ -156,7 +157,7 @@ public with sharing class MERC_MarketingCloudService {
         meetingEmailSend.Additional_Information_Plain_Text_MERC__c = additionalInformationText;
 
         if (sendTime == 'now') {
-            meetingEmailSend.Send_Status__c = 'Create Sender Profile';
+            meetingEmailSend.Send_Status__c = CreateSenderProfile;
             meetingEmailSend.Send_Email__c = true;
         } else {
             meetingEmailSend.Scheduled_Date__c = futureSendTime;
@@ -164,24 +165,17 @@ public with sharing class MERC_MarketingCloudService {
 
         String thumbnailData = '';
         try {
-            thumbnailData = getThumbnail(meetingEmailSend.Id);
+            thumbnailData = getThumbnail(email.Id);
         } catch (Exception e) {
             System.debug ('Exception retrieving the preview image : ' + e.getMessage() + '\n' + e.getStackTraceString());
         }
-
-        insert meetingEmailSend;
-
-        meetingEmailSend = [SELECT Id, 
-                                   ET_Thumbnail_MERC__c 
-                              FROM Meeting_Email_Send_MERC__c 
-                             WHERE Id = :meetingEmailSend.Id 
-                             LIMIT 1];
 
         if (thumbnailData != null && thumbnailData.length() < 32768) {
             meetingEmailSend.ET_Thumbnail_MERC__c = thumbnailData; // do the same as attachment body on line 220
         } 
 
-        update meetingEmailSend;
+        //insert meetingEmailSend;
+        attemptMeetingEmailSend(meetingEmailSend);
 
         List<Meeting_Participant_Email_Send_MERC__c> meetingParticipantEmailSends = new List<Meeting_Participant_Email_Send_MERC__c>();
         for (Meeting_Participant_MERC__c meetingParticipant : participants) {
@@ -193,7 +187,7 @@ public with sharing class MERC_MarketingCloudService {
         insert meetingParticipantEmailSends;
 
         // at this point this should get picked up by a trigger which eventually calls attemptMeetingEmailSend
-
+        //attemptMeetingEmailSend(meetingEmailSend);
         return;
     }  
 
@@ -379,8 +373,13 @@ public with sharing class MERC_MarketingCloudService {
      *  Meeting Email Send attempts
      */
     @future(callout=true)
-    public static void attemptMeetingEmailSend(Id meetingEmailSendId){
+    public static void attemptMeetingEmailSendAsync(Id meetingEmailSendId){
         Meeting_Email_Send_MERC__c meetingEmailSend = queryMeetingEmailSend(meetingEmailSendId);
+        attemptMeetingEmailSend(meetingEmailSend);
+    }
+
+    private static void attemptMeetingEmailSend(Meeting_Email_Send_MERC__c meetingEmailSend){
+        meetingEmailSend.Retry_Count__c = 0;
         et4ae5__SendDefinition__c sendDefinition = null;
         MERC_MarketingCloudClient.SendClassification sendClassification = null;
 
@@ -500,8 +499,8 @@ public with sharing class MERC_MarketingCloudService {
                     update sendDefinition;
                 }
                 
-                meetingEmailSend.Send_Status__c = 'Email Send Created';
-                update meetingEmailSend;
+                meetingEmailSend.Send_Status__c = EmailSendCreated;
+                upsert meetingEmailSend;
             }
         }
     }
@@ -605,7 +604,7 @@ public with sharing class MERC_MarketingCloudService {
 
     private static void updateMeetingEmailSendForRetry(Meeting_Email_Send_MERC__c meetingEmailSend, Integer maxRetryCount){
         prepareMeetingEmailSendForRetry(meetingEmailSend, maxRetryCount);
-        update meetingEmailSend;
+        upsert meetingEmailSend;
     }
 
     private static void insertSendDefinition(et4ae5__SendDefinition__c sendDefinition, Meeting_Email_Send_MERC__c meetingEmailSend) {
