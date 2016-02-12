@@ -1,14 +1,22 @@
+/**
+* MERC_TestFactory
+* Created By: Mavens Consulting 
+* Description: Reusable methods for MERC test classes.
+*/
 @isTest
 public with sharing class MERC_TestFactory {
 
     public static Id employeeRecordTypeId =     [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Employee_GLBL' LIMIT 1].Id;
+    Public static Id ParticipantRecordTypeId =     [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'MERC_Consulting' LIMIT 1].Id; //modified by Jyoti Gaur for US-39907 Ac1 on 09 Dec and US-39477 on 15 Jan
+    Public static Id LineItemConsultingRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Invoice_Line_Item_MERC__c' AND DeveloperName = 'Consulting_Project_MERC' LIMIT 1].Id;
+    Public static Id LineItemContractedRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Invoice_Line_Item_MERC__c' AND DeveloperName = 'Contracted_Services_MERC' LIMIT 1].Id;
     public static Id hcpRecordTypeId =          [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'HCP_GLBL' LIMIT 1].Id;
     public static Id vendorRecordTypeId =       [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Vendor_GLBL' LIMIT 1].Id;
 
     public static Id masteredAddressRecordTypeId =  [SELECT ID FROM RecordType WHERE SObjectType = 'Address_GLBL__c' AND DeveloperName = 'Mastered_Address' LIMIT 1].Id;
     public static Id otherAddressRecordTypeId =     [SELECT ID FROM RecordType WHERE SObjectType = 'Address_GLBL__c' AND DeveloperName = 'Other_Address' LIMIT 1].Id;
 
-    public static Id hotelItineraryRecordTypeId =   [SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'Hotel_MERC' LIMIT 1].Id;
+    public static Id hotelItineraryRecordTypeId =   [SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'MERC_Hotel' LIMIT 1].Id;
 
     public static Boolean adjustForSFDCSetMockBug {get{if (adjustForSFDCSetMockBug==null) return false; else return adjustForSFDCSetMockBug;}
                            set{adjustForSFDCSetMockBug = value&&Test.isRunningTest();}}
@@ -187,6 +195,7 @@ public with sharing class MERC_TestFactory {
             Invoice_MERC__c i = new Invoice_MERC__c();
             i.Invoice_Date_MERC__c = Date.today();
             i.Meeting_Participant_MERC__c = m.Id;
+            //i.RecordTypeId = ParticipantRecordTypeId;
             i.Cost_Center_MERC__c = '1234567';
             invoices.add(i);
         }
@@ -199,6 +208,19 @@ public with sharing class MERC_TestFactory {
         for (Integer i = 0; i < numberOfLineItems; i++) {
             Invoice_Line_Item_MERC__c lineItem = new Invoice_Line_Item_MERC__c();
             lineItem.Invoice_MERC__c = invoiceId;
+            lineItem.RecordTypeId = LineItemConsultingRecordTypeId;
+            lineItems.add(lineItem);
+        }
+        insert lineItems;
+        return lineItems;
+    }
+    
+    public static List<Invoice_Line_Item_MERC__c> insertContractedInvoiceLineItems(String invoiceId, Integer numberOfLineItems) {
+        List<Invoice_Line_Item_MERC__c> lineItems = new List<Invoice_Line_Item_MERC__c>();
+        for (Integer i = 0; i < numberOfLineItems; i++) {
+            Invoice_Line_Item_MERC__c lineItem = new Invoice_Line_Item_MERC__c();
+            lineItem.Invoice_MERC__c = invoiceId;
+            lineItem.RecordTypeId = LineItemContractedRecordTypeId;
             lineItems.add(lineItem);
         }
         insert lineItems;
@@ -392,6 +414,33 @@ public with sharing class MERC_TestFactory {
         insert participants;
         return participants;
     }
+    
+    // Added start by Jyoti Gaur for US-39907 Ac1 on 09 Dec
+
+    public static List<Meeting_Participant_MERC__c> insertParticipants_forLinetems(String meetingId, List<Account> accounts) {
+        return insertParticipants_forLinetems(meetingId, accounts, null);
+    }
+    
+     public static List<Meeting_Participant_MERC__c> insertParticipants_forLinetems(String meetingId, List<Account> accounts, String status) {
+        String pStatus = status == null ? 'Invited' : status;
+        List<Meeting_Participant_MERC__c> participants = new List<Meeting_Participant_MERC__c>();
+        for (Integer i = 0; i < accounts.size(); i++) {
+            Meeting_Participant_MERC__c p = new Meeting_Participant_MERC__c();
+            p.Account_MERC__c = accounts.get(i).Id;
+            p.Meeting_MERC__c = meetingId;
+            p.Status_MERC__c = pStatus;
+            p.RecordTypeId = ParticipantRecordTypeId;
+            p.Services_Rendered_MERC__c = 'Yes';
+            p.Alliance_MERC__c = 'Not Applicable';  // new process around FMV
+            participants.add(p);
+        }
+
+        insert participants;
+        return participants;
+    }
+    
+    // Added End by Jyoti Gaur on 09 Dec for US-39907
+    
 
     public static List<Meeting_Participant_MERC__c> insertBulkParticipants(List<Meeting_MERC__c> meets, List<Account> accts) {
         List<Meeting_Participant_MERC__c> pList = new List<Meeting_Participant_MERC__c>();
@@ -479,6 +528,7 @@ public with sharing class MERC_TestFactory {
     public static HCP_Contract_MERC__c insertHCPContract(String accountId) {
         HCP_Contract_MERC__c c = new HCP_Contract_MERC__c();
         c.Account_MERC__c = accountId;
+        c.Contract_Request_Status_MERC__c = 'Contract cancelled';  // added by jyoti gaur for US-39525 on 15 Jan
         c.Country_MERC__c = 'GB';
         insert c;
         return c;
