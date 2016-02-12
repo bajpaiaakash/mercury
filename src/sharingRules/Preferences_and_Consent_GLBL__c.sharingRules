@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>BA_Public</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <label>BA - Public</label>
+        <sharedTo>
+            <territory>Bosnia_and_Herzegovina</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>BA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>BA_Public_Consent</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Shares consent with those who can see the HCP</description>
+        <label>BA - Public Consent</label>
+        <sharedTo>
+            <territory>Bosnia_and_Herzegovina</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>BA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Consent</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Italy_Hub_Private</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences and consents based on HCP Country of residence to appropriate territory hub.</description>
+        <label>Italy Hub - Private</label>
+        <sharedTo>
+            <territory>Italy_Hub</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>BA,BG,HR,CY,CZ,HU,IT,MT,PL,RO,RS,SK,SI</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Italy_Hub_Public_Consent</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Shares consent as read-only with those who see the HCP</description>
+        <label>Italy Hub - Public Consent</label>
+        <sharedTo>
+            <territory>Italy_Hub</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>BA,BG,HR,CY,CZ,HU,IT,MT,PL,RO,RS,SK,SI</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Consent</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

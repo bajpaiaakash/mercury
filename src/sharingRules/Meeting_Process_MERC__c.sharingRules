@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>MERC_Meeting_Process_BA</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares meeting processes with those who see the HCP</description>
+        <label>MERC_Meeting_Process_BA</label>
+        <sharedTo>
+            <territory>Bosnia_and_Herzegovina</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>BA</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+	<sharingCriteriaRules>
+        <fullName>MERC_Meeting_Process_IT_HUB</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>MERC_Meeting_Process_IT_HUB</label>
+        <sharedTo>
+            <territory>Italy_Hub</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>BA,BG,HR,CY,CZ,HU,IT,MT,PL,RO,RS,SK,SI</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>
