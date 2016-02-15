@@ -86,47 +86,24 @@ public with sharing class MERC_MarketingCloudServiceTest {
         insert testUser;
         Meeting_MERC__c meeting = null;
         List<Account> personAccounts = null;
-        Map<Id, Account> personAccountMap = null;
         List<Meeting_Participant_MERC__c> participants = null;
-        MERC_MarketingCloudClient.DataExtension dataExtension = null;
 
         System.runAs(testUser){
             MERC_TestFactory.adjustForSFDCSetMockBug = true;
             MERC_MarketingCloudTestUtility.adjustTime();
-            meeting = MERC_MarketingCloudTestUtility.getMeeting();
-            insert meeting;
-
+            meeting = MERC_MarketingCloudTestUtility.insertMeeting();
             personAccounts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
                 MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 5);
             insert personAccounts;
 
-            personAccountMap = MERC_MarketingCloudTestUtility.getPersonAccountMap(personAccounts);
-
             participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
             insert participants;
 
-            dataExtension = MERC_MarketingCloudTestUtility.getDataExtension(meeting.Id);
-            System.debug('dataExtension.retentionPolicy.get(0).RetainUntil:\n' + dataExtension.retentionPolicy.get(0).RetainUntil);
-        
-            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
-            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getThumbnailRequest(
-                MERC_MarketingCloudTestUtility.THUMBNAIL_HEIGHT, MERC_MarketingCloudTestUtility.THUMBNAIL_WIDTH));
-            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateDataExtensionRequest(dataExtension));
-            System.debug(participants);
-            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateDataExtensionEntriesRequest(
-                dataExtension,
-                meeting.Id,
-                MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_HTML,
-                MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_TEXT,
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.MockRequestsForEmailSendAttempt(
+                testUser,
+                meeting,
                 participants,
-                personAccountMap));
-            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateSendDefinitionRequest(
-                MERC_MarketingCloudTestUtility.SEND_DEFINITION_ID));
-            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getStartSendDefinitionRequest(
-                MERC_MarketingCloudTestUtility.SEND_DEFINITION_ID));
-            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getSendDefinitionStatusRequest(
-                MERC_MarketingCloudTestUtility.SEND_DEFINITION_ID,
-                MERC_MarketingCloudService.StatusCompleted));
+                personAccounts);
             Test.setMock(HttpCalloutMock.class, mockResponseService);
 
             Test.startTest();
@@ -160,8 +137,8 @@ public with sharing class MERC_MarketingCloudServiceTest {
 
         System.runAs(testUser){
             MERC_MarketingCloudTestUtility.adjustTime();
-            meeting = MERC_MarketingCloudTestUtility.getMeeting();
-            insert meeting;
+            meeting = MERC_MarketingCloudTestUtility.insertMeeting();
+            //insert meeting;
 
             Meeting_Email_Send_MERC__c meetingEmailSend = MERC_MarketingCloudTestUtility.getEmailSend(meeting.Id);
             meetingEmailSend.Retry_Count__c = 0;

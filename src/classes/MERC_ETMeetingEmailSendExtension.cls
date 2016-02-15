@@ -813,12 +813,12 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
     }
 
     public PageReference Send() {
-        List<Meeting_Participant_MERC__c> parts = new List<Meeting_Participant_MERC__c>();
+        List<Meeting_Participant_MERC__c> participants = new List<Meeting_Participant_MERC__c>();
         for (Meeting_Participant_MERC__c p : getSelectedParticipants()) {
-            parts.Add(p);
+            participants.Add(p);
         }
 
-        if (parts.size() == 0) {
+        if (participants.size() == 0) {
             AddErrorMessage('You must select at least 1 Recipient.');
         }
         if (SendTime == 'none') {
@@ -849,7 +849,7 @@ public with sharing class MERC_ETMeetingEmailSendExtension {
         try {
             MERC_MarketingCloudService.prepareMeetingEmailSendForAttempts(meeting.Id,
                                                                           email,
-                                                                          parts,
+                                                                          participants,
                                                                           DeDup,
                                                                           DisableIndividualTracking,
                                                                           SendTime,

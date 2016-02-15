@@ -565,6 +565,12 @@ public with sharing class MERC_MarketingCloudTestUtility {
         return MERC_ETTestUtils.GetRecordType(MEETING_RECORD_TYPE, MEETING_OBJECT_TYPE).Id;
     }
 
+    public static Meeting_MERC__c insertMeeting(){
+        Meeting_MERC__c meeting = getMeeting();
+        insert meeting;
+        return meeting;
+    }
+
     public static Meeting_MERC__c getMeeting(){
         MeetingCount++;
         return new Meeting_MERC__c(
@@ -1635,6 +1641,61 @@ public with sharing class MERC_MarketingCloudTestUtility {
         public String handlerName(){
             return 'CreateSendDefinition_' + expectedEndpoint + '_' + contentType + '_' + acceptType;
         }
+    }
+
+    public static MERC_MockHttpResponseService MockRequestsForEmailSendAttempt(
+        User testUser,
+        Meeting_MERC__c meeting,
+        List<Meeting_Participant_MERC__c> participants,
+        List<Account> personAccounts){
+        MERC_MarketingCloudClient.DataExtension dataExtension = MERC_MarketingCloudTestUtility.getDataExtension(meeting.Id);
+        MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+   
+        MockThumbnailRequest(mockResponseService);
+        MockSendDefinitionRequests(mockResponseService);
+        MockDataExtensionRequests(
+            mockResponseService,
+            dataExtension,
+            meeting.Id,
+            participants,
+            personAccounts);
+
+        return mockResponseService;
+    }
+
+
+    public static void MockThumbnailRequest(MERC_MockHttpResponseService mockResponseService){
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getThumbnailRequest(MERC_MarketingCloudTestUtility.EMAIL_ID,
+                MERC_MarketingCloudTestUtility.THUMBNAIL_HEIGHT, MERC_MarketingCloudTestUtility.THUMBNAIL_WIDTH));  
+    }
+
+    public static void MockDataExtensionRequests(
+        MERC_MockHttpResponseService mockResponseService,
+        MERC_MarketingCloudClient.DataExtension dataExtension,
+        Id meetingId,
+        List<Meeting_Participant_MERC__c> meetingParticipants,
+        List<Account> personAccounts){
+        Map<Id, Account> personAccountMap = MERC_MarketingCloudTestUtility.getPersonAccountMap(personAccounts);  
+
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateDataExtensionRequest(dataExtension)); 
+          
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateDataExtensionEntriesRequest(
+                dataExtension,
+                meetingId,
+                MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_HTML,
+                MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_TEXT,
+                meetingParticipants,
+                personAccountMap)); 
+    }
+
+    public static void MockSendDefinitionRequests(MERC_MockHttpResponseService mockResponseService){
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateSendDefinitionRequest(
+            MERC_MarketingCloudTestUtility.SEND_DEFINITION_ID));
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getStartSendDefinitionRequest(
+            MERC_MarketingCloudTestUtility.SEND_DEFINITION_ID));
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getSendDefinitionStatusRequest(
+            MERC_MarketingCloudTestUtility.SEND_DEFINITION_ID,
+            MERC_MarketingCloudService.StatusCompleted));
     }
 
     public class MERC_MarketingCloudTestUtilityException extends Exception { }
