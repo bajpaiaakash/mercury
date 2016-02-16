@@ -1,3 +1,8 @@
+/**
+* MERC_DailyAttendanceTOV Trigger
+* Created By: Mavens Consulting
+* Description: Executes a variety of trigger handler classes that make changes to the Daily_Attendance_TOV_MERC__c or associated records.
+*/
 trigger MERC_DailyAttendanceTOV on Daily_Attendance_TOV_MERC__c (before insert, before update, after insert, after update, after delete, after undelete) {
 
 	new GLBL_TriggerHandler()
@@ -15,6 +20,5 @@ trigger MERC_DailyAttendanceTOV on Daily_Attendance_TOV_MERC__c (before insert, 
 		.bind(GLBL_TriggerHandler.Evt.afterupdate,   new MERC_TOVCalculator(Daily_Attendance_TOV_MERC__c.SobjectType))
 		.bind(GLBL_TriggerHandler.Evt.afterdelete,   new MERC_TOVCalculator(Daily_Attendance_TOV_MERC__c.SobjectType))
 		.bind(GLBL_TriggerHandler.Evt.afterundelete, new MERC_TOVCalculator(Daily_Attendance_TOV_MERC__c.SobjectType))
-        .manage();
-        
+        .manage();       
 }

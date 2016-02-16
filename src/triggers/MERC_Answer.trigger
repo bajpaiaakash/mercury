@@ -1,3 +1,8 @@
+/**
+* MERC_Answer Trigger
+* Created By: Mavens Consulting
+* Description: This trigger calls the LockedRecordHandler class that prevents Trigger actions on locked records.
+*/
 trigger MERC_Answer on Answer_MERC__c (before insert, before update, before delete, after insert, after update, after delete, after undelete) {
 
     //for governor limit reasons, let's assign this once and only on before triggers

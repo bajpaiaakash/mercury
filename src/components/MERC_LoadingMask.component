@@ -1,3 +1,7 @@
+<!--
+    Created By: Mavens Consulting
+    Description: Displays a spining loading gif to let user know page is working.
+-->
 <apex:component layout="none">
 	<div class="merc-loading">
 		<div class="loading-message-wrapper">
@@ -8,3 +12,4 @@
 		<div class="overlay"></div>
 	</div>
 </apex:component>
+

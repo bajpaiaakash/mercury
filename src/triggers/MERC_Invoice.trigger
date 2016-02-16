@@ -1,3 +1,8 @@
+/**
+* MERC_Invoice Trigger
+* Created By: Mavens Consulting
+* Description: Executes a variety of trigger handler classes that make changes to the Invoice_MERC__c or associated records.
+*/
 trigger MERC_Invoice on Invoice_MERC__c (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
 
 	new GLBL_TriggerHandler()

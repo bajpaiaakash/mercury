@@ -1,3 +1,10 @@
+/**
+* MERC_MeetingVendor Trigger
+* Created By: Joseph Ferraro, Mavens Consulting
+* Description: This trigger calls two classes to handle inserts, updates and deletes:
+*	1.) MERC_LockedRecordHandler class that prevents Trigger actions on locked records.
+*	2.) MERC_TOVCalculater class that facilitates TOV rollups.
+*/
 trigger MERC_MeetingVendor on Meeting_Vendor_MERC__c (before insert, before update, before delete, after update) {
 
 	//for governor limit reasons, let's assign this once and only on before triggers

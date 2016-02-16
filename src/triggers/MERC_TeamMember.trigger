@@ -1,3 +1,8 @@
+/**
+* MERC_TeamMember Trigger
+* Created By: Mavens Consulting
+* Description: Executes a variety of trigger handler classes that make changes to the Team_Member_MERC__c or associated records.
+*/
 trigger MERC_TeamMember on Team_Member_MERC__c (before insert, before update, before delete, after insert, after update, after delete, after undelete) {
 	
 	//for governor limit reasons, let's assign this once and only on before triggers

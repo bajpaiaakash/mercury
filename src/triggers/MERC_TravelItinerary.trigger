@@ -1,3 +1,8 @@
+/**
+* MERC_TravelItinerary Trigger
+* Created By: Mavens Consulting
+* Description: Executes a variety of trigger handler classes that make changes to the Travel_Itinerary_MERC__c or associated records.
+*/
 trigger MERC_TravelItinerary on Travel_Itinerary_MERC__c (before insert, before update, after insert, after update, after delete, after undelete) {
 	new GLBL_TriggerHandler()
 		.bind(GLBL_TriggerHandler.Evt.beforeinsert,  new MERC_TimestampHandler(Travel_Itinerary_MERC__c.sObjectType))

@@ -1,3 +1,8 @@
+/**
+* MERC_Meeting Trigger
+* Created By: Mavens Consulting
+* Description: Executes a variety of trigger handler classes that make changes to the Meeting_MERC__c or associated records.
+*/
 trigger MERC_Meeting on Meeting_MERC__c (before insert, before update, before delete, after insert, after update, after delete) {
 
     new GLBL_TriggerHandler()

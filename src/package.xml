@@ -107,7 +107,6 @@
         <members>MERC_Attachment</members>
         <members>MERC_ContentVersion</members>
         <members>MERC_DailyAttendanceTOV</members>
-        <members>MERC_DocusignRecipientStatus</members>
         <members>MERC_HCPContract</members>
         <members>MERC_Invoice</members>
         <members>MERC_InvoiceLineItem</members>
@@ -118,7 +117,6 @@
         <members>MERC_MeetingProducts</members>
         <members>MERC_MeetingTask</members>
         <members>MERC_MeetingVendor</members>
-        <members>MERC_MergeHistoryTrigger</members>
         <members>MERC_PreferencesAndConsent</members>
         <members>MERC_RegistrationQuestion</members>
         <members>MERC_Response</members>

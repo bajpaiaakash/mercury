@@ -1,3 +1,10 @@
+/**
+* MERC_MeetingTask Trigger
+* Created By: Mavens Consulting
+* Description: This trigger calls two classes to handle inserts, updates and deletes:
+*	1.) MERC_LockedRecordHandler class that prevents Trigger actions on locked records.
+*	2.) MERC_MeetingProcessHandler class that handles evalutation of rules on the Meeting_Process_Logic_MERC__c object.
+*/
 trigger MERC_MeetingTask on Meeting_Tasks_MERC__c (before insert, before update, before delete, after insert, after update, after delete, after undelete) {
 
     //for governor limit reasons, let's assign this once and only on before triggers

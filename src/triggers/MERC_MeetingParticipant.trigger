@@ -1,3 +1,8 @@
+/**
+* MERC_MeetingParticipant Trigger
+* Created By: Mavens Consulting
+* Description: Executes a variety of trigger handler classes that make changes to the Meeting_Participant_MERC__c or associated records.
+*/
 trigger MERC_MeetingParticipant on Meeting_Participant_MERC__c (before insert, before update, before delete, after insert, after update, after delete, after undelete) {
 
 	//for governor limit reasons, let's assign this once and only on before triggers

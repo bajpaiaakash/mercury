@@ -1,3 +1,10 @@
+/**
+* MERC_MeetingProducts Trigger
+* Created By: Mavens Consulting
+* Description: This trigger calls two classes to handle inserts, updates and deletes:
+*	1.) MERC_LockedRecordHandler class that prevents Trigger actions on locked records.
+*	2.) MERC_DeleteNotifyService class that notifies the Real-Time Integration listener of deletes.
+*/
 trigger MERC_MeetingProducts on Meeting_Products_MERC__c (before insert, before update, before delete, after delete) {
 
 	//for governor limit reasons, let's assign this once and only on before triggers
