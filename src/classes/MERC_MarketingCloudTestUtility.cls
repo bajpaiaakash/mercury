@@ -855,7 +855,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
                 '         "iconType": "shared_item"  '  + 
                 '       },  '  + 
                 '       {  '  + 
-                '         "id": "23172",  '  + 
+                '         "id": "8",  '  + 
                 '         "type": "email",  '  + 
                 '         "lastUpdated": "2016-01-05T21:27:25.287Z",  '  + 
                 '         "createdBy": 0,  '  + 
@@ -878,6 +878,27 @@ public with sharing class MERC_MarketingCloudTestUtility {
             responseBody);
 
         return mockResponse;
+    }
+
+    public static MERC_MockHttpResponseService.MockResponseInterface getMockGetEmptyEmailFoldersRequest(){
+        String responseBody = getEmptyListResponseJSON();
+        String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/folder/?oauth_token='+SOAP_OAUTH_TOKEN+'&where=allowedtypes+in+(\'email\',\'shared_type\',\'global+email\',\'shared_email\',\'shared_item\')';
+
+        MERC_MockHttpResponseService.BasicMockGetResponse mockResponse = new MERC_MockHttpResponseService.BasicMockGetResponse(
+            requestURL,
+            JSON_TYPE, JSON_TYPE,
+            responseBody);
+
+        return mockResponse;
+    }
+
+    public static String getEmptyListResponseJSON(){
+        return  '   {  '  + 
+                '     "startIndex": 0,  '  + 
+                '     "itemsPerPage": 50,  '  + 
+                '     "totalResults": 0,  '  + 
+                '     "entry": []  '  + 
+                '  }  ' ; 
     }
 
     public static MERC_MockHttpResponseService.MockResponseInterface getMockGetEmailFoldersAllRequest(){

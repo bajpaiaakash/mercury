@@ -26,6 +26,10 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
         mockResponseHandlers.add(mockResponseHandler);
     }
 
+    public void addExceptionResponse(MockResponseInterface mockResponseHandler){
+        mockResponseHandlers.add(new BasicExceptionResponse(mockResponseHandler));
+    }
+
     public HttpResponse respond(HttpRequest httpRequest){
         MockResponseInterface mockResponseHandlerToRun = null;
         Boolean moreThanOneHandler = false;
@@ -231,4 +235,26 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
             return 'BasicPost_' + expectedEndpoint + '_' + contentType + '_' + acceptType;
         }
     }
+
+    public class BasicExceptionResponse implements MockResponseInterface {
+        private MockResponseInterface baseResponse;
+
+        public BasicExceptionResponse(MockResponseInterface baseResponse){
+            this.baseResponse = baseResponse;
+        }
+
+        public Boolean shouldRespond(HttpRequest request){
+            return baseResponse.shouldRespond(request);
+        }
+
+        public HttpResponse respond(){
+            throw new MockHttpResponseServiceException('BasicExceptionResponse: This is an intention exception for test purposes');
+        }
+
+        public String handlerName(){
+            return baseResponse.handlerName() + ' with BasicExceptionResponse';
+        }
+    }
+
+    public class MockHttpResponseServiceException extends Exception {}
 }

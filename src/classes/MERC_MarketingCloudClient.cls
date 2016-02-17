@@ -280,10 +280,7 @@ public with sharing class MERC_MarketingCloudClient {
                 return parsedResponse.entry;
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
-                return null;
-            } catch(Exception ex){
-                System.debug('Exception:\n' + ex.getMessage());
-                return null;
+                throw ex;
             }
         }
 
@@ -298,10 +295,7 @@ public with sharing class MERC_MarketingCloudClient {
                 return parsedResponse.entry;
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
-                return null;
-            } catch(Exception ex){
-                System.debug('Exception:\n' + ex.getMessage());
-                return null;
+                throw ex;
             }
         }
 
@@ -321,11 +315,8 @@ public with sharing class MERC_MarketingCloudClient {
                 return null;
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
-                return null;
-            } catch(Exception ex){
-                System.debug('Exception:\n' + ex.getMessage());
-                return null;
-            }
+                throw ex;
+            } 
         }
 
         public List<FolderedEmail> requestEmails(String parentFolderId){
@@ -339,10 +330,7 @@ public with sharing class MERC_MarketingCloudClient {
                 return parsedResponse.entry;
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
-                return null;
-            } catch(Exception ex){
-                System.debug('Exception:\n' + ex.getMessage());
-                return null;
+                throw ex;
             }
         }
 
@@ -358,11 +346,8 @@ public with sharing class MERC_MarketingCloudClient {
                 return parsedResponse.entry;
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
-                return null;
-            } catch(Exception ex){
-                System.debug('Exception:\n' + ex.getMessage());
-                return null;
-            }
+                throw ex;
+            } 
         }
 
         public List<EmailFolder> requestEmailFolders(String parentFolderId){
@@ -376,10 +361,7 @@ public with sharing class MERC_MarketingCloudClient {
                 return parsedResponse.entry;
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
-                return null;
-            } catch(Exception ex){
-                System.debug('Exception:\n' + ex.getMessage());
-                return null;
+                throw ex;
             }
         }
 
@@ -403,7 +385,7 @@ public with sharing class MERC_MarketingCloudClient {
                 return parsedResponse.data;
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
-                return null;
+                throw ex;
             } catch(Exception ex){
                 System.debug('Exception:\n' + ex.getMessage());
                 return null;
@@ -419,7 +401,7 @@ public with sharing class MERC_MarketingCloudClient {
                 return (DataExtensionResponse)JSON.deserialize(httpResponse.getBody(), DataExtensionResponse.class);
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
-                return null;
+                throw ex;
             } catch(Exception ex){
                 System.debug('Exception:\n' + ex.getMessage());
                 return null;
@@ -435,7 +417,7 @@ public with sharing class MERC_MarketingCloudClient {
                 return (CreateSendDefinitionResponse)JSON.deserialize(httpResponse.getBody(), CreateSendDefinitionResponse.class);
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
-                return null;
+                throw ex;
             } catch(Exception ex){
                 System.debug('Exception:\n' + ex.getMessage());
                 return null;
@@ -452,7 +434,7 @@ public with sharing class MERC_MarketingCloudClient {
                             StartSendDefinitionResponse.class);
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
-                return null;
+                throw ex;
             } catch(Exception ex){
                 System.debug('Exception:\n' + ex.getMessage());
                 return null;
@@ -469,7 +451,7 @@ public with sharing class MERC_MarketingCloudClient {
                             CheckSendDefinitionStatusResponse.class);
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
-                return null;
+                throw ex;
             } catch(Exception ex){
                 System.debug('Exception:\n' + ex.getMessage());
                 return null;
