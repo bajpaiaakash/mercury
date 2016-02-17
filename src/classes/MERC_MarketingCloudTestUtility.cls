@@ -128,7 +128,9 @@ public with sharing class MERC_MarketingCloudTestUtility {
     public static final RecordType RECORD_TYPE_INDIVIDUAL = MERC_ETTestUtils.GetRecordType(RECORD_TYPE_STRING_INDIVIDUAL, 'Account');
     public static final RecordType RECORD_TYPE_NON_HCP = MERC_ETTestUtils.GetRecordType(RECORD_TYPE_STRING_NON_HCP, 'Account');
 
-    public static final String PROFILE_DEFAULT_NAME = 'Standard User';
+    public static final String PROFILE_DEFAULT_NAME = 'GSO Basic User_Salesforce';
+    public static final String PERMISSION_SET_MERCURY_MEETINGS_NAME = 'Mercury_Customer_Meeting_Services_Edit';
+    public static final String PERMISSION_SET_EMAILS = 'Mercury_Meeting_ExactTarget_Email_MERC';
 
     public static final String EMAIL_FOLDER_TYPE = 'email';
     public static final String EMAIL_FOLDER_LAST_UPDATED = '1984-01-31T07:08:16.000Z';
@@ -159,6 +161,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
 
     private static Integer UserCount = 0;
     private static Map<String, Profile> ProfileMap = new Map<String, Profile>();
+    private static Map<String, PermissionSet> PermissionSetMap = new Map<String, PermissionSet>();
 
     private static Integer SubscriberCount = 0;
     private static Integer MeetingCount = 0;
@@ -219,7 +222,10 @@ public with sharing class MERC_MarketingCloudTestUtility {
     }
 
     public static User insertUser(){
-        return insertUser(PROFILE_DEFAULT_NAME);
+        User user = insertUser(PROFILE_DEFAULT_NAME);
+        assignPermissionSet(user, PERMISSION_SET_MERCURY_MEETINGS_NAME);
+        assignPermissionSet(user, PERMISSION_SET_EMAILS);
+        return user;
     }
 
     public static User insertUser(String profileName){
@@ -255,6 +261,21 @@ public with sharing class MERC_MarketingCloudTestUtility {
             ProfileMap.put(profileName, profile);
         }
         return ProfileMap.get(profileName);
+    }
+
+    public static void assignPermissionSet(User user, String permissionSetName){
+        PermissionSetAssignment permissionSetAssignment = new PermissionSetAssignment(
+            PermissionSetId = getPermissionSet(permissionSetName).Id, 
+            AssigneeId = user.Id);
+        insert permissionSetAssignment;  
+    }
+
+    public static PermissionSet getPermissionSet(String permissionSetName){
+        if (!PermissionSetMap.containsKey(permissionSetName)) {
+            PermissionSet permissionSet = [SELECT Id FROM PermissionSet WHERE Name = :permissionSetName];
+            PermissionSetMap.put(permissionSetName, permissionSet);
+        }
+        return PermissionSetMap.get(permissionSetName);
     }
 
     public static MERC_MarketingCloudClient.SendDefinition getSendDefinition(){

@@ -11,12 +11,8 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
     }
 
     @isTest static void test_Constructor(){
-        MERC_MeetingEmailSendExtension meetingEmailSendExtension = getValidMeetingEmailSendExtension();
-    }
-
-    private static MERC_MeetingEmailSendExtension getValidMeetingEmailSendExtension(){
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();
-        return getMeetingEmailSendExtension(meeting);
+        MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
     }
 
     private static MERC_MeetingEmailSendExtension getMeetingEmailSendExtension(Meeting_MERC__c meeting){
@@ -49,129 +45,154 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
         System.assertEquals(true, meetingEmailSendExtension.getHasFatalMessages());
     }
 
-    @isTest static void test_EmailFolderTreeInitializesToNull(){
-        MERC_MeetingEmailSendExtension meetingEmailSendExtension = getValidMeetingEmailSendExtension();
-
-        System.assertEquals(null, meetingEmailSendExtension.getEmailFolderTree());
-    }
-
-    @isTest static void test_OpenEmailChooser_PopulatesEmailFolderTree(){
+    @isTest static void test_EmailFolderTreeInitializes(){
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
-        MERC_MeetingEmailSendExtension meetingEmailSendExtension = getValidMeetingEmailSendExtension();
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
 
-        MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
-        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());  
-
-        Test.startTest();
-        Test.setMock(HttpCalloutMock.class, mockResponseService);
         System.runAs(testUser){
-            meetingEmailSendExtension.openEmailChooser();
+            Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting(); 
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());  
+
+            Test.startTest();
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+
+            MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
+
+            Test.stopTest();            
+
             List<MERC_MarketingCloudClient.EmailFolder> emailFolders = meetingEmailSendExtension.getEmailFolderTree();
             System.assertEquals(2, emailFolders.size());
         }  
-        Test.stopTest();
+    }
+
+    @isTest static void test_AnExceptionDuringTreeInitialization_AddsFatalMessage(){
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
+        User testUser = MERC_MarketingCloudTestUtility.insertUser();
+        System.runAs(testUser){
+            Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting(); 
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+            mockResponseService.addExceptionResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());  
+
+            Test.startTest();
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+
+            MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
+
+            Test.stopTest();
+
+            assertMessagesContain('An exception occured while retrieving the emails');
+        }  
+    }
+
+    @isTest static void test_NoEmailFoldersAfterInitialization_AddsWarningMessage(){
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
+        User testUser = MERC_MarketingCloudTestUtility.insertUser();
+        System.runAs(testUser){
+            Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting(); 
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmptyEmailFoldersRequest());  
+
+            Test.startTest();
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+
+            MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
+            List<MERC_MarketingCloudClient.EmailFolder> emailFolders = meetingEmailSendExtension.getEmailFolderTree();
+            System.assertEquals(0, emailFolders.size());
+            Test.stopTest();
+
+            assertMessagesContain('No emails were found.');
+        }  
     }
 
     @isTest static void test_OpenEmailChooser_ShowsEmailChooser(){
-        MERC_TestFactory.adjustForSFDCSetMockBug = true;
-        MERC_MeetingEmailSendExtension meetingEmailSendExtension = getValidMeetingEmailSendExtension();
-        User testUser = MERC_MarketingCloudTestUtility.insertUser();
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();
+        MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
 
-        MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
-        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());  
-
-        Test.startTest();
-        Test.setMock(HttpCalloutMock.class, mockResponseService);
-        System.runAs(testUser){
-            meetingEmailSendExtension.openEmailChooser();
-            System.assertEquals(true, meetingEmailSendExtension.getShowEmailChooser());
-        }  
-        Test.stopTest();
-    }
-
-    @isTest static void test_AnExceptionDuringOpenEmailChooser_AddsFatalMessage(){
-        MERC_TestFactory.adjustForSFDCSetMockBug = true;
-        MERC_MeetingEmailSendExtension meetingEmailSendExtension = getValidMeetingEmailSendExtension();
-        User testUser = MERC_MarketingCloudTestUtility.insertUser();
-
-        MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
-        mockResponseService.addExceptionResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());  
-
-        Test.startTest();
-        Test.setMock(HttpCalloutMock.class, mockResponseService);
-        System.runAs(testUser){
-            meetingEmailSendExtension.openEmailChooser();
-            List<MERC_MarketingCloudClient.EmailFolder> emailFolders = meetingEmailSendExtension.getEmailFolderTree();            
-        }  
-        Test.stopTest();
-
-        assertMessagesContain('An exception occured while retrieving the emails');
-    }
-
-    @isTest static void test_NoEmailFoldersAfterOpenEmailChooser_AddsWarningMessage(){
-        MERC_TestFactory.adjustForSFDCSetMockBug = true;
-        MERC_MeetingEmailSendExtension meetingEmailSendExtension = getValidMeetingEmailSendExtension();
-        User testUser = MERC_MarketingCloudTestUtility.insertUser();
-
-        MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
-        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmptyEmailFoldersRequest());  
-
-        Test.startTest();
-        Test.setMock(HttpCalloutMock.class, mockResponseService);
-        System.runAs(testUser){
-            meetingEmailSendExtension.openEmailChooser();
-            List<MERC_MarketingCloudClient.EmailFolder> emailFolders = meetingEmailSendExtension.getEmailFolderTree();
-            System.assertEquals(0, emailFolders.size());
-        }  
-        Test.stopTest();
-
-        assertMessagesContain('No emails were found.');
+        meetingEmailSendExtension.openEmailChooser();
+        System.assertEquals(true, meetingEmailSendExtension.getShowEmailChooser());
     }
 
     @isTest static void test_CanExpandFolder(){
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
-        MERC_MeetingEmailSendExtension meetingEmailSendExtension = getValidMeetingEmailSendExtension();
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
-
-        MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
-        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());  
-        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersRequest(MERC_MarketingCloudTestUtility.EMAIL_FOLDER_VALID_EXPAND_ID));  
-        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailsRequest(MERC_MarketingCloudTestUtility.EMAIL_FOLDER_VALID_EXPAND_ID));  
-
-        Test.startTest();
-        Test.setMock(HttpCalloutMock.class, mockResponseService);
         System.runAs(testUser){
-            meetingEmailSendExtension.openEmailChooser();
+            Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting(); 
+       
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersRequest(MERC_MarketingCloudTestUtility.EMAIL_FOLDER_VALID_EXPAND_ID));
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailsRequest(MERC_MarketingCloudTestUtility.EMAIL_FOLDER_VALID_EXPAND_ID));
+
+            Test.startTest();
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+
+            MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
             meetingEmailSendExtension.setEmailFolderIdToExpand(MERC_MarketingCloudTestUtility.EMAIL_FOLDER_VALID_EXPAND_ID);
             meetingEmailSendExtension.expandEmailFolder();
-        }  
-        Test.stopTest();
 
-        List<MERC_MarketingCloudClient.EmailFolder> emailFolders = meetingEmailSendExtension.getEmailFolderTree();
-        System.assertEquals(2, emailFolders.size());
-        System.assertEquals(2, emailFolders.get(1).subfolders.size(), meetingEmailSendExtension.getEmailFolderTree());
+            Test.stopTest();
+
+            List<MERC_MarketingCloudClient.EmailFolder> emailFolders = meetingEmailSendExtension.getEmailFolderTree();
+            System.assertEquals(2, emailFolders.size());
+            System.assertEquals(2, emailFolders.get(1).subfolders.size(), meetingEmailSendExtension.getEmailFolderTree());
+        }  
+
     }
 
     @isTest static void test_GetFolderInfoAddsFatalMessageIfExceptionOccurs(){
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
-        MERC_MeetingEmailSendExtension meetingEmailSendExtension = getValidMeetingEmailSendExtension();
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
-
-        MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
-        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());  
-        mockResponseService.addExceptionResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersRequest(MERC_MarketingCloudTestUtility.EMAIL_FOLDER_VALID_EXPAND_ID));  
-        mockResponseService.addExceptionResponse(MERC_MarketingCloudTestUtility.getMockGetEmailsRequest(MERC_MarketingCloudTestUtility.EMAIL_FOLDER_VALID_EXPAND_ID));  
-
-        Test.startTest();
-        Test.setMock(HttpCalloutMock.class, mockResponseService);
         System.runAs(testUser){
+            Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting(); 
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());  
+            mockResponseService.addExceptionResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersRequest(MERC_MarketingCloudTestUtility.EMAIL_FOLDER_VALID_EXPAND_ID));  
+            mockResponseService.addExceptionResponse(MERC_MarketingCloudTestUtility.getMockGetEmailsRequest(MERC_MarketingCloudTestUtility.EMAIL_FOLDER_VALID_EXPAND_ID));  
+
+            Test.startTest();
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+
+            MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
             meetingEmailSendExtension.openEmailChooser();
             meetingEmailSendExtension.setEmailFolderIdToExpand(MERC_MarketingCloudTestUtility.EMAIL_FOLDER_VALID_EXPAND_ID);
-            meetingEmailSendExtension.expandEmailFolder();        
-        }  
-        Test.stopTest();
+            meetingEmailSendExtension.expandEmailFolder();
 
-        assertMessagesContain('An exception occured while expanding the folder');
+            Test.stopTest();
+
+            assertMessagesContain('An exception occured while expanding the folder');
+        }  
+    }
+
+    @isTest static void test_CanSelectEmail(){
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
+        User testUser = MERC_MarketingCloudTestUtility.insertUser();
+        System.runAs(testUser){
+            Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();
+            String emailIdAsString = String.valueOf(MERC_MarketingCloudTestUtility.EMAIL_SEND_EMAIL_ID);
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+
+            Test.startTest();
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+
+            MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
+            meetingEmailSendExtension.setSelectedEmailId(emailIdAsString);
+            meetingEmailSendExtension.setSelectedEmailName(MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT);
+            meetingEmailSendExtension.setSelectedEmailSubject(MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT);
+            meetingEmailSendExtension.selectEmail();
+
+            Test.stopTest();
+
+            MERC_MarketingCloudClient.FolderedEmail selectedEmail = meetingEmailSendExtension.getSelectedEmail();
+            System.assertEquals(emailIdAsString, selectedEmail.id);
+            System.assertEquals(MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT, selectedEmail.subject);
+            System.assertEquals(MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT, selectedEmail.name);
+        }  
     }
 }

@@ -45,7 +45,9 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
         }
 
         System.assertEquals(false, moreThanOneHandler, mockResponseHandlerNames);
-        System.assertNotEquals(null, mockResponseHandlerToRun, 'Failed to find a handler for request:\n' + httpRequest);
+        if(mockResponseHandlerToRun == null){
+            throw new MockHttpResponseServiceException('Failed to find a handler for request:\n' + httpRequest);
+        }
         return mockResponseHandlerToRun.respond();
     }
 

@@ -10,6 +10,11 @@ public with sharing class MERC_MeetingEmailSendExtension {
     private Boolean showEmailChooser;
     private String emailFolderIdToExpand;
 
+    private MERC_MarketingCloudClient.FolderedEmail selectedEmail;
+    private String selectedEmailId;
+    private String selectedEmailName;
+    private String selectedEmailSubject;
+
 	public MERC_MeetingEmailSendExtension(ApexPages.StandardController standardController) {
         Id meetingId = getMeetingId(standardController);
         
@@ -19,8 +24,9 @@ public with sharing class MERC_MeetingEmailSendExtension {
             addFatalMessage('No meeting was found.');
         }
 
-        emailFolderTree = null;
+        attemptGetEmailFolders();
         showEmailChooser = false;
+        selectedEmail = new MERC_MarketingCloudClient.FolderedEmail();
 	}
 
     private Id getMeetingId(ApexPages.StandardController standardController){
@@ -48,9 +54,6 @@ public with sharing class MERC_MeetingEmailSendExtension {
     }
 
     public void openEmailChooser(){
-        if(emailFolderTree == null){
-            attemptGetEmailFolders();
-        }
         showEmailChooser = true;
     }
 
@@ -65,7 +68,7 @@ public with sharing class MERC_MeetingEmailSendExtension {
 
     private void checkIfEmailFolderTreeIsEmpty(){
         if(emailFolderTree.isEmpty()){
-            addWarningMessage('No emails were found.');
+            addWarningMessage('No emails were found. Please contact your Administrator.');
         }
     }
 
@@ -87,6 +90,27 @@ public with sharing class MERC_MeetingEmailSendExtension {
         } catch(Exception ex){
             addFatalMessage('An exception occured while expanding the folder:\n' + ex.getMessage());
         }
+    }
+
+    public void setSelectedEmailId(String emailId) {
+        selectedEmailId = emailId;
+    }
+    public void setSelectedEmailName(String emailName) {
+        selectedEmailName = emailName;
+    }
+    public void setSelectedEmailSubject(String emailSubject) {
+        selectedEmailSubject = emailSubject;
+    }
+
+    public void selectEmail(){
+        selectedEmail = new MERC_MarketingCloudClient.FolderedEmail();
+        selectedEmail.id = selectedEmailId;
+        selectedEmail.name = selectedEmailName;
+        selectedEmail.subject = selectedEmailSubject;
+    }
+
+    public MERC_MarketingCloudClient.FolderedEmail getSelectedEmail(){
+        return selectedEmail;
     }
 
     private void addMessage(ApexPages.Severity severity, String message){
