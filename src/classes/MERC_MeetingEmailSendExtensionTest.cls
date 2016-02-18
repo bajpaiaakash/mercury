@@ -108,6 +108,72 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
         }  
     }
 
+    @isTest static void test_FromEmailOptionsInitializes(){
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
+        User testUser = MERC_MarketingCloudTestUtility.insertUser();
+
+        System.runAs(testUser){
+            Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting(); 
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getSenderProfilesRequest()); 
+
+            Test.startTest();
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+
+            MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
+
+            Test.stopTest();            
+
+            List<SelectOption> fromEmailOptions = meetingEmailSendExtension.getFromEmailOptions();
+            System.assertEquals(3, fromEmailOptions.size());
+            for(SelectOption selectOption : fromEmailOptions){
+                MERC_MarketingCloudTestUtility.assertSenderProfileLabelById(selectOption.getValue(), selectOption.getLabel());
+            }
+        }  
+    }
+
+    @isTest static void test_AnExceptionDuringFromEmailOptionsInitialization_AddsFatalMessage(){
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
+        User testUser = MERC_MarketingCloudTestUtility.insertUser();
+        System.runAs(testUser){
+            Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting(); 
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+            mockResponseService.addExceptionResponse(MERC_MarketingCloudTestUtility.getSenderProfilesRequest());  
+
+            Test.startTest();
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+
+            MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
+
+            Test.stopTest();
+
+            assertMessagesContain('An exception occured while retrieving From Email Options');
+        }  
+    }
+
+    @isTest static void test_NoFromEmailOptionsAfterInitialization_AddsWarningMessage(){
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
+        User testUser = MERC_MarketingCloudTestUtility.insertUser();
+        System.runAs(testUser){
+            Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting(); 
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getEmptySenderProfilesRequest());  
+
+            Test.startTest();
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+
+            MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
+            List<SelectOption> fromEmailOptions = meetingEmailSendExtension.getFromEmailOptions();
+            System.assertEquals(0, fromEmailOptions.size());
+            Test.stopTest();
+
+            assertMessagesContain('No From Emails were found.');
+        }  
+    }
+
     @isTest static void test_OpenEmailChooser_ShowsEmailChooser(){
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();
         MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);

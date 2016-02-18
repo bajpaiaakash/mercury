@@ -58,11 +58,12 @@ public with sharing class MERC_MarketingCloudService {
     public static List<SelectOption> getSenderProfileSelectOptions() {
         List<SelectOption> selectOptions = new List<SelectOption>();
         List<MERC_MarketingCloudClient.SenderProfile> senderProfiles = MERC_MarketingCloudClient.getSenderProfiles();
-
-        for(MERC_MarketingCloudClient.SenderProfile senderProfile : senderProfiles){
-            if(String.isBlank(MarketingCloudSettings.Sender_Profile_Prefix_Filter_MERC__c) ||
-                senderProfile.profileName.startsWith(MarketingCloudSettings.Sender_Profile_Prefix_Filter_MERC__c)){
-                selectOptions.add(new SelectOption(senderProfile.id, displayNameFor(senderProfile)));
+        if(senderProfiles != null){
+            for(MERC_MarketingCloudClient.SenderProfile senderProfile : senderProfiles){
+                if(String.isBlank(MarketingCloudSettings.Sender_Profile_Prefix_Filter_MERC__c) ||
+                    senderProfile.profileName.startsWith(MarketingCloudSettings.Sender_Profile_Prefix_Filter_MERC__c)){
+                    selectOptions.add(new SelectOption(senderProfile.id, displayNameFor(senderProfile)));
+                }
             }
         }
         return selectOptions;

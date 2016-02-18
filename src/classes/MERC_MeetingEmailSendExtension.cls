@@ -15,6 +15,9 @@ public with sharing class MERC_MeetingEmailSendExtension {
     private String selectedEmailName;
     private String selectedEmailSubject;
 
+    private List<SelectOption> fromEmailOptions;
+    private String fromEmailId;
+
 	public MERC_MeetingEmailSendExtension(ApexPages.StandardController standardController) {
         Id meetingId = getMeetingId(standardController);
         
@@ -27,6 +30,8 @@ public with sharing class MERC_MeetingEmailSendExtension {
         attemptGetEmailFolders();
         showEmailChooser = false;
         selectedEmail = new MERC_MarketingCloudClient.FolderedEmail();
+
+        attemptGetFromEmailOptions();
 	}
 
     private Id getMeetingId(ApexPages.StandardController standardController){
@@ -45,23 +50,12 @@ public with sharing class MERC_MeetingEmailSendExtension {
                  LIMIT 1];
     }
 
-    public Boolean getHasFatalMessages(){
-        return ApexPages.hasMessages(ApexPages.Severity.FATAL);
-    }
-
-    public Boolean getShowEmailChooser(){
-        return showEmailChooser;
-    }
-
-    public void openEmailChooser(){
-        showEmailChooser = true;
-    }
-
     private void attemptGetEmailFolders(){
         try{
             emailFolderTree = MERC_MarketingCloudService.getEmailFolders();
             checkIfEmailFolderTreeIsEmpty();
         } catch(Exception ex){
+            System.Debug(ex);
             addFatalMessage('An exception occured while retrieving the emails:\n' + ex.getMessage());
         }
     }
@@ -70,6 +64,30 @@ public with sharing class MERC_MeetingEmailSendExtension {
         if(emailFolderTree.isEmpty()){
             addWarningMessage('No emails were found. Please contact your Administrator.');
         }
+    }
+
+    public void attemptGetFromEmailOptions(){
+        try{
+            fromEmailOptions = MERC_MarketingCloudService.getSenderProfileSelectOptions();
+            checkIfFromEmailOptionsIsEmpty();
+        } catch(Exception ex){
+            System.Debug(ex);
+            addFatalMessage('An exception occured while retrieving From Email Options:\n' + ex.getMessage());
+        }
+    }
+
+    private void checkIfFromEmailOptionsIsEmpty(){
+        if(fromEmailOptions.isEmpty()){
+            addWarningMessage('No From Emails were found. Please contact your Administrator.');
+        }
+    }
+
+    public Boolean getShowEmailChooser(){
+        return showEmailChooser;
+    }
+
+    public void openEmailChooser(){
+        showEmailChooser = true;
     }
 
     public List<MERC_MarketingCloudClient.EmailFolder> getEmailFolderTree(){
@@ -111,6 +129,18 @@ public with sharing class MERC_MeetingEmailSendExtension {
 
     public MERC_MarketingCloudClient.FolderedEmail getSelectedEmail(){
         return selectedEmail;
+    }
+
+    public List<SelectOption> getFromEmailOptions(){
+        return fromEmailOptions;
+    }
+
+    public void setFromEmailId(String id){
+        fromEmailId = id;
+    }
+
+    public Boolean getHasFatalMessages(){
+        return ApexPages.hasMessages(ApexPages.Severity.FATAL);
     }
 
     private void addMessage(ApexPages.Severity severity, String message){

@@ -918,7 +918,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
                 '     "startIndex": 0,  '  + 
                 '     "itemsPerPage": 50,  '  + 
                 '     "totalResults": 0,  '  + 
-                '     "entry": []  '  + 
+                '     "entry": [ ]  '  + 
                 '  }  ' ; 
     }
 
@@ -1130,6 +1130,18 @@ public with sharing class MERC_MarketingCloudTestUtility {
 
     public static MERC_MockHttpResponseService.MockResponseInterface getSenderProfilesRequest(){
         String responseBody = getGetSenderProfilesResponseJSON();
+        String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/messaging/senderprofile/?oauth_token='+SOAP_OAUTH_TOKEN;
+
+        MERC_MockHttpResponseService.BasicMockGetResponse mockResponse = new MERC_MockHttpResponseService.BasicMockGetResponse(
+            requestURL,
+            JSON_TYPE, JSON_TYPE,
+            responseBody);
+
+        return mockResponse;
+    }
+
+    public static MERC_MockHttpResponseService.MockResponseInterface getEmptySenderProfilesRequest(){
+        String responseBody = getEmptyListResponseJSON();
         String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/messaging/senderprofile/?oauth_token='+SOAP_OAUTH_TOKEN;
 
         MERC_MockHttpResponseService.BasicMockGetResponse mockResponse = new MERC_MockHttpResponseService.BasicMockGetResponse(

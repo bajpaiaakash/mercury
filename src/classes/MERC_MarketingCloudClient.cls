@@ -114,7 +114,7 @@ public with sharing class MERC_MarketingCloudClient {
     }
 
     public static CreateSendDefinitionResponse createSendDefinition(SendDefinition sendDefinition){
-        return restClient.postSendDefition(sendDefinition);
+        return restClient.postSendDefinition(sendDefinition);
     }
 
     public static StartSendDefinitionResponse startSendDefinition(String sendDefinitionId){
@@ -280,6 +280,7 @@ public with sharing class MERC_MarketingCloudClient {
                 return parsedResponse.entry;
             } catch(JSONException ex){
                 System.debug('JSONException:\n' + ex.getMessage());
+                System.debug('JSONException RequestBody:\n' + httpResponse.getBody());
                 throw ex;
             }
         }
@@ -408,7 +409,7 @@ public with sharing class MERC_MarketingCloudClient {
             }
         }
 
-        public CreateSendDefinitionResponse postSendDefition(SendDefinition sendDefinition){
+        public CreateSendDefinitionResponse postSendDefinition(SendDefinition sendDefinition){
             String requestPath = '/rest/beta/messaging/senddefinition/instance/?oauth_token=' + AuthToken;
             String requestBody = JSON.serialize(sendDefinition);
             HttpResponse httpResponse = PostToUrl(requestPath, requestBody);
