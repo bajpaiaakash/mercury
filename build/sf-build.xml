@@ -14,31 +14,7 @@
 
 		<echo message="START: SFDC Deployment" />
 		<sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src.dir}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" testLevel="${sf.testLevel}" logType="${sf.logType}" >
-		<runTest>MERC_AddMeetingParticipantsCntlrTest</runTest>
-        <runTest>MERC_CancelDelegateMgmtProcessTest</runTest>
-        <runTest>MERC_ConsultingProjectCapCalculatorTest</runTest>                
-        <runTest>MERC_DocusignServiceTest</runTest>
-		<runTest>MERC_ETMeetingEmailSendExtension_Test</runTest>
-        <runTest>MERC_HCPContractCancellationTest</runTest>
-        <runTest>MERC_HotelAllocationCalculatorTest</runTest>
-		<runTest>MERC_InvoiceCreditNoteControllerTest</runTest>
-		<runTest>MERC_HcpCapActualsCalculatorTest</runTest>
-		<runTest>MERC_InvoiceDocFilterControllerTest</runTest>
-		<runTest>MERC_InvoiceXmlControllerTest</runTest>
-		<runTest>MERC_InvoiceXmlWriterTest</runTest>
-		<runTest>MERC_ItineraryParticipantUpdateTest</runTest> 		
-		<runTest>MERC_MeetingParticipantRollupsTest</runTest>
-		<runTest>MERC_MeetingParticipantNewEditCtrlTest</runTest>
-		<runTest>MERC_MeetingTOVFinalValidationTest</runTest>
-		<runTest>MERC_ParticipantTovStampHandlerTest</runTest>
-		<runTest>MERC_RegistrationResponsesControllerTest</runTest>
-        <runTest>MERC_RequestHCPSignatureControllerTest</runTest>
-		<runTest>MERC_TestFactory</runTest>
-        <runTest>MERC_TOVCalculatorTest</runTest>
-        <runTest>MERC_TOVNonAggregateCalculatorTest</runTest>
-        <runTest>MERC_TOVRoundingTest</runTest>
-        <runTest>MERC_TravelItineraryNewEditTest</runTest>
-        <runTest>MERC_TravelProposalsControllerTest</runTest>
+		
 				
 		</sf:deploy>
 	</target>

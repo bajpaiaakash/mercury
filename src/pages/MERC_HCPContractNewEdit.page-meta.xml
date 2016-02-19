@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>35.0</apiVersion>
-    <availableInTouch>false</availableInTouch>
-    <confirmationTokenRequired>false</confirmationTokenRequired>
-    <description>//Voiding DocuSign Envelope; Added by Vijay Garg on 14-JAN-2016 for US-39525
-Visualforce page for HCP Contract object to be displayed in edit mode. Also, this page will be used to show the success message after end user change the contract status to Cancelled or Completed.</description>
-    <label>MERC_HCPContractNewEdit</label>
-</ApexPage>
