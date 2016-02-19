@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>MERC_Meeting_Complete_Canceled_Clsd_Date__c</fullName>
+        <description>It will capture date when status will change to complete-closed or complete-cancelled. Created 09/02/2016 by Jyoti Gaur</description>
+        <externalId>false</externalId>
+        <label>Meeting Complete-Cancelled Closed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Meeting_End_Date_Inactive__c</fullName>
+        <description>Will set the value to &apos;TRUE&apos; , if the meeting lies outside the time period of meeting start date and meeting end date. Created 09/02/2016 by Jyoti Gaur</description>
+        <externalId>false</externalId>
+        <formula>Today() &gt;  End_Date_of_Event_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting End Date Inactive</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Meeting_End_date_plus_6_months__c</fullName>
+        <description>Will set the value to &apos;TRUE&apos; , if the meeting lies in the time period of meeting end date + 6 months. Created 09/02/2016 by Namrata Aggarwal</description>
+        <externalId>false</externalId>
+        <formula>TODAY() &lt;= End_Date_of_Event_MERC__c + 180</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting End date plus 6 months</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+	<fields>
+        <fullName>MERC_Meeting_out_of_six_months__c</fullName>
+        <description>It will fetch all the meetings where meeting end date has been passed and meeting need to be processed in apex batch class.</description>
+        <externalId>false</externalId>
+        <formula>TODAY() &lt;= End_Date_of_Event_MERC__c + 210</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting out of six months</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+</CustomObject>
