@@ -44,7 +44,10 @@
 		<members>Meeting_MERC__c.MERC_Meeting_out_of_six_months__c</members>
         <name>CustomField</name>
     </types>
-	
+	<types>
+        <members>Invoice_MERC__c</members>
+	<name>CustomObject</name>
+    </types>
     <types>
         <members>MERC_Delegate_Mgmt_BA</members>
         <members>MERC_Meetings_BA</members>
