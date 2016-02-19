@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">    
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to store invoice header information, Integrates with SAP for HCP Payments : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>true</enableEnhancedLookup>
-    <fields>
-        <fullName>MERC_Consulting_Contracted_Amt_excl_VAT__c</fullName>
-        <description>Used to roll up the total value of Consulting and Contracted amounts for an Invoice / Credit Note record. This excludes VAT and is used to calculate CAP at Account level for HCP&apos;s. This is rolled up from the Invoice / Credit Note and NOT the meeting participant for Consulting Projects. Created 09/02/2016 by Namrata Aggarwal</description>
-        <externalId>false</externalId>
-        <label>Consulting Contracted Amount (excl VAT)</label>
-        <summarizedField>Invoice_Line_Item_MERC__c.MERC_Consulting_Contracted_Amount_Rollup__c</summarizedField>
-        <summaryFilterItems>
-            <field>Invoice_Line_Item_MERC__c.RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>Other Items</value>
-        </summaryFilterItems>
-        <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
-        <summaryOperation>sum</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Summary</type>
-    </fields>
-	<fieldSets>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
         <fullName>Invoice_Clone_Field_Set</fullName>
         <description>MERC_InvoiceCreditNoteController</description>
         <displayedFields>
@@ -383,4 +378,21 @@
         </displayedFields>
         <label>Invoice Clone Field Set</label>
     </fieldSets>
-</CustomObject>
+	<fields>
+        <fullName>MERC_Consulting_Contracted_Amt_excl_VAT__c</fullName>
+        <description>Used to roll up the total value of Consulting and Contracted amounts for an Invoice / Credit Note record. This excludes VAT and is used to calculate CAP at Account level for HCP&apos;s. This is rolled up from the Invoice / Credit Note and NOT the meeting participant for Consulting Projects. Created 09/02/2016 by Namrata Aggarwal</description>
+        <externalId>false</externalId>
+        <label>Consulting Contracted Amount (excl VAT)</label>
+        <summarizedField>Invoice_Line_Item_MERC__c.MERC_Consulting_Contracted_Amount_Rollup__c</summarizedField>
+        <summaryFilterItems>
+            <field>Invoice_Line_Item_MERC__c.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Other Items</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+   </CustomObject>

@@ -36,8 +36,7 @@
         <members>Account.MERC_Paid_Invoices_for_Non_Cons_meeting__c</members>
 		<members>Account.Remaining_CAP_MERC__c</members>
 		<members>Account.Utilised_CAP_MERC__c</members>
-        <members>Invoice_Line_Item_MERC__c.MERC_Consulting_Contracted_Amount_Rollup__c</members>
-        <members>Invoice_MERC__c.MERC_Consulting_Contracted_Amt_excl_VAT__c</members>
+        <members>Invoice_Line_Item_MERC__c.MERC_Consulting_Contracted_Amount_Rollup__c</members>        
         <members>Meeting_MERC__c.MERC_Meeting_Complete_Canceled_Clsd_Date__c</members>
         <members>Meeting_MERC__c.MERC_Meeting_End_Date_Inactive__c</members>
         <members>Meeting_MERC__c.MERC_Meeting_End_date_plus_6_months__c</members>
