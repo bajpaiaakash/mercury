@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>MERC_Allocated_CAP__c</fullName>
+        <description>Committed money, but service not yet performed. After meeting owner final fee confirmation, which happens after HCP contract requested by Meeting owner and shortly before contract preparation. Cap is released in case of Participant paid for that meeting. Created 09/02/2016 by Jyoti Gaur</description>
+        <externalId>false</externalId>
+        <formula>(MERC_Allocated_Fee_for_Current_Year__c + MERC_Allocated_Fee_for_Next_Yr_Cons_Only__c + MERC_Allocated_Fee_for_6_months__c) +
+(MERC_Paid_Cap_for_Cons_CN_Used_for_AC__c + MERC_Paid_Cap_for_NonCons_CN_Used_for_AC__c + MERC_Paid_CN_after_meeting_end_date__c) -
+(MERC_Paid_Cap_for_Cons_Inv_Used_for_AC__c + MERC_Paid_Cap_for_NonCon_Inv_Used_for_AC__c + MERC_Paid_Invoice_after_meeting_end_date__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Committed money, but service not yet performed. Cap is released in case of  Participant paid for that meeting.</inlineHelpText>
+        <label>Allocated CAP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Allocated_Fee_for_6_months__c</fullName>
+        <description>To calculate the Allocated  final fee for Consulting meetings where Meeting end date has not been passed and meeting lies in 6 month time period after meeting end date. Created 09/02/2016 by Namrata Aggarwal</description>
+        <externalId>false</externalId>
+        <label>Allocated Fee for 6 months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Allocated_Fee_for_Current_Year__c</fullName>
+        <description>To calculate the Allocated final fee for Consulting / Non-Consulting meetings where meeting start date equals to this year. Created 09/02/2016 by Namrata Aggarwal</description>
+        <externalId>false</externalId>
+        <label>Allocated Fee for Current Year</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Allocated_Fee_for_Next_Yr_Cons_Only__c</fullName>
+        <description>To calculate the Allocated final fee for Consulting meetings where meeting start date not equals to this year and Meeting end date has not been passed. Created 09/02/2016 by Namrata Aggarwal</description>
+        <externalId>false</externalId>
+        <label>Allocated Fee for Next Year Cons Only</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Paid_CAP__c</fullName>
+        <description>Consolidates Paid CAP from Invoices / Credit Notes for Consulting / Non-Consulting meetings. Created 09/02/2016 by Jyoti Gaur.</description>
+        <externalId>false</externalId>
+        <formula>(MERC_Paid_Invoices_for_Cons_meeting__c + MERC_Paid_Invoices_for_Non_Cons_meeting__c) - (MERC_Paid_Credit_Note_for_Cons_meeting__c + MERC_Paid_Credit_Note_for_Non_Cons_mtng__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Paid CAP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Paid_CN_after_meeting_end_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Paid CN after meeting end date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Paid_Cap_for_Cons_CN_Used_for_AC__c</fullName>
+        <description>To calculate the paid Credit Notes till today for Consulting meetings. This will further used for calculating Allocated CAP. Created 09/02/2016 by Namrata Aggarwal.</description>
+        <externalId>false</externalId>
+        <label>Paid Cap for Cons CN Used for AC</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Paid_Cap_for_Cons_Inv_Used_for_AC__c</fullName>
+        <description>To calculate the paid Invoices till today for Consulting meetings. This will further used for calculating Allocated CAP. Created 09/02/2016 by Namrata Aggarwal.</description>
+        <externalId>false</externalId>
+        <label>Paid Cap for Cons Inv Used for AC</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Paid_Cap_for_NonCon_Inv_Used_for_AC__c</fullName>
+        <description>To calculate the paid Invoices till today for Non-Consulting meetings. This will further used for calculating Allocated CAP. Created 09/02/2016 by Namrata Aggarwal.</description>
+        <externalId>false</externalId>
+        <label>Paid Cap for NonCons Inv Used for AC</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Paid_Cap_for_NonCons_CN_Used_for_AC__c</fullName>
+        <description>To calculate the paid Credit Notes till today for Non-Consulting meetings. This will further used for calculating Allocated CAP. Created 09/02/2016 by Namrata Aggarwal.</description>
+        <externalId>false</externalId>
+        <label>Paid Cap for NonCons CN Used for AC</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Paid_Credit_Note_for_Cons_meeting__c</fullName>
+        <description>Contains all Paid CAP from Credit Notes for Consulting Meetings. Created 09/02/2016 by Namrata  Aggarwal.</description>
+        <externalId>false</externalId>
+        <label>Paid Credit Note for Cons meeting</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Paid_Credit_Note_for_Non_Cons_mtng__c</fullName>
+        <description>Contains all Paid CAP from Credit Notes for Non-Consulting Meetings. Created 09/02/2016 by Namrata  Aggarwal.</description>
+        <externalId>false</externalId>
+        <label>Paid Credit Note for Non Cons meeting</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Paid_Invoice_after_meeting_end_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Paid Invoices after meeting end date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Paid_Invoices_for_Cons_meeting__c</fullName>
+        <description>Contains all Paid CAP from Invoices for Consulting Meetings. Created 09/02/2016 by Namrata  Aggarwal.</description>
+        <externalId>false</externalId>
+        <label>Paid Invoices for Cons meeting</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Paid_Invoices_for_Non_Cons_meeting__c</fullName>
+        <description>Contains all Paid CAP from Invoices for Non-Consulting Meetings. Created 09/02/2016 by Namrata  Aggarwal.</description>
+        <externalId>false</externalId>
+        <label>Paid Invoices for Non Cons meeting</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+	<fields>
+        <fullName>Remaining_CAP_MERC__c</fullName>
+        <description>Calculates remaining CAP for the current calendar year.  Annual Country CAP stamped from custom settings and updated each year via Apex batch job. Oliver Dunford 7th Nov 2013.</description>
+        <externalId>false</externalId>
+        <formula>Annual_CAP_Limit_MERC__c - ( Reserved_CAP_MERC__c +  MERC_Allocated_CAP__c +  MERC_Paid_CAP__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Remaining CAP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Utilised_CAP_MERC__c</fullName>
+        <description>Shows how much CAP has been utilised for the current year for each HCP. Oliver Dunford 7th Nov 2013.</description>
+        <externalId>false</externalId>
+        <formula>IF (!ISBLANK(TEXT(Country_of_Residence_GLBL__c)), 
+(Reserved_CAP_MERC__c +  MERC_Allocated_CAP__c + MERC_Paid_CAP__c )  /  Annual_CAP_Limit_MERC__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Utilised CAP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+</CustomObject>

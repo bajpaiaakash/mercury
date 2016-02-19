@@ -1,6 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>MERC_AccountRollups</members>
+        <members>MERC_AllocatedCAPCalculatorTest</members>
+        <members>MERC_AllocatedCapCalculator</members>
+        <members>MERC_AllocatedConsCapCalculatorBatch</members>
+        <members>MERC_HcpCapActualsCalculator</members>
+        <members>MERC_InvoiceLineItemRollupStamp</members>
+        <members>MERC_PaidCapCalculator</members>
+        <members>MERC_TriggerHandlerStateManager</members>
+        <name>ApexClass</name>
+    </types>
+	<types>
+        <members>MERC_Invoice</members>
+        <members>MERC_InvoiceLineItem</members>
+        <members>MERC_Meeting</members>
+        <members>MERC_MeetingParticipant</members>
+        <name>ApexTrigger</name>
+    </types>
+	<types>
+        <members>Account.MERC_Allocated_CAP__c</members>
+        <members>Account.MERC_Allocated_Fee_for_6_months__c</members>
+        <members>Account.MERC_Allocated_Fee_for_Current_Year__c</members>
+        <members>Account.MERC_Allocated_Fee_for_Next_Yr_Cons_Only__c</members>
+        <members>Account.MERC_Paid_CAP__c</members>
+        <members>Account.MERC_Paid_CN_after_meeting_end_date__c</members>
+        <members>Account.MERC_Paid_Cap_for_Cons_CN_Used_for_AC__c</members>
+        <members>Account.MERC_Paid_Cap_for_Cons_Inv_Used_for_AC__c</members>
+        <members>Account.MERC_Paid_Cap_for_NonCon_Inv_Used_for_AC__c</members>
+        <members>Account.MERC_Paid_Cap_for_NonCons_CN_Used_for_AC__c</members>
+        <members>Account.MERC_Paid_Credit_Note_for_Cons_meeting__c</members>
+        <members>Account.MERC_Paid_Credit_Note_for_Non_Cons_mtng__c</members>
+        <members>Account.MERC_Paid_Invoice_after_meeting_end_date__c</members>
+        <members>Account.MERC_Paid_Invoices_for_Cons_meeting__c</members>
+        <members>Account.MERC_Paid_Invoices_for_Non_Cons_meeting__c</members>
+		<members>Account.Remaining_CAP_MERC__c</members>
+		<members>Account.Utilised_CAP_MERC__c</members>
+        <members>Invoice_Line_Item_MERC__c.MERC_Consulting_Contracted_Amount_Rollup__c</members>
+        <members>Invoice_MERC__c.MERC_Consulting_Contracted_Amt_excl_VAT__c</members>
+        <members>Meeting_MERC__c.MERC_Meeting_Complete_Canceled_Clsd_Date__c</members>
+        <members>Meeting_MERC__c.MERC_Meeting_End_Date_Inactive__c</members>
+        <members>Meeting_MERC__c.MERC_Meeting_End_date_plus_6_months__c</members>
+		<members>Meeting_MERC__c.MERC_Meeting_out_of_six_months__c</members>
+        <name>CustomField</name>
+    </types>
+	
+    <types>
+        <members>MERC_Delegate_Mgmt_BA</members>
+        <members>MERC_Meetings_BA</members>
+        <members>MERC_Meetings_General_BA</members>
+        <members>MERC_Meetings_MPC_BA</members>
+        <members>MERC_Procurement_1_BA</members>
+        <members>MERC_Procurement_2_BA</members>
+        <members>MERC_Procurement_3_BA</members>
+        <members>MERC_Regional_BA</members>
+        <name>Group</name>
+    </types>
+	<types>
+        <members>PersonAccount-GLBL_HCP Account</members>
+        <name>Layout</name>
+    </types>
+	<types>
+        <members>MERC_CMS_IT_Support</members>
+        <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Case_Management_Access</members>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <members>Mercury_Legal_Edit</members>
+        <members>Mercury_Med_Director_Edit</members>
+        <members>Mercury_Meeting_ExactTarget_Email_MERC</members>
+        <members>Mercury_Meeting_Owner_Edit</members>
+        <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_Reporting_and_Dashboards</members>
+        <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
+        <members>Mercury_Travel_Agent_Edit</members>
+        <name>PermissionSet</name>
+    </types>
+	<types>
+        <members>Merc Integration MVI</members>
+        <members>Mercury Integration CST - Platform</members>
+        <members>Mercury Integration Docusign - Platform</members>
+        <members>Mercury Integration ExactTarget - Platform</members>
+        <members>Mercury Integration MVI - Platform</members>
+        <members>Mercury Integration ODS - Platform</members>
+        <members>Mercury Integration SAP - Platform</members>
+        <members>Mercury Metadata API</members>
+        <members>Mercury Portal API - Platform</members>
+        <name>Profile</name>
+    </types>
+	<types>
 		<members>Meeting_MERC__c.MERC_Meetings_Bosnia_and_Herzegovina</members>
 		<members>Meeting_Process_MERC__c.MERC_Meeting_Process_BA</members>
 		<members>Meeting_Process_MERC__c.MERC_Meeting_Process_IT_HUB</members>
@@ -18,22 +105,6 @@
         <name>SharingOwnerRule</name>
     </types>
     <types>
-        <members>MERC_Delegate_Mgmt_BA</members>
-        <members>MERC_Meetings_BA</members>
-        <members>MERC_Meetings_General_BA</members>
-        <members>MERC_Meetings_MPC_BA</members>
-        <members>MERC_Procurement_1_BA</members>
-        <members>MERC_Procurement_2_BA</members>
-        <members>MERC_Procurement_3_BA</members>
-        <members>MERC_Regional_BA</members>
-        <name>Group</name>
-    </types>
-	<types>
-        <members>MERC_CMS_IT_Support</members>
-		<members>Mercury_Meeting_Owner_Edit</members>
-        <name>PermissionSet</name>
-    </types>
-    <types>
         <members>Bosnia_and_Herzegovina</members>
         <name>Territory</name>
     </types>
@@ -41,11 +112,14 @@
         <members>Preferences_and_Consent_GLBL__c.MERC_Prevent_Update_of_Consent_Records</members>
         <name>ValidationRule</name>
     </types>
-    <types>
+	<types>
+		<members>Meeting_MERC__c.MERC_Status_Complete_Date</members>
         <members>Meeting_Participant_MERC__c.Update_Final_Fee_to_Zero_MERC</members>
         <name>WorkflowFieldUpdate</name>
     </types>
     <types>
+		<members>Account.RTI - Account Updated</members>
+        <members>Meeting_MERC__c.MERC_Meeting_Complete_Cancelled_Date_Captured</members>
         <members>Meeting_Participant_MERC__c.MERC_Over Maximum Fee</members>
         <members>Meeting_Participant_MERC__c.MERC_Under Maximum Fee</members>
         <name>WorkflowRule</name>

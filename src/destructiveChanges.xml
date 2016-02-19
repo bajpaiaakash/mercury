@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+		<members>MERC_ConsultingProjectCapCalculator</members>
+        <members>MERC_ConsultingProjectCapCalculatorTest</members>
+        <name>ApexClass</name>
+	</types>
+	<types>
+		<members>Account.Allocated_CAP_MERC__c</members>
+		<members>Account.Consulting_Project_Paid_CAP_MERC__c</members>
+		<members>Account.Paid_CAP_MERC__c</members>
+		<members>Account.Speaking_Paid_CAP_MERC__c</members>
+        <members>Invoice_Line_Item_MERC__c.Consulting_Amount_Rollup_MERC__c</members>
+		<members>Invoice_MERC__c.Consulting_Project_Amount_excl_VAT_MERC__c</members>
+        <name>CustomField</name>
+    </types>
+    <version>35.0</version>
+</Package>
