@@ -100,7 +100,7 @@
         <field>Account.MERC_Paid_Invoices_for_Non_Cons_meeting__c</field>
         <readable>false</readable>
     </fieldPermissions>
-	fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Account.Remaining_CAP_MERC__c</field>
         <readable>true</readable>
