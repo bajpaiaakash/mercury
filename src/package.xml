@@ -2,7 +2,8 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>MERC_InvoiceDocFilterController</members>
+        <members>MERC_InvoiceDocFilterControllerTest</members>
         <name>ApexClass</name>
     </types>
-    <version>36.0</version>
+    <version>35.0</version>
 </Package>
