@@ -11,6 +11,7 @@
         <members>MERC_TriggerHandlerStateManager</members>
 		<members>MERC_HcpCapActualsCalculatorTest</members>
 		<members>MERC_AccountRollupsTest</members>
+		<members>MERC_HcpCapYearlyCalculationJobTest</members>
         <name>ApexClass</name>
     </types>
 	<types>
