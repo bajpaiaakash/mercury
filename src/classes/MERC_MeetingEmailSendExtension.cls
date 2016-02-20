@@ -101,6 +101,10 @@ public with sharing class MERC_MeetingEmailSendExtension {
         showEmailChooser = true;
     }
 
+    public void closeEmailChooser(){
+        showEmailChooser = false;
+    }
+
     public List<MERC_MarketingCloudClient.EmailFolder> getEmailFolderTree(){
         return emailFolderTree;
     }

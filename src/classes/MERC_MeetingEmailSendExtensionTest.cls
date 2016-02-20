@@ -191,6 +191,14 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
         System.assertEquals(true, meetingEmailSendExtension.getShowEmailChooser());
     }
 
+    @isTest static void test_CloseEmailChooser_HidesEmailChooser(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();
+        MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
+
+        meetingEmailSendExtension.closeEmailChooser();
+        System.assertEquals(false, meetingEmailSendExtension.getShowEmailChooser());
+    }
+
     @isTest static void test_CanExpandFolder(){
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
         User testUser = MERC_MarketingCloudTestUtility.insertUser();

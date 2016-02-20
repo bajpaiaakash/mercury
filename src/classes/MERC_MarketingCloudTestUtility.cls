@@ -123,10 +123,6 @@ public with sharing class MERC_MarketingCloudTestUtility {
     public static final String RECORD_TYPE_STRING_EMPLOYEE = 'Employee_GLBL';
     public static final String RECORD_TYPE_STRING_INDIVIDUAL = 'Designated_Individual_GLBL';
     public static final String RECORD_TYPE_STRING_NON_HCP = 'Non_HCP_MERC';
-    public static final RecordType RECORD_TYPE_HCP = MERC_ETTestUtils.GetRecordType(RECORD_TYPE_STRING_HCP, 'Account');
-    public static final RecordType RECORD_TYPE_EMPLOYEE = MERC_ETTestUtils.GetRecordType(RECORD_TYPE_STRING_EMPLOYEE, 'Account');
-    public static final RecordType RECORD_TYPE_INDIVIDUAL = MERC_ETTestUtils.GetRecordType(RECORD_TYPE_STRING_INDIVIDUAL, 'Account');
-    public static final RecordType RECORD_TYPE_NON_HCP = MERC_ETTestUtils.GetRecordType(RECORD_TYPE_STRING_NON_HCP, 'Account');
 
     public static final String PROFILE_DEFAULT_NAME = 'GSO Basic User_Salesforce';
     public static final String PERMISSION_SET_MERCURY_MEETINGS_NAME = 'Mercury_Customer_Meeting_Services_Edit';
@@ -156,6 +152,17 @@ public with sharing class MERC_MarketingCloudTestUtility {
     public static final String PERSON_ACCOUNT_EMAIL = 'test@test.test';
     public static final String PERSON_ACCOUNT_CUSTOMER_ID_PREFIX = 'custid_';
     public static final String PERSON_ACCOUNT_PERSONAL_ID_PREFIX = 'pn_';
+
+    public static final String PROCESS_TYPE_TRAVEL_PROPOSAL = 'Travel Proposal';
+    public static final String PROCESS_TYPE_REGISTRATION = 'Registration';
+    public static final String PROCESS_TYPE_PRE_MEETING = 'Pre-Meeting Information';
+
+    public static final String ITINERARY_ACCEPTED = 'Accepted';
+    public static final String ITINERARY_REJECTED = 'Rejected';
+
+    public static final String TASK_STATUS_COMPLETED = 'Completed - Process Complete';
+    public static final String TASK_STATUS_CANCELLED = 'Completed - Process Cancelled';
+    public static final String TASK_STATUS_INCOMPLETE = 'Incomplete';
 
     public static final String ERROR_DEFAULT = 'test if cleared';
 
@@ -555,10 +562,10 @@ public with sharing class MERC_MarketingCloudTestUtility {
         for(Account personAccount : personAccounts){
             String lillyKey = SUBSCRIBER_LILLYKEY_DEFAULT;
             String type = SUBSCRIBER_TYPE_BUSINESS_CONTACT;
-            if(personAccount.RecordTypeId == RECORD_TYPE_HCP.Id){
+            if(personAccount.RecordTypeId == MERC_ETTestUtils.GetRecordType(RECORD_TYPE_STRING_HCP, 'Account').Id){
                 lillyKey = personAccount.Cust_Id_GLBL__c;
                 type = SUBSCRIBER_TYPE_HCP;
-            } else if(personAccount.RecordTypeId == RECORD_TYPE_EMPLOYEE.Id){
+            } else if(personAccount.RecordTypeId == MERC_ETTestUtils.GetRecordType(RECORD_TYPE_STRING_EMPLOYEE, 'Account').Id){
                 lillyKey = personAccount.Prsnl_Nbr_GLBL__c;
                 type = SUBSCRIBER_TYPE_EMPLOYEE;
             }
@@ -596,9 +603,11 @@ public with sharing class MERC_MarketingCloudTestUtility {
         MeetingCount++;
         return new Meeting_MERC__c(
             Name = MEETING_NAME_PREFIX + MeetingCount,
-            RecordTypeId = getDefaultMeetingRecordTypeId(),
+            //RecordTypeId = getDefaultMeetingRecordTypeId(),
             City_of_Meeting_MERC__c = MEETING_CITY,
             Preferred_Venue_MERC__c = MEETING_VENUE,
+            Date_of_Event_MERC__c = MEETING_START.date(),
+            End_Date_of_Event_MERC__c = MEETING_END.date(),
             Start_Time_of_Meeting_MERC__c = MEETING_START,
             End_Time_of_Meeting_MERC__c = MEETING_END,
             Event_Id_MERC__c = MEETING_EVENT_ID_PREFIX + MeetingCount
@@ -1764,6 +1773,47 @@ public with sharing class MERC_MarketingCloudTestUtility {
         }
 
         return participantIds;
+    }
+
+    public static Meeting_Process_MERC__c getMeetingProcess(Id participantId, String type){
+        Meeting_Process_MERC__c meetingProcess = new Meeting_Process_MERC__c();
+        meetingProcess.Meeting_Participant_MERC__c = participantId;
+        meetingProcess.Process_Type_MERC__c = type;
+        return meetingProcess;
+    }
+
+    public static Meeting_Process_MERC__c insertMeetingProcess(Id participantId, String type){
+        Meeting_Process_MERC__c meetingProcess = getMeetingProcess(participantId, type);
+        insert meetingProcess;
+        return meetingProcess;
+    }
+
+    public static Travel_Itinerary_MERC__c getItinerary(Meeting_Participant_MERC__c participant, String status){
+        Travel_Itinerary_MERC__c itinerary = new Travel_Itinerary_MERC__c();
+        itinerary.Meeting_Participant_MERC__c = participant.Id;
+        itinerary.Account_MERC__c = participant.Account_MERC__c;
+        itinerary.Status_MERC__c = status;
+        return itinerary;
+    }
+
+    public static Travel_Itinerary_MERC__c insertItinerary(Meeting_Participant_MERC__c participant, String status){
+        Travel_Itinerary_MERC__c itinerary = getItinerary(participant, status);
+        insert itinerary;
+        return itinerary;
+    }
+
+    public static Meeting_Tasks_MERC__c getTask(Id processId, String status){
+        Meeting_Tasks_MERC__c task = new Meeting_Tasks_MERC__c();
+        task.Meeting_Process_MERC__c = processId;
+        task.Task_Status_MERC__c = status;
+        task.Due_Date_MERC__c = Date.today();
+        return task;
+    }
+
+    public static Meeting_Tasks_MERC__c insertTask(String processId, String status){
+        Meeting_Tasks_MERC__c task = getTask(processId, status);
+        insert task;
+        return task;
     }
 
     public class MERC_MarketingCloudTestUtilityException extends Exception { }
