@@ -9,6 +9,7 @@
         <members>MERC_InvoiceLineItemRollupStamp</members>
         <members>MERC_PaidCapCalculator</members>
         <members>MERC_TriggerHandlerStateManager</members>
+		<members>MERC_HcpCapActualsCalculatorTest</members>
         <name>ApexClass</name>
     </types>
 	<types>
