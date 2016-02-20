@@ -395,4 +395,5 @@
         <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
+	    <label>Invoice</label>
    </CustomObject>
