@@ -10,6 +10,7 @@
         <members>MERC_PaidCapCalculator</members>
         <members>MERC_TriggerHandlerStateManager</members>
 		<members>MERC_HcpCapActualsCalculatorTest</members>
+		<members>MERC_AccountRollupsTest</members>
         <name>ApexClass</name>
     </types>
 	<types>
