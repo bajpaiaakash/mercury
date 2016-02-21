@@ -196,7 +196,6 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     }
 
     private sObject[] attemptQuery(String query){
-        System.debug(LoggingLevel.DEBUG, 'attempting Query:\n' + query);
         try{
             sObject[] results = Database.query(query);
             return results;
