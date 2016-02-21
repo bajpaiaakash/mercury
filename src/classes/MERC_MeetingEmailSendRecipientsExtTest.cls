@@ -214,14 +214,8 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
 
         sendRecipientsExtension.setProcessTypeSelected(MERC_MarketingCloudTestUtility.PROCESS_TYPE_TRAVEL_PROPOSAL);
         sendRecipientsExtension.setProposalStatusSelected(MERC_MarketingCloudTestUtility.ITINERARY_ACCEPTED);
-        System.debug('our dueDateOptions:' + sendRecipientsExtension.getDueDateOptions());
-        System.debug('our nextStepOptions:' + sendRecipientsExtension.getNextStepOptions());
-        System.debug('our taskStatusOptions:' + sendRecipientsExtension.getTaskStatusOptions());
         sendRecipientsExtension.setDueDateSelected(sendRecipientsExtension.getDueDateOptions().get(1).getValue());
-        System.debug('our2 nextStepOptions:' + sendRecipientsExtension.getNextStepOptions());
-        System.debug('our2 taskStatusOptions:' + sendRecipientsExtension.getTaskStatusOptions());
         sendRecipientsExtension.setNextStepSelected(sendRecipientsExtension.getNextStepOptions().get(1).getValue());
-        System.debug('our3 taskStatusOptions:' + sendRecipientsExtension.getTaskStatusOptions());
         sendRecipientsExtension.setTaskStatusSelected(MERC_MarketingCloudTestUtility.TASK_STATUS_COMPLETED);
         sendRecipientsExtension.setProcessTypeSelected(sendRecipientsExtension.ANY_OPTION);
 
