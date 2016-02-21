@@ -124,6 +124,9 @@ public with sharing class MERC_MarketingCloudTestUtility {
     public static final String RECORD_TYPE_STRING_INDIVIDUAL = 'Designated_Individual_GLBL';
     public static final String RECORD_TYPE_STRING_NON_HCP = 'Non_HCP_MERC';
 
+    public static final String PARTICIPANT_RECORD_TYPE_DELEGATE = 'MERC_Delegate';
+    public static final String PARTICIPANT_RECORD_TYPE_CONSULTING = 'MERC_Consulting'; 
+
     public static final String PROFILE_DEFAULT_NAME = 'GSO Basic User_Salesforce';
     public static final String PERMISSION_SET_MERCURY_MEETINGS_NAME = 'Mercury_Customer_Meeting_Services_Edit';
     public static final String PERMISSION_SET_EMAILS = 'Mercury_Meeting_ExactTarget_Email_MERC';

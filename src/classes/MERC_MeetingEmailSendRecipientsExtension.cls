@@ -154,9 +154,13 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     }
 
     private String buildAndByFilterValueClause (String filterField, String filterValue) {
+        return buildByFilterValueClause(' AND ', filterField, filterValue);
+    }
+
+    private String buildByFilterValueClause(String andPrefix, String filterField, String filterValue){
         String filterValueClause = '';
         if(isSelected(filterValue)){
-            filterValueClause = ' AND ' + filterField + '= \'' + String.escapeSingleQuotes(filterValue) + '\'';
+            filterValueClause = andPrefix + filterField + '= \'' + String.escapeSingleQuotes(filterValue) + '\'';
         }
         return filterValueClause;
     }
@@ -457,6 +461,21 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         }
         if(taskStatusFilterIds != null && filterToExclude != 'taskStatusFilterIds'){
             whereClause += andPrefix + 'Id in :taskStatusFilterIds';
+        }
+        if(filterToExclude != 'communicationChannelSelected'){
+            whereClause += buildByFilterValueClause(andPrefix, 'Account_MERC__r.Communication_Channel_MERC__c', communicationChannelSelected);
+        }
+        if(filterToExclude != 'countryOfResidenceSelected'){
+            whereClause += buildByFilterValueClause(andPrefix, 'Country_of_Residence_MERC__c', countryOfResidenceSelected);
+        }
+        if(filterToExclude != 'participantStatusSelected'){
+            whereClause += buildByFilterValueClause(andPrefix, 'Status_MERC__c', participantStatusSelected);
+        }
+        if(filterToExclude != 'preferredLanguageSelected'){
+            whereClause += buildByFilterValueClause(andPrefix, 'Account_MERC__r.Prfrd_Lang_Cd_GLBL__c', preferredLanguageSelected);
+        }
+        if(filterToExclude != 'recordTypeSelected'){
+            whereClause += buildByFilterValueClause(andPrefix, 'RecordType.Id', recordTypeSelected);
         }
 
         return whereClause;

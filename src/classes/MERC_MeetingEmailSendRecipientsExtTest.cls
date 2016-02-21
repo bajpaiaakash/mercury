@@ -42,12 +42,34 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 5);
+        updateAccountWith(personAccounts.get(1), 'Phone', 'US', null, 'French');
         insert personAccounts;
 
+
+        //communicationChannelSelected = ANY_OPTION;
+        //countryOfResidenceSelected = ANY_OPTION;
+        //hasEmailSelected = ANY_OPTION;
+        //participantStatusSelected = ANY_OPTION;
+        //preferredLanguageSelected = ANY_OPTION;
+        //recordTypeSelected = ANY_OPTION;
+
         List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+        updateParticipantWith(participants.get(1), 'Rejected', MERC_MarketingCloudTestUtility.PARTICIPANT_RECORD_TYPE_DELEGATE);
         insert participants;
         createMeetingProcessChildren(participants);
         return meeting;
+    }
+
+    private static void updateAccountWith(Account accountToUpdate, String channel, String country, String email, String language){
+        accountToUpdate.Communication_Channel_MERC__c = channel;
+        accountToUpdate.Country_of_Residence_GLBL__c = country;
+        accountToUpdate.PersonEmail = email;
+        accountToUpdate.Prfrd_Lang_Cd_GLBL__c = language;
+    }
+
+    private static void updateParticipantWith(Meeting_Participant_MERC__c participant, String status, String recordTypeDevName){
+        participant.Status_MERC__c = status;
+        participant.RecordTypeId = MERC_ETTestUtils.GetRecordType(recordTypeDevName, 'Meeting_Participant_MERC__c').Id;
     }
 
     private static void createMeetingProcessChildren(List<Meeting_Participant_MERC__c> participants){
@@ -70,6 +92,19 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         insert meetingTasks;
     }
 
+    @isTest static void test_OnInitialize_AllParticipantsFound(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> participants = sendRecipientsExtension.getCurrentPageOfSelectableParticipants();
+
+        Test.stopTest();
+
+        System.assertEquals(5, participants.size());
+    }
+
     @isTest static void test_SelectProcessType_Has2ProcessTypeOptions(){
         Meeting_MERC__c meeting = insertMeetingAndChildren();
 
@@ -78,9 +113,10 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
         sendRecipientsExtension.setProcessTypeSelected(MERC_MarketingCloudTestUtility.PROCESS_TYPE_REGISTRATION);
 
+        List<SelectOption> processTypeOptions = sendRecipientsExtension.getProcessTypeOptions();
+        
         Test.stopTest();
 
-        List<SelectOption> processTypeOptions = sendRecipientsExtension.getProcessTypeOptions();
 
         System.assertEquals(3, processTypeOptions.size());
         System.assertEquals(MERC_MarketingCloudTestUtility.PROCESS_TYPE_REGISTRATION, processTypeOptions.get(1).getValue());
@@ -94,9 +130,10 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
         sendRecipientsExtension.setProcessTypeSelected(MERC_MarketingCloudTestUtility.PROCESS_TYPE_REGISTRATION);
 
+        List<SelectOption> proposalStatusOptions = sendRecipientsExtension.getProposalStatusOptions();
+
         Test.stopTest();
 
-        List<SelectOption> proposalStatusOptions = sendRecipientsExtension.getProposalStatusOptions();
 
         System.assertEquals(2, proposalStatusOptions.size());
         System.assertEquals(MERC_MarketingCloudTestUtility.ITINERARY_REJECTED, proposalStatusOptions.get(1).getValue());
@@ -197,10 +234,10 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         sendRecipientsExtension.setNextStepSelected(sendRecipientsExtension.getNextStepOptions().get(1).getValue());
         sendRecipientsExtension.setTaskStatusSelected(MERC_MarketingCloudTestUtility.TASK_STATUS_COMPLETED);
 
-        Test.stopTest();
-
         List<SelectOption> processTypeOptions = sendRecipientsExtension.getProcessTypeOptions();
         List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> participants = sendRecipientsExtension.getCurrentPageOfSelectableParticipants();
+        Test.stopTest();
+
 
         System.assertEquals(2, processTypeOptions.size());
         System.assertEquals(1, participants.size());
