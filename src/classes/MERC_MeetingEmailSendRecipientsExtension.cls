@@ -17,23 +17,25 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
     public final String ANY_OPTION = '-Any-';
 
-    private String processTypeSelected { get; set; }
-    private String communicationChannelSelected { get; set; }
-    private String countryOfResidenceSelected { get; set; }
-    private String dueDateSelected { get; set; }
-    private String hasEmailSelected { get; set; }
-    private String nextStepSelected { get; set; }
-    private String participantStatusSelected { get; set; }
-    private String preferredLanguageSelected { get; set; }
-    private String proposalStatusSelected { get; set; }
-    private String recordTypeSelected { get; set; }
-    private String taskStatusSelected { get; set; }
+    public Set<Id> selectedParticipantIds { get; set; }
 
-    public Set<Id> dueDateFilterIds { get; set; }
-    public Set<Id> nextStepFilterIds { get; set; }
-    public Set<Id> processTypeFilterIds { get; set; }
-    public Set<Id> proposalStatusFilterIds { get; set; }
-    public Set<Id> taskStatusFilterIds { get; set; }
+    private String processTypeSelected;
+    private String proposalStatusSelected;
+    private String dueDateSelected;
+    private String nextStepSelected;
+    private String taskStatusSelected;
+    private String communicationChannelSelected;
+    private String countryOfResidenceSelected;
+    private String participantStatusSelected;
+    private String preferredLanguageSelected;
+    private String recordTypeSelected;
+    private String hasEmailSelected;
+
+    private Set<Id> dueDateFilterIds;
+    private Set<Id> nextStepFilterIds;
+    private Set<Id> processTypeFilterIds;
+    private Set<Id> proposalStatusFilterIds;
+    private Set<Id> taskStatusFilterIds;
 
     private Set<Id> queriedParticipantIds;
     private Set<Id> filteredParticipantIds;
@@ -57,9 +59,13 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         sortField = DEFAULT_SORT_FIELD;
         sortDirection = ASCENDING;
 
+        if(selectedParticipantIds == null){
+            selectedParticipantIds = new Set<Id>();
+        }
+
         initializeFilterIdSets();
         resetSelectedFiltersToAny();
-        updateMeetingParticipantsQuery();
+        updateMeetingParticipants();
 	}
 
     private Id getMeetingId(ApexPages.StandardController standardController){
@@ -89,25 +95,25 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     private void resetSelectedFiltersToAny(){
         communicationChannelSelected = ANY_OPTION;
         countryOfResidenceSelected = ANY_OPTION;
-        dueDateSelected = ANY_OPTION;
         hasEmailSelected = ANY_OPTION;
-        nextStepSelected = ANY_OPTION;
         participantStatusSelected = ANY_OPTION;
         preferredLanguageSelected = ANY_OPTION;
+        recordTypeSelected = ANY_OPTION;
+        resetSelectedProcessFiltersToAny();
+    }
+
+    private void resetSelectedProcessFiltersToAny(){
         processTypeSelected = ANY_OPTION;
         proposalStatusSelected = ANY_OPTION;
-        recordTypeSelected = ANY_OPTION;
+        dueDateSelected = ANY_OPTION;
+        nextStepSelected = ANY_OPTION;
         taskStatusSelected = ANY_OPTION;
     }
 
-    private void updateMeetingParticipantsQuery(){
-        String meetingParticipantQuery = buildBaseMeetingParticipantQuery();
-        meetingParticipantQuery += buildFilterByValueClause()
-                                  + buildHasEmailClause()
-                                  + buildFilteredIdsClause()
-                                  + buildOrderClause();
+    private void updateMeetingParticipants(){
+        String meetingParticipantQuery = buildMeetingParticipantQuery();
 
-        System.debug(LoggingLevel.DEBUG, 'updateMeetingParticipantsQuery: setting the meeting participant query:\n\t' + meetingParticipantQuery);
+        System.debug(LoggingLevel.DEBUG, 'updateMeetingParticipants: setting the meeting participant query:\n\t' + meetingParticipantQuery);
 
         meetingParticipantsController = new ApexPages.StandardSetController(Database.getQueryLocator(meetingParticipantQuery));
         meetingParticipantsController.setPageSize(PAGE_SIZE);
@@ -117,7 +123,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         }
     }
 
-    private String buildBaseMeetingParticipantQuery(){
+    private String buildMeetingParticipantQuery(){
         return    'SELECT Id, '
                 + '       Status_MERC__c, '
                 + '       Docusign_Contract_Status_MERC__c, '
@@ -136,33 +142,30 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
                 + '       Account_MERC__r.Sfx_Nm_GLBL__c, '
                 + '       Account_MERC__r.Communication_Channel_MERC__c'
                 + '  FROM Meeting_Participant_MERC__c '
-                + ' WHERE Meeting_MERC__c = \'' + meeting.Id + '\'';
+                + ' WHERE Meeting_MERC__c = :meetingId'
+                + buildAndByFilterValueClause('Account_MERC__r.Communication_Channel_MERC__c', communicationChannelSelected)
+                + buildAndByFilterValueClause('Country_of_Residence_MERC__c', countryOfResidenceSelected)
+                + buildAndByFilterValueClause('Status_MERC__c', participantStatusSelected)
+                + buildAndByFilterValueClause('Account_MERC__r.Prfrd_Lang_Cd_GLBL__c', preferredLanguageSelected)
+                + buildAndByFilterValueClause('RecordType.Id', recordTypeSelected)
+                + buildHasEmailClause()
+                + buildFilteredIdsClause()
+                + buildOrderClause();
     }
 
-    private String buildFilterByValueClause(){
-        String filterByValueClause = '';
-        filterByValueClause += buildAndByFilterValue('Account_MERC__r.Communication_Channel_MERC__c', communicationChannelSelected);
-        filterByValueClause += buildAndByFilterValue('Country_of_Residence_MERC__c', countryOfResidenceSelected);
-        filterByValueClause += buildAndByFilterValue('Status_MERC__c', participantStatusSelected);
-        filterByValueClause += buildAndByFilterValue('Account_MERC__r.Prfrd_Lang_Cd_GLBL__c', preferredLanguageSelected);
-        filterByValueClause += buildAndByFilterValue('RecordType.Id', recordTypeSelected);
-
-        return filterByValueClause;   
-    }
-
-    private String buildAndByFilterValue (String filterField, String filterValue) {
+    private String buildAndByFilterValueClause (String filterField, String filterValue) {
         String filterValueClause = '';
-        if(isNotAny(filterValue)){
+        if(isSelected(filterValue)){
             filterValueClause = ' AND ' + filterField + '= \'' + String.escapeSingleQuotes(filterValue) + '\'';
         }
         return filterValueClause;
     }
 
-    private Boolean isNotAny(String selected){
-        return !isAny(selected);
+    private Boolean isSelected(String selected){
+        return selected != ANY_OPTION;
     }
 
-    private Boolean isAny(String selected){
+    private Boolean isNotSelected(String selected){
         return selected == ANY_OPTION;
     }
 
@@ -203,15 +206,62 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         }
     }
 
+    public List<SelectableParticipant> getCurrentPageOfSelectableParticipants(){
+        List<SelectableParticipant> currentPageOfSelectableParticipants = new List<SelectableParticipant>();
+        for(Meeting_Participant_MERC__c participant : getCurrentPageOfParticipants()){
+            Boolean isSelected = selectedParticipantIds.contains(participant.Id);
+            currentPageOfSelectableParticipants.add(new SelectableParticipant(participant, isSelected));
+        }
+        return currentPageOfSelectableParticipants;
+    }
+
+    private List<Meeting_Participant_MERC__c> getCurrentPageOfParticipants(){
+        return (List<Meeting_Participant_MERC__c>)meetingParticipantsController.getRecords();
+    }
+
+    public String getProcessTypeSelected(){
+        return processTypeSelected;
+    }
+
+    public String getProposalStatusSelected(){
+        return proposalStatusSelected;
+    }
+
+    public String getDueDateSelected(){
+        return dueDateSelected;
+    }
+
+    public String getNextStepSelected(){
+        return nextStepSelected;
+    }
+
+    public String getTaskStatusSelected(){
+        return taskStatusSelected;
+    }
+
+    public Boolean getShouldRenderTaskFilters(){
+        return isSelected(processTypeSelected);
+    }
+
+    public Boolean getShouldRenderProposalFilter(){
+        return processTypeSelected != TRAVEL_PROPOSAL;
+    }
+
     public void setProcessTypeSelected(String processType){
         processTypeSelected = processType;
+        onProcessFilterChange();
+    }
+
+    private void onProcessFilterChange(){
         refreshParticipantIdFilters();
-        //updateMeetingParticipantsQuery();
+        System.debug('onProcessFilterChange filteredParticipantIds: ' + filteredParticipantIds);
+        updateMeetingParticipants();
+        System.debug('Done onProcessFilterChange');
     }
 
     private void refreshParticipantIdFilters(){
         filteredParticipantIds = null;
-        if(isNotAny(processTypeSelected)){
+        if(isSelected(processTypeSelected)){
             if(processTypeSelected != TRAVEL_PROPOSAL){
                 proposalStatusSelected = ANY_OPTION;
             }
@@ -219,28 +269,28 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
             processTypeFilterIds = queryProcessParticipantIdsByType();
             filteredParticipantIds = new Set<Id>(processTypeFilterIds);
 
-            if(isNotAny(proposalStatusSelected)){
+            if(isSelected(proposalStatusSelected)){
                 proposalStatusFilterIds = queryItineraryParticipantIdsByProposalStatus();
                 filteredParticipantIds.retainAll(proposalStatusFilterIds);
             } else {
                 proposalStatusFilterIds = null;
             }
 
-            if(isNotAny(dueDateSelected)){
+            if(isSelected(dueDateSelected)){
                 dueDateFilterIds = queryTaskParticipantIdsByDueDate();
                 filteredParticipantIds.retainAll(dueDateFilterIds);
             } else {
                 dueDateFilterIds = null;
             }
 
-            if(isNotAny(nextStepSelected)){
+            if(isSelected(nextStepSelected)){
                 nextStepFilterIds = queryTaskParticipantIdsByNextStep();
                 filteredParticipantIds.retainAll(nextStepFilterIds);
             } else {
                 nextStepFilterIds = null;
             }
 
-            if(isNotAny(taskStatusSelected)){
+            if(isSelected(taskStatusSelected)){
                 taskStatusFilterIds = queryTaskParticipantIdsByStatus();
                 filteredParticipantIds.retainAll(taskStatusFilterIds);
             } else {
@@ -248,35 +298,16 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
             }
         } else {
             processTypeFilterIds = null;
+            resetSelectedProcessFiltersToAny();
         }
 
         System.debug('refreshParticipantIdFilters: filteredParticipantIds = ' + filteredParticipantIds);
     }
 
-    private Set<Id> copyAndRetainOthers(Set<Id> retainingSet, Set<Id> other1, Set<Id> other2, Set<Id> other3, Set<Id> other4){
-        if(other1 == null && other2 == null && other3 == null && other4 == null){
-            return null;
-        }
-
-        Set<Id> resultingSet = new Set<Id>(retainingSet);
-
-        retainIfNotNull(resultingSet,other1);
-        retainIfNotNull(resultingSet,other2);
-        retainIfNotNull(resultingSet,other3);
-        retainIfNotNull(resultingSet,other4);
-        return resultingSet;
-    }
-
-    private void retainIfNotNull(Set<Id> retainingSet, Set<Id> otherSet){
-        if(otherSet != null){
-            retainingSet.retainAll(otherSet);
-        }
-    }
-
     private Set<Id> queryProcessParticipantIdsByType(){
         String query = 'SELECT Meeting_Participant_MERC__c FROM Meeting_Process_MERC__c'
                      +  buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT)
-                     +  buildAndByFilterValue('Process_Type_MERC__c', processTypeSelected);
+                     +  buildAndByFilterValueClause('Process_Type_MERC__c', processTypeSelected);
 
         List<Meeting_Process_MERC__c> meetingProcesses = (List<Meeting_Process_MERC__c>)attemptQuery(query);
 
@@ -288,14 +319,10 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         return participantIds;
     }
 
-    private String buildMeetingWhereClause(String objectPath){
-        return ' WHERE ' + objectPath + 'Meeting_MERC__c = \'' + meetingId + '\' ';
-    }
-
     private Set<Id> queryItineraryParticipantIdsByProposalStatus(){
         String query = 'SELECT Meeting_Participant_MERC__c FROM Travel_Itinerary_MERC__c'
                      +  buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT)
-                     +  buildAndByFilterValue('Status_MERC__c', proposalStatusSelected);
+                     +  buildAndByFilterValueClause('Status_MERC__c', proposalStatusSelected);
 
         List<Travel_Itinerary_MERC__c> itineraries = (List<Travel_Itinerary_MERC__c>)attemptQuery(query);
 
@@ -307,14 +334,26 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         return participantIds;
     }
 
+    private String buildMeetingWhereClause(String objectPath){
+        return ' WHERE ' + objectPath + 'Meeting_MERC__c = \'' + meetingId + '\' ';
+    }
+
     private Set<Id> queryTaskParticipantIdsByStatus(){
-        return queryTaskParticipantIds(buildAndByFilterValue('Status_MERC__c', proposalStatusSelected));
+        return queryTaskParticipantIds(buildAndByFilterValueClause('Task_Status_MERC__c', taskStatusSelected));
+    }
+    
+    private Set<Id> queryTaskParticipantIdsByDueDate(){
+        return queryTaskParticipantIds(buildAndByFilterValueClause('Due_Date_Status_MERC__c', dueDateSelected));
+    }
+    
+    private Set<Id> queryTaskParticipantIdsByNextStep(){
+        return queryTaskParticipantIds(buildAndByFilterValueClause('Next_Step_MERC__c', nextStepSelected));
     }
 
     private Set<Id> queryTaskParticipantIds(String filterClause){
         String query = 'SELECT Meeting_Process_MERC__r.Meeting_Participant_MERC__c FROM Meeting_Tasks_MERC__c'
                      +  buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS)
-                     +  buildAndByFilterValue('Status_MERC__c', proposalStatusSelected);
+                     +  filterClause;
 
         List<Meeting_Tasks_MERC__c> meetingTasks = (List<Meeting_Tasks_MERC__c>)attemptQuery(query);
 
@@ -326,16 +365,24 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         return participantIds;
     }
     
-    private Set<Id> queryTaskParticipantIdsByDueDate(){
-        return queryTaskParticipantIds(buildAndByFilterValue('Due_Date_Status_MERC__c', dueDateSelected));
+    public void setProposalStatusSelected(String selectedValue){
+        proposalStatusSelected = selectedValue;
+        onProcessFilterChange();
     }
     
-    private Set<Id> queryTaskParticipantIdsByNextStep(){
-        return queryTaskParticipantIds(buildAndByFilterValue('Next_Step_MERC__c', proposalStatusSelected));
+    public void setDueDateSelected(String selectedValue){
+        dueDateSelected = selectedValue;
+        onProcessFilterChange();
     }
     
-    private Set<Id> queryTaskParticipantIds(){
-        return queryTaskParticipantIds(buildAndByFilterValue('Task_Status_MERC__c', taskStatusSelected));
+    public void setNextStepSelected(String selectedValue){
+        nextStepSelected = selectedValue;
+        onProcessFilterChange();
+    }
+    
+    public void setTaskStatusSelected(String selectedValue){
+        taskStatusSelected = selectedValue;
+        onProcessFilterChange();
     }
 
     public List<SelectOption> getProcessTypeOptions(){
@@ -397,16 +444,20 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         String whereClause = '';
         String andPrefix = buildAndPrefixWithObjectPath(objectPath);
 
-        System.debug('buildRelatedIdWhereClause');
-        System.debug(filterToExclude);
-        System.debug(processTypeFilterIds);
-        System.debug(proposalStatusFilterIds);
-
         if(processTypeFilterIds != null && filterToExclude != 'processTypeFilterIds'){
             whereClause += andPrefix + 'Id in :processTypeFilterIds';
         }
         if(proposalStatusFilterIds != null && filterToExclude != 'proposalStatusFilterIds'){
             whereClause += andPrefix + 'Id in :proposalStatusFilterIds';
+        }
+        if(dueDateFilterIds != null && filterToExclude != 'dueDateFilterIds'){
+            whereClause += andPrefix + 'Id in :dueDateFilterIds';
+        }
+        if(nextStepFilterIds != null && filterToExclude != 'nextStepFilterIds'){
+            whereClause += andPrefix + 'Id in :nextStepFilterIds';
+        }
+        if(taskStatusFilterIds != null && filterToExclude != 'taskStatusFilterIds'){
+            whereClause += andPrefix + 'Id in :taskStatusFilterIds';
         }
 
         return whereClause;
@@ -552,10 +603,6 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         return processTypes;
     }
 
-    public Boolean getShouldRenderTaskStatus(){
-        return processTypeSelected == ANY_OPTION;
-    }
-
     public Boolean getHasFatalMessages(){
         return ApexPages.hasMessages(ApexPages.Severity.FATAL);
     }
@@ -574,5 +621,17 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
     private void addErrorMessage(String message){
         addMessage(ApexPages.Severity.ERROR, message);
+    }
+
+    @TestVisible
+    private class SelectableParticipant
+    {
+        public Meeting_Participant_MERC__c Participant { get; private set; }
+        public Boolean IsSelected { get; set; }
+
+        public SelectableParticipant(Meeting_Participant_MERC__c participant, Boolean isSelected) {
+            this.Participant = participant;
+            this.IsSelected = isSelected;
+        }
     }
 }
