@@ -78,14 +78,14 @@
 	</script>
 	<apex:form >
 		<div class="loading-wrapper" style="position:relative;">
-			<apex:pageMessage severity="INFO" strength="2" summary="Set the status of Meeting Participants for each Meeting Day." rendered="{!not(hasError)}"/>
+			<apex:pageMessage severity="INFO" strength="2" summary="{!$Label.Daily_Attendance_Set_Status}" rendered="{!not(hasError)}"/>
 			<apex:pageBlock title="Meeting Participants" id="mainBlock">
 				<apex:pageBlockButtons location="top">
 					<apex:selectList value="{!selectedMeetingDayId}" size="1" styleclass="selectMeetingDay" rendered="{!not(hasError)}">
 						<apex:selectOptions value="{!meetingDayOptions}"/>
 						<apex:actionSupport action="{!changeDay}" onsubmit="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" event="onchange" rerender="mainBlock"/>
 					</apex:selectList>
-					<apex:commandButton value="Save" action="{!saveAll}" rendered="{!$ObjectType.Daily_Attendance_TOV_MERC__c.Fields.Confirm_ToV_Reporting_Change_MERC__c.updateable}"/>
+					<apex:commandButton value="{!$Label.Generic_Save}" action="{!saveAll}" rendered="{!$ObjectType.Daily_Attendance_TOV_MERC__c.Fields.Confirm_ToV_Reporting_Change_MERC__c.updateable}"/>
 					<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
 				</apex:pageBlockButtons>
 				<apex:pageMessages id="messages"/>

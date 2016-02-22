@@ -12,8 +12,8 @@
 	<apex:form id="theForm">
 		<apex:pageBlock mode="edit" title="{!title}">
 			<apex:pageBlockButtons >
-				<apex:commandButton value="Save" action="{!save}"/>
-				<apex:commandButton value="Cancel" action="{!cancel}"/>
+				<apex:commandButton value="{!$Label.Generic_Save}" action="{!save}"/>
+				<apex:commandButton value="{!$Label.Generic_Cancel}" action="{!cancel}"/>
 			</apex:pageBlockButtons>
 			<apex:pagemessages id="pageMessage"/>
 

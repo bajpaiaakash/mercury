@@ -120,7 +120,7 @@
 
 					<!-- PENDING TAB -->
 					<apex:tab label="Pending Approval" title="Pending Approval" name="pendingTab" id="pendingTab">
-						<apex:pageMessage summary="No participants pending approval for this meeting." severity="Info" strength="3" rendered="{!participantsPendingApproval.participants.size == 0}"/>
+						<apex:pageMessage summary="{!$Label.Mass_Approve_Participants_No_Participants_Pending_Message}" severity="Info" strength="3" rendered="{!participantsPendingApproval.participants.size == 0}"/>
 						<apex:outputPanel rendered="{!participantsPendingApproval.participants.size > 0}">
 							<div class="selectPendingActions selectActions">
 								<apex:commandButton value="Approve Selected" action="{!participantsPendingApproval.approveSelected}" onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
@@ -148,7 +148,7 @@
 
 					<!-- APPROVED TAB -->
 					<apex:tab label="Approved" title="Approved" name="approvedTab" id="approvedTab">
-						<apex:pageMessage summary="No participants currently have a status of approved for this meeting." severity="Info" strength="3" rendered="{!participantsApproved.participants.size == 0}"/>
+						<apex:pageMessage summary="{!$Label.Mass_Approve_Participants_No_Participant_Approved_Message}" severity="Info" strength="3" rendered="{!participantsApproved.participants.size == 0}"/>
 						<apex:outputPanel rendered="{!participantsApproved.participants.size > 0}">
 							<div class="selectApprovedActions selectActions">
 								<apex:commandButton value="Reject Selected"  action="{!participantsApproved.rejectSelected}"  onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
@@ -176,7 +176,7 @@
 
 					<!-- INVITED TAB -->
 					<apex:tab label="Invited" title="Invited" name="invitedTab" id="invitedTab">
-						<apex:pageMessage summary="No participants currently have a status of invited for this meeting." severity="Info" strength="3" rendered="{!participantsInvited.participants.size == 0}"/>
+						<apex:pageMessage summary="{!$Label.Mass_Approve_Participants_No_Participants_Invited_Message}" severity="Info" strength="3" rendered="{!participantsInvited.participants.size == 0}"/>
 						<apex:outputPanel rendered="{!participantsInvited.participants.size > 0}">
 							<div class="selectInvitedActions selectActions">
 								<apex:commandButton value="Reject Selected"  action="{!participantsApproved.rejectSelected}"  onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
@@ -204,7 +204,7 @@
 
 					<!-- REJECTED TAB -->
 					<apex:tab label="Rejected" title="Rejected" name="rejectedTab" id="rejectedTab">
-						<apex:pageMessage summary="No participants currently have a status of rejected for this meeting." severity="Info" strength="3" rendered="{!participantsRejected.participants.size == 0}"/>
+						<apex:pageMessage summary="{!$Label.Mass_Approve_Participants_No_Participants_Rejected_Message}" severity="Info" strength="3" rendered="{!participantsRejected.participants.size == 0}"/>
 						<apex:outputPanel rendered="{!participantsRejected.participants.size > 0}">
 							<div class="selectRejectedActions selectActions">
 								<apex:commandButton value="Approve Selected"  action="{!participantsRejected.approveSelected}"  onclick="toggleLoading()" oncomplete="refreshTables();" rerender="messages"/>

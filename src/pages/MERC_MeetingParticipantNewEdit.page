@@ -37,8 +37,8 @@
 		<div class="aeu" style="position:relative;">
 			<apex:pageBlock mode="edit" title="{!title}" id="mainBlock">
 				<apex:pageBlockButtons >
-					<apex:commandButton value="Save" action="{!save}"/>
-					<apex:commandButton value="Cancel" action="{!cancel}"/>
+					<apex:commandButton value="{!$Label.Generic_Save}" action="{!save}"/>
+					<apex:commandButton value="{!$Label.Generic_Cancel}" action="{!cancel}"/>
 				</apex:pageBlockButtons>
 				<apex:pagemessages id="pageMessage"/>
 
@@ -62,7 +62,7 @@
 
 			<div class="merc-loading">
 		        <div class="loading-message">
-		        	<p style="text-align:center;margin:0px;">Saving Record...</p><br/>
+		        	<p style="text-align:center;margin:0px;">{!$Label.Meeting_Participant_Saving_Record_Message}</p><br/>
 		        	<apex:image value="/img/loading32.gif" />
 		        </div>
 				<div class="overlay"></div>

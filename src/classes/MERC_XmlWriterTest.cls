@@ -1,6 +1,6 @@
 /** 
  * @author Joseph Ferraro, Mavens Consulting
- * 
+ * Description: Utilizes the MERC_XmlWriterRestResource to send failure response to InvoiceXmlWriter.
  */
 @isTest
 private class MERC_XmlWriterTest {

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Activate_Budget_Activate_Button</fullName>
+        <categories>MERC_ActivateBudger</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Activate Budget Activate Button</shortDescription>
+        <value>Activate</value>
+    </labels>
+    <labels>
+        <fullName>Adding_Participants_Cancel_Button_Text</fullName>
+        <categories>MERC_AddMeetingParticipants.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Adding Participants Cancel Button Text</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Adding_Participants_Edit_Participants_Text</fullName>
+        <categories>MERC_AddMeetingParticipants.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Adding Participants Edit Participants Text</shortDescription>
+        <value>Edit Participant</value>
+    </labels>
+    <labels>
+        <fullName>Adding_Participants_Loading_Message</fullName>
+        <categories>MERC_AddMeetingParticipants.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Adding Participants Loading Message</shortDescription>
+        <value>Loading...</value>
+    </labels>
+    <labels>
+        <fullName>Adding_Participants_Meeting_Participants_Tab_and_Title</fullName>
+        <categories>MERC_AddMeetingParticipants.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Adding Participants Meeting Participants Tab and Title</shortDescription>
+        <value>Meeting Participants</value>
+    </labels>
+    <labels>
+        <fullName>Adding_Participants_No_Results_Found_Message</fullName>
+        <categories>MERC_AddMeetingParticipants.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Adding Participants No Results Found Message</shortDescription>
+        <value>No Results Found</value>
+    </labels>
+    <labels>
+        <fullName>Adding_Participants_No_Search_Results_Message</fullName>
+        <categories>MERC_AddMeetingParticipants.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Adding Participants No Search Results Message</shortDescription>
+        <value>Please perform your search on the &quot;Search Form&quot; tab.</value>
+    </labels>
+    <labels>
+        <fullName>Adding_Participants_Search_Results_Tab_and_Title</fullName>
+        <categories>MERC_AddMeetingParticipants.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Adding Participants Search Results Tab and Title</shortDescription>
+        <value>Search Results</value>
+    </labels>
+    <labels>
+        <fullName>Agenda_Builder_Event_Agenda_Title</fullName>
+        <categories>MERC_AgendaBuilder.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Agenda Builder Event Agenda Title</shortDescription>
+        <value>Event Agenda</value>
+    </labels>
+    <labels>
+        <fullName>Agenda_Item_Set_Time_by_Time_Zone_Message</fullName>
+        <categories>MERC_AgendaItemNewEdit.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Agenda Item Set Time by Time Zone Message</shortDescription>
+        <value>Set Agenda Item Start Time/End Time according to the meeting time zone.</value>
+    </labels>
+    <labels>
+        <fullName>Finalise_Budget_Button_and_Title</fullName>
+        <categories>MERC_FinalizeBudgetConfirm.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Finalise Budget Button and Title</shortDescription>
+        <value>Finalise Budget</value>
+    </labels>
+    <labels>
+        <fullName>Daily_Attendance_Set_Status</fullName>
+        <categories>MERC_DailyAttendance</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Daily Attendance Set Status</shortDescription>
+        <value>Set the status of Meeting Participants for each Meeting Day.</value>
+    </labels>
+    <labels>
+        <fullName>Docusign_Tag_and_Send_Subtitle</fullName>
+        <categories>MERC_DocusignTagAndSend.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Docusign Tag and Send Subtitle</shortDescription>
+        <value>Tag and Send Contract</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Cancel</fullName>
+        <categories>Mercury Generic</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Save</fullName>
+        <categories>Mercury Generic</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Save_and_New</fullName>
+        <categories>Mercury Generic</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic Save and New</shortDescription>
+        <value>Save &amp; New</value>
+    </labels>
+    <labels>
+        <fullName>HCP_Signature_Error_No_Email</fullName>
+        <categories>MERC_RequestHCPSignatureController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HCP Signature Error No Email</shortDescription>
+        <value>HCP does not have a valid e-mail address.</value>
+    </labels>
+    <labels>
+        <fullName>HCP_Signature_Error_No_Lilly_Email</fullName>
+        <categories>MERC_RequestHCPSignatureController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HCP Signature Error No Lilly Email</shortDescription>
+        <value>Lilly recipient does not have a valid e-mail address.</value>
+    </labels>
+    <labels>
+        <fullName>HCP_Signature_Error_No_PDF</fullName>
+        <categories>MERC_RequestHCPSignatureController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HCP Signature Error No PDF</shortDescription>
+        <value>Could not find HCP Contract PDF file. Please use the &quot;Upload Content&quot; button on the HCP Contract record.</value>
+    </labels>
+    <labels>
+        <fullName>HCP_Signature_Error_No_Signee</fullName>
+        <categories>MERC_RequestHCPSignatureController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HCP Signature Error No Signee</shortDescription>
+        <value>Contract does not have a Lilly Internal Signee assigned.</value>
+    </labels>
+    <labels>
+        <fullName>HCP_Signature_Error_Wrong_Status</fullName>
+        <categories>MERC_RequestHCPSignatureController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HCP Signature Error Wrong Status</shortDescription>
+        <value>We can not request for hcp signature as Meeting Participant status is either &apos;Declined&apos; or &apos;Cancelled.&apos;</value>
+    </labels>
+    <labels>
+        <fullName>Mass_Approve_Participants_No_Participant_Approved_Message</fullName>
+        <categories>MERC_MassApproveParticipants.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mass Approve Participants No Participant Approved Message</shortDescription>
+        <value>No participants currently have a status of approved for this meeting.</value>
+    </labels>
+    <labels>
+        <fullName>Mass_Approve_Participants_No_Participants_Invited_Message</fullName>
+        <categories>MERC_MassApproveParticipants.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mass Approve Participants No Participants Invited Message</shortDescription>
+        <value>No participants currently have a status of invited for this meeting.</value>
+    </labels>
+    <labels>
+        <fullName>Mass_Approve_Participants_No_Participants_Pending_Message</fullName>
+        <categories>MERC_MassApproveParticipants.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mass Approve Participants No Participants Pending Message</shortDescription>
+        <value>No participants pending approval for this meeting.</value>
+    </labels>
+    <labels>
+        <fullName>Mass_Approve_Participants_No_Participants_Rejected_Message</fullName>
+        <categories>MERC_MassApproveParticipants.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mass Approve Participants No Participants Rejected Message</shortDescription>
+        <value>No participants currently have a status of rejected for this meeting.</value>
+    </labels>
+    <labels>
+        <fullName>Meeting_Date_Time_Warning_Message</fullName>
+        <categories>MERC_MeetingDateTimesEdit.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Meeting Date Time Warning Message</shortDescription>
+        <value>Modifying Meeting dates/times can adversely affect Lilly Rep and HCP Portal functionality.</value>
+    </labels>
+    <labels>
+        <fullName>Meeting_Participant_Saving_Record_Message</fullName>
+        <categories>MERC_MeetingParticipantNewEdit.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Meeting Participant Saving Record Message</shortDescription>
+        <value>Saving Record...</value>
+    </labels>
+    <labels>
+        <fullName>Meeting_Team_Manager_Access_Message</fullName>
+        <categories>MERC_MeetingTeamManager.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Meeting Team Manager Access Message</shortDescription>
+        <value>Team members requiring access to the meeting in Mercury.</value>
+    </labels>
+    <labels>
+        <fullName>Meeting_Team_Manager_Information_Message</fullName>
+        <categories>MERC_MeetingTeamManager.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Meeting Team Manager Information Message</shortDescription>
+        <value>Other Lilly team members and external collaborators in responsible roles for the meeting who do not have Mercury access.</value>
+    </labels>
+    <labels>
+        <fullName>Meeting_Warning_Message</fullName>
+        <categories>MERC_MeetingNewEdit.pag</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Meeting Warning Message</shortDescription>
+        <value>Modifying Meeting dates/times can adversely affect Lilly Rep and HCP Portal functionality.</value>
+    </labels>
+    <labels>
+        <fullName>Merged_Accounts_Click_Accounts_Message</fullName>
+        <categories>MERC_MergedAccounts.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Merged Accounts Click Accounts Message</shortDescription>
+        <value>Click on an account to view related objects for merging.</value>
+    </labels>
+    <labels>
+        <fullName>New_Budget_Version_New_Version_Button</fullName>
+        <categories>MERC_NewBudgetVersion</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Budget Version New Version Button</shortDescription>
+        <value>New Version</value>
+    </labels>
+    <labels>
+        <fullName>New_Budget_Version_New_Version_Message</fullName>
+        <categories>MERC_NewBudgetVersion.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Budget Version New Version Message</shortDescription>
+        <value>Are you sure you want to create a new version of this budget?</value>
+    </labels>
+    <labels>
+        <fullName>Request_HCP_Signature_HCP_Information</fullName>
+        <categories>MERC_RequestHCPSignature.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request HCP Signature HCP Information</shortDescription>
+        <value>HCP Information</value>
+    </labels>
+    <labels>
+        <fullName>Request_HCP_Signature_Lilly_Signing_Party</fullName>
+        <categories>MERC_RequestHCPSignature.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request HCP Signature Lilly Signing Party</shortDescription>
+        <value>Lilly Signing Party</value>
+    </labels>
+    <labels>
+        <fullName>Request_HCP_Signature_Main_Title</fullName>
+        <categories>MERC_RequestHCPSignature.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request HCP Signature Main Title</shortDescription>
+        <value>Request HCP Signature</value>
+    </labels>
+    <labels>
+        <fullName>Request_HCP_Signature_Request_Contract_Information_Title</fullName>
+        <categories>MERC_RequestHCPSignature.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request HCP Signature Request Contract Information Title</shortDescription>
+        <value>Contract Information</value>
+    </labels>
+    <labels>
+        <fullName>Request_HCP_Signature_Request_Contract_Sent_Message</fullName>
+        <categories>MERC_RequestHCPSignature.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request HCP Signature Request Contract Sent Message</shortDescription>
+        <value>Contract successfully sent for signature.</value>
+    </labels>
+    <labels>
+        <fullName>Request_HCP_Signature_Request_Request_Message</fullName>
+        <categories>MERC_RequestHCPSignature.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request HCP Signature Request Request Message</shortDescription>
+        <value>Are you sure you want to request an HCP signature for this contract?</value>
+    </labels>
+    <labels>
+        <fullName>Request_HCP_Signature_Request_Signature_Button</fullName>
+        <categories>MERC_RequestHCPSignature.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request HCP Signature Request Signature Button</shortDescription>
+        <value>Request Signature</value>
+    </labels>
+</CustomLabels>

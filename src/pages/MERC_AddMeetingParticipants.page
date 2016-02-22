@@ -197,16 +197,16 @@
         </apex:outputPanel>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" id="myTab">
-            <li class="active"><a href="#search" data-toggle="tab">Search Form</a></li>
+            <li class="active"><a href="#search" data-toggle="tab">{!$Label.Adding_Participants_Search_Form_Tab}</a></li>
             <li>
                 <a href="#sr" data-toggle="tab" id="searchResultTabAnchor">
-                    Search Results &nbsp;&nbsp;
+                    {!$Label.Adding_Participants_Search_Results_Tab_and_Title} &nbsp;&nbsp;
                     <apex:outputPanel styleClass="bootstraplabel count" id="srCountWrapper" rendered="{!srCount != null}">{!srCount}</apex:outputPanel>
                 </a>
             </li>
             <li>
                 <a href="#mp" data-toggle="tab">
-                    Meeting Participants &nbsp;&nbsp;
+                    {!$Label.Adding_Participants_Meeting_Participants_Tab_and_Title} &nbsp;&nbsp;
                     <apex:outputPanel styleClass="bootstraplabel count" id="mpCountWrapper">{!mpCount}</apex:outputPanel>
                 </a>
             </li>
@@ -510,7 +510,7 @@
                 </div>
                 <div class="tab-pane" id="mp">
                     <apex:actionRegion >
-                        <apex:pageBlock title="Meeting Participants" mode="edit" id="meetingParticipantBlock">
+                        <apex:pageBlock title="{!$Label.Adding_Participants_Meeting_Participants_Tab_and_Title}" mode="edit" id="meetingParticipantBlock">
                             <apex:pageMessages ></apex:pageMessages>
                             <apex:pageBlockButtons >
                                 <apex:commandButton action="{!cancel}" value="Back to Meeting"/>

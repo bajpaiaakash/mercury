@@ -32,7 +32,7 @@
 			<!-- TOP SECTION SHOWING ACCOUNTS -->
 			<apex:pageBlock id="accountsBlock" title="Merged Accounts">
 				<apex:pageMessages />
-				<apex:pageMessage summary="Click on an account to view related objects for merging." severity="Info" strength="3" rendered="{!accounts.size > 0}"/>
+				<apex:pageMessage summary="{!$Label.Merged_Accounts_Click_Accounts_Message}" severity="Info" strength="3" rendered="{!accounts.size > 0}"/>
 				<apex:pageBlockButtons location="top">
 					<apex:commandButton value="Previous" action="{!ssc.previous}" rendered="{!ssc.hasPrevious}" onclick="toggleLoading();" oncomplete="toggleLoading();bindDomHandlers();" reRender="accountsBlock"/>
 					<apex:commandButton value="Next" action="{!ssc.next}" rendered="{!ssc.hasNext}" onclick="toggleLoading();" oncomplete="toggleLoading();bindDomHandlers();" reRender="accountsBlock"/>

@@ -7,8 +7,8 @@
     <apex:form >
         <apex:pageBlock title="Activate Budget">
             <apex:pageBlockButtons location="top">
-                <apex:commandButton value="Activate" action="{!activate}"/>
-                <apex:commandButton value="Cancel" action="{!cancel}"/>
+                <apex:commandButton value="{!$Label.Activate_Budget_Activate_Button}" action="{!activate}"/>
+                <apex:commandButton value="{!$Label.Generic_Cancel}" action="{!cancel}"/>
             </apex:pageBlockButtons>
             <!-- start added by Jyoti Gaur -->
             <apex:outputPanel id="pnlMessages" >

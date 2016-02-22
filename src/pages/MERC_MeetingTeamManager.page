@@ -179,7 +179,7 @@
                         <apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
                             <apex:pageMessages />
                             <apex:pageBlockButtons >
-                                <apex:commandButton value="Save" action="{!save}" reRender="mercuryUserBlock"
+                                <apex:commandButton value="{!$Label.Generic_Save}" action="{!save}" reRender="mercuryUserBlock"
                                     onclick="toggleLoading()" oncomplete="toggleLoading()">
                                     <apex:param name="rtdn" value="Employee_User_MERC"/>
                                     <apex:param name="notify" value="1"/>
@@ -187,7 +187,7 @@
                                 </apex:commandButton>
                                 <apex:commandButton value="Back to Meeting" action="{!cancel}"/>
                             </apex:pageBlockButtons>
-                            <p>Team members requiring access to the meeting in Mercury.</p>
+                            <p>{!$Label.Meeting_Team_Manager_Access_Message}</p>
                             <apex:pageBlockTable value="{!childrenMap['Mercury_User_MERC']}" var="a" id="agendaTable" styleClass="agendaItems">
                                 <apex:column width="16">
                                     <apex:image value="{!URLFOR($Resource.mercury, '/img/drag-icon.gif')}" style="cursor:move;"/>
@@ -212,7 +212,7 @@
                                     </apex:column>
                                 </apex:repeat>
                             </apex:pageBlockTable>
-                            <p>Other Lilly team members and external collaborators in responsible roles for the meeting who do not have Mercury access.</p>
+                            <p>{!$Label.Meeting_Team_Manager_Information_Message}</p>
                             <apex:pageBlockTable value="{!childrenMap['Employee_User_MERC']}" var="a" id="employeeTable" styleClass="agendaItems">
                                 <apex:column width="16">
                                     <apex:image value="{!URLFOR($Resource.mercury, '/img/drag-icon.gif')}" style="cursor:move;"/>
@@ -246,7 +246,7 @@
                         <apex:pageBlock title="" mode="edit" id="externalUserBlock">
                             <apex:pageMessages />
                             <apex:pageBlockButtons >
-                                <apex:commandButton value="Save" action="{!save}" reRender="externalUserBlock"
+                                <apex:commandButton value="{!$Label.Generic_Save}" action="{!save}" reRender="externalUserBlock"
                                     onclick="toggleLoading()" oncomplete="toggleLoading()">
                                     <apex:param name="rtdn" value="External_User_MERC"/>
                                     <apex:param name="notify" value="1"/>

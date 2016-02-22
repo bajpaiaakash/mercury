@@ -7,8 +7,8 @@
     <apex:form >
         <apex:pageBlock title="Finalise Budget">
             <apex:pageBlockButtons location="top">
-                <apex:commandButton value="Finalise Budget" action="{!finalize}"/>
-                <apex:commandButton value="Cancel" action="{!cancel}"/>
+                <apex:commandButton value="{!$Label.Finalise_Budget_Button_and_Title}" action="{!finalize}"/>
+                <apex:commandButton value="{!$Label.Generic_Cancel}" action="{!cancel}"/>
             </apex:pageBlockButtons>
             <!-- start added by Jyoti Gaur -->
             <apex:outputPanel id="pnlMessages" >

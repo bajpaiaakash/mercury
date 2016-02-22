@@ -57,7 +57,7 @@
 			height:44px;
 		}
 	</style>
-	<apex:sectionHeader subtitle="Event Agenda" title="{!parent['Name']}"/>
+	<apex:sectionHeader subtitle="{!$Label.Agenda_Builder_Event_Agenda_Title}" title="{!parent['Name']}"/>
 	<apex:form id="mainForm">
 		<apex:outputPanel id="controllerResponseWrapper">
 			<apex:outputText value="{!hasError}" id="controllerHasError" style="display:none;"/>
@@ -68,7 +68,7 @@
 		</apex:outputPanel>
 
 		<div class="aeu" style="position:relative;">			
-			<apex:pageBlock title="Event Agenda" mode="edit" id="mainBlock">
+			<apex:pageBlock title="{!$Label.Agenda_Builder_Event_Agenda_Title}" mode="edit" id="mainBlock">
 				<apex:pageMessages />
 				<apex:outputPanel rendered="{!hasError && finalUpdatable && webUpdatable}" id="confirmWrapper">
 					<div class="message infoM3" role="alert">
@@ -115,7 +115,7 @@
 				
 				<!-- BUTTONS -->
 				<apex:pageBlockButtons >
-					<apex:commandButton value="Save" action="{!save}" reRender="mainBlock, controllerResponseWrapper, confirmWrapper, confirmWrapper2" 
+					<apex:commandButton value="{!$Label.Generic_Save}" action="{!save}" reRender="mainBlock, controllerResponseWrapper, confirmWrapper, confirmWrapper2" 
 						onclick="toggleLoading()" oncomplete="handleControllerResponse();">
 						<apex:param name="retNull" value="1"/>
 					</apex:commandButton>

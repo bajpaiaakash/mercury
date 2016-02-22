@@ -12,8 +12,8 @@
 	<apex:form >
 		<apex:pageBlock mode="edit" title="{!title}">
 			<apex:pageBlockButtons >
-				<apex:commandButton value="Save" action="{!save}"/>
-				<apex:commandButton value="Cancel" action="{!cancel}"/>
+				<apex:commandButton value="{!$Label.Generic_Save}" action="{!save}"/>
+				<apex:commandButton value="{!$Label.Generic_Cancel}" action="{!cancel}"/>
 			</apex:pageBlockButtons>
 			<apex:pagemessages id="pageMessage"/>
 
@@ -21,7 +21,7 @@
 				
 				<!-- if we're on the third section of the layout, show our own date/time fields-->
 				<apex:pageBlockSection rendered="{!section.index == 2}" collapsible="false" columns="2" title="{!fieldSetLabels['Meeting_Date_Time_Edit_MERC']}">
-					<apex:pageMessage rendered="{!Meeting_MERC__c.Id != ''}" title="Warning" summary="Modifying Meeting dates/times can adversely affect Lilly Rep and HCP Portal functionality." severity="warning" strength="3" />
+					<apex:pageMessage rendered="{!Meeting_MERC__c.Id != ''}" title="Warning" summary="{!$Label.Meeting_Warning_Message}" severity="warning" strength="3" />
 					<apex:pageBlockSection rendered="{!Meeting_MERC__c.Id != ''}">&nbsp;</apex:pageBlockSection>
 					<apex:repeat value="{!$ObjectType.Meeting_MERC__c.FieldSets.Meeting_Date_Time_Edit_MERC}" var="f">
 						<apex:inputField value="{!Meeting_MERC__c[f]}" required="{!OR(f.required, f.dbrequired)}"/>

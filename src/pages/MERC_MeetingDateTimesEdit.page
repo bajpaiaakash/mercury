@@ -7,12 +7,12 @@
 		function setFocusOnLoad() {}  //prevent date popup from showing onload
 	</script>
 	<apex:sectionHeader title="{!$ObjectType['Meeting_MERC__c'].label}" subtitle="{!Meeting_MERC__c.Name}" />
-	<apex:pageMessage title="Warning" summary="Modifying Meeting dates/times can adversely affect Lilly Rep and HCP Portal functionality." severity="warning" strength="3" />
+	<apex:pageMessage title="Warning" summary="{!$Label.Meeting_Date_Time_Warning_Message}" severity="warning" strength="3" />
 	<apex:form >
-		<apex:pageBlock title="Meeting Date/Time Details" mode="edit" >
+		<apex:pageBlock title="{!$Label.Meeting_Date_Time_PageBlock_Title}" mode="edit" >
 			<apex:pageBlockButtons location="top">
-				<apex:commandButton value="Save" action="{!save}"/>
-				<apex:commandButton value="Cancel" action="{!cancel}"/>
+				<apex:commandButton value="{!$Label.Generic_Save}" action="{!save}"/>
+				<apex:commandButton value="{!$Label.Generic_Cancel}" action="{!cancel}"/>
 			</apex:pageBlockButtons>
 			<apex:pageMessages />
 			<apex:pageBlockSection columns="2">

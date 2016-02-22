@@ -3,6 +3,6 @@
 	Description: DocuSign page with iFrame for the docusign URL passed in via parameter. 
 -->
 <apex:page showHeader="true" sidebar="true" standardController="HCP_Contract_MERC__c">
-	<apex:sectionHeader title="{!$ObjectType.HCP_Contract_MERC__c.label}" subtitle="Tag and Send Contract" />
+	<apex:sectionHeader title="{!$ObjectType.HCP_Contract_MERC__c.label}" subtitle="{!$Label.Docusign_Tag_and_Send_Subtitle}" />
 	<apex:iframe src="{!$CurrentPage.parameters.docusignURL}"/>
 </apex:page>

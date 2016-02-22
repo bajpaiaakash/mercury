@@ -131,6 +131,49 @@
         <name>CustomField</name>
     </types>
     <types>
+        <members>Activate_Budget_Activate_Button</members>
+        <members>Adding_Participants_Cancel_Button_Text</members>
+        <members>Adding_Participants_Edit_Participants_Text</members>
+        <members>Adding_Participants_Loading_Message</members>
+        <members>Adding_Participants_Meeting_Participants_Tab_and_Title</members>
+        <members>Adding_Participants_No_Results_Found_Message</members>
+        <members>Adding_Participants_No_Search_Results_Message</members>
+        <members>Adding_Participants_Search_Results_Tab_and_Title</members>
+        <members>Agenda_Builder_Event_Agenda_Title</members>
+        <members>Agenda_Item_Set_Time_by_Time_Zone_Message</members>
+        <members>Daily_Attendance_Set_Status</members>
+        <members>Docusign_Tag_and_Send_Subtitle</members>
+        <members>Finalise_Budget_Button_and_Title</members>
+        <members>Generic_Cancel</members>
+        <members>Generic_Save_and_New</members>
+        <members>Generic_Save</members>
+        <members>HCP_Signature_Error_No_Email</members>
+        <members>HCP_Signature_Error_No_Lilly_Email</members>
+        <members>HCP_Signature_Error_No_PDF</members>
+        <members>HCP_Signature_Error_No_Signee</members>
+        <members>HCP_Signature_Error_Wrong_Status</members>
+        <members>Mass_Approve_Participants_No_Participant_Approved_Message</members>
+        <members>Mass_Approve_Participants_No_Participants_Invited_Message</members>
+        <members>Mass_Approve_Participants_No_Participants_Pending_Message</members>
+        <members>Mass_Approve_Participants_No_Participants_Rejected_Message</members>
+        <members>Meeting_Date_Time_Warning_Message</members>
+        <members>Meeting_Participant_Saving_Record_Message</members>
+        <members>Meeting_Team_Manager_Access_Message</members>
+        <members>Meeting_Team_Manager_Information_Message</members>
+        <members>Meeting_Warning_Message</members>
+        <members>Merged_Accounts_Click_Accounts_Message</members>
+        <members>New_Budget_Version_New_Version_Button</members>
+        <members>New_Budget_Version_New_Version_Message</members>
+        <members>Request_HCP_Signature_HCP_Information</members>
+        <members>Request_HCP_Signature_Lilly_Signing_Party</members>
+        <members>Request_HCP_Signature_Main_Title</members>
+        <members>Request_HCP_Signature_Request_Contract_Information_Title</members>
+        <members>Request_HCP_Signature_Request_Contract_Sent_Message</members>
+        <members>Request_HCP_Signature_Request_Request_Message</members>
+        <members>Request_HCP_Signature_Request_Signature_Button</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
         <members>AccountMergeSettings_MERC</members>
         <members>CAP_MERC</members>
         <members>ContentLibraryLookup_MERC</members>

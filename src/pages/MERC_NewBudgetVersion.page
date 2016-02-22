@@ -7,10 +7,10 @@
 	<apex:form >
 		<apex:pageBlock title="New Budget Version">
 			<apex:pageBlockButtons location="top">
-				<apex:commandButton value="New Version" action="{!newVersion}"/>
-				<apex:commandButton value="Cancel" action="{!cancel}"/>
+				<apex:commandButton value="{!$Label.New_Budget_Version_New_Version_Button}" action="{!newVersion}"/>
+				<apex:commandButton value="{!$Label.Generic_Cancel}" action="{!cancel}"/>
 			</apex:pageBlockButtons>
-			<apex:pageMessage severity="WARNING" strength="2" summary="Are you sure you want to create a new version of this budget?"/>
+			<apex:pageMessage severity="WARNING" strength="2" summary="{!$Label.New_Budget_Version_New_Version_Message}"/>
 		</apex:pageBlock>
 	</apex:form>
 </apex:page>

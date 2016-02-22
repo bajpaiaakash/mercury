@@ -42,7 +42,7 @@ public with sharing class MERC_TestFactory {
     }
 
     public static void loadFMVSettings() {
-        List<sObject> fmvSettings = Test.loadData(FMV_Settings_MERC__c.sObjectType, 'FMV_MERC');
+        List<sObject> fmvSettings = Test.loadData(FMV_Settings_MERC__c.sObjectType, 'MERC_FMV');
     }
 
     public static List<Account> insertBusinessAccounts(Integer numberOfAccounts, Id recordTypeId) {

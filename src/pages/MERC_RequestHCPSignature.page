@@ -16,22 +16,22 @@
 	<apex:sectionHeader title="{!$ObjectType.HCP_Contract_MERC__c.label}" subtitle="{!HCP_Contract_MERC__c.Name}" />
 	<apex:form id="mainForm">
 		<apex:pageMessages />
-		<apex:pageBlock title="Request HCP Signature" id="mainBlock" rendered="{!not(isSent)}">
+		<apex:pageBlock title="{!$Label.Request_HCP_Signature_Main_Title}" id="mainBlock" rendered="{!not(isSent)}">
 			<apex:pageBlockButtons location="top">
-				<apex:commandButton styleClass="btnRequestSignature" value="Request Signature" action="{!requestSignature}" rendered="{!canRequestSignature}" reRender="mainForm"/>
-				<apex:commandButton value="Cancel" action="{!cancel}"/>
+				<apex:commandButton styleClass="btnRequestSignature" value="{!$Label.Request_HCP_Signature_Request_Signature_Button}" action="{!requestSignature}" rendered="{!canRequestSignature}" reRender="mainForm"/>
+				<apex:commandButton value="{!$Label.Generic_Cancel}" action="{!cancel}"/>
 			</apex:pageBlockButtons>
-			<apex:pageMessage severity="WARNING" strength="2" summary="Are you sure you want to request an HCP signature for this contract?" rendered="{!canRequestSignature}"/>
+			<apex:pageMessage severity="WARNING" strength="2" summary="{!$Label.Request_HCP_Signature_Request_Request_Message}" rendered="{!canRequestSignature}"/>
 			<apex:pageMessage rendered="{!not(canRequestSignature)}" severity="ERROR" strength="2" summary="{!error}"/>
-			<apex:pageBlockSection title="HCP Information" collapsible="false" columns="1">
+			<apex:pageBlockSection title="{!$Label.Request_HCP_Signature_HCP_Information}" collapsible="false" columns="1">
 				<apex:outputField value="{!HCP_Contract_MERC__c.Account_Merc__r.Name}"/>
 				<apex:outputField value="{!HCP_Contract_MERC__c.Account_Merc__r.PersonEmail}"/>
 			</apex:pageBlockSection>
-			<apex:pageBlockSection title="Lilly Signing Party" collapsible="false" columns="1">
+			<apex:pageBlockSection title="{!$Label.Request_HCP_Signature_Lilly_Signing_Party}" collapsible="false" columns="1">
 				<apex:outputField value="{!HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__r.Name}"/>
 				<apex:outputField value="{!HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__r.PersonEmail}"/>
 			</apex:pageBlockSection>
-			<apex:pageBlockSection title="Contract Information" collapsible="false" columns="1" rendered="{!canRequestSignature}">
+			<apex:pageBlockSection title="{!$Label.Request_HCP_Signature_Request_Contract_Information_Title}" collapsible="false" columns="1" rendered="{!canRequestSignature}">
 				<apex:pageBlockSectionItem >
 					<apex:outputLabel for="title" value="Title"/>
 					<apex:outputLink target="_blank" value="/{!contractContentVersion.Id}">{!contractContentVersion.Title}</apex:outputLink>
@@ -40,21 +40,21 @@
 				<apex:outputField value="{!contractContentVersion.LastModifiedDate}"/>
 			</apex:pageBlockSection>
 		</apex:pageBlock>
-		<apex:pageBlock title="Request HCP Signature" id="sentBlock" rendered="{!isSent}">
+		<apex:pageBlock title="{!$Label.Request_HCP_Signature_Main_Title}" id="sentBlock" rendered="{!isSent}">
 			<apex:pageBlockButtons location="top">
 				<apex:commandButton value="Back to HCP Contract" action="{!cancel}"/>
 			</apex:pageBlockButtons>
-			<apex:pageMessage severity="CONFIRM" strength="2" summary="Contract successfully sent for signature."/>
+			<apex:pageMessage severity="CONFIRM" strength="2" summary="{!$Label.Request_HCP_Signature_Request_Contract_Sent_Message}"/>
 			<apex:pageMessage rendered="{!not(canRequestSignature)}" severity="ERROR" strength="2" summary="{!error}"/>
-			<apex:pageBlockSection title="HCP Information" collapsible="false" columns="1">
+			<apex:pageBlockSection title="{!$Label.Request_HCP_Signature_HCP_Information}" collapsible="false" columns="1">
 				<apex:outputField value="{!HCP_Contract_MERC__c.Account_Merc__r.Name}"/>
 				<apex:outputField value="{!HCP_Contract_MERC__c.Account_Merc__r.PersonEmail}"/>
 			</apex:pageBlockSection>
-			<apex:pageBlockSection title="Lilly Signing Party" collapsible="false" columns="1">
+			<apex:pageBlockSection title="{!$Label.Request_HCP_Signature_Lilly_Signing_Party}" collapsible="false" columns="1">
 				<apex:outputField value="{!HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__r.Name}"/>
 				<apex:outputField value="{!HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__r.PersonEmail}"/>
 			</apex:pageBlockSection>
-			<apex:pageBlockSection title="Contract Information" collapsible="false" columns="1" rendered="{!canRequestSignature}">
+			<apex:pageBlockSection title="{!$Label.Request_HCP_Signature_Request_Contract_Information_Title}" collapsible="false" columns="1" rendered="{!canRequestSignature}">
 				<apex:pageBlockSectionItem >
 					<apex:outputLabel for="title" value="Title"/>
 					<apex:outputLink target="_blank" value="/{!contractContentVersion.Id}">{!contractContentVersion.Title}</apex:outputLink>

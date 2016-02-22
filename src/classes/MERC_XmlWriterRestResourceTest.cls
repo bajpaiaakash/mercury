@@ -18,6 +18,7 @@ private class MERC_XmlWriterRestResourceTest {
 		invoices = MERC_TestFactory.insertInvoices(participants);
 	}
 
+	// Sends good data and needs to return successful response from XmlWriterRestResource.
 	@isTest static void assertGoodRequest() {
 		List<String> invoiceIds = new List<String>();
 		for (Invoice_MERC__c i : invoices)
@@ -26,6 +27,7 @@ private class MERC_XmlWriterRestResourceTest {
 		system.assertEquals(true, response.success);
 	}
 
+	// Sends bad data and needs to return failure response from XmlWriterRestResource.
 	@isTest static void assertBadRequest() {
 		List<String> invoiceIds = new List<String>{ 'foo' };
 		MERC_XmlWriterRestResource.RemoteXmlWriterResponse response = MERC_XmlWriterRestResource.doPost(invoiceIds);

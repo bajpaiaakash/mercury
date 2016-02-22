@@ -1,6 +1,7 @@
 /**
 * MERC_XmlWriterRestResource 
 * Created By: Mavens Consulting 
+* Description: The REST resource that returns success and the response message.
 */
 @RestResource(urlMapping='/MERC/Invoice/XmlWriter')
 global with sharing class MERC_XmlWriterRestResource {
