@@ -421,7 +421,7 @@ public with sharing class MERC_DocusignService {
 
         //set location(s) for HCP signature
         List<SignHereTab> hcpSignHereTabs = new List<SignHereTab>{
-            new SignHereTab(this.hcpSignatureAnchorString, '0', '10', '2')  //todo: do we need to use '1' for the document id??
+            new SignHereTab(this.hcpSignatureAnchorString, '0', '10', '2')
         };
         Tab hcpTab = new Tab();
         hcpTab.signHereTabs = hcpSignHereTabs;
@@ -438,7 +438,7 @@ public with sharing class MERC_DocusignService {
                 if (!isDraft)
                     s.tabs = lillyTab;
             } else {
-                //s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order), 'hcp-'+MERC_Util.generateRandomString(20)); //TODO: if/when we decide to create HCP as embedded signer, we need to use this instantiation
+                //s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order), 'hcp-'+MERC_Util.generateRandomString(20)); // if we decide to create HCP as embedded signer, we need to use this instantiation
                 s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order));
                 if (!isDraft)
                     s.tabs = hcpTab;

@@ -2,7 +2,7 @@
     Created By: Joseph Ferraro and Sean Harrison, Mavens Consulting
     Description: Searches CST and enables user to add Accounts to Meeting as Participants
 -->
-<apex:page showHeader="true" sidebar="true" standardController="Meeting_Participant_MERC__c" recordSetVar="a" extensions="MERC_AddMeetingParticipantsController" action="{!ensureCstToken}">
+<apex:page showHeader="true" sidebar="true" standardController="Meeting_Participant_MERC__c" recordSetVar="a" extensions="MERC_AddMeetingParticipantsController">
     <apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
     <apex:includeScript value="{!urlfor($Resource.mercury, 'js/chosen.jquery.min.js')}"/>
     <apex:includeScript value="{!urlfor($Resource.mercury, 'js/bootstrap.tabs.min.js')}"/>

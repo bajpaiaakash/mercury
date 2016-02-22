@@ -28,4 +28,3 @@
 		<apex:inputHidden value="{!Agenda_Item_MERC__c.Meeting_Time_Zone_MERC__c}"/>
 	</apex:form>
 </apex:page>
-

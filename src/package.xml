@@ -32,6 +32,7 @@
         <members>MERC_DocusignService</members>
         <members>MERC_DocusignServiceTest</members>
         <members>MERC_InvoiceXmlWriter</members>
+        <members>MERC_InvoiceXmlWriterTest</members>
         <members>MERC_MeetingTaskEditorController</members>
         <members>MERC_ParticipantTovStampHandlerTest</members>
         <members>MERC_RequestHCPSignatureController</members>

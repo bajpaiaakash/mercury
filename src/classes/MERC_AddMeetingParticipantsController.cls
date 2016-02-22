@@ -18,7 +18,6 @@ public with sharing class MERC_AddMeetingParticipantsController {
     public Boolean searchPerformed { get; private set; }
     public String meetingRecordTypeName { get; set; }
 
-
     public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
         this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
         meetingParticipant = new Meeting_Participant_MERC__c();
@@ -26,7 +25,6 @@ public with sharing class MERC_AddMeetingParticipantsController {
         searchPerformed = false;
     }
 
-    
     //if cst token is expired, it will grab a new one
     public void ensureCstToken() {
         try {
@@ -35,9 +33,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
             System.debug('CST TOKEN EXCEPTION CAUGHT >>>> ' + ex.getMessage());
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CST_Service_Error));
         }
-        
     }
-    
 
     /**
     * Getter and setter for meeting record if null query for current record.
