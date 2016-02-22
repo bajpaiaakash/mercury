@@ -432,7 +432,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
         String query = 'SELECT Process_Type_MERC__c FROM Meeting_Process_MERC__c'
                               + buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT)
-                              + buildRelatedIdWhereClause('processTypeFilterIds', RELATED_MEETING_PARTICIPANT);
+                              + buildExcludedFilterWhereClause('processTypeFilterIds', RELATED_MEETING_PARTICIPANT);
 
         List<Meeting_Process_MERC__c> meetingProcesses = (List<Meeting_Process_MERC__c>)attemptQuery(query);
         for(Meeting_Process_MERC__c meetingProcess : meetingProcesses){
@@ -443,7 +443,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         return processTypes;
     }
 
-    private String buildRelatedIdWhereClause(String filterToExclude, String objectPath){
+    private String buildExcludedFilterWhereClause(String filterToExclude, String objectPath){
         String whereClause = '';
         String andPrefix = buildAndPrefixWithObjectPath(objectPath);
 
@@ -500,7 +500,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
         String query = 'SELECT Status_MERC__c FROM Travel_Itinerary_MERC__c'
                      +  buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT)
-                     +  buildRelatedIdWhereClause('proposalStatusFilterIds', RELATED_MEETING_PARTICIPANT);
+                     +  buildExcludedFilterWhereClause('proposalStatusFilterIds', RELATED_MEETING_PARTICIPANT);
 
         List<Travel_Itinerary_MERC__c> itineraries = (List<Travel_Itinerary_MERC__c>)attemptQuery(query);
         for(Travel_Itinerary_MERC__c itinerary : itineraries){
@@ -526,7 +526,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
         String query = 'SELECT Due_Date_Status_MERC__c FROM Meeting_Tasks_MERC__c'
                      +  buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS)
-                     +  buildRelatedIdWhereClause('dueDateFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
+                     +  buildExcludedFilterWhereClause('dueDateFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
 
         List<Meeting_Tasks_MERC__c> tasks = (List<Meeting_Tasks_MERC__c>)attemptQuery(query);
         for(Meeting_Tasks_MERC__c task : tasks){
@@ -552,7 +552,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
         String query = 'SELECT Next_Step_MERC__c FROM Meeting_Tasks_MERC__c'
                      +  buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS)
-                     +  buildRelatedIdWhereClause('nextStepFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
+                     +  buildExcludedFilterWhereClause('nextStepFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
 
         List<Meeting_Tasks_MERC__c> tasks = (List<Meeting_Tasks_MERC__c>)attemptQuery(query);
         for(Meeting_Tasks_MERC__c task : tasks){
@@ -578,7 +578,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
         String query = 'SELECT Task_Status_MERC__c FROM Meeting_Tasks_MERC__c'
                      +  buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS)
-                     +  buildRelatedIdWhereClause('taskStatusFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
+                     +  buildExcludedFilterWhereClause('taskStatusFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
 
         List<Meeting_Tasks_MERC__c> tasks = (List<Meeting_Tasks_MERC__c>)attemptQuery(query);
         for(Meeting_Tasks_MERC__c task : tasks){
@@ -609,7 +609,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         Set<String> processTypes = new Set<String>();
         String query = 'SELECT Process_Type_MERC__c FROM Meeting_Process_MERC__c';
         if(filteredParticipantIds != null){
-            query += buildRelatedIdWhereClause('filteredParticipantIds', RELATED_MEETING_PARTICIPANT);
+            query += buildExcludedFilterWhereClause('filteredParticipantIds', RELATED_MEETING_PARTICIPANT);
         }
 
         List<Meeting_Process_MERC__c> meetingProcesses = (List<Meeting_Process_MERC__c>)attemptQuery(query);
