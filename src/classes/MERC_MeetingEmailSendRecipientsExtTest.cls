@@ -45,14 +45,6 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         updateAccountWith(personAccounts.get(1), 'Phone', 'US', null, 'French');
         insert personAccounts;
 
-
-        //communicationChannelSelected = ANY_OPTION;
-        //countryOfResidenceSelected = ANY_OPTION;
-        //hasEmailSelected = ANY_OPTION;
-        //participantStatusSelected = ANY_OPTION;
-        //preferredLanguageSelected = ANY_OPTION;
-        //recordTypeSelected = ANY_OPTION;
-
         List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
         updateParticipantWith(participants.get(1), 'Rejected', MERC_MarketingCloudTestUtility.PARTICIPANT_RECORD_TYPE_DELEGATE);
         insert participants;
@@ -98,11 +90,69 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         Test.startTest();
         MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
 
-        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> participants = sendRecipientsExtension.getCurrentPageOfSelectableParticipants();
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> participants = sendRecipientsExtension.currentPageOfSelectableParticipants;
 
         Test.stopTest();
 
         System.assertEquals(5, participants.size());
+    }
+
+    @isTest static void test_OnInitialize_ShouldNotRenderTaskFilter(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+
+        Boolean shouldRender = sendRecipientsExtension.getShouldRenderTaskFilters();
+
+        Test.stopTest();
+
+        System.assertEquals(false, shouldRender);
+    }
+
+    @isTest static void test_SelectProcessType_ShouldRenderTaskFilter(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setProcessTypeSelected(MERC_MarketingCloudTestUtility.PROCESS_TYPE_REGISTRATION);
+
+        Boolean shouldRender = sendRecipientsExtension.getShouldRenderTaskFilters();
+
+        Test.stopTest();
+
+        System.assertEquals(true, shouldRender);
+    }
+
+    @isTest static void test_OnInitialize_ShouldNotRenderProposalFilter(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+
+        Boolean shouldRender = sendRecipientsExtension.getShouldRenderProposalFilter();
+
+        Test.stopTest();
+
+        System.assertEquals(false, shouldRender);
+    }
+
+    @isTest static void test_SelectProcessType_ShouldRenderProposalFilter(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setProcessTypeSelected(MERC_MarketingCloudTestUtility.PROCESS_TYPE_TRAVEL_PROPOSAL);
+
+        Boolean shouldRender = sendRecipientsExtension.getShouldRenderProposalFilter();
+
+        Test.stopTest();
+
+        System.assertEquals(true, shouldRender);
     }
 
     @isTest static void test_SelectProcessType_Has2ProcessTypeOptions(){
@@ -114,7 +164,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         sendRecipientsExtension.setProcessTypeSelected(MERC_MarketingCloudTestUtility.PROCESS_TYPE_REGISTRATION);
 
         List<SelectOption> processTypeOptions = sendRecipientsExtension.getProcessTypeOptions();
-        
+
         Test.stopTest();
 
 
@@ -235,7 +285,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         sendRecipientsExtension.setTaskStatusSelected(MERC_MarketingCloudTestUtility.TASK_STATUS_COMPLETED);
 
         List<SelectOption> processTypeOptions = sendRecipientsExtension.getProcessTypeOptions();
-        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> participants = sendRecipientsExtension.getCurrentPageOfSelectableParticipants();
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> participants = sendRecipientsExtension.currentPageOfSelectableParticipants;
         Test.stopTest();
 
 
@@ -263,5 +313,751 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getDueDateSelected());
         System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getNextStepSelected());
         System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getTaskStatusSelected());
+    }
+
+    @isTest static void test_OnInitialize_Has2CommunicationOptions(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        List<SelectOption> communicationChannelOptions = sendRecipientsExtension.getCommunicationChannelOptions();
+
+        Test.stopTest();
+
+        System.assertEquals(3, communicationChannelOptions.size());
+    }
+
+    @isTest static void test_OnInitialize_Has2CountryOptions(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        List<SelectOption> countryOptions = sendRecipientsExtension.getCountryOptions();
+
+        Test.stopTest();
+
+        System.assertEquals(3, countryOptions.size());
+    }
+
+    @isTest static void test_OnInitialize_Has2ParticipantStatusOptions(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        List<SelectOption> participantStatusOptions = sendRecipientsExtension.getParticipantStatusOptions();
+
+        Test.stopTest();
+
+        System.assertEquals(3, participantStatusOptions.size());
+    }
+
+    @isTest static void test_OnInitialize_Has2LanguageOptions(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        List<SelectOption> languageOptions = sendRecipientsExtension.getLanguageOptions();
+
+        Test.stopTest();
+
+        System.assertEquals(3, languageOptions.size());
+    }
+
+    @isTest static void test_OnInitialize_Has2HasEmailOptions(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        List<SelectOption> hasEmailOptions = sendRecipientsExtension.getHasEmailOptions();
+
+        Test.stopTest();
+
+        System.assertEquals(3, hasEmailOptions.size());
+    }
+
+    @isTest static void test_OnInitialize_Has2RecordTypeOptions(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        List<SelectOption> recordTypeOptions = sendRecipientsExtension.getRecordTypeOptions();
+
+        Test.stopTest();
+
+        System.assertEquals(3, recordTypeOptions.size());
+    }
+
+    @isTest static void test_OnInitialize_SortPropertiesDefault(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> participants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+
+        Test.stopTest();
+
+        String participantLastName = null;
+        for(MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant participant : participants){
+            if(participantLastName != null){
+                System.assert(participantLastName < participant.Participant.Account_MERC__r.LastName, participantLastName + ' < ' + participant.Participant.Account_MERC__r.LastName + ' not true');
+            }
+            participantLastName = participant.Participant.Account_MERC__r.LastName;
+        }
+    }
+
+    @isTest static void test_SetSortFieldLastName_ReversesOrder(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.LastName');
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> participants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+
+        Test.stopTest();
+
+        String participantLastName = null;
+        for(MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant participant : participants){
+            if(participantLastName != null){
+                System.assert(participantLastName >= participant.Participant.Account_MERC__r.LastName, participantLastName + ' >= ' + participant.Participant.Account_MERC__r.LastName + ' not true');
+            }
+            participantLastName = participant.Participant.Account_MERC__r.LastName;
+        }
+    }
+
+    @isTest static void test_SetSortFieldStatus_EnforcesStatusOrder(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Status_MERC__c');
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> participants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+
+        Test.stopTest();
+        Map<String, Integer> statusValues = getListOfStatusPicklistValues();
+
+        String participantLastStatus = null;
+        for(MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant participant : participants){
+            if(participantLastStatus != null){
+                System.assert(statusValues.get(participantLastStatus) <= statusValues.get(participant.Participant.Status_MERC__c), 
+                    participantLastStatus + '(' + statusValues.get(participantLastStatus) + ') <= ' + participant.Participant.Status_MERC__c + '(' + statusValues.get(participant.Participant.Status_MERC__c) + ') not true');
+            }
+            participantLastStatus = participant.Participant.Status_MERC__c;
+        }
+    }
+
+    @isTest static void test_SetSortFieldStatusTwice_EnforcesReverseStatusOrder(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Status_MERC__c');
+        sendRecipientsExtension.setSortField('Status_MERC__c');
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> participants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+
+        Test.stopTest();
+        Map<String, Integer> statusValues = getListOfStatusPicklistValues();
+
+        String participantLastStatus = null;
+        for(MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant participant : participants){
+            if(participantLastStatus != null){
+                System.assert(statusValues.get(participantLastStatus) >= statusValues.get(participant.Participant.Status_MERC__c), 
+                    participantLastStatus + '(' + statusValues.get(participantLastStatus) + ') >= ' + participant.Participant.Status_MERC__c + '(' + statusValues.get(participant.Participant.Status_MERC__c) + ') not true ' + statusValues);
+            }
+            participantLastStatus = participant.Participant.Status_MERC__c;
+        }
+    }
+
+    private static Map<String, Integer> getListOfStatusPicklistValues(){
+        List<Schema.PicklistEntry> entries = Meeting_Participant_MERC__c.Status_MERC__c.getDescribe().getPicklistValues();
+        Map<String, Integer> values = new Map<String, Integer>();
+        Integer index = 0;
+        for(Schema.PicklistEntry entry : entries){
+            values.put(entry.getValue(), index);
+            index++;
+        }
+        return values;
+    }
+
+    @isTest static void test_SetSortFieldToTitle_TitleSuffixHasDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.Title_Desc_GLBL__c');
+
+        Test.stopTest();
+
+        System.assertEquals('^', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+    @isTest static void test_SetSortFieldToTitleTwice_TitleSuffixHasDownDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.Title_Desc_GLBL__c');
+        sendRecipientsExtension.setSortField('Account_MERC__r.Title_Desc_GLBL__c');
+
+        Test.stopTest();
+
+        System.assertEquals('v', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+
+
+    @isTest static void test_SetSortFieldToFirstName_FirstNameSuffixHasDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.FirstName');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals('^', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+    @isTest static void test_SetSortFieldToFirstNameTwice_FirstNameSuffixHasDownDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.FirstName');
+        sendRecipientsExtension.setSortField('Account_MERC__r.FirstName');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals('v', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+
+
+    @isTest static void test_SetSortFieldToLastName_LastNameSuffixHasDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals('^', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+    @isTest static void test_SetSortFieldToLastNameTwice_LastNameSuffixHasDownDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.LastName');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals('v', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+
+
+    @isTest static void test_SetSortFieldToSuffix_SuffixSuffixHasDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.Sfx_Nm_GLBL__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals('^', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+    @isTest static void test_SetSortFieldToSuffixTwice_SuffixSuffixHasDownDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.Sfx_Nm_GLBL__c');
+        sendRecipientsExtension.setSortField('Account_MERC__r.Sfx_Nm_GLBL__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals('v', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+
+
+    @isTest static void test_SetSortFieldToEmail_EmailSuffixHasDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.PersonEmail');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals('^', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+    @isTest static void test_SetSortFieldToEmailTwice_EmailSuffixHasDownDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.PersonEmail');
+        sendRecipientsExtension.setSortField('Account_MERC__r.PersonEmail');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals('v', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+
+
+    @isTest static void test_SetSortFieldToStatus_StatusSuffixHasDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Status_MERC__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals('^', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+    @isTest static void test_SetSortFieldToStatusTwice_StatusSuffixHasDownDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Status_MERC__c');
+        sendRecipientsExtension.setSortField('Status_MERC__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals('v', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+
+
+    @isTest static void test_SetSortFieldToRecordType_RecordTypeSuffixHasDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Record_Type_MERC__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals('^', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+    @isTest static void test_SetSortFieldToRecordTypeTwice_RecordTypeSuffixHasDownDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Record_Type_MERC__c');
+        sendRecipientsExtension.setSortField('Record_Type_MERC__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals('v', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+
+
+    @isTest static void test_SetSortFieldToCommunicationPreference_CommunicationPreferenceSuffixHasDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.Communication_Preference_MERC__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals('^', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+    @isTest static void test_SetSortFieldToCommunicationPreferenceTwice_CommunicationPreferenceSuffixHasDownDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.Communication_Preference_MERC__c');
+        sendRecipientsExtension.setSortField('Account_MERC__r.Communication_Preference_MERC__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals('v', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+
+
+    @isTest static void test_SetSortFieldToLanguage_LanguageSuffixHasDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.Prfrd_Lang_Cd_GLBL__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals('^', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+    @isTest static void test_SetSortFieldToLanguageTwice_LanguageSuffixHasDownDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.Prfrd_Lang_Cd_GLBL__c');
+        sendRecipientsExtension.setSortField('Account_MERC__r.Prfrd_Lang_Cd_GLBL__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals('v', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+
+
+    @isTest static void test_SetSortFieldToCountry_CountrySuffixHasDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.Country_of_Residence_GLBL__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals('^', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+    @isTest static void test_SetSortFieldToCountryTwice_CountrySuffixHasDownDirection(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.setSortField('Account_MERC__r.Country_of_Residence_GLBL__c');
+        sendRecipientsExtension.setSortField('Account_MERC__r.Country_of_Residence_GLBL__c');
+
+        Test.stopTest();
+
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderTitleSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderFirstNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderLastNameSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderSuffixSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderEmailSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderStatusSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderRecordTypeSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderCommPrefSuffix());
+        System.assertEquals(' ', sendRecipientsExtension.getHeaderPrefLangSuffix());
+        System.assertEquals('v', sendRecipientsExtension.getHeaderCountrySuffix());
+    }
+
+    @isTest static void test_NextPage_GetsNextPage(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
+        List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+            MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
+        insert personAccounts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+        insert participants;
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.goToNextPage();
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> selectableParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+        Test.stopTest();
+
+        System.assertEquals(50, selectableParticipants.size());
+        System.assertEquals(2, sendRecipientsExtension.getPageNumber());
+        System.assertEquals(3, sendRecipientsExtension.getMaxPageNumber());
+        System.assertEquals(true, sendRecipientsExtension.hasNext());
+        System.assertEquals(true, sendRecipientsExtension.hasPrevious());
+    }
+
+    @isTest static void test_NextPageThenFirstPage_GetsFirstPage(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
+        List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+            MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
+        insert personAccounts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+        insert participants;
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.goToNextPage();
+        sendRecipientsExtension.goToFirstPage();
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> selectableParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+        Test.stopTest();
+
+        System.assertEquals(50, selectableParticipants.size());
+        System.assertEquals(1, sendRecipientsExtension.getPageNumber());
+        System.assertEquals(3, sendRecipientsExtension.getMaxPageNumber());
+        System.assertEquals(personAccounts.get(0).LastName, selectableParticipants.get(0).Participant.Account_MERC__r.LastName);
+        System.assertEquals(true, sendRecipientsExtension.hasNext());
+        System.assertEquals(false, sendRecipientsExtension.hasPrevious());
+    }
+
+    @isTest static void test_NextPageThenPreviousPage_GetsFirstPage(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
+        List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+            MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
+        insert personAccounts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+        insert participants;
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.goToNextPage();
+        sendRecipientsExtension.goToPreviousPage();
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> selectableParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+        Test.stopTest();
+
+        System.assertEquals(50, selectableParticipants.size());
+        System.assertEquals(1, sendRecipientsExtension.getPageNumber());
+        System.assertEquals(3, sendRecipientsExtension.getMaxPageNumber());
+        System.assertEquals(personAccounts.get(0).LastName, selectableParticipants.get(0).Participant.Account_MERC__r.LastName);
+        System.assertEquals(true, sendRecipientsExtension.hasNext());
+        System.assertEquals(false, sendRecipientsExtension.hasPrevious());
+    }
+
+    @isTest static void test_LastPage_GetsLastPage(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
+        List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+            MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
+        insert personAccounts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+        insert participants;
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.goToLastPage();
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> selectableParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+        Test.stopTest();
+
+        System.assertEquals(49, selectableParticipants.size());   
+        System.assertEquals(3, sendRecipientsExtension.getPageNumber());
+        System.assertEquals(3, sendRecipientsExtension.getMaxPageNumber());     
+        System.assertEquals(false, sendRecipientsExtension.hasNext());
+        System.assertEquals(true, sendRecipientsExtension.hasPrevious());
+    }
+
+    @isTest static void test_PagingFor150(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
+        List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+            MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 150);
+        insert personAccounts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+        insert participants;
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+        sendRecipientsExtension.goToLastPage();
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> selectableParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+        Test.stopTest();
+
+        System.assertEquals(50, selectableParticipants.size());   
+        System.assertEquals(3, sendRecipientsExtension.getPageNumber());
+        System.assertEquals(3, sendRecipientsExtension.getMaxPageNumber());     
+        System.assertEquals(false, sendRecipientsExtension.hasNext());
+        System.assertEquals(true, sendRecipientsExtension.hasPrevious());
+    }
+
+    @isTest static void test_SelectingParticipant_PersistsAcrossPages(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
+        List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+            MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
+        insert personAccounts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+        insert participants;
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting);
+        sendRecipientsExtension.currentPageOfSelectableParticipants.get(0).IsSelected = true;
+        sendRecipientsExtension.goToLastPage();
+        sendRecipientsExtension.currentPageOfSelectableParticipants.get(1).IsSelected = true;
+        sendRecipientsExtension.goToFirstPage();
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> selectableParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+        Test.stopTest();
+
+        System.assertEquals(true, sendRecipientsExtension.currentPageOfSelectableParticipants.get(0).IsSelected);
+        System.assertEquals(false, sendRecipientsExtension.currentPageOfSelectableParticipants.get(1).IsSelected);
+        System.assertEquals(2, sendRecipientsExtension.selectedParticipantIds.size());
     }
 }

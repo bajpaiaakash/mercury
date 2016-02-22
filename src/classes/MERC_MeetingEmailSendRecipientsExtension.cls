@@ -18,6 +18,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     public final String ANY_OPTION = '-Any-';
 
     public Set<Id> selectedParticipantIds { get; set; }
+    public List<SelectableParticipant> currentPageOfSelectableParticipants { get; set; }
 
     private String processTypeSelected;
     private String proposalStatusSelected;
@@ -111,6 +112,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     }
 
     private void updateMeetingParticipants(){
+        updateSelectedParticipantIds();
         String meetingParticipantQuery = buildMeetingParticipantQuery();
 
         System.debug(LoggingLevel.DEBUG, 'updateMeetingParticipants: setting the meeting participant query:\n\t' + meetingParticipantQuery);
@@ -121,6 +123,23 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         if(currentPageNumber != null){
             meetingParticipantsController.setPageNumber(currentPageNumber);
         }
+        updateCurrentPageOfSelectableParticipants();
+    }
+
+    private void updateSelectedParticipantIds(){
+        if(currentPageOfSelectableParticipants == null){
+            System.debug(LoggingLevel.DEBUG, 'currentPageOfSelectableParticipants is null, no changes to selectedParticipantIds');
+            return;
+        }
+
+        for (SelectableParticipant selectableParticipant : currentPageOfSelectableParticipants) {
+            if(selectableParticipant.IsSelected) {
+                selectedParticipantIds.add(selectableParticipant.Participant.Id);
+            } else if (!selectableParticipant.IsSelected && selectedParticipantIds.contains(selectableParticipant.Participant.Id)) {
+                selectedParticipantIds.remove(selectableParticipant.Participant.Id);
+            }
+        }
+        System.debug(LoggingLevel.DEBUG, 'selectedParticipantIds updated: ' + selectedParticipantIds);
     }
 
     private String buildMeetingParticipantQuery(){
@@ -169,17 +188,17 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         return selected != ANY_OPTION;
     }
 
-    private Boolean isNotSelected(String selected){
-        return selected == ANY_OPTION;
+    private String buildHasEmailClause(){
+        return buildHasEmailClause(' AND ');
     }
 
-    private String buildHasEmailClause(){
+    private String buildHasEmailClause(String andPrefix){
         String hasEmailClause = '';
 
         if (hasEmailSelected == 'Yes') {
-            hasEmailClause += '   AND Account_MERC__r.PersonEmail != null ';
+            hasEmailClause += andPrefix + ' Account_MERC__r.PersonEmail != null ';
         } else if (hasEmailSelected == 'No') {
-            hasEmailClause += '   AND Account_MERC__r.PersonEmail = null ' ;
+            hasEmailClause += andPrefix + ' Account_MERC__r.PersonEmail = null ' ;
         }
 
         return hasEmailClause;
@@ -209,13 +228,12 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         }
     }
 
-    public List<SelectableParticipant> getCurrentPageOfSelectableParticipants(){
-        List<SelectableParticipant> currentPageOfSelectableParticipants = new List<SelectableParticipant>();
+    public void updateCurrentPageOfSelectableParticipants(){
+        currentPageOfSelectableParticipants = new List<SelectableParticipant>();
         for(Meeting_Participant_MERC__c participant : getCurrentPageOfParticipants()){
             Boolean isSelected = selectedParticipantIds.contains(participant.Id);
             currentPageOfSelectableParticipants.add(new SelectableParticipant(participant, isSelected));
         }
-        return currentPageOfSelectableParticipants;
     }
 
     private List<Meeting_Participant_MERC__c> getCurrentPageOfParticipants(){
@@ -247,11 +265,31 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     }
 
     public Boolean getShouldRenderProposalFilter(){
-        return processTypeSelected != TRAVEL_PROPOSAL;
+        return processTypeSelected == TRAVEL_PROPOSAL;
     }
 
     public void setProcessTypeSelected(String processType){
         processTypeSelected = processType;
+        onProcessFilterChange();
+    }
+
+    public void setProposalStatusSelected(String selectedValue){
+        proposalStatusSelected = selectedValue;
+        onProcessFilterChange();
+    }
+    
+    public void setDueDateSelected(String selectedValue){
+        dueDateSelected = selectedValue;
+        onProcessFilterChange();
+    }
+    
+    public void setNextStepSelected(String selectedValue){
+        nextStepSelected = selectedValue;
+        onProcessFilterChange();
+    }
+    
+    public void setTaskStatusSelected(String selectedValue){
+        taskStatusSelected = selectedValue;
         onProcessFilterChange();
     }
 
@@ -337,6 +375,10 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         return participantIds;
     }
 
+    private String buildMeetingWhereClause(){
+        return buildMeetingWhereClause('');
+    }
+
     private String buildMeetingWhereClause(String objectPath){
         return ' WHERE ' + objectPath + 'Meeting_MERC__c = \'' + meetingId + '\' ';
     }
@@ -368,25 +410,6 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         return participantIds;
     }
     
-    public void setProposalStatusSelected(String selectedValue){
-        proposalStatusSelected = selectedValue;
-        onProcessFilterChange();
-    }
-    
-    public void setDueDateSelected(String selectedValue){
-        dueDateSelected = selectedValue;
-        onProcessFilterChange();
-    }
-    
-    public void setNextStepSelected(String selectedValue){
-        nextStepSelected = selectedValue;
-        onProcessFilterChange();
-    }
-    
-    public void setTaskStatusSelected(String selectedValue){
-        taskStatusSelected = selectedValue;
-        onProcessFilterChange();
-    }
 
     public List<SelectOption> getProcessTypeOptions(){
         List<SelectOption> processTypeOptions = buildSelectOptionsWithAnyOption();
@@ -432,7 +455,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
         String query = 'SELECT Process_Type_MERC__c FROM Meeting_Process_MERC__c'
                               + buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT)
-                              + buildExcludedFilterWhereClause('processTypeFilterIds', RELATED_MEETING_PARTICIPANT);
+                              + buildRelatedExcludedFilterWhereClause('processTypeFilterIds', RELATED_MEETING_PARTICIPANT);
 
         List<Meeting_Process_MERC__c> meetingProcesses = (List<Meeting_Process_MERC__c>)attemptQuery(query);
         for(Meeting_Process_MERC__c meetingProcess : meetingProcesses){
@@ -443,10 +466,17 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         return processTypes;
     }
 
-    private String buildExcludedFilterWhereClause(String filterToExclude, String objectPath){
-        String whereClause = '';
+    private String buildRelatedExcludedFilterWhereClause(String filterToExclude, String objectPath){
         String andPrefix = buildAndPrefixWithObjectPath(objectPath);
+        return buildExcludedFilterWhereClause(andPrefix, filterToExclude);
+    }
 
+    private String buildExcludedFilterWhereClause(String filterToExclude){
+        return buildExcludedFilterWhereClause(' AND ', filterToExclude);
+    }
+
+    private String buildExcludedFilterWhereClause(String andPrefix, String filterToExclude){     
+        String whereClause = '';   
         if(processTypeFilterIds != null && filterToExclude != 'processTypeFilterIds'){
             whereClause += andPrefix + 'Id in :processTypeFilterIds';
         }
@@ -477,7 +507,9 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         if(filterToExclude != 'recordTypeSelected'){
             whereClause += buildByFilterValueClause(andPrefix, 'RecordType.Id', recordTypeSelected);
         }
-
+        if(filterToExclude != 'hasEmailSelected'){
+            whereClause += buildHasEmailClause(andPrefix);
+        }
         return whereClause;
     }
 
@@ -500,7 +532,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
         String query = 'SELECT Status_MERC__c FROM Travel_Itinerary_MERC__c'
                      +  buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT)
-                     +  buildExcludedFilterWhereClause('proposalStatusFilterIds', RELATED_MEETING_PARTICIPANT);
+                     +  buildRelatedExcludedFilterWhereClause('proposalStatusFilterIds', RELATED_MEETING_PARTICIPANT);
 
         List<Travel_Itinerary_MERC__c> itineraries = (List<Travel_Itinerary_MERC__c>)attemptQuery(query);
         for(Travel_Itinerary_MERC__c itinerary : itineraries){
@@ -526,7 +558,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
         String query = 'SELECT Due_Date_Status_MERC__c FROM Meeting_Tasks_MERC__c'
                      +  buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS)
-                     +  buildExcludedFilterWhereClause('dueDateFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
+                     +  buildRelatedExcludedFilterWhereClause('dueDateFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
 
         List<Meeting_Tasks_MERC__c> tasks = (List<Meeting_Tasks_MERC__c>)attemptQuery(query);
         for(Meeting_Tasks_MERC__c task : tasks){
@@ -552,7 +584,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
         String query = 'SELECT Next_Step_MERC__c FROM Meeting_Tasks_MERC__c'
                      +  buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS)
-                     +  buildExcludedFilterWhereClause('nextStepFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
+                     +  buildRelatedExcludedFilterWhereClause('nextStepFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
 
         List<Meeting_Tasks_MERC__c> tasks = (List<Meeting_Tasks_MERC__c>)attemptQuery(query);
         for(Meeting_Tasks_MERC__c task : tasks){
@@ -578,7 +610,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
         String query = 'SELECT Task_Status_MERC__c FROM Meeting_Tasks_MERC__c'
                      +  buildMeetingWhereClause(RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS)
-                     +  buildExcludedFilterWhereClause('taskStatusFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
+                     +  buildRelatedExcludedFilterWhereClause('taskStatusFilterIds', RELATED_MEETING_PARTICIPANT_THROUGH_PROCESS);
 
         List<Meeting_Tasks_MERC__c> tasks = (List<Meeting_Tasks_MERC__c>)attemptQuery(query);
         for(Meeting_Tasks_MERC__c task : tasks){
@@ -591,38 +623,285 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
 
     public List<SelectOption> getCommunicationChannelOptions(){
-        List<SelectOption> processTypeOptions = buildSelectOptionsWithAnyOption();
-        List<Schema.PicklistEntry> picklistEntries = Meeting_Process_MERC__c.Process_Type_MERC__c.getDescribe().getPicklistValues();
-        List<String> processTypeLabels = getPicklistEntriesWhereNotNullAndIsActive(picklistEntries);
-        Set<String> validProcessTypes = getCommunicationChannelsByMeeting();
+        List<SelectOption> options = buildSelectOptionsWithAnyOption();
 
-        for(String processTypeLabel : processTypeLabels){
-            if(validProcessTypes.contains(processTypeLabel)){
-                processTypeOptions.add(buildOption(processTypeLabel));
+        for(String communicationChannel : getCommunicationChannels()){
+            options.add(buildOption(communicationChannel));
+        }
+
+        return options;
+    }
+
+    private Set<String> getCommunicationChannels(){
+        Set<String> communicationChannels = new Set<String>();
+
+        String query = 'SELECT Account_MERC__r.Communication_Channel_MERC__c FROM Meeting_Participant_MERC__c'
+                     +  buildMeetingWhereClause()
+                     +  buildExcludedFilterWhereClause('communicationChannelSelected');
+
+        List<Meeting_Participant_MERC__c> participants = (List<Meeting_Participant_MERC__c>)attemptQuery(query);
+        for(Meeting_Participant_MERC__c participant : participants){
+            if(participant.Account_MERC__r.Communication_Channel_MERC__c != null){
+                communicationChannels.add(participant.Account_MERC__r.Communication_Channel_MERC__c);
+            }
+        }
+        return communicationChannels;
+    }
+
+    public List<SelectOption> getCountryOptions(){
+        List<SelectOption> options = buildSelectOptionsWithAnyOption();
+
+        for(String country : getCountries()){
+            options.add(buildOption(country));
+        }
+
+        return options;
+    }
+
+    private Set<String> getCountries(){
+        Set<String> values = new Set<String>();
+
+        String query = 'SELECT Account_MERC__r.Country_of_Residence_GLBL__c FROM Meeting_Participant_MERC__c'
+                     +  buildMeetingWhereClause()
+                     +  buildExcludedFilterWhereClause('countryOfResidenceSelected');
+
+        List<Meeting_Participant_MERC__c> participants = (List<Meeting_Participant_MERC__c>)attemptQuery(query);
+        for(Meeting_Participant_MERC__c participant : participants){
+            if(participant.Account_MERC__r.Country_of_Residence_GLBL__c != null){
+                values.add(participant.Account_MERC__r.Country_of_Residence_GLBL__c);
+            }
+        }
+        return values;
+    }
+
+    public List<SelectOption> getParticipantStatusOptions(){
+        List<SelectOption> options = buildSelectOptionsWithAnyOption();
+
+        for(String status : getParticipantStatuses()){
+            options.add(buildOption(status));
+        }
+
+        return options;
+    }
+
+    private Set<String> getParticipantStatuses(){
+        Set<String> values = new Set<String>();
+
+        String query = 'SELECT Status_MERC__c FROM Meeting_Participant_MERC__c'
+                     +  buildMeetingWhereClause()
+                     +  buildExcludedFilterWhereClause('participantStatusSelected');
+
+        List<Meeting_Participant_MERC__c> participants = (List<Meeting_Participant_MERC__c>)attemptQuery(query);
+        for(Meeting_Participant_MERC__c participant : participants){
+            if(participant.Status_MERC__c != null){
+                values.add(participant.Status_MERC__c);
+            }
+        }
+        return values;
+    }
+
+    public List<SelectOption> getLanguageOptions(){
+        List<SelectOption> options = buildSelectOptionsWithAnyOption();
+
+        for(String status : getLanguages()){
+            options.add(buildOption(status));
+        }
+
+        return options;
+    }
+
+    private Set<String> getLanguages(){
+        Set<String> values = new Set<String>();
+
+        String query = 'SELECT Account_MERC__r.Prfrd_Lang_Cd_GLBL__c FROM Meeting_Participant_MERC__c'
+                     +  buildMeetingWhereClause()
+                     +  buildExcludedFilterWhereClause('preferredLanguageSelected');
+
+        List<Meeting_Participant_MERC__c> participants = (List<Meeting_Participant_MERC__c>)attemptQuery(query);
+        for(Meeting_Participant_MERC__c participant : participants){
+            if(participant.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c != null){
+                values.add(participant.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c);
+            }
+        }
+        return values;
+    }
+
+    public List<SelectOption> getRecordTypeOptions(){
+        List<SelectOption> options = buildSelectOptionsWithAnyOption();
+        Map<String, String> recordTypes = getRecordTypes();
+
+        for(String recordTypeId : recordTypes.keySet()){
+            options.add(new SelectOption(recordTypeId, recordTypes.get(recordTypeId)));
+        }
+
+        return options;
+    }
+
+    private Map<String, String> getRecordTypes(){
+        Map<String, String> recordTypeMap = new Map<String, String>();
+
+        String query = 'SELECT RecordType.Id, RecordType.Name FROM Meeting_Participant_MERC__c'
+                     +  buildMeetingWhereClause()
+                     +  buildExcludedFilterWhereClause('recordTypeSelected');
+
+        List<Meeting_Participant_MERC__c> participants = (List<Meeting_Participant_MERC__c>)attemptQuery(query);
+        for(Meeting_Participant_MERC__c participant : participants){
+            if(!recordTypeMap.containsKey(participant.RecordType.Id)){
+                recordTypeMap.put(participant.RecordType.Id, participant.RecordType.Name);
+            }
+        }
+        return recordTypeMap;
+    }
+
+    public List<SelectOption> getHasEmailOptions(){
+        List<SelectOption> options = buildSelectOptionsWithAnyOption();
+
+        for(String yesOrNo : getHasEmail()){
+            options.add(buildOption(yesOrNo));
+        }
+
+        return options;
+    }
+
+    private Set<String> getHasEmail(){
+        Set<String> values = new Set<String>();
+
+        String query = 'SELECT Account_MERC__r.PersonEmail FROM Meeting_Participant_MERC__c'
+                     +  buildMeetingWhereClause()
+                     +  buildExcludedFilterWhereClause('hasEmailSelected');
+
+        Boolean hasYes = false;
+        Boolean hasNo = false;
+        List<Meeting_Participant_MERC__c> participants = (List<Meeting_Participant_MERC__c>)attemptQuery(query);
+        for(Meeting_Participant_MERC__c participant : participants){
+            if(participant.Account_MERC__r.PersonEmail == null){
+                hasNo = true;
+            } else {
+                hasYes = true;
+            }
+            if(hasYes && hasNo){
+                break;
             }
         }
 
-        return processTypeOptions;
+        if(hasYes){
+            values.add('Yes');
+        }
+        if(hasNo){
+            values.add('No');
+        }
+        return values;
     }
 
-    private Set<String> getCommunicationChannelsByMeeting(){
-        Set<String> processTypes = new Set<String>();
-        String query = 'SELECT Process_Type_MERC__c FROM Meeting_Process_MERC__c';
-        if(filteredParticipantIds != null){
-            query += buildExcludedFilterWhereClause('filteredParticipantIds', RELATED_MEETING_PARTICIPANT);
+    public void setSortField(String newSortField){
+        if(sortField == newSortField){
+            reverseSortDirection();
+        } else {
+            sortDirection = ASCENDING;
         }
+        sortField = newSortField;
+        updateMeetingParticipants();
+    }
 
-        List<Meeting_Process_MERC__c> meetingProcesses = (List<Meeting_Process_MERC__c>)attemptQuery(query);
-        for(Meeting_Process_MERC__c meetingProcess : meetingProcesses){
-            if(meetingProcess.Process_Type_MERC__c != null){
-                processTypes.add(meetingProcess.Process_Type_MERC__c);
+    private void reverseSortDirection(){
+        if(sortDirection == ASCENDING){
+            sortDirection = DESCENDING;
+        } else {
+            sortDirection = ASCENDING;
+        }
+    }
+
+    public String getHeaderTitleSuffix() {
+        return suffixBuilder('Account_MERC__r.Title_Desc_GLBL__c');
+    }
+
+    public String getHeaderFirstNameSuffix() {
+        return suffixBuilder('Account_MERC__r.FirstName');
+    }
+
+    public String getHeaderLastNameSuffix() {
+        return suffixBuilder('Account_MERC__r.LastName');
+    }
+
+    public String getHeaderSuffixSuffix() {
+        return suffixBuilder('Account_MERC__r.Sfx_Nm_GLBL__c');
+    }
+
+    public String getHeaderEmailSuffix() {
+        return suffixBuilder('Account_MERC__r.PersonEmail');
+    }
+
+    public String getHeaderStatusSuffix() {
+        return suffixBuilder('Status_MERC__c');
+    }
+
+    public String getHeaderRecordTypeSuffix() {
+        return suffixBuilder('Record_Type_MERC__c');
+    }
+
+    public String getHeaderCommPrefSuffix() {
+        return suffixBuilder('Account_MERC__r.Communication_Preference_MERC__c');
+    }
+
+    public String getHeaderPrefLangSuffix() {
+        return suffixBuilder('Account_MERC__r.Prfrd_Lang_Cd_GLBL__c');
+    }
+
+    public String getHeaderCountrySuffix() {
+        return suffixBuilder('Account_MERC__r.Country_of_Residence_GLBL__c');
+    }
+
+    private String suffixBuilder (String suffixField) {
+        if (sortField == suffixField) {
+            if (sortDirection == ASCENDING) {
+                return '^';
+            } else {
+                return 'v';
             }
         }
-        return processTypes;
+        else {
+            return ' ';
+        }
     }
 
-    public Boolean getHasFatalMessages(){
-        return ApexPages.hasMessages(ApexPages.Severity.FATAL);
+    public Integer getPageNumber(){
+        return meetingParticipantsController.getPageNumber();
+    }
+
+    public Integer getMaxPageNumber(){
+        return 1 + ((meetingParticipantsController.getResultSize()-1) / meetingParticipantsController.getPageSize());
+    }
+
+    public Boolean hasNext(){
+        return meetingParticipantsController.getHasNext();
+    }
+
+    public Boolean hasPrevious(){
+        return meetingParticipantsController.getHasPrevious();
+    }
+
+    public void goToFirstPage() {
+        updateSelectedParticipantIds();
+        meetingParticipantsController.first();
+        updateCurrentPageOfSelectableParticipants();
+    }
+
+    public void goToLastPage() {
+        updateSelectedParticipantIds();
+        meetingParticipantsController.last();
+        updateCurrentPageOfSelectableParticipants();
+    }
+
+    public void goToPreviousPage() {
+        updateSelectedParticipantIds();
+        meetingParticipantsController.previous();
+        updateCurrentPageOfSelectableParticipants();
+    }
+
+    public void goToNextPage() {
+        updateSelectedParticipantIds();
+        meetingParticipantsController.next();
+        updateCurrentPageOfSelectableParticipants();
     }
 
     private void addMessage(ApexPages.Severity severity, String message){
@@ -631,14 +910,6 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
     private void addFatalMessage(String message){
         addMessage(ApexPages.Severity.FATAL, message);
-    }
-
-    private void addWarningMessage(String message){
-        addMessage(ApexPages.Severity.WARNING, message);
-    }
-
-    private void addErrorMessage(String message){
-        addMessage(ApexPages.Severity.ERROR, message);
     }
 
     @TestVisible
