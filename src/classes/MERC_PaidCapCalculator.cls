@@ -68,11 +68,12 @@ public with sharing class MERC_PaidCapCalculator implements GLBL_TriggerHandler.
             List<Meeting_Participant_MERC__c> mp = (List<Meeting_Participant_MERC__c>)sobjects;
             Set<Id> mpIds = new Set<Id>();
             for (Meeting_Participant_MERC__c m : mp) {
-                if (
-                    Trigger.oldMap.get(m.Id).get('Status_MERC__c') != m.Status_MERC__c ||
-                    Trigger.oldMap.get(m.Id).get('RecordTypeID') != m.RecordTypeID ||
-                    Trigger.oldMap.get(m.Id).get('Types_of_Service_MERC__c') != m.Types_of_Service_MERC__c                    
-                ) {
+              //  if (
+                 //   Trigger.oldMap.get(m.Id).get('Status_MERC__c') != m.Status_MERC__c ||
+                  //  Trigger.oldMap.get(m.Id).get('RecordTypeID') != m.RecordTypeID ||
+                  //  Trigger.oldMap.get(m.Id).get('Types_of_Service_MERC__c') != m.Types_of_Service_MERC__c                    
+              //  )
+                 {
                     mpIds.add(m.Id);
                 }
             }
