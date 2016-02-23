@@ -401,6 +401,26 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         System.assertEquals(5, unFilteredParticipants.size());
     }
 
+    @isTest static void test_HasEmailYes_FiltersParticipants(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+
+        sendRecipientsExtension.setHasEmailSelected('Yes');
+
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> filteredParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+
+        sendRecipientsExtension.clearFilters();
+
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> unFilteredParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+
+        Test.stopTest();
+
+        System.assertEquals(4, filteredParticipants.size());
+        System.assertEquals(5, unFilteredParticipants.size());
+    }
+
     @isTest static void test_OnInitialize_Has2CommunicationOptions(){
         Meeting_MERC__c meeting = insertMeetingAndChildren();
 
