@@ -129,6 +129,7 @@
         <members>Docusign_Settings_MERC__c.Default_Email_Text_MERC__c</members>
         <members>Docusign_Settings_MERC__c.Email_Template_Name_MERC__c</members>
         <members>Docusign_Settings_MERC__c.Lilly_Signature_Anchor_String_MERC__c</members>
+        <members>Mercury_Settings_MERC__c.Invoice_XML_Writer_Document_Type_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -175,13 +176,12 @@
         <name>CustomLabel</name>
     </types>
     <types>
-        <members>AccountMergeSettings_MERC</members>
-        <members>CAP_MERC</members>
-        <members>ContentLibraryLookup_MERC</members>
-        <members>FMV_MERC</members>
-        <members>PersonSearchMVN</members>
-        <members>TimeZoneMappingTestData_MERC</members>
-        <members>TravelProposalSegementTypes_MERC</members>
+        <members>MERC_AccountMergeSettings</members>
+        <members>MERC_CAP</members>
+        <members>MERC_ContentLibraryLookup</members>
+        <members>MERC_FMV</members>
+        <members>MERC_TimeZoneMappingTestData</members>
+        <members>MERC_TravelProposalSegementTypes</members>
         <members>mercury</members>
         <name>StaticResource</name>
     </types>
