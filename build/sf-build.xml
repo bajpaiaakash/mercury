@@ -14,7 +14,8 @@
 
 		<echo message="START: SFDC Deployment" />
 		<sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src.dir}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" testLevel="${sf.testLevel}" logType="${sf.logType}" >
-		        <runTest>MERC_InvoiceDocFilterControllerTest</runTest>				
+		        <runTest>MERC_InvoiceDocFilterControllerTest</runTest>
+				<runTest>MERC_HCPContractCancellationTest</runTest>				
 		</sf:deploy>
 	</target>
 
