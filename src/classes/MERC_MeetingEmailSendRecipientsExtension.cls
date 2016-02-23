@@ -19,6 +19,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
     public Set<Id> selectedParticipantIds { get; set; }
     public List<SelectableParticipant> currentPageOfSelectableParticipants { get; set; }
+    public Boolean isGeneratingDocuments { get; private set; }
 
     private String processTypeSelected;
     private String proposalStatusSelected;
@@ -38,7 +39,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     private Set<Id> proposalStatusFilterIds;
     private Set<Id> taskStatusFilterIds;
 
-    private Set<Id> queriedParticipantIds;
+    private Set<Id> pendingSelectedParticipantIds;
     private Set<Id> filteredParticipantIds;
     private ApexPages.StandardSetController meetingParticipantsController;
     private Integer currentPageNumber;
@@ -54,8 +55,9 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
             addFatalMessage('No meeting was found.');
         }
 
+        isGeneratingDocuments = ApexPages.currentPage().getParameters().get('generatedocuments') == '1';
+
         filteredParticipantIds = null;
-        queriedParticipantIds = null;
 
         sortField = DEFAULT_SORT_FIELD;
         sortDirection = ASCENDING;
@@ -63,6 +65,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         if(selectedParticipantIds == null){
             selectedParticipantIds = new Set<Id>();
         }
+        pendingSelectedParticipantIds = new Set<Id>(selectedParticipantIds);
 
         initializeFilterIdSets();
         resetSelectedFiltersToAny();
@@ -112,7 +115,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     }
 
     private void updateMeetingParticipants(){
-        updateSelectedParticipantIds();
+        updatePendingSelectedParticipantIds();
         String meetingParticipantQuery = buildMeetingParticipantQuery();
 
         System.debug(LoggingLevel.DEBUG, 'updateMeetingParticipants: setting the meeting participant query:\n\t' + meetingParticipantQuery);
@@ -126,20 +129,20 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         updateCurrentPageOfSelectableParticipants();
     }
 
-    private void updateSelectedParticipantIds(){
+    private void updatePendingSelectedParticipantIds(){
         if(currentPageOfSelectableParticipants == null){
-            System.debug(LoggingLevel.DEBUG, 'currentPageOfSelectableParticipants is null, no changes to selectedParticipantIds');
+            System.debug(LoggingLevel.DEBUG, 'currentPageOfSelectableParticipants is null, no changes to pendingSelectedParticipantIds');
             return;
         }
 
         for (SelectableParticipant selectableParticipant : currentPageOfSelectableParticipants) {
             if(selectableParticipant.IsSelected) {
-                selectedParticipantIds.add(selectableParticipant.Participant.Id);
-            } else if (!selectableParticipant.IsSelected && selectedParticipantIds.contains(selectableParticipant.Participant.Id)) {
-                selectedParticipantIds.remove(selectableParticipant.Participant.Id);
+                pendingSelectedParticipantIds.add(selectableParticipant.Participant.Id);
+            } else if (!selectableParticipant.IsSelected && pendingSelectedParticipantIds.contains(selectableParticipant.Participant.Id)) {
+                pendingSelectedParticipantIds.remove(selectableParticipant.Participant.Id);
             }
         }
-        System.debug(LoggingLevel.DEBUG, 'selectedParticipantIds updated: ' + selectedParticipantIds);
+        System.debug(LoggingLevel.DEBUG, 'pendingSelectedParticipantIds updated: ' + pendingSelectedParticipantIds);
     }
 
     private String buildMeetingParticipantQuery(){
@@ -228,16 +231,50 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         }
     }
 
-    public void updateCurrentPageOfSelectableParticipants(){
+    private void updateCurrentPageOfSelectableParticipants(){
         currentPageOfSelectableParticipants = new List<SelectableParticipant>();
         for(Meeting_Participant_MERC__c participant : getCurrentPageOfParticipants()){
-            Boolean isSelected = selectedParticipantIds.contains(participant.Id);
+            Boolean isSelected = pendingSelectedParticipantIds.contains(participant.Id);
             currentPageOfSelectableParticipants.add(new SelectableParticipant(participant, isSelected));
         }
     }
 
     private List<Meeting_Participant_MERC__c> getCurrentPageOfParticipants(){
         return (List<Meeting_Participant_MERC__c>)meetingParticipantsController.getRecords();
+    }
+
+    public void clearFilters(){
+        resetSelectedFiltersToAny();
+        resetSelectedProcessFiltersToAny();
+        onFilterChange();
+        updateMeetingParticipants();
+    }
+
+    public Boolean getShouldRenderTaskFilters(){
+        return isSelected(processTypeSelected);
+    }
+
+    public Boolean getShouldRenderProposalFilter(){
+        return processTypeSelected == TRAVEL_PROPOSAL;
+    }
+
+    public String getCommunicationChannelSelected(){
+        return communicationChannelSelected;
+    }
+    public String getCountryOfResidenceSelected(){
+        return countryOfResidenceSelected;
+    }
+    public String getParticipantStatusSelected(){
+        return participantStatusSelected;
+    }
+    public String getPreferredLanguageSelected(){
+        return preferredLanguageSelected;
+    }
+    public String getRecordTypeSelected(){
+        return recordTypeSelected;
+    }
+    public String getHasEmailSelected(){
+        return hasEmailSelected;
     }
 
     public String getProcessTypeSelected(){
@@ -260,44 +297,67 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         return taskStatusSelected;
     }
 
-    public Boolean getShouldRenderTaskFilters(){
-        return isSelected(processTypeSelected);
-    }
-
-    public Boolean getShouldRenderProposalFilter(){
-        return processTypeSelected == TRAVEL_PROPOSAL;
-    }
-
     public void setProcessTypeSelected(String processType){
         processTypeSelected = processType;
-        onProcessFilterChange();
+        onFilterChange();
     }
 
     public void setProposalStatusSelected(String selectedValue){
         proposalStatusSelected = selectedValue;
-        onProcessFilterChange();
+        onFilterChange();
     }
     
     public void setDueDateSelected(String selectedValue){
         dueDateSelected = selectedValue;
-        onProcessFilterChange();
+        onFilterChange();
     }
     
     public void setNextStepSelected(String selectedValue){
         nextStepSelected = selectedValue;
-        onProcessFilterChange();
+        onFilterChange();
     }
     
     public void setTaskStatusSelected(String selectedValue){
         taskStatusSelected = selectedValue;
-        onProcessFilterChange();
+        onFilterChange();
     }
 
-    private void onProcessFilterChange(){
+    public void setCommunicationChannelSelected(String selectedValue){
+        communicationChannelSelected = selectedValue;
+        onFilterChange();
+    }
+    
+    public void setCountryOfResidenceSelected(String selectedValue){
+        countryOfResidenceSelected = selectedValue;
+        onFilterChange();
+    }
+    
+    public void setParticipantStatusSelected(String selectedValue){
+        participantStatusSelected = selectedValue;
+        onFilterChange();
+    }
+    
+    public void setPreferredLanguageSelected(String selectedValue){
+        preferredLanguageSelected = selectedValue;
+        onFilterChange();
+    }
+    
+    public void setRecordTypeSelected(String selectedValue){
+        recordTypeSelected = selectedValue;
+        onFilterChange();
+    }
+    
+    public void setHasEmailSelected(String selectedValue){
+        hasEmailSelected = selectedValue;
+        onFilterChange();
+    }
+    
+
+    private void onFilterChange(){
         refreshParticipantIdFilters();
-        System.debug('onProcessFilterChange filteredParticipantIds: ' + filteredParticipantIds);
+        System.debug('onFilterChange filteredParticipantIds: ' + filteredParticipantIds);
         updateMeetingParticipants();
-        System.debug('Done onProcessFilterChange');
+        System.debug('Done onFilterChange');
     }
 
     private void refreshParticipantIdFilters(){
@@ -881,25 +941,25 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     }
 
     public void goToFirstPage() {
-        updateSelectedParticipantIds();
+        updatePendingSelectedParticipantIds();
         meetingParticipantsController.first();
         updateCurrentPageOfSelectableParticipants();
     }
 
     public void goToLastPage() {
-        updateSelectedParticipantIds();
+        updatePendingSelectedParticipantIds();
         meetingParticipantsController.last();
         updateCurrentPageOfSelectableParticipants();
     }
 
     public void goToPreviousPage() {
-        updateSelectedParticipantIds();
+        updatePendingSelectedParticipantIds();
         meetingParticipantsController.previous();
         updateCurrentPageOfSelectableParticipants();
     }
 
     public void goToNextPage() {
-        updateSelectedParticipantIds();
+        updatePendingSelectedParticipantIds();
         meetingParticipantsController.next();
         updateCurrentPageOfSelectableParticipants();
     }
@@ -910,6 +970,53 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
     private void addFatalMessage(String message){
         addMessage(ApexPages.Severity.FATAL, message);
+    }
+
+    public PageReference updateSelectedParticipantIdsAndReturn(){
+        updateSelectedParticipantIds();
+        return returnToPreviousPage();
+    }
+
+    public PageReference cancelAndReturn(){
+        return returnToPreviousPage();
+    }
+
+    private void updateSelectedParticipantIds(){
+        updatePendingSelectedParticipantIds();
+        selectedParticipantIds = new Set<Id>(pendingSelectedParticipantIds);
+    }
+
+    private PageReference returnToPreviousPage(){
+        PageReference emailSendPage = Page.MeetingEmailSend;
+        emailSendPage.getParameters().put('id', meeting.Id);
+        return emailSendPage;
+    }
+
+    public PageReference generateDocuments() {
+        updateSelectedParticipantIds();
+
+        if (selectedParticipantIds.isEmpty()) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'Please Select at least one participant.'));
+            return null;
+        }
+
+        if (selectedParticipantIds.size() > 100) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.WARNING, 'Please Select no more than 100 participants.'));
+            return null;
+        }
+
+        PageReference generateDocs = new PageReference('/apex/loop__masslooplus');
+        generateDocs.getParameters().put('retUrl', meetingId);
+        generateDocs.getParameters().put('sessionId', UserInfo.getSessionId());
+        List<Id> selectedIds = new List<Id>();
+        for (Id selectedParticipantId : selectedParticipantIds) {
+            //URLs in IE9 should be limited to 2083 characters. this means that if we use the 15 digit id we can
+            //safely allow for selection of more ids
+            selectedIds.add(((String)selectedParticipantId).subString(0,15));
+        }
+        generateDocs.getParameters().put('recordIds', String.join(selectedIds, ','));
+        generateDocs.setRedirect(true);
+        return generateDocs;
     }
 
     @TestVisible

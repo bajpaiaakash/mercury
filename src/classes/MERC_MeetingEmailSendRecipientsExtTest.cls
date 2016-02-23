@@ -17,6 +17,28 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         return new MERC_MeetingEmailSendRecipientsExtension(standardController);
     }
 
+    @isTest static void test_ContructorAddsFatalMessageIfNoMeeting(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.getMeeting();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting);
+
+        assertMessagesContain('No meeting was found.');
+    }
+
+    private static void assertMessagesContain(String message){
+        System.assert(containsMessage(message), message + ' not found in ApexPages.getMessages():\n\t' + ApexPages.getMessages());
+    }
+
+    private static Boolean containsMessage(String message){
+        Boolean containsMessage = false;
+        for(ApexPages.Message pageMessage : ApexPages.getMessages()){
+            containsMessage = pageMessage.getDetail().contains(message);
+            if(containsMessage){
+                break;
+            }
+        }
+        return containsMessage;
+    }
+
     @isTest static void test_OnInitialize_AllOptionsAvailable(){
         Meeting_MERC__c meeting = insertMeetingAndChildren();
 
@@ -36,6 +58,29 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         System.assertEquals(2, dueDateOptions.size());
         System.assertEquals(2, nextStepOptions.size());
         System.assertEquals(3, taskStatusOptions.size());
+    }
+
+    @isTest static void test_OnInitialize_IsGeneratingDocumentsIsFalse(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+
+        Test.stopTest();
+
+        System.assertEquals(false, sendRecipientsExtension.isGeneratingDocuments);
+    }
+
+    @isTest static void test_OnInitializeWithGeneratingDocuments_IsGeneratingDocumentsIsTrue(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        ApexPages.currentPage().getParameters().put('generatedocuments', '1');
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+
+        Test.stopTest();
+
+        System.assertEquals(true, sendRecipientsExtension.isGeneratingDocuments);
     }
 
     private static Meeting_MERC__c insertMeetingAndChildren(){
@@ -313,6 +358,47 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getDueDateSelected());
         System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getNextStepSelected());
         System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getTaskStatusSelected());
+    }
+
+    @isTest static void test_SelectAllFiltersThenClearFilters_ClearsFilters(){
+        Meeting_MERC__c meeting = insertMeetingAndChildren();
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
+
+        sendRecipientsExtension.setProcessTypeSelected(MERC_MarketingCloudTestUtility.PROCESS_TYPE_TRAVEL_PROPOSAL);
+        sendRecipientsExtension.setProposalStatusSelected(MERC_MarketingCloudTestUtility.ITINERARY_ACCEPTED);
+        sendRecipientsExtension.setDueDateSelected(sendRecipientsExtension.getDueDateOptions().get(1).getValue());
+        sendRecipientsExtension.setNextStepSelected(sendRecipientsExtension.getNextStepOptions().get(1).getValue());
+        sendRecipientsExtension.setTaskStatusSelected(MERC_MarketingCloudTestUtility.TASK_STATUS_COMPLETED);
+        sendRecipientsExtension.setCommunicationChannelSelected('Phone');
+        sendRecipientsExtension.setCountryOfResidenceSelected('US');
+        sendRecipientsExtension.setHasEmailSelected('No');
+        sendRecipientsExtension.setParticipantStatusSelected('Rejected');
+        sendRecipientsExtension.setPreferredLanguageSelected('French');
+        sendRecipientsExtension.setRecordTypeSelected(MERC_ETTestUtils.GetRecordType(MERC_MarketingCloudTestUtility.PARTICIPANT_RECORD_TYPE_DELEGATE, 'Meeting_Participant_MERC__c').Id);
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> filteredParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+
+        sendRecipientsExtension.clearFilters();
+
+        List<MERC_MeetingEmailSendRecipientsExtension.SelectableParticipant> unFilteredParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
+
+        Test.stopTest();
+
+        System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getProcessTypeSelected());
+        System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getProposalStatusSelected());
+        System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getDueDateSelected());
+        System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getNextStepSelected());
+        System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getTaskStatusSelected());
+        System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getCommunicationChannelSelected());
+        System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getCountryOfResidenceSelected());
+        System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getHasEmailSelected());
+        System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getParticipantStatusSelected());
+        System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getPreferredLanguageSelected());
+        System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.getRecordTypeSelected());
+
+        System.assertEquals(1, filteredParticipants.size());
+        System.assertEquals(5, unFilteredParticipants.size());
     }
 
     @isTest static void test_OnInitialize_Has2CommunicationOptions(){
@@ -1058,6 +1144,93 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
 
         System.assertEquals(true, sendRecipientsExtension.currentPageOfSelectableParticipants.get(0).IsSelected);
         System.assertEquals(false, sendRecipientsExtension.currentPageOfSelectableParticipants.get(1).IsSelected);
+        System.assertEquals(0, sendRecipientsExtension.selectedParticipantIds.size());
+    }
+
+    @isTest static void test_SelectingParticipantsAndSaving_SetsSelectedParticipantIds(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
+        List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+            MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
+        insert personAccounts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+        insert participants;
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting);
+        sendRecipientsExtension.currentPageOfSelectableParticipants.get(0).IsSelected = true;
+        sendRecipientsExtension.goToLastPage();
+        sendRecipientsExtension.currentPageOfSelectableParticipants.get(1).IsSelected = true;
+        PageReference pageReference = sendRecipientsExtension.updateSelectedParticipantIdsAndReturn();
+        Test.stopTest();
         System.assertEquals(2, sendRecipientsExtension.selectedParticipantIds.size());
+        System.assert(pageReference.getUrl().startsWithIgnoreCase(Page.MeetingEmailSend.getUrl()), pageReference.getUrl() + ' does not start with ' + Page.MeetingEmailSend.getUrl());
+        System.assertEquals(meeting.Id, pageReference.getParameters().get('id'));
+    }
+
+    @isTest static void test_SelectingParticipantsAndCancelling_DoesNotSetSelectedParticipantIds(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
+        List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+            MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
+        insert personAccounts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+        insert participants;
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting);
+        sendRecipientsExtension.currentPageOfSelectableParticipants.get(0).IsSelected = true;
+        sendRecipientsExtension.goToLastPage();
+        sendRecipientsExtension.currentPageOfSelectableParticipants.get(1).IsSelected = true;
+        PageReference pageReference = sendRecipientsExtension.cancelAndReturn();
+        Test.stopTest();
+        System.assertEquals(0, sendRecipientsExtension.selectedParticipantIds.size());
+        System.assert(pageReference.getUrl().startsWithIgnoreCase(Page.MeetingEmailSend.getUrl()), pageReference.getUrl() + ' does not start with ' + Page.MeetingEmailSend.getUrl());
+        System.assertEquals(meeting.Id, pageReference.getParameters().get('id'));
+    }
+
+    @isTest static void test_GenerateDocuments_SetsSelectedParticipantIds(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
+        List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+            MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
+        insert personAccounts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+        insert participants;
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting);
+        sendRecipientsExtension.currentPageOfSelectableParticipants.get(0).IsSelected = true;
+        sendRecipientsExtension.goToLastPage();
+        sendRecipientsExtension.currentPageOfSelectableParticipants.get(1).IsSelected = true;
+        PageReference pageReference = sendRecipientsExtension.generateDocuments();
+        Test.stopTest();
+        System.assertEquals(2, sendRecipientsExtension.selectedParticipantIds.size());
+    }
+
+    @isTest static void test_GenerateDocuments_RedirectsToDrawloop(){
+        Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
+        List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+            MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
+        insert personAccounts;
+
+        List<Meeting_Participant_MERC__c> participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+        insert participants;
+
+        Test.startTest();
+        MERC_MeetingEmailSendRecipientsExtension sendRecipientsExtension = getSendRecipientsExtension(meeting);
+        sendRecipientsExtension.currentPageOfSelectableParticipants.get(0).IsSelected = true;
+        sendRecipientsExtension.goToLastPage();
+        sendRecipientsExtension.currentPageOfSelectableParticipants.get(1).IsSelected = true;
+        PageReference pageReference = sendRecipientsExtension.generateDocuments();
+        Test.stopTest();
+
+        System.assert(pageReference.getUrl().startsWithIgnoreCase('/apex/loop__masslooplus'), pageReference.getUrl() + ' does not start with /apex/loop__masslooplus');
+        System.assertEquals(meeting.Id, pageReference.getParameters().get('retUrl'), pageReference.getUrl());
+        System.assertEquals(UserInfo.getSessionId(), pageReference.getParameters().get('sessionId'));
+
+        String[] selectedIds = pageReference.getParameters().get('recordIds').split(',');
+        List<Meeting_Participant_MERC__c> selectedParticipants = [SELECT Id FROM Meeting_Participant_MERC__c WHERE Id IN :selectedIds];
+        System.assertEquals(2, selectedParticipants.size());
     }
 }
