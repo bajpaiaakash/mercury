@@ -88,7 +88,7 @@ public class MERC_AccountRollups implements Queueable{
                 }
                 
                 /* Added by Namrata Aggarwal On 09-FEB-2016 for US-39907 to calculate Allocated final fee for consulting meetings when start date is not equal to current year and Meeting end date has not been passed */
-                if (!allocatedCapExcludedStatuses.contains( participantStatus ) && meetingStatus != 'Forecasted' && participant.Meeting_MERC__r.Date_of_Event_MERC__c.year() != Date.Today().year() && participant.Meeting_MERC__r.RecordType.DeveloperName == 'Ad_Hoc_Consulting' && participant.Meeting_MERC__r.MERC_Meeting_End_Date_Inactive__c == false && participant.Meeting_MERC__r.MERC_Meeting_Complete_Canceled_Clsd_Date__c == NULL) {
+                if (!allocatedCapExcludedStatuses.contains( participantStatus ) && meetingStatus != 'Forecasted' && participant.Meeting_MERC__r.Date_of_Event_MERC__c.year() < Date.Today().year() && participant.Meeting_MERC__r.RecordType.DeveloperName == 'Ad_Hoc_Consulting' && participant.Meeting_MERC__r.MERC_Meeting_End_Date_Inactive__c == false && participant.Meeting_MERC__r.MERC_Meeting_Complete_Canceled_Clsd_Date__c == NULL) {
                    account.MERC_Allocated_Fee_for_Next_Yr_Cons_Only__c += participant.Final_Fee_Rollup_MERC__c != null ? participant.Final_Fee_Rollup_MERC__c : 0;
                     
                 }
