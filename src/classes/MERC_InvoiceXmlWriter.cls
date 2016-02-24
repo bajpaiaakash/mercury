@@ -81,6 +81,7 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
     }
 
     public static void writeXml(List<String> invoiceIds) {
+        
         // RestRequest req = RestContext.request;
         // RestResponse res = RestContext.response;
         String filePrefix = '';
@@ -118,7 +119,7 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
             } else {
                 invoiceXml.FirstPublishLocationId = workspaceId;                
             }
-            invoiceXml.Document_Type_MERC__c = 'Invoices';  // TODO - Custom Settings! Align with LOOP
+            invoiceXml.Document_Type_MERC__c = settings.Invoice_XML_Writer_Document_Type_MERC__c;
             invoiceXml.RecordTypeId = recordTypeId;
             invoiceXml.Invoice_MERC__c = invoiceId;
             invoiceXml.VersionData = b; 

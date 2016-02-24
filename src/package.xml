@@ -164,6 +164,7 @@
         <members>Meeting_Team_Manager_Information_Message</members>
         <members>Meeting_Warning_Message</members>
         <members>Merged_Accounts_Click_Accounts_Message</members>
+        <members>Merged_Accounts_View_Records</members>
         <members>New_Budget_Version_New_Version_Button</members>
         <members>New_Budget_Version_New_Version_Message</members>
         <members>Request_HCP_Signature_HCP_Information</members>

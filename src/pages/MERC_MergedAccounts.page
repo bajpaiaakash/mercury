@@ -39,7 +39,7 @@
 				</apex:pageBlockButtons>
 				<apex:pageBlockTable value="{!accounts}" var="acct" rowClasses="clickable" id="accountTable">
 					<apex:column html-data-record-id="{!acct.Cust_Id_GLBL__c}" width="130px;">
-						<a href="/{!acct.id}" target="_blank" class="row-link">View</a>
+						<a href="/{!acct.id}" target="_blank" class="row-link">{!$Label.Merged_Accounts_View_Records}</a>
 						<apex:outputText value=" | "/>
 						<apex:commandLink value="Mark Complete"
 					                      styleClass="row-link"
@@ -99,7 +99,7 @@
 										</apex:facet>
 										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectClass}-win-select"/>
 									</apex:column>
-									<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
+									<apex:column ><a href="/{!object.detail.id}" target="_blank">{!$Label.Merged_Accounts_View_Records}</a></apex:column>
 									<apex:repeat value="{!rl.winningFields}" var="field">
 										<apex:column value="{!object.detail[field]}">
 											<apex:facet name="header">{!field.label}</apex:facet>
@@ -128,7 +128,7 @@
 										</apex:facet>
 										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectClass}-lose-select"/>
 									</apex:column>
-									<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
+									<apex:column ><a href="/{!object.detail.id}" target="_blank">{!$Label.Merged_Accounts_View_Records}</a></apex:column>
 									<apex:repeat value="{!rl.losingFields}" var="field">
 										<apex:column value="{!object.detail[field]}">
 											<apex:facet name="header">{!field.label}</apex:facet>

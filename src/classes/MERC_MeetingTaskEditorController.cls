@@ -116,7 +116,6 @@ public with sharing class MERC_MeetingTaskEditorController {
 
 		meetingId = ApexPages.currentPage().getParameters().get('meetingid');
 
-
 		if (String.isBlank(meetingId)) {
 			ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, noMeetingIdError));
 			return;

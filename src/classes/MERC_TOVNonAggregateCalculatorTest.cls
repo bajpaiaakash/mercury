@@ -60,14 +60,11 @@ private class MERC_TOVNonAggregateCalculatorTest {
 	 * Confirm participant has correct Total_Food_Beverage_ToV_MERC__c
 	 * Change DA/ToV for participant 1 from 'Attended' to 'No Show' on day 1
 	 * Confirm participant has null for Total_Food_Beverage_ToV_MERC__c
-
-	 TODO: change to check Ground and Registration also
 	 **/
 	@isTest
 	static void foodShouldCalculateOnDailyAttendanceUpdate() {
 		setup();
 		//set participant 1 to attending on day 1
-p('starting'+[SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id]);
 
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
@@ -82,8 +79,6 @@ p('starting'+[SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporat
 		tovForParticipant1Day1 = [SELECT Id, Est_Grnd_Transp_MERC__c, Est_Reg_Amt_ToV_MERC__c, Est_Food_Bev_ToV_MERC__c, Status_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
 
 		//simulate meeting day 1's food bev estimate rolling up to the participant total
-p('participant1'+participant1);
-p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		participant1.Total_Food_Beverage_ToV_MERC__c = tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c;
 		update participant1;
 
@@ -112,8 +107,6 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Confirm participant has correct Total_Food_Beverage_ToV_MERC__c
 	 * Delete DA/ToV for participant 1 on day 1
 	 * Confirm has null for Total_Food_Beverage_ToV_MERC__c
-
-	 TODO: change to check Ground and Registration also
 	 **/
 	@isTest
 	static void foodShouldRecalculateOnToVDelete() {
@@ -159,8 +152,6 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Start Meeting Day 1 with Daily_Food_Beverage_Amount_MERC__c = value
 	 * Set DA/ToV for participant 1 to 'Attended' on day 1
 	 * Confirm participant has correct Total_Food_Beverage_ToV_MERC__c
-
-	 TODO: change to check Ground and Registration also
 	 **/
 	@isTest
 	static void foodShouldRollTovUpToParticipant() {
@@ -1016,7 +1007,6 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 
 			MERC_TOVCalculator.runHotelTovCalculation = true;
 			insert hotelItineraries;
-// TODO: confirm initial room rates
 
 			// change to new room rates
 			hotel1.Room_Rate_MERC__c = 199;

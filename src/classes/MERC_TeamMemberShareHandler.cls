@@ -6,8 +6,6 @@
 
 public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHandler.HandlerInterface {
 
-	//TODO: handle modifications to record type
-
 	public Boolean isActive() {
 		return MERC_TriggerHandlerStateManager.isActive(MERC_TeamMemberShareHandler.class);
 	}

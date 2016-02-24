@@ -190,7 +190,7 @@ private class MERC_TOVCalculatorTest {
 
 		// 5. Add Participant Travel Hotel Record which covers Day 1 only
 		itineraries = insertHotelItineraries(participants,dayOne.Date_MERC__c,dayTwo.Date_MERC__c,vendors[0]);
-	// ?? set indiv transfer to true as well?
+
 		//6. Manage Attendance Participant =
 		//	Day 1 - attended,
 		Daily_Attendance_TOV_MERC__c tovOne = insertTovs(new List<Meeting_Day_MERC__c>{dayOne}, attendee.Id, 'Attended')[0];
@@ -249,15 +249,11 @@ private class MERC_TOVCalculatorTest {
 	 * Confirm participant has correct Total_Food_Beverage_ToV_MERC__c
 	 * Change DA/ToV for participant 1 from 'Attended' to 'No Show' on day 1
 	 * Confirm participant has null for Total_Food_Beverage_ToV_MERC__c
-
-	 TODO: change to check Ground and Registration also
 	 **/
 	@isTest
 	static void foodShouldCalculateOnDailyAttendanceUpdate() {
 		setup();
 		//set participant 1 to attending on day 1
-p('starting'+[SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id]);
-
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
 		Meeting_Day_MERC__c day1 = [SELECT Id,
@@ -295,8 +291,6 @@ p('starting'+[SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporat
 	 * Confirm participant has correct Total_Food_Beverage_ToV_MERC__c
 	 * Delete DA/ToV for participant 1 on day 1
 	 * Confirm has null for Total_Food_Beverage_ToV_MERC__c
-
-	 TODO: change to check Ground and Registration also
 	 **/
 	@isTest
 	static void foodShouldRecalculateOnToVDelete() {
@@ -338,8 +332,6 @@ p('starting'+[SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporat
 	 * Start Meeting Day 1 with Daily_Food_Beverage_Amount_MERC__c = value
 	 * Set DA/ToV for participant 1 to 'Attended' on day 1
 	 * Confirm participant has correct Total_Food_Beverage_ToV_MERC__c
-
-	 TODO: change to check Ground and Registration also
 	 **/
 	@isTest
 	static void foodShouldRollTovUpToParticipant() {
@@ -984,8 +976,6 @@ p('starting'+[SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporat
 
 		//set attendee to attending....
 		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
-		//attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
-		//System.assert(attendee.Total_Hotel_ToV_MERC__c>0,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
 
 		Test.startTest();
 		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
@@ -1162,9 +1152,8 @@ p('starting'+[SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporat
 				ti.Confirm_ToV_Reporting_Change_MERC__c = true;
 				p('update: ' + ti.Id);
 			}
-p('starting...');
-			update changingItineraries;
-p('finished.');
+
+		update changingItineraries;
 		Test.stopTest();
 
 		tovDay2 = [SELECT Id, Est_Hotel_ToV_MERC__c, Meeting_Day_MERC__c
@@ -1361,7 +1350,6 @@ p('finished.');
 
 			MERC_TOVCalculator.runHotelTovCalculation = true;
 			insert hotelItineraries;
-// TODO: confirm initial room rates
 
 			// change to new room rates
 			hotel1.Room_Rate_MERC__c = 199;
@@ -1431,16 +1419,15 @@ p('finished.');
 		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
 		profiler.startProfiling();
 
-		 	// create new travel itineraries of type Car_MERC
-			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
-	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate,3);
-	 		pvtTransfers.addAll(insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate.addDays(1),startDate.addDays(1),3));
+		// create new travel itineraries of type Car_MERC
+		MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+		List<Travel_Itinerary_MERC__c> pvtTransfers = insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate,3);
+		pvtTransfers.addAll(insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate.addDays(1),startDate.addDays(1),3));
 
-p('start');
-			// set participant as "attended"
-			MERC_TOVCalculator.runIndividualTransferTovCalculation = true; // why are we resetting this?
-			List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
-p('finish');
+		// set participant as "attended"
+		MERC_TOVCalculator.runIndividualTransferTovCalculation = true; // why are we resetting this?
+		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
+
 	 	profiler.stopProfiling();
 		profiler.debugUsage();
 		Test.stopTest();
@@ -1468,7 +1455,6 @@ p('finish');
 
 		MERC_TriggerHandlerStateManager.deactivateAll();
 		MERC_TriggerHandlerStateManager.activate(MERC_TOVCalculator.class);
-
 
 		// MERC_TestFactory has some bugs. Until this is cleaned up, data factory methods moved within class...
 		startDate = Date.today();
@@ -1529,7 +1515,7 @@ p('finish');
 	 	System.assertEquals(itinerarySum,tovSum,'Unexpected total for Daily Transport ToV');
 	}
 
-/***** ============================   Data setup methods   ============================ *****/
+	/***** ============================   Data setup methods   ============================ *****/
 	static List<Account> insertAccounts(Integer numberOfAccounts) {
 		return MERC_TestFactory.insertAccounts(numberOfAccounts, hcpRecordTypeId);
 	}
@@ -1576,7 +1562,7 @@ p('finish');
 				Meeting_Participant_MERC__c p = new Meeting_Participant_MERC__c();
 				p.Account_MERC__c = accts.get(i).Id;
 				p.Meeting_MERC__c = m.Id;
-				p.Status_MERC__c = 'Invited';   // ?? impact of this status on ToV?
+				p.Status_MERC__c = 'Invited';
 				p.Services_Rendered_MERC__c = 'Yes';
 				p.Alliance_MERC__c = 'Not Applicable';
 				mps.add(p);
@@ -1697,7 +1683,6 @@ p('finish');
 	}
 
 	// combined to manage SOQL limits
-
 	static List<Daily_Attendance_TOV_MERC__c> insertTovs(List<Meeting_Day_MERC__c> listOfDays, List<String> meetingParticipantIds, String status) {
 		List<String> meetingDayIds = new List<String>();
 		for (Meeting_Day_MERC__c day : listOfDays) meetingDayIds.add(day.Id);

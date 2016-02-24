@@ -16,6 +16,10 @@ private class MERC_InvoiceXmlWriterTest {
 	static User runningUser = MERC_TestFactory.getRunningUser();
 	static User testUser = MERC_TestFactory.getTestingUser();
 
+	static {
+		Mercury_Settings_MERC__c settings = new Mercury_Settings_MERC__c(Invoice_XML_Writer_Document_Type_MERC__c = 'Invoices');
+	}
+
 	// exercise the addition (and deletion) of xml files to associated content
 	@isTest
 	static void createXMLFiles() {

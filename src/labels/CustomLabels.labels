@@ -249,6 +249,14 @@
         <value>Click on an account to view related objects for merging.</value>
     </labels>
     <labels>
+        <fullName>Merged_Accounts_View_Records</fullName>
+        <categories>MERC_MergedAccounts.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Merged Accounts View Records</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
         <fullName>New_Budget_Version_New_Version_Button</fullName>
         <categories>MERC_NewBudgetVersion</categories>
         <language>en_US</language>
