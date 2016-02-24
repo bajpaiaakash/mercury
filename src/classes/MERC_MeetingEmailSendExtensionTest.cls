@@ -265,14 +265,14 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
             Test.setMock(HttpCalloutMock.class, mockResponseService);
 
             MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
-            meetingEmailSendExtension.selectEmail(
-                emailIdAsString,
-                MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT,
-                MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT);
+            meetingEmailSendExtension.selectedEmailId = emailIdAsString;
+            meetingEmailSendExtension.selectedEmailName = MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT;
+            meetingEmailSendExtension.selectedEmailSubject = MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT;
+            meetingEmailSendExtension.selectEmail();
 
             Test.stopTest();
 
-            MERC_MarketingCloudClient.FolderedEmail selectedEmail = meetingEmailSendExtension.getSelectedEmail();
+            MERC_MarketingCloudClient.FolderedEmail selectedEmail = meetingEmailSendExtension.selectedEmail;
             System.assertEquals(emailIdAsString, selectedEmail.id);
             System.assertEquals(MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT, selectedEmail.subject);
             System.assertEquals(MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT, selectedEmail.name);
@@ -296,14 +296,13 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
             Test.setMock(HttpCalloutMock.class, mockResponseService);
 
             MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
-            meetingEmailSendExtension.selectEmail(
-                emailIdAsString,
-                MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT,
-                MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT);
+            meetingEmailSendExtension.selectedEmailId = emailIdAsString;
+            meetingEmailSendExtension.selectedEmailName = MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT;
+            meetingEmailSendExtension.selectedEmailSubject = MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT;
+            meetingEmailSendExtension.selectEmail();
 
             Test.stopTest();
 
-            MERC_MarketingCloudClient.FolderedEmail selectedEmail = meetingEmailSendExtension.getSelectedEmail();
             System.assertEquals(MERC_MarketingCloudTestUtility.getThumbnail(), meetingEmailSendExtension.getSelectedEmailThumbnail());
         }  
     }
@@ -322,16 +321,16 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
             Test.setMock(HttpCalloutMock.class, mockResponseService);
 
             MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
-            meetingEmailSendExtension.selectEmail(
-                emailIdAsString,
-                MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT,
-                MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT);
+            meetingEmailSendExtension.selectedEmailId = emailIdAsString;
+            meetingEmailSendExtension.selectedEmailName = MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT;
+            meetingEmailSendExtension.selectedEmailSubject = MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT;
+            meetingEmailSendExtension.selectEmail();
 
-            meetingEmailSendExtension.setSelectedEmailSubject(updatedSubject);
+            meetingEmailSendExtension.selectedEmail.subject = updatedSubject;
 
             Test.stopTest();
 
-            MERC_MarketingCloudClient.FolderedEmail selectedEmail = meetingEmailSendExtension.getSelectedEmail();
+            MERC_MarketingCloudClient.FolderedEmail selectedEmail = meetingEmailSendExtension.selectedEmail;
             System.assertEquals(emailIdAsString, selectedEmail.id);
             System.assertEquals(updatedSubject, selectedEmail.subject);
             System.assertEquals(MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT, selectedEmail.name);
@@ -344,7 +343,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
 
         Test.startTest();
 
-        meetingEmailSendExtension.setFromEmailId(MERC_MarketingCloudTestUtility.EMAIL_ID);
+        meetingEmailSendExtension.selectedEmailId = MERC_MarketingCloudTestUtility.EMAIL_ID;
 
         Test.stopTest();
     }
@@ -514,10 +513,10 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
     @isTest static void test_InvalidSendWithSelectedEmailButNoSubject_HasErrorMessage(){
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();
         MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
-        meetingEmailSendExtension.selectEmail(
-            MERC_MarketingCloudTestUtility.EMAIL_ID, 
-            null,
-            null);
+        meetingEmailSendExtension.selectedEmailId = MERC_MarketingCloudTestUtility.EMAIL_ID;
+        meetingEmailSendExtension.selectedEmailName = null;
+        meetingEmailSendExtension.selectedEmailSubject = null;
+        meetingEmailSendExtension.selectEmail();
         Test.startTest();
 
         meetingEmailSendExtension.send();
@@ -583,17 +582,17 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
             Test.startTest();
 
             MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
-            meetingEmailSendExtension.selectEmail(
-                MERC_MarketingCloudTestUtility.EMAIL_ID, 
-                MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT,
-                MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT);
+            meetingEmailSendExtension.selectedEmailId = MERC_MarketingCloudTestUtility.EMAIL_ID;
+            meetingEmailSendExtension.selectedEmailName = MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT;
+            meetingEmailSendExtension.selectedEmailSubject = MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT;
+            meetingEmailSendExtension.selectEmail();
             meetingEmailSendExtension.setSelectedParticipantIds(participantIds);
             meetingEmailSendExtension.dedupeSubscribers = MERC_MarketingCloudTestUtility.EMAIL_SEND_DEDUPE;
             meetingEmailSendExtension.disableIndividualLevelTracking = MERC_MarketingCloudTestUtility.EMAIL_SEND_TRACKING_DISABLED;
             meetingEmailSendExtension.setSendInFuture(MERC_MarketingCloudTestUtility.EMAIL_SEND_TIME);
             meetingEmailSendExtension.additionalInformationHTML = MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_HTML;
             meetingEmailSendExtension.additionalInformationText = MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_TEXT;
-            meetingEmailSendExtension.setFromEmailId(MERC_MarketingCloudTestUtility.SEND_DEFINITION_SENDER_PROFILE_ID);
+            meetingEmailSendExtension.selectedEmailId = MERC_MarketingCloudTestUtility.SEND_DEFINITION_SENDER_PROFILE_ID;
             PageReference pageReference = meetingEmailSendExtension.send();
 
 
@@ -621,17 +620,17 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
             Test.startTest();
 
             MERC_MeetingEmailSendExtension meetingEmailSendExtension = getMeetingEmailSendExtension(meeting);
-            meetingEmailSendExtension.selectEmail(
-                MERC_MarketingCloudTestUtility.EMAIL_ID, 
-                MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT,
-                MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT);
+            meetingEmailSendExtension.selectedEmailId = MERC_MarketingCloudTestUtility.EMAIL_ID;
+            meetingEmailSendExtension.selectedEmailName = MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT;
+            meetingEmailSendExtension.selectedEmailSubject = MERC_MarketingCloudTestUtility.EMAIL_SEND_SUBJECT;
+            meetingEmailSendExtension.selectEmail();
             meetingEmailSendExtension.setSelectedParticipantIds(participantIds);
             meetingEmailSendExtension.dedupeSubscribers = MERC_MarketingCloudTestUtility.EMAIL_SEND_DEDUPE;
             meetingEmailSendExtension.disableIndividualLevelTracking = MERC_MarketingCloudTestUtility.EMAIL_SEND_TRACKING_DISABLED;
             meetingEmailSendExtension.setSendInFuture(MERC_MarketingCloudTestUtility.EMAIL_SEND_TIME);
             meetingEmailSendExtension.additionalInformationHTML = MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_HTML;
             meetingEmailSendExtension.additionalInformationText = MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_TEXT;
-            meetingEmailSendExtension.setFromEmailId(MERC_MarketingCloudTestUtility.SEND_DEFINITION_SENDER_PROFILE_ID);
+            meetingEmailSendExtension.selectedEmailId = MERC_MarketingCloudTestUtility.SEND_DEFINITION_SENDER_PROFILE_ID;
             PageReference pageReference = meetingEmailSendExtension.send();
 
 

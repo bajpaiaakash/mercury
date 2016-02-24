@@ -1,4 +1,4 @@
-<apex:page showHeader="true" sidebar="false" standardController="Meeting_MERC__c" extensions="MERC_ETMeetingEmailSendExtension" docType="html-5.0">
+<apex:page showHeader="true" sidebar="false" standardController="Meeting_MERC__c" extensions="MERC_MeetingEmailSendExtension" docType="html-5.0">
     <apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
     <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" />
 
@@ -24,27 +24,27 @@
     <apex:pageMessages id="messages" />
     <apex:sectionHeader title="{!Meeting_MERC__c.Name}" subtitle="Configure Email Send"/>
 
-    <apex:form rendered="{!NOT(HasErrors)}" styleClass="participants">
+    <apex:form rendered="{!NOT(HasFatalMessages)}" styleClass="participants">
 
-        <apex:pageBlock id="block" title="Email Options" rendered="{!NOT(ShowParticipantGrid)}">
-            <apex:actionFunction name="getFolderInfo" action="{!expandFolder}" rerender="exactTargetEmails,messages" status="listEmailsStatus">
-                <apex:param name="folderId" value="" />
+        <apex:pageBlock id="block" title="Email Options">
+            <apex:actionFunction name="getFolderInfo" action="{!expandEmailFolder}" rerender="exactTargetEmails,messages" status="listEmailsStatus">
+                <apex:param name="emailFolderIdToExpand" value="" />
             </apex:actionFunction>
-            <apex:actionFunction name="selectEmailJS" action="{!selectEmail}" onComplete="setSyncRequest({!syncPayload});" rerender="emailInfo,topbuttons,bottombuttons,messages" status="listEmailsStatus">
-                <apex:param name="emailId" value="" />
-                <apex:param name="emailName" value="" />
-                <apex:param name="emailSubject" value="" />
+            <apex:actionFunction name="selectEmailJS" action="{!selectEmail}" rerender="emailInfo,topbuttons,bottombuttons,messages" status="listEmailsStatus">
+                <apex:param name="selectedEmailId" value="" />
+                <apex:param name="selectedEmailName" value="" />
+                <apex:param name="selectedEmailSubject" value="" />
             </apex:actionFunction>
             <apex:pageBlockButtons location="top">
                 <apex:outputPanel id="topbuttons">
-                    <apex:commandButton value="Send" disabled="{! !OptIn || ParticipantCount == 0}" action="{!Send}" onclick="return preventDoubleSend()" id="sendEmail" />
+                    <apex:commandButton value="Send" disabled="{! !participantsHaveOptedIn || selectedParticipantCount == 0}" action="{!Send}" onclick="return preventDoubleSend()" id="sendEmail" />
                     <apex:commandButton value="Select Participants" action="{!goToSelectParticipants}" />
                     <apex:commandButton value="Cancel" action="{!cancel}" />
                 </apex:outputPanel>
             </apex:pageBlockButtons>
             <apex:pageBlockButtons location="bottom">
                 <apex:outputPanel id="bottombuttons">
-                    <apex:commandButton value="Send" disabled="{! !OptIn || ParticipantCount == 0}" action="{!Send}" onclick="return preventDoubleSend()" id="sendEmail" />
+                    <apex:commandButton value="Send" disabled="{! !participantsHaveOptedIn || selectedParticipantCount == 0}" action="{!Send}" onclick="return preventDoubleSend()" id="sendEmail" />
                     <apex:commandButton value="Select Participants" action="{!goToSelectParticipants}" />
                     <apex:commandButton value="Cancel" action="{!cancel}" />
                 </apex:outputPanel>
@@ -55,14 +55,14 @@
                         <apex:outputLabel value="Email" />
                     </apex:outputText>
                     <apex:outputPanel >
-                        <apex:outputText value="{!Email.name}" />
+                        <apex:outputText value="{!selectedEmail.name}" />
                         <apex:outputPanel >
                             <apex:actionStatus id="listEmailsStatus">
                                 <apex:facet name="start">
                                     <img class="spinnerLarge" src="{!URLFOR( $Resource.ExactTargetImages, 'spinEMAIL.GIF' )}" />
                                 </apex:facet>
                                 <apex:facet name="stop">
-                                    <apex:commandButton value="Find" status="listEmailsStatus" action="{!listExactTargetEmails}" reRender="exactTargetEmails, messages"/>
+                                    <apex:commandButton value="Find" status="listEmailsStatus" action="{!openEmailChooser}" reRender="exactTargetEmails, messages"/>
                                 </apex:facet>
                             </apex:actionStatus>
                             <img style="vertical-align:middle;" height="18px" src="{!URLFOR( $Resource.ExactTargetImages, 'reqEmail.png' )}" />
@@ -95,9 +95,9 @@
                                             <div class="container">
                                                 <apex:pageBlock >
                                                     <apex:pageBlockButtons location="both">
-                                                        <apex:commandButton action="{!selectEmailCancel}" value="Cancel" rerender="exactTargetEmails" status="clickEmailStatus" />
+                                                        <apex:commandButton action="{!closeEmailChooser}" value="Cancel" rerender="exactTargetEmails" status="clickEmailStatus" />
                                                     </apex:pageBlockButtons>
-                                                    <apex:repeat value="{!emails}" var="emailFolder1">
+                                                    <apex:repeat value="{!emailFolderTree}" var="emailFolder1">
                                                         +
                                                         <a href="#" onclick="javascript:getFolderInfo('{!emailFolder1.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder1.Id}' )">
                                                             <b>
@@ -198,18 +198,18 @@
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem helpText="{!$Label.et4ae5__msg0051}">
                     <apex:outputLabel value="Subject" />
-                    <apex:inputText value="{!Email.subject}" label="Subject" style="width:350px;"/>
+                    <apex:inputText value="{!selectedEmail.subject}" label="Subject" style="width:350px;"/>
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem helpText="{!$Label.et4ae5__msg0046}">
                     <apex:outputLabel value="Recipients" />
                     <apex:outputText label="Recipients" value="{0,number,#,###} Meeting Participants Selected">
-                        <apex:param value="{!ParticipantCount}"/>
+                        <apex:param value="{!selectedParticipantCount}"/>
                     </apex:outputText>
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionitem id="selectedFrom" helptext="{!$Label.et4ae5__sndClasHlp}">
                     <apex:outputLabel for="fromBlock" value="{!$Label.et4ae5__from}" />
                     <apex:outputPanel >
-                        <apex:selectList id="from" value="{!fromEmailSelected}" size="1">
+                        <apex:selectList id="from" value="{!fromEmailId}" size="1">
                             <apex:selectOptions value="{!fromEmailOptions}" />
                         </apex:selectList>
                         <img style="vertical-align:middle;" height="18px" src="{!URLFOR( $Resource.ExactTargetImages, 'reqEmail.png' )}" />
@@ -217,35 +217,35 @@
                 </apex:pageBlockSectionitem>
                 <apex:pageBlockSectionItem helpText="{!$Label.et4ae5__msg0006}">
                     <apex:outputLabel value="Dedupe Subscribers" />
-                    <apex:inputCheckbox label="Dedupe Subscribers" value="{!DeDup}" />
+                    <apex:inputCheckbox label="Dedupe Subscribers" value="{!dedupeSubscribers}" />
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem helpText="{!$Label.et4ae5__msg0007}" >
                     <apex:outputLabel value="Disabled Individual Level Tracking" />
-                    <apex:inputCheckbox label="Disabled Individual Level Tracking" value="{!DisableIndividualTracking}" />
+                    <apex:inputCheckbox label="Disabled Individual Level Tracking" value="{!disableIndividualLevelTracking}" />
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem helpText="Selecting the immediately option will queue the send for processing immediately. Selecting the Schedule Future Send will allow you to pick a date and time for when you want the email to be sent">
                     <apex:outputLabel value="Send Date and Time" />
                     <apex:outputPanel >
-                        <apex:selectList value="{!SendTime}" size="1" label="Send Date and Time">
+                        <apex:selectList value="{!sendInFuture}" size="1" label="Send Date and Time">
                             <apex:selectOption itemLabel="-- Choose One --" itemValue="none" />
                             <apex:selectOption itemLabel="Immediately" itemValue="now" />
                             <apex:selectOption itemLabel="Schedule for Future Send" itemValue="future" />
                             <apex:actionSupport event="onchange" reRender="emailInfo,topbuttons,bottombuttons" />
                         </apex:selectList>
-                        <apex:outputPanel layout="block" rendered="{!SendTime = 'future'}">
-                            <apex:inputField value="{!sendDateEvent.ActivityDateTime}" />
+                        <apex:outputPanel layout="block" rendered="{!sendInFuture = 'future'}">
+                            <apex:inputField value="{!sendInFutureDate.ActivityDateTime}" />
                         </apex:outputPanel>
                     </apex:outputPanel>
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem helpText="{!$Label.et4ae5__msg0058}">
                         <apex:outputLabel value="I certify all of these people have opted in" />
-                        <apex:inputCheckbox value="{!OptIn}" label="I certify all of these people have opted in">
+                        <apex:inputCheckbox value="{!participantsHaveOptedIn}" label="I certify all of these people have opted in">
                             <apex:actionSupport event="onclick" reRender="topbuttons,bottombuttons" />
                         </apex:inputCheckbox>
                 </apex:pageBlockSectionItem>
-                <apex:pageBlockSectionItem rendered="{!not(isblank(base64Thumbnail))}">
+                <apex:pageBlockSectionItem rendered="{!not(isblank(selectedEmailThumbnail))}">
           <apex:outputLabel value="Template Preview" />
-          <img src="data:image/png;base64,{!base64Thumbnail}" style="max-width:400px;" />
+          <img src="data:image/png;base64,{!selectedEmailThumbnail}" style="max-width:400px;" />
         </apex:pageBlockSectionItem>
             </apex:pageBlockSection>
 

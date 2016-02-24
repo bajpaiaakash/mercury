@@ -6,25 +6,35 @@
 public with sharing class MERC_MeetingEmailSendExtension {
     private final Meeting_MERC__c meeting;
 
+    public String selectedEmailId { get; set; }
+    public String selectedEmailSubject { get; set; }
+    public String selectedEmailName { get; set; }
+    public MERC_MarketingCloudClient.FolderedEmail selectedEmail { get; private set; }
+
+    public String fromEmailId { get; set; }
+
     public Boolean dedupeSubscribers { get; set; }
     public Boolean disableIndividualLevelTracking { get; set; }
     public String additionalInformationHTML { get; set; }
     public String additionalInformationText { get; set; }
     public Boolean participantsHaveOptedIn { get; set; }
 
+    public String sendInFuture {
+        get { return getSendInFuture(); }
+        set { setSendInFuture(value); }
+    }
+
     private List<MERC_MarketingCloudClient.EmailFolder> emailFolderTree;
     private Boolean showEmailChooser;
     private String emailFolderIdToExpand;
 
-    private MERC_MarketingCloudClient.FolderedEmail selectedEmail;
     private String selectedEmailThumbnail;
 
     private List<SelectOption> fromEmailOptions;
-    private String fromEmailId;
 
     private Set<Id> selectedParticipantIds;
 
-    private Boolean sendInFuture;
+    private Boolean isSendInFuture;
     private Event sendInFutureDate;
 
 	public MERC_MeetingEmailSendExtension(ApexPages.StandardController standardController) {
@@ -36,13 +46,17 @@ public with sharing class MERC_MeetingEmailSendExtension {
             addFatalMessage('No meeting was found.');
         }
 
+        if(selectedParticipantIds == null){
+            selectedParticipantIds = new Set<Id>();
+        }
+
         attemptGetEmailFolders();
         showEmailChooser = false;
         selectedEmail = new MERC_MarketingCloudClient.FolderedEmail();
 
         attemptGetFromEmailOptions();
 
-        sendInFuture = null;
+        isSendInFuture = null;
 	}
 
     private Id getMeetingId(ApexPages.StandardController standardController){
@@ -125,17 +139,13 @@ public with sharing class MERC_MeetingEmailSendExtension {
         }
     }
 
-    public void setSelectedEmailSubject(String emailSubject) {
-        selectedEmail.subject = emailSubject;
-    }
-
-    public void selectEmail(String emailId, String emailName, String emailSubject){
+    public void selectEmail(){
         selectedEmail = new MERC_MarketingCloudClient.FolderedEmail();
-        selectedEmail.id = emailId;
-        selectedEmail.name = emailName;
-        selectedEmail.subject = emailSubject;
+        selectedEmail.id = selectedEmailId;
+        selectedEmail.name = selectedEmailName;
+        selectedEmail.subject = selectedEmailSubject;
 
-        selectedEmailThumbnail = attemptRequestThumbnail(emailId);
+        selectedEmailThumbnail = attemptRequestThumbnail(selectedEmail.id);
     }
 
     private String attemptRequestThumbnail(String emailId){
@@ -147,20 +157,12 @@ public with sharing class MERC_MeetingEmailSendExtension {
         return null;
     }
 
-    public MERC_MarketingCloudClient.FolderedEmail getSelectedEmail(){
-        return selectedEmail;
-    }
-
     public String getSelectedEmailThumbnail(){
         return selectedEmailThumbnail;
     }
 
     public List<SelectOption> getFromEmailOptions(){
         return fromEmailOptions;
-    }
-
-    public void setFromEmailId(String id){
-        fromEmailId = id;
     }
 
     public void setSelectedParticipantIds(Set<Id> participantIds){
@@ -171,21 +173,25 @@ public with sharing class MERC_MeetingEmailSendExtension {
         return selectedParticipantIds;
     }
 
+    public Integer getSelectedParticipantCount(){
+        return selectedParticipantIds.size();
+    }
+
     public void setSendInFuture(String sendInFutureToParse){
         if(sendInFutureToParse.equalsIgnoreCase('now')){
-            sendInFuture = false;
+            isSendInFuture = false;
         } else if(sendInFutureToParse.equalsIgnoreCase('future')) {
-            sendInFuture = true;
+            isSendInFuture = true;
         } else {
-            sendInFuture = null;
+            isSendInFuture = null;
             addWarningMessage(sendInFutureToParse + ' is not a valid value for sending in future');
         }
     }
 
     public String getSendInFuture(){
-        if(sendInFuture == null){
+        if(isSendInFuture == null){
             return 'none';
-        } else if(sendInFuture) {
+        } else if(isSendInFuture) {
             return 'future';
         } else {
             return 'now';
@@ -216,7 +222,7 @@ public with sharing class MERC_MeetingEmailSendExtension {
                                                                           selectedParticipants,
                                                                           dedupeSubscribers,
                                                                           disableIndividualLevelTracking,
-                                                                          sendInFuture ? 'future' : 'now',
+                                                                          isSendInFuture ? 'future' : 'now',
                                                                           getSendInFutureDate().ActivityDateTime,
                                                                           additionalInformationHTML,
                                                                           additionalInformationText,
@@ -254,9 +260,9 @@ public with sharing class MERC_MeetingEmailSendExtension {
             AddErrorMessage('You must select at least 1 Recipient.');
         }
 
-        if (sendInFuture == null) {
+        if (isSendInFuture == null) {
             AddErrorMessage('You must select a send date and time.');
-        } else if (sendInFuture && isNullOrInPast(sendInFutureDate)) {
+        } else if (isSendInFuture && isNullOrInPast(sendInFutureDate)) {
             AddErrorMessage('The send date must be in the future.');
         }
 
@@ -275,6 +281,16 @@ public with sharing class MERC_MeetingEmailSendExtension {
 
     private Boolean isNullOrInPast(Datetime datetimeToCheck){
         return datetimeToCheck == null || datetimeToCheck <= Datetime.now();
+    }
+
+    public PageReference goToSelectParticipants() {
+        PageReference selectParticipantsPage = Page.MeetingEmailSendSelectRecipients;
+        selectParticipantsPage.getParameters().put('id', meeting.Id);
+        return selectParticipantsPage;
+    }
+
+    public String getUrlRoot(){
+        return MERC_MarketingCloudService.getUrlRoot();
     }
 
     public Boolean getHasFatalMessages(){

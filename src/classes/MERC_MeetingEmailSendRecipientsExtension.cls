@@ -932,11 +932,15 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         return 1 + ((meetingParticipantsController.getResultSize()-1) / meetingParticipantsController.getPageSize());
     }
 
-    public Boolean hasNext(){
+    public Boolean getHasResults(){
+        return meetingParticipantsController.getResultSize() > 0;
+    }
+
+    public Boolean getHasNext(){
         return meetingParticipantsController.getHasNext();
     }
 
-    public Boolean hasPrevious(){
+    public Boolean getHasPrevious(){
         return meetingParticipantsController.getHasPrevious();
     }
 
@@ -962,14 +966,6 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         updatePendingSelectedParticipantIds();
         meetingParticipantsController.next();
         updateCurrentPageOfSelectableParticipants();
-    }
-
-    private void addMessage(ApexPages.Severity severity, String message){
-        ApexPages.addMessage(new ApexPages.Message(severity, message));
-    }
-
-    private void addFatalMessage(String message){
-        addMessage(ApexPages.Severity.FATAL, message);
     }
 
     public PageReference updateSelectedParticipantIdsAndReturn(){
@@ -1017,6 +1013,22 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
         generateDocs.getParameters().put('recordIds', String.join(selectedIds, ','));
         generateDocs.setRedirect(true);
         return generateDocs;
+    }
+
+    public String getUrlRoot(){
+        return MERC_MarketingCloudService.getUrlRoot();
+    }
+
+    private void addMessage(ApexPages.Severity severity, String message){
+        ApexPages.addMessage(new ApexPages.Message(severity, message));
+    }
+
+    private void addFatalMessage(String message){
+        addMessage(ApexPages.Severity.FATAL, message);
+    }
+
+    public Boolean getHasFatalMessages(){
+        return ApexPages.hasMessages(ApexPages.Severity.FATAL);
     }
 
     @TestVisible

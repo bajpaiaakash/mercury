@@ -43,6 +43,10 @@ public with sharing class MERC_MarketingCloudService {
         }
     }
 
+    public static String getUrlRoot(){
+        return Configuration.et4ae5__url_root__c;
+    }
+
     /* 
      *  thumbnails
      */

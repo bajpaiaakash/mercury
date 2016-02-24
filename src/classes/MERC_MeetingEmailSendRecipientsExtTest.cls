@@ -1048,8 +1048,8 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         System.assertEquals(50, selectableParticipants.size());
         System.assertEquals(2, sendRecipientsExtension.getPageNumber());
         System.assertEquals(3, sendRecipientsExtension.getMaxPageNumber());
-        System.assertEquals(true, sendRecipientsExtension.hasNext());
-        System.assertEquals(true, sendRecipientsExtension.hasPrevious());
+        System.assertEquals(true, sendRecipientsExtension.getHasNext());
+        System.assertEquals(true, sendRecipientsExtension.getHasPrevious());
     }
 
     @isTest static void test_NextPageThenFirstPage_GetsFirstPage(){
@@ -1072,8 +1072,8 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         System.assertEquals(1, sendRecipientsExtension.getPageNumber());
         System.assertEquals(3, sendRecipientsExtension.getMaxPageNumber());
         System.assertEquals(personAccounts.get(0).LastName, selectableParticipants.get(0).Participant.Account_MERC__r.LastName);
-        System.assertEquals(true, sendRecipientsExtension.hasNext());
-        System.assertEquals(false, sendRecipientsExtension.hasPrevious());
+        System.assertEquals(true, sendRecipientsExtension.getHasNext());
+        System.assertEquals(false, sendRecipientsExtension.getHasPrevious());
     }
 
     @isTest static void test_NextPageThenPreviousPage_GetsFirstPage(){
@@ -1096,8 +1096,8 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         System.assertEquals(1, sendRecipientsExtension.getPageNumber());
         System.assertEquals(3, sendRecipientsExtension.getMaxPageNumber());
         System.assertEquals(personAccounts.get(0).LastName, selectableParticipants.get(0).Participant.Account_MERC__r.LastName);
-        System.assertEquals(true, sendRecipientsExtension.hasNext());
-        System.assertEquals(false, sendRecipientsExtension.hasPrevious());
+        System.assertEquals(true, sendRecipientsExtension.getHasNext());
+        System.assertEquals(false, sendRecipientsExtension.getHasPrevious());
     }
 
     @isTest static void test_LastPage_GetsLastPage(){
@@ -1118,8 +1118,8 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         System.assertEquals(49, selectableParticipants.size());   
         System.assertEquals(3, sendRecipientsExtension.getPageNumber());
         System.assertEquals(3, sendRecipientsExtension.getMaxPageNumber());     
-        System.assertEquals(false, sendRecipientsExtension.hasNext());
-        System.assertEquals(true, sendRecipientsExtension.hasPrevious());
+        System.assertEquals(false, sendRecipientsExtension.getHasNext());
+        System.assertEquals(true, sendRecipientsExtension.getHasPrevious());
     }
 
     @isTest static void test_PagingFor150(){
@@ -1140,8 +1140,8 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
         System.assertEquals(50, selectableParticipants.size());   
         System.assertEquals(3, sendRecipientsExtension.getPageNumber());
         System.assertEquals(3, sendRecipientsExtension.getMaxPageNumber());     
-        System.assertEquals(false, sendRecipientsExtension.hasNext());
-        System.assertEquals(true, sendRecipientsExtension.hasPrevious());
+        System.assertEquals(false, sendRecipientsExtension.getHasNext());
+        System.assertEquals(true, sendRecipientsExtension.getHasPrevious());
     }
 
     @isTest static void test_SelectingParticipant_PersistsAcrossPages(){
