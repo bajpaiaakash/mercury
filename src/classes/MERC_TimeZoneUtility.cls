@@ -14,6 +14,10 @@ public with sharing class MERC_TimeZoneUtility {
 
 	public Boolean debug = false;
 
+	/**
+	* Constructor
+	* @param Schema.SObjectType objectType
+	*/
 	public MERC_TimeZoneUtility(Schema.SObjectType objectType) {
 		Schema.DescribeSObjectResult objectDescribe = objectType.getDescribe();
 		this.sobjectAPIName = objectDescribe.getName();
@@ -26,12 +30,19 @@ public with sharing class MERC_TimeZoneUtility {
 
 		this.timeZoneFieldsForObject = this.timeZoneFieldMappings.values();
 
-		if (debug) system.debug('>>>>>>>>>>> fieldListMap: '+this.fieldListMap);
-		if (debug) system.debug('>>>>>>>>>>> timeZoneFieldMappings: '+timeZoneFieldMappings);
-		if (debug) system.debug('>>>>>>>>>>> stampFieldMapping: '+stampFieldMapping);
+		if (debug) {
+			system.debug('>>>>>>>>>>> fieldListMap: '+this.fieldListMap);
+			system.debug('>>>>>>>>>>> timeZoneFieldMappings: '+timeZoneFieldMappings);
+			system.debug('>>>>>>>>>>> stampFieldMapping: '+stampFieldMapping);
+		}
 	}
 
-	//map of time zone field api name to sid: 'Meeting_Time_Zone_MERC__c' => 'America/New_York'
+	/**
+	* Map of time zone field api name to sid: 'Meeting_Time_Zone_MERC__c' => 'America/New_York'
+	* @param Sobject record
+	* @param String timeZoneSidValueOverride
+	* @return Map<String,String> Time zone field API name to Time Zone Sid
+	*/
 	Map<String,String> getTimeZoneFieldAPINameToTimeZoneSid(Sobject record, String timeZoneSidValueOverride) {
 		Map<String,String> timeZoneFieldAPINameToTimeZoneSid = new Map<String,String>();
 		for (String timeZoneFieldAPIName : this.timeZoneFieldsForObject) {
@@ -46,7 +57,10 @@ public with sharing class MERC_TimeZoneUtility {
 			timeZoneFieldAPINameToTimeZoneSid.put(timeZoneFieldAPIName, timeZoneSid);
 		}
 
-		if (debug) system.debug('>>> '+timeZoneFieldAPINameToTimeZoneSid);
+		if (debug) {
+			system.debug('>>> '+timeZoneFieldAPINameToTimeZoneSid);
+		}
+
 		return timeZoneFieldAPINameToTimeZoneSid;
 	}
 
@@ -66,32 +80,54 @@ public with sharing class MERC_TimeZoneUtility {
 		return dtValue;
 	}
 
+	/**
+	* this is a method description
+	* @param coolInteger - some cool integer
+	* @return String - the string it returns
+	*/
 	public void applyTimeZoneSpecificTimestamps(List<Sobject> sobjects, String timeZoneSidValueOverride) {
 		for (Sobject record : sobjects) {
-			if (debug) system.debug('...processing object: '+record);
+			if (debug) {
+				system.debug('...processing object: '+record);
+			}
 
 			Map<String,String> timeZoneFieldAPINameToTimeZoneSid = getTimeZoneFieldAPINameToTimeZoneSid(record, timeZoneSidValueOverride);
 
 			//now, for each date or date/time field, we need to calculate the UTC date and (optionally) stamp the time-zone specific value
 			for (String dateOrTimeFieldApiName : this.timeZoneFieldMappings.keySet()) {
 
-				if (debug) system.debug('...processing: '+dateOrTimeFieldApiName);  //=> Start_Time_of_Meeting_MERC__c
+				if (debug) {
+					system.debug('...processing: '+dateOrTimeFieldApiName);  //=> Start_Time_of_Meeting_MERC__c
+				}
 
-				if (record.get(dateOrTimeFieldApiName) == null) continue; //if the field is null, skip it
-				if (this.stampFieldMapping.get(dateOrTimeFieldApiName) == null) continue; //if the field doesn't stamp anywhere, skip it
+				//if the field is null, skip it
+				if (record.get(dateOrTimeFieldApiName) == null) {
+					continue; 
+				}
+
+				//if the field doesn't stamp anywhere, skip it
+				if (this.stampFieldMapping.get(dateOrTimeFieldApiName) == null) {
+					continue; 
+				}
 
 				String fieldType = getFieldType(dateOrTimeFieldApiName);
 				DateTime dtValue = getDateTimeValue(record, dateOrTimeFieldApiName, fieldType);
 
 				//if record's value of dateOrTimeFieldApiName is null, don't bother processing
-				if (dtValue == null) continue;
+				if (dtValue == null) {
+					continue;
+				}
 
 				//get the time zone field api name associated with this date/time
 				String associatedTimeZoneAPIName = timeZoneFieldMappings.get(dateOrTimeFieldApiName); //=> 'Meeting_Time_Zone_MERC__c'
-				if (associatedTimeZoneAPIName == null) continue;
+				if (associatedTimeZoneAPIName == null) {
+					continue;
+				}
 
 				String tzSidValueForAssociatedTimeZone = timeZoneFieldAPINameToTimeZoneSid.get(associatedTimeZoneAPIName);
-				if (tzSidValueForAssociatedTimeZone == null) continue;
+				if (tzSidValueForAssociatedTimeZone == null) {
+					continue;
+				}
 
 				system.debug('>>>> ready to stamp, before calculatation dtValue is: ' + dtValue.date());
 
@@ -100,35 +136,59 @@ public with sharing class MERC_TimeZoneUtility {
 					String fieldAPINameToStamp = this.stampFieldMapping.get(dateOrTimeFieldApiName);
 					record.put(fieldAPINameToStamp, dtValue.date().format());
 				} else if (fieldType == 'DATETIME') {
-					if (debug) system.debug('>>>> field type is DATETIME');
-					if (debug) system.debug('>>>> ready for stamping!');
+					if (debug) {
+						system.debug('>>>> field type is DATETIME');
+						system.debug('>>>> ready for stamping!');
+					}
+
 					String fieldAPINameToStamp = this.stampFieldMapping.get(dateOrTimeFieldApiName);
 					String javaDateFormat = 'EEEE, dd MMM yyyy HH:mm z';
 					//String javaDateFormat = 'EEE, d MMM yyyy HH:mm, zzzz';
-					if (debug) system.debug('>>>> stamping field: '+fieldAPINameToStamp);
-					system.debug('>>>> stamping value: '+dtValue.format(javaDateFormat, tzSidValueForAssociatedTimeZone));
+					
+					if (debug) {
+						system.debug('>>>> stamping field: '+fieldAPINameToStamp);
+						system.debug('>>>> stamping value: '+dtValue.format(javaDateFormat, tzSidValueForAssociatedTimeZone));
+					}
 
 					record.put(fieldAPINameToStamp, dtValue.format(javaDateFormat, tzSidValueForAssociatedTimeZone));
 				}
-				if (debug) system.debug('\n\n\nThe Record now is: ' + record);
+				if (debug) {
+					system.debug('\n\n\nThe Record now is: ' + record);
+				}
 			}
 		}
 	}
 
+
+	/**
+	* Overloaded method accessing the convertDateTimes with three params.
+	* @param sobjects - List of sobjects.
+	* @param setDateTimesAccordingToUserLocal - boolean
+	*/
 	public void convertDateTimes(list<Sobject> sobjects, Boolean setDateTimesAccordingToUserLocal) {
 		convertDateTimes(sobjects, setDateTimesAccordingToUserLocal, null);
 	}
 
+	/**
+	* Convert datetimes to user's local timezone.
+	* @param sobjects - List of sobjects.
+	* @param setDateTimesAccordingToUserLocal - boolean
+	* @param timeZoneSidValueOverride - String 
+	*/
 	public void convertDateTimes(List<Sobject> sobjects, Boolean setDateTimesAccordingToUserLocal, String timeZoneSidValueOverride) {
 
 		for (Sobject record : sobjects) {
-			if (debug) system.debug('...processing object: '+record);
+			if (debug) {
+				system.debug('...processing object: '+record);
+			}
 
 			Map<String,String> timeZoneFieldAPINameToTimeZoneSid = getTimeZoneFieldAPINameToTimeZoneSid(record, timeZoneSidValueOverride);
 
 			//now, for each date or date/time field, we need to calculate the UTC date and (optionally) stamp the time-zone specific value
 			for (String dateOrTimeFieldApiName : timeZoneFieldMappings.keySet()) {
-				if (debug) system.debug('...processing: '+dateOrTimeFieldApiName);
+				if (debug) {
+					system.debug('...processing: '+dateOrTimeFieldApiName);
+				}
 				//dateOrTimeFieldApiName = 'Start_Time_of_Meeting_MERC__c'
 
 				try {
@@ -141,11 +201,15 @@ public with sharing class MERC_TimeZoneUtility {
 				DateTime dtValue = getDateTimeValue(record, dateOrTimeFieldApiName, fieldType);
 
 				//if record's value of dateOrTimeFieldApiName is null, don't bother processing
-				if (dtValue == null) continue;
+				if (dtValue == null) {
+					continue;
+				}
 
 				//get the time zone field api name associated with this date/time
 				String associatedTimeZoneAPIName = timeZoneFieldMappings.get(dateOrTimeFieldApiName); //=> 'Meeting_Time_Zone_MERC__c'
-				if (associatedTimeZoneAPIName == null) continue;
+				if (associatedTimeZoneAPIName == null) {
+					continue;
+				}
 
 				String tzSidValueForAssociatedTimeZone = timeZoneFieldAPINameToTimeZoneSid.get(associatedTimeZoneAPIName);
 				if (tzSidValueForAssociatedTimeZone == null) continue;

@@ -42,7 +42,7 @@ public with sharing class MERC_TestFactory {
     }
 
     public static void loadFMVSettings() {
-        List<sObject> fmvSettings = Test.loadData(FMV_Settings_MERC__c.sObjectType, 'FMV_MERC');
+        List<sObject> fmvSettings = Test.loadData(FMV_Settings_MERC__c.sObjectType, 'MERC_FMV');
     }
 
     public static List<Account> insertBusinessAccounts(Integer numberOfAccounts, Id recordTypeId) {
@@ -219,7 +219,6 @@ public with sharing class MERC_TestFactory {
         return insertMeetings(numberOfMeetings, countryName, null);
     }
 
-    // TODO - this method arbitrarily sets the start/end dates 2 days in future and length to one day. Also, not in synch with insertMeetingDays()
     public static List<Meeting_MERC__c> insertMeetings(Integer numberOfMeetings, String countryName, String status) {
         if (countryName == null)
             countryName = 'GB';
@@ -232,7 +231,9 @@ public with sharing class MERC_TestFactory {
             m.End_Time_of_Meeting_MERC__c = DateTime.newInstance(Date.today().addDays(2), Time.newInstance(14, 0, 0, 0));
             m.Name = 'Event Name'+i;
             m.Meeting_Time_Zone_MERC__c = 'Greenwich Mean Time (Europe/London)';
-            m.Event_Country_MERC__c = countryName;
+            if(countryName != null){
+                m.Event_Country_MERC__c = countryName;
+            }
             if(status != null){
                 m.Meeting_Status_MERC__c = status;
             }

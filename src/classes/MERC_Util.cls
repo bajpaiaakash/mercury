@@ -6,18 +6,29 @@
 
 public with sharing class MERC_Util {
 
+	/**
+	* Sets Budget_Edit_Validation_MERC__c to false.
+	*/
 	public static void disableBudgetEditValidation() {
 		Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
 		settings.Budget_Edit_Validation_MERC__c = false;
 		update settings;
 	}
 
+	/**
+	* Sets Budget_Edit_Validation_MERC__c to true.
+	*/
 	public static void enableBudgetEditValidation() {
 		Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
 		settings.Budget_Edit_Validation_MERC__c = true;
 		update settings;
 	}
 
+	/**
+	* Retrieves timezone picklist values for the current users.
+	* @param timezoneFieldDescribe - Schema.DescribeFieldResult
+	* @return String
+	*/
 	public static String getTimeZonePicklistValueForCurrentUser(Schema.DescribeFieldResult timezoneFieldDescribe) {
 		String userTimeZone = String.valueOf(UserInfo.getTimeZone());
 		List<Schema.PicklistEntry> picklistValues = timezoneFieldDescribe.getPicklistValues();
@@ -29,6 +40,11 @@ public with sharing class MERC_Util {
 		return null;
 	}
 
+	/**
+	* Cycle through field result's picklist values and add it to a Select Option for use as a picklist.
+	* @param Schema.DescribeFieldResult fieldResult
+	* @return List<SelectOption> - Returns a list of SelectOptions for use as picklist.
+	*/
 	public static List<SelectOption> getPicklistValues(Schema.DescribeFieldResult fieldResult) {
 		List<SelectOption> options = new List<SelectOption>();
 		List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
@@ -38,6 +54,12 @@ public with sharing class MERC_Util {
 		return options;
 	}
 
+	/**
+	* Overloaded getPicklistValues method. Cycle through field result's picklist values and add it to a Select Option for use as a picklist. If the Boolean includeNullSelectOption is true add a null option.
+	* @param Schema.DescribeFieldResult fieldResult
+	* @param includeNullSelectOption - Boolean of whether or not to add null values in the SelectOptions.
+	* @return List<SelectOption> - Returns a list of SelectOptions for use as picklist.
+	*/
 	public static List<SelectOption> getPicklistValues(Schema.DescribeFieldResult fieldResult, Boolean includeNullSelectOption) {
 		List<SelectOption> options = new List<SelectOption>();
 		if (includeNullSelectOption)
@@ -46,11 +68,23 @@ public with sharing class MERC_Util {
 		return options;
 	}
 
-
+	/**
+	* Overloaded getCSTPicklistValuesForFieldName method that passes to another getCSTPicklistValuesForFieldName method.
+	* @param fieldName - String of the field that will be queried.
+	* @param includeNullSelectOption - Boolean of whether or not to add null values in the SelectOptions.
+	* @return List<SelectOption> - Returns a list of SelectOptions for use as picklist.
+	*/
 	public static List<SelectOption> getCSTPicklistValuesForFieldName(String fieldName, Boolean includeNullSelectOption) {
 		return getCSTPicklistValuesForFieldName(fieldName, includeNullSelectOption, 1000);
 	}
 
+	/**
+	* Queries CST_App_Settings_CUST__c and builds list of SelectOptions from the results.
+	* @param fieldName - String of the field that will be queried.
+	* @param includeNullSelectOption - Boolean of whether or not to add null values in the SelectOptions.
+	* @param restrictCollectionSize - Restricts the size of the SelectOption list.
+	* @return List<SelectOption> - Returns a list of SelectOptions for use as picklist.
+	*/
 	public static List<SelectOption> getCSTPicklistValuesForFieldName(String fieldName, Boolean includeNullSelectOption, Integer restrictCollectionSize) {
 		List<SelectOption> options = new List<SelectOption>();
 		if (includeNullSelectOption)
