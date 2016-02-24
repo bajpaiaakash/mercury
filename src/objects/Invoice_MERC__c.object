@@ -396,6 +396,12 @@
         <type>Summary</type>
     </fields>
 	<label>Invoice</label>
+	<nameField>
+        <displayFormat>INV-{000000}</displayFormat>
+        <label>Invoice Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
     <pluralLabel>Invoices</pluralLabel>
 	<sharingModel>Private</sharingModel>
    </CustomObject>
