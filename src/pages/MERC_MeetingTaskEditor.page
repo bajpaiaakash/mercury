@@ -4,11 +4,7 @@
 	Description : This VF page allows users to filter meeting tasks for a meeting by Process and Process State -and- allows users to set status of meetings en masse.
 -->
 <apex:page showHeader="true" sidebar="true" tabStyle="Meeting_Participant_MERC__c" controller="MERC_MeetingTaskEditorController">
-	<style>
-		input.navigation, span.navigation {
-			margin: 0px 5px;
-		}
-	</style>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/meetingTaskEditor.css')}"/>
 	<apex:form >
 
 		<apex:pageMessages id="messages"/>

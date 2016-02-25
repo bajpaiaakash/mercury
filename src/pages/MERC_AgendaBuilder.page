@@ -6,6 +6,7 @@
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/agendaBuilder.css')}"/>
 	<apex:includeScript value="{!URLFOR($Resource.mercury, '/js/jquery-ui.min.js')}"/>
 	<script>
 		function setFocusOnLoad() {} 
@@ -47,16 +48,6 @@
 			setTimeZones();
 		}
 	</script>
-	<style>
-		table.list.agendaItems td {
-			vertical-align: top !important;
-		}
-
-		table.list.agendaItems td textarea {
-			min-width: 200px;
-			height:44px;
-		}
-	</style>
 	<apex:sectionHeader subtitle="{!$Label.Agenda_Builder_Event_Agenda_Title}" title="{!parent['Name']}"/>
 	<apex:form id="mainForm">
 		<apex:outputPanel id="controllerResponseWrapper">

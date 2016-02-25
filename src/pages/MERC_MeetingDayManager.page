@@ -4,6 +4,7 @@
 -->
 <apex:page showHeader="true" sidebar="true" standardController="Meeting_Day_MERC__c" recordsetvar="e" extensions="MERC_MeetingDayManagerController" action="{!ensureHotelAllocationsForMeetingDays}">
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/meetingDayManager.css')}"/>
 	<apex:styleSheet value="{!URLFOR($Resource.mercury, '/css/bootstrap.typeahead.css')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
@@ -81,48 +82,6 @@
 			}
 		}
 	</script>
-	<style>
-		table.list.days td {
-			vertical-align: top !important;
-		}
-
-		table.list.days td textarea {
-			min-width: 200px;
-			height:44px;
-		}
-
-		table.list.hotels label {
-			font-weight: bold;
-		}
-
-		input.existing-vendors {
-			width:200px;
-		}
-
-		table.list.hotels > tbody > tr > td {
-			border-bottom:5px solid #ccc !important;
-			padding-top:10px;
-		}
-
-		table.list.hotels > tbody > tr.last > td {
-			border-bottom:0px solid #ccc !important;
-		}
-
-		.vfHelpText a {position:relative;}
-		.vfHelpText a span {display: none;}
-		.vfHelpText a:hover span {
-			display: block;
-			position:absolute;
-			top:1.25em;
-			padding:2px 5px;
-			left:-15em; width:15em;
-			z-index:100;
-			border:1px solid orange;
-			background-color:#FEFDB9;
-			color:black;
-		}
-	</style>
-
 	<apex:outputLink target="_blank" style="display:none" styleClass="newAccountVendor" value="{!URLFOR($Action.Account.New)}">
 	    Create New Account
 	</apex:outputLink>

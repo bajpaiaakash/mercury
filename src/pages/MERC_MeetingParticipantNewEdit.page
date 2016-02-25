@@ -6,11 +6,7 @@
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
 	<apex:stylesheet value="{ !urlfor($Resource.mercury, 'css/style.css')}"/>
-	<style>
-		td.data2Col textarea {
-			width:55%;
-		}
-	</style>
+	<apex:stylesheet value="{ !urlfor($Resource.mercury, 'css/meetingParticipantNewEdit.css')}"/>
 	<script>
 		jQuery.fn.center = function () {
 		    this.css("position","fixed");

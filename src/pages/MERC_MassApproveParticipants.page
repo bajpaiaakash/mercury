@@ -7,50 +7,9 @@
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.dataTables.min.js')}"/>
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/massApproveParticipants.css')}"/>
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/jquery.dataTables.css')}"/>
 	<apex:sectionHeader title="{!meeting.Name}" subtitle="{!$ObjectType.Meeting_Participant_MERC__c.labelPlural}" />
-	<style>
-		.activeTab {
-			background-color: #f1f1f1;
-			padding: 6px 17px;
-			font-size: 16px;
-			background-image: none;
-			cursor: pointer;
-		}
-
-		.inactiveTab {
-			background-color: #fff;
-			padding: 5px 17px;
-			font-size: 16px;
-			background-image: none;
-			opacity: 0.6;
-			cursor: pointer;
-		}
-
-		table.attendanceTable tr {
-			cursor:pointer;
-		}
-
-		select.selectMeetingDay {
-			font-size:16px !important;
-		}
-
-		div.selectActions {
-			padding:5px;
-			background-color: #ffc;
-			border:1px solid #390;
-			margin-bottom: 5px;
-			display: none;
-		}
-
-		div.selectActions.show {
-			display: inline-block;
-		}
-
-		div.selectActions.hide {
-			display: none;
-		}
-	</style>
 	<script>
 		var j = jQuery.noConflict();
 

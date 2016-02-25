@@ -6,27 +6,8 @@
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/mergedAccounts.css')}"/>
 	<apex:sectionHeader title="Accounts" subtitle="Merge Related Data" />
-	<style>
-		.selected-row { background-color: #B0C4DE; }
-
-		.table-div {
-			width:48%;
-			display:inline-block;
-			overflow-x:scroll;
-			margin-top: 20px;
-		}
-
-		.collapse-section {
-			cursor: pointer;
-			position: relative;
-			top: 2px;
-		}
-
-		.show { display: inline;}
-		.hide { display: none; }
-	</style>
-
 	<apex:form >
 		<div style="position:relative;">
 			<!-- TOP SECTION SHOWING ACCOUNTS -->

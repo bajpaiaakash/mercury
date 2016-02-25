@@ -6,32 +6,8 @@
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/dailyAttendance.css')}"/>
 	<apex:sectionHeader title="{!meeting.Name}" subtitle="{!$ObjectType.Daily_Attendance_TOV_MERC__c.label}" />
-	<style>
-		table.attendanceTable tr {
-			cursor:pointer;
-		}
-
-		select.selectMeetingDay {
-			font-size:16px !important;
-		}
-
-		div.selectActions {
-			padding:5px;
-			background-color: #ffc;
-			border:1px solid #390;
-			margin-bottom: 5px;
-			display: none;
-		}
-
-		div.selectActions.show {
-			display: inline-block;
-		}
-
-		div.selectActions.hide {
-			display: none;
-		}
-	</style>
 	<script>
 		$(function() {
 			bindDomHandlers()

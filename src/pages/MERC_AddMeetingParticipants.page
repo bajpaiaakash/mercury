@@ -9,7 +9,9 @@
     <apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
     <apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
     <apex:stylesheet value="{!urlfor($Resource.mercury, 'css/chosen.css')}"/>
+    <apex:stylesheet value="{!urlfor($Resource.mercury, 'css/addMeetingParticipants.css')}"/>
     <apex:stylesheet value="{!urlfor($Resource.mercury, 'css/bootstrap.tabs.css')}"/>
+    <apex:stylesheet value="{!urlfor($Resource.mercury, 'css/bootstrap.custom.css')}"/>
     <apex:sectionHeader title="{!meeting.Name}" subtitle="{!$ObjectType.Meeting_Participant_MERC__c.LabelPlural}" />
     <script>
         var actionedElement;
@@ -117,80 +119,7 @@
             }
         }
     </script>
-    <style>
-        /* don't show top blue border because we're showing a bottom blue border on the tab nav*/
-        div.aeu .bPageBlock.brandSecondaryBrd.bEditBlock.secondaryPalette,
-        div.aeu .bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette {
-            border-top-color: transparent;
-            border-top-left-radius: 0px;
-            border-top-right-radius: 0px;
-        }
-
-        .bootstraplabel {
-            display: inline;
-            padding: .2em .6em .3em;
-            font-size: 75%;
-            font-weight: bold;
-            line-height: 1;
-            color: #fff;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: baseline;
-            border-radius: .25em;
-        }
-
-        span.bootstraplabel.count {
-            background-color: #5cb85c;
-        }
-
-        span.bootstraplabel.success {
-            background-color: #5cb85c;
-        }
-
-        span.bootstraplabel.warning {
-            background-color: #f0ad4e;
-        }
-
-        span.bootstraplabel.info {
-            background-color: #5bc0de;
-        }
-
-        span.bootstraplabel a {
-            text-decoration: none !important;
-        }
-
-        #statusMessage {
-            display: none;
-            position: absolute;
-            top: 13px;
-            left: 50%;
-            font-size:14px;
-        }
-
-        div.addToMeetingPopover {
-            display: none;
-            z-index: 1;
-            position: absolute;
-            border:2px solid #ccc;
-            background-color: #fff;
-        }
-
-        div.addToMeetingPopover .addToMeetingPopoverBody {
-            padding:10px;
-        }
-
-        div.addToMeetingPopover .addToMeetingPopoverBody label {
-            font-weight: bold;
-            display: inline;
-        }
-
-        a.btn, a.btn:hover {
-            text-decoration: none;
-        }
-    </style>
-    <span id="statusMessage" class="bootstraplabel info">
-
-    </span>
+    <span id="statusMessage" class="bootstraplabel info" />
     <apex:form id="mainForm">
         <apex:outputPanel id="responseWrapper">
             <apex:outputText style="display:none;" value="{!hasError}" id="controllerHasError"/>

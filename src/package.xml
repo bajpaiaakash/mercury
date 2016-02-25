@@ -63,7 +63,6 @@
         <members>MERC_AgendaBuilder</members>
         <members>MERC_AgendaItemDateTimes</members>
         <members>MERC_AgendaItemNewEdit</members>
-        <members>MERC_BudgetHistory</members>
         <members>MERC_BudgetLineItemNewEdit</members>
         <members>MERC_DailyAttendance</members>
         <members>MERC_DocusignTagAndSend</members>

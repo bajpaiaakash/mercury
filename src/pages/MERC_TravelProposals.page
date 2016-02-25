@@ -4,35 +4,8 @@
 	Description : This page allows users to Create Travel Proposals and their underlying segments (both types are Travel Itinerary records) and allows for addition of new proposals and new segments within those proposals.
 -->	
 <apex:page showHeader="true" sidebar="true" controller="MERC_TravelProposalsController">
-	<style>
-		div.proposal-fields { margin: 20px 0;}
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/travelProposals.css')}"/>
 
-		.pageBlock h1 {
-			font-size:20px;
-			display:block;
-			margin-top:20px;
-			padding-top:10px;
-			border-top:1px solid #bbb;
-		}
-
-		.pageBlock h1:nth-of-type(1) {
-			border-top: 0px;
-		}
-
-		.pageBlock h2 {
-			font-size: 18px;
-		}
-
-		.pageBlock .segment-button { margin-top: 10px; }
-
-		table.outer-table { margin-left: 20px; }
-		.inner-table table{
-			border-bottom: 1px solid #aaa;
-  			padding-bottom: 10px;
-		}
-
-		.internal-notes { width : 100% }
-	</style>
 	<apex:sectionHeader title="{!pageTitle}" subtitle="{!pageSubTitle}" rendered="{!NOT(initializationError)}"/>
 
 	<apex:pageMessages id="messages"/>
