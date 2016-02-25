@@ -116,11 +116,11 @@ public with sharing class MERC_AllocatedCapCalculator implements GLBL_TriggerHan
                                                     WHERE
                                                         Meeting_Participant_MERC__r.Account_MERC__c IN :accountIds AND
                                                         Meeting_Participant_MERC__r.Meeting_MERC__r.RecordType.DeveloperName != 'Ad_Hoc_Consulting' AND
-                                                        Meeting_Participant_MERC__r.Meeting_MERC__r.Date_of_Event_MERC__c = THIS_YEAR AND Meeting_Participant_MERC__r.Meeting_MERC__r.MERC_Meeting_Complete_Canceled_Clsd_Date__c = NULL AND
+                                                        Meeting_Participant_MERC__r.Meeting_MERC__r.Date_of_Event_MERC__c = THIS_YEAR AND
                                                         Submit_for_Payment_MERC__c = 'Yes' AND
                                                         Meeting_Participant_MERC__r.RecordType.DeveloperName IN('MERC_Consulting','MERC_Service_Provider') AND
-                                                        Meeting_Participant_MERC__r.Status_MERC__c != 'Cancelled' AND                                                       
-                                                        RecordType.DeveloperName = 'Invoice_Locked_MERC' AND Meeting_Participant_MERC__r.Meeting_MERC__r.Meeting_Status_MERC__c != 'Forecasted' AND Meeting_Participant_MERC__r.Types_of_Service_MERC__c != 'Medical Research Consultant' 
+                                                        Meeting_Participant_MERC__r.Status_MERC__c != 'Cancelled' AND RecordType.DeveloperName = 'Invoice_Locked_MERC' AND Meeting_Participant_MERC__r.Meeting_MERC__r.Meeting_Status_MERC__c !='Forecasted' AND 
+                                                        Meeting_Participant_MERC__r.Meeting_MERC__r.Meeting_Status_MERC__c !='Complete - Cancelled' AND Meeting_Participant_MERC__r.Types_of_Service_MERC__c != 'Medical Research Consultant' 
                                                             GROUP BY Meeting_Participant_MERC__r.Account_MERC__c];        
         
         // Map to pair the result of calulated 'Paid Invoices for Consulting Meetings' with its associated 'Account Id'.
@@ -155,7 +155,7 @@ public with sharing class MERC_AllocatedCapCalculator implements GLBL_TriggerHan
                                                         Submit_for_Payment_MERC__c = 'Yes' AND
                                                         Meeting_Participant_MERC__r.RecordType.DeveloperName IN('MERC_Consulting','MERC_Service_Provider') AND
                                                         Meeting_Participant_MERC__r.Status_MERC__c != 'Cancelled' AND
-                                                        Meeting_Participant_MERC__r.Meeting_MERC__r.RecordType.DeveloperName = 'Ad_Hoc_Consulting' AND
+                                                        Meeting_Participant_MERC__r.Meeting_MERC__r.RecordType.DeveloperName = 'Ad_Hoc_Consulting' AND Meeting_Participant_MERC__r.Meeting_MERC__r.Meeting_Status_MERC__c !='Forecasted' AND 
                                                         RecordType.DeveloperName = 'Credit_Note_Locked_MERC' AND Meeting_Participant_MERC__r.Types_of_Service_MERC__c != 'Medical Research Consultant'   
                                                         GROUP BY Meeting_Participant_MERC__r.Account_MERC__c];
         System.debug('>>>> '+ Cons_CreditNote_res);
@@ -170,9 +170,10 @@ public with sharing class MERC_AllocatedCapCalculator implements GLBL_TriggerHan
                                                         Meeting_Participant_MERC__r.Meeting_MERC__r.RecordType.DeveloperName != 'Ad_Hoc_Consulting' AND
                                                         Meeting_Participant_MERC__r.Status_MERC__c != 'Cancelled' AND
                                                         Meeting_Participant_MERC__r.RecordType.DeveloperName IN('MERC_Consulting','MERC_Service_Provider') AND
-                                                        Meeting_Participant_MERC__r.Meeting_MERC__r.Date_of_Event_MERC__c = THIS_YEAR AND Meeting_Participant_MERC__r.Meeting_MERC__r.MERC_Meeting_Complete_Canceled_Clsd_Date__c = NULL AND
+                                                        Meeting_Participant_MERC__r.Meeting_MERC__r.Date_of_Event_MERC__c = THIS_YEAR AND
                                                         Submit_for_Payment_MERC__c = 'Yes' AND 
-                                                        RecordType.DeveloperName = 'Credit_Note_Locked_MERC' AND Meeting_Participant_MERC__r.Types_of_Service_MERC__c != 'Medical Research Consultant' 
+                                                        RecordType.DeveloperName = 'Credit_Note_Locked_MERC' AND Meeting_Participant_MERC__r.Types_of_Service_MERC__c != 'Medical Research Consultant' AND Meeting_Participant_MERC__r.Meeting_MERC__r.Meeting_Status_MERC__c !='Forecasted' AND 
+                                                        Meeting_Participant_MERC__r.Meeting_MERC__r.Meeting_Status_MERC__c !='Complete - Cancelled' 
                                                             GROUP BY Meeting_Participant_MERC__r.Account_MERC__c];
         
         

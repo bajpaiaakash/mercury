@@ -81,8 +81,14 @@ public class MERC_AccountRollups implements Queueable{
                 String meetingStatus     = participant.Meeting_MERC__r.Meeting_Status_MERC__c;
                 String participantStatus = participant.Status_MERC__c;
 
-                /* Added by Namrata Aggarwal On 09-FEB-2016 for US-39907 to calculate Allocated final fee for Consulting/ Non-Consulting  meetings when start date is equal to current year */
-                if (!allocatedCapExcludedStatuses.contains( participantStatus ) && meetingStatus != 'Forecasted' && participant.Meeting_MERC__r.Date_of_Event_MERC__c.year() == Date.Today().year() && participant.Meeting_MERC__r.MERC_Meeting_Complete_Canceled_Clsd_Date__c == NULL ){
+                /* Added by Namrata Aggarwal On 09-FEB-2016 for US-39907 to calculate Allocated final fee for Consulting meetings when start date is equal to current year */
+                if (!allocatedCapExcludedStatuses.contains( participantStatus ) && meetingStatus != 'Forecasted' && participant.Meeting_MERC__r.Date_of_Event_MERC__c.year() == Date.Today().year() && participant.Meeting_MERC__r.RecordType.DeveloperName == 'Ad_Hoc_Consulting' && participant.Meeting_MERC__r.MERC_Meeting_Complete_Canceled_Clsd_Date__c == NULL ){
+                   account.MERC_Allocated_Fee_for_Current_Year__c += participant.Final_Fee_Rollup_MERC__c != null ? participant.Final_Fee_Rollup_MERC__c : 0;
+                    
+                }
+                
+                /* Added by Namrata Aggarwal On 09-FEB-2016 for US-39907 to calculate Allocated final fee for Non-Consulting meetings when start date is equal to current year */
+                if (!allocatedCapExcludedStatuses.contains( participantStatus ) && meetingStatus != 'Forecasted' && meetingStatus != 'Complete - Cancelled'&& participant.Meeting_MERC__r.Date_of_Event_MERC__c.year() == Date.Today().year() && participant.Meeting_MERC__r.RecordType.DeveloperName != 'Ad_Hoc_Consulting'){
                    account.MERC_Allocated_Fee_for_Current_Year__c += participant.Final_Fee_Rollup_MERC__c != null ? participant.Final_Fee_Rollup_MERC__c : 0;
                     
                 }
