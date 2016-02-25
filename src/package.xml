@@ -12,6 +12,40 @@
 		<members>MERC_HcpCapActualsCalculatorTest</members>
 		<members>MERC_AccountRollupsTest</members>
 		<members>MERC_HcpCapYearlyCalculationJobTest</members>
+		<members>MERC_BudgetVersionControllerTest</members>	
+		<members>MERC_ContentVersionHandlerTest</members>	
+		<members>MERC_CancelDelegateMgmtProcessTest</members>	
+		<members>MERC_DailyAttendanceControllerStressTest</members>	
+		<members>MERC_DailyAttendanceControllerTest</members>	
+		<members>MERC_HandleDocusignAttachmentInsertTest</members>	
+		<members>MERC_HotelAllocationCalculatorTest</members>	
+		<members>MERC_ParticipantStatusCalculatorTest</members>	
+		<members>MERC_InvoiceCreditNoteControllerTest</members>	
+		<members>MERC_InvoiceDocFilterControllerTest</members>	
+		<members>MERC_InvoiceInvalidationControllerTest</members>	
+		<members>MERC_InvoiceXmlControllerTest</members>	
+		<members>MERC_InvoiceXmlWriterTest</members>	
+		<members>MERC_ItineraryParticipantUpdateTest</members>	
+		<members>MERC_LockedRecordHandlerTest</members>	
+		<members>MERC_MarketingCloudServiceTest</members>	
+		<members>MERC_MassApproveParticipantsCntrlrTest</members>	
+		<members>MERC_MeetingParticipantRollupsTest</members>	
+		<members>MERC_MeetingParticipantTovValidationTest</members>	
+		<members>MERC_MeetingProcessLogicHandlerTest</members>	
+		<members>MERC_MVIMeetingTimeZoneHandlerTest</members>	
+		<members>MERC_NewContentControllerTest</members>	
+		<members>MERC_ParticipantTovStampHandlerTest</members>	
+		<members>MERC_TOVCalculatorTest</members>	
+		<members>MERC_TOVNonAggregateCalculatorTest</members>	
+		<members>MERC_TOVRoundingTest</members>	
+		<members>MERC_TravelItineraryNewEditTest</members>	
+		<members>MERC_XmlWriterRestResourceTest</members>	
+		<members>GLBL_AccountMergeStampTriggerTest</members>	
+		<members>MERC_ETMeetingEmailSendExtension_Test</members>	
+		<members>MERC_ETMeetingEmailSendTriggerImpl_Test</members>	
+		<members>MERC_AllocatedCAPCalculatorTest</members>	
+		<members>MERC_AllocatedConsCapCalculatorBatchTest</members>	
+		<members>MERC_AllocatedConsCapCalculatorSch_Test</members>
         <name>ApexClass</name>
     </types>
 	<types>

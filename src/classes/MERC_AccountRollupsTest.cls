@@ -10,18 +10,19 @@
 @isTest
 private class MERC_AccountRollupsTest
 {
+    
     private static final Integer DATA_SIZE = 1;
     static List<Account> accounts  = MERC_TestFactory.insertAccounts(DATA_SIZE);
     static Account linkAccount = MERC_TestFactory.insertAccounts(1)[0];
-    static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1)[0];
-    static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants_forLinetems(meeting.Id, accounts, 'Attended');
+    static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings_CAP(1,NULL,'Registered')[0];
+    static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants_forLinetems(meeting.Id, accounts);
 
 
     @isTest
     static void itShouldRollupAllocatedCapValues()
     {
+        Test.startTest();
         MERC_TriggerHandlerStateManager.deactivateAll();
-        
         meeting.Meeting_Status_MERC__c = 'Registered';
         meeting.City_of_Meeting_MERC__c = 'London';
         meeting.Number_of_Expected_Deletgates_MERC__c = 1;
@@ -29,25 +30,24 @@ private class MERC_AccountRollupsTest
         meeting.Number_of_Expected_Non_HCP_MERC__c = 1;
         meeting.Number_of_Expected_Speakers_MERC__c = 1;
         meeting.Planned_Budget_MERC__c = 10000;
+        
+        //MERC_TriggerHandlerStateManager.activateAll();
         update meeting;
         
         for (Meeting_Participant_MERC__c participant : participants) {
             participant.Final_Fee_Rollup_MERC__c = 100;  
             participant.Status_MERC__c = 'Attended';
-            participant.Include_CAP_Roll_Up_MERC__c = True;
-            participant.Confirm_Final_Fee_MERC__c = 'Confirmed';
             participant.Proposed_Final_Fee_MERC__c = 10;
             participant.Minimum_Rate_MERC__c = 10;
             participant.Minimum_Fee_MERC__c = 90;
             participant.Maximum_Fee_MERC__c = 110;
             participant.Maximum_Rate_MERC__c = 100;
-            
-            //participant.Services_Rendered_MERC__c = 'No';  //Modification done by Jyoti Gaur on 17 Nov for US-38733
-        }
+            }
+        
         update participants;
-        MERC_TriggerHandlerStateManager.activateAll();
-
-        Test.startTest();
+        
+        update accounts;
+        
         Map<Id, Account> accountsMap = new Map<Id, Account> (accounts);
         MERC_AccountRollups rollup = new MERC_AccountRollups(accountsMap.keySet());
         System.enqueueJob(rollup);
@@ -72,16 +72,13 @@ private class MERC_AccountRollupsTest
         meeting.Number_of_Expected_Employees_MERC__c = 1;
         meeting.Number_of_Expected_Non_HCP_MERC__c = 1;
         meeting.Number_of_Expected_Speakers_MERC__c = 1;
+        Test.startTest();
         meeting.Planned_Budget_MERC__c = 10000;
         update meeting;
         meeting.Meeting_Objectives_MERC__c = 'Objectives!';
         meeting.Target_Audience_List_MERC__c = 'Target Audience';
         meeting.Meeting_Status_MERC__c = 'Active';
         update meeting;
-        /*meeting.Meeting_Status_MERC__c = 'Complete';
-        meeting.Compliant_MERC__c = 'a value';
-        meeting.Budget_is_Final_MERC__c = 'Yes';
-        update meeting;*/
         meeting.Date_of_Event_MERC__c = Date.Today()-365;
         meeting.End_Date_of_Event_MERC__c = Date.Today().adddays(5);
         update meeting;
@@ -97,10 +94,11 @@ private class MERC_AccountRollupsTest
             participant.Maximum_Fee_MERC__c = 110;
             participant.Maximum_Rate_MERC__c = 100;
         }
+        
         update participants;
-        MERC_TriggerHandlerStateManager.activateAll();
+        //MERC_TriggerHandlerStateManager.activateAll();
 
-        Test.startTest();
+        
         Map<Id, Account> accountsMap = new Map<Id, Account> (accounts);
         MERC_AccountRollups rollup = new MERC_AccountRollups(accountsMap.keySet());
         System.enqueueJob(rollup);
@@ -118,9 +116,12 @@ private class MERC_AccountRollupsTest
     static void itShouldRollupReservedCapValues()
     {
         MERC_TriggerHandlerStateManager.deactivateAll();
+        
         meeting.Meeting_Status_MERC__c = 'Forecasted';
-        meeting.Date_of_Event_MERC__c = Date.Today();
+        Test.startTest();
+        //meeting.Date_of_Event_MERC__c = Date.Today();
         update meeting;
+        
         
         for (Meeting_Participant_MERC__c participant : participants) {
             //participant.Final_Fee_Rollup_MERC__c = 50;
@@ -135,14 +136,17 @@ private class MERC_AccountRollupsTest
             participant.Maximum_Fee_MERC__c = 110;
             participant.Maximum_Rate_MERC__c = 100;
             participant.Higher_Fee_Approval__c = 'Not Required';
+            
         }
+        
         update participants;
-        MERC_TriggerHandlerStateManager.activateAll();
-
-        Test.startTest();
+        //MERC_TriggerHandlerStateManager.activateAll();
+        
+        
         Map<Id, Account> accountsMap = new Map<Id, Account> (accounts);
         MERC_AccountRollups rollup = new MERC_AccountRollups(accountsMap.keySet());
         System.enqueueJob(rollup);
+        
         Test.stopTest();
 
         accounts = getAccounts();
@@ -181,9 +185,10 @@ private class MERC_AccountRollupsTest
             account.HCP_Designated_Individuals_MERC__c = linkAccount.id;
             account.HCP_Contracting_Party_MERC__c = linkAccount.id;
         }
+        Test.startTest();
         update accounts;
 
-        Test.startTest();
+        
         Map<Id, Account> accountsMap = new Map<Id, Account> (accounts);
         MERC_AccountRollups rollup = new MERC_AccountRollups(accountsMap.keySet());
         System.enqueueJob(rollup);
@@ -196,7 +201,21 @@ private class MERC_AccountRollupsTest
                        MERC_Allocated_Fee_for_Next_Yr_Cons_Only__c,
                        Count_Dietary_Preferences_MERC__c,
                        HCP_Designated_Individuals_MERC__c,
-                       HCP_Contracting_Party_MERC__c
+                       HCP_Contracting_Party_MERC__c,(SELECT Final_Fee_Rollup_MERC__c,
+                                           Proposed_Final_Fee_Rollup_MERC__c,
+                                           Status_MERC__c,
+                                           Meeting_MERC__r.MERC_Meeting_Complete_Canceled_Clsd_Date__c,
+                                           Meeting_MERC__r.MERC_Meeting_End_date_plus_6_months__c,
+                                           Meeting_MERC__r.MERC_Meeting_End_Date_Inactive__c,
+                                           Services_Rendered_MERC__c,
+                                           Meeting_MERC__r.Meeting_Status_MERC__c,
+                                           Meeting_MERC__r.Date_of_Event_MERC__c,
+                                           Meeting_MERC__r.End_Date_of_Event_MERC__c,
+                                           Meeting_MERC__r.RecordType.DeveloperName,RecordType.DeveloperName
+                                      FROM Event_Participants__r WHERE Include_CAP_Roll_Up_MERC__c = TRUE
+                                       AND Confirm_Final_Fee_MERC__c = 'Confirmed' 
+                                       AND RecordType.DeveloperName IN('MERC_Consulting','MERC_Service_Provider')
+                                     )
                   FROM Account
                  WHERE Id IN :accounts];
     }
