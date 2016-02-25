@@ -46,6 +46,7 @@
 		<members>MERC_AllocatedCAPCalculatorTest</members>	
 		<members>MERC_AllocatedConsCapCalculatorBatchTest</members>	
 		<members>MERC_AllocatedConsCapCalculatorSch_Test</members>
+		<members>MERC_TestFactory</members>
         <name>ApexClass</name>
     </types>
 	<types>

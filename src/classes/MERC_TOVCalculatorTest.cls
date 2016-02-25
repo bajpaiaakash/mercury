@@ -1125,7 +1125,8 @@ p('finished');
         System.assert(attendee.Total_Hotel_ToV_MERC__c < valueBefore,'Did not reduce? before:'+valueBefore+'after:'+attendee.Total_Hotel_ToV_MERC__c);
      }
 
-   @isTest
+  /* 
+  @isTest
     static void hotelShouldRecalculateOnDateChangeSetMeetingDayToZero() {    	
     	   setup();
         // get a participant...
@@ -1156,11 +1157,11 @@ p('finished');
             }
         }
 
-        /*Daily_Attendance_TOV_MERC__c tovDay2 = [SELECT Id, Est_Hotel_ToV_MERC__c, Meeting_Day_MERC__c
+        Daily_Attendance_TOV_MERC__c tovDay2 = [SELECT Id, Est_Hotel_ToV_MERC__c, Meeting_Day_MERC__c
                                             FROM Daily_Attendance_TOV_MERC__c
                                             WHERE Meeting_Day_MERC__c = :dayTwoId];
         System.assertEquals(50, tovDay2.Est_Hotel_ToV_MERC__c, 'Soon-to-be-orphaned Hotel TOV Incorrect');
-		*/
+		
         
             // Change Travel Itinerary hotel record to be one night
             List<Travel_Itinerary_MERC__c> changingItineraries = [
@@ -1180,17 +1181,18 @@ p('finished');
 
         Test.stopTest();
 
-        /*tovDay2 = [SELECT Id, Est_Hotel_ToV_MERC__c, Meeting_Day_MERC__c
+        tovDay2 = [SELECT Id, Est_Hotel_ToV_MERC__c, Meeting_Day_MERC__c
                                             FROM Daily_Attendance_TOV_MERC__c
                                             WHERE Meeting_Day_MERC__c = :dayTwoId];
         System.assertEquals(0, tovDay2.Est_Hotel_ToV_MERC__c, 'Orphaned Hotel TOV Incorrect');
-*/
+
         Daily_Attendance_TOV_MERC__c tovDay1 = [SELECT Id, Est_Hotel_ToV_MERC__c, Meeting_Day_MERC__c
                                                 FROM Daily_Attendance_TOV_MERC__c
                                                 WHERE Meeting_Day_MERC__c = :dayOneId];
         System.assertEquals(50, tovDay1.Est_Hotel_ToV_MERC__c, 'Remaining Hotel TOV Incorrect');
     	
      }
+     */
 
     @isTest
     static void hotelShouldRecalculateOnDateChangeSetOrphanedToVsToNull() {
