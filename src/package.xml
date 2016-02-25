@@ -42,8 +42,7 @@
 		<members>MERC_XmlWriterRestResourceTest</members>	
 		<members>GLBL_AccountMergeStampTriggerTest</members>	
 		<members>MERC_ETMeetingEmailSendExtension_Test</members>	
-		<members>MERC_ETMeetingEmailSendTriggerImpl_Test</members>	
-		<members>MERC_AllocatedCAPCalculatorTest</members>	
+		<members>MERC_ETMeetingEmailSendTriggerImpl_Test</members>			
 		<members>MERC_AllocatedConsCapCalculatorBatchTest</members>	
 		<members>MERC_AllocatedConsCapCalculatorSch_Test</members>
 		<members>MERC_TestFactory</members>
