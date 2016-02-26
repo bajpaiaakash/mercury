@@ -8,26 +8,27 @@
 private class MERC_MeetingParticipantTovValidationTest
 {
 
-  //  static User runningUser = MERC_TestFactory.getRunningUser();
+    static User runningUser = MERC_TestFactory.getRunningUser();
     static User testUser = MERC_TestFactory.getTestingUser();
-    static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
+    
+    static Meeting_MERC__c meeting;
    
-    static List<Account> accounts = MERC_TestFactory.insertAccounts(200);
-    static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
+    static List<Account> accounts;
+    static List<Meeting_Participant_MERC__c> participants;
     
 
     static
     {
-     /*
+     
         System.runAs(runningUser)
         {
             MERC_TriggerHandlerStateManager.deactivateAll();
-            meeting = MERC_TestFactory.insertMeetings(1).get(0);
             accounts = MERC_TestFactory.insertAccounts(200);
+            meeting = MERC_TestFactory.insertMeetings(1).get(0);
             participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
-            MERC_TriggerHandlerStateManager.activateAll();
+            //MERC_TriggerHandlerStateManager.activateAll();
         }
-     */  
+       
         //reset the Meeting Participant Validation trigger
         MERC_MeetingParticipantTovValidation.tovValidationByPass = false;
     }
@@ -35,16 +36,13 @@ private class MERC_MeetingParticipantTovValidationTest
     @isTest static void test_cannot_edit_validated_fields_when_meeting_tov_reported()
     {
         //the meeting is simply forecasted at this point as it defaulted to that value when created in the factory
-        MERC_TriggerHandlerStateManager.deactivateAll();
         meeting.Participant_ToV_Final_MERC__c = 'Yes';
         meeting.Start_Time_of_Meeting_MERC__c = Date.today().addDays(-3);
         meeting.End_Time_of_Meeting_MERC__c = Date.today().addDays(-1);
         meeting.Confirm_Meeting_Date_Change_MERC__c = true;
         
         Test.startTest();
-        MERC_TriggerHandlerStateManager.deactivateAll();
         update meeting;
-        MERC_TriggerHandlerStateManager.deactivateAll();
         System.runAs(testUser) {
             Schema.FieldSet validationFields = Schema.SObjectType.Meeting_Participant_MERC__c.fieldSets.ToV_Validation_Fields;
             for (Meeting_Participant_MERC__c participant : participants)
@@ -69,10 +67,10 @@ private class MERC_MeetingParticipantTovValidationTest
             }
             //System.assert(errorCaught, 'no exception thrown. that is bad');
             
-            Test.stopTest();
-            MERC_TriggerHandlerStateManager.deactivateAll();
+            //Test.stopTest();
             
         }
+        Test.stopTest();
     
     }
 
@@ -146,8 +144,6 @@ private class MERC_MeetingParticipantTovValidationTest
 
             System.assertEquals(200, Database.query(soqlString).size());
         }
-    
-    }
-   
+    }  
 
 }

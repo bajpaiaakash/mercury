@@ -10,11 +10,25 @@ private class MERC_HandleDocusignAttachmentInsertTest {
     static List<Account> accts;
     static HCP_Contract_MERC__c contract;
     static User runningUser = MERC_TestFactory.getRunningUser();
+               
+    
     static User testUser = MERC_TestFactory.getTestingUser();
 
     static {
+        Group g = [SELECT Id FROM Group WHERE DeveloperName ='System_Administrators' limit 1];
+        List<GroupMember> members = new List<GroupMember>();
+            members.add(new GroupMember(GroupId=g.Id,UserOrGroupId=runningUser.Id));
+        
+        List<Group> groups = [SELECT Id FROM Group WHERE Name LIKE '%GB'];
+        for (Group grp : groups) {
+            
+                members.add(new GroupMember(GroupId=grp.Id,UserOrGroupId=runningUser.Id));
+            
+        }
+        insert members;
+        runningUser.UserPermissionsSFContentUser = true;
+        update runningUser;
         System.runAs(runningUser) {
-            MERC_TriggerHandlerStateManager.deactivateAll(); //Added by Vijay Garg; for US-39907 on 25-Feb-2016
             accts = MERC_TestFactory.insertHcpAccountsInCountry(1,'GB');
             contract = MERC_TestFactory.insertHCPContract((String)accts[0].Id);
             // generate initial contract
@@ -31,18 +45,14 @@ private class MERC_HandleDocusignAttachmentInsertTest {
 
     @isTest 
     static void contractAttachementBecomesContent() {
-
-        //System.runAs commented by Vijay Garg; for US-39907 on 25-Feb-2016
-        //System.runAs(runningUser) {
+        System.runAs(runningUser) {
             Test.startTest();
             Attachment a = new Attachment(ParentId = contract.Id, Name = 'Henry V');
-            system.debug('==>'+a);
             a.Body = Blob.valueOf('Oh, for a muse of fire that would ascend the brightest heaven of invention!');
             insert a;
             Test.stopTest();
-        //}
+        
 
-        //System.runAs commented by Vijay Garg; for US-39907 on 25-Feb-2016
         //System.runAs(testUser) {
             List<Attachment> shouldBeEmpty = new List<Attachment>([SELECT Id FROM Attachment WHERE ParentId = :contract.Id]);
             System.assert(shouldBeEmpty.isEmpty(),'Should be no attachments but I found something: '+shouldBeEmpty);
@@ -53,14 +63,17 @@ private class MERC_HandleDocusignAttachmentInsertTest {
                 );
             System.assert(!contentVers.isEmpty(), 'The attachment does not appear as Content');
         //}
+        }
     }
     
     // Should only work for HCP Contracts, so let's try a non-contract obj to confirm attachment remains
     @isTest 
     static void justHCPContractsShouldHaveAttachmentsConverted() {
+    System.runAs(runningUser) {
+     Test.startTest();
         List<Meeting_MERC__c> meets = MERC_TestFactory.insertMeetings(1);
 
-        Test.startTest();
+       
         Attachment a = new Attachment(ParentId = meets[0].Id, Name = 'Macbeth');
         a.Body = Blob.valueOf('Is this a dagger which I see before me, the handle toward my hand?');
         insert a;
@@ -68,5 +81,6 @@ private class MERC_HandleDocusignAttachmentInsertTest {
 
         List<Attachment> shouldNotBeEmpty = new List<Attachment>([SELECT Id FROM Attachment WHERE ParentId = :meets[0].Id]);
         System.assert(!shouldNotBeEmpty.isEmpty(),'Attachement not found');
+    }
     }
 }

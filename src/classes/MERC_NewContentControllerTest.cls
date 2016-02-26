@@ -34,7 +34,9 @@ private class MERC_NewContentControllerTest {
                 docTypesByRecType.put(cll.Content_Record_Type_MERC__c, new List<String>{});
             }
         }
-
+      runningUser.UserPermissionsSFContentUser = true;
+      update runningUser;
+      
         System.runAs(runningUser) {
             accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'GB');
             meetings = MERC_TestFactory.insertMeetings(1, 'GB');
