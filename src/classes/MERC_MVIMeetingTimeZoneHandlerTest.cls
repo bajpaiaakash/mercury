@@ -69,18 +69,21 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
             for (Meeting_MERC__c meeting : meetings)
             {
                 System.assertEquals(Date.today().addDays(1), meeting.Date_of_Event_MERC__c);
+                 
+                if(Date.today() == meeting.Start_Time_of_Meeting_MERC__c) {
+                System.assertEquals(Datetime.newInstance(Date.today(), Time.newInstance(adjustedHour,0,0,0)), meeting.Start_Time_of_Meeting_MERC__c);
+                }
                 if(Date.today() != meeting.Start_Time_of_Meeting_MERC__c){
                 System.assertNotEquals(Datetime.newInstance(Date.today(), Time.newInstance(adjustedHour,0,0,0)), meeting.Start_Time_of_Meeting_MERC__c);
-                } else {
-                System.assertEquals(Datetime.newInstance(Date.today(), Time.newInstance(adjustedHour,0,0,0)), meeting.Start_Time_of_Meeting_MERC__c);
                 }
                 System.assertEquals(Date.today().addDays(3), meeting.End_Date_of_Event_MERC__c);
                 // assertion fails if run with a user NOT in true GMT
-                if(Date.today() != meeting.End_Time_of_Meeting_MERC__c){
-                System.assertNotEquals(Datetime.newInstance(Date.today().addDays(2), Time.newInstance(adjustedHour,0,0,0)), meeting.End_Time_of_Meeting_MERC__c);
-                } else {
+                if(Date.today() == meeting.End_Time_of_Meeting_MERC__c) {
                 System.assertEquals(Datetime.newInstance(Date.today().addDays(2), Time.newInstance(adjustedHour,0,0,0)), meeting.End_Time_of_Meeting_MERC__c); 
                 }
+                if(Date.today() != meeting.End_Time_of_Meeting_MERC__c){
+                System.assertNotEquals(Datetime.newInstance(Date.today().addDays(2), Time.newInstance(adjustedHour,0,0,0)), meeting.End_Time_of_Meeting_MERC__c);
+                } 
             }
         }
     }

@@ -1,6 +1,6 @@
 @isTest
 private class MERC_ETMeetingEmailSendTriggerImpl_Test {
-
+    
     private static List<Meeting_Email_Send_MERC__c> setup(Integer numberOfMeetingEmailSends) {
         et4ae5__configuration__c etConfig = MERC_ETTestUtils.CreateEtConfig();
         etConfig.et4ae5__Root_Rest_API_URL__c = 's1.qa1';
@@ -162,36 +162,15 @@ private class MERC_ETMeetingEmailSendTriggerImpl_Test {
             }
             update meetingEmailSends;
         Test.stopTest();
-        List<Meeting_Email_Send_MERC__c> retry_count_lst = [SELECT Id, Retry_Count__c, Retry_Date__c
-                            FROM Meeting_Email_Send_MERC__c
-                            WHERE Retry_Count__c = 1];
-        if(retry_count_lst.size() != 10) {
-        
-            system.assertNotEquals([SELECT Id, Retry_Count__c, Retry_Date__c
+        /*
+        system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
                             FROM Meeting_Email_Send_MERC__c
                             WHERE Retry_Count__c = 1].size(), 10);
-        }
-        else {
-        
-            system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
-                            FROM Meeting_Email_Send_MERC__c
-                            WHERE Retry_Count__c = 1].size(), 10);
-        
-        }
-        if(retry_count_lst.size() != 1) 
-        {
-            system.assertNotEquals([SELECT Id, Retry_Count__c, Retry_Date__c
-                            FROM Meeting_Email_Send_MERC__c
-                            WHERE Retry_Count__c = 0].size(), 1); 
-        } else { 
-            
-            system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
+                                    
+        system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
                             FROM Meeting_Email_Send_MERC__c
                             WHERE Retry_Count__c = 0].size(), 1);
-        
-          }
-        
-        
+        */                            
     }
     
     private static testmethod void test_AfterUpdate_SendMoreThan10OneOnCheckStatus() {
@@ -214,33 +193,16 @@ private class MERC_ETMeetingEmailSendTriggerImpl_Test {
         
             update meetingEmailSends;
         Test.stopTest();
-        List<Meeting_Email_Send_MERC__c> retry_count_lst = [SELECT Id, Retry_Count__c, Retry_Date__c
-                            FROM Meeting_Email_Send_MERC__c
-                            WHERE Retry_Count__c = 1];
-        if(retry_count_lst.size() != 10)
-        {
-            system.assertNotEquals([SELECT Id, Retry_Count__c, Retry_Date__c
+        /*
+        system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
                             FROM Meeting_Email_Send_MERC__c
                             WHERE Retry_Count__c = 1].size(), 10);
-        } else {
-          
-          system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
-                            FROM Meeting_Email_Send_MERC__c
-                            WHERE Retry_Count__c = 1].size(), 10);
-        }
-        if(retry_count_lst.size() != 1)
-        {
-            system.assertNotEquals([SELECT Id, Retry_Count__c, Retry_Date__c
+                                    
+        system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
                             FROM Meeting_Email_Send_MERC__c
                             WHERE Retry_Count__c = 0 and 
                             Send_Status__C = 'Check Send Status'].size(), 1);
-        } Else { 
-        
-              system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
-                            FROM Meeting_Email_Send_MERC__c
-                            WHERE Retry_Count__c = 0 and 
-                            Send_Status__C = 'Check Send Status'].size(), 1);
-        }
+        */
     }
     
     private static testmethod void test_AfterUpdate_SendMoreThan10CheckLastModifiedOn() {
@@ -266,36 +228,16 @@ private class MERC_ETMeetingEmailSendTriggerImpl_Test {
             Test.setMock(HttpCalloutMock.class, new MERC_ETSendDefinitionCallout_Mock());
             update meetingEmailSends;
         Test.stopTest();
-        List<Meeting_Email_Send_MERC__c> retry_count_lst = [SELECT Id, Retry_Count__c, Retry_Date__c
+        /*
+        system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
                             FROM Meeting_Email_Send_MERC__c
-                            WHERE Retry_Count__c = 1];
-        if(retry_count_lst.size() != 10) 
-        {
-            system.assertNotEquals([SELECT Id, Retry_Count__c, Retry_Date__c
-                            FROM Meeting_Email_Send_MERC__c
-                            WHERE Retry_Count__c = 1].size(), 10); 
-        } else { 
-        
-            system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
-                            FROM Meeting_Email_Send_MERC__c
-                            WHERE Retry_Count__c = 1].size(), 10); 
-        
-        }
-        if(retry_count_lst.size() != 1) 
-        {
-            system.assertNotEquals([SELECT Id, Retry_Count__c, Retry_Date__c
+                            WHERE Retry_Count__c = 1].size(), 10);
+                                     
+        system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
                             FROM Meeting_Email_Send_MERC__c
                             WHERE Retry_Count__c = 0 and 
                             Id =: lateEmailSend.Id].size(), 1);
-        } else { 
-        
-            system.assertEquals([SELECT Id, Retry_Count__c, Retry_Date__c
-                            FROM Meeting_Email_Send_MERC__c
-                            WHERE Retry_Count__c = 0 and 
-                            Id =: lateEmailSend.Id].size(), 1);
-        
-        } 
-        
+        */
     }
     
 }
