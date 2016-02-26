@@ -48,7 +48,7 @@ private class MERC_DailyAttendanceControllerStressTest {
         PageReference p = Page.MERC_DailyAttendance;
         p.getParameters().put('id', meeting.Id);
         Test.setCurrentPage(p);
-        MERC_TriggerHandlerStateManager.activateAll();
+        //MERC_TriggerHandlerStateManager.activateAll(); //Commented by Vijay garg; for US-39907 on 26-Feb-2016
         Test.startTest();
 
         //load controller
@@ -72,7 +72,12 @@ private class MERC_DailyAttendanceControllerStressTest {
             selectParticipants(4);
             controller.setSelectedToNoShow();
             System.assertEquals(4, [SELECT count() FROM Daily_Attendance_TOV_MERC__c WHERE Status_MERC__c = 'No Show' AND Meeting_Participant_MERC__c in :participants]);
-
+            
+            //Start: Added by Vijay Garg; for US-39907 on 26-Feb-2016
+            controller.changeDay();
+            controller.updateTov();
+            controller.saveAll();
+            //End: Added by Vijay Garg; for US-39907 on 26-Feb-2016
         }
 
         Test.stopTest();

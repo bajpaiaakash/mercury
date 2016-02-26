@@ -164,5 +164,6 @@
         <members>Meeting_Participant_MERC__c.MERC_Under Maximum Fee</members>
         <name>WorkflowRule</name>
     </types>
+	
     <version>36.0</version>
 </Package>
