@@ -5,6 +5,7 @@
 		<members>MERC_HCPContractCancellationTest</members>
         <members>MERC_InvoiceDocFilterController</members>
         <members>MERC_InvoiceDocFilterControllerTest</members>
+		<members>MERC_HandleDocusignAttachmentInsertTest</members>
         <name>ApexClass</name>
     </types>
     <version>36.0</version>
