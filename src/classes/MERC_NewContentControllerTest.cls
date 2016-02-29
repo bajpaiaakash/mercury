@@ -17,9 +17,9 @@ private class MERC_NewContentControllerTest {
     static List<Meeting_Participant_MERC__c> participants;
     static Map<String, List<String>> docTypesByRecType;
 
-    static User runningUser = MERC_TestFactory.getRunningUser();
+    static User runningUser = MERC_TestFactory.getRunningUser();    
     static User testUser = MERC_TestFactory.getTestingUser();
-
+  
    static
     {
         MERC_TestFactory.insertMercuryCustomSettings();
@@ -175,7 +175,9 @@ private class MERC_NewContentControllerTest {
 
     @isTest
     static void testUploadInvoiceContentAfterDelete() {
-
+    runningUser.UserPermissionsSFContentUser = true;
+    update runningUser;
+    System.runAs(runningUser) {
         String suffix  = [SELECT Library_String_MERC__c
                              FROM Content_Library_Lookup_MERC__c
                             WHERE Content_Record_Type_MERC__c='Invoice_MERC'
@@ -191,7 +193,7 @@ private class MERC_NewContentControllerTest {
         file.VersionData = Blob.valueOf('For naught so vile that on the earth doth live but to the earth some special good doth give.');
         insert file;
 
-        System.runAs(runningUser) {
+        
             Test.startTest();
             PageReference ref = Page.MERC_NewInvoiceContent;
             ref.getParameters().put('id', invoices.get(0).Id);
