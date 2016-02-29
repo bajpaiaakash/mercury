@@ -32,7 +32,6 @@
 		<members>MERC_MeetingParticipantRollupsTest</members>	
 		<members>MERC_MeetingParticipantTovValidationTest</members>	
 		<members>MERC_MeetingProcessLogicHandlerTest</members>	
-		<members>MERC_MVIMeetingTimeZoneHandlerTest</members>	
 		<members>MERC_NewContentControllerTest</members>	
 		<members>MERC_ParticipantTovStampHandlerTest</members>	
 		<members>MERC_TOVCalculatorTest</members>	
