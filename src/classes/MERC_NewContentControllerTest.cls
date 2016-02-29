@@ -92,7 +92,9 @@ private class MERC_NewContentControllerTest {
      */
     @isTest
     static void testUploadMeetingContent() {
-    //  System.runAs(testUser) {
+     testUser.UserPermissionsSFContentUser = true;
+     update testUser;
+      System.runAs(testUser) {
             PageReference ref = Page.MERC_NewMeetingContent;
             ref.getParameters().put('id', meetings.get(0).Id);
             Test.setCurrentPage(ref);
@@ -107,7 +109,7 @@ private class MERC_NewContentControllerTest {
                 System.assertNotEquals(null,returnRef,'Expected a PageRef but got null: ' + ApexPages.getMessages());
             }
             Test.stopTest();
-    //  }
+     }
     }
 
     /*
