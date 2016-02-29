@@ -1,2 +1,0 @@
-<apex:page standardController="ACED_Providers__c" extensions="ACED_RedirectOnNew" action="{!Redirect}"  >
-</apex:page>
