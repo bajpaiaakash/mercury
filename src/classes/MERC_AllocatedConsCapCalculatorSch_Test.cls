@@ -8,7 +8,8 @@ private class MERC_AllocatedConsCapCalculatorSch_Test{
      static testmethod void mytestmethod(){
      User testUser = MERC_TestFactory.getTestingUser(); 
      System.runAs(testUser) {
-         Test.startTest();       
+         Test.startTest();    
+         MERC_AllocatedConsCapCalculatorSchedule.scheduleName='MERC_AllocatedConsCapCalculatorSchTest';   
          MERC_AllocatedConsCapCalculatorSchedule.executeAllocatedConsCapCalculatorSch();
          Test.stopTest();
        }
