@@ -4,6 +4,12 @@
 */
 @isTest
 public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
+    @testSetup static void prepareConfiguration(){
+        MERC_MarketingCloudTestUtility.insertConfiguration(true);
+        MERC_MarketingCloudTestUtility.insertBusinessUnit();
+        MERC_MarketingCloudTestUtility.insertSettings();
+    }
+    
     @isTest static void test_Constructor(){
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();       
 

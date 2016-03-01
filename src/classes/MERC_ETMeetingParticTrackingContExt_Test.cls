@@ -1,13 +1,15 @@
 @isTest
 private class MERC_ETMeetingParticTrackingContExt_Test {
+    @testSetup static void prepareConfiguration(){
+        MERC_MarketingCloudTestUtility.insertConfiguration(true);
+        MERC_MarketingCloudTestUtility.insertBusinessUnit();
+        MERC_MarketingCloudTestUtility.insertSettings();
+    }
 
     @isTest
     static void test_no_individual_email_results() {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
-
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
 
         List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 1);
         insert accts;
@@ -31,9 +33,6 @@ private class MERC_ETMeetingParticTrackingContExt_Test {
     static void test_individual_email_results() {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
-
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
 
         List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 1);
         insert accts;
@@ -74,9 +73,6 @@ private class MERC_ETMeetingParticTrackingContExt_Test {
     static void test_individual_email_results_bulk() {
         Meeting_MERC__c meeting = MERC_ETTestUtils.CreateMeetings(1)[0];
         insert meeting;
-
-        Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
-        insert config;
 
         List<Account> accts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 1);
         insert accts;

@@ -90,6 +90,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
     public static final String SEND_DEFINITION_SENDER_PROFILE_ID = 'testsenderprofileid';
     public static final String SEND_DEFINITION_CLASSIFICATION_ID = 'testclassificationid';
 
+    public static final String DATA_EXTENSION_ID = 'OVdFVXRiVm9FZVdXYll6YzFMZmFMUTo0NTow';
     public static final String DATA_EXTENSION_NAME = 'testdataextension name';
     public static final String DATA_EXTENSION_DESCRIPTION = 'testdataextension subject';
     public static final String DATA_EXTENSION_KEY = 'testdataextensionkey';
@@ -518,6 +519,14 @@ public with sharing class MERC_MarketingCloudTestUtility {
         };
     }
 
+    public static List<Account> getSubscriberAccounts(Integer count){
+        List<Account> accounts = new List<Account>();
+        for(Integer index = 0; index < count; index++){
+            accounts.add(getSubscriberAccount(RECORD_TYPE_STRING_HCP));
+        }
+        return accounts;
+    }
+
     public static MERC_MarketingCloudClient.Subscriber getSubscriber(){
         return getSubscriber(SUBSCRIBER_KEY_PREFIX + (SubscriberCount), 
                              SUBSCRIBER_LILLYKEY_PREFIX + SubscriberCount,
@@ -706,7 +715,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
         // Populate fields that will be placed on the email send
         meetingEmailSend.ET_Data_Extension_Id_MERC__c = DATA_EXTENSION_KEY;
         meetingEmailSend.ET_Sync_Id_MERC__c = EMAIL_SEND_SYNC_ID_PREFIX + DateTime.now();
-        meetingEmailSend.ET_Business_Unit_MERC__c = BUSINESS_UNIT_ID;
+        meetingEmailSend.ET_Business_Unit_MERC__c = null;
         meetingEmailSend.ET_Recipients_Opted_In_MERC__c = true;
         meetingEmailSend.ET_Sender_Profile_Id_MERC__c = SEND_DEFINITION_SENDER_PROFILE_ID;
         meetingEmailSend.ET_Send_Classification_Id_MERC__c = SEND_DEFINITION_CLASSIFICATION_ID;
@@ -1373,7 +1382,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
     }
 
     public static String getCreateDataExtensionResponseJSON(){
-        return '{"id":"OVdFVXRiVm9FZVdXYll6YzFMZmFMUTo0NTow"}';
+        return '{"id":"' + DATA_EXTENSION_ID + '"}';
     }
 
     public static MERC_MockHttpResponseService.MockResponseInterface getCreateDataExtensionRequest(MERC_MarketingCloudClient.DataExtension dataExtension){
@@ -1711,6 +1720,26 @@ public with sharing class MERC_MarketingCloudTestUtility {
         public String handlerName(){
             return 'CreateSendDefinition_' + expectedEndpoint + '_' + contentType + '_' + acceptType;
         }
+    }
+
+    public static Meeting_Email_Send_MERC__c getMeetingEmailSend(Id meetingId){
+        Meeting_Email_Send_MERC__c meetingEmailSend = new Meeting_Email_Send_MERC__c();
+        meetingEmailSend.Meeting_MERC__c = meetingId;
+        meetingEmailSend.ET_Data_Extension_Id_MERC__c = DATA_EXTENSION_ID;
+        meetingEmailSend.ET_Sync_Id_MERC__c = 'ETLillymeetingEmailSend sync id';
+        meetingEmailSend.ET_Business_Unit_MERC__c = null;
+        meetingEmailSend.ET_Recipients_Opted_In_MERC__c = true;
+        meetingEmailSend.ET_Sender_Profile_Id_MERC__c = SEND_DEFINITION_SENDER_PROFILE_ID;
+        meetingEmailSend.ET_Send_Classification_Id_MERC__c = SEND_DEFINITION_CLASSIFICATION_ID;
+        meetingEmailSend.ET_Dedupe_Subscribers_MERC__c = EMAIL_SEND_DEDUPE;
+        meetingEmailSend.ET_Individual_Tracking_Disabled_MERC__c = false;
+        meetingEmailSend.ET_Email_ID_MERC__c = EMAIL_ID;
+        meetingEmailSend.ET_Email_Name_MERC__c = EMAIL_SEND_SUBJECT;
+        meetingEmailSend.ET_Subject_MERC__c = EMAIL_SEND_SUBJECT;
+        meetingEmailSend.ET_Subject_Line_MERC__c = EMAIL_SEND_SUBJECT;
+        meetingEmailSend.Additional_Information_MERC__c = EMAIL_ADDITIONAL_INFORMATION_HTML;
+        meetingEmailSend.Additional_Information_Plain_Text_MERC__c = EMAIL_ADDITIONAL_INFORMATION_TEXT;
+        return meetingEmailSend;
     }
 
     public static MERC_MockHttpResponseService MockRequestsForEmailSendAttempt(

@@ -67,10 +67,20 @@ public class MERC_MeetingEmailSendAttemptHandler implements GLBL_TriggerHandler.
         }
     }
 
-    private void retrySends(List<MeetingEmailSendWrapper> meetingEmailSends, Integer startIndex){
+    private void retrySends(List<MeetingEmailSendWrapper> meetingEmailSendsWrappers, Integer startIndex){
         List<Meeting_Email_Send_MERC__c> sendsToRetry = new List<Meeting_Email_Send_MERC__c>();
-        for (Integer index = startIndex; index < meetingEmailSends.size(); index++) {
-            Meeting_Email_Send_MERC__c meetingEmailSend = meetingEmailSends[index].meetingEmailSend;
+        List<Meeting_Email_Send_MERC__c> sendsToProcess = new List<Meeting_Email_Send_MERC__c>();
+        
+        for (Integer index = startIndex; index < meetingEmailSendsWrappers.size(); index++) {
+            Meeting_Email_Send_MERC__c meetingEmailSend = meetingEmailSendsWrappers[index].meetingEmailSend;
+            sendsToProcess.add(meetingEmailSend);
+        }
+
+        if(Trigger.isAfter){
+            sendsToProcess = [SELECT Id, Retry_Count__c, Send_Email__c, Incomplete_MERC__c, Retry_Date__c FROM Meeting_Email_Send_MERC__c WHERE Id IN :sendsToProcess];
+        }
+
+        for (Meeting_Email_Send_MERC__c meetingEmailSend : sendsToProcess) {
             MERC_MarketingCloudService.prepareMeetingEmailSendForRetry(meetingEmailSend, MERC_MarketingCloudService.HighMaxRetryCount);
             sendsToRetry.add(meetingEmailSend);
         }
@@ -109,7 +119,10 @@ public class MERC_MeetingEmailSendAttemptHandler implements GLBL_TriggerHandler.
             MeetingEmailSendWrapper compareToWrapper = (MeetingEmailSendWrapper)compareTo;
             Meeting_Email_Send_MERC__c compareToMeetingEmailSend = compareToWrapper.MeetingEmailSend;
             Meeting_Email_Send_MERC__c oldCompareToMeetingEmailSend = compareToWrapper.oldMeetingEmailSend;
-            
+            if(oldCompareToMeetingEmailSend == null || oldMeetingEmailSend == null){
+                return 1;
+            }
+
             Integer currentStatusValue = retrieveValueforSendStatus(meetingEmailSend.Send_Status__c);
             Integer compareToStatusValue = retrieveValueforSendStatus(compareToMeetingEmailSend.Send_Status__c);
             if (currentStatusValue > compareToStatusValue) {

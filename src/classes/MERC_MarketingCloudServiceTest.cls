@@ -170,7 +170,6 @@ public with sharing class MERC_MarketingCloudServiceTest {
 
             List<Id> personContactIds = MERC_MarketingCloudTestUtility.getPersonContactIds(subscriberAccounts);
             subscriberAccounts = MERC_MarketingCloudTestUtility.queryPersonAccounts(subscriberAccounts);
-            System.assert(!String.isBlank(subscriberAccounts.get(0).PersonContactId),subscriberAccounts.get(0));
 
             List<MERC_MarketingCloudClient.Subscriber> subscribers = 
                 MERC_MarketingCloudTestUtility.getPersonContactSubscribers(personContactIds);
@@ -188,6 +187,58 @@ public with sharing class MERC_MarketingCloudServiceTest {
             Test.startTest();
             MERC_MarketingCloudService.updateSubscribersWithContacts(personContactIds);
             Test.stopTest();
+        }
+    }
+
+    @isTest static void test_batchUpdateSubscribersWithContacts(){
+        User testUser = MERC_MarketingCloudTestUtility.insertUser();
+        System.runAs(testUser){
+            MERC_MarketingCloudTestUtility.adjustTime();
+           
+            
+            List<Account> subscriberAccounts = MERC_MarketingCloudTestUtility.getSubscriberAccounts(40);
+            insert subscriberAccounts;
+            List<Id> personContactIds = MERC_MarketingCloudTestUtility.getPersonContactIds(subscriberAccounts);
+
+            List<Account> firstBatchOfSubscriberAccounts = new List<Account>();
+            List<Account> secondBatchOfSubscriberAccounts = new List<Account>();
+
+            for(Integer index = 0; index < 25; index++){
+                firstBatchOfSubscriberAccounts.add(subscriberAccounts.get(index));
+            }
+            for(Integer index = 25; index < 40; index++){
+                secondBatchOfSubscriberAccounts.add(subscriberAccounts.get(index));
+            }
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+            prepareMockForBatchOfPersonContactIds(mockResponseService, firstBatchOfSubscriberAccounts);
+            prepareMockForBatchOfPersonContactIds(mockResponseService, secondBatchOfSubscriberAccounts);
+            
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+            Test.startTest();
+            MERC_MarketingCloudService.batchUpdateSubscribersWithContacts(personContactIds);
+            Test.stopTest();
+        }
+    }
+
+    private static void prepareMockForBatchOfPersonContactIds(
+        MERC_MockHttpResponseService mockResponseService,
+        List<Account> subscriberAccounts){
+
+        List<Id> personContactIds = MERC_MarketingCloudTestUtility.getPersonContactIds(subscriberAccounts);
+        subscriberAccounts = MERC_MarketingCloudTestUtility.queryPersonAccounts(subscriberAccounts);
+        System.assert(!String.isBlank(subscriberAccounts.get(0).PersonContactId),subscriberAccounts.get(0));
+
+        List<MERC_MarketingCloudClient.Subscriber> subscribers = 
+            MERC_MarketingCloudTestUtility.getPersonContactSubscribers(personContactIds);
+
+        List<MERC_MarketingCloudClient.Subscriber> expectedSubscribers = 
+            MERC_MarketingCloudTestUtility.getExpectedSubscribers(subscriberAccounts);
+
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockSubscribersRequest(subscribers, personContactIds));  
+        for(MERC_MarketingCloudClient.Subscriber subscriber : expectedSubscribers){
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockSubscriberUpdateRequest(
+                subscriber));
         }
     }
 }

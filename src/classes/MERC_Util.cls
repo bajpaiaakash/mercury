@@ -115,25 +115,35 @@ public with sharing class MERC_Util {
 		return recordId.getSObjectType().getDescribe().getName();
 	}
 
-	private static Map<String, Map<String, String>> objectAPINameToDateFieldAPINameToTimeZoneFieldAPIName = new Map<String, Map<String, String>>();
-	private static Map<String, Datetime> objectAPINameToLastModifiedDateFieldAPINameToTimeZoneFieldAPIName = new Map<String, Datetime>();
-	public static Map<String, String> getTimeZoneFieldMapForObject(String objectAPIName) {
-		if(!objectAPINameToDateFieldAPINameToTimeZoneFieldAPIName.containsKey(objectAPIName) ||
-			objectAPINameToLastModifiedDateFieldAPINameToTimeZoneFieldAPIName.get(objectAPIName).addMinutes(3) < Datetime.now()){
-			objectAPINameToLastModifiedDateFieldAPINameToTimeZoneFieldAPIName.put(objectAPIName, Datetime.now());
-			Map<String, String> dateFieldAPINameToTimeZoneFieldAPIName = new Map<String, String>();
-			for (Time_Zone_Field_Mappings_MERC__c fm : [SELECT
-														Field_API_Name_MERC__c,
-														Time_Zone_Field_API_Name_MERC__c
-															FROM
-																Time_Zone_Field_Mappings_MERC__c
-																	WHERE Object_API_Name_MERC__c = :objectAPIName]) {
-				dateFieldAPINameToTimeZoneFieldAPIName.put(fm.Field_API_Name_MERC__c, fm.Time_Zone_Field_API_Name_MERC__c);
-			}
-			objectAPINameToDateFieldAPINameToTimeZoneFieldAPIName.put(objectAPIName, dateFieldAPINameToTimeZoneFieldAPIName);
+	private static Map<String, Map<String, String>> objectFieldTimeZoneMap = new Map<String, Map<String, String>>();
+	public static Map<String, String> getTimeZoneFieldMapForObject(String objectAPIName){
+		if(objectFieldTimeZoneMap == null){
+			buildFieldMapsFromTimeZoneFieldMappings(queryTimeZoneFieldMappings());
 		}
-		
-		return objectAPINameToDateFieldAPINameToTimeZoneFieldAPIName.get(objectAPIName);
+		if(objectFieldTimeZoneMap.containsKey(objectAPIName)){
+			return objectFieldTimeZoneMap.get(objectAPIName);
+		} else {
+			System.debug(LoggingLevel.WARN, 'No TimeZoneFieldMap found for ' + objectAPIName);
+			return new Map<String,String>();
+		}
+	}
+
+	private static void buildFieldMapsFromTimeZoneFieldMappings(List<Time_Zone_Field_Mappings_MERC__c> mappings){
+		objectFieldTimeZoneMap = new Map<String, Map<String, String>>();
+		for(Time_Zone_Field_Mappings_MERC__c mapping : mappings){
+			if(!objectFieldTimeZoneMap.containsKey(mapping.Object_API_Name_MERC__c)){
+				objectFieldTimeZoneMap.put(mapping.Object_API_Name_MERC__c, new Map<String, String>());
+			}
+			Map<String, String> fieldTimeZoneMap = objectFieldTimeZoneMap.get(mapping.Object_API_Name_MERC__c);
+			fieldTimeZoneMap.put(mapping.Field_API_Name_MERC__c, mapping.Time_Zone_Field_API_Name_MERC__c);
+		}
+	}
+
+	private static List<Time_Zone_Field_Mappings_MERC__c> queryTimeZoneFieldMappings(){
+		return [SELECT Field_API_Name_MERC__c,
+					   Time_Zone_Field_API_Name_MERC__c,
+					   Object_API_Name_MERC__c
+				  FROM Time_Zone_Field_Mappings_MERC__c];
 	}
 
 	private static Map<String, Map<String, String>> objectAPINameToDateFieldAPINameToFieldToStampAPIName = new Map<String, Map<String, String>>();
@@ -398,4 +408,6 @@ public with sharing class MERC_Util {
 	    	return this.SOQL;
 	    }
 	}
+
+	public class MERC_UtilException extends Exception {}
 }

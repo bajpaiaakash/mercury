@@ -380,7 +380,9 @@ public with sharing class MERC_MarketingCloudService {
     @future(callout=true)
     public static void attemptMeetingEmailSendAsync(Id meetingEmailSendId){
         Meeting_Email_Send_MERC__c meetingEmailSend = queryMeetingEmailSend(meetingEmailSendId);
-        attemptMeetingEmailSend(meetingEmailSend);
+        if(meetingEmailSend.Send_Email__c){
+            attemptMeetingEmailSend(meetingEmailSend);
+        }
     }
 
     private static void attemptMeetingEmailSend(Meeting_Email_Send_MERC__c meetingEmailSend){
@@ -473,7 +475,7 @@ public with sharing class MERC_MarketingCloudService {
         }
 
         if (meetingEmailSend.Send_Status__c == CheckSendStatus){
-            MERC_ETSendDefinition.CheckStatusResponse csr;
+            MERC_MarketingCloudClient.CheckSendDefinitionStatusResponse csr;
             try {
                 checkStatusResponse = MERC_MarketingCloudClient.sendDefinitionStatus(sendDefinition.et4ae5__ETSendDef__c);
             } catch (Exception e) {
@@ -503,7 +505,7 @@ public with sharing class MERC_MarketingCloudService {
                 else {
                     update sendDefinition;
                 }
-                
+                meetingEmailSend.Send_Email__c = false;
                 meetingEmailSend.Send_Status__c = EmailSendCreated;
                 upsert meetingEmailSend;
             }
@@ -513,7 +515,7 @@ public with sharing class MERC_MarketingCloudService {
     private static MERC_MarketingCloudClient.SendClassification getDefaultSendClassification(){
         MERC_MarketingCloudClient.SendClassification sendClassification = MERC_MarketingCloudClient.getClassification(MarketingCloudSettings.Default_Send_Classification_MERC__c);
         if(sendClassification == null){
-            throw new MERC_ETNoSendClassificationException('No send classification, matching the custom setting, could be found!');
+            throw new NoSendClassificationException('No send classification, matching the custom setting, could be found!');
         }
         return sendClassification;
     }
@@ -598,7 +600,7 @@ public with sharing class MERC_MarketingCloudService {
         meetingEmailSend.Retry_Count__c += 1;
         meetingEmailSend.Send_Email__c = false;
         
-        if (maxRetryCount <= meetingEmailSend.Retry_Count__c) {
+        if (meetingEmailSend.Retry_Count__c > maxRetryCount) {
             meetingEmailSend.Incomplete_MERC__c = true;
             meetingEmailSend.Retry_Date__c = null;
         }
@@ -640,6 +642,29 @@ public with sharing class MERC_MarketingCloudService {
     }
 
     /* updating subscribers */
+    public static void batchUpdateSubscribersWithContacts(List<Id> personContactIds){
+        List<Id> personContactIdBatch = new List<Id>();
+        Integer batchSize = 25;
+        Integer batchNumber = 1;
+        // batch up update callouts to avoid future method governor/callout limits
+        for (Integer i = 1; i <= personContactIds.size(); i += 1) {
+            personContactIdBatch.add(personContactIds.get(i - 1));
+            
+            if (math.mod(i, batchSize) == 0 || i == personContactIds.size()) {
+                System.Debug('Deploying batch #' + batchNumber + ' of size (' + personContactIdBatch.size() + ')...');
+                System.Debug('personContactIdBatch:\n' + personContactIdBatch + '\n');
+                updateSubscribersWithContactsAsync(personContactIdBatch);
+                personContactIdBatch = new List<Id>();
+                batchNumber++;
+            }
+        }
+    }
+
+    @future (callout=true)
+    public static void updateSubscribersWithContactsAsync(List<Id> personContactIds){
+        updateSubscribersWithContacts(personContactIds);
+    }
+
     public static void updateSubscribersWithContacts(List<Id> personContactIds){
         Map<Id, Account> accountMap = new Map<Id, Account>();
         List<Account> accounts = [SELECT Id, 
@@ -659,7 +684,17 @@ public with sharing class MERC_MarketingCloudService {
                                                                             DeveloperName 
                                                                        FROM RecordType]);
 
-        List<MERC_MarketingCloudClient.Subscriber> subscribers = MERC_MarketingCloudClient.getSubscribers(personContactIds);
+        List<MERC_MarketingCloudClient.Subscriber> subscribers;
+
+        try {
+            subscribers = MERC_MarketingCloudClient.getSubscribers(personContactIds);
+        } catch(CalloutException calloutException){
+            if(Test.isRunningTest()){
+                System.debug(calloutException);
+            } else {
+                throw calloutException;
+            }
+        }
 
         if(subscribers == null || subscribers.size() == 0){
             return;
@@ -701,4 +736,5 @@ public with sharing class MERC_MarketingCloudService {
     }
 
     public class MarketingCloudServiceException extends Exception {}
+    public class NoSendClassificationException extends Exception {}
 }
