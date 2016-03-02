@@ -14,42 +14,10 @@
 
 		<echo message="START: SFDC Deployment" />
 		<sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src.dir}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" testLevel="${sf.testLevel}" logType="${sf.logType}" >
-		<runTest>MERC_AccountRollupsTest</runTest>
-		<runTest>MERC_HcpCapYearlyCalculationJobTest</runTest>
-		<runTest>MERC_BudgetVersionControllerTest</runTest>	
-		<runTest>MERC_ContentVersionHandlerTest</runTest>	
-		<runTest>MERC_CancelDelegateMgmtProcessTest</runTest>	
-		<runTest>MERC_DailyAttendanceControllerStressTest</runTest>	
-		<runTest>MERC_DailyAttendanceControllerTest</runTest>	
-		<runTest>MERC_HandleDocusignAttachmentInsertTest</runTest>	
-		<runTest>MERC_HotelAllocationCalculatorTest</runTest>	
-		<runTest>MERC_ParticipantStatusCalculatorTest</runTest>	
-		<runTest>MERC_InvoiceCreditNoteControllerTest</runTest>	
-		<runTest>MERC_InvoiceDocFilterControllerTest</runTest>	
-		<runTest>MERC_InvoiceInvalidationControllerTest</runTest>	
-		<runTest>MERC_InvoiceXmlControllerTest</runTest>	
-		<runTest>MERC_InvoiceXmlWriterTest</runTest>	
-		<runTest>MERC_ItineraryParticipantUpdateTest</runTest>	
-		<runTest>MERC_LockedRecordHandlerTest</runTest>	
-		<runTest>MERC_MarketingCloudServiceTest</runTest>	
-		<runTest>MERC_MassApproveParticipantsCntrlrTest</runTest>	
-		<runTest>MERC_MeetingParticipantRollupsTest</runTest>	
-		<runTest>MERC_MeetingParticipantTovValidationTest</runTest>	
-		<runTest>MERC_MeetingProcessLogicHandlerTest</runTest>	
-		<runTest>MERC_MVIMeetingTimeZoneHandlerTest</runTest>	
-		<runTest>MERC_NewContentControllerTest</runTest>	
-		<runTest>MERC_ParticipantTovStampHandlerTest</runTest>	
-		<runTest>MERC_TOVCalculatorTest</runTest>	
-		<runTest>MERC_TOVNonAggregateCalculatorTest</runTest>	
-		<runTest>MERC_TOVRoundingTest</runTest>	
-		<runTest>MERC_TravelItineraryNewEditTest</runTest>	
-		<runTest>MERC_XmlWriterRestResourceTest</runTest>	
-		<runTest>GLBL_AccountMergeStampTriggerTest</runTest>	
-		<runTest>MERC_ETMeetingEmailSendExtension_Test</runTest>	
-		<runTest>MERC_ETMeetingEmailSendTriggerImpl_Test</runTest>	
-		<runTest>MERC_AllocatedCAPCalculatorTest</runTest>	
-		<runTest>MERC_AllocatedConsCapCalculatorBatchTest</runTest>	
-		<runTest>MERC_AllocatedConsCapCalculatorSch_Test</runTest>
+		
+		<runTest>Test_MERC_AllocatedCAPCalculator</runTest>	
+		<runTest>Test_MERC_AllocatedConsCapCalculatorBch</runTest>	
+		<runTest>Test_MERC_AllocatedConsCapCalculatorSch</runTest>
 		<runTest>MERC_TestFactory</runTest>			
 			
 		</sf:deploy>
