@@ -1,4 +1,5 @@
 config/*
+deploy/*
 *.sublime-workspace
 *.sublime*
 apex-scripts/log/*
