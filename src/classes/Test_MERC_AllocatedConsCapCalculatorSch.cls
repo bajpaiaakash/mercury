@@ -4,7 +4,7 @@
 */
 
 @isTest
-private class MERC_AllocatedConsCapCalculatorSch_Test{
+private class Test_MERC_AllocatedConsCapCalculatorSch{
      static testmethod void mytestmethod(){
      User testUser = MERC_TestFactory.getTestingUser(); 
      System.runAs(testUser) {

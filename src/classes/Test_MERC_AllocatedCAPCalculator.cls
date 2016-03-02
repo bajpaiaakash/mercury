@@ -1,5 +1,5 @@
 @isTest
-private class MERC_AllocatedCAPCalculatorTest {
+private class Test_MERC_AllocatedCAPCalculator {
 
     static List<Meeting_MERC__c> meetings;
     static List<Account> accounts;

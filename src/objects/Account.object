@@ -62,8 +62,9 @@
         <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>MERC_Paid_CN_after_meeting_end_date__c</fullName>
+        <description>To calculate the paid Credit Note after the meeting end date for Consulting meetings. This will further used for calculating Allocated CAP. Created 09/02/2016 by Namrata Aggarwal.</description>
         <externalId>false</externalId>
         <label>Paid CN after meeting end date</label>
         <precision>18</precision>
@@ -140,6 +141,7 @@
     </fields>
     <fields>
         <fullName>MERC_Paid_Invoice_after_meeting_end_date__c</fullName>
+		<description>To calculate the paid Invoices after the meeting end date for Consulting meetings. This will further used for calculating Allocated CAP. Created 09/02/2016 by Namrata Aggarwal.</description>
         <externalId>false</externalId>
         <label>Paid Invoices after meeting end date</label>
         <precision>18</precision>

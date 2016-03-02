@@ -215,13 +215,11 @@ private class MERC_TOVCalculatorTest {
             }
             update meetings;
          
-            //MERC_TriggerHandlerStateManager.activate(MERC_TOVCalculator.class);
             MERC_TOVCalculator.runHotelTovCalculation = true;
             MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
-
-            // 8. Add another Travel Hotel record for Participant which covers day 2 only
-            
+           
         Test.stopTest();
+        System.assertEquals('Yes',meetings[0].Participant_ToV_Final_MERC__c);
     }
 
 
@@ -256,9 +254,7 @@ Test.startTest();
         tovForParticipant1Day1 = [SELECT Id, Est_Grnd_Transp_MERC__c, Est_Reg_Amt_ToV_MERC__c, Est_Food_Bev_ToV_MERC__c, Status_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
 
         //assert that meeting day 1's food bev estimate rolled up up to the participant total
-//p('participant1'+participant1);
-//p('tovForParticipant1Day1'+tovForParticipant1Day1);
-//      System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_MERC__c, 'Est_Food_Bev_ToV_MERC__c did not rollup as expected.');
+		//System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_MERC__c, 'Est_Food_Bev_ToV_MERC__c did not rollup as expected.');
 
         //now remove attendance on day 1
         
@@ -271,10 +267,10 @@ Test.startTest();
         profiler.stopProfiling();
         profiler.debugUsage();
         Test.stopTest();
-        //participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
+        participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
         //now ensure the rollup re-calculated
-        //System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c,'Unexpected non-null value for MP Total Food/Bev');
+        System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c,'Unexpected non-null value for MP Total Food/Bev');
     }
 
     /**
@@ -320,10 +316,10 @@ Test.startTest();
         profiler.stopProfiling();
         profiler.debugUsage();
         Test.stopTest();
-        //participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
+        participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
         //now ensure the rollup re-calculated
-        //System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
+        System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
     }
 
     /**
@@ -887,14 +883,9 @@ p('finished');
         profiler.stopProfiling();
         profiler.debugUsage();
         Test.stopTest();
-		/*commented by Aakash
-        // if ToV final, value should be 0
-        tovs = [SELECT Est_Hotel_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Meeting_Participant_MERC__c = :attendee.Id];
-        System.assertEquals(0,tovs[0].Est_Hotel_ToV_MERC__c,'Unexpected '+tovs[0].Est_Hotel_ToV_MERC__c+' value for daily hotel tov');
 
-        attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
-        System.assertEquals(0,attendee.Total_Hotel_ToV_MERC__c,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
-        */
+        System.assertEquals('Cancelled',itineraries[0].Status_MERC__c);
+       
      }
 
     /**
@@ -959,17 +950,10 @@ p('finished');
         profiler.stopProfiling();
         profiler.debugUsage();
         Test.stopTest();
-        /*participant1 = [SELECT Id, Total_Hotel_ToV_MERC__c
-                        FROM Meeting_Participant_MERC__c
-                        WHERE Id = :participant1.Id];*/
-
+  
         //now ensure the rollup did not clear value
         //System.assertNotEquals(null, participant1.Total_Hotel_ToV_MERC__c);
         System.assertEquals(previousValue, participant1.Total_Hotel_ToV_MERC__c, 'Unexpected hotel ToV values do not match after status change.');
-
-        /*tovForParticipant1Day1 = [SELECT Id, Est_Hotel_ToV_MERC__c, Status_MERC__c
-                                    FROM Daily_Attendance_TOV_MERC__c
-                                    WHERE Id = :tovForParticipant1Day1.Id];*/
 
         //ensure Hotel didn't get erased/changed
         System.assertEquals(tovForParticipant1Day1.Est_Hotel_ToV_MERC__c,previousValue,'Hotel ToV on Daily Attendance has unexpectedly changed.');
