@@ -5,7 +5,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_AllocatedCAPCalculatorTest</apexClass>
+        <apexClass>Test_MERC_AllocatedCAPCalculator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
