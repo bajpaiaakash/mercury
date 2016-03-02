@@ -46,6 +46,8 @@
 		<members>Test_MERC_AllocatedCAPCalculator</members>
 		<members>Test_MERC_AllocatedConsCapCalculatorBch</members>
 		<members>Test_MERC_AllocatedConsCapCalculatorSch</members>
+		<members>CUST_UserSettingsUnderReviewScheduler</members> 
+	    <members>CUST_UserSettingsUnderReviewSch_test</members>   
         <name>ApexClass</name>
     </types>
 	<types>
