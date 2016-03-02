@@ -43,6 +43,9 @@
 		<members>MERC_ETMeetingEmailSendTriggerImpl_Test</members>			
 		<members>MERC_TestFactory</members>
 		<members>MERC_AllocatedConsCapCalculatorSchedule</members>
+		<members>Test_MERC_AllocatedCAPCalculator</members>
+		<members>Test_MERC_AllocatedConsCapCalculatorBch</members>
+		<members>Test_MERC_AllocatedConsCapCalculatorSch</members>
         <name>ApexClass</name>
     </types>
 	<types>
