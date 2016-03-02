@@ -15,10 +15,7 @@
 		<echo message="START: SFDC Deployment" />
 		<sf:deploy username="${sf.deploy.username}${org}" password="${sf.deploy.password}" serverurl="${sf.deploy.serverurl}" deployRoot="${src.dir}" maxPoll="${sf.maxPoll}" pollWaitMillis="${sf.pollWaitMillis}" checkOnly="${sf.checkOnly}" testLevel="${sf.testLevel}" logType="${sf.logType}" >
 		
-		<runTest>Test_MERC_AllocatedCAPCalculator</runTest>	
-		<runTest>Test_MERC_AllocatedConsCapCalculatorBch</runTest>	
-		<runTest>Test_MERC_AllocatedConsCapCalculatorSch</runTest>
-		<runTest>MERC_TestFactory</runTest>			
+		
 			
 		</sf:deploy>
 	</target>
