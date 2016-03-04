@@ -1,7 +1,0 @@
-<!--
-	Created by: Joseph Ferraro, Mavens Consulting
-	Description: VF page enables users to upload documents to Salesforce Content and associate with Mercury objects
--->
-<apex:page showHeader="true" sidebar="true" standardController="Account">
-	<c:MERC_NewContentGeneric />
-</apex:page>

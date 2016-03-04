@@ -55,6 +55,7 @@
 	<apex:form >
 		<div class="loading-wrapper" style="position:relative;">
 			<apex:pageMessage severity="INFO" strength="2" summary="{!$Label.Daily_Attendance_Set_Status}" rendered="{!not(hasError)}"/>
+			<apex:pageMessage severity="WARNING" strength="2" summary="Only those Meeting Participants that are allocated to attend with status of 'Accepted', 'Attended' or 'No Show' will appear in the list. Please ensure Meeting Participants have been added to the Meeting and Meeting Participants have the correct status." rendered="{!not(hasError)&&nonQualifiedParticipantSize>0}"/>
 			<apex:pageBlock title="Meeting Participants" id="mainBlock">
 				<apex:pageBlockButtons location="top">
 					<apex:selectList value="{!selectedMeetingDayId}" size="1" styleclass="selectMeetingDay" rendered="{!not(hasError)}">

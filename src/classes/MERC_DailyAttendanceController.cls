@@ -73,6 +73,20 @@ public with sharing class MERC_DailyAttendanceController {
         }
     }
 
+    public Integer nonQualifiedParticipantSize {
+        get {
+            Id employeeRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
+            List<String> excludedStatuses = new List<String>{ 'Pending Approval', 'Declined', 'Interested in Meeting', 'Cancelled', 'Rejected', 'Invited' };
+            Integer result = [SELECT Name 
+                                FROM Meeting_Participant_MERC__c
+                               WHERE Meeting_MERC__c = :meeting.Id 
+                                 AND Account_MERC__r.RecordTypeId != :employeeRecordTypeId 
+                                 AND Status_MERC__c IN :excludedStatuses].size();
+            return result;
+        }
+        private set;
+    }
+
     Set<Id> participantIds {
         get {
             if (participantIds == null) {

@@ -1,5 +1,0 @@
-<!--
-	Created by: Mavens Consulting
-	Description: Page action calls redirect which calls deleteOldDocsInContent. Informatica on Demand cannot support multiple PDF content on a single Invoice recordso the deleteOldDocsInContent method deletes older PDFs (or the filetype designated), with the presumption that they are out-dated.
--->
-<apex:page showHeader="false" sidebar="false" controller="MERC_InvoiceDocFilterController" action="{!redirect}"><apex:pagemessages id="pageMessage"/></apex:page>
