@@ -5,19 +5,21 @@
 */
 @isTest
 public with sharing class MERC_TestFactory {
+    
+    //Start: Modified by Vijay Garg; for US-39907 on 25-Feb-2016
+    public static Id employeeRecordTypeId =    Schema.SObjectType.Account.RecordTypeInfosByName.get('Employee').RecordTypeId;
+    Public static Id meetingRecordTypeId =     Schema.SObjectType.Meeting_MERC__c.RecordTypeInfosByName.get('Consulting Project').RecordTypeId;
+    Public static Id ParticipantRecordTypeId =     Schema.SObjectType.Meeting_Participant_MERC__c.RecordTypeInfosByName.get('Consulting').RecordTypeId; //modified by Jyoti Gaur for US-39907 Ac1 on 09 Dec and US-39477 on 15 Jan
+    Public static Id LineItemConsultingRecordTypeId = Schema.SObjectType.Invoice_Line_Item_MERC__c.RecordTypeInfosByName.get('Consulting Project').RecordTypeId; 
+    Public static Id LineItemContractedRecordTypeId = Schema.SObjectType.Invoice_Line_Item_MERC__c.RecordTypeInfosByName.get('Contracted Services').RecordTypeId;
+    public static Id hcpRecordTypeId =          Schema.SObjectType.Account.RecordTypeInfosByName.get('HCP').RecordTypeId;
+    public static Id vendorRecordTypeId =       Schema.SObjectType.Account.RecordTypeInfosByName.get('Vendor').RecordTypeId;
 
-    public static Id employeeRecordTypeId =     [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Employee_GLBL' LIMIT 1].Id;
-    Public static Id ParticipantRecordTypeId =     [Select ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'MERC_Consulting' LIMIT 1].Id; //modified by Jyoti Gaur for US-39907 Ac1 on 09 Dec and US-39477 on 15 Jan
-    Public static Id LineItemConsultingRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Invoice_Line_Item_MERC__c' AND DeveloperName = 'Consulting_Project_MERC' LIMIT 1].Id;
-    Public static Id LineItemContractedRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Invoice_Line_Item_MERC__c' AND DeveloperName = 'Contracted_Services_MERC' LIMIT 1].Id;
-    public static Id hcpRecordTypeId =          [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'HCP_GLBL' LIMIT 1].Id;
-    public static Id vendorRecordTypeId =       [Select ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Vendor_GLBL' LIMIT 1].Id;
+    public static Id masteredAddressRecordTypeId =  Schema.SObjectType.Address_GLBL__c.RecordTypeInfosByName.get('Mastered Address').RecordTypeId;
+    public static Id otherAddressRecordTypeId =     Schema.SObjectType.Address_GLBL__c.RecordTypeInfosByName.get('Other Address').RecordTypeId;
 
-    public static Id masteredAddressRecordTypeId =  [SELECT ID FROM RecordType WHERE SObjectType = 'Address_GLBL__c' AND DeveloperName = 'Mastered_Address' LIMIT 1].Id;
-    public static Id otherAddressRecordTypeId =     [SELECT ID FROM RecordType WHERE SObjectType = 'Address_GLBL__c' AND DeveloperName = 'Other_Address' LIMIT 1].Id;
-
-    public static Id hotelItineraryRecordTypeId =   [SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'MERC_Hotel' LIMIT 1].Id;
-
+    public static Id hotelItineraryRecordTypeId =   Schema.SObjectType.Travel_Itinerary_MERC__c.RecordTypeInfosByName.get('Hotel').RecordTypeId;
+    //End: Modified by Vijay Garg; for US-39907 on 25-Feb-2016
     public static Boolean adjustForSFDCSetMockBug {get{if (adjustForSFDCSetMockBug==null) return false; else return adjustForSFDCSetMockBug;}
                            set{adjustForSFDCSetMockBug = value&&Test.isRunningTest();}}
 
@@ -257,6 +259,43 @@ public with sharing class MERC_TestFactory {
         insert mtgs;
         return mtgs;
     }
+    
+    // insert meetings of consulting types only start
+    
+    public static List<Meeting_MERC__c> insertMeetings_CAP(Integer numberOfMeetings) {
+        return insertMeetings_CAP(numberOfMeetings, null);
+    }
+
+    public static List<Meeting_MERC__c> insertMeetings_CAP(Integer numberOfMeetings, String countryName) {
+        return insertMeetings_CAP(numberOfMeetings, countryName, null);
+    }
+
+    // TODO - this method arbitrarily sets the start/end dates 2 days in future and length to one day. Also, not in synch with insertMeetingDays()
+    public static List<Meeting_MERC__c> insertMeetings_CAP(Integer numberOfMeetings, String countryName, String status) {
+        if (countryName == null)
+            countryName = 'GB';
+        List<Meeting_MERC__c> mtgs = new List<Meeting_MERC__c>();
+        for (Integer i = 0; i < numberOfMeetings; i++) {
+            Meeting_MERC__c m = new Meeting_MERC__c();
+            m.Date_of_Event_MERC__c = Date.today().addDays(2);
+            m.End_Date_of_Event_MERC__c = Date.today().addDays(2);
+            m.Start_Time_of_Meeting_MERC__c = DateTime.newInstance(Date.today().addDays(2), Time.newInstance(10, 0, 0, 0));
+            m.End_Time_of_Meeting_MERC__c = DateTime.newInstance(Date.today().addDays(2), Time.newInstance(14, 0, 0, 0));
+            m.Name = 'Event Name'+i;
+            m.Meeting_Time_Zone_MERC__c = 'Greenwich Mean Time (Europe/London)';
+            m.Event_Country_MERC__c = countryName;
+            m.MERC_Meeting_Complete_Canceled_Clsd_Date__c = NULL;
+            m.recordtypeid = meetingRecordTypeId;
+            if(status != null){
+                m.Meeting_Status_MERC__c = status;
+            }
+            mtgs.add(m);
+        }
+        insert mtgs;
+        return mtgs;
+    }
+    
+    // // insert meetings of consulting types only end
 
     public static Daily_Attendance_TOV_MERC__c insertTov(String meetingDayId, String meetingParticipantId) {
         return insertTov(meetingDayId, meetingParticipantId, null);
@@ -429,9 +468,13 @@ public with sharing class MERC_TestFactory {
             p.Account_MERC__c = accounts.get(i).Id;
             p.Meeting_MERC__c = meetingId;
             p.Status_MERC__c = pStatus;
+            p.Final_Fee_Rollup_MERC__c = 100; 
+            p.Proposed_Final_Fee_MERC__c = 10;
             p.RecordTypeId = ParticipantRecordTypeId;
+            p.Include_CAP_Roll_Up_MERC__c = True;
+            p.Confirm_Final_Fee_MERC__c = 'Confirmed';
             p.Services_Rendered_MERC__c = 'Yes';
-            p.Alliance_MERC__c = 'Not Applicable';  // new process around FMV
+            //p.Alliance_MERC__c = 'Not Applicable';  // new process around FMV
             participants.add(p);
         }
 
@@ -687,4 +730,46 @@ public with sharing class MERC_TestFactory {
     static void p(String m) {
         System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
     }
+    
+      /*
+     * Created the below insert User method to assign public group to User using developerName.
+     */
+    public static List<User> insertTestPublicGroupUsers(Integer numberOfUsers, String profileName, String roleName, String groupDeveloperName) {
+        List<User> users = new List<User>();
+
+        if (roleName  == null) roleName  = 'Lilly Employee';
+        if (groupDeveloperName == null) groupDeveloperName = 'System_Administrators';
+  
+        Profile p = [SELECT id from Profile WHERE Profile.Name =  :profileName limit 1];
+        UserRole r =[SELECT Id FROM UserRole WHERE Name=:roleName limit 1];
+
+        for (Integer i = 0; i < numberOfUsers; i++) {
+            String testemail = 'testuser'+userIndex+'@unittest.com';
+            User u = new User(profileId = p.id, userRoleId = r.id, username = testemail, email = testemail,
+               alias='utusr'+userIndex, lastname='lastname', emailencodingkey = 'UTF-8', localesidkey = 'en_US',
+               languagelocalekey = 'en_US', timezonesidkey = 'GMT'
+               );
+            userIndex++;
+            users.add(u);
+        }
+        insert(users);
+
+        Group g = [SELECT Id FROM Group WHERE DeveloperName = :groupDeveloperName limit 1];
+        List<GroupMember> members = new List<GroupMember>();
+        for (User u : users) {
+            members.add(new GroupMember(GroupId=g.Id,UserOrGroupId=u.Id));
+        }
+        List<Group> groups = [SELECT Id FROM Group WHERE Name LIKE '%GB'];
+        for (Group grp : groups) {
+            for (User u : users)
+            {
+                members.add(new GroupMember(GroupId=grp.Id,UserOrGroupId=u.Id));
+            }
+        }
+        insert members;
+
+        return users;
+    }
+
+   
 }

@@ -94,8 +94,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
     }
 
     private static Meeting_MERC__c insertMeetingAndChildren(){
-        MERC_TriggerHandlerStateManager.deactivate(MERC_ParticipantTovStampHandler.class);
-        MERC_TriggerHandlerStateManager.deactivate(MERC_MeetingTOVFinalValidation.class);
+        MERC_TriggerHandlerStateManager.deactivateAll();
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 5);

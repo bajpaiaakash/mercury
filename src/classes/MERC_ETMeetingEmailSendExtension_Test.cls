@@ -3,6 +3,7 @@ private class MERC_ETMeetingEmailSendExtension_Test {
     private static MERC_ETMockHttpResponseGenerator mockResponseGenerator;
 
     static {
+        MERC_TriggerHandlerStateManager.deactivateAll(); //Added by Vijay Garg; for US-39907 on 25-Feb-2016
         Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
         insert config;
         Mercury_Marketing_Cloud_Settings_MERC__c settings = MERC_ETTestUtils.CreateSettings();
