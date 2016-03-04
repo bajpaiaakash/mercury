@@ -116,6 +116,31 @@ public with sharing class MERC_MarketingCloudService {
         return emailFolders;
     }
 
+    public static void sendMeetingRegistrationConfirmation(Id meetingId, Meeting_Participant_MERC__c participant){
+        String countryCode = participant.Account_MERC__r.Country_of_Residence_GLBL__c;
+        String emailRootPath = MarketingCloudSettings.Email_Root_Path_MERC__c;
+        if(!emailRootPath.endsWith('/')){
+            emailRootPath += '/';
+        }
+
+        String folderPath = emailRootPath + countryCode;
+        String emailName = MarketingCloudSettings.Registration_Confirmation_Email_MERC__c;
+
+        MERC_MarketingCloudClient.FolderedEmail confirmationEmail = null;
+
+        try{
+            confirmationEmail = MERC_EmailLocator.findEmailByPath(folderPath, emailName);
+        } catch(MERC_EmailLocator.EmailNotFoundException emailNotFoundException){
+            System.debug(LoggingLevel.WARN, 'Did not find Registration Confirmation Email for ' + countryCode + ' using path ' + folderPath + ' and email name: ' + emailName);
+            folderPath = emailRootPath + MarketingCloudSettings.Default_Country_MERC__c;
+            confirmationEmail = MERC_EmailLocator.findEmailByPath(folderPath, emailName);
+        }
+
+        List<Meeting_Participant_MERC__c> participants = new List<Meeting_Participant_MERC__c>();
+        participants.add(participant);
+        prepareMeetingEmailSendForAttempts( meetingId, confirmationEmail, participants, false, false, 'now',null, '', '', null, null);
+    }
+
     public static void prepareMeetingEmailSendForAttempts(Id meetingId,
                                                           MERC_MarketingCloudClient.FolderedEmail email, 
                                                           List<Meeting_Participant_MERC__c> participants, 

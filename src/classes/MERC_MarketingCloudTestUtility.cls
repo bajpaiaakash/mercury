@@ -1012,7 +1012,7 @@ public with sharing class MERC_MarketingCloudTestUtility {
     }
 
     public static MERC_MockHttpResponseService.MockResponseInterface getMockGetEmailsRequest(String folderId){
-        String responseBody = getGetEmailFoldersResponseJSON();
+        String responseBody = getGetEmailsResponseJSON();
         String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/folder/' + folderId + '/contents/?oauth_token='+SOAP_OAUTH_TOKEN+'&where=type+eq+\'email\'';
 
         MERC_MockHttpResponseService.BasicMockGetResponse mockResponse = new MERC_MockHttpResponseService.BasicMockGetResponse(
