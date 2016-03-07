@@ -36,10 +36,13 @@ trigger MERC_MeetingParticipant on Meeting_Participant_MERC__c (before insert, b
 
         .bind(GLBL_TriggerHandler.Evt.afterdelete, new MERC_DeleteNotifyService())
 
-        .bind(GLBL_TriggerHandler.Evt.afterinsert,   new MERC_MeetingProcessLogicHandler(Meeting_Participant_MERC__c.SobjectType))
-        .bind(GLBL_TriggerHandler.Evt.afterupdate,   new MERC_MeetingProcessLogicHandler(Meeting_Participant_MERC__c.SobjectType))
+        .bind(GLBL_TriggerHandler.Evt.afterinsert, new MERC_MeetingProcessLogicHandler(Meeting_Participant_MERC__c.SobjectType))
+        .bind(GLBL_TriggerHandler.Evt.afterupdate, new MERC_MeetingProcessLogicHandler(Meeting_Participant_MERC__c.SobjectType))
 
-        .bind(GLBL_TriggerHandler.Evt.afterupdate,  new MERC_CancelDelegateMgmtProcesses(Meeting_Participant_MERC__c.SObjectType))
+        .bind(GLBL_TriggerHandler.Evt.afterupdate, new MERC_CancelDelegateMgmtProcesses(Meeting_Participant_MERC__c.SObjectType))
+
+        .bind(GLBL_TriggerHandler.Evt.afterinsert, new MERC_HotelPrepopulateHandler())
+        .bind(GLBL_TriggerHandler.Evt.afterupdate, new MERC_HotelPrepopulateHandler())
 
         .manage();
 

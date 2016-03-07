@@ -61,6 +61,8 @@
         <members>MERC_MeetingEmailSendRecipientsExtension</members>
         <members>MERC_MeetingParticipantTovValidation</members>
         <members>MERC_MeetingParticipantTovValidationTest</members>
+        <members>MERC_MeetingProcessLogicHandler</members>
+        <members>MERC_MeetingProcessLogicHandlerTest</members>
         <members>MERC_MeetingTOVFinalValidation</members>
         <members>MERC_MeetingTOVFinalValidationTest</members>
         <members>MERC_MockHttpResponseService</members>

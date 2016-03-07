@@ -1042,6 +1042,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
     }
 
     @isTest static void test_NextPage_GetsNextPage(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
@@ -1064,6 +1065,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
     }
 
     @isTest static void test_NextPageThenFirstPage_GetsFirstPage(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
@@ -1088,6 +1090,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
     }
 
     @isTest static void test_NextPageThenPreviousPage_GetsFirstPage(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
@@ -1112,6 +1115,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
     }
 
     @isTest static void test_LastPage_GetsLastPage(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
@@ -1134,6 +1138,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
     }
 
     @isTest static void test_PagingFor150(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 150);
@@ -1156,6 +1161,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
     }
 
     @isTest static void test_SelectingParticipant_PersistsAcrossPages(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
@@ -1179,6 +1185,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
     }
 
     @isTest static void test_SelectingParticipantsAndSaving_SetsSelectedParticipantIds(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
@@ -1200,6 +1207,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
     }
 
     @isTest static void test_SelectingParticipantsAndCancelling_DoesNotSetSelectedParticipantIds(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
@@ -1221,6 +1229,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
     }
 
     @isTest static void test_GenerateDocuments_SetsSelectedParticipantIds(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
@@ -1240,6 +1249,8 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
     }
 
     @isTest static void test_GenerateDocuments_RedirectsToDrawloop(){
+
+        MERC_TriggerHandlerStateManager.deactivateAll();
         Meeting_MERC__c meeting = MERC_MarketingCloudTestUtility.insertMeeting();           
         List<Account> personAccounts  = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
             MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 149);
@@ -1258,7 +1269,6 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtTest {
 
         System.assert(pageReference.getUrl().startsWithIgnoreCase('/apex/loop__masslooplus'), pageReference.getUrl() + ' does not start with /apex/loop__masslooplus');
         System.assertEquals(meeting.Id, pageReference.getParameters().get('retUrl'), pageReference.getUrl());
-        System.assertEquals(UserInfo.getSessionId(), pageReference.getParameters().get('sessionId'));
 
         String[] selectedIds = pageReference.getParameters().get('recordIds').split(',');
         List<Meeting_Participant_MERC__c> selectedParticipants = [SELECT Id FROM Meeting_Participant_MERC__c WHERE Id IN :selectedIds];

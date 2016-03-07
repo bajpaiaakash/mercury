@@ -14,7 +14,7 @@ public with sharing class MERC_AllocatedCapCalculator implements GLBL_TriggerHan
     }
 
     public Boolean isActive() {
-        return true;
+        return MERC_TriggerHandlerStateManager.isActive(MERC_AllocatedCapCalculator.class);
     }
 
     public void handle() {

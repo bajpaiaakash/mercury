@@ -14,7 +14,7 @@ public with sharing class MERC_PaidCapCalculator implements GLBL_TriggerHandler.
     }
 
     public Boolean isActive() {
-        return true;
+        return MERC_TriggerHandlerStateManager.isActive(MERC_PaidCapCalculator.class);
     }
 
     public void handle() {
