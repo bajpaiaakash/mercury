@@ -163,6 +163,27 @@ public with sharing class MERC_EmailLocatorTest {
         Test.stopTest();
     }
 
+    @isTest static void withCorrectPathAndNameGB_FindEmailByPath_FindsEmail(){
+        User testUser = MERC_MarketingCloudTestUtility.insertUser();
+        String folderPath = 'my emails/GB';
+        String myEmailsId = '8';
+        String gbEmailsId = '10';
+        String emailName = 'Registration Confirmation';
+
+        MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());  
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetMyEmailsFolderRequest(myEmailsId));  
+        mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetGBEmailsRequest(gbEmailsId));  
+
+        Test.startTest();
+        Test.setMock(HttpCalloutMock.class, mockResponseService);
+        System.runAs(testUser){
+            MERC_MarketingCloudClient.FolderedEmail email = MERC_EmailLocator.findEmailByPath(folderPath, emailName);
+            System.assertNotEquals(null, email);
+        }  
+        Test.stopTest();
+    }
+
     @isTest static void withInCorrectPath_FindEmailByPath_ThrowsFolderException(){
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
         String folderPath = 'my emails11/my emails';

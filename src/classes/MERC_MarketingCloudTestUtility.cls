@@ -910,6 +910,48 @@ public with sharing class MERC_MarketingCloudTestUtility {
                 '  }  ' ;
     }
 
+    public static String getMyEmailsFoldersResponseJSON(){
+        return  '   {  '  + 
+                '     "startIndex": 0,  '  + 
+                '     "itemsPerPage": 50,  '  + 
+                '     "totalResults": 2,  '  + 
+                '     "entry": [  '  + 
+                '       {  '  + 
+                '         "id": "20691",  '  + 
+                '         "type": "email",  '  + 
+                '         "lastUpdated": "2016-01-05T21:27:25.287Z",  '  + 
+                '         "createdBy": 0,  '  + 
+                '         "parentId": "0",  '  + 
+                '         "name": "ES",  '  + 
+                '         "description": "",  '  + 
+                '         "iconType": "shared_item"  '  + 
+                '       },  '  + 
+                '       {  '  + 
+                '         "id": "10",  '  + 
+                '         "type": "email",  '  + 
+                '         "lastUpdated": "2016-01-05T21:27:25.287Z",  '  + 
+                '         "createdBy": 0,  '  + 
+                '         "parentId": "0",  '  + 
+                '         "name": "GB",  '  + 
+                '         "description": "",  '  + 
+                '         "iconType": "email"  '  + 
+                '       }  '  + 
+                '     ]  '  + 
+                '  }  ' ;
+    }
+
+    public static MERC_MockHttpResponseService.MockResponseInterface getMockGetMyEmailsFolderRequest(String folderId){
+        String responseBody = getMyEmailsFoldersResponseJSON();
+        String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/folder/' + folderId + '/children/?oauth_token='+SOAP_OAUTH_TOKEN+'&where=allowedtypes+in+(\'email\',\'shared_type\',\'global+email\',\'shared_email\',\'shared_item\')';
+
+        MERC_MockHttpResponseService.BasicMockGetResponse mockResponse = new MERC_MockHttpResponseService.BasicMockGetResponse(
+            requestURL,
+            JSON_TYPE, JSON_TYPE,
+            responseBody);
+
+        return mockResponse;
+    }
+
     public static MERC_MockHttpResponseService.MockResponseInterface getMockGetEmailFoldersRequest(String folderId){
         String responseBody = getGetEmailFoldersResponseJSON();
         String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/folder/' + folderId + '/children/?oauth_token='+SOAP_OAUTH_TOKEN+'&where=allowedtypes+in+(\'email\',\'shared_type\',\'global+email\',\'shared_email\',\'shared_item\')';
@@ -953,6 +995,39 @@ public with sharing class MERC_MarketingCloudTestUtility {
             responseBody);
 
         return mockResponse;
+    }
+
+    public static String getGBEmailsResponseJSON(){
+        return  '   {  '  + 
+                '     "startIndex": 0,  '  + 
+                '     "itemsPerPage": 50,  '  + 
+                '     "totalResults": 2,  '  + 
+                '     "entry": [  ' +
+                '       {  '  + 
+                '         "id": "23",  '  + 
+                '         "name": "Registration Confirmation",  '  + 
+                '         "categoryId": "31850",  '  + 
+                '         "email": {  '  + 
+                '           "id": "23",  '  + 
+                '           "type": "ExactTarget.APIImplementations.Folder.Rest.Impl.EmailContentEntity",  '  + 
+                '           "createdDate": "2015-09-10T21:05:57Z",  '  + 
+                '           "lastUpdated": "2015-09-11T12:14:37Z",  '  + 
+                '           "status": {  '  + 
+                '             "key": "Status",  '  + 
+                '             "value": "New"  '  + 
+                '           },  '  + 
+                '           "name": "Registration Confirmation",  '  + 
+                '           "subject": "Registration Confirmation",  '  + 
+                '           "categoryId": "31850",  '  + 
+                '           "customerKey": "FE8D8B43-6A52-452D-8CB8-B642A1EF4CCB",  '  + 
+                '           "sampleAudienceOnly": false,  '  + 
+                '           "preheader": "",  '  + 
+                '           "emailType": "0",  '  + 
+                '           "messageId": "0"  '  + 
+                '         }  '  + 
+                '       }  '  + 
+                '     ]  '  + 
+                '  }  ' ; 
     }
 
     public static String getGetEmailsResponseJSON(){
@@ -1006,9 +1081,21 @@ public with sharing class MERC_MarketingCloudTestUtility {
                 '           "emailType": "0",  '  + 
                 '           "messageId": "0"  '  + 
                 '         }  '  + 
-                '       }  '  + 
+                '       }  ' +
                 '     ]  '  + 
                 '  }  ' ; 
+    }
+
+    public static MERC_MockHttpResponseService.MockResponseInterface getMockGetGBEmailsRequest(String folderId){
+        String responseBody = getGBEmailsResponseJSON();
+        String requestURL = CONFIG_ROOT_REST_API_URL + '/rest/beta/folder/' + folderId + '/contents/?oauth_token='+SOAP_OAUTH_TOKEN+'&where=type+eq+\'email\'';
+
+        MERC_MockHttpResponseService.BasicMockGetResponse mockResponse = new MERC_MockHttpResponseService.BasicMockGetResponse(
+            requestURL,
+            JSON_TYPE, JSON_TYPE,
+            responseBody);
+
+        return mockResponse;
     }
 
     public static MERC_MockHttpResponseService.MockResponseInterface getMockGetEmailsRequest(String folderId){
