@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Daily_Attendance_Set_Status</fullName>
+        <categories>MERC_DailyAttendance</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Daily Attendance Set Status</shortDescription>
+        <value>Set the status of Meeting Participants for each Meeting Day.</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Save</fullName>
+        <categories>Mercury Generic</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic Save</shortDescription>
+        <value>Save</value>
+    </labels>
+</CustomLabels>
