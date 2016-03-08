@@ -1,3 +1,0 @@
-Dear {!NullValue(Contact.FirstName, "Sir/Madam")}, 
-There has been a status update on your Customer Search Tool Access Request. Please go here to view: 
-{!$Setup.Mercury_Settings_MERC__c.CST_URL_GLBL__c}/newaccess
