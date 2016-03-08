@@ -401,6 +401,7 @@ public with sharing class MERC_MarketingCloudClient {
             try {
                 return (DataExtensionResponse)JSON.deserialize(httpResponse.getBody(), DataExtensionResponse.class);
             } catch(JSONException ex){
+                System.debug('DataExtension posted:\n' + requestBody);
                 System.debug('JSONException:\n' + ex.getMessage());
                 throw ex;
             } catch(Exception ex){

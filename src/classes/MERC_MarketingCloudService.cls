@@ -23,23 +23,28 @@ public with sharing class MERC_MarketingCloudService {
     public static final Integer LowMaxRetryCount = 2;
 
     static {
-        MarketingCloudSettings = Mercury_Marketing_Cloud_Settings_MERC__c.getInstance();
-        Configuration = [SELECT et4ae5__UserName__c,
-                                et4ae5__Password__c, 
-                                et4ae5__Auth_API_URL__c,
-                                et4ae5__Root_Rest_API_URL__c,
-                                et4ae5__integration_type__c,
-                                et4ae5__url_root__c
-                           FROM et4ae5__Configuration__c
-                       ORDER BY LastModifiedDate DESC
-                          LIMIT 1];
-        List<et4ae5__Business_Unit__c> businessUnits = [SELECT Id,
-                                                               et4ae5__Business_Unit_ID__c 
-                                                          FROM et4ae5__Business_Unit__c 
-                                                         WHERE Name = :MarketingCloudSettings.Business_Unit_Name_MERC__c 
-                                                         LIMIT 1];
-        if(businessUnits != null && !businessUnits.isEmpty()){
-            BusinessUnit = businessUnits[0];
+        try{
+            MarketingCloudSettings = Mercury_Marketing_Cloud_Settings_MERC__c.getInstance();
+            Configuration = [SELECT et4ae5__UserName__c,
+                                    et4ae5__Password__c, 
+                                    et4ae5__Auth_API_URL__c,
+                                    et4ae5__Root_Rest_API_URL__c,
+                                    et4ae5__integration_type__c,
+                                    et4ae5__url_root__c
+                               FROM et4ae5__Configuration__c
+                           ORDER BY LastModifiedDate DESC
+                              LIMIT 1];
+            List<et4ae5__Business_Unit__c> businessUnits = [SELECT Id,
+                                                                   et4ae5__Business_Unit_ID__c 
+                                                              FROM et4ae5__Business_Unit__c 
+                                                             WHERE Name = :MarketingCloudSettings.Business_Unit_Name_MERC__c 
+                                                             LIMIT 1];
+            if(businessUnits != null && !businessUnits.isEmpty()){
+                BusinessUnit = businessUnits[0];
+            }
+        } catch(Exception ex){
+            System.debug(LoggingLevel.ERROR, 'MERC_MarketingCloudService failed to initialize configuration appropriately:\n' + ex.getMessage());
+            System.debug(LoggingLevel.ERROR, ex);
         }
     }
 
@@ -130,9 +135,15 @@ public with sharing class MERC_MarketingCloudService {
 
         try{
             confirmationEmail = MERC_EmailLocator.findEmailByPath(folderPath, emailName);
+        } catch(MERC_EmailLocator.FolderNotFoundException folderNotFoundException){
+            System.debug(LoggingLevel.WARN, 'Did not find Country folder Email for ' + countryCode + ' using path ' + folderPath + ' and email name: ' + emailName);
+            folderPath = emailRootPath + MarketingCloudSettings.Default_Country_MERC__c;
+            System.debug(LoggingLevel.WARN, 'Now finding with path: ' + folderPath);
+            confirmationEmail = MERC_EmailLocator.findEmailByPath(folderPath, emailName);
         } catch(MERC_EmailLocator.EmailNotFoundException emailNotFoundException){
             System.debug(LoggingLevel.WARN, 'Did not find Registration Confirmation Email for ' + countryCode + ' using path ' + folderPath + ' and email name: ' + emailName);
             folderPath = emailRootPath + MarketingCloudSettings.Default_Country_MERC__c;
+            System.debug(LoggingLevel.WARN, 'Now finding with path: ' + folderPath);
             confirmationEmail = MERC_EmailLocator.findEmailByPath(folderPath, emailName);
         }
 

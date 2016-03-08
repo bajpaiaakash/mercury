@@ -81,7 +81,99 @@ public with sharing class MERC_MarketingCloudServiceTest {
         Test.stopTest();
     }
 
+    @isTest static void test_sendMeetingRegistrationConfirmation_withParticipantNullCountry(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
+        User testUser = MERC_MarketingCloudTestUtility.getUser();
+        insert testUser;
+        Meeting_MERC__c meeting = null;
+        List<Account> personAccounts = null;
+        List<Meeting_Participant_MERC__c> participants = null;
+
+        System.runAs(testUser){
+            MERC_TestFactory.adjustForSFDCSetMockBug = true;
+            MERC_MarketingCloudTestUtility.adjustTime();
+            meeting = MERC_MarketingCloudTestUtility.insertMeeting();
+            personAccounts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+                MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 1);
+            insert personAccounts;
+
+            participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+            insert participants;
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.MockRequestsForRegistrationConfirmationSend(
+                testUser,
+                meeting,
+                participants,
+                personAccounts);
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());  
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetMyEmailsFolderRequest('8'));  
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetGBEmailsRequest('10')); 
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getClassificationsRequest());  
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+
+            Test.startTest();
+            MERC_MarketingCloudService.sendMeetingRegistrationConfirmation(
+                meeting.Id,
+                participants[0]);
+            Test.stopTest();
+
+            Meeting_Email_Send_MERC__c meetingEmailSend = [SELECT Id,
+                                                                  Send_Status__c 
+                                                             FROM Meeting_Email_Send_MERC__c
+                                                            WHERE Meeting_MERC__c = :meeting.Id
+                                                            LIMIT 1][0];
+            System.assertEquals(MERC_MarketingCloudService.EmailSendCreated, meetingEmailSend.Send_Status__c);
+        }
+    }
+
+    @isTest static void test_sendMeetingRegistrationConfirmation(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
+        User testUser = MERC_MarketingCloudTestUtility.getUser();
+        insert testUser;
+        Meeting_MERC__c meeting = null;
+        List<Account> personAccounts = null;
+        List<Meeting_Participant_MERC__c> participants = null;
+
+        System.runAs(testUser){
+            MERC_TestFactory.adjustForSFDCSetMockBug = true;
+            MERC_MarketingCloudTestUtility.adjustTime();
+            meeting = MERC_MarketingCloudTestUtility.insertMeeting();
+            personAccounts = MERC_ETTestUtils.CreatePersonAccountsWithRecordType(
+                MERC_MarketingCloudTestUtility.RECORD_TYPE_STRING_HCP, 1);
+            personAccounts[0].Country_of_Residence_GLBL__c = 'GB';
+            insert personAccounts;
+
+            participants = MERC_ETTestUtils.CreateParticipants(meeting, personAccounts);
+            insert participants;
+
+            MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.MockRequestsForRegistrationConfirmationSend(
+                testUser,
+                meeting,
+                participants,
+                personAccounts);
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetEmailFoldersAllRequest());  
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetMyEmailsFolderRequest('8'));  
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getMockGetGBEmailsRequest('10')); 
+            mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getClassificationsRequest());  
+            Test.setMock(HttpCalloutMock.class, mockResponseService);
+
+            Test.startTest();
+            MERC_MarketingCloudService.sendMeetingRegistrationConfirmation(
+                meeting.Id,
+                participants[0]);
+            Test.stopTest();
+
+            Meeting_Email_Send_MERC__c meetingEmailSend = [SELECT Id,
+                                                                  Send_Status__c 
+                                                             FROM Meeting_Email_Send_MERC__c
+                                                            WHERE Meeting_MERC__c = :meeting.Id
+                                                            LIMIT 1][0];
+            System.assertEquals(MERC_MarketingCloudService.EmailSendCreated, meetingEmailSend.Send_Status__c);
+        }
+    }
+
     @isTest static void test_prepareMeetingEmailSendForAttempts(){
+        MERC_TriggerHandlerStateManager.deactivateAll();
         User testUser = MERC_MarketingCloudTestUtility.getUser();
         insert testUser;
         Meeting_MERC__c meeting = null;
@@ -131,6 +223,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
     }
 
     @isTest static void test_prepareMeetingEmailSendForRetry(){
+
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
         User testUser = MERC_MarketingCloudTestUtility.insertUser();
         Meeting_MERC__c meeting = null;

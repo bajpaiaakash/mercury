@@ -9,7 +9,9 @@ public with sharing class MERC_EmailLocator {
         MERC_MarketingCloudClient.EmailFolder parentFolder = null;
 
         for(String folderName : folderNames){
-            parentFolder = findEmailFolderInFolder(parentFolder, folderName);
+            if(!String.isEmpty(folderName)){
+                parentFolder = findEmailFolderInFolder(parentFolder, folderName);
+            }
         }
 
         return findEmailInFolder(parentFolder, emailName);

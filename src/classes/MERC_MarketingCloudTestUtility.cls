@@ -19,6 +19,9 @@ public with sharing class MERC_MarketingCloudTestUtility {
     public static final String CONFIG_INTEGRATION_TYPE_DEFAULT = 'testintegrationtype';
     public static final String CONFIG_URL_ROOT = 'mc';
     public static final String CONFIG_URL_PART = 'cloud';
+    public static final String CONFIG_EMAIL_ROOT_PATH = '/my emails/';
+    public static final String CONFIG_REGISTRATION_CONFIRMATION_EMAIL = 'Registration Confirmation';
+    public static final String CONFIG_DEFAULT_COUNTRY = 'GB';
 
     public static final String BUSINESS_UNIT_ID = '55555555';
     public static final String BUSINESS_UNIT_NAME = 'testbusinessunitname';
@@ -224,7 +227,10 @@ public with sharing class MERC_MarketingCloudTestUtility {
             Application_ID_MERC__c = SETTING_APPLICATION_ID,
             Sender_Profile_Prefix_Filter_MERC__c = SENDER_PROFILE_PREFIX,
             Thumbnail_Height_MERC__c = Integer.valueOf(THUMBNAIL_HEIGHT),
-            Thumbnail_Width_MERC__c = Integer.valueOf(THUMBNAIL_WIDTH)
+            Thumbnail_Width_MERC__c = Integer.valueOf(THUMBNAIL_WIDTH),
+            Default_Country_MERC__c = CONFIG_DEFAULT_COUNTRY,
+            Email_Root_Path_MERC__c = CONFIG_EMAIL_ROOT_PATH,
+            Registration_Confirmation_Email_MERC__c = CONFIG_REGISTRATION_CONFIRMATION_EMAIL
         );
 
         insert settings;
@@ -299,7 +305,11 @@ public with sharing class MERC_MarketingCloudTestUtility {
     }
 
     public static MERC_MarketingCloudClient.DataExtension getDataExtension(Id meetingId){
-        String dataExtensionName = 'SalesforceMeeting-' + meetingId + '-' + EMAIL_SEND_SUBJECT + '-' + BASIC_DATE_TIME_FORMATTED;
+        return getDataExtension(meetingId, EMAIL_SEND_SUBJECT);
+    }
+
+    public static MERC_MarketingCloudClient.DataExtension getDataExtension(Id meetingId, String emailSubject){
+        String dataExtensionName = 'SalesforceMeeting-' + meetingId + '-' + emailSubject + '-' + BASIC_DATE_TIME_FORMATTED;
         String dataExtensionDescription = DATA_EXTENSION_DEFAULT_DESCRIPTION;
         String dataExtensionKey = String.valueOf(meetingId) + BASIC_DATE_TIME_FORMATTED;
         MERC_MarketingCloudClient.DataExtension dataExtension = new MERC_MarketingCloudClient.DataExtension(
@@ -1829,6 +1839,28 @@ public with sharing class MERC_MarketingCloudTestUtility {
         return meetingEmailSend;
     }
 
+    public static MERC_MockHttpResponseService MockRequestsForRegistrationConfirmationSend(
+        User testUser,
+        Meeting_MERC__c meeting,
+        List<Meeting_Participant_MERC__c> participants,
+        List<Account> personAccounts){
+        MERC_MarketingCloudClient.DataExtension dataExtension = MERC_MarketingCloudTestUtility.getDataExtension(meeting.Id, CONFIG_REGISTRATION_CONFIRMATION_EMAIL);
+        MERC_MockHttpResponseService mockResponseService = MERC_MarketingCloudTestUtility.withDefaultMockService(testUser);
+   
+        MockThumbnailRequest(mockResponseService);
+        MockSendDefinitionRequests(mockResponseService);
+        MockDataExtensionRequests(
+            mockResponseService,
+            dataExtension,
+            meeting.Id,
+            participants,
+            personAccounts,
+            '',
+            '');
+
+        return mockResponseService;
+    }
+
     public static MERC_MockHttpResponseService MockRequestsForEmailSendAttempt(
         User testUser,
         Meeting_MERC__c meeting,
@@ -1861,6 +1893,24 @@ public with sharing class MERC_MarketingCloudTestUtility {
         Id meetingId,
         List<Meeting_Participant_MERC__c> meetingParticipants,
         List<Account> personAccounts){
+        MockDataExtensionRequests(
+            mockResponseService,
+            dataExtension,
+            meetingId,
+            meetingParticipants,
+            personAccounts,
+            MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_HTML,
+            MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_TEXT);
+    }
+
+    public static void MockDataExtensionRequests(
+        MERC_MockHttpResponseService mockResponseService,
+        MERC_MarketingCloudClient.DataExtension dataExtension,
+        Id meetingId,
+        List<Meeting_Participant_MERC__c> meetingParticipants,
+        List<Account> personAccounts,
+        String additionalHTML,
+        String additionalText){
         Map<Id, Account> personAccountMap = MERC_MarketingCloudTestUtility.getPersonAccountMap(personAccounts);  
 
         mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateDataExtensionRequest(dataExtension)); 
@@ -1868,8 +1918,8 @@ public with sharing class MERC_MarketingCloudTestUtility {
         mockResponseService.addResponse(MERC_MarketingCloudTestUtility.getCreateDataExtensionEntriesRequest(
                 dataExtension,
                 meetingId,
-                MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_HTML,
-                MERC_MarketingCloudTestUtility.EMAIL_ADDITIONAL_INFORMATION_TEXT,
+                additionalHTML,
+                additionalText,
                 meetingParticipants,
                 personAccountMap)); 
     }

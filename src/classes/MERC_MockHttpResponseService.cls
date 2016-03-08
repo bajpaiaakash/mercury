@@ -31,6 +31,7 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
     }
 
     public HttpResponse respond(HttpRequest httpRequest){
+        System.debug('MERC_MockHttpResponseService trying to respond to: ' + httpRequest);
         MockResponseInterface mockResponseHandlerToRun = null;
         Boolean moreThanOneHandler = false;
         String mockResponseHandlerNames = 'Handlers attempting to respond: ';
@@ -46,6 +47,7 @@ public with sharing class MERC_MockHttpResponseService implements HttpCalloutMoc
 
         System.assertEquals(false, moreThanOneHandler, mockResponseHandlerNames);
         if(mockResponseHandlerToRun == null){
+            System.debug(LoggingLevel.ERROR, 'Failed to find a handler for request:\n' + httpRequest);
             throw new MockHttpResponseServiceException('Failed to find a handler for request:\n' + httpRequest);
         }
         System.Debug('MERC_MockHttpResponseService responding with: ' + mockResponseHandlerToRun.handlerName());
