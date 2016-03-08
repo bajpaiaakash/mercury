@@ -149,20 +149,47 @@ public with sharing class MERC_MarketingCloudService {
 
         List<Meeting_Participant_MERC__c> participants = new List<Meeting_Participant_MERC__c>();
         participants.add(participant);
-        prepareMeetingEmailSendForAttempts( meetingId, confirmationEmail, participants, false, false, 'now',null, '', '', null, null);
+        prepareAndInsertMeetingEmailSend( meetingId, confirmationEmail, participants, false, false, 'now',null, '', '', null, null);
     }
 
-    public static void prepareMeetingEmailSendForAttempts(Id meetingId,
-                                                          MERC_MarketingCloudClient.FolderedEmail email, 
-                                                          List<Meeting_Participant_MERC__c> participants, 
-                                                          Boolean deDupe, 
-                                                          Boolean disableIndividualTracking, 
-                                                          String sendTime, 
-                                                          Datetime futureSendTime, 
-                                                          String additionalInformationHTML,
-                                                          String additionalInformationText,
-                                                          String fromSenderProfileId,
-                                                          String fromClassificationId){
+    public static void prepareAndInsertMeetingEmailSend(Id meetingId,
+                                                      MERC_MarketingCloudClient.FolderedEmail email, 
+                                                      List<Meeting_Participant_MERC__c> participants, 
+                                                      Boolean deDupe, 
+                                                      Boolean disableIndividualTracking, 
+                                                      String sendTime, 
+                                                      Datetime futureSendTime, 
+                                                      String additionalInformationHTML,
+                                                      String additionalInformationText,
+                                                      String fromSenderProfileId,
+                                                      String fromClassificationId){
+        Meeting_Email_Send_MERC__c meetingEmailSend = prepareMeetingEmailSend(
+            meetingId,
+            email,
+            participants,
+            deDupe,
+            disableIndividualTracking,
+            sendTime,
+            futureSendTime,
+            additionalInformationHTML,
+            additionalInformationText,
+            fromSenderProfileId,
+            fromClassificationId);
+
+        insertMeetingEmailSendForParticipants(meetingEmailSend, participants);
+    }
+
+    public static Meeting_Email_Send_MERC__c prepareMeetingEmailSend(Id meetingId,
+                                                                              MERC_MarketingCloudClient.FolderedEmail email, 
+                                                                              List<Meeting_Participant_MERC__c> participants, 
+                                                                              Boolean deDupe, 
+                                                                              Boolean disableIndividualTracking, 
+                                                                              String sendTime, 
+                                                                              Datetime futureSendTime, 
+                                                                              String additionalInformationHTML,
+                                                                              String additionalInformationText,
+                                                                              String fromSenderProfileId,
+                                                                              String fromClassificationId){
         DateTime now = DateTime.now();
         if(Test.isRunningTest()){
             now = DateTime.newInstanceGmt(1984, 1, 31, 7, 8, 16);
@@ -214,9 +241,15 @@ public with sharing class MERC_MarketingCloudService {
         if (thumbnailData != null && thumbnailData.length() < 32768) {
             meetingEmailSend.ET_Thumbnail_MERC__c = thumbnailData;
         } 
+        
+        return meetingEmailSend;
+    }
 
-        //insert meetingEmailSend;
-        attemptMeetingEmailSend(meetingEmailSend);
+    private static void insertMeetingEmailSendForParticipants(
+        Meeting_Email_Send_MERC__c meetingEmailSend, 
+        List<Meeting_Participant_MERC__c> participants){
+
+        insert meetingEmailSend;
 
         List<Meeting_Participant_Email_Send_MERC__c> meetingParticipantEmailSends = new List<Meeting_Participant_Email_Send_MERC__c>();
         for (Meeting_Participant_MERC__c meetingParticipant : participants) {
@@ -226,10 +259,33 @@ public with sharing class MERC_MarketingCloudService {
             meetingParticipantEmailSends.add(meetingParticipantEmailSend);
         }
         insert meetingParticipantEmailSends;
+    }
 
-        // at this point this should get picked up by a trigger which eventually calls attemptMeetingEmailSend
-        //attemptMeetingEmailSend(meetingEmailSend);
-        return;
+    public static void prepareAndSendMeetingEmailSend(Id meetingId,
+                                                      MERC_MarketingCloudClient.FolderedEmail email, 
+                                                      List<Meeting_Participant_MERC__c> participants, 
+                                                      Boolean deDupe, 
+                                                      Boolean disableIndividualTracking, 
+                                                      String sendTime, 
+                                                      Datetime futureSendTime, 
+                                                      String additionalInformationHTML,
+                                                      String additionalInformationText,
+                                                      String fromSenderProfileId,
+                                                      String fromClassificationId){
+        Meeting_Email_Send_MERC__c meetingEmailSend = prepareMeetingEmailSend(
+            meetingId,
+            email,
+            participants,
+            deDupe,
+            disableIndividualTracking,
+            sendTime,
+            futureSendTime,
+            additionalInformationHTML,
+            additionalInformationText,
+            fromSenderProfileId,
+            fromClassificationId);
+
+        attemptMeetingEmailSend(meetingEmailSend);
     }  
 
     private static List<MERC_MarketingCloudClient.Field> getFields(){

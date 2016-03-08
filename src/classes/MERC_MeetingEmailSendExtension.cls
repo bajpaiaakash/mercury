@@ -217,7 +217,7 @@ public with sharing class MERC_MeetingEmailSendExtension {
         }
 
         try {
-            MERC_MarketingCloudService.prepareMeetingEmailSendForAttempts(meeting.Id,
+            MERC_MarketingCloudService.prepareAndSendMeetingEmailSend(meeting.Id,
                                                                           selectedEmail,
                                                                           selectedParticipants,
                                                                           dedupeSubscribers,

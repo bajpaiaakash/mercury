@@ -172,7 +172,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         }
     }
 
-    @isTest static void test_prepareMeetingEmailSendForAttempts(){
+    @isTest static void test_prepareAndSendMeetingEmailSend(){
         MERC_TriggerHandlerStateManager.deactivateAll();
         User testUser = MERC_MarketingCloudTestUtility.getUser();
         insert testUser;
@@ -199,7 +199,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
             Test.setMock(HttpCalloutMock.class, mockResponseService);
 
             Test.startTest();
-            MERC_MarketingCloudService.prepareMeetingEmailSendForAttempts(
+            MERC_MarketingCloudService.prepareAndSendMeetingEmailSend(
                 meeting.Id,
                 MERC_MarketingCloudTestUtility.getFolderedEmail(), 
                 participants, 
