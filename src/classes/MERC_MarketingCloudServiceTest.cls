@@ -1,9 +1,6 @@
 /*
 * MERC_MarketingCloudServiceTest
-* Description : Test for MarketingCloudService
-* Author: David Helmer
-* Modified By: 
-* Modified Date: Jan. 14th 2016
+* Authors: David Helmer
 */
 @isTest
 public with sharing class MERC_MarketingCloudServiceTest {

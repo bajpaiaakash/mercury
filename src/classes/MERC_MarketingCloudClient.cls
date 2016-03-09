@@ -160,6 +160,8 @@ public with sharing class MERC_MarketingCloudClient {
         public void postDataExtensionEntries(DataExtension dataExtension, List<DataExtensionEntry> entries){
             String requestPath = '/hub/v1/dataevents/key:' + EncodingUtil.urlEncode(dataExtension.key, 'UTF-8') + '/rowset';
             String requestBody = SerializeDataExtensionEntries(entries);
+            System.debug('postDataExtensionEntries requestBody');
+            System.debug(requestBody);
             HttpResponse httpResponse = PostToUrl(requestPath, requestBody);
             Integer statusCode = httpResponse.getStatusCode();
 
