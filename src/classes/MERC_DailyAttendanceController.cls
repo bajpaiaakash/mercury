@@ -3,7 +3,6 @@
  *
  * controller for Meeting Daily Attendance UI
  * -when the page loads, any missing daily attendance tov records for the participants are inserted with a blank "status" value
- *  @TODO: this operation could be costly in larger meetings, so we may need to re-assess where this actually happens
  * -we're also reloading MP status when their status updates to show real-time TOV numbers. if this isn't necessary,
  *  we could save some processing time
  */
@@ -24,7 +23,6 @@ public with sharing class MERC_DailyAttendanceController {
     private Integer pageNumber;
 
     //make sure every meeting participant has a tov record for every meeting day
-    //todo move to trigger
     public PageReference upsertMissingTovRecords() {
         try {
             List<Daily_Attendance_TOV_MERC__c> tovsToUpsert = new List<Daily_Attendance_TOV_MERC__c>();
@@ -75,12 +73,12 @@ public with sharing class MERC_DailyAttendanceController {
 
     public Integer nonQualifiedParticipantSize {
         get {
-            Id employeeRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
+            //Id employeeRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
+            // on query AND Account_MERC__r.RecordTypeId != :employeeRecordTypeId 
             List<String> excludedStatuses = new List<String>{ 'Pending Approval', 'Declined', 'Interested in Meeting', 'Cancelled', 'Rejected', 'Invited' };
             Integer result = [SELECT Name 
                                 FROM Meeting_Participant_MERC__c
                                WHERE Meeting_MERC__c = :meeting.Id 
-                                 AND Account_MERC__r.RecordTypeId != :employeeRecordTypeId 
                                  AND Status_MERC__c IN :excludedStatuses].size();
             return result;
         }
@@ -91,13 +89,13 @@ public with sharing class MERC_DailyAttendanceController {
         get {
             if (participantIds == null) {
                 participantIds = new Set<Id>();
-                Id employeeRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
+                //Id employeeRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
+                // on query Account_MERC__r.RecordTypeId != :employeeRecordTypeId AND
                 List<String> excludedStatuses = new List<String>{ 'Pending Approval', 'Declined', 'Interested in Meeting', 'Cancelled', 'Rejected', 'Invited' };
                 for (Meeting_Participant_MERC__c p : [SELECT ID FROM
                                                                     Meeting_Participant_MERC__c
                                                                         WHERE
                                                                             Meeting_MERC__c = :meeting.Id AND
-                                                                            Account_MERC__r.RecordTypeId != :employeeRecordTypeId AND
                                                                             Status_MERC__c NOT IN :excludedStatuses
                                                     ]) {
                     participantIds.add(p.Id);
