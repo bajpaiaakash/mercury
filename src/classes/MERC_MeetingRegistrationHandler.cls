@@ -8,6 +8,6 @@ public class MERC_MeetingRegistrationHandler implements GLBL_TriggerHandler.Hand
     }
 
     public void handle(){
-
+        
     }
 }

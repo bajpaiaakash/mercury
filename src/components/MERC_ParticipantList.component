@@ -1,0 +1,213 @@
+<apex:component controller="MERC_ParticipantListController">
+	<!-- TODO: Move these to the Mercury Static Resource after refactor changes have been added to mercDev2 -->
+	<style type="text/css">
+		th.hide, div.hide, span.hide   { display: none; }
+
+		div.centered { text-align: center; }
+		div.centered input { margin: 0 5px; }
+
+		div.rowsPerPage {
+			float: right;
+			margin: 5px 10px;
+		}
+
+		div.rowsPerPage label {
+			font-weight: bold;
+			margin-right: 5px;
+			color: #4a4a56;
+		}
+	</style>
+
+	<apex:attribute name="listName"
+	                type="String"
+	                required="true"
+	                description="The name of the list. This should be a single string with no whitespace. It will be appended to javascript functions to namespace them in case there are more than one instace of this component defined on a page."/>
+
+	<apex:attribute name="title"
+	                type="String"
+	                required="true"
+	                description="The string displayed above the list as the title for this component"/>
+
+	<apex:attribute name="dataObject"
+	                type="MERC_ParticipantListDataObject"
+	                description="An object which should be instantiated in the main controller and passed in. Allows for communication between the component and the main controller"
+	                assignTo="{!participantDataObject}"
+	                required="true"/>
+
+	<apex:attribute name="fieldsList"
+					type="String"
+					description="A comma delimited list of field names for the meeting participant in the order they should appear in the table. Cannot be set if fieldSet attribute is set."
+					assignTo="{!displayFields}"/>
+
+	<apex:attribute name="fieldSet"
+					type="String"
+					description="Name of a Meeting Participant Field set to use for displaying columns in the table. Cannot be set if fieldsList attribute is set."
+					assignTo="{!displayFieldSet}"/>
+
+	<apex:attribute name="enableSelections"
+	                type="Boolean"
+	                description="Indicates select boxes will be presented in the left most column (default:false)"
+	                assignTo="{!selectable}"/>
+
+	<apex:attribute name="rowClickFunction"
+	                type="string"
+	                description="The name of the JavaScript method to invoke if a row is clicked. This could be an actionFunction at the parent level that invokes some action"
+	                assignTo="{!rowFunctionToInvoke}"/>
+
+	<apex:attribute name="filterByRecordType"
+	                type="Boolean"
+	                description="Indicates the record type filter should be displayed (default:false}"
+	                assignTo="{!recordTypeFilter}"/>
+
+	<apex:attribute name="filterByAccountRecordType"
+		  			type="Boolean"
+		  			description="Indicates the account type filter should be displayed (default:false}"
+		  			assignTo="{!accountRecordTypeFilter}"/>
+
+	<apex:attribute name="filterByRegStatus"
+		  			type="Boolean"
+		  			description="Indicates the Registration Status filter should be displayed (default:false}"
+		  			assignTo="{!participantRegStatusFilter}"/>
+
+	<apex:attribute name="enableSearch"
+		  			type="Boolean"
+		  			description="Indicates a search input should be displayed which will allow filtering based on account name or participant number containing the input string (default:false}"
+		  			assignTo="{!searchable}"/>
+
+	<!-- overall container for the list -->
+	<apex:outputPanel id="listContainer" styleClass="{!listName}">
+		<!-- This actionFunction will assign the passed in value to the selectedParticipantId in the data object -->
+		<apex:actionFunction name="setSelectedParticipantIdFor{!listName}" action="{!doNothing}" reRender="nothing" oncomplete="{!rowFunctionToInvoke}">
+			<apex:param name="participantId" value="" assignTo="{!participantDataObject.selectedParticipantId}"/>
+		</apex:actionFunction>
+
+		<!-- Display the List -->
+		<apex:pageBlock title="{!title}">
+			<apex:outputPanel >
+
+				<!-- list out filters that have been enabled -->
+				<apex:pageBlockSection columns="3">
+
+					<!-- Filter by Meeting Participant Record Type -->
+					<apex:selectList label="Participant Record Type"
+					                 id="recordTypes"
+					                 value="{!selectedRecordTypeId}"
+					                 size="1"
+					                 rendered="{!recordTypeFilter}">
+						<apex:actionSupport event="onchange" action="{!listFilterChanged}" reRender="listContainer" status="queryingData"/>
+						<apex:selectOptions value="{!participantRecordTypes}"/>
+					</apex:selectList>
+
+					<!-- Filter by Account Record Type -->
+					<apex:selectList label="Account Record Type"
+					                 id="accountPersonRecordTypes"
+					                 value="{!selectedAccountRecordTypeId}"
+					                 size="1"
+					                 rendered="{!accountRecordTypeFilter}">
+					    <apex:actionSupport event="onchange" action="{!listFilterChanged}" reRender="listContainer" status="queryingData"/>
+						<apex:selectOptions value="{!accountPersonRecordTypes}"/>
+					</apex:selectList>
+
+					<!-- Filter by Meeting Participant Registraion Status-->
+					<apex:selectList label="Registration Status"
+					                 id="registrationStatusOptions"
+					                 value="{!selectedParticipantRegStatus}"
+					                 size="1"
+					                 rendered="{!participantRegStatusFilter}">
+					    <apex:actionSupport event="onchange" action="{!listFilterChanged}" reRender="listContainer" status="queryingData"/>
+						<apex:selectOptions value="{!participantRegStatusOptions}"/>
+					</apex:selectList>
+
+					<!-- Search input -->
+					<apex:pageBlockSectionItem rendered="{!searchable}">
+						<apex:inputText id="searchTerm" value="{!searchTerm}" label="Account/MP Name" html-placeholder="Acct Name or MP #"/>
+						<apex:commandButton value="Search" action="{!listFilterChanged}" reRender="listContainer" status="queryingData"/>
+					</apex:pageBlockSectionItem>
+				</apex:pageBlockSection>
+
+				<!-- Set the number of rows which should be displayed per page. Results sets larger than rows per page are paginated-->
+				<apex:outputPanel layout="block" styleClass="right rowsPerPage">
+					<apex:outputLabel for="rowsPerPage" value="Rows Per Page"/>
+					<apex:selectList value="{!pageSize}" id="rowsPerPage" size="1">
+						<apex:selectOptions value="{!pageSizeSelectOptions}"/>
+						<apex:actionSupport event="onchange" reRender="listContainer"/>
+					</apex:selectList>
+				</apex:outputPanel>
+
+				<!-- Pagination -->
+				<apex:outputPanel layout="block" styleClass="centered" rendered="{!totalPages > 1}">
+					<apex:commandButton value="<< First" action="{!first}" disabled="{!NOT(hasPrevious)}" reRender="listContainer"/>
+					<apex:commandButton value="< Previous" action="{!previous}" disabled="{!NOT(hasPrevious)}" reRender="listContainer"/>
+					<apex:outputText value="{!currentPage}"/>
+					<apex:commandButton value="Next >" action="{!next}" disabled="{!NOT(hasNext)}" reRender="listContainer"/>
+					<apex:commandButton value="Last >>" action="{!last}" disabled="{!NOT(hasNext)}" reRender="listContainer"/>
+				</apex:outputPanel>
+
+				<!-- use action status to show message when querying data -->
+				<apex:actionStatus id="queryingData">
+					<!-- display the results -->
+					<apex:facet name="stop">
+						<apex:outputPanel >
+							<apex:outputPanel layout="block" style="clear:both" styleClass="{!IF(participants.size==0, '', 'hide')}" >
+								<apex:pageMessage severity="info" summary="No rows to display" strength="2"/>
+							</apex:outputPanel>
+							<apex:outputPanel style="clear:both" styleClass="{!IF(participants.size==0, 'hide', '')}" >
+								<apex:pageBlockTable value="{!participants}" var="participant" onRowClick="setSelectedParticipantFor{!listName}(this);">
+									<apex:column value="{!participant.detail.Id}" styleClass="id-cell" style="display:none;" headerClass="hide"/>
+									<apex:column rendered="{!selectable}">
+										<apex:inputCheckbox value="{!participant.selected}" styleClass="selectRow"/>
+										<apex:facet name="header">
+											<input type="checkbox" onclick="toggleSelectAll(this, '{!listName}');" />
+										</apex:facet>
+									</apex:column>
+									<apex:repeat value="{!fieldsToDisplay}" var="field">
+										<apex:column value="{!participant.detail[field]}"/>
+									</apex:repeat>
+
+								</apex:pageBlockTable>
+							</apex:outputPanel>
+						</apex:outputPanel>
+					</apex:facet>
+					<!-- display message when searching -->
+					<apex:facet name="start">
+						<div style="text-align:center; margin:60px;">
+							<h1>Querying Meeting Participants....</h1>
+						</div>
+					</apex:facet>
+				</apex:actionStatus>
+			</apex:outputPanel>
+		</apex:pageBlock>
+		<!-- End Display the List -->
+	</apex:outputPanel>
+
+	<script type="text/javascript">
+		var setSelectedParticipantFor{!listName} = function(row) {
+			// if a rowClickFunction is not defined then don't run this code
+			if ( !'{!rowClickFunction}'.length) {
+				return;
+			}
+
+			// get the id from the hidden column that was rendered with this row
+			var idCells = row.getElementsByClassName('id-cell');
+			if (idCells.length == 0) {
+				return;
+			}
+
+			// invoke the action function to pass the value back to the controller
+			setSelectedParticipantIdFor{!listName}(idCells[0].innerText);
+		}
+
+		var toggleSelectAll = function (checkBox, listName) {
+			//get the checkboxes for each row in the list (will be a NodeList)
+			var rows = document.querySelectorAll('.' + listName + ' .selectRow');
+
+			//convert the node list to an array then set all the values to match the
+			//'checkBox' checked value
+			[].slice
+				.call(rows)
+			  	.map(function(row) {
+					row.checked = checkBox.checked;
+				});
+		}
+	</script>
+</apex:component>

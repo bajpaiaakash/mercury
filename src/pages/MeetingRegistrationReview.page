@@ -1,0 +1,14 @@
+<apex:page showHeader="true" sidebar="true" controller="MERC_MeetingRegistrationReviewController" tabStyle="Meeting_MERC__c">
+    <apex:pageBlock rendered="{!hasErrors}">
+        <apex:pageMessages />
+    </apex:pageBlock>
+    <apex:form id="pageForm" rendered="{!NOT(hasErrors)}">
+        <c:MERC_ParticipantList dataObject="{!participantsToReview}"
+                                enableSelections="true"
+                                filterByRecordType="true"
+                                listName="participantsToReview"
+                                title="Meeting Participants To Review"
+                                fieldSet="Meeting_Group_Result_Fields_MERC"
+                                enableSearch="true"/>
+    </apex:form>
+</apex:page>
