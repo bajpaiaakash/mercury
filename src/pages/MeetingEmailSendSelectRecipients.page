@@ -1,4 +1,4 @@
-<apex:page showHeader="true" sidebar="false" standardController="Meeting_MERC__c" extensions="MERC_MeetingEmailSendRecipientsExtension" docType="html-5.0">
+<apex:page showHeader="true" sidebar="false" standardController="Meeting_MERC__c" extensions="MERC_MeetingEmailSendExtension" docType="html-5.0">
   <apex:stylesheet value="{!URLFOR($Resource.tablesorter, 'tablesorter/themes/blue/style.css')}" />
   <apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
   <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" />
@@ -189,7 +189,7 @@
         <!--END OF MEETING INFO-->
 
         <!-- PROCESS FILTERS -->
-        <apex:actionFunction name="updateList" rerender="thePageBlock, navigation, tableStatus, processFilters, participantFilters" status="tableStatus" oncomplete="hideLoading()" />
+        <apex:actionFunction name="updateList" action="{!onFilterChange}" rerender="thePageBlock, navigation, tableStatus, processFilters, participantFilters" status="tableStatus" oncomplete="hideLoading()" />
         <apex:pageBlockSection id="processFilters" title="Process Filters" collapsible="False" columns="2">
           <apex:pageBlockSectionItem helpText="{!$ObjectType.Meeting_Process_MERC__c.fields.Process_Type_MERC__c.InlineHelpText}">
             {!$ObjectType.Meeting_Process_MERC__c.fields.Process_Type_MERC__c.label}

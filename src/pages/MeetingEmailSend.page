@@ -25,7 +25,6 @@
     <apex:sectionHeader title="{!Meeting_MERC__c.Name}" subtitle="Configure Email Send"/>
 
     <apex:form rendered="{!NOT(HasFatalMessages)}" styleClass="participants">
-
         <apex:pageBlock id="block" title="Email Options">
             <apex:actionFunction name="getFolderInfo" action="{!expandEmailFolder}" rerender="exactTargetEmails,messages" status="listEmailsStatus">
                 <apex:param name="emailFolderIdToExpand" value="" />

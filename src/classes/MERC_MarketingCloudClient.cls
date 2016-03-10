@@ -16,7 +16,7 @@ public with sharing class MERC_MarketingCloudClient {
     private static final FuelClient fuelClient;
     
     private static final Integer DefaultTimeout = 120000;
-    private static final Integer ShorterTimeout = 5;
+    private static final Integer ShorterTimeout = 1000;
     private static final String POST_METHOD = 'POST';
     private static final String GET_METHOD = 'GET';
     private static final String SOAP_ACTION_KEY = 'SOAPAction';
@@ -387,6 +387,7 @@ public with sharing class MERC_MarketingCloudClient {
                     ImageThumbnailSecureResponse.class);
                 return parsedResponse.data;
             } catch(JSONException ex){
+                System.debug(LoggingLevel.FINE, 'requestRoot+Path: ' + requestRoot + requestPath + '\nresponseBody:' + httpResponse.getBody());
                 System.debug('JSONException:\n' + ex.getMessage());
                 throw ex;
             } catch(Exception ex){
@@ -542,7 +543,9 @@ public with sharing class MERC_MarketingCloudClient {
                               FROM User 
                              WHERE id = :UserInfo.getUserId() 
                              LIMIT 1].et4ae5__exacttarget_oauth_token__c;
-
+            if(String.isBlank(token)){
+                throw new MarketingCloudClientException(UserInfo.getName() + ' has not logged into Marketing Cloud Connector');
+            }
             String scope = 'scope=' + token;
             if(Configuration.et4ae5__integration_type__c == MarketingCloudSettings.Enterprise_Integration_Type_MERC__c){
                 if(BusinessUnit == null){
@@ -828,6 +831,7 @@ public with sharing class MERC_MarketingCloudClient {
                 currentNode = lastNode.getChildElement(name, currentNamespace);
 
                 if(currentNode == null){
+                    System.debug(LoggingLevel.FINE, lastNode);
                     throw new MarketingCloudClientException('Did not find child element in Parent Element (' + lastNode.getName() + ')\n\tName: ' + name + '\n\tNamespace: ' + currentNamespace + '\n\tPathKey: ' + childElementNameKey);
                 }
             }

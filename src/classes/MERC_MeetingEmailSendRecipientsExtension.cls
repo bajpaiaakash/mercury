@@ -21,17 +21,17 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     public List<SelectableParticipant> currentPageOfSelectableParticipants { get; set; }
     public Boolean isGeneratingDocuments { get; private set; }
 
-    private String processTypeSelected;
-    private String proposalStatusSelected;
-    private String dueDateSelected;
-    private String nextStepSelected;
-    private String taskStatusSelected;
-    private String communicationChannelSelected;
-    private String countryOfResidenceSelected;
-    private String participantStatusSelected;
-    private String preferredLanguageSelected;
-    private String recordTypeSelected;
-    private String hasEmailSelected;
+    public String processTypeSelected { get; set; }
+    public String proposalStatusSelected { get; set; }
+    public String dueDateSelected { get; set; }
+    public String nextStepSelected { get; set; }
+    public String taskStatusSelected { get; set; }
+    public String communicationChannelSelected { get; set; }
+    public String countryOfResidenceSelected { get; set; }
+    public String participantStatusSelected { get; set; }
+    public String preferredLanguageSelected { get; set; }
+    public String recordTypeSelected { get; set; }
+    public String hasEmailSelected { get; set; }
 
     private Set<Id> dueDateFilterIds;
     private Set<Id> nextStepFilterIds;
@@ -135,10 +135,13 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
             return;
         }
 
+        System.debug(LoggingLevel.FINE, 'updatePendingSelectedParticipantIds.currentPageOfSelectableParticipants: ' + currentPageOfSelectableParticipants);
         for (SelectableParticipant selectableParticipant : currentPageOfSelectableParticipants) {
             if(selectableParticipant.IsSelected) {
+                System.debug(LoggingLevel.FINE, 'adding: ' + selectableParticipant);
                 pendingSelectedParticipantIds.add(selectableParticipant.Participant.Id);
-            } else if (!selectableParticipant.IsSelected && pendingSelectedParticipantIds.contains(selectableParticipant.Participant.Id)) {
+            } else if (!selectableParticipant.IsSelected && pendingSelectedParticipantIds.contains(selectableParticipant.Participant.Id)) {                
+                System.debug(LoggingLevel.FINE, 'removing: ' + selectableParticipant);
                 pendingSelectedParticipantIds.remove(selectableParticipant.Participant.Id);
             }
         }
@@ -162,7 +165,8 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
                 + '       Account_MERC__r.Prfrd_Lang_Cd_GLBL__c, '
                 + '       Account_MERC__r.Title_Desc_GLBL__c, '
                 + '       Account_MERC__r.Sfx_Nm_GLBL__c, '
-                + '       Account_MERC__r.Communication_Channel_MERC__c'
+                + '       Account_MERC__r.Communication_Channel_MERC__c, '
+                + '       Account_MERC__r.Country_of_Residence_GLBL__c '
                 + '  FROM Meeting_Participant_MERC__c '
                 + ' WHERE Meeting_MERC__c = :meetingId'
                 + buildAndByFilterValueClause('Account_MERC__r.Communication_Channel_MERC__c', communicationChannelSelected)
@@ -232,6 +236,7 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     }
 
     private void updateCurrentPageOfSelectableParticipants(){
+        System.debug(LoggingLevel.FINE, 'updateCurrentPageOfSelectableParticipants.pendingSelectedParticipantIds: ' + pendingSelectedParticipantIds);
         currentPageOfSelectableParticipants = new List<SelectableParticipant>();
         for(Meeting_Participant_MERC__c participant : getCurrentPageOfParticipants()){
             Boolean isSelected = pendingSelectedParticipantIds.contains(participant.Id);
@@ -240,13 +245,15 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     }
 
     private List<Meeting_Participant_MERC__c> getCurrentPageOfParticipants(){
-        return (List<Meeting_Participant_MERC__c>)meetingParticipantsController.getRecords();
+        List<Meeting_Participant_MERC__c> participants = meetingParticipantsController.getRecords();
+        System.debug(LoggingLevel.FINE, 'getCurrentPageOfParticipants.participants: ' + participants);
+        return participants;
     }
 
     public void clearFilters(){
         resetSelectedFiltersToAny();
         resetSelectedProcessFiltersToAny();
-        onFilterChange();
+        refreshParticipantIdFilters();
         updateMeetingParticipants();
     }
 
@@ -257,103 +264,8 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
     public Boolean getShouldRenderProposalFilter(){
         return processTypeSelected == TRAVEL_PROPOSAL;
     }
-
-    public String getCommunicationChannelSelected(){
-        return communicationChannelSelected;
-    }
-    public String getCountryOfResidenceSelected(){
-        return countryOfResidenceSelected;
-    }
-    public String getParticipantStatusSelected(){
-        return participantStatusSelected;
-    }
-    public String getPreferredLanguageSelected(){
-        return preferredLanguageSelected;
-    }
-    public String getRecordTypeSelected(){
-        return recordTypeSelected;
-    }
-    public String getHasEmailSelected(){
-        return hasEmailSelected;
-    }
-
-    public String getProcessTypeSelected(){
-        return processTypeSelected;
-    }
-
-    public String getProposalStatusSelected(){
-        return proposalStatusSelected;
-    }
-
-    public String getDueDateSelected(){
-        return dueDateSelected;
-    }
-
-    public String getNextStepSelected(){
-        return nextStepSelected;
-    }
-
-    public String getTaskStatusSelected(){
-        return taskStatusSelected;
-    }
-
-    public void setProcessTypeSelected(String processType){
-        processTypeSelected = processType;
-        onFilterChange();
-    }
-
-    public void setProposalStatusSelected(String selectedValue){
-        proposalStatusSelected = selectedValue;
-        onFilterChange();
-    }
     
-    public void setDueDateSelected(String selectedValue){
-        dueDateSelected = selectedValue;
-        onFilterChange();
-    }
-    
-    public void setNextStepSelected(String selectedValue){
-        nextStepSelected = selectedValue;
-        onFilterChange();
-    }
-    
-    public void setTaskStatusSelected(String selectedValue){
-        taskStatusSelected = selectedValue;
-        onFilterChange();
-    }
-
-    public void setCommunicationChannelSelected(String selectedValue){
-        communicationChannelSelected = selectedValue;
-        onFilterChange();
-    }
-    
-    public void setCountryOfResidenceSelected(String selectedValue){
-        countryOfResidenceSelected = selectedValue;
-        onFilterChange();
-    }
-    
-    public void setParticipantStatusSelected(String selectedValue){
-        participantStatusSelected = selectedValue;
-        onFilterChange();
-    }
-    
-    public void setPreferredLanguageSelected(String selectedValue){
-        preferredLanguageSelected = selectedValue;
-        onFilterChange();
-    }
-    
-    public void setRecordTypeSelected(String selectedValue){
-        recordTypeSelected = selectedValue;
-        onFilterChange();
-    }
-    
-    public void setHasEmailSelected(String selectedValue){
-        hasEmailSelected = selectedValue;
-        onFilterChange();
-    }
-    
-
-    private void onFilterChange(){
+    public void onFilterChange(){
         refreshParticipantIdFilters();
         System.debug('onFilterChange filteredParticipantIds: ' + filteredParticipantIds);
         updateMeetingParticipants();
@@ -970,7 +882,9 @@ public with sharing class MERC_MeetingEmailSendRecipientsExtension {
 
     public PageReference updateSelectedParticipantIdsAndReturn(){
         updateSelectedParticipantIds();
-        return returnToPreviousPage();
+        System.debug(LoggingLevel.FINE, 'updateSelectedParticipantIdsAndReturn selectedParticipantIds: ' + selectedParticipantIds);
+        //return returnToPreviousPage();
+        return null;
     }
 
     public PageReference cancelAndReturn(){
