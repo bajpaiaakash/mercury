@@ -24,6 +24,10 @@
         <members>Daily_Attendance_Set_Status</members>
         <members>Generic_Save</members>
         <name>CustomLabel</name>
+    </types>
+	<types>
+        <members>Payee_MERC__c-MERC_Payee</members>
+        <name>Layout</name>
     </types>	
     <types>
         <members>MERC_CMS_IT_Support</members>
