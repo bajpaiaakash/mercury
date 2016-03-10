@@ -5,5 +5,15 @@
         <field>Invoice_MERC__c.HCO_Beneficiary_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>    
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Payee_MERC__c.MERC_HCO_Beneficiary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Payee_MERC__c.MERC_HCO_Customer_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <label>Mercury Customer Meeting Services - Edit</label>    
 </PermissionSet>
