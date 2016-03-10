@@ -4,11 +4,58 @@
     </apex:pageBlock>
     <apex:form id="pageForm" rendered="{!NOT(hasErrors)}">
         <c:MERC_ParticipantList dataObject="{!participantsToReview}"
-                                enableSelections="true"
                                 filterByRecordType="true"
                                 listName="participantsToReview"
                                 title="Meeting Participants To Review"
                                 fieldSet="Meeting_Group_Result_Fields_MERC"
-                                enableSearch="true"/>
+                                enableSearch="true"
+                                rowClickFunction="selectParticipant" /> <!-- Registration_Review_List_Fields_MERC -->
+        <apex:actionFunction name="selectParticipant" action="{!selectParticipant}" reRender="selectedParticipantDetail" status="selectingParticipant" />
+        <apex:actionStatus id="selectingParticipant">
+            <apex:facet name="start">
+                <apex:outputText value="Selecting Participant" />
+            </apex:facet>
+            <apex:facet name="stop">
+                <apex:outputText value="Click a Participant row to select it" />
+            </apex:facet>
+        </apex:actionStatus>
+        <apex:outputPanel id="selectedParticipantDetail">
+            <apex:pageBlock rendered="{!hasSelectedParticipant}" title="{!selectedParticipant.Account_MERC__r.Name}">
+                <apex:pageBlockButtons location="top">
+                    <apex:actionStatus id="reviewStatus">
+                        <apex:facet name="stop">
+                            <apex:outputPanel>
+                                <apex:commandButton value="Review Complete"
+                                                    action="{!reviewComplete}"
+                                                    reRender="pageForm"
+                                                    status="reviewStatus" />
+                                <apex:commandButton value="Review Incomplete"
+                                                    action="{!reviewIncomplete}"
+                                                    reRender="pageForm"
+                                                    status="reviewStatus" />
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:facet name="start">
+                            <apex:outputPanel>
+                                <apex:commandButton value="Review Complete" disabled="true" />
+                                <apex:commandButton value="Review Incomplete" disabled="true" />
+                            </apex:outputPanel>
+                        </apex:facet>
+                    </apex:actionStatus>
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection title="Edit"><!-- Registration_Review_Edit_Fields_MERC -->
+                    <apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Registration_Review_Edit_Fields_MERC}" var="editField">
+                        <apex:inputField value="{!selectedParticipant[editField]}" />
+                    </apex:repeat>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <apex:pageBlock rendered="{!hasSelectedParticipant}">
+                <apex:pageBlockSection title="Review"><!-- Registration_Review_Review_Fields_MERC -->
+                    <apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Registration_Review_View_Field_MERC}" var="outputField">
+                        <apex:outputField value="{!selectedParticipant[outputField]}" />
+                    </apex:repeat>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:outputPanel>
     </apex:form>
 </apex:page>
