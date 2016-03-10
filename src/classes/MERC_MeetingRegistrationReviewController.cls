@@ -6,6 +6,7 @@ public with sharing class MERC_MeetingRegistrationReviewController {
 	public MERC_ParticipantListDataObject participantsToReview { get; set; }
 
     private final String MISSING_MEETING_ID = 'Missing id parameter. Please pass a meeting record id in as the id parameter';
+    private final String REGISTRATION_STATUS_FILTERS = '(\'Incomplete\',\'Pending Review\')';
     private final Integer PAGE_SIZE = 10;
     private final Set<Integer> PAGE_SIZE_SET = null;
 
@@ -16,7 +17,8 @@ public with sharing class MERC_MeetingRegistrationReviewController {
             ApexPages.addMessage(buildErrorMessage(MISSING_MEETING_ID));
         }
 
-        String participantWhereClause = 'Meeting_MERC__c = \'' + meetingId + '\'';
+        String participantWhereClause = 'Meeting_MERC__c = \'' + meetingId + '\' '
+                                      + 'AND Registration_Status_MERC__c IN ' + REGISTRATION_STATUS_FILTERS;
         participantsToReview = new MERC_ParticipantListDataObject(participantWhereClause, PAGE_SIZE, PAGE_SIZE_SET);
 	}
 
