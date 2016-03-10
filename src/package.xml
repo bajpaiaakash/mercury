@@ -2,11 +2,18 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>MERC_DailyAttendanceController</members>
+        <members>MERC_HotelPrepopulateHandler</members>
+        <members>MERC_HotelPrepopulateHandlerTest</members>
+        <members>MERC_TriggerHandlerStateManager</members>
         <name>ApexClass</name>
     </types>
     <types>
         <members>MERC_DailyAttendance</members>
         <name>ApexPage</name>
+    </types>
+    <types>
+        <members>MERC_MeetingParticipant</members>
+        <name>ApexTrigger</name>
     </types>
     <types>
         <members>Daily_Attendance_Set_Status</members>
