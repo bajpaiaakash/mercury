@@ -54,8 +54,10 @@ public with sharing class MERC_ParticipantListController {
 	public String searchTerm { get; set; }
 
 	// set the fields which sould be displayed. Can either be a string of comma separated field names or a fieldset
-	public String displayFields { get; set; }
 	public String displayFieldSet { get; set; }
+	public List<Schema.FieldSetMember> getFieldSetFields() {
+		return Schema.SObjectType.Meeting_Participant_MERC__c.fieldSets.getMap().get(displayFieldSet).getFields();
+	}
 
 	// Can the user filter the list by Participant Account Record Type?
 	public Boolean accountRecordTypeFilter {
@@ -63,6 +65,13 @@ public with sharing class MERC_ParticipantListController {
 		set;
 	}
 	public String selectedAccountRecordTypeId { get; set; }
+
+	// can the user filter the list by meeting participant status?
+	public Boolean participantStatusFilter {
+		get { return participantStatusFilter == null ? false : participantStatusFilter; }//default to false
+		set;
+	}
+	public String selectedParticipantStatus { get; set; }
 
 	// can the user filter the list by meeting participant status?
 	public Boolean participantRegStatusFilter {
@@ -107,12 +116,27 @@ public with sharing class MERC_ParticipantListController {
 		}
 	}
 
+	public List<SelectOption> participantStatusOptions {
+		get {
+			List<SelectOption> participantStatusOptions = new List<SelectOption>();
+			participantStatusOptions.add(new SelectOption('', 'All Statuses'));
+
+			Schema.DescribeFieldResult dfr = Meeting_Participant_MERC__c.Status_MERC__c.getDescribe();
+
+			for (Schema.PicklistEntry picklistEntry : dfr.getPicklistValues()) {
+				participantStatusOptions.add(new SelectOption(picklistEntry.getValue(), picklistEntry.getValue()));
+			}
+
+			return participantStatusOptions;
+		}
+	}
+
 	public List<SelectOption> participantRegStatusOptions {
 		get {
 			List<SelectOption> participantRegStatusOptions = new List<SelectOption>();
 			participantRegStatusOptions.add(new SelectOption('', 'All Registration Statuses'));
 
-			Schema.DescribeFieldResult dfr = Meeting_Participant_MERC__c.Status_MERC__c.getDescribe();
+			Schema.DescribeFieldResult dfr = Meeting_Participant_MERC__c.Registration_Status_MERC__c.getDescribe();
 
 			for (Schema.PicklistEntry picklistEntry : dfr.getPicklistValues()) {
 				participantRegStatusOptions.add(new SelectOption(picklistEntry.getValue(), picklistEntry.getValue()));
@@ -122,35 +146,38 @@ public with sharing class MERC_ParticipantListController {
 		}
 	}
 
-	public List<String> fieldsToDisplay {
-		get {
-			if (fieldsToDisplay != null) {
-				return fieldsToDisplay;
-			}
-			fieldsToDisplay = new List<String>();
-			// figure out whether to use fieldset or field list
-			if (String.isNotBlank(displayFields) && String.isNotBlank(displayFieldSet)) {
-				throw new MERC_Exception('Both \'fieldsList\' and \'fieldSet\' attributes cannot be defined');
-			} else if (String.isBlank(displayFields) && String.isBlank(displayFieldSet)) {
-				throw new MERC_Exception('One of \'fieldsList\' or \'fieldsSet\' attributes must be defined');
-			} else if (String.isNotBlank(displayFields)) {
-				// split the string up at each comma and add resulitng strings to the set
-				fieldsToDisplay = displayFields.split(',');
-			} else {
-				// retrieve the field set and iterate over the fields, add them to the set
-				for (Schema.FieldSetMember fsm : Schema.SObjectType.Meeting_Participant_MERC__c.fieldSets.getMap().get(displayFieldSet).getFields()) {
-					fieldsToDisplay.add(fsm.getFieldPath());
-				}
-			}
-
-			return fieldsToDisplay;
-		}
-		private set;
-	}
-
 	public void listFilterChanged() {
 		// A filter changed so update the query string and requery
 		participantDataObject.queryParticipants(getQueryString());
+	}
+
+	// What field should the query sort by
+	public String sortField {
+		get {
+			if (sortField == null) {
+				// set to the first field in the list
+				sortField = getFieldSetFields()[0].getFieldPath();
+			}
+
+			return sortField;
+		}
+		set;
+	}
+
+	// the direction of the order by in the where clause
+	public String sortDirection {
+		get {
+			if (sortDirection ==  null) {
+				sortDirection = 'ASC';
+			}
+			return sortDirection;
+		}
+		set;
+	}
+
+	// tell the active column which direction to sort if clicked again
+	public String getOppositeSortDirection() {
+		return sortDirection == 'ASC' ? 'DESC' : 'ASC';
 	}
 
 	/***** BEGIN PAGINATION METHODS *****/
@@ -226,12 +253,12 @@ public with sharing class MERC_ParticipantListController {
 		return participantDataObject.getRecords();
 	}
 
-	// build query string based on fieldsToDisplay, where clause and filters
+	// build query string based on displayFieldSet, where clause and filters
 	// and return it to the caller
 	private String getQueryString() {
 		String query = 'SELECT ';
-		for (String fieldName : fieldsToDisplay) {
-			query += fieldName + ', ';
+		for (Schema.FieldSetMember field : getFieldSetFields()) {
+			query += field.getFieldPath() + ', ';
 		}
 
 		// include isPersonAccount so exception isn't thrown when page block table renders
@@ -243,23 +270,46 @@ public with sharing class MERC_ParticipantListController {
 			query += ' AND RecordTypeId=\'' + selectedRecordTypeId + '\'';
 		}
 
+		// fitlter by account record type if set
 		if (accountRecordTypeFilter && String.isNotBlank(selectedAccountRecordTypeId)) {
 			query += ' AND Account_MERC__r.RecordTypeId=\'' + selectedAccountRecordTypeId + '\'';
 		}
 
+		// filter by participant status if set
+		if (participantStatusFilter && String.isNotBlank(selectedParticipantStatus)) {
+			query += ' AND Status_MERC__c=\'' + selectedParticipantStatus + '\'';
+		}
+
+		// filter by participant registration status if set
 		if (participantRegStatusFilter && String.isNotBlank(selectedParticipantRegStatus)) {
 			query += ' AND Registration_Status__c=\'' + selectedParticipantRegStatus + '\'';
 		}
 
-		// if a search term has been added include it. This performs a wild card search against name and account. Users
-		// can add a wildcard to the middle of the search term using "*". e.g. av*Consult will match Mavens Consulting
+		// if a search term has been added include it. This performs a wild card search against name and account name
+		// as well as the account primary affiliation. Users can add a wildcard to the middle of the search term using "*".
+		// e.g. av*Consult will match Mavens Consulting
 		if (searchable && String.isNotBlank(searchTerm)) {
 			String modifiedSearchTerm = searchTerm.replaceAll('\\*', '%');
 			modifiedSearchTerm = String.escapeSingleQuotes(modifiedSearchTerm);
 
-			query += ' AND (Account_MERC__r.Name LIKE \'%' + modifiedSearchTerm + '%\' OR Name LIKE \'%' + modifiedSearchTerm + '%\')';
+			query += ' AND (Account_MERC__r.Name LIKE \'%' + modifiedSearchTerm + '%\' '
+			      +'OR Name LIKE \'%' + modifiedSearchTerm + '%\''
+			      +'OR Account_MERC__r.Prim_Affil_HCO_GLBL__c LIKE \'%' + modifiedSearchTerm + '%\')';
 		}
 
+		String thisSortField = sortField;
+		// if the sort field is A reference field then use the name of the refrenced object for the sort rather than the id
+		for (Schema.FieldSetMember fsm : getFieldSetFields()) {
+			if (thisSortField == fsm.getFieldPath() && fsm.getType() == Schema.DisplayType.Reference) {
+				// doing a replace so RecordTypeId doesn't get affected.
+				thisSortField = thisSortField.replace('__c','__r.Name');
+				break;
+			}
+		}
+
+		query += ' ORDER BY ' + thisSortField + ' ' + sortDirection;
+
+		system.debug(query);
 		return query;
 	}
 }

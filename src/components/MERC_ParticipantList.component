@@ -34,13 +34,9 @@
 	                assignTo="{!participantDataObject}"
 	                required="true"/>
 
-	<apex:attribute name="fieldsList"
-					type="String"
-					description="A comma delimited list of field names for the meeting participant in the order they should appear in the table. Cannot be set if fieldSet attribute is set."
-					assignTo="{!displayFields}"/>
-
 	<apex:attribute name="fieldSet"
 					type="String"
+					required="true"
 					description="Name of a Meeting Participant Field set to use for displaying columns in the table. Cannot be set if fieldsList attribute is set."
 					assignTo="{!displayFieldSet}"/>
 
@@ -63,6 +59,11 @@
 		  			type="Boolean"
 		  			description="Indicates the account type filter should be displayed (default:false}"
 		  			assignTo="{!accountRecordTypeFilter}"/>
+
+	<apex:attribute name="filterByStatus"
+		  			type="Boolean"
+		  			description="Indicates the Participants Status filter should be displayed (default:false}"
+		  			assignTo="{!participantStatusFilter}"/>
 
 	<apex:attribute name="filterByRegStatus"
 		  			type="Boolean"
@@ -109,6 +110,16 @@
 					</apex:selectList>
 
 					<!-- Filter by Meeting Participant Registraion Status-->
+					<apex:selectList label="Participant Status"
+					                 id="participantsStatusOptions"
+					                 value="{!selectedParticipantStatus}"
+					                 size="1"
+					                 rendered="{!participantStatusFilter}">
+					    <apex:actionSupport event="onchange" action="{!listFilterChanged}" reRender="listContainer" status="queryingData"/>
+						<apex:selectOptions value="{!participantStatusOptions}"/>
+					</apex:selectList>
+
+					<!-- Filter by Meeting Participant Registraion Status-->
 					<apex:selectList label="Registration Status"
 					                 id="registrationStatusOptions"
 					                 value="{!selectedParticipantRegStatus}"
@@ -120,7 +131,7 @@
 
 					<!-- Search input -->
 					<apex:pageBlockSectionItem rendered="{!searchable}">
-						<apex:inputText id="searchTerm" value="{!searchTerm}" label="Account/MP Name" html-placeholder="Acct Name or MP #"/>
+						<apex:inputText id="searchTerm" value="{!searchTerm}" label="Account/MP Name" html-placeholder="Acct Name, MP # or HCO"/>
 						<apex:commandButton value="Search" action="{!listFilterChanged}" reRender="listContainer" status="queryingData"/>
 					</apex:pageBlockSectionItem>
 				</apex:pageBlockSection>
@@ -143,6 +154,11 @@
 					<apex:commandButton value="Last >>" action="{!last}" disabled="{!NOT(hasNext)}" reRender="listContainer"/>
 				</apex:outputPanel>
 
+				<apex:actionFunction name="setOrderField{!listName}" action="{!listFilterChanged}" status="" rerender="listContainer">
+					<apex:param name="sortField" assignTo="{!sortField}" value=""/>
+					<apex:param name="sortDirection" assignTo="{!sortDirection}" value=""/>
+				</apex:actionFunction>
+
 				<!-- use action status to show message when querying data -->
 				<apex:actionStatus id="queryingData">
 					<!-- display the results -->
@@ -160,8 +176,16 @@
 											<input type="checkbox" onclick="toggleSelectAll(this, '{!listName}');" />
 										</apex:facet>
 									</apex:column>
-									<apex:repeat value="{!fieldsToDisplay}" var="field">
-										<apex:column value="{!participant.detail[field]}"/>
+									<apex:repeat value="{!fieldSetFields}" var="field">
+										<apex:column value="{!participant.detail[field.fieldPath]}">
+											<apex:facet name="header">
+												<apex:outputLabel value="{!field.label}" onclick="setOrderField{!listName}('{!field.fieldPath}','{!IF(field.fieldPath == sortField,oppositeSortDirection,'ASC')}');">
+													<apex:image styleClass="sort-image" url="{!URLFOR($Resource.mercury, 'img/sort_asc.png')}" rendered="{!field.fieldPath = sortField && sortDirection = 'ASC'}"/>
+													<apex:image styleClass="sort-image" url="{!URLFOR($Resource.mercury, 'img/sort_desc.png')}" rendered="{!field.fieldPath = sortField && sortDirection = 'DESC'}"/>
+													<apex:image styleClass="sort-image" url="{!URLFOR($Resource.mercury, 'img/sort_both.png')}" rendered="{!field.fieldPath != sortField}"/>
+												</apex:outputLabel>
+											</apex:facet>
+										</apex:column>
 									</apex:repeat>
 
 								</apex:pageBlockTable>
@@ -178,6 +202,27 @@
 			</apex:outputPanel>
 		</apex:pageBlock>
 		<!-- End Display the List -->
+		<script>
+			// standard salesforce functionaltiy creates links to associated objects (e.g. account) which
+			// open in the existing window/tab. For this compoent it would be better of they opened in
+			// another tab.
+			// NOTE: place here so this code is excuted every time the listcontainer is rendered
+
+			//find the container
+			var tableContainer = document.getElementById('{!$Component.listContainer}');
+			if (tableContainer !== 'undefined') {
+				//get all links inside the table, will be a nodeList
+				var links = tableContainer.querySelectorAll('td a');
+
+				//convert the node list to an array and iterate over it setting each
+				//links target to _blank
+				[].slice
+				  .call(links)
+				  .map(function(link) {
+				  	link.target="_blank"}
+				  );
+			}
+		</script>
 	</apex:outputPanel>
 
 	<script type="text/javascript">
