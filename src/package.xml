@@ -15,10 +15,23 @@
         <members>MERC_MeetingParticipant</members>
         <name>ApexTrigger</name>
     </types>
+	<types>
+        <members>Payee_MERC__c.MERC_HCO_Beneficiary__c</members>
+        <members>Payee_MERC__c.MERC_HCO_Customer_Id__c</members>
+        <name>CustomField</name>
+    </types>
     <types>
         <members>Daily_Attendance_Set_Status</members>
         <members>Generic_Save</members>
         <name>CustomLabel</name>
+    </types>	
+    <types>
+        <members>MERC_CMS_IT_Support</members>
+        <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <members>Mercury_Legal_Edit</members>
+        <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <name>PermissionSet</name>
     </types>
-    <version>34.0</version>
+    <version>36.0</version>
 </Package>

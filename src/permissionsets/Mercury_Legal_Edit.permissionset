@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission set to give the E&amp;C and Legal/Account access to read and edit fields</description>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Payee_MERC__c.MERC_HCO_Beneficiary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Payee_MERC__c.MERC_HCO_Customer_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <label>Mercury Legal - Edit</label>   
+</PermissionSet>
