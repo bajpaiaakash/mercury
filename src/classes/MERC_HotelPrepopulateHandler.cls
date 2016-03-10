@@ -64,14 +64,19 @@ public class MERC_HotelPrepopulateHandler implements GLBL_TriggerHandler.Handler
             // This only runs the code if the participant is a candidate to have the hotel prepopulated to reduce SOQL queries
             if (hotelPrepopulateCandidateFinal) {
 
+                Id hotelVendorRecordTypeId = Schema.SObjectType.Meeting_Vendor_MERC__c.getRecordTypeInfosByName().get('Hotel').getRecordTypeId();
+
                 Map<Id,Id> hotelVendorMap = new Map<Id,Id>();
-                Map<Id,Integer> hotelVendorCountMap = new Map<Id,Integer>();
-                for (Meeting_Vendor_MERC__c vendor : [SELECT Id, Meeting_MERC__c FROM Meeting_Vendor_MERC__c WHERE Meeting_MERC__c in :meetingIds]) {
-                    if (hotelVendorCountMap.containsKey(vendor.Meeting_MERC__c)) {
-                        Integer i = hotelVendorCountMap.get(vendor.Meeting_MERC__c);
-                        hotelVendorCountMap.put(vendor.Meeting_MERC__c, i++);
+                Map<Id,Boolean> singularHotelVendorMap = new Map<Id,Boolean>();
+                System.debug('### query is: SELECT Id, Meeting_MERC__c FROM Meeting_Vendor_MERC__c WHERE Meeting_MERC__c in ' + meetingIds + ' AND RecordTypeId = \'' + hotelVendorRecordTypeId + '\'');
+                for (Meeting_Vendor_MERC__c vendor : [SELECT Id, Meeting_MERC__c FROM Meeting_Vendor_MERC__c WHERE Meeting_MERC__c in :meetingIds AND RecordTypeId = :hotelVendorRecordTypeId]) {
+                    System.debug('#### vendor = ' + vendor);
+                    if (singularHotelVendorMap.containsKey(vendor.Meeting_MERC__c)) {
+                        singularHotelVendorMap.put(vendor.Meeting_MERC__c, false);
+                        System.debug('#### singularHotelVendorMap = ' + singularHotelVendorMap);
                     } else {
-                        hotelVendorCountMap.put(vendor.Meeting_MERC__c, 1);
+                        singularHotelVendorMap.put(vendor.Meeting_MERC__c, true);
+                        System.debug('#### singularHotelVendorMap = ' + singularHotelVendorMap);
                     }
                     hotelVendorMap.put(vendor.Meeting_MERC__c, vendor.Id);
                 }
@@ -108,8 +113,10 @@ public class MERC_HotelPrepopulateHandler implements GLBL_TriggerHandler.Handler
                         itinerary.CurrencyIsoCode = currencyMap.get(participant.Meeting_MERC__c);
                         itinerary.Status_MERC__c = 'In Progress';
 
-                        if(hotelVendorMap.containsKey(participant.Meeting_MERC__c) 
-                            && hotelVendorCountMap.get(participant.Meeting_MERC__c) == 1) {
+                        System.debug('#### hotelMap = ' + hotelVendorMap);
+                        if (hotelVendorMap.containsKey(participant.Meeting_MERC__c)
+                            && singularHotelVendorMap.containsKey(participant.Meeting_MERC__c)
+                            && singularHotelVendorMap.get(participant.Meeting_MERC__c)) {
                             itinerary.Meeting_Vendor_MERC__c = hotelVendorMap.get(participant.Meeting_MERC__c);
                         }
 
@@ -125,7 +132,6 @@ public class MERC_HotelPrepopulateHandler implements GLBL_TriggerHandler.Handler
     }
 
     Datetime timeCorrection (DateTime dtValue, String timeZoneString) {
-
         String tzSidValueForAssociatedTimeZone = timeZoneString.split('\\(')[1].replace(')','');
         TimeZone associatedTimeZoneValue = TimeZone.getTimeZone(tzSidValueForAssociatedTimeZone);
         Integer associatedFieldGmtOffset = associatedTimeZoneValue.getOffset(dtValue); //gets meeting's offset to gmt
