@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Permission set to give the Travel Agent access to edit the objects they should have access to edit</description>
-     <fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.Account_Auto_Number_GLBL__c</field>
         <readable>false</readable>
@@ -666,6 +666,16 @@
         <field>Preferences_and_Consent_GLBL__c.Communication_Preference_Cap_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Cd_GLBL__c</field>
@@ -686,9 +696,19 @@
         <field>Preferences_and_Consent_GLBL__c.Del_Date_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Date_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Preferences_and_Consent_GLBL__c.Del_Flg_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Flg_Cap_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

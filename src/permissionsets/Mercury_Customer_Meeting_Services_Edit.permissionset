@@ -665,6 +665,16 @@
         <field>Preferences_and_Consent_GLBL__c.Communication_Preference_Cap_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Cd_GLBL__c</field>
@@ -685,9 +695,19 @@
         <field>Preferences_and_Consent_GLBL__c.Del_Date_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Date_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Preferences_and_Consent_GLBL__c.Del_Flg_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Flg_Cap_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
