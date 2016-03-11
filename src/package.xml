@@ -65,6 +65,8 @@
         <members>MERC_MeetingParticipantTovValidationTest</members>
         <members>MERC_MeetingProcessLogicHandler</members>
         <members>MERC_MeetingProcessLogicHandlerTest</members>
+        <members>MERC_MeetingRegistrationHandler</members>
+        <members>MERC_MeetingRegistrationReviewController</members>
         <members>MERC_MeetingTOVFinalValidation</members>
         <members>MERC_MeetingTOVFinalValidationTest</members>
         <members>MERC_MockHttpResponseService</members>
@@ -92,6 +94,7 @@
         <members>MeetingEmailSend</members>
         <members>MeetingEmailSendSelectRecipients</members>
         <members>MeetingParticipantTracking</members>
+        <members>MeetingRegistrationReview</members>
         <name>ApexPage</name>
     </types>
     <types>

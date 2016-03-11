@@ -1,7 +1,7 @@
 <apex:component controller="MERC_ParticipantListController">
 	<!-- TODO: Move these to the Mercury Static Resource after refactor changes have been added to mercDev2 -->
 	<style type="text/css">
-		th.hide, div.hide, span.hide   { display: none; }
+		th.hide, td.hide, div.hide, span.hide  { display: none; }
 
 		div.centered { text-align: center; }
 		div.centered input { margin: 0 5px; }
@@ -16,12 +16,16 @@
 			margin-right: 5px;
 			color: #4a4a56;
 		}
+
+		div#queryDataStatus {
+			text-align:center; margin:60px;
+		}
 	</style>
 
 	<apex:attribute name="listName"
 	                type="String"
 	                required="true"
-	                description="The name of the list. This should be a single string with no whitespace. It will be appended to javascript functions to namespace them in case there are more than one instace of this component defined on a page."/>
+	                description="The name of the list. This should be a single string with no whitespace. It will be appended to javascript functions to namespace them in case there are more than one instance of this component defined on a page."/>
 
 	<apex:attribute name="title"
 	                type="String"
@@ -37,7 +41,7 @@
 	<apex:attribute name="fieldSet"
 					type="String"
 					required="true"
-					description="Name of a Meeting Participant Field set to use for displaying columns in the table. Cannot be set if fieldsList attribute is set."
+					description="Name of a Meeting Participant Field set to use for displaying columns in the table"
 					assignTo="{!displayFieldSet}"/>
 
 	<apex:attribute name="enableSelections"
@@ -52,27 +56,27 @@
 
 	<apex:attribute name="filterByRecordType"
 	                type="Boolean"
-	                description="Indicates the record type filter should be displayed (default:false}"
+	                description="Indicates the record type filter should be displayed (default:false)"
 	                assignTo="{!recordTypeFilter}"/>
 
 	<apex:attribute name="filterByAccountRecordType"
 		  			type="Boolean"
-		  			description="Indicates the account type filter should be displayed (default:false}"
+		  			description="Indicates the account type filter should be displayed (default:false)"
 		  			assignTo="{!accountRecordTypeFilter}"/>
 
 	<apex:attribute name="filterByStatus"
 		  			type="Boolean"
-		  			description="Indicates the Participants Status filter should be displayed (default:false}"
+		  			description="Indicates the Participants Status filter should be displayed (default:false)"
 		  			assignTo="{!participantStatusFilter}"/>
 
 	<apex:attribute name="filterByRegStatus"
 		  			type="Boolean"
-		  			description="Indicates the Registration Status filter should be displayed (default:false}"
+		  			description="Indicates the Registration Status filter should be displayed (default:false)"
 		  			assignTo="{!participantRegStatusFilter}"/>
 
 	<apex:attribute name="enableSearch"
 		  			type="Boolean"
-		  			description="Indicates a search input should be displayed which will allow filtering based on account name or participant number containing the input string (default:false}"
+		  			description="Indicates a search input should be displayed which will allow filtering based on account name or participant number containing the input string (default:false)"
 		  			assignTo="{!searchable}"/>
 
 	<!-- overall container for the list -->
@@ -169,7 +173,7 @@
 							</apex:outputPanel>
 							<apex:outputPanel style="clear:both" styleClass="{!IF(participants.size==0, 'hide', '')}" >
 								<apex:pageBlockTable value="{!participants}" var="participant" onRowClick="setSelectedParticipantFor{!listName}(this);">
-									<apex:column value="{!participant.detail.Id}" styleClass="id-cell" style="display:none;" headerClass="hide"/>
+									<apex:column value="{!participant.detail.Id}" styleClass="id-cell hide" headerClass="hide"/>
 									<apex:column rendered="{!selectable}">
 										<apex:inputCheckbox value="{!participant.selected}" styleClass="selectRow"/>
 										<apex:facet name="header">
@@ -177,15 +181,7 @@
 										</apex:facet>
 									</apex:column>
 									<apex:repeat value="{!fieldSetFields}" var="field">
-										<apex:column value="{!participant.detail[field.fieldPath]}">
-											<apex:facet name="header">
-												<apex:outputLabel value="{!field.label}" onclick="setOrderField{!listName}('{!field.fieldPath}','{!IF(field.fieldPath == sortField,oppositeSortDirection,'ASC')}');">
-													<apex:image styleClass="sort-image" url="{!URLFOR($Resource.mercury, 'img/sort_asc.png')}" rendered="{!field.fieldPath = sortField && sortDirection = 'ASC'}"/>
-													<apex:image styleClass="sort-image" url="{!URLFOR($Resource.mercury, 'img/sort_desc.png')}" rendered="{!field.fieldPath = sortField && sortDirection = 'DESC'}"/>
-													<apex:image styleClass="sort-image" url="{!URLFOR($Resource.mercury, 'img/sort_both.png')}" rendered="{!field.fieldPath != sortField}"/>
-												</apex:outputLabel>
-											</apex:facet>
-										</apex:column>
+										<apex:column value="{!participant.detail[field.fieldPath]}"/>
 									</apex:repeat>
 
 								</apex:pageBlockTable>
@@ -194,7 +190,7 @@
 					</apex:facet>
 					<!-- display message when searching -->
 					<apex:facet name="start">
-						<div style="text-align:center; margin:60px;">
+						<div id="queryDataStatus">
 							<h1>Querying Meeting Participants....</h1>
 						</div>
 					</apex:facet>
@@ -210,7 +206,7 @@
 
 			//find the container
 			var tableContainer = document.getElementById('{!$Component.listContainer}');
-			if (tableContainer !== 'undefined') {
+			if (tableContainer !== 'undefined' && tableContainer !== null) {
 				//get all links inside the table, will be a nodeList
 				var links = tableContainer.querySelectorAll('td a');
 
@@ -248,6 +244,7 @@
 
 			//convert the node list to an array then set all the values to match the
 			//'checkBox' checked value
+			//http://stackoverflow.com/questions/2125714/explanation-of-slice-call-in-javascript
 			[].slice
 				.call(rows)
 			  	.map(function(row) {

@@ -258,8 +258,13 @@ public with sharing class MERC_ParticipantListController {
 	private String getQueryString() {
 		String query = 'SELECT ';
 		for (Schema.FieldSetMember field : getFieldSetFields()) {
-			query += field.getFieldPath() + ', ';
+			if (field.getFieldPath() != 'Id') {
+				query += field.getFieldPath() + ', ';
+			}
 		}
+
+		//ensure Id is in the query string but only once, in case it is included in the field set
+
 
 		// include isPersonAccount so exception isn't thrown when page block table renders
 		query += 'Id, Account_MERC__r.isPersonAccount FROM Meeting_Participant_MERC__c WHERE ('
@@ -282,7 +287,7 @@ public with sharing class MERC_ParticipantListController {
 
 		// filter by participant registration status if set
 		if (participantRegStatusFilter && String.isNotBlank(selectedParticipantRegStatus)) {
-			query += ' AND Registration_Status__c=\'' + selectedParticipantRegStatus + '\'';
+			query += ' AND Registration_Status_MERC__c=\'' + selectedParticipantRegStatus + '\'';
 		}
 
 		// if a search term has been added include it. This performs a wild card search against name and account name

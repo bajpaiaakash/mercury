@@ -53,7 +53,7 @@ public with sharing class MERC_MeetingGroupController {
 
 			//initialize MERC_ParticipantListDataObjcts for available participants and group participants. Pass in default page
 			//size of 10 and a set of list size options
-			availableParticipants = new MERC_ParticipantListDataObject(availableWhereClause, 10, new Set<Integer>{1,2,10,25,50});
+			availableParticipants = new MERC_ParticipantListDataObject(availableWhereClause, 10, new Set<Integer>{10,25,50});
 			groupParticipants = new MERC_ParticipantListDataObject(groupWhereClause, 10, new Set<Integer>{10,25,50});
 		}
 	}

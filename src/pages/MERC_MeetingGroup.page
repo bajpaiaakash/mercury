@@ -20,6 +20,7 @@
 		                        enableSelections="true"
 		                        filterByRecordType="true"
 		                        filterByAccountRecordType="true"
+		                        filterByStatus="true"
 		                        listName="availableParticipants"
 		                        title="Meeting Participants without a Group"
 		                        fieldSet="Meeting_Group_Result_Fields_MERC"

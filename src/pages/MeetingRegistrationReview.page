@@ -2,15 +2,15 @@
     <apex:pageBlock rendered="{!hasErrors}">
         <apex:pageMessages />
     </apex:pageBlock>
-    <apex:form id="pageForm" rendered = "{!NOT(hasErrors)}">
-        <c:MERC_ParticipantList dataObject = "{!participantsToReview}"
-                                filterByRecordType = "true"
-                                filterByRegStatus = "true"
-                                listName = "participantsToReview"
-                                title = "Meeting Participants To Review"
-                                fieldSet = "Registration_Management_Result_Flds_MERC"
-                                enableSearch = "true"
-                                rowClickFunction = "confirmOrSelectParticipant" />
+    <apex:form id="pageForm" rendered="{!NOT(hasErrors)}">
+        <c:MERC_ParticipantList dataObject="{!participantsToReview}"
+                                filterByRecordType="true"
+                                filterByRegStatus="true"
+                                listName="participantsToReview"
+                                title="Meeting Participants To Review"
+                                fieldSet="Registration_Management_Result_Flds_MERC"
+                                enableSearch="true"
+                                rowClickFunction="confirmOrSelectParticipant" />
         <apex:actionFunction name="confirmOrSelectParticipant" action="{!confirmOrSelectParticipant}" reRender="selectedParticipantDetail" status="selectingParticipant" />
         <apex:actionFunction name="selectParticipant" action="{!selectParticipant}" reRender="selectedParticipantDetail" status="selectingParticipant" />
         <apex:actionFunction name="saveAndSelectParticipant" action="{!saveAndSelectParticipant}" reRender="selectedParticipantDetail" status="selectingParticipant" />
@@ -25,7 +25,7 @@
                         <apex:pageBlockButtons location="top">
                             <apex:actionStatus id="reviewStatus">
                                 <apex:facet name="stop">
-                                    <apex:outputPanel>
+                                    <apex:outputPanel >
                                         <apex:commandButton value="Registration Complete"
                                                             action="{!registrationComplete}"
                                                             reRender="pageForm"
@@ -37,7 +37,7 @@
                                     </apex:outputPanel>
                                 </apex:facet>
                                 <apex:facet name="start">
-                                    <apex:outputPanel>
+                                    <apex:outputPanel >
                                         <apex:commandButton value="Registration Complete" disabled="true" />
                                         <apex:commandButton value="Registration Incomplete" disabled="true" />
                                     </apex:outputPanel>
@@ -60,7 +60,7 @@
                         </apex:pageBlockSection>
                         <apex:pageBlockSection title="Questions" rendered="{!hasQuestions}">
                             <apex:repeat value="{!selectedParticipantQuestions}" var="question">
-                                <apex:pageBlockSection>
+                                <apex:pageBlockSection >
                                     <apex:repeat value="{!$ObjectType.Registration_Question_MERC__c.FieldSets.Registration_Questions_Review_Flds_MERC}" var="outputField">
                                         <apex:outputField value="{!question[outputField]}" />
                                     </apex:repeat>
