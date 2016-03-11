@@ -3,6 +3,7 @@
         <apex:pageMessages />
     </apex:pageBlock>
     <apex:form id="pageForm" rendered="{!NOT(hasErrors)}">
+        <apex:commandButton value="Return to Meeting" rerender="nothing" onclick="window.location='/{!meetingId}'" styleClass="centered"/>
         <c:MERC_ParticipantList dataObject="{!participantsToReview}"
                                 filterByRecordType="true"
                                 filterByRegStatus="true"
@@ -58,12 +59,14 @@
                                 <apex:inputField value="{!selectedParticipant[editField]}" />
                             </apex:repeat>
                         </apex:pageBlockSection>
-                        <apex:pageBlockSection title="Questions" rendered="{!hasQuestions}">
+                        <apex:pageBlockSection title="Questions" rendered="{!hasQuestions}" columns="2">
                             <apex:repeat value="{!selectedParticipantQuestions}" var="question">
-                                <apex:pageBlockSection >
+                                <apex:pageBlockSection>
                                     <apex:repeat value="{!$ObjectType.Registration_Question_MERC__c.FieldSets.Registration_Questions_Review_Flds_MERC}" var="outputField">
                                         <apex:outputField value="{!question[outputField]}" />
                                     </apex:repeat>
+                                </apex:pageBlockSection>
+                                <apex:pageBlockSection>
                                     <apex:repeat value="{!selectedParticipantResponses[question.Id]}" var="response">
                                         <apex:repeat value="{!$ObjectType.Response_MERC__c.FieldSets.Registration_Question_Response_Edit_MERC}" var="editField">
                                             <apex:inputField value="{!response[editField]}" />

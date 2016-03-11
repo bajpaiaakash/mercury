@@ -11,7 +11,8 @@ public with sharing class MERC_MeetingRegistrationReviewController {
     public Map<Id, List<Response_MERC__c>> selectedParticipantResponses { get; set; }
 
     private Meeting_Participant_MERC__c originalParticipant;
-    private List<Registration_Question_MERC__c> registrationQuestions { get; set; }
+    private Map<Id, List<Response_MERC__c>> originalResponses;
+    private List<Registration_Question_MERC__c> registrationQuestions;
 
     private final String MISSING_MEETING_ID = 'Missing id parameter. Please pass a meeting record id in as the id parameter';
     private final String REGISTRATION_STATUS_FILTERS = '(\'Incomplete\',\'Pending Review\')';
@@ -93,7 +94,7 @@ public with sharing class MERC_MeetingRegistrationReviewController {
     }
 
     public Boolean getHasQuestions(){
-        return selectedParticipantQuestions != null && selectedParticipantQuestions.size() > 0 || true;
+        return selectedParticipantQuestions != null && selectedParticipantQuestions.size() > 0;
     }
 
     public Boolean getHasErrors(){
@@ -102,17 +103,23 @@ public with sharing class MERC_MeetingRegistrationReviewController {
     
     public void saveAndSelectParticipant(){
         confirmSelectAndSaveParticipant = false;
-        update selectedParticipant;
+        saveParticipant();
         selectParticipant();
     }
 
     public void confirmOrSelectParticipant(){
-        if(selectedParticipant != null && selectedParticipant != originalParticipant){
+        if(selectedParticipant != null && changesHaveBeenMade()){
             confirmSelectAndSaveParticipant = true;
         } else {
             selectParticipant();
         }
     }
+
+    private Boolean changesHaveBeenMade(){
+        return selectedParticipant != originalParticipant 
+            || selectedParticipantResponses != originalResponses;
+    }
+
 
     public void selectParticipant(){
         confirmSelectAndSaveParticipant = false;
@@ -121,6 +128,7 @@ public with sharing class MERC_MeetingRegistrationReviewController {
         selectedParticipant = (Meeting_Participant_MERC__c)Database.query(participantQuery)[0];
         originalParticipant = selectedParticipant.clone(true, true, true, true);
         selectedParticipantResponses = getResponseMap(selectedParticipantId);
+        originalResponses = deepCloneResponses(selectedParticipantResponses);
         selectedParticipantQuestions = getParticipantQuestions(selectedParticipantResponses.keySet());
     }
 
@@ -169,6 +177,14 @@ public with sharing class MERC_MeetingRegistrationReviewController {
             DEFAULT_RESPONSE_FIELDS);
     }
 
+    private Map<Id, List<Response_MERC__c>> deepCloneResponses(Map<Id, List<Response_MERC__c>> responsesToClone){
+        Map<Id, List<Response_MERC__c>> clonedResponses = new Map<Id, List<Response_MERC__c>>();
+        for(Id questionId : responsesToClone.keySet()){
+            clonedResponses.put(questionId, responsesToClone.get(questionId).deepClone(true, true, true));
+        }
+        return clonedResponses;
+    }
+
     private List<Registration_Question_MERC__c> getParticipantQuestions(Set<Id> questionIds){
         List<Registration_Question_MERC__c> questions = new List<Registration_Question_MERC__c>();
         for(Registration_Question_MERC__c question : registrationQuestions){
@@ -185,33 +201,31 @@ public with sharing class MERC_MeetingRegistrationReviewController {
 
     public void saveParticipant(){
         update selectedParticipant;
-    }
-
-    public void reviewComplete(){
-        selectedParticipant.Registration_Status_MERC__c = 'Complete';
-        saveParticipant();
-        participantsToReview.initializeParticipantList();
-        selectedParticipant = null;
-        originalParticipant = null;
-    }
-
-    public void reviewIncomplete(){
-        selectedParticipant.Registration_Status_MERC__c = 'Incomplete';
-        saveParticipant();
-        participantsToReview.initializeParticipantList();
+        List<Response_MERC__c> responsesToUpdate = new List<Response_MERC__c>();
+        for(Id questionId : selectedParticipantResponses.keySet()){
+            responsesToUpdate.addAll(selectedParticipantResponses.get(questionId));   
+        }
+        update responsesToUpdate;
     }
 
     public void registrationComplete(){
         selectedParticipant.Registration_Status_MERC__c = 'Complete';
         saveParticipant();
         participantsToReview.initializeParticipantList();
-        selectedParticipant = null;
-        originalParticipant = null;
+        clearSelected();
     }
 
     public void registrationIncomplete(){
         selectedParticipant.Registration_Status_MERC__c = 'Incomplete';
         saveParticipant();
         participantsToReview.initializeParticipantList();
+        clearSelected();
+    }
+
+    private void clearSelected(){
+        selectedParticipant = null;
+        originalParticipant = null;
+        selectedParticipantResponses = null;
+        originalResponses = null;
     }
 }
