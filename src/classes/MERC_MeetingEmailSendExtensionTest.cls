@@ -412,7 +412,6 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
         Test.stopTest();
 
         System.assertEquals('none', meetingEmailSendExtension.getSendInFuture());
-        assertMessagesContain('what is not a valid value for sending in future');
     }
 
     @isTest static void test_AccessToSendInFutureDate(){
@@ -814,6 +813,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
 
         MERC_MeetingEmailSendExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
         sendRecipientsExtension.processTypeSelected = MERC_MarketingCloudTestUtility.PROCESS_TYPE_TRAVEL_PROPOSAL;
+        sendRecipientsExtension.onFilterChange();
 
         Boolean shouldRender = sendRecipientsExtension.getShouldRenderProposalFilter();
 
@@ -829,6 +829,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
 
         MERC_MeetingEmailSendExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
         sendRecipientsExtension.processTypeSelected = MERC_MarketingCloudTestUtility.PROCESS_TYPE_REGISTRATION;
+        sendRecipientsExtension.onFilterChange();
 
         List<SelectOption> processTypeOptions = sendRecipientsExtension.getProcessTypeOptions();
 
@@ -846,6 +847,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
 
         MERC_MeetingEmailSendExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
         sendRecipientsExtension.processTypeSelected = MERC_MarketingCloudTestUtility.PROCESS_TYPE_REGISTRATION;
+        sendRecipientsExtension.onFilterChange();
 
         List<SelectOption> proposalStatusOptions = sendRecipientsExtension.getProposalStatusOptions();
 
@@ -863,6 +865,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
 
         MERC_MeetingEmailSendExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
         sendRecipientsExtension.processTypeSelected = MERC_MarketingCloudTestUtility.PROCESS_TYPE_REGISTRATION;
+        sendRecipientsExtension.onFilterChange();
         List<SelectOption> dueDateOptions = sendRecipientsExtension.getDueDateOptions();
 
         Test.stopTest();
@@ -877,6 +880,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
 
         MERC_MeetingEmailSendExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
         sendRecipientsExtension.processTypeSelected = MERC_MarketingCloudTestUtility.PROCESS_TYPE_TRAVEL_PROPOSAL;
+        sendRecipientsExtension.onFilterChange();
         List<SelectOption> nextStepOptions = sendRecipientsExtension.getNextStepOptions();
 
         Test.stopTest();
@@ -891,6 +895,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
 
         MERC_MeetingEmailSendExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
         sendRecipientsExtension.processTypeSelected = MERC_MarketingCloudTestUtility.PROCESS_TYPE_REGISTRATION;
+        sendRecipientsExtension.onFilterChange();
         List<SelectOption> nextStepOptions = sendRecipientsExtension.getNextStepOptions();
 
         Test.stopTest();
@@ -905,6 +910,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
 
         MERC_MeetingEmailSendExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
         sendRecipientsExtension.processTypeSelected = MERC_MarketingCloudTestUtility.PROCESS_TYPE_REGISTRATION;
+        sendRecipientsExtension.onFilterChange();
         List<SelectOption> taskStatusOptions = sendRecipientsExtension.getTaskStatusOptions();
 
         Test.stopTest();
@@ -919,6 +925,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
 
         MERC_MeetingEmailSendExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
         sendRecipientsExtension.processTypeSelected = MERC_MarketingCloudTestUtility.PROCESS_TYPE_TRAVEL_PROPOSAL;
+        sendRecipientsExtension.onFilterChange();
         List<SelectOption> taskStatusOptions = sendRecipientsExtension.getTaskStatusOptions();
 
         Test.stopTest();
@@ -934,6 +941,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
         MERC_MeetingEmailSendExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
         sendRecipientsExtension.processTypeSelected = MERC_MarketingCloudTestUtility.PROCESS_TYPE_TRAVEL_PROPOSAL;
 
+        sendRecipientsExtension.onFilterChange();
         Test.stopTest();
 
         System.assertEquals(sendRecipientsExtension.ANY_OPTION, sendRecipientsExtension.proposalStatusSelected);
@@ -951,6 +959,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
         sendRecipientsExtension.nextStepSelected = sendRecipientsExtension.getNextStepOptions().get(1).getValue();
         sendRecipientsExtension.taskStatusSelected = MERC_MarketingCloudTestUtility.TASK_STATUS_COMPLETED;
 
+        sendRecipientsExtension.onFilterChange();
         List<SelectOption> processTypeOptions = sendRecipientsExtension.getProcessTypeOptions();
         List<MERC_MeetingEmailSendExtension.SelectableParticipant> participants = sendRecipientsExtension.currentPageOfSelectableParticipants;
         Test.stopTest();
@@ -972,6 +981,8 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
         sendRecipientsExtension.nextStepSelected = sendRecipientsExtension.getNextStepOptions().get(1).getValue();
         sendRecipientsExtension.taskStatusSelected = MERC_MarketingCloudTestUtility.TASK_STATUS_COMPLETED;
         sendRecipientsExtension.processTypeSelected = sendRecipientsExtension.ANY_OPTION;
+        
+        sendRecipientsExtension.onFilterChange();
 
         Test.stopTest();
 
@@ -999,6 +1010,8 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
         sendRecipientsExtension.participantStatusSelected = 'Rejected';
         sendRecipientsExtension.preferredLanguageSelected = 'French';
         sendRecipientsExtension.recordTypeSelected = MERC_ETTestUtils.GetRecordType(MERC_MarketingCloudTestUtility.PARTICIPANT_RECORD_TYPE_DELEGATE, 'Meeting_Participant_MERC__c').Id;
+
+        sendRecipientsExtension.onFilterChange();
         List<MERC_MeetingEmailSendExtension.SelectableParticipant> filteredParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
 
         sendRecipientsExtension.clearFilters();
@@ -1030,6 +1043,7 @@ public with sharing class MERC_MeetingEmailSendExtensionTest {
         MERC_MeetingEmailSendExtension sendRecipientsExtension = getSendRecipientsExtension(meeting); 
 
         sendRecipientsExtension.hasEmailSelected = 'Yes';
+        sendRecipientsExtension.onFilterChange();
 
         List<MERC_MeetingEmailSendExtension.SelectableParticipant> filteredParticipants = sendRecipientsExtension.currentPageOfSelectableParticipants;
 
