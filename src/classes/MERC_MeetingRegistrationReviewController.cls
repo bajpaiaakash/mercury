@@ -3,9 +3,14 @@
 * Authors: David Helmer
 */
 public with sharing class MERC_MeetingRegistrationReviewController {
+    public static final String MISSING_MEETING_ID = 'Missing id parameter. Please pass a meeting record id in as the id parameter.';
+    public static final String NO_PARTICIPANT_SELECTED_TO_SAVE = 'No participant has been selected, please select a participant before saving';
+    public static final String NO_PARTICIPANT_SELECTED = 'No participant has been selected.';
+
     public String meetingId { get; set; }
     public Meeting_MERC__c meeting { get; set; }
 	public MERC_ParticipantListDataObject participantsToReview { get; set; }
+    public Boolean isConfirmNecessary { get; set; }
     public Boolean confirmSelectAndSaveParticipant { get; set; }
     public Meeting_Participant_MERC__c selectedParticipant { get; set; }
     public List<Registration_Question_MERC__c> selectedParticipantQuestions { get; set; }
@@ -17,7 +22,6 @@ public with sharing class MERC_MeetingRegistrationReviewController {
     private List<Account> originalDesignatedIndividuals;
     private List<Registration_Question_MERC__c> registrationQuestions;
 
-    private final String MISSING_MEETING_ID = 'Missing id parameter. Please pass a meeting record id in as the id parameter';
     private final String REGISTRATION_STATUS_FILTERS = '(\'Incomplete\',\'Pending Review\')';
     private final Integer PAGE_SIZE = 10;
     private final Set<Integer> PAGE_SIZE_SET = null;
@@ -47,14 +51,17 @@ public with sharing class MERC_MeetingRegistrationReviewController {
     };
 
     public MERC_MeetingRegistrationReviewController() {
-		meetingId = getMeetingIdFromParameters();
-        meeting = queryMeeting(meetingId);
+        isConfirmNecessary = false;
+
+		meetingId = getParameter('id');
         if(String.isBlank(meetingId)){
             ApexPages.addMessage(buildErrorMessage(MISSING_MEETING_ID));
-        }
+        } else {
+            meeting = queryMeeting(meetingId);
 
-        initializeParticipantsToReview();
-        initializeQuestions();
+            initializeParticipantsToReview();
+            initializeQuestions();
+        }
 	}
 
     private Meeting_MERC__c queryMeeting(Id meetingId){
@@ -66,8 +73,8 @@ public with sharing class MERC_MeetingRegistrationReviewController {
                  LIMIT 1];
     }
 
-    private String getMeetingIdFromParameters(){
-        return ApexPages.currentPage().getParameters().get('id');
+    private String getParameter(String parameterName){
+        return ApexPages.currentPage().getParameters().get(parameterName);
     }
 
     private ApexPages.Message buildErrorMessage(String message){
@@ -128,14 +135,14 @@ public with sharing class MERC_MeetingRegistrationReviewController {
     }
     
     public void saveAndSelectParticipant(){
-        confirmSelectAndSaveParticipant = false;
-        saveParticipant();
+        isConfirmNecessary = false;
+        saveParticipantIfSelected();
         selectParticipant();
     }
 
     public void confirmOrSelectParticipant(){
         if(selectedParticipant != null && changesHaveBeenMade()){
-            confirmSelectAndSaveParticipant = true;
+            isConfirmNecessary = true;
         } else {
             selectParticipant();
         }
@@ -147,21 +154,25 @@ public with sharing class MERC_MeetingRegistrationReviewController {
             || selectedParticipantDesignatedIndividuals != originalDesignatedIndividuals;
     }
 
-
     public void selectParticipant(){
-        confirmSelectAndSaveParticipant = false;
+        isConfirmNecessary = false;
         String selectedParticipantId = participantsToReview.selectedParticipantId;
-        String participantQuery = getParticipantQueryString(selectedParticipantId);
-        selectedParticipant = (Meeting_Participant_MERC__c)Database.query(participantQuery)[0];
-        originalParticipant = selectedParticipant.clone(true, true, true, true);
 
-        selectedParticipantDesignatedIndividuals = getDesignatedIndividuals(selectedParticipant.Account_MERC__c);
-        originalDesignatedIndividuals = selectedParticipantDesignatedIndividuals.deepClone(true, true, true);
+        if(String.isNotBlank(selectedParticipantId)){
+            String participantQuery = getParticipantQueryString(selectedParticipantId);
+            selectedParticipant = (Meeting_Participant_MERC__c)Database.query(participantQuery)[0];
+            originalParticipant = selectedParticipant.clone(true, true, true, true);
 
-        selectedParticipantResponses = getResponseMap(selectedParticipantId);
-        originalResponses = deepCloneResponses(selectedParticipantResponses);
+            selectedParticipantDesignatedIndividuals = getDesignatedIndividuals(selectedParticipant.Account_MERC__c);
+            originalDesignatedIndividuals = selectedParticipantDesignatedIndividuals.deepClone(true, true, true);
 
-        selectedParticipantQuestions = getParticipantQuestions(selectedParticipantResponses.keySet());
+            selectedParticipantResponses = getResponseMap(selectedParticipantId);
+            originalResponses = deepCloneResponses(selectedParticipantResponses);
+
+            selectedParticipantQuestions = getParticipantQuestions(selectedParticipantResponses.keySet());
+        } else {
+            ApexPages.addMessage(buildErrorMessage(NO_PARTICIPANT_SELECTED));
+        }
     }
 
     private String getParticipantQueryString(String selectedParticipantId) {
@@ -248,11 +259,19 @@ public with sharing class MERC_MeetingRegistrationReviewController {
         return questions;
     }
 
+    private void saveParticipantIfSelected(){
+        if(getHasSelectedParticipant()){
+            saveParticipant();
+        } else {
+            ApexPages.addMessage(buildErrorMessage(NO_PARTICIPANT_SELECTED_TO_SAVE));
+        }
+    }
+
     public Boolean getHasSelectedParticipant(){
         return selectedParticipant != null;
     }
 
-    public void saveParticipant(){
+    private void saveParticipant(){
         update selectedParticipant;
         List<Response_MERC__c> responsesToUpdate = new List<Response_MERC__c>();
         for(Id questionId : selectedParticipantResponses.keySet()){
@@ -264,14 +283,14 @@ public with sharing class MERC_MeetingRegistrationReviewController {
 
     public void registrationComplete(){
         selectedParticipant.Registration_Status_MERC__c = 'Complete';
-        saveParticipant();
+        saveParticipantIfSelected();
         participantsToReview.initializeParticipantList();
         clearSelected();
     }
 
     public void registrationIncomplete(){
         selectedParticipant.Registration_Status_MERC__c = 'Incomplete';
-        saveParticipant();
+        saveParticipantIfSelected();
         participantsToReview.initializeParticipantList();
         clearSelected();
     }
@@ -283,5 +302,6 @@ public with sharing class MERC_MeetingRegistrationReviewController {
         originalResponses = null;
         selectedParticipantDesignatedIndividuals = null;
         originalDesignatedIndividuals = null;
+        selectedParticipantQuestions = null;
     }
 }

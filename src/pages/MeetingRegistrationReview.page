@@ -98,7 +98,7 @@
                     </apex:pageBlock>
                     
                     <script type="text/javascript">
-                        if({!confirmSelectAndSaveParticipant}){
+                        if({!isConfirmNecessary}){
                             if(confirm('Do you want to save your changes to {!selectedParticipant.Account_MERC__r.Name}?')){
                                 saveAndSelectParticipant();
                             } else {
