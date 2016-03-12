@@ -1,4 +1,11 @@
 <apex:page showHeader="true" sidebar="true" controller="MERC_MeetingRegistrationReviewController" tabStyle="Meeting_MERC__c">
+    <style type="text/css">
+        input.centered {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+    <apex:sectionHeader title="{!meeting.Name}" subtitle="Review Registrations"/>
     <apex:pageBlock rendered="{!hasErrors}">
         <apex:pageMessages />
     </apex:pageBlock>
@@ -45,7 +52,8 @@
                                 </apex:facet>
                             </apex:actionStatus>
                         </apex:pageBlockButtons>
-                        <apex:pageBlockSection title="Review">
+
+                        <apex:pageBlockSection title="Summary">
                             <apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Registration_Review_View_Field_MERC}" var="outputField">
                                 <apex:outputField value="{!selectedParticipant[outputField]}" rendered="{!NOT(outputField='Name')}" />
                                 <apex:pageBlockSectionItem rendered="{!outputField='Name'}">
@@ -54,11 +62,23 @@
                                 </apex:pageBlockSectionItem>
                             </apex:repeat>
                         </apex:pageBlockSection>
+
                         <apex:pageBlockSection title="Edit">
                             <apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Registration_Review_Edit_Fields_MERC}" var="editField">
                                 <apex:inputField value="{!selectedParticipant[editField]}" />
                             </apex:repeat>
                         </apex:pageBlockSection>
+
+                        <apex:pageBlockSection title="Designated Individuals" rendered= "{!hasDesignatedIndividuals}" columns="1">
+                            <apex:repeat value="{!selectedParticipantDesignatedIndividuals}" var="designatedIndividual">
+                                <apex:pageBlockSection title="{!designatedIndividual.Full_Nm_GLBL__c}">
+                                    <apex:repeat value="{!$ObjectType.Account.FieldSets.Review_Registration_Review_DI_Flds_MERC}" var="inputField">
+                                        <apex:inputField value="{!designatedIndividual[inputField]}" />
+                                    </apex:repeat>
+                                </apex:pageBlockSection>
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+
                         <apex:pageBlockSection title="Questions" rendered="{!hasQuestions}" columns="2">
                             <apex:repeat value="{!selectedParticipantQuestions}" var="question">
                                 <apex:pageBlockSection>

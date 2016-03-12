@@ -4,21 +4,30 @@
 */
 public with sharing class MERC_MeetingRegistrationReviewController {
     public String meetingId { get; set; }
+    public Meeting_MERC__c meeting { get; set; }
 	public MERC_ParticipantListDataObject participantsToReview { get; set; }
     public Boolean confirmSelectAndSaveParticipant { get; set; }
     public Meeting_Participant_MERC__c selectedParticipant { get; set; }
     public List<Registration_Question_MERC__c> selectedParticipantQuestions { get; set; }
     public Map<Id, List<Response_MERC__c>> selectedParticipantResponses { get; set; }
+    public List<Account> selectedParticipantDesignatedIndividuals { get; set; }
 
     private Meeting_Participant_MERC__c originalParticipant;
     private Map<Id, List<Response_MERC__c>> originalResponses;
+    private List<Account> originalDesignatedIndividuals;
     private List<Registration_Question_MERC__c> registrationQuestions;
 
     private final String MISSING_MEETING_ID = 'Missing id parameter. Please pass a meeting record id in as the id parameter';
     private final String REGISTRATION_STATUS_FILTERS = '(\'Incomplete\',\'Pending Review\')';
     private final Integer PAGE_SIZE = 10;
     private final Set<Integer> PAGE_SIZE_SET = null;
-    private final Set<String> DEFAULT_MEETING_PARTICIPANT_FIELDS = new Set<String> { 'Id', 'Account_MERC__r.isPersonAccount', 'Account_MERC__r.Name', 'Registration_Status_MERC__c' };
+    private final Set<String> DEFAULT_MEETING_PARTICIPANT_FIELDS = new Set<String> { 
+        'Id',
+        'Account_MERC__c',
+        'Account_MERC__r.isPersonAccount',
+        'Account_MERC__r.Name',
+        'Registration_Status_MERC__c' 
+    };
     private final Set<String> MEETING_PARTICIPANT_FIELD_SETS = new Set<String> {
         'Meeting_Group_Result_Fields_MERC',
         'Registration_Review_Edit_Fields_MERC',
@@ -32,10 +41,14 @@ public with sharing class MERC_MeetingRegistrationReviewController {
     private final Set<String> RESPONSE_FIELD_SETS = new Set<String> {
         'Registration_Question_Response_Edit_MERC'
     };
+    private final Set<String> DEFAULT_DESIGNATED_INDIVIDUAL_FIELDS = new Set<String> { 'Id', 'Full_Nm_GLBL__c' };
+    private final Set<String> DESIGNATED_INDIVIDUAL_FIELD_SETS = new Set<String> {
+        'Review_Registration_Review_DI_Flds_MERC'
+    };
 
     public MERC_MeetingRegistrationReviewController() {
 		meetingId = getMeetingIdFromParameters();
-
+        meeting = queryMeeting(meetingId);
         if(String.isBlank(meetingId)){
             ApexPages.addMessage(buildErrorMessage(MISSING_MEETING_ID));
         }
@@ -43,6 +56,15 @@ public with sharing class MERC_MeetingRegistrationReviewController {
         initializeParticipantsToReview();
         initializeQuestions();
 	}
+
+    private Meeting_MERC__c queryMeeting(Id meetingId){
+        return [SELECT OwnerId,
+                       Id,
+                       Name
+                  FROM Meeting_MERC__c
+                 WHERE Id = :meetingId
+                 LIMIT 1];
+    }
 
     private String getMeetingIdFromParameters(){
         return ApexPages.currentPage().getParameters().get('id');
@@ -97,6 +119,10 @@ public with sharing class MERC_MeetingRegistrationReviewController {
         return selectedParticipantQuestions != null && selectedParticipantQuestions.size() > 0;
     }
 
+    public Boolean getHasDesignatedIndividuals(){
+        return selectedParticipantDesignatedIndividuals != null && selectedParticipantDesignatedIndividuals.size() > 0;
+    }
+
     public Boolean getHasErrors(){
         return ApexPages.hasMessages(ApexPages.Severity.ERROR);
     }
@@ -117,7 +143,8 @@ public with sharing class MERC_MeetingRegistrationReviewController {
 
     private Boolean changesHaveBeenMade(){
         return selectedParticipant != originalParticipant 
-            || selectedParticipantResponses != originalResponses;
+            || selectedParticipantResponses != originalResponses
+            || selectedParticipantDesignatedIndividuals != originalDesignatedIndividuals;
     }
 
 
@@ -127,8 +154,13 @@ public with sharing class MERC_MeetingRegistrationReviewController {
         String participantQuery = getParticipantQueryString(selectedParticipantId);
         selectedParticipant = (Meeting_Participant_MERC__c)Database.query(participantQuery)[0];
         originalParticipant = selectedParticipant.clone(true, true, true, true);
+
+        selectedParticipantDesignatedIndividuals = getDesignatedIndividuals(selectedParticipant.Account_MERC__c);
+        originalDesignatedIndividuals = selectedParticipantDesignatedIndividuals.deepClone(true, true, true);
+
         selectedParticipantResponses = getResponseMap(selectedParticipantId);
         originalResponses = deepCloneResponses(selectedParticipantResponses);
+
         selectedParticipantQuestions = getParticipantQuestions(selectedParticipantResponses.keySet());
     }
 
@@ -146,6 +178,27 @@ public with sharing class MERC_MeetingRegistrationReviewController {
             Schema.SObjectType.Meeting_Participant_MERC__c.fieldSets.getMap(),
             MEETING_PARTICIPANT_FIELD_SETS,
             DEFAULT_MEETING_PARTICIPANT_FIELDS);
+    }
+
+    private List<Account> getDesignatedIndividuals(Id accountId){
+        String query = getDesignatedIndividualQueryString(accountId);
+        return (List<Account>)Database.query(query);
+    }
+
+    private String getDesignatedIndividualQueryString(Id accountId){
+        String query = 'SELECT ';
+        query += getSelectFieldQuery(getDesignatedIndividualFields());
+        query += ' FROM Account WHERE HCP_Designated_Individuals_MERC__c = \'' + accountId + '\'';
+
+        system.debug(query);
+        return query;
+    }
+
+    private Set<String> getDesignatedIndividualFields(){
+        return getFieldsFor(
+            Schema.SObjectType.Account.fieldSets.getMap(),
+            DESIGNATED_INDIVIDUAL_FIELD_SETS,
+            DEFAULT_DESIGNATED_INDIVIDUAL_FIELDS);
     }
 
     private Map<Id, List<Response_MERC__c>> getResponseMap(String selectedParticipantId){
@@ -206,6 +259,7 @@ public with sharing class MERC_MeetingRegistrationReviewController {
             responsesToUpdate.addAll(selectedParticipantResponses.get(questionId));   
         }
         update responsesToUpdate;
+        update selectedParticipantDesignatedIndividuals;
     }
 
     public void registrationComplete(){
@@ -227,5 +281,7 @@ public with sharing class MERC_MeetingRegistrationReviewController {
         originalParticipant = null;
         selectedParticipantResponses = null;
         originalResponses = null;
+        selectedParticipantDesignatedIndividuals = null;
+        originalDesignatedIndividuals = null;
     }
 }
