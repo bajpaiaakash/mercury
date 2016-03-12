@@ -26,6 +26,7 @@ public class MERC_MeetingEmailSendAttemptHandler implements GLBL_TriggerHandler.
         }
 
         List<MeetingEmailSendWrapper> filteredMeetingEmailSends = filterSends(oldMeetingEmailSends, newMeetingEmailSends, newMeetingEmailSendMap);
+        System.debug(LoggingLevel.FINE, 'filteredMeetingEmailSends: ' + filteredMeetingEmailSends);
         if (filteredMeetingEmailSends.size() <= maxAttempts) {
             attemptSends(filteredMeetingEmailSends, 0, filteredMeetingEmailSends.size());
         } else {

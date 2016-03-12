@@ -78,7 +78,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
         Test.stopTest();
     }
 
-    @isTest static void test_sendMeetingRegistrationConfirmation_withParticipantNullCountry(){
+    @isTest static void test_sendMeetingRegistrationConfirmations_withParticipantNullCountry(){
         MERC_TriggerHandlerStateManager.deactivateAll();
         User testUser = MERC_MarketingCloudTestUtility.getUser();
         insert testUser;
@@ -109,9 +109,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
             Test.setMock(HttpCalloutMock.class, mockResponseService);
 
             Test.startTest();
-            MERC_MarketingCloudService.sendMeetingRegistrationConfirmation(
-                meeting.Id,
-                participants[0]);
+            MERC_MarketingCloudService.sendMeetingRegistrationConfirmations(participants);
             Test.stopTest();
 
             Meeting_Email_Send_MERC__c meetingEmailSend = [SELECT Id,
@@ -119,11 +117,11 @@ public with sharing class MERC_MarketingCloudServiceTest {
                                                              FROM Meeting_Email_Send_MERC__c
                                                             WHERE Meeting_MERC__c = :meeting.Id
                                                             LIMIT 1][0];
-            System.assertEquals(MERC_MarketingCloudService.EmailSendCreated, meetingEmailSend.Send_Status__c);
+            System.assertEquals(MERC_MarketingCloudService.CreateSenderProfile, meetingEmailSend.Send_Status__c);
         }
     }
 
-    @isTest static void test_sendMeetingRegistrationConfirmation(){
+    @isTest static void test_sendMeetingRegistrationConfirmations(){
         MERC_TriggerHandlerStateManager.deactivateAll();
         User testUser = MERC_MarketingCloudTestUtility.getUser();
         insert testUser;
@@ -155,9 +153,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
             Test.setMock(HttpCalloutMock.class, mockResponseService);
 
             Test.startTest();
-            MERC_MarketingCloudService.sendMeetingRegistrationConfirmation(
-                meeting.Id,
-                participants[0]);
+            MERC_MarketingCloudService.sendMeetingRegistrationConfirmations(participants);
             Test.stopTest();
 
             Meeting_Email_Send_MERC__c meetingEmailSend = [SELECT Id,
@@ -165,7 +161,7 @@ public with sharing class MERC_MarketingCloudServiceTest {
                                                              FROM Meeting_Email_Send_MERC__c
                                                             WHERE Meeting_MERC__c = :meeting.Id
                                                             LIMIT 1][0];
-            System.assertEquals(MERC_MarketingCloudService.EmailSendCreated, meetingEmailSend.Send_Status__c);
+            System.assertEquals(MERC_MarketingCloudService.CreateSenderProfile, meetingEmailSend.Send_Status__c);
         }
     }
 

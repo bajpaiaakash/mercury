@@ -121,21 +121,52 @@ public with sharing class MERC_MarketingCloudService {
         return emailFolders;
     }
 
-    public static void sendMeetingRegistrationConfirmation(Id meetingId, Meeting_Participant_MERC__c participant){
-        String countryCode = participant.Account_MERC__r.Country_of_Residence_GLBL__c;
-        sendMeetingRegistrationConfirmationForCountry(meetingId, participant, countryCode);
-    }
-
     public static void sendMeetingRegistrationConfirmations(List<Meeting_Participant_MERC__c> participants){
-        
+        List<Meeting_Email_Send_MERC__c> emailSends = new List<Meeting_Email_Send_MERC__c>();
+        List<List<Meeting_Participant_MERC__c>> emailSendParticipants = new List<List<Meeting_Participant_MERC__c>>();
+        List<Meeting_Participant_Email_Send_MERC__c> participantEmailSends = new List<Meeting_Participant_Email_Send_MERC__c>();
+        Map<String, Map<Id, List<Meeting_Participant_MERC__c>>> participantsMeetingCountryMap = new Map<String, Map<Id, List<Meeting_Participant_MERC__c>>>();
+
+        for(Meeting_Participant_MERC__c participant : participants){
+            String participantCountry = participant.Account_MERC__r.Country_of_Residence_GLBL__c;
+            Id participantMeeting = participant.Meeting_MERC__c;
+            if(!participantsMeetingCountryMap.containsKey(participantCountry)){
+                Map<Id, List<Meeting_Participant_MERC__c>> participantsMeetingMap = new Map<Id, List<Meeting_Participant_MERC__c>>();
+                participantsMeetingMap.put(participantMeeting, new List<Meeting_Participant_MERC__c> { participant });
+                participantsMeetingCountryMap.put(participantCountry, participantsMeetingMap);
+            } else {
+                Map<Id, List<Meeting_Participant_MERC__c>> participantsMeetingMap = participantsMeetingCountryMap.get(participantCountry);
+                if(!participantsMeetingMap.containsKey(participantMeeting)){
+                    participantsMeetingMap.put(participant.Meeting_MERC__c, new List<Meeting_Participant_MERC__c> { participant });
+                }
+                participantsMeetingCountryMap.get(participantCountry).get(participantMeeting).add(participant);
+            }
+        }
+
+        for(String participantCountry : participantsMeetingCountryMap.keySet()){
+            Map<Id, List<Meeting_Participant_MERC__c>> participantsMeetingMap = participantsMeetingCountryMap.get(participantCountry);
+            for(Id participantMeeting : participantsMeetingMap.keySet()){
+                List<Meeting_Participant_MERC__c> meetingCountryParticipants = participantsMeetingMap.get(participantMeeting);
+                Meeting_Email_Send_MERC__c meetingEmailSend = prepareRegistrationConfirmationEmailSend(participantMeeting, participantCountry, meetingCountryParticipants);
+                emailSends.add(meetingEmailSend);
+                emailSendParticipants.add(meetingCountryParticipants);
+            }
+        }
+
+        insert emailSends;
+
+        for(Integer emailSendIndex = 0; emailSendIndex < emailSends.size(); emailSendIndex++){
+            participantEmailSends.addAll(getParticipantEmailSends(emailSends.get(emailSendIndex), emailSendParticipants.get(emailSendIndex)));
+        }
+        insert participantEmailSends;
     }
 
-    public static void sendMeetingRegistrationConfirmationForCountry(Id meetingId, Meeting_Participant_MERC__c participant, String countryCode){
-        MERC_MarketingCloudClient.FolderedEmail confirmationEmail = getRegistrationConfirmationEmail(countryCode);
-
-        List<Meeting_Participant_MERC__c> participants = new List<Meeting_Participant_MERC__c>();
-        participants.add(participant);
-        prepareAndInsertMeetingEmailSend( meetingId, confirmationEmail, participants, false, false, 'now',null, '', '', null, null);
+    public static Meeting_Email_Send_MERC__c prepareRegistrationConfirmationEmailSend(Id meetingId, String country, List<Meeting_Participant_MERC__c> participants){
+        MERC_MarketingCloudClient.FolderedEmail confirmationEmail = getRegistrationConfirmationEmail(country);
+        Meeting_Email_Send_MERC__c meetingEmailSend = prepareMeetingEmailSend(meetingId, confirmationEmail, participants, false, false, 'now',null, '', '', null, null);
+        System.debug(LoggingLevel.FINE, meetingEmailSend);
+        prepareMeetingEmailSendForRetry(meetingEmailSend, HighMaxRetryCount);
+        return meetingEmailSend;
     }
 
     private static MERC_MarketingCloudClient.FolderedEmail getRegistrationConfirmationEmail(String countryCode){
@@ -212,6 +243,7 @@ public with sharing class MERC_MarketingCloudService {
         meetingEmailSend.Meeting_MERC__c = meetingId;
 
         // Populate fields that will be placed on the email send
+        meetingEmailSend.Retry_Count__c = 0;
         meetingEmailSend.ET_Sync_Id_MERC__c = 'ETLillymeetingEmailSend' + now.format('yyyyMMdd');
         meetingEmailSend.ET_Business_Unit_MERC__c = BusinessUnit.Id;
         meetingEmailSend.ET_Recipients_Opted_In_MERC__c = true;
@@ -252,7 +284,13 @@ public with sharing class MERC_MarketingCloudService {
         List<Meeting_Participant_MERC__c> participants){
 
         insert meetingEmailSend;
+        List<Meeting_Participant_Email_Send_MERC__c> participantEmailSends = getParticipantEmailSends(meetingEmailSend, participants);
+        insert participantEmailSends;
+    }
 
+    private static List<Meeting_Participant_Email_Send_MERC__c> getParticipantEmailSends(
+        Meeting_Email_Send_MERC__c meetingEmailSend, 
+        List<Meeting_Participant_MERC__c> participants){
         List<Meeting_Participant_Email_Send_MERC__c> meetingParticipantEmailSends = new List<Meeting_Participant_Email_Send_MERC__c>();
         for (Meeting_Participant_MERC__c meetingParticipant : participants) {
             Meeting_Participant_Email_Send_MERC__c meetingParticipantEmailSend = new Meeting_Participant_Email_Send_MERC__c();
@@ -260,7 +298,7 @@ public with sharing class MERC_MarketingCloudService {
             meetingParticipantEmailSend.Meeting_Participant__c = meetingParticipant.Id;
             meetingParticipantEmailSends.add(meetingParticipantEmailSend);
         }
-        insert meetingParticipantEmailSends;
+        return meetingParticipantEmailSends;
     }
 
     public static void prepareAndSendMeetingEmailSend(Id meetingId,
