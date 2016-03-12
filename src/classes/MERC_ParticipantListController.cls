@@ -11,6 +11,8 @@
 				 The component is configurable to allow for selection of records using
 				 a wrapper class, clicking on a row to choose and individual row and
 				 perform an action, or including various defined filters.
+
+	DOCUMENATION ON USE CAN BE FOUND IN MICO: https://gso.my.salesforce.com/069b0000001DJ3a
  */
 
 public with sharing class MERC_ParticipantListController {
@@ -139,7 +141,9 @@ public with sharing class MERC_ParticipantListController {
 			Schema.DescribeFieldResult dfr = Meeting_Participant_MERC__c.Registration_Status_MERC__c.getDescribe();
 
 			for (Schema.PicklistEntry picklistEntry : dfr.getPicklistValues()) {
-				participantRegStatusOptions.add(new SelectOption(picklistEntry.getValue(), picklistEntry.getValue()));
+				if(picklistEntry.getValue() != 'Complete'){
+					participantRegStatusOptions.add(new SelectOption(picklistEntry.getValue(), picklistEntry.getValue()));
+				}
 			}
 
 			return participantRegStatusOptions;

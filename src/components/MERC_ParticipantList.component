@@ -1,4 +1,6 @@
 <apex:component controller="MERC_ParticipantListController">
+	<!-- DOCUMENATION ON USE CAN BE FOUND IN MICO: https://gso.my.salesforce.com/069b0000001DJ3a -->
+
 	<!-- TODO: Move these to the Mercury Static Resource after refactor changes have been added to mercDev2 -->
 	<style type="text/css">
 		th.hide, td.hide, div.hide, span.hide  { display: none; }
@@ -66,7 +68,7 @@
 
 	<apex:attribute name="filterByStatus"
 		  			type="Boolean"
-		  			description="Indicates the Participants Status filter should be displayed (default:false)"
+		  			description="Indicates the Participant Status filter should be displayed (default:false)"
 		  			assignTo="{!participantStatusFilter}"/>
 
 	<apex:attribute name="filterByRegStatus"
