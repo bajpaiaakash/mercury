@@ -69,7 +69,7 @@
                             </apex:repeat>
                         </apex:pageBlockSection>
 
-                        <apex:pageBlockSection title="Designated Individuals" rendered= "{!hasDesignatedIndividuals}" columns="1">
+                        <apex:pageBlockSection title="Designated Individuals" rendered="{!hasDesignatedIndividuals}" columns="1">
                             <apex:repeat value="{!selectedParticipantDesignatedIndividuals}" var="designatedIndividual">
                                 <apex:pageBlockSection title="{!designatedIndividual.Full_Nm_GLBL__c}">
                                     <apex:repeat value="{!$ObjectType.Account.FieldSets.Review_Registration_Review_DI_Flds_MERC}" var="inputField">
@@ -81,12 +81,12 @@
 
                         <apex:pageBlockSection title="Questions" rendered="{!hasQuestions}" columns="2">
                             <apex:repeat value="{!selectedParticipantQuestions}" var="question">
-                                <apex:pageBlockSection>
+                                <apex:pageBlockSection >
                                     <apex:repeat value="{!$ObjectType.Registration_Question_MERC__c.FieldSets.Registration_Questions_Review_Flds_MERC}" var="outputField">
                                         <apex:outputField value="{!question[outputField]}" />
                                     </apex:repeat>
                                 </apex:pageBlockSection>
-                                <apex:pageBlockSection>
+                                <apex:pageBlockSection >
                                     <apex:repeat value="{!selectedParticipantResponses[question.Id]}" var="response">
                                         <apex:repeat value="{!$ObjectType.Response_MERC__c.FieldSets.Registration_Question_Response_Edit_MERC}" var="editField">
                                             <apex:inputField value="{!response[editField]}" />

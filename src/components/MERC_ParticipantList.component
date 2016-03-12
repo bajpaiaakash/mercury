@@ -183,9 +183,16 @@
 										</apex:facet>
 									</apex:column>
 									<apex:repeat value="{!fieldSetFields}" var="field">
-										<apex:column value="{!participant.detail[field.fieldPath]}"/>
+										<apex:column value="{!participant.detail[field.fieldPath]}">
+											<apex:facet name="header">
+												<apex:outputLabel value="{!field.label}" onclick="setOrderField{!listName}('{!field.fieldPath}','{!IF(field.fieldPath == sortField,oppositeSortDirection,'ASC')}');">
+													<apex:image styleClass="sort-image" url="{!URLFOR($Resource.mercury, 'img/sort_asc.png')}" rendered="{!field.fieldPath = sortField && sortDirection = 'ASC'}"/>
+													<apex:image styleClass="sort-image" url="{!URLFOR($Resource.mercury, 'img/sort_desc.png')}" rendered="{!field.fieldPath = sortField && sortDirection = 'DESC'}"/>
+													<apex:image styleClass="sort-image" url="{!URLFOR($Resource.mercury, 'img/sort_both.png')}" rendered="{!field.fieldPath != sortField}"/>
+												</apex:outputLabel>
+											</apex:facet>
+										</apex:column>
 									</apex:repeat>
-
 								</apex:pageBlockTable>
 							</apex:outputPanel>
 						</apex:outputPanel>

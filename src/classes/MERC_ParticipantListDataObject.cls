@@ -7,6 +7,8 @@
 
 	             The main controller can initialize an instance of this object and pass it
 	             in as an attribute of the dataObject attribute of the component.
+
+	DOCUMENATION ON USE CAN BE FOUND IN MICO: https://gso.my.salesforce.com/069b0000001DJ3a
  */
 public with sharing class MERC_ParticipantListDataObject {
 	public List<SelectableParticipant> selectableParticipants { get; set; }
