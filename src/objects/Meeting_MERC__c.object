@@ -2,7 +2,7 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <webLinks>
-        <fullName>Manage_Registrations_MERC</fullName>
+        <fullName>MERC_Manage_Registrations</fullName>
         <availability>online</availability>
         <description>This button accesses the MeetingRegistrationReview vf page.
 Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
@@ -15,7 +15,7 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <url>https://gso--mercdev2--c.cs87.visual.force.com/apex/MeetingRegistrationReview?id={!Meeting_MERC__c.Id}</url>
     </webLinks>
     <webLinks>
-        <fullName>Master_Report_MERC</fullName>
+        <fullName>MERC_Master_Report</fullName>
         <availability>online</availability>
         <description>This link displays the Meeting Participant details used at the meeting venue. Data is taken from the LINK_Master_Report_MERC report. 
 Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
@@ -36,7 +36,7 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <url>/00O8E000000T9rL?pv0={!Meeting_MERC__c.Id}</url>
     </webLinks>
     <webLinks>
-        <fullName>Meeting_Participant_Dietary_Requirements_MERC</fullName>
+        <fullName>MERC_Meeting_Participant_Dietary_Requirements</fullName>
         <availability>online</availability>
         <description>This link displays the dietary requirements for Meeting Participants associated to a specific meeting. Data is taken from the LINK_Meeting_Participant_Dietary_Needs report.
 Created 08/03/2016 by Edith Sereno, Mavens Consulting.</description>

@@ -62,7 +62,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <customButtons>Manage_Group_Members_MERC</customButtons>
+        <customButtons>MERC_Manage_Group_Members</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Meeting_MERC__c</fields>

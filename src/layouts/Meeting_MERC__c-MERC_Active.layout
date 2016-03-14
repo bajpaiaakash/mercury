@@ -4,7 +4,7 @@
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Send_ExactTarget_Email_MERC</customButtons>
     <customButtons>Mass_Generate_Content_MERC</customButtons>
-    <customButtons>Manage_Registrations_MERC</customButtons>
+    <customButtons>MERC_Manage_Registrations</customButtons>
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
@@ -640,10 +640,10 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <customLink>Master_Report_MERC</customLink>
+                <customLink>MERC_Master_Report</customLink>
             </layoutItems>
             <layoutItems>
-                <customLink>Meeting_Participant_Dietary_Requirements_MERC</customLink>
+                <customLink>MERC_Meeting_Participant_Dietary_Requirements</customLink>
             </layoutItems>
         </layoutColumns>
         <style>CustomLinks</style>
