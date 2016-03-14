@@ -1,28 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>MERC_AccountEmailUpdateHandler</members>
+        <members>MERC_AccountEmailUpdateHandlerTest</members>
+        <members>MERC_AccountRollups</members>
+        <members>MERC_AccountRollupsTest</members>
         <members>MERC_DailyAttendanceController</members>
+        <members>MERC_DrawLoopRegistrationQuestions</members>
+        <members>MERC_DrawLoopRegistrationQuestionsTest</members>
+        <members>MERC_ETMeetingParticTrackingContExt_Test</members>
+        <members>MERC_ETMeetingParticipantTrackingContExt</members>
+        <members>MERC_ETTestUtils</members>
+        <members>MERC_EmailLocator</members>
+        <members>MERC_EmailLocatorTest</members>
         <members>MERC_HotelPrepopulateHandler</members>
         <members>MERC_HotelPrepopulateHandlerTest</members>
+        <members>MERC_MarketingCloudClient</members>
+        <members>MERC_MarketingCloudClientTest</members>
+        <members>MERC_MarketingCloudService</members>
+        <members>MERC_MarketingCloudServiceTest</members>
+        <members>MERC_MarketingCloudTestUtility</members>
+        <members>MERC_MeetingEmailSendAttemptHandler</members>
+        <members>MERC_MeetingEmailSendAttemptHandlerTest</members>
+        <members>MERC_MeetingEmailSendExtension</members>
+        <members>MERC_MeetingEmailSendExtensionTest</members>
+        <members>MERC_MeetingProcessLogicHandler</members>
+        <members>MERC_MeetingProcessLogicHandlerTest</members>
+        <members>MERC_MeetingRegistrationHandler</members>
+        <members>MERC_MeetingRegistrationHandlerTest</members>
+        <members>MERC_MeetingRegistrationReviewController</members>
+        <members>MERC_MeetingRegistrationReviewCtrlTest</members>
         <members>MERC_MergeHistoryStampTriggerHandler</members>
         <members>MERC_MergeHistoryStampTriggerHandlerTest</members>
         <members>MERC_MergedAccountApex</members>
         <members>MERC_MergedAccountsController</members>
+        <members>MERC_MockHttpResponseService</members>
+        <members>MERC_ParticipantListController</members>
+        <members>MERC_ParticipantListControllerTest</members>
+        <members>MERC_ParticipantListDataObject</members>
+        <members>MERC_ParticipantListDataObjectTest</members>
+        <members>MERC_TestFactory</members>
+        <members>MERC_TimeZoneUtility</members>
+        <members>MERC_TimestampHandler</members>
         <members>MERC_TriggerHandlerStateManager</members>
+        <members>MERC_Util</members>
+        <members>MERC_UtilTest</members>
         <name>ApexClass</name>
     </types>
     <types>
+        <members>MERC_ParticipantList</members>
+        <name>ApexComponent</name>
+    </types>
+    <types>
         <members>MERC_DailyAttendance</members>
+        <members>MERC_MeetingGroup</members>
         <members>MERC_MergedAccounts</members>
         <name>ApexPage</name>
     </types>
     <types>
+        <members>MERC_Account</members>
+        <members>MERC_MeetingEmailSend</members>
         <members>MERC_MeetingParticipant</members>
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>CustomLabels</members>
-        <name>CustomLabels</name>
+        <members>Account.Dietary_Preferences_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Hotel_Name_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Local_Legal_Compliance_Complete_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Registration_Status_MERC__c</members>
+        <members>Merge_History_GLBL__c.Winning_Account_MERC__c</members>
+        <members>Registration_Question_MERC__c.Delegate_Employee_MERC__c</members>
+        <members>Registration_Question_MERC__c.Delegate_HCP_MERC__c</members>
+        <members>Registration_Question_MERC__c.Delegate_Non_HCP_MERC__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Daily_Attendance_Set_Status</members>
+        <members>Generic_Save</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>Meeting_Group_MERC__c</members>
+        <members>Meeting_Group_Question_MERC__c</members>
+        <members>Mercury_Marketing_Cloud_Settings_MERC__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Account.Review_Registration_Review_DI_Flds_MERC</members>
+        <members>Meeting_Participant_MERC__c.Meeting_Group_Result_Fields_MERC</members>
+        <members>Meeting_Participant_MERC__c.Registration_Management_Result_Flds_MERC</members>
+        <members>Meeting_Participant_MERC__c.Registration_Review_Edit_Fields_MERC</members>
+        <members>Meeting_Participant_MERC__c.Registration_Review_View_Field_MERC</members>
+        <members>Registration_Question_MERC__c.Registration_Questions_Review_Flds_MERC</members>
+        <name>FieldSet</name>
+    </types>
+    <types>
+        <members>Meeting_Group_MERC__c-MERC_Meeting_Group_Layout</members>
+        <members>Meeting_Group_Question_MERC__c-MERC_Group_Question_Layout</members>
+        <members>Meeting_MERC__c-MERC_Active</members>
+        <members>Meeting_MERC__c-MERC_Completed</members>
+        <members>Meeting_MERC__c-MERC_Forecasted_Meeting</members>
+        <members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>
+        <members>Meeting_MERC__c-MERC_Portal_API</members>
+        <members>Meeting_MERC__c-MERC_Registered_Meeting</members>
+        <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
+        <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
+        <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
+        <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <members>PersonAccount-GLBL_Employee</members>
+        <members>PersonAccount-GLBL_HCP Account</members>
+        <members>PersonAccount-MERC_Designated Individual</members>
+        <members>PersonAccount-MERC_Non-HCP</members>
+        <members>Registration_Question_MERC__c-MERC_Question_Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Chatter Only User</members>
+        <members>ContractManager</members>
+        <members>Force%2Ecom - App Subscription User</members>
+        <members>GSO API Only Platform</members>
+        <members>GSO API Only Salesforce</members>
+        <members>GSO Basic User_Platform</members>
+        <members>GSO Basic User_Salesforce</members>
+        <members>Lilly PMApp</members>
+        <members>Lilly PMApp_OLD</members>
+        <members>MarketingProfile</members>
+        <members>Merc Integration MVI</members>
+        <members>Mercury Integration CST - Platform</members>
+        <members>Mercury Integration Docusign - Platform</members>
+        <members>Mercury Integration ExactTarget - Platform</members>
+        <members>Mercury Integration MVI - Platform</members>
+        <members>Mercury Integration ODS - Platform</members>
+        <members>Mercury Integration SAP - Platform</members>
+        <members>Mercury Metadata API</members>
+        <members>Mercury Portal API - Platform</members>
+        <members>Mercury Project Team</members>
+        <members>PANG_Migration</members>
+        <members>ReadOnly</members>
+        <members>SolutionManager</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>CMS_Delegate_Management</members>
+        <members>CMS_Delegate_Management/LINK_Meeting_Participant_Dietary_Needs</members>
+        <members>CMS_Delegate_Management/Master_Report_MERC</members>
+        <members>CMS_Delegate_Management/Registration_Management_MERC</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>Meetings_with_Meeting_Groups_with_Meeting_Group_Questions</members>
+        <members>Meetings_with_Registration_Questions_with_Answers</members>
+        <members>Meetings_with_Registration_Questions_with_Answers_with_Responses</members>
+        <members>Meetings_with_Registration_Questions_with_Group_Questions</members>
+        <members>Meetings_with_Registration_Questions_with_Meeting_Group_Questions</members>
+        <members>Meetings_with_Registration_Questions_with_Responses</members>
+        <name>ReportType</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c.Manage_Registrations_MERC</members>
+        <members>Meeting_MERC__c.Master_Report_MERC</members>
+        <members>Meeting_MERC__c.Meeting_Participant_Dietary_Requirements_MERC</members>
+        <members>Meeting_Participant_MERC__c.Manage_Group_Members_MERC</members>
+        <name>WebLink</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c.MERC_Set_registration_status_field</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c.MERC_Update Registration Status</members>
+        <name>WorkflowRule</name>
     </types>
     <version>34.0</version>
 </Package>

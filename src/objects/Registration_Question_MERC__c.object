@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <fullName>Registration_Questions_Review_Flds_MERC</fullName>
+        <description>This field set is used on the MeetingRegistrationReview vf page.
+Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
+        <displayedFields>
+            <field>Question_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Registration Questions Review Fields</label>
+    </fieldSets>
+    <fields>
+        <fullName>Delegate_Employee_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to indicate this question is applicable for this record type of Meeting Participant : MERC : Created on 01/03/2016 by Edith Sereno, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Make question applicable for those Meeting Participants who are Delegates of type Employee</inlineHelpText>
+        <label>Delegate: Employee</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Delegate_HCP_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to indicate this question is applicable for this record type of Meeting Participant : MERC : Created on 10/08/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Make question applicable for those Meeting Participants who are Delegates of type HCP</inlineHelpText>
+        <label>Delegate: HCP</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Delegate_Non_HCP_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to indicate this question is applicable for this record type of Meeting Participant : MERC : Created on 01/03/2016 by Edith Sereno, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Make question applicable for those Meeting Participants who are Delegates of type Non-HCP</inlineHelpText>
+        <label>Delegate: Non-HCP</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+</CustomObject>
