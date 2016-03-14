@@ -43,6 +43,7 @@ trigger MERC_MeetingParticipant on Meeting_Participant_MERC__c (before insert, b
 
         .bind(GLBL_TriggerHandler.Evt.afterupdate, new MERC_HotelPrepopulateHandler())
 
+        .bind(GLBL_TriggerHandler.Evt.afterupdate, new MERC_MeetingRegistrationHandler())
         .manage();
 
 }
