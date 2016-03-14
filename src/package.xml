@@ -4,11 +4,16 @@
         <members>MERC_DailyAttendanceController</members>
         <members>MERC_HotelPrepopulateHandler</members>
         <members>MERC_HotelPrepopulateHandlerTest</members>
+        <members>MERC_MergeHistoryStampTriggerHandler</members>
+        <members>MERC_MergeHistoryStampTriggerHandlerTest</members>
+        <members>MERC_MergedAccountApex</members>
+        <members>MERC_MergedAccountsController</members>
         <members>MERC_TriggerHandlerStateManager</members>
         <name>ApexClass</name>
     </types>
     <types>
         <members>MERC_DailyAttendance</members>
+        <members>MERC_MergedAccounts</members>
         <name>ApexPage</name>
     </types>
     <types>
