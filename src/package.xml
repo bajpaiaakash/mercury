@@ -24,6 +24,7 @@
         <members>MERC_MeetingEmailSendAttemptHandlerTest</members>
         <members>MERC_MeetingEmailSendExtension</members>
         <members>MERC_MeetingEmailSendExtensionTest</members>
+        <members>MERC_MeetingGroupController</members>
         <members>MERC_MeetingProcessLogicHandler</members>
         <members>MERC_MeetingProcessLogicHandlerTest</members>
         <members>MERC_MeetingRegistrationHandler</members>
@@ -65,8 +66,10 @@
     </types>
     <types>
         <members>Account.Dietary_Preferences_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Account_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Hotel_Name_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Local_Legal_Compliance_Complete_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Meeting_Group_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Registration_Status_MERC__c</members>
         <members>Merge_History_GLBL__c.Winning_Account_MERC__c</members>
         <members>Registration_Question_MERC__c.Delegate_Employee_MERC__c</members>
@@ -142,25 +145,24 @@
     </types>
     <types>
         <members>CMS_Delegate_Management</members>
-        <members>CMS_Delegate_Management/LINK_Meeting_Participant_Dietary_Needs</members>
-        <members>CMS_Delegate_Management/Master_Report_MERC</members>
-        <members>CMS_Delegate_Management/Registration_Management_MERC</members>
+        <members>CMS_Delegate_Management/MERC_LINK_Meeting_Participant_Dietary_Needs</members>
+        <members>CMS_Delegate_Management/MERC_Master_Report</members>
+        <members>CMS_Delegate_Management/MERC_Registration_Management</members>
         <name>Report</name>
     </types>
     <types>
         <members>Meetings_with_Meeting_Groups_with_Meeting_Group_Questions</members>
         <members>Meetings_with_Registration_Questions_with_Answers</members>
-        <members>Meetings_with_Registration_Questions_with_Answers_with_Responses</members>
         <members>Meetings_with_Registration_Questions_with_Group_Questions</members>
         <members>Meetings_with_Registration_Questions_with_Meeting_Group_Questions</members>
         <members>Meetings_with_Registration_Questions_with_Responses</members>
         <name>ReportType</name>
     </types>
     <types>
-        <members>Meeting_MERC__c.Manage_Registrations_MERC</members>
-        <members>Meeting_MERC__c.Master_Report_MERC</members>
-        <members>Meeting_MERC__c.Meeting_Participant_Dietary_Requirements_MERC</members>
-        <members>Meeting_Participant_MERC__c.Manage_Group_Members_MERC</members>
+        <members>Meeting_MERC__c.MERC_Manage_Registrations</members>
+        <members>Meeting_MERC__c.MERC_Master_Report</members>
+        <members>Meeting_MERC__c.MERC_Meeting_Participant_Dietary_Requirements</members>
+        <members>Meeting_Participant_MERC__c.MERC_Manage_Group_Members</members>
         <name>WebLink</name>
     </types>
     <types>

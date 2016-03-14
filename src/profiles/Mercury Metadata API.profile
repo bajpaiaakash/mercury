@@ -93,6 +93,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingGroupController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_MeetingProcessLogicHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -196,6 +200,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Local_Legal_Compliance_Complete_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Meeting_Group_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -300,6 +300,42 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <label>Registration Review View Field</label>
     </fieldSets>
     <fields>
+        <fullName>Account_MERC__c</fullName>
+        <description>Lookup to Account from Event Participant. Created 9/28/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2 OR 3</booleanFilter>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Employee_GLBL</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>HCP_GLBL</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Non_HCP_MERC</value>
+            </filterItems>
+            <infoMessage>Only HCP or Employee accounts can be added over here.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meeting Participants</relationshipLabel>
+        <relationshipName>Event_Participants</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
         <fullName>Hotel_Name_MERC__c</fullName>
         <description>Field used to display the hotel name of a Meeting Participant in report LINK_Master_report_MERC. Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <externalId>false</externalId>
@@ -337,6 +373,29 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Meeting_Group_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup Relationship from Meeting Participant to Meeting Group. Created 02/03/2016 by Edith Sereno, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Meeting Group</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Meeting_Group_MERC__c.Meeting_MERC__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Meeting_MERC__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Meeting_Group_MERC__c</referenceTo>
+        <relationshipLabel>Meeting Participants</relationshipLabel>
+        <relationshipName>Meeting_Participants</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Registration_Status_MERC__c</fullName>
         <description>Created to track the status of Meeting Participants registration (web and paper processes). Created 03/03/2016 by Mavens Consulting</description>
         <externalId>false</externalId>
@@ -366,7 +425,7 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <type>Picklist</type>
     </fields>
     <webLinks>
-        <fullName>Manage_Group_Members_MERC</fullName>
+        <fullName>MERC_Manage_Group_Members</fullName>
         <availability>online</availability>
         <description>This button opens the custom page for users to add Meeting Participants to a Meeting Group. Created 09/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <displayType>massActionButton</displayType>
