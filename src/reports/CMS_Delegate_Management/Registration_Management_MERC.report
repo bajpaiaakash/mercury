@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CHILD_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_RECORDTYPE</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>List of Pending and Incomplete registrations</description>
+    <filter>
+        <criteriaItems>
+            <column>Meeting_Participant_MERC__c.Registration_Status_MERC__c</column>
+            <operator>equals</operator>
+            <value>Pending Review,Incomplete</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Meeting_Participant_MERC__c.Registration_Status_MERC__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CUST_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Meeting_Participant_MERC__c.Participant_Typ_MERC__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Registration Management</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Meeting_MERC__c$Meeting_Participant_MERC__c@Meeting_Participant_MERC__c.Account_MERC__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Meeting_MERC__c.Audit_End_Date_MERC__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

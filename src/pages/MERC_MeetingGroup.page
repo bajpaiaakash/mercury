@@ -1,0 +1,59 @@
+<apex:page showHeader="true" sidebar="true" controller="MERC_MeetingGroupController" tabStyle="Meeting_Group_MERC__c">
+	<style>
+		input.centered {
+			display: block;
+			margin: 10px auto;
+		}
+	</style>
+	<apex:sectionHeader title="{!meetingGroup.Meeting_MERC__r.name}" subtitle="{!meetingGroup.name}"/>
+
+	<apex:pageBlock rendered="{!hasError}">
+		<apex:pageMessages />
+	</apex:pageBlock>
+
+	<apex:form id="pageForm" rendered="{!NOT(hasError)}">
+
+		<apex:commandButton value="Return to Group Detail" rerender="nothing" onclick="window.location='/{!meetingGroup.id}'" styleClass="centered"/>
+
+		<!-- meeting participant list component -->
+		<c:MERC_ParticipantList dataObject="{!availableParticipants}"
+		                        enableSelections="true"
+		                        filterByRecordType="true"
+		                        filterByAccountRecordType="true"
+		                        filterByStatus="true"
+		                        listName="availableParticipants"
+		                        title="Meeting Participants without a Group"
+		                        fieldSet="Meeting_Group_Result_Fields_MERC"
+		                        enableSearch="true"/>
+
+		<!-- Add participant button -->
+		<apex:actionStatus id="addActionStatus">
+			<apex:facet name="stop">
+		 		<apex:commandButton value="Add Selected To Group" action="{!addSelectedToGroup}" reRender="pageForm" status="addActionStatus"/>
+		 	</apex:facet>
+		 	<apex:facet name="start">
+		 		<apex:commandButton value="Adding..." disabled="true"/>
+		 	</apex:facet>
+		 </apex:actionStatus>
+
+		<div style="margin-top:30px;"/>
+
+
+		<!-- meeting participant list component -->
+		<c:MERC_ParticipantList dataObject="{!groupParticipants}"
+								enableSelections="true"
+								listName="groupParticipants"
+								title="Group Participants"
+								fieldSet="Meeting_Group_Result_Fields_MERC"/>
+
+		<!-- remove participant button -->
+		<apex:actionStatus id="removeActionStatus">
+			<apex:facet name="stop">
+		 		<apex:commandButton value="Remove Selected From Group" action="{!removeSelectedFromGroup}" reRender="pageForm" status="removeActionStatus"/>
+		 	</apex:facet>
+		 	<apex:facet name="start">
+		 		<apex:commandButton value="Removing..." disabled="true"/>
+		 	</apex:facet>
+		 </apex:actionStatus>
+	</apex:form>
+</apex:page>
