@@ -21,9 +21,8 @@
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>Daily_Attendance_Set_Status</members>
-        <members>Generic_Save</members>
-        <name>CustomLabel</name>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
     </types>
     <version>34.0</version>
 </Package>
