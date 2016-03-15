@@ -1,0 +1,128 @@
+<apex:page showHeader="true" sidebar="true" controller="MERC_MeetingRegistrationReviewController" tabStyle="Meeting_MERC__c">
+    <style type="text/css">
+        input.centered {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+    <apex:sectionHeader title="{!meeting.Name}" subtitle="Review Registrations"/>
+    <apex:pageBlock rendered="{!hasErrors}">
+        <apex:pageMessages />
+    </apex:pageBlock>
+    <apex:form id="pageForm" rendered="{!NOT(hasErrors)}">
+        <apex:commandButton value="Return to Meeting" rerender="nothing" onclick="window.location='/{!meetingId}'" styleClass="centered"/>
+        <c:MERC_ParticipantList dataObject="{!participantsToReview}"
+                                filterByRecordType="true"
+                                filterByRegStatus="true"
+                                listName="participantsToReview"
+                                title="Meeting Participants To Review"
+                                fieldSet="Registration_Management_Result_Flds_MERC"
+                                enableSearch="true"
+                                rowClickFunction="confirmOrSelectParticipant" />
+        <apex:actionFunction name="confirmOrSelectParticipant" action="{!confirmOrSelectParticipant}" reRender="selectedParticipantDetail" status="selectingParticipant" />
+        <apex:actionFunction name="selectParticipant" action="{!selectParticipant}" reRender="selectedParticipantDetail" status="selectingParticipant" />
+        <apex:actionFunction name="saveAndSelectParticipant" action="{!saveAndSelectParticipant}" reRender="selectedParticipantDetail" status="selectingParticipant" />
+        <apex:actionStatus id="selectingParticipant">
+            <apex:facet name="start">
+                <apex:outputText value="Selecting Participant" />
+            </apex:facet>
+            <apex:facet name="stop">
+                <apex:outputText value="Click a Participant row to select it" />
+                <apex:outputPanel id="selectedParticipantDetail">
+                    <apex:pageBlock id="participantDetails" rendered="{!hasSelectedParticipant}" title="{!selectedParticipant.Account_MERC__r.Name} ({!selectedParticipant.Registration_Status_MERC__c})">
+                        <apex:pageBlockButtons location="top">
+                            <apex:actionStatus id="reviewStatus">
+                                <apex:facet name="stop">
+                                    <apex:outputPanel >
+                                        <apex:commandButton value="Registration Complete"
+                                                            action="{!registrationComplete}"
+                                                            reRender="pageForm"
+                                                            status="reviewStatus" />
+                                        <apex:commandButton value="Registration Incomplete"
+                                                            action="{!registrationIncomplete}"
+                                                            reRender="pageForm"
+                                                            status="reviewStatus" />
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:facet name="start">
+                                    <apex:outputPanel >
+                                        <apex:commandButton value="Registration Complete" disabled="true" />
+                                        <apex:commandButton value="Registration Incomplete" disabled="true" />
+                                    </apex:outputPanel>
+                                </apex:facet>
+                            </apex:actionStatus>
+                        </apex:pageBlockButtons>
+
+                        <apex:pageBlockSection title="Summary">
+                            <apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Registration_Review_View_Field_MERC}" var="outputField">
+                                <apex:outputField value="{!selectedParticipant[outputField]}" rendered="{!NOT(outputField='Name')}" />
+                                <apex:pageBlockSectionItem rendered="{!outputField='Name'}">
+                                    <apex:outputLabel value="{!$ObjectType.Meeting_Participant_MERC__c.fields.Name.Label}" rendered="{!outputField='Name'}" />
+                                    <apex:outputLink value="{!'/'+selectedParticipant.id}" rendered="{!outputField='Name'}">{!selectedParticipant[outputField]}</apex:outputLink>
+                                </apex:pageBlockSectionItem>
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+
+                        <apex:pageBlockSection title="Edit">
+                            <apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Registration_Review_Edit_Fields_MERC}" var="editField">
+                                <apex:inputField value="{!selectedParticipant[editField]}" />
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+
+                        <apex:pageBlockSection title="Designated Individuals" rendered="{!hasDesignatedIndividuals}" columns="1">
+                            <apex:repeat value="{!selectedParticipantDesignatedIndividuals}" var="designatedIndividual">
+                                <apex:pageBlockSection title="{!designatedIndividual.Full_Nm_GLBL__c}">
+                                    <apex:repeat value="{!$ObjectType.Account.FieldSets.Review_Registration_Review_DI_Flds_MERC}" var="inputField">
+                                        <apex:inputField value="{!designatedIndividual[inputField]}" />
+                                    </apex:repeat>
+                                </apex:pageBlockSection>
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+
+                        <apex:pageBlockSection title="Questions" rendered="{!hasQuestions}" columns="2">
+                            <apex:repeat value="{!selectedParticipantQuestions}" var="question">
+                                <apex:pageBlockSection >
+                                    <apex:repeat value="{!$ObjectType.Registration_Question_MERC__c.FieldSets.Registration_Questions_Review_Flds_MERC}" var="outputField">
+                                        <apex:outputField value="{!question[outputField]}" />
+                                    </apex:repeat>
+                                </apex:pageBlockSection>
+                                <apex:pageBlockSection >
+                                    <apex:repeat value="{!selectedParticipantResponses[question.Id]}" var="response">
+                                        <apex:repeat value="{!$ObjectType.Response_MERC__c.FieldSets.Registration_Question_Response_Edit_MERC}" var="editField">
+                                            <apex:inputField value="{!response[editField]}" />
+                                        </apex:repeat>
+                                    </apex:repeat>
+                                </apex:pageBlockSection>
+                            </apex:repeat>
+                        </apex:pageBlockSection>
+                    </apex:pageBlock>
+                    
+                    <script type="text/javascript">
+                        if({!isConfirmNecessary}){
+                            if(confirm('Do you want to save your changes to {!selectedParticipant.Account_MERC__r.Name}?')){
+                                saveAndSelectParticipant();
+                            } else {
+                                selectParticipant();
+                            }
+                        }
+
+                        function setTargetBlank(link){
+                            link.target="_blank";
+                        }
+
+                        // http://stackoverflow.com/questions/2125714/explanation-of-slice-call-in-javascript
+                        function setTargetsBlank(links){
+                            [].slice.call(links).map(setTargetBlank);
+                        }
+
+                        var linkContainer = document.getElementById('{!$Component.participantDetails}');
+                        if (linkContainer !== 'undefined' && linkContainer !== null) {
+                            var links = linkContainer.querySelectorAll('a');
+                            setTargetsBlank(links);
+                        }
+                    </script>
+                </apex:outputPanel>
+            </apex:facet>
+        </apex:actionStatus>
+    </apex:form>
+</apex:page>
