@@ -100,6 +100,7 @@
         <members>Meeting_Participant_MERC__c.Registration_Review_Edit_Fields_MERC</members>
         <members>Meeting_Participant_MERC__c.Registration_Review_View_Field_MERC</members>
         <members>Registration_Question_MERC__c.Registration_Questions_Review_Flds_MERC</members>
+        <members>Response_MERC__c.Registration_Question_Response_Edit_MERC</members>
         <name>FieldSet</name>
     </types>
     <types>
