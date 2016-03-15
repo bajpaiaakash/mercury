@@ -55,8 +55,8 @@
     <types>
         <members>MERC_DailyAttendance</members>
         <members>MERC_MeetingGroup</members>
+        <members>MERC_MeetingRegistrationReview</members>
         <members>MERC_MergedAccounts</members>
-        <members>MeetingRegistrationReview</members>
         <name>ApexPage</name>
     </types>
     <types>
@@ -73,9 +73,6 @@
         <members>Meeting_Participant_MERC__c.Meeting_Group_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Registration_Status_MERC__c</members>
         <members>Merge_History_GLBL__c.Winning_Account_MERC__c</members>
-        <members>Registration_Question_MERC__c.Delegate_Employee_MERC__c</members>
-        <members>Registration_Question_MERC__c.Delegate_HCP_MERC__c</members>
-        <members>Registration_Question_MERC__c.Delegate_Non_HCP_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -87,6 +84,7 @@
         <members>Meeting_Group_MERC__c</members>
         <members>Meeting_Group_Question_MERC__c</members>
         <members>Mercury_Marketing_Cloud_Settings_MERC__c</members>
+        <members>Registration_Question_MERC__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -99,7 +97,6 @@
         <members>Meeting_Participant_MERC__c.Registration_Management_Result_Flds_MERC</members>
         <members>Meeting_Participant_MERC__c.Registration_Review_Edit_Fields_MERC</members>
         <members>Meeting_Participant_MERC__c.Registration_Review_View_Field_MERC</members>
-        <members>Registration_Question_MERC__c.Registration_Questions_Review_Flds_MERC</members>
         <members>Response_MERC__c.Registration_Question_Response_Edit_MERC</members>
         <name>FieldSet</name>
     </types>
