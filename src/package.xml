@@ -55,6 +55,7 @@
 	</types>
 	<types>
 		<members>MERC_MeetingGroup</members>
+		<members>MERC_MeetingRegistrationReview</members>
 		<members>MeetingEmailSend</members>
 		<members>MeetingEmailSendSelectRecipients</members>
 		<members>MeetingParticipantTracking</members>
