@@ -102,11 +102,11 @@
         <members>Meeting_Participant_MERC__c.Registration_Review_Edit_Fields_MERC</members>
         <members>Meeting_Participant_MERC__c.Registration_Review_View_Field_MERC</members>
         <members>Registration_Question_MERC__c.Registration_Questions_Review_Flds_MERC</members>
+        <members>Response_MERC__c.Registration_Question_Response_Edit_MERC</members>
         <name>FieldSet</name>
     </types>
-	<types>
-        
-		<members>Meeting_Group_MERC__c-MERC_Meeting_Group_Layout</members>
+    <types>
+        <members>Meeting_Group_MERC__c-MERC_Meeting_Group_Layout</members>
         <members>Meeting_Group_Question_MERC__c-MERC_Group_Question_Layout</members>
         <members>Meeting_MERC__c-MERC_Active</members>
         <members>Meeting_MERC__c-MERC_Completed</members>
@@ -124,9 +124,8 @@
         <members>PersonAccount-MERC_Designated Individual</members>
         <members>PersonAccount-MERC_Non-HCP</members>
         <members>Registration_Question_MERC__c-MERC_Question_Layout</members>
-        
         <name>Layout</name>
-    </types>	
+    </types>
 <types>
         <members>Chatter Only User</members>
         <members>ContractManager</members>
@@ -188,7 +187,10 @@
         <members>Mercury_Account_Manager_Edit</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
         <members>Mercury_Legal_Edit</members>
-        <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_Meeting_Planning_Company_Edit</members>		
+        <members>Mercury_Med_Director_Edit</members>
+        <members>Mercury_Meeting_Owner_Edit</members>
+        <members>Mercury_Travel_Agent_Edit</members>		
         <name>PermissionSet</name>
     </types>
     <version>36.0</version>
