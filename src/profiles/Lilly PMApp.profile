@@ -291,6 +291,26 @@
         <apexPage>MERC_MergedAccounts</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_Participant_MERC__c.MERC_Consulting</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_Participant_MERC__c.MERC_Delegate</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_Participant_MERC__c.MERC_Individual_Sponsorship</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_Participant_MERC__c.MERC_Service_Provider</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
     <tabVisibilities>
         <tab>Meeting_Group_MERC__c</tab>
         <visibility>DefaultOff</visibility>

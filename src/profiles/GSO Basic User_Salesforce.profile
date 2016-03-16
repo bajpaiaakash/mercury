@@ -276,7 +276,27 @@
         <layout>Meeting_MERC__c-MERC_Active</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Meeting_Participant_MERC__c-MERC_Consulting</layout>
+        <recordType>Meeting_Participant_MERC__c.MERC_Consulting</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Participant_MERC__c-MERC_Delegate</layout>
+        <recordType>Meeting_Participant_MERC__c.MERC_Delegate</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</layout>
+        <recordType>Meeting_Participant_MERC__c.MERC_Individual_Sponsorship</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Meeting_Participant_MERC__c-MERC_Service Provider</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Participant_MERC__c-MERC_Service Provider</layout>
+        <recordType>Meeting_Participant_MERC__c.MERC_Service_Provider</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-GLBL_Employee</layout>
+        <recordType>PersonAccount.Employee_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-GLBL_Employee</layout>
@@ -288,11 +308,27 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-GLBL_HCP Account</layout>
+        <recordType>PersonAccount.Contracting_Party_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-GLBL_HCP Account</layout>
+        <recordType>PersonAccount.HCP_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-GLBL_HCP Account</layout>
         <recordType>PersonAccount.HCP_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-MERC_Designated Individual</layout>
         <recordType>PersonAccount.Designated_Individual_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-MERC_Designated Individual</layout>
+        <recordType>PersonAccount.Designated_Individual_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-MERC_Non-HCP</layout>
+        <recordType>PersonAccount.Non_HCP_MERC</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-MERC_Non-HCP</layout>
@@ -317,6 +353,26 @@
         <apexPage>MERC_MergedAccounts</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Meeting_Participant_MERC__c.MERC_Consulting</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_Participant_MERC__c.MERC_Delegate</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_Participant_MERC__c.MERC_Individual_Sponsorship</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_Participant_MERC__c.MERC_Service_Provider</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
     <tabVisibilities>
         <tab>Meeting_Group_MERC__c</tab>
         <visibility>DefaultOff</visibility>

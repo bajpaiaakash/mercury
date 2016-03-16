@@ -424,6 +424,150 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <recordTypes>
+        <fullName>MERC_Consulting</fullName>
+        <active>true</active>
+        <description>For Consulting Projects with no meeting and no logistical requirements</description>
+        <label>Consulting</label>
+        <picklistValues>
+            <picklist>Local_Legal_Compliance_Complete_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Registration_Status_MERC__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MERC_Delegate</fullName>
+        <active>true</active>
+        <description>A delegate attending a Lilly meeting or an Independent Meeting as a group.</description>
+        <label>Delegate</label>
+        <picklistValues>
+            <picklist>Local_Legal_Compliance_Complete_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Registration_Status_MERC__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MERC_Individual_Sponsorship</fullName>
+        <active>true</active>
+        <description>Sponsoring of an individual to attend an Independent Meeting.</description>
+        <label>Individual Sponsorship</label>
+        <picklistValues>
+            <picklist>Local_Legal_Compliance_Complete_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Registration_Status_MERC__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MERC_Service_Provider</fullName>
+        <active>true</active>
+        <description>HCP contracted to provide services for a Meeting including  includes Consulting and Advisory Meetings</description>
+        <label>Service Provider</label>
+        <picklistValues>
+            <picklist>Local_Legal_Compliance_Complete_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Registration_Status_MERC__c</picklist>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Review</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <webLinks>
         <fullName>MERC_Manage_Group_Members</fullName>
         <availability>online</availability>
@@ -435,6 +579,6 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>https://gso--mercdev2--c.cs87.visual.force.com/apex/MERC_MeetingGroup?id={!Meeting_Group_MERC__c.Id}</url>
+        <url>/apex/MERC_MeetingGroup?id={!Meeting_Group_MERC__c.Id}</url>
     </webLinks>
 </CustomObject>

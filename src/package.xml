@@ -153,6 +153,13 @@
         <name>Profile</name>
     </types>
     <types>
+        <members>Meeting_Participant_MERC__c.MERC_Consulting</members>
+        <members>Meeting_Participant_MERC__c.MERC_Delegate</members>
+        <members>Meeting_Participant_MERC__c.MERC_Individual_Sponsorship</members>
+        <members>Meeting_Participant_MERC__c.MERC_Service_Provider</members>
+        <name>RecordType</name>
+    </types>
+    <types>
         <members>CMS_Delegate_Management</members>
         <members>CMS_Delegate_Management/MERC_LINK_Meeting_Participant_Dietary_Needs</members>
         <members>CMS_Delegate_Management/MERC_Master_Report</members>
@@ -183,6 +190,8 @@
         <name>WorkflowRule</name>
     </types>
     <types>
+		<members>DDP_Admin_Mercury</members>
+        <members>DDP_User_Mercury</members>
         <members>MERC_CMS_IT_Support</members>
         <members>Mercury_Account_Manager_Edit</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>

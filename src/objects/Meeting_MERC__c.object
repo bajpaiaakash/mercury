@@ -12,7 +12,7 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <masterLabel>Manage Registrations</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>https://gso--mercdev2--c.cs87.visual.force.com/apex/MERC_MeetingRegistrationReview?id={!Meeting_MERC__c.Id}</url>
+        <url>/apex/MERC_MeetingRegistrationReview?id={!Meeting_MERC__c.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>MERC_Master_Report</fullName>
