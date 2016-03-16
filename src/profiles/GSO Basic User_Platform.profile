@@ -281,15 +281,7 @@
     <layoutAssignments>
         <layout>PersonAccount-GLBL_Employee</layout>
         <recordType>PersonAccount.Employee_GLBL</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-GLBL_Employee</layout>
-        <recordType>PersonAccount.Employee_GLBL</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-GLBL_HCP Account</layout>
-        <recordType>PersonAccount.Contracting_Party_GLBL</recordType>
-    </layoutAssignments>
+    </layoutAssignments>  
     <layoutAssignments>
         <layout>PersonAccount-GLBL_HCP Account</layout>
         <recordType>PersonAccount.Contracting_Party_GLBL</recordType>
@@ -299,20 +291,8 @@
         <recordType>PersonAccount.HCP_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-GLBL_HCP Account</layout>
-        <recordType>PersonAccount.HCP_GLBL</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>PersonAccount-MERC_Designated Individual</layout>
         <recordType>PersonAccount.Designated_Individual_GLBL</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-MERC_Designated Individual</layout>
-        <recordType>PersonAccount.Designated_Individual_GLBL</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-MERC_Non-HCP</layout>
-        <recordType>PersonAccount.Non_HCP_MERC</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-MERC_Non-HCP</layout>
