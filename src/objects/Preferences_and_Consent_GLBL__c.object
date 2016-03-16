@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <validationRules>
+        <fullName>MERC_Prevent_Update_of_Consent_Records</fullName>
+        <active>true</active>
+        <description>Prevents users from editing Consent records except for those of type Transparency Consent : MERC : Created on 04/08/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>RecordType.Name = &quot;Consent&quot; &amp;&amp;  NOT ISBLANK(Cmnctn_Chnl_Cd_GLBL__c) &amp;&amp;
+Cmnctn_Chnl_Cd_GLBL__c  &lt;&gt; &quot;D022&quot; &amp;&amp;
+($Profile.Name &lt;&gt; &quot;System Administrator&quot;
+&amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot; &amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Portal API - Platform&quot; &amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Metadata API&quot; &amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Integration CST - Platform&quot;)</errorConditionFormula>
+        <errorMessage>You may not edit Consent records unless they are of type Transparency Consent</errorMessage>
+    </validationRules>
+</CustomObject>
