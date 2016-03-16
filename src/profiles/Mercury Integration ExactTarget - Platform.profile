@@ -217,6 +217,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Answer_Type_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Consulting_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Registration_Question_MERC__c.Delegate_Employee_MERC__c</field>
         <readable>true</readable>
@@ -230,6 +240,31 @@
         <editable>true</editable>
         <field>Registration_Question_MERC__c.Delegate_Non_HCP_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Individual_Sponsorship_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Mercury_External_Id_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Order_Number_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Question_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Service_Provider_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
         <layout>Meeting_Group_MERC__c-MERC_Meeting_Group_Layout</layout>
@@ -275,12 +310,12 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>MERC_MergedAccounts</apexPage>
-        <enabled>true</enabled>
+        <apexPage>MERC_MeetingRegistrationReview</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>MeetingRegistrationReview</apexPage>
-        <enabled>false</enabled>
+        <apexPage>MERC_MergedAccounts</apexPage>
+        <enabled>true</enabled>
     </pageAccesses>
     <tabVisibilities>
         <tab>Meeting_Group_MERC__c</tab>

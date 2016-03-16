@@ -69,6 +69,12 @@ public with sharing class MERC_MeetingEmailSendExtension {
     private String sortDirection;
 
 	public MERC_MeetingEmailSendExtension(ApexPages.StandardController standardController) {
+        // used for MeetingEmailSendRecipients.page
+        standardController.addFields(new List<String> { 
+            'Date_of_Event_MERC__c',
+            'Days_Until_Meeting_MERC__c',
+            'End_Date_of_Event_MERC__c'
+        });
         meetingId = getMeetingId(standardController);
         
         try {

@@ -231,6 +231,16 @@
         <field>Payee_MERC__c.MERC_HCO_Customer_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Registration_Question_MERC__c.Answer_Type_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registration_Question_MERC__c.Consulting_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Registration_Question_MERC__c.Delegate_Employee_MERC__c</field>
@@ -244,6 +254,31 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Registration_Question_MERC__c.Delegate_Non_HCP_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registration_Question_MERC__c.Individual_Sponsorship_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Mercury_External_Id_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registration_Question_MERC__c.Order_Number_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registration_Question_MERC__c.Question_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Registration_Question_MERC__c.Service_Provider_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <label>Mercury Meeting Planning Company - Edit</label>
@@ -265,6 +300,15 @@
         <object>Meeting_Group_Question_MERC__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Registration_Question_MERC__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <pageAccesses>
         <apexPage>MERC_DailyAttendance</apexPage>
         <enabled>true</enabled>
@@ -274,11 +318,15 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>MERC_MeetingRegistrationReview</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>MERC_MergedAccounts</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
-        <apexPage>MeetingRegistrationReview</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
+    <tabSettings>
+        <tab>Meeting_Group_MERC__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>
