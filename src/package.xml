@@ -121,6 +121,8 @@
         <name>Layout</name>
     </types>
     <types>
+        <members>DDP_Admin_Mercury</members>
+        <members>DDP_User_Mercury</members>
         <members>Mercury_Account_Manager_Edit</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
         <members>Mercury_Legal_Edit</members>
@@ -157,6 +159,13 @@
         <name>Profile</name>
     </types>
     <types>
+        <members>Meeting_Participant_MERC__c.MERC_Consulting</members>
+        <members>Meeting_Participant_MERC__c.MERC_Delegate</members>
+        <members>Meeting_Participant_MERC__c.MERC_Individual_Sponsorship</members>
+        <members>Meeting_Participant_MERC__c.MERC_Service_Provider</members>
+        <name>RecordType</name>
+    </types>
+    <types>
         <members>CMS_Delegate_Management</members>
         <members>CMS_Delegate_Management/MERC_LINK_Meeting_Participant_Dietary_Needs</members>
         <members>CMS_Delegate_Management/MERC_Master_Report</members>
@@ -186,5 +195,5 @@
         <members>Meeting_Participant_MERC__c.MERC_Update Registration Status</members>
         <name>WorkflowRule</name>
     </types>
-    <version>34.0</version>
+    <version>36.0</version>
 </Package>
