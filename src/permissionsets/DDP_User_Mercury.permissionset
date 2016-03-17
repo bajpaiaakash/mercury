@@ -188,6 +188,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.MERC_Other_Dietary_Preferences__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Group_MERC__c.Description_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>

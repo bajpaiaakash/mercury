@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
+        <field>Meeting_MERC__c$Name</field>
+    </columns>
+    <columns>
         <field>Meeting_MERC__c$Start_Date_Meeting_Time_Zone_MERC__c</field>
     </columns>
     <columns>
@@ -13,6 +16,9 @@
         <field>Meeting_MERC__c$Event_Country_MERC__c</field>
     </columns>
     <columns>
+        <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Meeting_Participant_MERC__c.Account_MERC__c.Title_Desc_GLBL__c</field>
+    </columns>
+    <columns>
         <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Meeting_Participant_MERC__c.Account_MERC__c.FirstName</field>
     </columns>
     <columns>
@@ -22,6 +28,12 @@
         <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Meeting_Participant_MERC__c.Account_MERC__c.Scnd_Nm_GLBL__c</field>
     </columns>
     <columns>
+        <field>Meeting_MERC__c$HCO_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Meeting_Participant_MERC__c.Contact_Details_Mobile_MERC__c</field>
+    </columns>
+    <columns>
         <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Meeting_Participant_MERC__c.RecordType</field>
     </columns>
     <columns>
@@ -29,6 +41,9 @@
     </columns>
     <columns>
         <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Meeting_Participant_MERC__c.Sales_Rep_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Meeting_Participant_MERC__c.Accountable_Business_Contact_MERC__c</field>
     </columns>
     <columns>
         <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Meeting_Participant_MERC__c.Travel_by_Air_MERC__c</field>
@@ -67,13 +82,10 @@
         <field>Meeting_MERC__c.Registration_Questions__r$Name</field>
     </columns>
     <columns>
-        <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Question_Text_MERC__c</field>
+        <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Answer_MERC__c</field>
     </columns>
     <columns>
         <field>Meeting_MERC__c.Registration_Questions__r$Answer_Type_MERC__c</field>
-    </columns>
-    <columns>
-        <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Answer_MERC__c</field>
     </columns>
     <columns>
         <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Answer_Text_MERC__c</field>
@@ -89,20 +101,7 @@
     </columns>
     <currency>EUR</currency>
     <description>Master Report</description>
-    <filter>
-        <criteriaItems>
-            <column>Meeting_MERC__c$Id</column>
-            <operator>equals</operator>
-            <value></value>
-        </criteriaItems>
-        <language>en_US</language>
-    </filter>
-    <format>Summary</format>
-    <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>Meeting_MERC__c.Registration_Questions__r.Responses__r$Meeting_Participant_MERC__c.Name</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsDown>
+    <format>Tabular</format>
     <name>LINK - Master Report</name>
     <params>
         <name>co</name>
