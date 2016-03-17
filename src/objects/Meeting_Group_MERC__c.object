@@ -57,7 +57,7 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Description_MERC__c</fullName>
+        <fullName>MERC_Description__c</fullName>
         <description>Text field to add a description to a Meeting Group. Created 02/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <externalId>false</externalId>
         <label>Description</label>
@@ -96,7 +96,7 @@
     <pluralLabel>Meeting Groups</pluralLabel>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Description_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>MERC_Description__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Meeting_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>

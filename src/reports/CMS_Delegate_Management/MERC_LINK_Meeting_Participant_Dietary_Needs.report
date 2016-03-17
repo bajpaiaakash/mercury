@@ -31,6 +31,9 @@
         <field>FK_$Account.Dietary_Preferences_MERC__c</field>
     </columns>
     <columns>
+        <field>FK_$Account.MERC_Other_Dietary_Preferences__c</field>
+    </columns>
+    <columns>
         <field>FK_$Account.Prim_Affil_HCO_GLBL__c</field>
     </columns>
     <columns>

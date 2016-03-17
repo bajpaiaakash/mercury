@@ -1144,7 +1144,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Description_MERC__c</field>
+            <field>MERC_Description__c</field>
             <table>Meeting_MERC__c.Meeting_Groups__r</table>
         </columns>
         <columns>

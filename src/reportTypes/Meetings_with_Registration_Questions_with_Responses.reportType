@@ -6,10 +6,10 @@
     <description>Meetings with Registration Questions with Responses</description>
     <join>
         <join>
-            <outerJoin>false</outerJoin>
+            <outerJoin>true</outerJoin>
             <relationship>Responses__r</relationship>
         </join>
-        <outerJoin>false</outerJoin>
+        <outerJoin>true</outerJoin>
         <relationship>Registration_Questions__r</relationship>
     </join>
     <label>Meetings with Registration Questions with Responses</label>
