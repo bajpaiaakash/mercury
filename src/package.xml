@@ -67,6 +67,7 @@
     </types>
     <types>
         <members>Account.Dietary_Preferences_MERC__c</members>
+        <members>Account.MERC_Other_Dietary_Preferences__c</members>
         <members>Meeting_Participant_MERC__c.Account_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Hotel_Name_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Local_Legal_Compliance_Complete_MERC__c</members>

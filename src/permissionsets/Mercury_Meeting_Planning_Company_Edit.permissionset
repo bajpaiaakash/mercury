@@ -1066,6 +1066,11 @@
         <field>Account.Dietary_Preferences_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.MERC_Other_Dietary_Preferences__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Invoice_MERC__c.HCO_Beneficiary_MERC__c</field>
@@ -1199,7 +1204,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MeetingRegistrationReview</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MergedAccounts</apexPage>

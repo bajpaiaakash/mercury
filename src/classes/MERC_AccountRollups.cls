@@ -114,7 +114,17 @@ public class MERC_AccountRollups implements Queueable{
             for (Preferences_and_Consent_GLBL__c pref : account.Consent__r) {
               dietaryPrefs += pref.Preference_Sub_Type_MERC__c + ';';
             }
+
             account.Dietary_Preferences_MERC__c = dietaryPrefs;
+
+            String otherDietaryPrefs = '';
+            for (Preferences_and_Consent_GLBL__c pref : account.Consent__r) {
+              if (pref.Preference_Type_MERC__c == 'Meals Allergy Preferences' && pref.Preference_Sub_Type_MERC__c == 'Other') {
+                otherDietaryPrefs += pref.Preference_Value_MERC__c  + ';';
+              }
+            }
+
+            account.MERC_Other_Dietary_Preferences__c = otherDietaryPrefs;
 
             if (account.HCP_Designated_Individuals_MERC__c != null) {
                 parentAccountIds.add(account.HCP_Designated_Individuals_MERC__c);

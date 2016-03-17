@@ -1325,6 +1325,11 @@
             <field>Meeting_Participant_MERC__c.Hotel_Name_MERC__c</field>
             <table>Meeting_MERC__c.Registration_Questions__r.Responses__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Meeting_Participant_MERC__c.Account_MERC__c.Title_Desc_GLBL__c</field>
+            <table>Meeting_MERC__c.Registration_Questions__r.Responses__r</table>
+        </columns>
         <masterLabel>Responses</masterLabel>
     </sections>
     <sections>
