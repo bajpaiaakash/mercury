@@ -1078,11 +1078,6 @@
         <field>Account.Dietary_Preferences_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.MERC_Other_Dietary_Preferences__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Invoice_MERC__c.HCO_Beneficiary_MERC__c</field>
@@ -1145,6 +1140,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Registration_Question_MERC__c.Delegate_HCP_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Registration_Question_MERC__c.Delegate_Non_HCP_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1190,6 +1190,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Meeting_Group_Question_MERC__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Registration_Question_MERC__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>

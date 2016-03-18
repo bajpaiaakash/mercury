@@ -200,11 +200,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.MERC_Other_Dietary_Preferences__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Meeting_Group_MERC__c.MERC_Description__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -246,6 +241,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Registration_Question_MERC__c.Delegate_Employee_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Delegate_HCP_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -172,6 +172,12 @@ private class MERC_AccountRollupsTest
                         Preference_Type_MERC__c = 'Meals Allergy Preferences',
                         Preference_Sub_Type_MERC__c = 'No Pork'));
 
+        prefs.add(new Preferences_and_Consent_GLBL__c(
+                        Account_GLBL__c = accounts[0].id,
+                        Preference_Type_MERC__c = 'Meals Allergy Preferences',
+                        Preference_Sub_Type_MERC__c = 'Other',
+                        Preference_Value_MERC__c = 'No Sugar'));
+
         insert prefs;
 
         Test.startTest();
@@ -185,8 +191,8 @@ private class MERC_AccountRollupsTest
                             WHERE Id = :accounts[0].Id
                             LIMIT 1];
 
-        System.assertEquals(2, account.Count_Dietary_Preferences_MERC__c);
-        System.assertEquals('Kosher;No Pork;', account.Dietary_Preferences_MERC__c);
+        System.assertEquals(3, account.Count_Dietary_Preferences_MERC__c);
+        System.assertEquals('Kosher;No Pork;No Sugar;', account.Dietary_Preferences_MERC__c);
     }
 
     @isTest

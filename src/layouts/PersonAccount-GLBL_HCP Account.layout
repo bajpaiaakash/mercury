@@ -120,10 +120,6 @@
                 <behavior>Readonly</behavior>
                 <field>Dietary_Preferences_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>MERC_Other_Dietary_Preferences__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

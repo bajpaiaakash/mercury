@@ -51,7 +51,7 @@ public class MERC_AccountRollups implements Queueable{
                                      WHERE Include_CAP_Roll_Up_MERC__c = TRUE
                                        AND Confirm_Final_Fee_MERC__c = 'Confirmed'
                                        AND RecordType.DeveloperName IN('MERC_Consulting','MERC_Service_Provider') ),
-                                   (SELECT Id, Preference_Sub_Type_MERC__c
+                                   (SELECT Id, Preference_Sub_Type_MERC__c, Preference_Value_MERC__c
                                       FROM Consent__r
                                      WHERE Preference_Type_MERC__c = 'Meals Allergy Preferences')
                               FROM Account
@@ -112,19 +112,14 @@ public class MERC_AccountRollups implements Queueable{
             // Stamp the dietary preference with a semi-colon delimited string
             String dietaryPrefs = '';
             for (Preferences_and_Consent_GLBL__c pref : account.Consent__r) {
-              dietaryPrefs += pref.Preference_Sub_Type_MERC__c + ';';
-            }
-
-            account.Dietary_Preferences_MERC__c = dietaryPrefs;
-
-            String otherDietaryPrefs = '';
-            for (Preferences_and_Consent_GLBL__c pref : account.Consent__r) {
-              if (pref.Preference_Type_MERC__c == 'Meals Allergy Preferences' && pref.Preference_Sub_Type_MERC__c == 'Other') {
-                otherDietaryPrefs += pref.Preference_Value_MERC__c  + ';';
+              if (pref.Preference_Sub_Type_MERC__c != 'Other') {
+                dietaryPrefs += pref.Preference_Sub_Type_MERC__c + ';';
+              } else {
+                dietaryPrefs += pref.Preference_Value_MERC__c  + ';';
               }
             }
 
-            account.MERC_Other_Dietary_Preferences__c = otherDietaryPrefs;
+            account.Dietary_Preferences_MERC__c = dietaryPrefs;
 
             if (account.HCP_Designated_Individuals_MERC__c != null) {
                 parentAccountIds.add(account.HCP_Designated_Individuals_MERC__c);
