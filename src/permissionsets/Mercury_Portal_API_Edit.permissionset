@@ -199,11 +199,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.MERC_Other_Dietary_Preferences__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Group_MERC__c.MERC_Description__c</field>
         <readable>true</readable>
@@ -219,9 +214,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Meeting_Group_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -246,6 +241,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Registration_Question_MERC__c.Delegate_Employee_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Registration_Question_MERC__c.Delegate_HCP_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -295,6 +295,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Meeting_Group_Question_MERC__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Registration_Question_MERC__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>

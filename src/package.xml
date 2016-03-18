@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Registration_Question_MERC__c.Accept</members>
-        <members>Registration_Question_MERC__c.CancelEdit</members>
-        <members>Registration_Question_MERC__c.Clone</members>
-        <members>Registration_Question_MERC__c.Delete</members>
-        <members>Registration_Question_MERC__c.Edit</members>
-        <members>Registration_Question_MERC__c.Follow</members>
-        <members>Registration_Question_MERC__c.List</members>
-        <members>Registration_Question_MERC__c.New</members>
-        <members>Registration_Question_MERC__c.SaveEdit</members>
-        <members>Registration_Question_MERC__c.Tab</members>
-        <members>Registration_Question_MERC__c.View</members>
-        <name>ActionOverride</name>
-    </types>
-    <types>
         <members>MERC_AccountEmailUpdateHandler</members>
         <members>MERC_AccountEmailUpdateHandlerTest</members>
         <members>MERC_AccountRollups</members>
@@ -91,16 +77,6 @@
         <members>Meeting_Participant_MERC__c.Meeting_Group_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Registration_Status_MERC__c</members>
         <members>Merge_History_GLBL__c.Winning_Account_MERC__c</members>
-        <members>Registration_Question_MERC__c.Answer_Type_MERC__c</members>
-        <members>Registration_Question_MERC__c.Consulting_MERC__c</members>
-        <members>Registration_Question_MERC__c.Delegate_Employee_MERC__c</members>
-        <members>Registration_Question_MERC__c.Delegate_Non_HCP_MERC__c</members>
-        <members>Registration_Question_MERC__c.Individual_Sponsorship_MERC__c</members>
-        <members>Registration_Question_MERC__c.Meeting_MERC__c</members>
-        <members>Registration_Question_MERC__c.Mercury_External_Id_MERC__c</members>
-        <members>Registration_Question_MERC__c.Order_Number_MERC__c</members>
-        <members>Registration_Question_MERC__c.Question_MERC__c</members>
-        <members>Registration_Question_MERC__c.Service_Provider_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -112,6 +88,7 @@
         <members>Meeting_Group_MERC__c</members>
         <members>Meeting_Group_Question_MERC__c</members>
         <members>Mercury_Marketing_Cloud_Settings_MERC__c</members>
+        <members>Registration_Question_MERC__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -124,7 +101,6 @@
         <members>Meeting_Participant_MERC__c.Registration_Management_Result_Flds_MERC</members>
         <members>Meeting_Participant_MERC__c.Registration_Review_Edit_Fields_MERC</members>
         <members>Meeting_Participant_MERC__c.Registration_Review_View_Field_MERC</members>
-        <members>Registration_Question_MERC__c.Registration_Questions_Review_Flds_MERC</members>
         <members>Response_MERC__c.Registration_Question_Response_Edit_MERC</members>
         <name>FieldSet</name>
     </types>

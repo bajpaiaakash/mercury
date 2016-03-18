@@ -121,9 +121,12 @@
         <relatedList>Response_MERC__c.Registration_Question_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
         <fields>Meeting_Group_MERC__c.NAME</fields>
+        <fields>Meeting_Group_MERC__c.MERC_Description__c</fields>
+        <fields>NAME</fields>
         <relatedList>Meeting_Group_Question_MERC__c.Registration_Question_MERC__c</relatedList>
+        <sortField>Meeting_Group_MERC__c.NAME</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

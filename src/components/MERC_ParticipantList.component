@@ -134,11 +134,16 @@
 					    <apex:actionSupport event="onchange" action="{!listFilterChanged}" reRender="listContainer" status="queryingData"/>
 						<apex:selectOptions value="{!participantRegStatusOptions}"/>
 					</apex:selectList>
+				</apex:pageBlockSection>
 
+				<apex:pageBlockSection columns="1">
 					<!-- Search input -->
 					<apex:pageBlockSectionItem rendered="{!searchable}">
-						<apex:inputText id="searchTerm" value="{!searchTerm}" label="Account/MP Name" html-placeholder="Acct Name, MP # or HCO"/>
-						<apex:commandButton value="Search" action="{!listFilterChanged}" reRender="listContainer" status="queryingData"/>
+						<apex:inputText id="searchTerm" value="{!searchTerm}" label="Account/MP Name" html-placeholder="Acct Name, MP # or HCO" size="40"/>
+						<apex:outputPanel >
+							<apex:commandButton value="Search" action="{!listFilterChanged}" reRender="listContainer" status="queryingData"/>
+							<apex:commandLink value="clear" onclick="document.getElementById('{!$Component.searchTerm}').value = '';" action="{!listFilterChanged}"/>
+						</apex:outputPanel>
 					</apex:pageBlockSectionItem>
 				</apex:pageBlockSection>
 
