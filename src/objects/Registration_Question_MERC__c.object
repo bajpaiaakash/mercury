@@ -1,60 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionOverrides>
-        <actionName>Accept</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Delete</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Edit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>List</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <deploymentStatus>Deployed</deploymentStatus>
-    <description>Used to store registration questions for a meeting : MERC : Created on 13/04/2015 by Oliver Dunford, Mavens Consulting</description>
-    <enableActivities>true</enableActivities>
-    <enableBulkApi>true</enableBulkApi>
-    <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
-    <enableReports>true</enableReports>
-    <enableSharing>true</enableSharing>
-    <enableStreamingApi>true</enableStreamingApi>
     <fieldSets>
         <fullName>Registration_Questions_Review_Flds_MERC</fullName>
         <description>This field set is used on the MeetingRegistrationReview vf page.
@@ -109,17 +54,6 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <externalId>false</externalId>
         <inlineHelpText>Make question applicable for those Meeting Participants who are Delegates of type Employee</inlineHelpText>
         <label>Delegate: Employee</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Delegate_HCP_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used to indicate this question is applicable for this record type of Meeting Participant : MERC : Created on 10/08/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Make question applicable for those Meeting Participants who are Delegates of type HCP</inlineHelpText>
-        <label>Delegate: HCP</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -221,22 +155,4 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-    <label>Registration Question</label>
-    <nameField>
-        <displayFormat>Q-{00000}</displayFormat>
-        <label>Question Reference</label>
-        <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
-    </nameField>
-    <pluralLabel>Registration Questions</pluralLabel>
-    <searchLayouts>
-        <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Question_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Order_Number_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Answer_Type_MERC__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Question_MERC__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Answer_Type_MERC__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Order_Number_MERC__c</lookupPhoneDialogsAdditionalFields>
-    </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

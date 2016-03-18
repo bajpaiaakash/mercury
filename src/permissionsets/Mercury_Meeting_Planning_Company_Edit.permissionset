@@ -94,7 +94,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingGroupController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingGroupControllerTest</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingProcessLogicHandler</apexClass>
@@ -106,19 +110,19 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingRegistrationHandler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingRegistrationHandlerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingRegistrationReviewController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingRegistrationReviewCtrlTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MergeHistoryStampTriggerHandler</apexClass>
@@ -154,6 +158,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ParticipantListDataObjectTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_RegistrationResponsesController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_RegistrationResponsesControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1078,7 +1090,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Meeting_Group_MERC__c.Description_MERC__c</field>
+        <field>Meeting_Group_MERC__c.MERC_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1088,7 +1100,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Meeting_Participant_MERC__c.Local_Legal_Compliance_Complete_MERC__c</field>
+        <field>Meeting_Participant_MERC__c.MERC_Local_Legal_Compliance_Complete__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1129,11 +1141,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Registration_Question_MERC__c.Delegate_Employee_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Registration_Question_MERC__c.Delegate_HCP_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1183,15 +1190,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Meeting_Group_Question_MERC__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Registration_Question_MERC__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>

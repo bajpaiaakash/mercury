@@ -643,7 +643,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Description_MERC__c</fields>
+        <fields>MERC_Description__c</fields>
         <relatedList>Meeting_Group_MERC__c.Meeting_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>

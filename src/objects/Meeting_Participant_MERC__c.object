@@ -222,7 +222,7 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Local_Legal_Compliance_Complete_MERC__c</field>
+            <field>MERC_Local_Legal_Compliance_Complete__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -348,7 +348,7 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Local_Legal_Compliance_Complete_MERC__c</fullName>
+        <fullName>MERC_Local_Legal_Compliance_Complete__c</fullName>
         <description>Used to display the status of local / compliance step. Created 07/03/2016 by Edith Sereno, Mavens Consulting</description>
         <externalId>false</externalId>
         <inlineHelpText>Is compliance necessary for this Meeting Participant? If yes, have they provided the required documentation?</inlineHelpText>
@@ -430,7 +430,7 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <description>For Consulting Projects with no meeting and no logistical requirements</description>
         <label>Consulting</label>
         <picklistValues>
-            <picklist>Local_Legal_Compliance_Complete_MERC__c</picklist>
+            <picklist>MERC_Local_Legal_Compliance_Complete__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -466,7 +466,7 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <description>A delegate attending a Lilly meeting or an Independent Meeting as a group.</description>
         <label>Delegate</label>
         <picklistValues>
-            <picklist>Local_Legal_Compliance_Complete_MERC__c</picklist>
+            <picklist>MERC_Local_Legal_Compliance_Complete__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -502,7 +502,7 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <description>Sponsoring of an individual to attend an Independent Meeting.</description>
         <label>Individual Sponsorship</label>
         <picklistValues>
-            <picklist>Local_Legal_Compliance_Complete_MERC__c</picklist>
+            <picklist>MERC_Local_Legal_Compliance_Complete__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -538,7 +538,7 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <description>HCP contracted to provide services for a Meeting including  includes Consulting and Advisory Meetings</description>
         <label>Service Provider</label>
         <picklistValues>
-            <picklist>Local_Legal_Compliance_Complete_MERC__c</picklist>
+            <picklist>MERC_Local_Legal_Compliance_Complete__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
