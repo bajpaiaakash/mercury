@@ -215,6 +215,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.MERC_Primary_HCO__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Meeting_Group_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -276,6 +281,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Registration_Question_MERC__c.Service_Provider_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Response_MERC__c.MERC_Account_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
@@ -345,6 +355,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Meeting_Group_Question_MERC__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Registration_Question_MERC__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <pageAccesses>

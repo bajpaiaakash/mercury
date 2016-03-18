@@ -228,7 +228,7 @@ public with sharing class MERC_RegistrationResponsesController {
         soql +=                'Registration_Question_MERC__c, ';
         soql +=                'Response_Text_MERC__c ';
         soql +=         'FROM Responses__r ';
-        soql +=        'WHERE Meeting_Participant_MERC__c = \'' + participantId + '\') ';
+        soql +=        'WHERE Meeting_Participant_MERC__c = \'' + String.escapeSingleQuotes(participantId) + '\') ';
         soql +=   'FROM Registration_Question_MERC__c ';
         String baseSoql = soql;
         soql += ' WHERE Meeting_MERC__c = \'' + String.escapeSingleQuotes(meetingId) + '\' ';

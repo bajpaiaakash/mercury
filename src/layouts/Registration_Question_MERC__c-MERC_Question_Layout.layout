@@ -44,7 +44,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Applicable for Meeting Participant Types</label>
+        <label>Select MP Types - To apply question to Groups, use Meeting Group section instead</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -113,11 +113,12 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <fields>Meeting_Participant_MERC__c</fields>
+        <fields>MERC_Account_Name__c</fields>
+        <fields>Answer_Text_MERC__c</fields>
+        <fields>Response_Text_MERC__c</fields>
         <fields>NAME</fields>
         <fields>Answer_MERC__c</fields>
-        <fields>Answer_Text_MERC__c</fields>
-        <fields>Meeting_Participant_MERC__c</fields>
-        <fields>Response_Text_MERC__c</fields>
         <relatedList>Response_MERC__c.Registration_Question_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
