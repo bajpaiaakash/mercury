@@ -70,15 +70,16 @@
     </types>
     <types>
         <members>Account.Dietary_Preferences_MERC__c</members>
-        <members>Account.MERC_Other_Dietary_Preferences__c</members>
         <members>Meeting_Participant_MERC__c.Account_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Hotel_Name_MERC__c</members>
         <members>Meeting_Participant_MERC__c.MERC_Local_Legal_Compliance_Complete__c</members>
-        <members>Meeting_Participant_MERC__c.Meeting_Group_MERC__c</members>		
-		<members>Meeting_Participant_MERC__c.Registration_Status_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.MERC_Primary_HCO__c</members>
+        <members>Meeting_Participant_MERC__c.Meeting_Group_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Registration_Status_MERC__c</members>
         <members>Merge_History_GLBL__c.Winning_Account_MERC__c</members>
 		<members>Payee_MERC__c.MERC_HCO_Beneficiary__c</members>
         <members>Payee_MERC__c.MERC_HCO_Customer_Id__c</members>		        
+		<members>Response_MERC__c.MERC_Account_Name__c</members>	
 		<name>CustomField</name>
     </types>
     <types>

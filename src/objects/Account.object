@@ -91,15 +91,4 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
-    <fields>
-        <fullName>MERC_Other_Dietary_Preferences__c</fullName>
-        <description>Used to concatenate the Meals Allergy Preferences for an account. This field is used for reporting. Created 16/03/2016 by Edith Sereno, Mavens Consulting.</description>
-        <externalId>false</externalId>
-        <label>Other Dietary Preferences</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
 </CustomObject>

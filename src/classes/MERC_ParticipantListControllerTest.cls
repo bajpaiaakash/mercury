@@ -326,6 +326,50 @@ private class MERC_ParticipantListControllerTest
 		}
 	}
 
+	@isTest
+	static void itShouldSetTheDefaultRecordType() {
+		System.runAs(lillyUser) {
+			givenAnInstantiatedParticipantListController();
+			Test.startTest();
+			whenDefaultRecordTypeIsSetTo('MERC_Delegate');
+			thenSelectedRecordTypeIdIsTheIdFor('MERC_Delegate');
+			Test.stopTest();
+		}
+	}
+
+	@isTest
+	static void itShouldSetTheDefaultAccountRecordType() {
+		System.runAs(lillyUser) {
+			givenAnInstantiatedParticipantListController();
+			Test.startTest();
+			whenDefaultAccountRecordTypeIsSetTo('HCP_GLBL');
+			thenSelectedAccountRecordTypeIdIsTheIdFor('HCP_GLBL');
+			Test.stopTest();
+		}
+	}
+
+	@isTest
+	static void itShouldSetTheDefaultStatus() {
+		System.runAs(lillyUser) {
+			givenAnInstantiatedParticipantListController();
+			Test.startTest();
+			whenDefaultStatusIsSetTo('Invited');
+			thenSelectedParticipantStatusIs('Invited');
+			Test.stopTest();
+		}
+	}
+
+	@isTest
+	static void itShouldSetTheDefaultRegStatus() {
+		System.runAs(lillyUser) {
+			givenAnInstantiatedParticipantListController();
+			Test.startTest();
+			whenDefaultRegStatusIsSetTo('Invited');
+			thenSelectedParticipantRegStatusIs('Invited');
+			Test.stopTest();
+		}
+	}
+
 	/**************************************/
 	/*********** HELPER METHODS ***********/
 
@@ -408,6 +452,21 @@ private class MERC_ParticipantListControllerTest
 		controller.first();
 	}
 
+	private static void whenDefaultRecordTypeIsSetTo(String developerName) {
+		controller.defaultRecordType = developerName;
+	}
+
+	private static void whenDefaultAccountRecordTypeIsSetTo(String developerName) {
+		controller.defaultAccountRecordType = developerName;
+	}
+
+	private static void whenDefaultStatusIsSetTo(String status) {
+		controller.defaultStatus = status;
+	}
+
+	private static void whenDefaultRegStatusIsSetTo(String status) {
+		controller.defaultRegStatus = status;
+	}
 	/******************* ASSERTION METHODS ************************/
 	private static void thenFiltersShouldBeDisabled() {
 		System.assertEquals(false, controller.selectable);
@@ -519,5 +578,23 @@ private class MERC_ParticipantListControllerTest
 
 	private static void thenGetPageSizeSelectOptionsShouldReturnCorrectOptions() {
 		System.assertEquals('10', controller.getPageSizeSelectOptions()[0].getLabel());
+	}
+
+	private static void thenSelectedRecordTypeIdIsTheIdFor(String developerName) {
+		RecordType rt = [SELECT Id FROM RecordType WHERE SObjectType='Meeting_Participant_MERC__c' AND DeveloperName=:developerName limit 1];
+		System.assertEquals(controller.selectedRecordTypeId, rt.Id);
+	}
+
+	private static void thenSelectedAccountRecordTypeIdIsTheIdFor(String developerName) {
+		RecordType rt = [SELECT Id FROM RecordType WHERE SObjectType='Account' AND DeveloperName=:developerName limit 1];
+		System.assertEquals(controller.selectedAccountRecordTypeId, rt.Id);
+	}
+
+	private static void thenSelectedParticipantStatusIs(String status) {
+		System.assertEquals(status, controller.selectedParticipantStatus);
+	}
+
+	private static void thenSelectedParticipantRegStatusIs(String status) {
+		System.assertEquals(status, controller.selectedParticipantRegStatus);
 	}
 }

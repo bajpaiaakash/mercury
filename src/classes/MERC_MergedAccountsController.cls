@@ -106,7 +106,7 @@ public with sharing class MERC_MergedAccountsController {
         }
         soqlQuery += ') ';
         if (accountCountry.Country_of_Residence_GLBL__c != null || accountCountry.Country_of_Residence_GLBL__c != 'All') {
-            soqlQuery += 'AND Country_of_Residence_GLBL__c = \'' + accountCountry.Country_of_Residence_GLBL__c + '\'';
+            soqlQuery += 'AND Country_of_Residence_GLBL__c = \'' + String.escapeSingleQuotes(accountCountry.Country_of_Residence_GLBL__c) + '\'';
         }
 
         System.debug('#### soqlQuery = ' + soqlQuery);

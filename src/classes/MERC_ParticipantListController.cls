@@ -45,8 +45,110 @@ public with sharing class MERC_ParticipantListController {
 		get { return recordTypeFilter == null ? false : recordTypeFilter; }//default to false
 		set;
 	}
+	public String excludedRecordTypes {
+		get {
+			if (excludedRecordTypes == null) {
+				excludedRecordTypes = '';
+			}
+			return excludedRecordTypes;
+		}
+		set;
+	}
 	public String selectedRecordTypeId { get; set; }
+	public String defaultRecordType {
+		get;
+		set {
+			// only update selectedRecordTypeId if it hasn't already been updated
+			if (selectedRecordTypeId == null && value != null) {
+				List<RecordType> mpRecType = [SELECT Id
+				                                FROM RecordType
+				                               WHERE SObjectType='Meeting_Participant_MERC__c'
+				                                 AND DeveloperName = :value];
+				if (!mpRecType.isEmpty()) {
+					selectedRecordTypeId = mpRecType[0].Id;
+				}
+			}
+		}
+	}
 
+	// Can the user filter the list by Participant Account Record Type?
+	public Boolean accountRecordTypeFilter {
+		get { return accountRecordTypeFilter == null ? false : accountRecordTypeFilter; }//default to false
+		set;
+	}
+	public String excludedAccountRecordTypes {
+		get {
+			if (excludedAccountRecordTypes == null) {
+				excludedAccountRecordTypes = '';
+			}
+			return excludedAccountRecordTypes;
+		}
+		set;
+	}
+	public String selectedAccountRecordTypeId { get; set; }
+	public String defaultAccountRecordType {
+		get;
+		set {
+			// only update selectedRecordTypeId if it hasn't already been updated
+			if (selectedRecordTypeId == null && value != null) {
+				List<RecordType> acctRecType = [SELECT Id
+				                                  FROM RecordType
+				                                 WHERE SObjectType='Account'
+				                                   AND DeveloperName = :value];
+				if (!acctRecType.isEmpty()) {
+					selectedAccountRecordTypeId = acctRecType[0].Id;
+				}
+			}
+		}
+	}
+
+	// can the user filter the list by meeting participant status?
+	public Boolean participantStatusFilter {
+		get { return participantStatusFilter == null ? false : participantStatusFilter; }//default to false
+		set;
+	}
+	public String excludedStatuses {
+		get {
+			if (excludedStatuses == null) {
+				excludedStatuses = '';
+			}
+			return excludedStatuses;
+		}
+		set;
+	}
+	public String selectedParticipantStatus { get; set; }
+	public String defaultStatus {
+		get;
+		set {
+			if (selectedParticipantStatus == null) {
+				selectedParticipantStatus = value;
+			}
+		}
+	}
+
+	// can the user filter the list by meeting participant status?
+	public Boolean participantRegStatusFilter {
+		get { return participantRegStatusFilter == null ? false : participantRegStatusFilter; }//default to false
+		set;
+	}
+	public String excludedRegStatuses {
+		get {
+			if (excludedRegStatuses == null) {
+				excludedRegStatuses = '';
+			}
+			return excludedRegStatuses;
+		}
+		set;
+	}
+	public String selectedParticipantRegStatus { get; set; }
+	public String defaultRegStatus {
+		get;
+		set {
+			if (selectedParticipantStatus == null) {
+				selectedParticipantRegStatus = value;
+			}
+		}
+	}
 
 	// Can the user search on account name and meeting participant name
 	public Boolean searchable {
@@ -60,28 +162,6 @@ public with sharing class MERC_ParticipantListController {
 	public List<Schema.FieldSetMember> getFieldSetFields() {
 		return Schema.SObjectType.Meeting_Participant_MERC__c.fieldSets.getMap().get(displayFieldSet).getFields();
 	}
-
-	// Can the user filter the list by Participant Account Record Type?
-	public Boolean accountRecordTypeFilter {
-		get { return accountRecordTypeFilter == null ? false : accountRecordTypeFilter; }//default to false
-		set;
-	}
-	public String selectedAccountRecordTypeId { get; set; }
-
-	// can the user filter the list by meeting participant status?
-	public Boolean participantStatusFilter {
-		get { return participantStatusFilter == null ? false : participantStatusFilter; }//default to false
-		set;
-	}
-	public String selectedParticipantStatus { get; set; }
-
-	// can the user filter the list by meeting participant status?
-	public Boolean participantRegStatusFilter {
-		get { return participantRegStatusFilter == null ? false : participantRegStatusFilter; }//default to false
-		set;
-	}
-	public String selectedParticipantRegStatus { get; set; }
-
 	/*****   END ATTRIBUTE VALUES  *****/
 
 	// null, used to invoke rerender on component
@@ -93,7 +173,13 @@ public with sharing class MERC_ParticipantListController {
 		get {
 			List<SelectOption> participantRecordTypes = new List<SelectOption>();
 			participantRecordTypes.add(new SelectOption('', 'All Record Types'));
-			for (RecordType recordType : [SELECT Id, Name FROM RecordType WHERE SObjectType='Meeting_Participant_MERC__c']) {
+
+			List<String> excludedTypes = excludedRecordTypes.split(',');
+
+			for (RecordType recordType : [SELECT Id, Name
+				                            FROM RecordType
+				                           WHERE SObjectType='Meeting_Participant_MERC__c'
+				                             AND DeveloperName NOT IN :excludedTypes]) {
 				participantRecordTypes.add(new SelectOption(recordType.Id, recordType.Name));
 			}
 			return participantRecordTypes;
@@ -107,11 +193,13 @@ public with sharing class MERC_ParticipantListController {
 			List<SelectOption> accountPersonRecordTypes = new List<SelectOption>();
 			accountPersonRecordTypes.add(new SelectOption('', 'All Account Types'));
 
+			List<String> excludedTypes = excludedAccountRecordTypes.split(',');
+
 			for (RecordType recordType : [SELECT Id, Name
 				                            FROM RecordType
 				                           WHERE SObjectType='Account'
 				                             AND isPersonType=true
-				                             AND DeveloperName!='PersonAccount']) {
+				                             AND DeveloperName NOT IN :excludedTypes]) {
 				accountPersonRecordTypes.add(new SelectOption(recordType.Id, recordType.Name));
 			}
 			return accountPersonRecordTypes;
@@ -126,7 +214,9 @@ public with sharing class MERC_ParticipantListController {
 			Schema.DescribeFieldResult dfr = Meeting_Participant_MERC__c.Status_MERC__c.getDescribe();
 
 			for (Schema.PicklistEntry picklistEntry : dfr.getPicklistValues()) {
-				participantStatusOptions.add(new SelectOption(picklistEntry.getValue(), picklistEntry.getValue()));
+				if (!excludedStatuses.contains(picklistEntry.getValue())) {
+					participantStatusOptions.add(new SelectOption(picklistEntry.getValue(), picklistEntry.getValue()));
+				}
 			}
 
 			return participantStatusOptions;
@@ -141,7 +231,7 @@ public with sharing class MERC_ParticipantListController {
 			Schema.DescribeFieldResult dfr = Meeting_Participant_MERC__c.Registration_Status_MERC__c.getDescribe();
 
 			for (Schema.PicklistEntry picklistEntry : dfr.getPicklistValues()) {
-				if(picklistEntry.getValue() != 'Complete'){
+				if(!excludedRegStatuses.contains(picklistEntry.getValue())){
 					participantRegStatusOptions.add(new SelectOption(picklistEntry.getValue(), picklistEntry.getValue()));
 				}
 			}

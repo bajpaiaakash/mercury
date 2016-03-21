@@ -61,20 +61,60 @@
 	                description="Indicates the record type filter should be displayed (default:false)"
 	                assignTo="{!recordTypeFilter}"/>
 
+	<apex:attribute name="excludeTheseRecordTypesFromFilter"
+	                type="String"
+	                description="A list of record type developer names (comma separated) indicating the record types that should be included in the filter picklist"
+	                assignTo="{!excludedRecordTypes}"/>
+
+	<apex:attribute name="defaultRecordTypeDeveloperName"
+	                type="String"
+	                description="Indicates the default record type that should be selected when initializing the list"
+	                assignTo="{!defaultRecordType}"/>
+
 	<apex:attribute name="filterByAccountRecordType"
 		  			type="Boolean"
 		  			description="Indicates the account type filter should be displayed (default:false)"
 		  			assignTo="{!accountRecordTypeFilter}"/>
+
+	<apex:attribute name="excludeTheseAccountRecordTypesFromFilter"
+	                type="String"
+	                description="A list of account record type developer names (comma separated) indicating the record types that should be included in the filter picklist"
+	                assignTo="{!excludedAccountRecordTypes}"/>
+
+    <apex:attribute name="defaultAccountRecordTypeDeveloperName"
+    				type="String"
+	                description="Indicates the default account record type that should be selected when initializing the list"
+	                assignTo="{!defaultAccountRecordType}"/>
 
 	<apex:attribute name="filterByStatus"
 		  			type="Boolean"
 		  			description="Indicates the Participant Status filter should be displayed (default:false)"
 		  			assignTo="{!participantStatusFilter}"/>
 
+	<apex:attribute name="excludeTheseParticipantStatuses"
+	                type="String"
+	                description="A list of statuses (comma separated) indicating the statuses which should not be included in the status filter picklist"
+	                assignTo="{!excludedStatuses}"/>
+
+	<apex:attribute name="defaultParticipantStatus"
+    				type="String"
+	                description="Indicates the default participant status that should be selected when initializing the list"
+	                assignTo="{!defaultStatus}"/>
+
 	<apex:attribute name="filterByRegStatus"
 		  			type="Boolean"
 		  			description="Indicates the Registration Status filter should be displayed (default:false)"
 		  			assignTo="{!participantRegStatusFilter}"/>
+
+	<apex:attribute name="excludeTheseParticipantRegStatuses"
+	                type="String"
+	                description="A list of statuses (comma separated) indicating the reg statuses which should not be included in the status filter picklist"
+	                assignTo="{!excludedRegStatuses}"/>
+
+	<apex:attribute name="defaultParticipantRegStatus"
+    				type="String"
+	                description="Indicates the default participant registration status that should be selected when initializing the list"
+	                assignTo="{!defaultRegStatus}"/>
 
 	<apex:attribute name="enableSearch"
 		  			type="Boolean"
@@ -142,7 +182,7 @@
 						<apex:inputText id="searchTerm" value="{!searchTerm}" label="Account/MP Name" html-placeholder="Acct Name, MP # or HCO" size="40"/>
 						<apex:outputPanel >
 							<apex:commandButton value="Search" action="{!listFilterChanged}" reRender="listContainer" status="queryingData"/>
-							<apex:commandLink value="clear" onclick="document.getElementById('{!$Component.searchTerm}').value = '';" action="{!listFilterChanged}"/>
+							<apex:commandLink value="clear" onclick="document.getElementById('{!$Component.searchTerm}').value = '';" action="{!listFilterChanged}" reRender="listContainer" status="queryingData"/>
 						</apex:outputPanel>
 					</apex:pageBlockSectionItem>
 				</apex:pageBlockSection>

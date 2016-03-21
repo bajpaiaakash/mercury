@@ -216,6 +216,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.MERC_Primary_HCO__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Meeting_Group_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -277,6 +282,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Registration_Question_MERC__c.Service_Provider_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Response_MERC__c.MERC_Account_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>

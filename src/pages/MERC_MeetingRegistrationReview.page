@@ -14,6 +14,7 @@
         <c:MERC_ParticipantList dataObject="{!participantsToReview}"
                                 filterByRecordType="true"
                                 filterByRegStatus="true"
+                                excludeTheseParticipantRegStatuses="Complete"
                                 listName="participantsToReview"
                                 title="Meeting Participants To Review"
                                 fieldSet="Registration_Management_Result_Flds_MERC"
@@ -96,7 +97,7 @@
                             </apex:repeat>
                         </apex:pageBlockSection>
                     </apex:pageBlock>
-                    
+
                     <script type="text/javascript">
                         if({!isConfirmNecessary}){
                             if(confirm('Do you want to save your changes to {!selectedParticipant.Account_MERC__r.Name}?')){

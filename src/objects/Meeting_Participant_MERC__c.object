@@ -45,7 +45,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Classification_MERC__c</field>
+            <field>Account_MERC__r.Clsfctn_Desc_GLBL__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -371,6 +371,19 @@ Created 11/03/2016 by Edith Sereno, Mavens Consulting.</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MERC_Primary_HCO__c</fullName>
+        <description>Field displayed on the Meeting Participant related list of the Meeting Group object&apos;s page layout. Created 18/03/2016 by Edith Sereno, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Primary_HCO_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary HCO</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Meeting_Group_MERC__c</fullName>

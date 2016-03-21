@@ -62,7 +62,6 @@
         <externalId>false</externalId>
         <label>Meeting Group Name</label>
         <referenceTo>Meeting_Group_MERC__c</referenceTo>
-        <relationshipLabel>Meeting Group Questions</relationshipLabel>
         <relationshipName>Group_Questions</relationshipName>
         <relationshipOrder>1</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
@@ -76,7 +75,6 @@
         <externalId>false</externalId>
         <label>Registration Question</label>
         <referenceTo>Registration_Question_MERC__c</referenceTo>
-        <relationshipLabel>Meeting Group Questions</relationshipLabel>
         <relationshipName>Group_Questions</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
@@ -84,13 +82,13 @@
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
-    <label>Meeting Group Question</label>
+    <label>Question for Meeting Group</label>
     <nameField>
         <displayFormat>GQ-{00000000}</displayFormat>
         <label>Group Reference</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Meeting Group Questions</pluralLabel>
+    <pluralLabel>Question for Meeting Groups</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>
